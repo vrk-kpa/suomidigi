@@ -8,8 +8,8 @@ command:
     install:
       options:
         # Set a predetermined username and password when using site-install.
-        account-name: 'suomidigi'
-        account-pass: 'Kuuma!Australia'
+        account-name: 'example'
+        account-pass: 'superSTRONG1password!'
 
 sql:
   # List of tables whose *data* is skipped by the 'sql-dump' and 'sql-sync'
