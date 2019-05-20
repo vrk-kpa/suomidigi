@@ -1,50 +1,14 @@
-// Set all dom nodes to border-box
-@if $default-border-box {
-  *,
-  *:after,
-  *:before {
-    box-sizing: inherit;
-  }
-
-  html {
-    box-sizing: border-box;
-  }
-}
-
-// Use font-smoothing
-@if $default-font-smoothing {
-  html,
-  html a {
-    @include fontsmoothing();
-  }
-}
-
-// Disable outlining
-@if $default-disable-outline {
-  *:active,
-  *:hover {
-    outline: 0;
-  }
-}
-
-// clean menu items
-@if $default-clean-menus {
-  .menu,
-  ul,
-  ol,
-  dl {
-    margin: 0;
-    padding: 0;
-  }
-}
-
 html {
+  box-sizing: border-box;
   font-size: 100%;
   height: 100%;
 }
 
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
-  background-color: $gray-light;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -55,7 +19,7 @@ body {
 }
 
 img {
-  height: auto;
+  height: auto;§
   max-width: 100%;
   display: block;
 }
