@@ -1,0 +1,21 @@
+default:
+  suites:
+    default:
+      contexts:
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      # We need base_url, but get it through the BEHAT_PARAMS environment variable.
+      # base_url: ''
+      goutte:
+        guzzle_parameters:
+          # The VM's HTTPS certificate is self-signed, and as such will not pass authentication.
+          verify: false
+      files_path: '%paths.base%/behat/features/fixtures'
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: 'drupal'
+      drupal: ~
+        # We need drupal_root, but get it through the BEHAT_PARAMS environment variable.
+        # drupal_root: ''

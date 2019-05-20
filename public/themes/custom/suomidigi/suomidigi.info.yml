@@ -1,0 +1,20 @@
+name: Suomidigi theme
+description: A Drupal 8 Suomidigi theme.
+type: theme
+core: 8.x
+screenshot: screenshot.png
+
+# Define Regions
+regions:
+  messages: Messages
+  header: Header
+  navigation: Navigation
+  content: Content
+  footer: Footer
+
+# Define Libraries
+libraries:
+  - suomidigi/animate-css
+  - suomidigi/fontawesome
+  - suomidigi/global-styling
+  - suomidigi/global-scripting

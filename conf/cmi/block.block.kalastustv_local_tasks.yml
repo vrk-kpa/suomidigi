@@ -1,0 +1,22 @@
+uuid: c433958e-9f91-4dc1-a70b-0b4165ed34aa
+langcode: en
+status: true
+dependencies:
+  theme:
+    - suomidigi
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: suomidigi_local_tasks
+theme: suomidigi
+region: content
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

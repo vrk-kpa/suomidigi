@@ -1,0 +1,31 @@
+services:
+  - docker
+
+cache:
+  directories:
+    - $HOME/docker
+
+before_install:
+
+  - rvm install 2.4
+
+install:
+
+  # Install Pygmy
+  - gem install pygmy
+
+  # Start Pygmy
+  - pygmy up
+
+before_script:
+
+  # UID 1000 is user "drupal" inside the container.
+  - sudo chown 1000:1000 -R $TRAVIS_BUILD_DIR
+
+  # Build the application.
+  - make up build
+
+script:
+
+  # Run tests
+  - make test

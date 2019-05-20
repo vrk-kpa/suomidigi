@@ -1,0 +1,13 @@
+//
+// @file
+//
+// This file includes all variables related to media queries
+//
+
+$for-tablet-portrait-up: 600px;
+$for-tablet-landscape-up: 900px;
+$for-desktop-up: 1200px;
+
+// Adjust value of container
+$container: 75em / 1.125; // Because body font-size = 1.125rem and breakpoints are em defined
+$gutter: 20px;

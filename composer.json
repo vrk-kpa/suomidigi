@@ -1,0 +1,90 @@
+{
+    "name": "druidfi/suomidigi",
+    "description": "Drupal 8 website for Suomidigi.fi",
+    "type": "project",
+    "license": "proprietary",
+    "homepage": "https://github.com/vrk-kpa/suomidigi",
+    "authors": [
+        {
+            "name": "Druid.fi",
+            "email": "info@druid.fi"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "drupal-composer/drupal-scaffold": "^2.5",
+        "drupal/admin_toolbar": "^1.0",
+        "drupal/cdn": "^3.2",
+        "drupal/core": "^8.7.0",
+        "drupal/focal_point": "^1.0",
+        "drupal/high_contrast": "^1.0",
+        "drupal/paragraphs": "^1.8",
+        "drupal/pathauto": "^1.0",
+        "drupal/swiftmailer": "^1.0@beta",
+        "drupal/system_status": "^2.0",
+        "drush/drush": "^9.0.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "drupal/coder": "^8.2",
+        "drupal/drupal-extension": "~3.3",
+        "phpunit/phpunit": "~6.1"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "config": {
+        "platform": {
+            "php": "7.1"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "installer-paths": {
+            "public/core": ["type:drupal-core"],
+            "public/libraries/{$name}": ["type:drupal-library"],
+            "public/modules/contrib/{$name}": ["type:drupal-module"],
+            "public/modules/custom/{$name}": ["type:drupal-module-custom"],
+            "public/profiles/{$name}": ["type:drupal-profile"],
+            "public/themes/contrib/{$name}": ["type:drupal-theme"],
+            "public/themes/custom/{$name}": ["type:drupal-theme-custom"],
+            "drush/{$name}": ["type:drupal-drush"]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "scripts": {
+        "drupal-scaffold": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ],
+        "fix": [
+            "phpcbf --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
+        ],
+        "test": [
+            "@test-behavioral",
+            "@test-static-js",
+            "@test-static-php",
+            "@test-unit"
+        ],
+        "test-behavioral": [
+            "tools/behavioral-tests"
+        ],
+        "test-static-js": [
+            "node_modules/eslint/bin/eslint.js --color --ignore-pattern '**/vendor/*' --c ./public/core/.eslintrc.json --global nav,moment,responsiveNav:true ./public/modules/custom/*/js",
+            "node_modules/eslint/bin/eslint.js --color --ignore-pattern '**/vendor/*' --c ./public/core/.eslintrc.json --global nav,moment,responsiveNav:true ./public/themes/custom/*/js"
+        ],
+        "test-static-php": [
+            "phpcs --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
+        ],
+        "test-unit": [
+            "phpunit -c phpunit.xml.dist --testsuite unit"
+        ]
+    }
+}

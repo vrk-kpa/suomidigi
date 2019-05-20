@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Suomidigi theme.
+ */
+
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_preprocess_html() for HTML document templates.
+ *
+ * Create path to default theme for mobile icons (favicon, apple touch icon,
+ * Android icons, ... defined in html tpl.
+ *
+ * {@inheritdoc}
+ */
+function suomidigi_preprocess_html(&$variables) {
+  $variables['theme_path'] = file_create_url(drupal_get_path('theme', 'suomidigi'));
+}

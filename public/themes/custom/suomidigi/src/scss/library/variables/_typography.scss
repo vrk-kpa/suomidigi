@@ -1,0 +1,23 @@
+//
+// @file
+//
+// This file includes all variables related to typography
+//
+
+// Font sizes
+$rembase: 16;
+$base-font-size: 16px; // Leave at 16px for correct container width
+$base-font-size-rem: 1rem;
+$base-line-height: 1.375; // 24px; absolute line-height. For relative line-height (1.385), see http://cssleading.com/
+
+$font-size-heading-1: 2.5rem;
+$font-size-heading-2: 1.7rem;
+$font-size-heading-3: 1.5rem;
+$font-size-heading-4: 1.25rem;
+$font-size-heading-5: $base-font-size-rem;
+
+// Font families
+$source-sans-pro: 'Source Sans Pro', sans-serif;
+
+$default-font-family: $source-sans-pro;
+$heading-font-family: $source-sans-pro;

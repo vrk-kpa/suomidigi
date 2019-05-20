@@ -1,0 +1,20 @@
+uuid: 626295e5-3b8b-440d-8114-ddfdfefadfb0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - suomidigi
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: suomidigi_page_title
+theme: suomidigi
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

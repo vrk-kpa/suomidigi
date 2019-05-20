@@ -1,0 +1,20 @@
+uuid: 96f6ad08-2871-4881-93b5-bd81e0045a41
+langcode: en
+status: true
+dependencies:
+  theme:
+    - suomidigi
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: suomidigi_local_actions
+theme: suomidigi
+region: content
+weight: 0
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

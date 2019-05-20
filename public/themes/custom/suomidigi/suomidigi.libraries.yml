@@ -1,0 +1,35 @@
+animate-css:
+  version: 1.x
+  css:
+    theme:
+      node_modules/animate.css/animate.min.css: {}
+
+mmenu:
+  version: 7.2.2
+  css:
+    theme:
+      node_modules/jquery.mmenu/dist/jquery.mmenu.all.css: {}
+  js:
+    node_modules/jquery.mmenu/dist/jquery.mmenu.all.js: {}
+
+fontawesome:
+  version: 5.7.1
+  css:
+    theme:
+      dist/fonts/fontawesome/css/all.css: {}
+
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      dist/css/styles.css: {}
+#     dist/css/styles-print.css: { media: print }
+
+global-scripting:
+  version: 1.x
+  js:
+    dist/js/scripts.min.js: {}
+  dependencies:
+  - core/drupal
+  - core/jquery
+  - suomidigi/mmenu
