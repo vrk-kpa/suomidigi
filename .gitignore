@@ -14,6 +14,8 @@ public/sites/default/files
 tools/init-tools-status
 vendor
 
+drush/sites/.checksums
+
 # Ignore the folder created by PhpStorm
 .idea/*
 
