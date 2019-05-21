@@ -8,7 +8,7 @@
  * - root_path: The root path of the current page (e.g., node, admin, user).
  * - node_type: The content type for the current node, if the page is a node.
  * - head_title: List of text elements that make up the head_title variable.
- *   May contain or more of the following:
+ *   May contain one or more of the following:
  *   - title: The title of the page.
  *   - name: The name of the site.
  *   - slogan: The slogan of the site.
@@ -23,13 +23,16 @@
  * @see template_preprocess_html()
  */
 #}
-
 {%
   set body_classes = [
     logged_in ? 'user-logged-in',
     not root_path ? 'front path-frontpage' : 'path-' ~ root_path|clean_class,
     node_type ? 'page-node-type-' ~ node_type|clean_class,
     db_offline ? 'db-offline',
+    page.sidebar_first or page.sidebar_second ? 'has-sidebar',
+    page.sidebar_first ? 'has-sidebar--first',
+    page.sidebar_second ? 'has-sidebar--second',
+    not page.sidebar_first and not page.sidebar_second ? 'no-sidebars',
   ]
 %}
 <!DOCTYPE html>
@@ -47,5 +50,6 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
 </html>

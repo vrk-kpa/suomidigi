@@ -1,15 +1,10 @@
 (function($, Drupal) {
-  var menu = $(".menu--main").mmenu({
-    offCanvas: true,
-    extensions: [
-      "position-right",
-      "position-front",
-      "border-none"
-    ]
-  }).data("mmenu");
   Drupal.behaviors.mmenu = {
-    close: function() {
-      menu.close();
+    attach(context) {
+      $(".menu--main", context).mmenu({
+        offCanvas: true,
+        extensions: ["position-right", "border-none"]
+      });
     }
   };
 })(jQuery, Drupal);

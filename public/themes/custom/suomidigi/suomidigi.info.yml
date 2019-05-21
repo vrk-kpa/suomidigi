@@ -3,18 +3,19 @@ description: A Drupal 8 Suomidigi theme.
 type: theme
 core: 8.x
 screenshot: screenshot.jpg
+base theme: classy
 
 # Define Regions
 regions:
-  messages: Messages
   header: Header
   navigation: Navigation
+  messages: Messages
+  sidebar_first: First Sidebar
+  sidebar_second: Second Sidebar
   content: Content
   footer: Footer
 
 # Define Libraries
 libraries:
-  - suomidigi/animate-css
-  - suomidigi/fontawesome
   - suomidigi/global-styling
   - suomidigi/global-scripting
