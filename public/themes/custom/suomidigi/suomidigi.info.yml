@@ -2,7 +2,7 @@ name: Suomidigi theme
 description: A Drupal 8 Suomidigi theme.
 type: theme
 core: 8.x
-screenshot: screenshot.png
+screenshot: screenshot.jpg
 
 # Define Regions
 regions:
