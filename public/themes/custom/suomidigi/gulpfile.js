@@ -5,153 +5,174 @@
 // ---------------
 // General plugins
 // ---------------
-var chalk = require('chalk');
-var colors = require('ansi-colors');
-var gulp = require('gulp');
-var log = require('fancy-log');
-var noop = require('gulp-noop');
-var rename = require('gulp-rename');
-var clean = require('gulp-rimraf');
+const chalk = require("chalk");
+const gulp = require("gulp");
+const log = require("fancy-log");
+const noop = require("gulp-noop");
+const rename = require("gulp-rename");
+const clean = require("del");
 
 // ------------
 // Sass plugins
 // ------------
-var sass = require('gulp-sass');
-var sassGlob = require('gulp-sass-glob');
-var autoprefix = require('gulp-autoprefixer');
-var cleanCss = require('gulp-clean-css');
+const sass = require("gulp-sass");
+const sassGlob = require("gulp-sass-glob");
+const autoprefix = require("gulp-autoprefixer");
+const cleanCss = require("gulp-clean-css");
 
 // ----------------------------
 // Javascript plugins
 // ----------------------------
-var uglify = require('gulp-uglify');
+const uglify = require("gulp-uglify");
 
 // ------
 // Config
 // ------
-var basePath = {
-  src: './src/',
-  dist: './dist/',
-  templates: './templates/',
+const basePath = {
+  src: "./src/",
+  dist: "./dist/",
+  templates: "./templates/"
 };
 
-var path = {
+const path = {
   fonts: {
-    src: basePath.src + 'fonts/',
-    dist: basePath.dist + 'fonts/',
+    src: `${basePath.src}fonts/`,
+    dist: `${basePath.dist}fonts/`
   },
   styles: {
-    src: basePath.src + 'scss/',
-    dist: basePath.dist + 'css/',
+    src: `${basePath.src}scss/`,
+    dist: `${basePath.dist}css/`
   },
   scripts: {
-    src: basePath.src + 'js/',
-    dist: basePath.dist + 'js/',
+    src: `${basePath.src}js/`,
+    dist: `${basePath.dist}js/`
   },
   images: {
-    src: basePath.src + 'images/',
-    dist: basePath.dist + 'images/',
+    src: `${basePath.src}images/`,
+    dist: `${basePath.dist}images/`
   },
   templates: {
-    dist: basePath.templates,
+    dist: basePath.templates
   },
-  node_modules: 'node_modules/',
-}
+  node_modules: "node_modules/"
+};
 
-var changeEvent = function(evt) {
-  log('File', colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath.src + ')/'), '')), 'was', colors.magenta(evt.type));
+const sassConfig = {
+  outputStyle: "expanded",
+  includePaths: [
+    "node_modules/node-normalize-scss/",
+    "node_modules/breakpoint-sass/stylesheets/"
+  ]
 };
 
 // -------------
 // Compile SASS.
 // -------------
 function compileSASS() {
-  return gulp.src(path.styles.src + '**/*.scss')
-      .pipe(sassGlob())
-      .pipe(
-          path.env === 'development' ?
-              sass({
-                includePaths: [
-                  './',
-                  require('node-normalize-scss').includePaths
-                ],
-                outputStyle: 'expanded'
-              })
-                  .on("error", function (err) {
-                    log.error(chalk.black.bgRed(" SASS ERROR", chalk.white.bgBlack(" " + (err.message.split("  ")[2]) + " ")));
-                    log.error(chalk.black.bgRed(" FILE:", chalk.white.bgBlack(" " + (err.message.split("\n")[0]) + " ")));
-                    log.error(chalk.black.bgRed(" LINE:", chalk.white.bgBlack(" " + err.line + " ")));
-                    log.error(chalk.black.bgRed(" COLUMN:", chalk.white.bgBlack(" " + err.column + " ")));
-                    log.error(chalk.black.bgRed(" ERROR:", chalk.white.bgBlack(" " + err.formatted.split("\n")[0] + " ")));
-                    return this.emit("end");
-                  }) :
-              sass({
-                includePaths: [
-                  './',
-                  require('node-normalize-scss').includePaths
-                ],
-                outputStyle: 'expanded'
-              })
-      )
-      .pipe(autoprefix({
-        browsers: ['last 2 versions']
-      }))
-      .pipe(path.env === "production" ? cleanCss() : noop())
-      .pipe(gulp.dest(path.styles.dist));
+  return gulp
+    .src(`${path.styles.src}**/*.scss`)
+    .pipe(sassGlob())
+    .pipe(
+      path.env === "development"
+        ? sass(sassConfig).on("error", function(err) {
+            log.error(
+              chalk.black.bgRed(
+                " SASS ERROR",
+                chalk.white.bgBlack(` ${err.message.split("  ")[2]} `)
+              )
+            );
+            log.error(
+              chalk.black.bgRed(
+                " FILE:",
+                chalk.white.bgBlack(` ${err.message.split("\n")[0]} `)
+              )
+            );
+            log.error(
+              chalk.black.bgRed(" LINE:", chalk.white.bgBlack(` ${err.line} `))
+            );
+            log.error(
+              chalk.black.bgRed(
+                " COLUMN:",
+                chalk.white.bgBlack(` ${err.column} `)
+              )
+            );
+            log.error(
+              chalk.black.bgRed(
+                " ERROR:",
+                chalk.white.bgBlack(` ${err.formatted.split("\n")[0]} `)
+              )
+            );
+            return this.emit("end");
+          })
+        : sass(sassConfig)
+    )
+    .pipe(autoprefix({ browsers: ["last 3 versions"] }))
+    .pipe(path.env === "production" ? cleanCss() : noop())
+    .pipe(gulp.dest(path.styles.dist));
 }
-
-// -----------
-// Watch task.
-// -----------
-gulp.task('watch', gulp.series(runWatch));
 
 // ---------------------------------------------------
 // Copy fonts from src to dist if necessary.
 // ---------------------------------------------------
 function copyFonts() {
-  return gulp.src(path.fonts.src + '**/*')
-      .pipe(gulp.dest(path.fonts.dist));
+  return gulp.src(`${path.fonts.src}**/*`).pipe(gulp.dest(path.fonts.dist));
 }
 
 // ---------------------------------------------------
 // Copy js from src to dist and uglify if necessary.
 // ---------------------------------------------------
 function copyScripts() {
-  return gulp.src(path.scripts.src + '**/*.js')
-      .pipe(path.env === "production" ? uglify() : noop())
-      .pipe(rename({
-        suffix: '.min'
-      }))
-      .pipe(gulp.dest(path.scripts.dist));
+  return gulp
+    .src(`${path.scripts.src}**/*.js`)
+    .pipe(path.env === "production" ? uglify() : noop())
+    .pipe(
+      rename({
+        suffix: ".min"
+      })
+    )
+    .pipe(gulp.dest(path.scripts.dist));
 }
 
 // ---------------------------------------------------
 // Copy images from src to dist if necessary.
 // ---------------------------------------------------
 function copyImages() {
-  return gulp.src(path.images.src + '**/*')
-      .pipe(gulp.dest(path.images.dist));
+  return gulp.src(`${path.images.src}**/*`).pipe(gulp.dest(path.images.dist));
 }
 
 // ----------------------
 // Function to run watch.
 // ----------------------
 function runWatch() {
-  gulp.watch(path.styles.src + '**/*.scss', compileSASS);
-  gulp.watch(path.scripts.src + '**/*.js', copyScripts);
+  gulp.watch(`${path.styles.src}**/*.scss`, compileSASS);
+  gulp.watch(`${path.scripts.src}**/*.js`, copyScripts);
 }
 
-function cleandist() {
-  allowEmpty = true;
-  console.log("Clean all files in dist folder");
+// -----------
+// Watch task.
+// -----------
+gulp.task("watch", gulp.series(runWatch));
 
-  return gulp.src('./dist/', { read: false, allowEmpty: true }).pipe(clean());
-};
+// -----------------------
+// Function to clean dist.
+// -----------------------
+function cleandist() {
+  console.log("Clean all files in dist folder");
+  return clean(["./dist/"]);
+}
+
+// ------------------------------------------
+// Helper function for selecting environment.
+// ------------------------------------------
+function environment(env) {
+  console.log(`Running tasks in ${env} mode.`);
+  return (path.env = env);
+}
 
 // --------------------------------------
 // Set environment variable via dev task.
 // --------------------------------------
-gulp.task('dev', function(done) {
+gulp.task("dev", done => {
   environment("development");
   done();
 });
@@ -159,7 +180,7 @@ gulp.task('dev', function(done) {
 // ---------------------------------------
 // Set environment variable via prod task.
 // ---------------------------------------
-gulp.task('prod', function(done) {
+gulp.task("prod", done => {
   environment("production");
   done();
 });
@@ -167,29 +188,123 @@ gulp.task('prod', function(done) {
 // -------------------------------------
 // Build development css & scripts task.
 // -------------------------------------
-gulp.task('development', gulp.series('dev', cleandist, compileSASS, copyFonts, copyScripts, copyImages), function(done) {
-  done();
-});
+gulp.task(
+  "development",
+  gulp.series(
+    "dev",
+    cleandist,
+    compileSASS,
+    copyFonts,
+    copyScripts,
+    copyImages
+  ),
+  done => {
+    done();
+  }
+);
 
 // -------------
 // Default task.
 // -------------
-gulp.task('default', gulp.series('dev', gulp.parallel('watch')), function(done) {
+gulp.task("default", gulp.series("dev", gulp.parallel("watch")), done => {
   done();
 });
 
 // ----------------
 // Production task.
 // ----------------
-gulp.task('production', gulp.series('prod', cleandist, compileSASS, gulp.parallel(copyFonts, copyScripts, copyImages)), function(done) {
-  done();
+gulp.task(
+  "production",
+  gulp.series(
+    "prod",
+    cleandist,
+    compileSASS,
+    gulp.parallel(copyFonts, copyScripts, copyImages)
+  ),
+  done => {
+    done();
+  }
+);
+
+// -----------
+// SVG sprites
+// -----------
+const svgSprite = require("gulp-svg-sprite");
+const plumber = require("gulp-plumber");
+const filenames = require("gulp-filenames-to-json");
+
+const svgBaseDir = "icons/src";
+const svgGlob = "**/*.svg";
+const svgOutDir = "icons";
+
+const svgSpriteConfig = {
+  log: "info",
+  shape: {
+    // Set maximum dimensions
+    dimension: {
+      maxWidth: 64,
+      maxHeight: 64
+    },
+    // Add padding
+    spacing: {
+      padding: 0
+    }
+  },
+  mode: {
+    symbol: {
+      render: {
+        css: false,
+        scss: {
+          dest: "icons.scss"
+        }
+      },
+      dest: "./",
+      prefix: ".icon--%s",
+      sprite: "icons.svg"
+    }
+  },
+  svg: {
+    xmlDeclaration: false, // strip out the XML attribute
+    doctypeDeclaration: false // don't include the !DOCTYPE declaration
+  }
+};
+
+// ----------------------------------
+// Save SVG filenames to a JSON file.
+// ----------------------------------
+gulp.task("svgNamesToJson", () => {
+  const filename = {
+    fileName: "icons.json"
+  };
+  const svgSrc = `${svgBaseDir}/*.svg`;
+  return gulp
+    .src(svgSrc)
+    .pipe(plumber())
+    .pipe(filenames(filename))
+    .pipe(gulp.dest(svgOutDir));
 });
 
-
-// ------------------------------------------
-// Helper function for selecting environment.
-// ------------------------------------------
-function environment(env) {
-  console.log('Running tasks in ' + env + ' mode.');
-  return path.env = env;
+// ----------------
+// Clean SVG sprite
+// ----------------
+function cleanSVGSprite() {
+  console.log("Clean sprites in icons folder");
+  return clean(["./icons/icons.*"]);
 }
+
+// ----------------
+// SVG sprite task.
+// ----------------
+gulp.task(
+  "svgSprite",
+  gulp.series(cleanSVGSprite, "svgNamesToJson", () =>
+    gulp
+      .src(svgGlob, { cwd: svgBaseDir })
+      .pipe(plumber())
+      .pipe(svgSprite(svgSpriteConfig))
+      .on("error", error => {
+        console.log(error);
+      })
+      .pipe(gulp.dest(svgOutDir))
+  )
+);
