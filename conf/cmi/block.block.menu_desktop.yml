@@ -1,4 +1,4 @@
-uuid: 9f69a824-2051-4abb-b321-835dc8ee8d40
+uuid: 85d6a91b-ef6f-448f-bfa3-278ce91c02c0
 langcode: en
 status: true
 dependencies:
@@ -8,15 +8,15 @@ dependencies:
     - menu_block_current_language
   theme:
     - suomidigi
-id: mainnavigation
+id: menu_desktop
 theme: suomidigi
-region: navigation
+region: header
 weight: 0
 provider: null
 plugin: 'menu_block_current_language:main'
 settings:
   id: 'menu_block_current_language:main'
-  label: 'Main navigation'
+  label: 'Navigation - Desktop'
   provider: menu_block_current_language
   label_display: '0'
   translation_providers:
