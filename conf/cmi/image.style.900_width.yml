@@ -1,0 +1,15 @@
+uuid: 08ab9102-e61d-4245-9892-1e6a2669043e
+langcode: en
+status: true
+dependencies: {  }
+name: 900_width
+label: '900 Width'
+effects:
+  07ec739c-39ee-436f-a681-4657ea3aaee5:
+    uuid: 07ec739c-39ee-436f-a681-4657ea3aaee5
+    id: image_scale
+    weight: 1
+    data:
+      width: 900
+      height: null
+      upscale: false

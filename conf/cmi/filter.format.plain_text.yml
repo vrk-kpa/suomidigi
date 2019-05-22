@@ -1,12 +1,14 @@
 uuid: 26584d30-7028-4fc5-a1b9-82c52f59f95f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - inline_responsive_images
 _core:
   default_config_hash: NIKBt6kw_uPhNI0qtR2DnRf7mSOgAQdx7Q94SKMjXbQ
 name: 'Plain text'
 format: plain_text
-weight: 10
+weight: -7
 filters:
   filter_html_escape:
     id: filter_html_escape
@@ -27,3 +29,24 @@ filters:
     status: true
     weight: 0
     settings: {  }
+  filter_imagestyle:
+    id: filter_imagestyle
+    provider: inline_responsive_images
+    status: false
+    weight: 0
+    settings:
+      image_style_1200_width: '0'
+      image_style_600_width: '0'
+      image_style_900_width: '0'
+      image_style_large: '0'
+      image_style_linkit_result_thumbnail: '0'
+      image_style_medium: '0'
+      image_style_thumbnail: '0'
+  filter_responsive_image_style:
+    id: filter_responsive_image_style
+    provider: inline_responsive_images
+    status: false
+    weight: 0
+    settings:
+      responsive_style_inline_image_full_width: '0'
+      responsive_style_inline_image_half_width: '0'

@@ -1,0 +1,15 @@
+uuid: d7cfb6de-93ac-4d0c-bc43-7e5a45c524de
+langcode: en
+status: true
+dependencies: {  }
+name: 1200_width
+label: '1200 Width'
+effects:
+  90c22860-4c7d-478b-9d53-35104a7f36d5:
+    uuid: 90c22860-4c7d-478b-9d53-35104a7f36d5
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: null
+      upscale: false

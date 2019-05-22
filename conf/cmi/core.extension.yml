@@ -27,10 +27,14 @@ module:
   help: 0
   history: 0
   image: 0
+  inline_responsive_images: 0
   language: 0
   link: 0
+  linkit: 0
   locale: 0
   mailsystem: 0
+  menu_block: 0
+  menu_block_current_language: 0
   menu_ui: 0
   node: 0
   options: 0
@@ -61,7 +65,6 @@ module:
 theme:
   stable: 0
   classy: 0
-  bartik: 0
   seven: 0
   suomidigi: 0
 profile: minimal
