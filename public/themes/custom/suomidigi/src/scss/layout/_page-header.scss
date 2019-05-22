@@ -10,7 +10,7 @@
   justify-content: space-between;
   height: 80px;
 
-  @include breakpoint($for-tablet-portrait-up) {
+  @include breakpoint($for-mobile-navigation) {
     background-image: url("../../images/header_background_illustration.svg");
     background-position: center -220px;
     background-repeat: repeat no-repeat;
@@ -23,7 +23,7 @@
     display: flex;
     padding: 0 $gutter;
 
-    @include breakpoint($for-tablet-portrait-up) {
+    @include breakpoint($for-mobile-navigation) {
       margin-left: auto;
       margin-right: auto;
     }

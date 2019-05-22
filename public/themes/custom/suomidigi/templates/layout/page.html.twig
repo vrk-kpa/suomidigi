@@ -56,16 +56,26 @@
         {% if page.header %}
           <div class="page-header__container">
             {{ page.header }}
+            <a href="#block-suomidigi-navi-mobile" aria-label="{{ 'Menu'|t }}" class="menu-toggle">
+              {% if icons_path %}
+                <svg class="icon">
+                  <title>{{ 'Menu'|t }}</title>
+                  <use xlink:href="{{ icons_path|trim }}#burger" />
+                </svg>
+              {% else %}
+                {{ 'Menu'|t }}
+              {% endif %}
+            </a>
           </div>
         {% endif %}
-        {% if page.navigation %}
-          <div id="navigation" class="page-navigation">
-            <div class="page-navigation__container">
-              {{ page.navigation }}
-              <a href="#block-suomidigi-main-menu" class="menu-toggle icon fa-bars">{{ 'Menu'|t }}</a>
-            </div>
-          </div>
-        {% endif %}
+{#        {% if page.navigation %}#}
+{#          <div id="navigation" class="page-navigation">#}
+{#            <div class="page-navigation__container">#}
+{#              {{ page.navigation }}#}
+{#              <a href="#block-suomidigi-main-menu" class="menu-toggle icon fa-bars">{{ 'Menu'|t }}</a>#}
+{#            </div>#}
+{#          </div>#}
+{#        {% endif %}#}
       </header>
     {% endif %}
 
