@@ -51,14 +51,6 @@
 
 <div id="page" class="page-wrapper">
   <div class="sticky-main">
-    {% if page.messages %}
-      <div id="messages" class="page-messages">
-        <div class="container page-messages__container">
-          {{ page.messages }}
-        </div>
-      </div>
-    {% endif %}
-
     {% if page.header or page.navigation %}
       <header id="header" class="page-header" role="banner">
         {% if page.header %}
@@ -75,6 +67,14 @@
           </div>
         {% endif %}
       </header>
+    {% endif %}
+
+    {% if page.messages %}
+      <div id="messages" class="page-messages">
+        <div class="container page-messages__container">
+          {{ page.messages }}
+        </div>
+      </div>
     {% endif %}
 
     <main id="main" class="page-main" role="main">
