@@ -44,8 +44,8 @@
 #}
 
 {% set page_content_classes = [
-'page-content',
-node ? 'page-content--node',
+  'page-content',
+  node ? 'page-content--node',
 ]
 %}
 
@@ -70,7 +70,7 @@ node ? 'page-content--node',
           <div id="navigation" class="page-navigation">
             <div class="page-navigation__container">
               {{ page.navigation }}
-              <a href="#block-suomidigi-main-menu" class="menu-toggle icon fa-bars">Menu</a>
+              <a href="#block-suomidigi-main-menu" class="menu-toggle icon fa-bars">{{ 'Menu'|t }}</a>
             </div>
           </div>
         {% endif %}

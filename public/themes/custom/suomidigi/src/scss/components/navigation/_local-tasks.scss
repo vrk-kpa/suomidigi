@@ -1,0 +1,26 @@
+//
+// @file
+// This file includes styling related to local tasks such as "view" and "edit"
+//
+
+.local-tasks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  margin: .5rem 0 2rem;
+  padding: 0;
+
+  .local-task {
+    margin: .5rem;
+
+    a {
+      @include button;
+
+      &.is-active {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+}

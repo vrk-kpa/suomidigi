@@ -1,0 +1,18 @@
+{% extends "block.html.twig" %}
+
+{#
+/**
+ * @file
+ * Theme override for the system messages block.
+ */
+#}
+
+{% set attributes = attributes.addClass('block--system-messages') %}
+
+{% block content %}
+  {% embed "@suomidigi/misc/container.twig" with {container_element: 'block--system-messages'} %}
+    {% block container_content %}
+      {{ content }}
+    {% endblock container_content %}
+  {% endembed %}
+{% endblock %}

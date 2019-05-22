@@ -1,0 +1,31 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ */
+#}
+{% block content %}
+  <a href="{{ path('<front>') }}" class="logo logo--header" title="{{ 'Home'|t }}" rel="home">
+    <svg viewBox="0 0 55 55" width="55px" height="55px" aria-labelledby="title" id="suomidigi_flag" role="img" focusable="false">
+      <title id="title">Suomidigi logo</title>
+      <desc id="desc">suomidigi.fi</desc>
+      <g class="icon--flag">
+        <path fill="#003479" d="M53,0H2C0.9,0,0,0.9,0,2v51c0,1.1,0.9,2,2,2h51c1.1,0,2-0.9,2-2V2C55,0.9,54.1,0,53,0z"></path>
+        <path fill="#FFFFFF" d="M14,20v-5c0-1.1,0.9-2,2-2h5v7"></path>
+        <path fill="#FFFFFF" d="M14,27h7v14c0,0.5-0.4,1-1,1h-5c-0.6,0-1-0.5-1-1"></path>
+        <path fill="#FFFFFF" d="M28,13h13c0.5,0,1,0.4,1,1v6H28"></path>
+        <path fill="#FFFFFF" d="M41,34H28v-7h14v6C42,33.6,41.6,34,41,34z"></path>
+      </g>
+    </svg>
+    <span class="logo--text">{{ site_name }}</span>
+  </a>
+{% endblock %}

@@ -10,11 +10,11 @@ $base-font-size: 16px; // Leave at 16px for correct container width
 $base-font-size-rem: 1rem;
 $base-line-height: 1.375; // 24px; absolute line-height. For relative line-height (1.385), see http://cssleading.com/
 
-$font-size-heading-1: 2.5rem;
-$font-size-heading-2: 1.7rem;
-$font-size-heading-3: 1.5rem;
-$font-size-heading-4: 1.25rem;
-$font-size-heading-5: $base-font-size-rem;
+$font-size-heading-1: (32px / $base-font-size) * 1rem;
+$font-size-heading-2: (26px / $base-font-size) * 1rem;
+$font-size-heading-3: (20px / $base-font-size) * 1rem;
+$font-size-heading-4: (14px / $base-font-size) * 1rem;
+$font-size-heading-5: (10px / $base-font-size) * 1rem;
 
 // Font families
 $source-sans-pro: 'Source Sans Pro', sans-serif;
