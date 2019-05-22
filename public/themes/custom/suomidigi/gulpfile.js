@@ -195,8 +195,7 @@ gulp.task(
     cleandist,
     compileSASS,
     copyFonts,
-    copyScripts,
-    copyImages
+    copyScripts
   ),
   done => {
     done();
@@ -219,7 +218,7 @@ gulp.task(
     "prod",
     cleandist,
     compileSASS,
-    gulp.parallel(copyFonts, copyScripts, copyImages)
+    gulp.parallel(copyFonts, copyScripts)
   ),
   done => {
     done();
