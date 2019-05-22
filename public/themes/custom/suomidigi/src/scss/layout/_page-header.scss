@@ -1,0 +1,31 @@
+//
+// @file
+//
+// This file includes everything related to the page header styling.
+//
+
+.page-header {
+  background: $white;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    background-image: url("../../images/header_background_illustration.svg");
+    background-position: center -220px;
+    background-repeat: repeat no-repeat;
+    background-size: 1440px 435px;
+  }
+
+  &__container {
+    width: $container;
+    align-items: center;
+    display: flex;
+    padding: 0 $gutter;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

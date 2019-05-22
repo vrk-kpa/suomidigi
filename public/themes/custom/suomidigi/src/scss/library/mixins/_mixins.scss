@@ -36,3 +36,37 @@
   text-rendering: auto;
   transform: translate(0, 0);
 }
+
+@mixin button() {
+  @include font-size(14px);
+  background-color: transparent;
+  border: 1px solid $black;
+  border-radius: 50px;
+  box-shadow: 0 8px 6px -6px rgba($black, 0.3);
+  color: $black;
+  display: flex;
+  font-family: $default-font-family;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 0.3rem 0.75rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.1s;
+  transition-property: background-color;
+  width: auto;
+
+  @media screen and (min-width: $for-tablet-portrait-up) {
+    display: flex;
+    max-width: none;
+    padding: 0.3rem 1.5rem;
+  }
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    border-color: $black;
+    cursor: pointer;
+  }
+}
