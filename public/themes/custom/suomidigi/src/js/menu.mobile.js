@@ -2,8 +2,9 @@
   Drupal.behaviors.mmenu = {
     attach(context) {
       $(".menu--mobile", context).mmenu({
-        offCanvas: true,
-        extensions: ["position-right", "border-none"]
+        slidingSubmenus: false,
+        extensions: ["position-left", "border-none"],
+        offCanvas: true
       });
     }
   };
