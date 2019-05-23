@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.field.node.article.field_article_type
     - field.field.node.article.field_displayed_author
+    - field.field.node.article.field_displayed_update_time
     - field.field.node.article.field_ingress
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_reading_time
     - field.field.node.article.field_theme
     - node.type.article
   module:
+    - datetime
     - paragraphs
     - path
     - publication_date
@@ -41,6 +43,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_displayed_update_time:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_ingress:
     weight: 5

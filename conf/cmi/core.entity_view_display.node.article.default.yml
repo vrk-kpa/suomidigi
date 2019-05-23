@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.field.node.article.field_article_type
     - field.field.node.article.field_displayed_author
+    - field.field.node.article.field_displayed_update_time
     - field.field.node.article.field_ingress
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_reading_time
     - field.field.node.article.field_theme
     - node.type.article
   module:
+    - datetime
     - entity_reference_revisions
     - user
 _core:
@@ -35,6 +37,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_displayed_update_time:
+    weight: 108
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_ingress:
     weight: 104
