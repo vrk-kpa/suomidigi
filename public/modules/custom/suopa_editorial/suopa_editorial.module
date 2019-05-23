@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_editorial.module.
+ */
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * {@inheritdoc}
+ */
+function suopa_editorial_form_alter(&$form, $form_state) {
+  xdebug_break();
+}

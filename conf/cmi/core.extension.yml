@@ -45,6 +45,7 @@ module:
   responsive_image: 0
   search: 0
   shortcut: 0
+  suopa_editorial: 0
   swiftmailer: 0
   system: 0
   system_status: 0
