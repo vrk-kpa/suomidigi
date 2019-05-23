@@ -16,7 +16,7 @@ global-styling:
 global-scripting:
   version: 1.x
   js:
-    dist/js/scripts.min.js: {}
+    dist/js/menu.mobile.min.js: {}
   dependencies:
   - core/drupal
   - core/jquery

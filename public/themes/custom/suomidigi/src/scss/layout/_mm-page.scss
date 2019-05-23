@@ -1,0 +1,25 @@
+// Override for toolbar styles since the mmenu plugin messes up the toolbar styles a bit.
+.mm-page {
+  .toolbar-oriented .toolbar-bar {
+    top: -39px;
+  }
+}
+
+body.toolbar-fixed {
+  .mm-page {
+    .toolbar-oriented .toolbar-bar {
+      top: 0;
+    }
+  }
+}
+
+.mm-wrapper_opening,
+.mm-wrapper_opened {
+  body.toolbar-fixed {
+    .mm-page {
+      .toolbar-oriented .toolbar-bar {
+        top: -79px;
+      }
+    }
+  }
+}

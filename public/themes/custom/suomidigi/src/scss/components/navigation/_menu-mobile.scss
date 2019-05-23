@@ -97,6 +97,13 @@
   }
 }
 
+
+.mm-wrapper__blocker {
+  &.mm-slideout {
+    background-color: $mobile-slideout-background;
+  }
+}
+
 .mm-wrapper_opening {
   .menu-toggle.menu-toggle--close {
     &::before {
