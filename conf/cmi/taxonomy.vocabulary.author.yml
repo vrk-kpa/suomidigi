@@ -1,0 +1,8 @@
+uuid: 3e441f3e-3271-422d-af3c-1a5e11a07ee9
+langcode: en
+status: true
+dependencies: {  }
+name: Author
+vid: author
+description: 'Authoring information for content.'
+weight: 0

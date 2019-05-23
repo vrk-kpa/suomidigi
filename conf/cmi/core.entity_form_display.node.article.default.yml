@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.article.field_article_type
+    - field.field.node.article.field_displayed_author
     - field.field.node.article.field_ingress
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_reading_time
@@ -12,6 +13,7 @@ dependencies:
   module:
     - paragraphs
     - path
+    - publication_date
 _core:
   default_config_hash: vPb_yvhA-xuNoV_yOmOwYxGuHNRIH1CoMK2qi7BSga0
 id: node.article.default
@@ -30,6 +32,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_displayed_author:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_ingress:
     weight: 5
@@ -89,6 +100,12 @@ content:
       display_label: true
     weight: 10
     region: content
+    third_party_settings: {  }
+  published_at:
+    type: publication_date_timestamp
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox

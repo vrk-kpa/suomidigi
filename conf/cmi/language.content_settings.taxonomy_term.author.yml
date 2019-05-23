@@ -1,0 +1,11 @@
+uuid: 3dd25671-8650-4afb-ba38-5015f9ea7451
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.author
+id: taxonomy_term.author
+target_entity_type_id: taxonomy_term
+target_bundle: author
+default_langcode: zxx
+language_alterable: false
