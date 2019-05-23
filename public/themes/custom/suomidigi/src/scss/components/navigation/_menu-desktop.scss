@@ -1,0 +1,45 @@
+//
+// @file
+// This file includes styling related to menus in general
+//
+nav.menu--desktop {
+  display: none;
+
+  @include breakpoint($for-mobile-navigation) {
+    align-items: center;
+    display: flex;
+
+    .menu {
+      display: flex;
+      list-style: none;
+      margin: -3px 0 0 calc(40px - 1rem / 2);
+      padding: 0;
+
+      li {
+        margin: 0 calc(1rem / 2);
+        padding: 0;
+      }
+
+      span,
+      a {
+        @include font-size(14px);
+        border-bottom: 2px solid transparent;
+        color: $white;
+        font-weight: 600;
+        line-height: 1rem;
+        padding-bottom: 2px;
+        text-transform: uppercase;
+
+        &.is-active {
+          text-decoration: none;
+          border-bottom: 2px solid $white;
+        }
+      }
+    }
+  }
+}
+
+// Makes footer sticky at the bottom
+.mm-page {
+  height: 100%;
+}

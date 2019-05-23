@@ -8,7 +8,6 @@ base theme: classy
 # Define Regions
 regions:
   header: Header
-  navigation: Navigation
   messages: Messages
   sidebar_first: First Sidebar
   sidebar_second: Second Sidebar
@@ -19,3 +18,9 @@ regions:
 libraries:
   - suomidigi/global-styling
   - suomidigi/global-scripting
+
+libraries-override:
+  classy/base:
+    css:
+      component:
+        css/components/menu.css: false

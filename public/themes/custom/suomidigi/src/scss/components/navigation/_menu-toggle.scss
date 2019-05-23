@@ -1,0 +1,32 @@
+.menu-toggle {
+  margin: 0 0 0 auto;
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+  }
+
+  @include breakpoint($for-mobile-navigation) {
+    display: none;
+  }
+
+  //&.menu-toggle--close {
+  //  display: none;
+  //  height: 50px;
+  //  left: -60px;
+  //  margin: 0;
+  //  padding: 0;
+  //  position: absolute;
+  //  top: 0;
+  //  width: 60px;
+  //
+  //  &::before {
+  //    line-height: 50px;
+  //  }
+  //
+  //  &:hover {
+  //    cursor: pointer;
+  //  }
+  //}
+}

@@ -21,10 +21,17 @@
         "drupal/core": "^8.7.0",
         "drupal/focal_point": "^1.0",
         "drupal/high_contrast": "^1.0",
+        "drupal/inline_responsive_images": "^2.1",
+        "drupal/link_attributes": "^1.5",
+        "drupal/linkit": "^4.3",
+        "drupal/menu_block": "^1.4",
+        "drupal/menu_block_current_language": "^1.2",
         "drupal/paragraphs": "^1.8",
         "drupal/pathauto": "^1.0",
+        "drupal/rabbit_hole": "^1.0",
         "drupal/swiftmailer": "^1.0@beta",
         "drupal/system_status": "^2.0",
+        "drupal/twig_tweak": "^2.1",
         "drush/drush": "^9.0.0"
     },
     "require-dev": {

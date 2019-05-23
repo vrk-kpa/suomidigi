@@ -1,0 +1,112 @@
+//
+// @file
+//
+// This file includes everything related to the main menu styles and mmenu overrides.
+//
+
+.menu--mobile {
+  &.mm-menu {
+    .menu {
+      flex-direction: column;
+    }
+
+    a,
+    a:active,
+    a:hover,
+    a:link,
+    a:visited {
+      color: $black;
+    }
+  }
+
+  .mm-navbar {
+    height: 50px;
+
+    @media screen and (min-width: $for-mobile-navigation) {
+      height: 90px;
+    }
+  }
+
+  .mm-panel_has-navbar {
+    padding-top: 50px;
+
+    @media screen and (min-width: $for-mobile-navigation) {
+      padding-top: 90px;
+    }
+  }
+
+  .mm-navbar__title {
+    font-size: 1.313rem;
+    padding: 20px 0;
+    text-align: left;
+
+    @media screen and (min-width: $for-mobile-navigation) {
+      font-size: 1.75rem;
+      padding: 35px 0;
+      text-transform: uppercase;
+    }
+  }
+
+  .text-united-languages {
+    @media (min-width: 768px) {
+      top: 25px;
+    }
+  }
+
+  .mm-panel,
+  .mm-panels,
+  .mm-navbar {
+    background-color: #041B26;
+    border-color: transparent;
+    color: #FFFFFF;
+    --mm-color-background: #041B26;
+    --mm-color-background-emphasis: #131313;
+    --mm-color-border: transparent;
+    --mm-color-text: #FFFFFF;
+    --mm-color-text-dimmed: #FFFFFF;
+    --mm-navbar-size: 59px;
+
+    @media screen and (min-width: $for-mobile-navigation) {
+      --mm-navbar-size: 86px;
+    }
+  }
+
+  .mm-listview {
+    font-size: 1.188rem;
+    position: relative;
+
+    &::after {
+      background-color: $gray-darker;
+      content: "";
+      display: block;
+      height: 100%;
+      left: 45px;
+      position: absolute;
+      top: 0;
+      width: 1px;
+    }
+
+    .mm-listitem__text {
+      padding-left: 55px;
+
+      &::before {
+        margin-left: -39px;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.mm-wrapper_opening {
+  .menu-toggle.menu-toggle--close {
+    &::before {
+      content: '\f00d';
+    }
+  }
+}
+
+.mm-menu_opened {
+  .menu-toggle.menu-toggle--close {
+    display: block;
+  }
+}

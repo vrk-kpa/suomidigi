@@ -1,0 +1,35 @@
+uuid: a7991bc6-9170-4869-8846-ae625db10ade
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.1200_width
+    - image.style.600_width
+    - image.style.900_width
+  theme:
+    - suomidigi
+id: inline_image_full_width
+label: 'Inline image full width'
+image_style_mappings:
+  -
+    breakpoint_id: suomidigi.for_desktop_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 1200_width
+  -
+    breakpoint_id: suomidigi.for_tablet_landscape_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 900_width
+  -
+    breakpoint_id: suomidigi.for_tablet_portrait_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 600_width
+  -
+    breakpoint_id: suomidigi.for_phone_only
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 600_width
+breakpoint_group: suomidigi
+fallback_image_style: 1200_width

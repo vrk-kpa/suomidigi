@@ -1,0 +1,9 @@
+uuid: ecefdedd-174e-4a8d-a945-347554f5a73d
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: Text
+icon_uuid: null
+description: 'Use this type if you want to create a text paragraph.'
+behavior_plugins: {  }
