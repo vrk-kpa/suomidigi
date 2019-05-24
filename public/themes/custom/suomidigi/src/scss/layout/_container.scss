@@ -6,18 +6,16 @@
 .container {
   margin-left: auto;
   margin-right: auto;
-  padding-right: $gutter * 1.5;
-  padding-left: $gutter * 1.5;
-  max-width: $container;
-
-  @include breakpoint(28.75em) {
-    padding-right: $gutter * 2;
-    padding-left: $gutter * 2;
-  }
+  max-width: $container-tablet-portrait;
+  padding-right: $gutter;
+  padding-left: $gutter;
 
   @include breakpoint($for-tablet-landscape-up) {
-    padding-right: $gutter * 2.5;
-    padding-left: $gutter * 2.5;
+    max-width: $container-tablet-landscape;
+  }
+
+  @include breakpoint($for-desktop-up) {
+    max-width: $container-desktop;
   }
 
   &--inset {

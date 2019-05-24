@@ -10,8 +10,8 @@ dependencies:
     - suomidigi
 id: menu_mobile
 theme: suomidigi
-region: header
-weight: 0
+region: mobile_navigation
+weight: -5
 provider: null
 plugin: 'menu_block_current_language:main'
 settings:

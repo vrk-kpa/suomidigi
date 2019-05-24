@@ -1,13 +1,13 @@
 suomidigi.for_phone_only:
   label: for-phone-only
-  mediaQuery: 'max-width: 599px'
+  mediaQuery: 'max-width: 767px'
   weight: 0
   multipliers:
   - 1x
   - 2x
 suomidigi.for_tablet_portrait_up:
   label: for-tablet-portrait-up
-  mediaQuery: 'all and (min-width: 600px)'
+  mediaQuery: 'all and (min-width: 768px)'
   weight: 1
   multipliers:
   - 1x

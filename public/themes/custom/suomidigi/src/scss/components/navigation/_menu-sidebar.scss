@@ -1,0 +1,63 @@
+//
+// @file
+// This file includes styling related to menus in general
+//
+nav.menu--sidebar {
+  display: none;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    display: block;
+  }
+
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-item {
+    margin: 0;
+    padding: 0;
+
+    > span,
+    > a {
+      @include font-size(14px);
+      @include line-height(17px);
+      color: $black;
+      display: block;
+      padding: 10px auto 10px 15px;
+      text-decoration: none;
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        border-bottom: 1px solid $blue;
+      }
+
+      &.is-active {
+        background-color: $gray-lighter;
+        &:hover,
+        &:focus {
+          border-bottom: 1px solid transparent;
+        }
+
+      }
+    }
+
+    &--lvl-0 {
+      > span,
+      > a {
+        @include font-size(18px);
+        @include line-height(18px);
+        font-weight: bold;
+      }
+    }
+
+    &--lvl-1 {
+      > span,
+      > a {
+        text-transform: uppercase;
+      }
+    }
+  }
+}

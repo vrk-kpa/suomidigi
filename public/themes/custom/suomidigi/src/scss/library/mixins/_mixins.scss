@@ -7,6 +7,15 @@
   font-size: ($font-size / $base-font-size) * 1rem;
 }
 
+@mixin line-height($font-line-height, $desired-mobile-line-height: '') {
+  @media screen and (max-width: 48em - 0.625em) {
+    @if $desired-mobile-line-height != '' {
+      line-height: ($desired-mobile-line-height / $base-line-height) * 1rem;
+    }
+  }
+  line-height: ($font-line-height / $base-line-height) * 1rem;
+}
+
 @mixin fontsmoothing($smooting: antialiased, $uses-text-shadow: false) {
   -webkit-font-smoothing: $smooting;
   -moz-osx-font-smoothing: grayscale;

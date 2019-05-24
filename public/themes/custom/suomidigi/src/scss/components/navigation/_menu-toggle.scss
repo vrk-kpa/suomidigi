@@ -7,7 +7,7 @@
     margin-top: 5px;
   }
 
-  @include breakpoint($for-mobile-navigation) {
+  @include breakpoint($for-tablet-portrait-up) {
     display: none;
   }
 

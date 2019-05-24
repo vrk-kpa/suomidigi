@@ -8,6 +8,7 @@ base theme: classy
 # Define Regions
 regions:
   header: Header
+  mobile_navigation: Mobile navigation
   messages: Messages
   sidebar_first: First Sidebar
   sidebar_second: Second Sidebar
