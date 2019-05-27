@@ -4,7 +4,9 @@ html {
   height: 100%;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -22,4 +24,8 @@ img {
   height: auto;
   max-width: 100%;
   display: block;
+}
+
+main {
+  width: 100%;
 }
