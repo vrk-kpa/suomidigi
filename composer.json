@@ -19,11 +19,15 @@
         "drupal/admin_toolbar": "^1.0",
         "drupal/cdn": "^3.2",
         "drupal/core": "^8.7.0",
+        "drupal/dropzonejs": "^2.0-alpha4",
         "drupal/focal_point": "^1.0",
+        "drupal/entity_browser": "^2.1",
         "drupal/high_contrast": "^1.0",
         "drupal/inline_responsive_images": "^2.1",
         "drupal/link_attributes": "^1.5",
         "drupal/linkit": "^4.3",
+        "drupal/inline_entity_form": "^1.0",
+        "drupal/media_entity_browser": "^2.0",
         "drupal/menu_block": "^1.4",
         "drupal/menu_block_current_language": "^1.2",
         "drupal/paragraphs": "^1.8",
@@ -33,7 +37,8 @@
         "drupal/swiftmailer": "^1.0@beta",
         "drupal/system_status": "^2.0",
         "drupal/twig_tweak": "^2.1",
-        "drush/drush": "^9.0.0"
+        "drush/drush": "^9.0.0",
+        "enyo/dropzone": "5.5.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -66,6 +71,19 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "enyo/dropzone",
+              "version": "5.5.0",
+              "type": "drupal-library",
+              "source": {
+                "url": "https://github.com/enyo/dropzone",
+                "type": "git",
+                "reference": "origin/master"
+              }
+            }
         }
     ],
     "scripts": {
