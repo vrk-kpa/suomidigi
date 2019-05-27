@@ -4,8 +4,8 @@
 // This file includes styles for a page layout.
 //
 .content__wrapper {
-  margin-top: $gutter * 1.5;
   display: block;
+  margin-top: $gutter * 1.5;
 
   @include breakpoint($for-tablet-portrait-up) {
     display: flex;
@@ -13,12 +13,14 @@
 }
 
 .sidebar--first {
-  width: 100%;
+  margin-top: $gutter;
   padding-right: $gutter;
   padding-left: $gutter;
+  width: 100%;
 
   @include breakpoint($for-tablet-portrait-up) {
-    width: 14rem;
+    flex-basis: 26%;
+    min-width: 224px;
     padding: 0;
   }
 }

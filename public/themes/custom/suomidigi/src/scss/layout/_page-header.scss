@@ -20,5 +20,15 @@
   &__container {
     align-items: center;
     display: flex;
+    margin: 0;
+
+    @include breakpoint(0, $for-tablet-portrait-up) {
+      width: 100%;
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
