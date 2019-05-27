@@ -44,6 +44,14 @@ filters:
       allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <s> <sup> <sub> <a href hreflang !href accesskey id rel target title> <img src alt data-entity-type data-entity-uuid data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <h1> <pre>'
       filter_html_help: true
       filter_html_nofollow: false
+  filter_responsive_image_style:
+    id: filter_responsive_image_style
+    provider: inline_responsive_images
+    status: true
+    weight: 0
+    settings:
+      responsive_style_inline_image_full_width: '1'
+      responsive_style_inline_image_half_width: '1'
   filter_imagestyle:
     id: filter_imagestyle
     provider: inline_responsive_images
@@ -57,11 +65,3 @@ filters:
       image_style_linkit_result_thumbnail: '0'
       image_style_medium: '0'
       image_style_thumbnail: '0'
-  filter_responsive_image_style:
-    id: filter_responsive_image_style
-    provider: inline_responsive_images
-    status: true
-    weight: 0
-    settings:
-      responsive_style_inline_image_full_width: '1'
-      responsive_style_inline_image_half_width: '1'

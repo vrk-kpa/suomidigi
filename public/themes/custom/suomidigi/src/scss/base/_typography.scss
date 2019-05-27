@@ -46,20 +46,21 @@
 
 // ########## General ########## //
 body {
+  @include font-size($font-size-body, $font-size-mobile-body);
+  @include line-height($font-size-body, $font-line-height-body, $font-size-mobile-body, $font-line-height-body);
   color: $black;
   font-family: $default-font-family;
-  font-size: $base-font-size-rem;
   font-weight: 200;
-  line-height: 1.375;
 }
 
 a {
-  color: $black;
+  color: $blue-light;
   transition: all 150ms linear;
 
   &:hover,
   &:focus {
     color: $black;
+    text-decoration: underline;
   }
 }
 
@@ -90,33 +91,45 @@ h6 {
 }
 
 h1 {
-  font-size: 2rem;
-  font-weight: 700;
+  @include font-size($font-size-heading-1, $font-size-mobile-heading-1);
+  @include line-height($font-size-heading-1, $font-line-height-heading-1, $font-size-mobile-heading-1, $font-line-height-mobile-heading-1);
+  font-weight: bold;
   margin-bottom: 2rem;
 }
 
 h2 {
+  @include font-size($font-size-heading-2, $font-size-mobile-heading-2);
+  @include line-height($font-size-heading-2, $font-line-height-heading-2, $font-size-mobile-heading-2, $font-line-height-mobile-heading-2);
   margin-bottom: 1.25rem;
 }
 
 h3 {
+  @include font-size($font-size-heading-3, $font-size-mobile-heading-3);
+  @include line-height($font-size-heading-3, $font-line-height-heading-3, $font-size-mobile-heading-3, $font-line-height-mobile-heading-3);
   margin-bottom: 1rem;
 }
 
 h4 {
+  @include font-size($font-size-heading-4, $font-size-mobile-heading-4);
+  @include line-height($font-size-heading-4, $font-line-height-heading-4, $font-size-mobile-heading-4, $font-line-height-mobile-heading-4);
   margin-bottom: .75rem;
 }
 
 h5 {
+  @include font-size($font-size-heading-5, $font-size-mobile-heading-5);
+  @include line-height($font-size-heading-5, $font-line-height-heading-5, $font-size-mobile-heading-5, $font-line-height-mobile-heading-5);
   margin-bottom: .5rem;
 }
 
 h6 {
-  font-size: 90%;
+  @include font-size($font-size-heading-6, $font-size-mobile-heading-6);
+  @include line-height($font-size-heading-6, $font-line-height-heading-6, $font-size-mobile-heading-6, $font-line-height-mobile-heading-6);
+  margin-bottom: .25rem;
 }
 
 p {
-  line-height: 170%;
+  @include font-size($font-size-body, $font-size-mobile-body);
+  @include line-height($font-size-body, $font-line-height-body, $font-size-mobile-body, $font-line-height-body);
   margin-bottom: 1rem;
   margin-top: 0;
 }

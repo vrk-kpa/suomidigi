@@ -1,5 +1,5 @@
-uuid: f19ab54d-fd07-4e0e-a739-8dffbe9eff06
-langcode: en
+uuid: c5c9b453-b9f5-45e8-a0d3-5d3bf36b0528
+langcode: fi
 status: true
 dependencies:
   config:
@@ -24,6 +24,8 @@ settings:
     menu_link_content: menu_link_content
     default: '0'
   level: 2
-  depth: 2
+  depth: 0
   expand_all_items: 0
+  show_siblings_of_the_initial_menu_item: 1
+  show_the_initial_menu_item: 1
 visibility: {  }

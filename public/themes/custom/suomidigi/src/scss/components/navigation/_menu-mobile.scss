@@ -22,7 +22,7 @@
   .mm-navbar {
     height: 50px;
 
-    @media screen and (min-width: $for-mobile-navigation) {
+    @media screen and (min-width: $for-tablet-portrait-up) {
       height: 90px;
     }
   }
@@ -30,7 +30,7 @@
   .mm-panel_has-navbar {
     padding-top: 50px;
 
-    @media screen and (min-width: $for-mobile-navigation) {
+    @media screen and (min-width: $for-tablet-portrait-up) {
       padding-top: 90px;
     }
   }
@@ -40,7 +40,7 @@
     padding: 20px 0;
     text-align: left;
 
-    @media screen and (min-width: $for-mobile-navigation) {
+    @media screen and (min-width: $for-tablet-portrait-up) {
       font-size: 1.75rem;
       padding: 35px 0;
       text-transform: uppercase;
@@ -66,7 +66,7 @@
     --mm-color-text-dimmed: #FFFFFF;
     --mm-navbar-size: 59px;
 
-    @media screen and (min-width: $for-mobile-navigation) {
+    @media screen and (min-width: $for-tablet-portrait-up) {
       --mm-navbar-size: 86px;
     }
   }
