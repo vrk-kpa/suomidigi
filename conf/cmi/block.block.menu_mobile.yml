@@ -26,4 +26,5 @@ settings:
   level: 1
   depth: 0
   expand_all_items: 0
+  show_siblings_of_the_initial_menu_item: 0
 visibility: {  }
