@@ -25,7 +25,8 @@ function suopa_editorial_form_alter(&$form, $form_state) {
  *   Form state.
  */
 function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
-  $allowedIds = ['node_article_edit_form', 'node_article_add_form'];
+  $allowedIds = ['node_article_edit_form', 'node_article_form'];
+  
   if (!in_array($form['#form_id'], $allowedIds)) {
     return;
   }
