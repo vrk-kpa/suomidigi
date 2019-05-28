@@ -85,25 +85,25 @@
 <article{{ attributes.addClass(classes) }}>
   <div class="article__header">
     <div class="article__data">
-      <div class="article__type">
+      <div class="article__data-item article__type">
           {{ content.field_article_type }}
       </div>
       {% if content.field_displayed_author|render %}
-        <span class="article__author">
+        <span class="article__data-item article__author">
           {{ content.field_displayed_author }}
         </span>
       {% endif %}
-      <span class="article__published">
+      <span class="article__data-item article__published">
         {{ node.createdtime|date('j.n.Y - H:i') }}
       </span>
       {% if content.field_displayed_update_time|render %}
-        <span class="article__modified">
-          {{ 'Updated on'|trans }} {{ content.field_displayed_update_time }}
+        <span class="article__data-item article__modified">
+          <span class="article__modified-text">{{ 'Updated on'|trans }}</span> <span class="article__modified-date">{{ content.field_displayed_update_time }}</span>
         </span>
       {% endif %}
       {% if content.field_reading_time|render %}
-        <span class="article__reading-time">
-          {{ content.field_reading_time }} {{ 'min read'|trans }}
+        <span class="article__data-item article__reading">
+          <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
         </span>
       {% endif %}
     </div>
