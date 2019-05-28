@@ -84,27 +84,29 @@
 
 <article{{ attributes.addClass(classes) }}>
   <div class="article__header">
-    <span class="article__type">
-      {{ content.field_article_type }}
-    </span>
-    {% if content.field_displayed_author|render %}
-      <span class="article__author">
-        {{ content.field_displayed_author }}
+    <div class="article__data">
+      <div class="article__type">
+          {{ content.field_article_type }}
+      </div>
+      {% if content.field_displayed_author|render %}
+        <span class="article__author">
+          {{ content.field_displayed_author }}
+        </span>
+      {% endif %}
+      <span class="article__published">
+        {{ node.createdtime|date('j.n.Y - H:i') }}
       </span>
-    {% endif %}
-    <span class="article__published">
-      {{ node.createdtime|date('j.n.Y - H:i') }}
-    </span>
-    {% if content.field_displayed_update_time|render %}
-      <span class="article__modified">
-        {{ 'Updated on'|trans }} {{ content.field_displayed_update_time }}
-      </span>
-    {% endif %}
-    {% if content.field_reading_time|render %}
-      <span class="article__reading-time">
-        {{ content.field_reading_time }} {{ 'min read'|trans }}
-      </span>
-    {% endif %}
+      {% if content.field_displayed_update_time|render %}
+        <span class="article__modified">
+          {{ 'Updated on'|trans }} {{ content.field_displayed_update_time }}
+        </span>
+      {% endif %}
+      {% if content.field_reading_time|render %}
+        <span class="article__reading-time">
+          {{ content.field_reading_time }} {{ 'min read'|trans }}
+        </span>
+      {% endif %}
+    </div>
     <div class="article__image">
       {{ content.field_header_image }}
     </div>
