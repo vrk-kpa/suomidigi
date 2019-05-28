@@ -6,7 +6,7 @@
   font-size: 0.875rem;
   display: flex;
   flex-wrap: wrap;
-  color: $gray-darkest;
+  color: $gray-darker;
 }
 
 .article__data-item {
@@ -23,7 +23,7 @@
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: $gray-darkest;
+      background: $gray-darker;
       right: -0.6rem;
       top: 50%;
       position: absolute;
