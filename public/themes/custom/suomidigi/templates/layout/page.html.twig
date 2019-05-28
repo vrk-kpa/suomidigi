@@ -87,11 +87,10 @@
       </div>
     {% endif %}
 
-    {% if page.sidebar_first or page.sidebar_second %}
-    <div class="content__wrapper container">
-    {% endif %}
+    {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
 
-      {% if page.sidebar_first %}
+    <div class="content__wrapper container">
+      {% if has_sidebar_first %}
         <aside id="sidebar-first" class="sidebar sidebar--first" role="complementary">
           {{ page.sidebar_first }}
         </aside>
@@ -105,16 +104,7 @@
           </section>
         </div>
       </main>
-
-      {% if page.sidebar_second %}
-        <aside id="sidebar-second" class="sidebar sidebar--second" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
-
-    {% if page.sidebar_first or page.sidebar_second %}
     </div>
-    {% endif %}
   </div>
 
   <footer id="footer" class="page-footer" role="contentinfo">
