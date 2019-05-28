@@ -32,7 +32,7 @@
  *   classes:
  *   - node: The current template type (also known as a "theming hook").
  *   - node--type-[type]: The current node type. For example, if the node is an
- *     "Article" it would result in "node--type-article". Note that the machine
+ *     "article" it would result in "node--type-article". Note that the machine
  *     name will often be in a short form of the human readable label.
  *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
  *     teaser would result in: "node--view-mode-teaser", and
@@ -74,7 +74,7 @@
   set classes = [
     'node',
     'node--type-' ~ node.bundle|clean_class,
-    'article',
+    'article-teaser',
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
@@ -83,44 +83,30 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="article__header">
-    <div class="article__data">
-      <div class="article__data-item article__type">
-        {{ content.field_article_type }}
-      </div>
+  <a href="{{ url }}" class="article-teaser__link">
+    <div class="article-teaser__image">
+      {{ content.field_header_image }}
+    </div>
+    <div class="article-teaser__type">
+      {{ content.field_article_type }}
+    </div>
+    <h2 class="article-teaser__label">
+      {{ label }}
+    </h2>
+    <div class="article-teaser__data">
       {% if content.field_displayed_author|render %}
-        <span class="article__data-item article__author">
+        <span class="article-teaser__data-item article-teaser__author">
           {{ content.field_displayed_author }}
         </span>
       {% endif %}
-      <span class="article__data-item article__published">
+      <span class="article-teaser__data-item article-teaser__published">
         {{ node.createdtime|date('j.n.Y - H:i') }}
       </span>
-      {% if content.field_displayed_update_time|render %}
-        <span class="article__data-item article__modified">
-          <span class="article__modified-text">{{ 'Updated on'|trans }}</span> <span class="article__modified-date">{{ content.field_displayed_update_time }}</span>
-        </span>
-      {% endif %}
       {% if content.field_reading_time|render %}
-        <span class="article__data-item article__reading">
-          <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
+        <span class="article-teaser__data-item article-teaser__reading">
+          <span class="article-teaser__reading-time">{{ content.field_reading_time }}</span> <span class="article-teaser__reading-text">{{ 'min read'|trans }}</span>
         </span>
       {% endif %}
     </div>
-    <div class="article__image">
-      {{ content.field_header_image }}
-    </div>
-  </div>
-  <div class="article__content">
-    {% if content.field_ingress|render %}
-      <div class="article__lead">
-        {{ content.field_ingress }}
-      </div>
-    {% endif %}
-    {% if content.field_paragraphs|render %}
-      <div class="article__contents">
-          {{ content.field_paragraphs }}
-      </div>
-    {% endif %}
-  </div>
+  </a>
 </article>
