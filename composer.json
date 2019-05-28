@@ -30,6 +30,7 @@
         "drupal/media_entity_browser": "^2.0",
         "drupal/menu_block": "^1.4",
         "drupal/menu_block_current_language": "^1.2",
+        "drupal/menu_trail_by_path": "^1.1",
         "drupal/paragraphs": "^1.8",
         "drupal/pathauto": "^1.0",
         "drupal/publication_date": "^2.0",
@@ -65,6 +66,14 @@
             "public/themes/contrib/{$name}": ["type:drupal-theme"],
             "public/themes/custom/{$name}": ["type:drupal-theme-custom"],
             "drush/{$name}": ["type:drupal-drush"]
+        },
+        "patches": {
+            "drupal/core": {
+                "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2019-05-21/2466553-translation_interface-60.patch"
+            },
+            "drupal/menu_block_current_language": {
+                "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
+            }
         }
     },
     "repositories": [

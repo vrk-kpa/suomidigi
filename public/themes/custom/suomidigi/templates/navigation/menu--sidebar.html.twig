@@ -30,14 +30,15 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-<ul{{ attributes.addClass('menu') }}>
-  {% else %}
-  <ul>
+    <ul{{ attributes.addClass('menu', 'menu--sidebar', 'menu--is-top-lvl') }}>
+    {% else %}
+    <ul{{ attributes.removeClass('menu--is-top-lvl').addClass('menu--is-lvl-' ~ menu_level) }}>
     {% endif %}
     {% for item in items %}
       {%
         set classes = [
         'menu-item',
+        'menu-item--lvl-' ~ menu_level,
         item.is_expanded ? 'menu-item--expanded',
         item.is_collapsed ? 'menu-item--collapsed',
         item.in_active_trail ? 'menu-item--active-trail',
@@ -52,4 +53,4 @@
     {% endfor %}
   </ul>
   {% endif %}
-  {% endmacro %}
+{% endmacro %}

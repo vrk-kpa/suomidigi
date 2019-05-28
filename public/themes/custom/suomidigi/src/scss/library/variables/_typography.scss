@@ -8,13 +8,43 @@
 $rembase: 16;
 $base-font-size: 16px; // Leave at 16px for correct container width
 $base-font-size-rem: 1rem;
-$base-line-height: 1.375; // 24px; absolute line-height. For relative line-height (1.385), see http://cssleading.com/
+$base-line-height: 27px; // For relative line-height (1.385), see http://cssleading.com/
 
-$font-size-heading-1: (32px / $base-font-size) * 1rem;
-$font-size-heading-2: (26px / $base-font-size) * 1rem;
-$font-size-heading-3: (20px / $base-font-size) * 1rem;
-$font-size-heading-4: (14px / $base-font-size) * 1rem;
-$font-size-heading-5: (10px / $base-font-size) * 1rem;
+$font-size-heading-1: 40px;
+$font-size-heading-2: 28px;
+$font-size-heading-3: 22px;
+$font-size-heading-4: 18px;
+$font-size-heading-5: 16px;
+$font-size-heading-6: $font-size-heading-5;
+$font-size-ingress: 22px;
+$font-size-body: 16px;
+
+$font-size-mobile-heading-1: 32px;
+$font-size-mobile-heading-2: 26px;
+$font-size-mobile-heading-3: 20px;
+$font-size-mobile-heading-4: 16px;
+$font-size-mobile-heading-5: 16px;
+$font-size-mobile-heading-6: $font-size-mobile-heading-5;
+$font-size-mobile-ingress: 20px;
+$font-size-mobile-body: 16px;
+
+$font-line-height-heading-1: 48px;
+$font-line-height-heading-2: 34px;
+$font-line-height-heading-3: 28px;
+$font-line-height-heading-4: 24px;
+$font-line-height-heading-5: 20px;
+$font-line-height-heading-6: $font-line-height-heading-5;
+$font-line-height-ingress: 30px;
+$font-line-height-body: 27px;
+
+$font-line-height-mobile-heading-1: 38px;
+$font-line-height-mobile-heading-2: 32px;
+$font-line-height-mobile-heading-3: 26px;
+$font-line-height-mobile-heading-4: 20px;
+$font-line-height-mobile-heading-5: 20px;
+$font-line-height-mobile-heading-6: $font-line-height-mobile-heading-5;
+$font-line-height-mobile-ingress: 28px;
+$font-line-height-mobile-body: 24px;
 
 // Font families
 $source-sans-pro: 'Source Sans Pro', sans-serif;

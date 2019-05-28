@@ -26,6 +26,32 @@ function suomidigi_preprocess(&$variables) {
   $variables['icons_path'] = suomidigi_get_icons_path();
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#id'])) {
+    $variables['content']['#attributes']['block_id'] = $variables['elements']['#id'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ */
+function suomidigi_preprocess_menu(&$variables) {
+  if (
+    isset($variables['attributes']['block_id']) &&
+    $variables['attributes']['block_id'] == 'menu_sidebar'
+  ) {
+
+    // Remove obsolete menu items from sidebar.
+    foreach ($variables['items'] as $key => $item) {
+      if (!$item['in_active_trail']) {
+        unset($variables['items'][$key]);
+      }
+    }
+  }
+}
 
 /**
  * Helper function to get the icons path.
@@ -45,4 +71,28 @@ function suomidigi_get_icons_path() {
     }
   }
   return $icon_path;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Provide block based menu suggestions.
+ */
+function suomidigi_theme_suggestions_menu_alter(&$suggestions, $variables) {
+  if (isset($variables['attributes']['block_id'])) {
+    switch ($variables['attributes']['block_id']) {
+      case 'menu_desktop':
+        $suggestions[] = 'menu__desktop';
+        break;
+      case 'menu_mobile':
+        $suggestions[] = 'menu__mobile';
+        break;
+      case 'menu_sidebar':
+        $suggestions[] = 'menu__sidebar';
+        break;
+      default:
+        $suggestions[] = 'menu__' . $variables['attributes']['block_id'];
+        break;
+    }
+  }
 }
