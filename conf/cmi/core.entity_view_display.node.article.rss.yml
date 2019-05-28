@@ -21,6 +21,7 @@ hidden:
   field_article_type: true
   field_displayed_author: true
   field_displayed_update_time: true
+  field_header_image: true
   field_ingress: true
   field_paragraphs: true
   field_reading_time: true
