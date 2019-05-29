@@ -1,0 +1,21 @@
+uuid: f1f1aed3-9c56-44ca-818e-c1b8307e0390
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slogan
+    - node.type.landing_page
+  module:
+    - text
+id: node.landing_page.field_slogan
+field_name: field_slogan
+entity_type: node
+bundle: landing_page
+label: Slogan
+description: ''
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ''
+settings: {}
+field_type: text_long

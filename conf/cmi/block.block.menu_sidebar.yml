@@ -1,5 +1,5 @@
 uuid: c5c9b453-b9f5-45e8-a0d3-5d3bf36b0528
-langcode: fi
+langcode: en
 status: true
 dependencies:
   config:
@@ -28,4 +28,4 @@ settings:
   expand_all_items: 0
   show_siblings_of_the_initial_menu_item: 1
   show_the_initial_menu_item: 1
-visibility: {  }
+visibility: {}
