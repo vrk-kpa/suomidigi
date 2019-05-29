@@ -1,5 +1,6 @@
-.menu-toggle {
+.menu-button {
   margin: 0 0 0 auto;
+  color: $black;
 
   .icon {
     width: 30px;
@@ -11,22 +12,21 @@
     display: none;
   }
 
-  //&.menu-toggle--close {
-  //  display: none;
-  //  height: 50px;
-  //  left: -60px;
-  //  margin: 0;
-  //  padding: 0;
-  //  position: absolute;
-  //  top: 0;
-  //  width: 60px;
-  //
-  //  &::before {
-  //    line-height: 50px;
-  //  }
-  //
-  //  &:hover {
-  //    cursor: pointer;
-  //  }
-  //}
+  &--close {
+    display: none;
+
+    html.mm-wrapper_opened & {
+      background: transparent;
+      border: 0 none;
+      display: block;
+      position: absolute;
+      right: 4.2vw;
+      top: 4.8vh;
+      z-index: 10;
+
+      svg {
+        fill: white;
+      }
+    }
+  }
 }

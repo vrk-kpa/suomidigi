@@ -4,116 +4,122 @@
 // This file includes everything related to the main menu styles and mmenu overrides.
 //
 
-.menu--mobile {
-  &.mm-menu {
-    .menu {
+html {
+  &.mm-wrapper_opening {
+    [class*=mm-menu_pagedim].mm-menu_opened~.mm-wrapper__blocker {
+      opacity: .7;
+    }
+  }
+
+  &.mm-wrapper_opened {
+    .page-header__mobile {
+      align-items: center;
+      background-image: url("../../images/header_background_illustration.svg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100vw auto;
+      display: flex;
       flex-direction: column;
-    }
+      height: 120px;
+      justify-content: center;
 
-    a,
-    a:active,
-    a:hover,
-    a:link,
-    a:visited {
-      color: $black;
-    }
-  }
+      p {
+        @include font-size(14px);
+        @include line-height(14px, 17px);
+        color: white;
+        margin-bottom: 0;
+        max-width: 200px;
+        padding-top: 1rem;
+      }
 
-  .mm-navbar {
-    height: 50px;
-
-    @media screen and (min-width: $for-tablet-portrait-up) {
-      height: 90px;
-    }
-  }
-
-  .mm-panel_has-navbar {
-    padding-top: 50px;
-
-    @media screen and (min-width: $for-tablet-portrait-up) {
-      padding-top: 90px;
-    }
-  }
-
-  .mm-navbar__title {
-    font-size: 1.313rem;
-    padding: 20px 0;
-    text-align: left;
-
-    @media screen and (min-width: $for-tablet-portrait-up) {
-      font-size: 1.75rem;
-      padding: 35px 0;
-      text-transform: uppercase;
-    }
-  }
-
-  .text-united-languages {
-    @media (min-width: 768px) {
-      top: 25px;
-    }
-  }
-
-  .mm-panel,
-  .mm-panels,
-  .mm-navbar {
-    background-color: #041B26;
-    border-color: transparent;
-    color: #FFFFFF;
-    --mm-color-background: #041B26;
-    --mm-color-background-emphasis: #131313;
-    --mm-color-border: transparent;
-    --mm-color-text: #FFFFFF;
-    --mm-color-text-dimmed: #FFFFFF;
-    --mm-navbar-size: 59px;
-
-    @media screen and (min-width: $for-tablet-portrait-up) {
-      --mm-navbar-size: 86px;
-    }
-  }
-
-  .mm-listview {
-    font-size: 1.188rem;
-    position: relative;
-
-    &::after {
-      background-color: $gray-darker;
-      content: "";
-      display: block;
-      height: 100%;
-      left: 45px;
-      position: absolute;
-      top: 0;
-      width: 1px;
-    }
-
-    .mm-listitem__text {
-      padding-left: 55px;
-
-      &::before {
-        margin-left: -39px;
-        margin-right: 20px;
+      .logo--text {
+        color: $white;
       }
     }
-  }
-}
 
+    .mm-panels {
+      top: 120px;
 
-.mm-wrapper__blocker {
-  &.mm-slideout {
-    background-color: $mobile-slideout-background;
-  }
-}
+      .mm-panel {
+        padding: 0;
+        background: $white;
 
-.mm-wrapper_opening {
-  .menu-toggle.menu-toggle--close {
-    &::before {
-      content: '\f00d';
+        >.mm-listview:first-child {
+          margin-top: 0;
+        }
+      }
+
+      .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu-item {
+        margin: 0;
+        padding: 0;
+
+        .mm-listitem__text {
+          width: 80%;
+
+          &.is-active {
+            &+.mm-listitem__btn {
+              background-color: $gray-lighter;
+            }
+          }
+        }
+
+        .mm-listitem__btn {
+          width: 20%;
+          border: 0 none;
+          background-color: transparent;
+        }
+
+        &.mm-listitem_opened .mm-btn_next:after {
+          right: 21px;
+          top: -8px;
+        }
+
+        > span,
+        > a {
+          @include font-size(14px);
+          @include line-height(14px, 17px);
+          color: $black;
+          display: block;
+          padding: 0.75rem 1rem;
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            text-decoration: underline $blue;
+          }
+
+          &.is-active {
+            background-color: $gray-lighter;
+
+            &:hover,
+            &:focus {
+              text-decoration: none;
+            }
+          }
+        }
+
+        &--lvl-0 {
+          > span,
+          > a {
+            @include font-size(18px);
+            @include line-height(18px, 18px);
+            font-weight: bold;
+          }
+        }
+
+        &--lvl-1 {
+          > span,
+          > a {
+            text-transform: uppercase;
+          }
+        }
+      }
     }
-  }
-}
-
-.mm-menu_opened {
-  .menu-toggle.menu-toggle--close {
-    display: block;
   }
 }

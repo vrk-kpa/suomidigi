@@ -52,15 +52,15 @@
 <div id="page" class="page-wrapper">
   <div class="sticky-main">
     {% if page.header or page.navigation %}
-      <header id="header" class="page-header" role="banner">
+      <header id="header" class="page-header mh-head Sticky" role="banner">
         {% if page.header %}
           <div class="container page-header__container">
             {{ page.header }}
-            <a href="#block-menu-mobile" aria-label="{{ 'Menu'|t }}" class="menu-toggle">
+            <a href="#menu--mobile" aria-label="{{ 'Open menu'|t }}" class="menu-button menu-button--open">
               {% if icons_path %}
                 <svg class="icon">
-                  <title>{{ 'Menu'|t }}</title>
-                  <use xlink:href="{{ icons_path|trim }}#burger" />
+                  <title>{{ 'Open menu'|t }}</title>
+                  <use xlink:href="{{ icons_path|trim }}#menu" />
                 </svg>
               {% else %}
                 {{ 'Menu'|t }}
@@ -69,14 +69,6 @@
           </div>
         {% endif %}
       </header>
-    {% endif %}
-
-    {% if page.mobile_navigation %}
-      <div id="mobile_navigation" class="page-mobile_navigation">
-        <div class="container page-mobile_navigation__container">
-          {{ page.mobile_navigation }}
-        </div>
-      </div>
     {% endif %}
 
     {% if page.messages %}
@@ -128,3 +120,10 @@
   </footer>
 </div>
 
+{% if page.mobile_navigation %}
+  <div id="mobile_navigation" class="page-mobile_navigation">
+    <div class="container page-mobile_navigation__container">
+      {{ page.mobile_navigation }}
+    </div>
+  </div>
+{% endif %}
