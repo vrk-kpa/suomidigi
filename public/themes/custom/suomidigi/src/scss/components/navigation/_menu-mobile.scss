@@ -60,7 +60,7 @@ html {
         padding: 0;
 
         .mm-listitem__text {
-          width: 80%;
+          width: 60%;
 
           &.is-active {
             &+.mm-listitem__btn {
@@ -70,7 +70,7 @@ html {
         }
 
         .mm-listitem__btn {
-          width: 20%;
+          width: 40%;
           border: 0 none;
           background-color: transparent;
         }
