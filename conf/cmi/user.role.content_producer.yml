@@ -7,6 +7,7 @@ label: 'Content producer'
 weight: -8
 is_admin: null
 permissions:
+  - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
@@ -22,6 +23,7 @@ permissions:
   - 'access user profiles'
   - 'administer menu'
   - 'administer nodes'
+  - 'administer taxonomy'
   - 'administer url aliases'
   - 'change own username'
   - 'create article content'
@@ -87,4 +89,5 @@ permissions:
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view page revisions'
+  - 'view the administration theme'
   - 'view unpublished paragraphs'
