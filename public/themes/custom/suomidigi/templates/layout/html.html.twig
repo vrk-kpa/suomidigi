@@ -56,6 +56,16 @@
     <a href="#main-content" class="visually-hidden focusable skip-link">
       {{ 'Skip to main content'|t }}
     </a>
+    <button onclick="Drupal.behaviors.mmenu.close()" aria-label="{{ 'Close menu'|t }}" class="menu-button menu-button--close">
+      {% if icons_path %}
+        <svg class="icon">
+          <title>{{ 'Close menu'|t }}</title>
+          <use xlink:href="{{ icons_path|trim }}#close" />
+        </svg>
+      {% else %}
+        {{ 'Menu'|t }}
+      {% endif %}
+    </button>
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}

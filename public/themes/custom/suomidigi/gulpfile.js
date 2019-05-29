@@ -190,13 +190,7 @@ gulp.task("prod", done => {
 // -------------------------------------
 gulp.task(
   "development",
-  gulp.series(
-    "dev",
-    cleandist,
-    compileSASS,
-    copyFonts,
-    copyScripts
-  ),
+  gulp.series("dev", cleandist, compileSASS, copyFonts, copyScripts),
   done => {
     done();
   }
@@ -232,7 +226,7 @@ const svgSprite = require("gulp-svg-sprite");
 const plumber = require("gulp-plumber");
 const filenames = require("gulp-filenames-to-json");
 
-const svgBaseDir = "icons/src";
+const svgBaseDir = "icons/svg";
 const svgGlob = "**/*.svg";
 const svgOutDir = "icons";
 
@@ -257,6 +251,7 @@ const svgSpriteConfig = {
           dest: "icons.scss"
         }
       },
+      example: true,
       dest: "./",
       prefix: ".icon--%s",
       sprite: "icons.svg"
@@ -268,6 +263,34 @@ const svgSpriteConfig = {
   }
 };
 
+// ---------------------------------
+// Copy Suomi.fi icons to icons src.
+// ---------------------------------
+function copySuomiFiIcons() {
+  return gulp
+    .src(`${svgOutDir}/suomifi-icons/src/icons/**/*`)
+    .pipe(rename((opt) => {
+        opt.basename = opt.basename.replace(/^icon-/, "");
+        return opt;
+      })
+    )
+    .pipe(gulp.dest(`${svgOutDir}/src/`));
+}
+
+// ----------------------------------------
+// Copy Suomi.fi static icons to icons src.
+// ----------------------------------------
+function copySuomiFiStaticIcons() {
+  return gulp
+    .src(`${svgOutDir}/suomifi-icons/src/staticIcons/**/*`)
+    .pipe(rename((opt) => {
+        opt.basename = opt.basename.replace(/^icon-/, "");
+        return opt;
+      })
+    )
+    .pipe(gulp.dest(`${svgOutDir}/src/`));
+}
+
 // ----------------------------------
 // Save SVG filenames to a JSON file.
 // ----------------------------------
@@ -275,9 +298,8 @@ gulp.task("svgNamesToJson", () => {
   const filename = {
     fileName: "icons.json"
   };
-  const svgSrc = `${svgBaseDir}/*.svg`;
   return gulp
-    .src(svgSrc)
+    .src(svgGlob, { cwd: svgBaseDir })
     .pipe(plumber())
     .pipe(filenames(filename))
     .pipe(gulp.dest(svgOutDir));
@@ -296,14 +318,19 @@ function cleanSVGSprite() {
 // ----------------
 gulp.task(
   "svgSprite",
-  gulp.series(cleanSVGSprite, "svgNamesToJson", () =>
-    gulp
-      .src(svgGlob, { cwd: svgBaseDir })
-      .pipe(plumber())
-      .pipe(svgSprite(svgSpriteConfig))
-      .on("error", error => {
-        console.log(error);
-      })
-      .pipe(gulp.dest(svgOutDir))
+  gulp.series(
+    cleanSVGSprite,
+    copySuomiFiIcons,
+    copySuomiFiStaticIcons,
+    "svgNamesToJson",
+    () =>
+      gulp
+        .src(svgGlob, { cwd: svgBaseDir })
+        .pipe(plumber())
+        .pipe(svgSprite(svgSpriteConfig))
+        .on("error", error => {
+          console.log(error);
+        })
+        .pipe(gulp.dest(svgOutDir))
   )
 );

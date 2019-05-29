@@ -5,6 +5,8 @@ npm-debug.log
 
 # Distribution folder
 dist
+icons/suomifi-icons
+icons/sprite.symbol.html
 
 # Other
 .DS_Store

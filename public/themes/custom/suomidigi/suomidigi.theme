@@ -51,6 +51,15 @@ function suomidigi_preprocess_menu(&$variables) {
       }
     }
   }
+
+  if (
+    isset($variables['attributes']['block_id']) &&
+    $variables['attributes']['block_id'] == 'menu_mobile'
+  ) {
+    $site_config = \Drupal::config('system.site');
+    $variables['#attached']['drupalSettings']['siteSlogan'] = $site_config->get('slogan');
+    $variables['#attached']['drupalSettings']['siteName'] = $site_config->get('name');
+  }
 }
 
 /**
