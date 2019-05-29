@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.field_paragraphs
     - field.field.node.landing_page.field_slogan
     - node.type.landing_page
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.landing_page.default
@@ -13,13 +15,23 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
+  field_paragraphs:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
   field_slogan:
     weight: 0
     label: hidden
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
     type: text_default
     region: content
 hidden:
   langcode: true
   links: true
+  published_at: true

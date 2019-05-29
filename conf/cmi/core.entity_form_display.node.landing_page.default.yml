@@ -3,10 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.field_paragraphs
     - field.field.node.landing_page.field_slogan
     - node.type.landing_page
   module:
+    - paragraphs
     - path
+    - publication_date
     - text
 id: node.landing_page.default
 targetEntityType: node
@@ -17,14 +20,26 @@ content:
     type: datetime_timestamp
     weight: 10
     region: content
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
+  field_paragraphs:
+    weight: 122
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
   field_slogan:
     weight: 121
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {}
+    third_party_settings: {  }
     type: text_textarea
     region: content
   langcode:
@@ -33,34 +48,40 @@ content:
     region: content
     settings:
       include_locked: true
-    third_party_settings: {}
+    third_party_settings: {  }
   path:
     type: path
     weight: 30
     region: content
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 15
     region: content
-    third_party_settings: {}
+    third_party_settings: {  }
+  published_at:
+    type: publication_date_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 120
     region: content
-    third_party_settings: {}
+    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 16
     region: content
-    third_party_settings: {}
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: -5
@@ -68,12 +89,12 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {}
+    third_party_settings: {  }
   translation:
     weight: 10
-    settings: {}
-    third_party_settings: {}
     region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 5
@@ -82,5 +103,5 @@ content:
       size: 60
       placeholder: ''
     region: content
-    third_party_settings: {}
-hidden: {}
+    third_party_settings: {  }
+hidden: {  }

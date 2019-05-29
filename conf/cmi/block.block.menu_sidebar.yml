@@ -28,4 +28,4 @@ settings:
   expand_all_items: 0
   show_siblings_of_the_initial_menu_item: 1
   show_the_initial_menu_item: 1
-visibility: {}
+visibility: {  }
