@@ -28,5 +28,13 @@
         fill: white;
       }
     }
+
+    .toolbar-vertical &,
+    .toolbar-vertical.toolbar-tray-open &,
+    .toolbar-fixed &,
+    .toolbar-fixed.toolbar-horizontal & {
+      right: $gutter * 2 !important;
+      top: 55px !important;
+    }
   }
 }
