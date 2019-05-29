@@ -1,0 +1,15 @@
+uuid: 6ba0e2b1-fc10-4e39-880f-2945ffc115da
+langcode: en
+status: true
+dependencies:
+  module:
+    - media_entity_soundcloud
+id: podcast
+label: Podcast
+description: ''
+source: soundcloud
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_soundcloud
+field_map: {  }
