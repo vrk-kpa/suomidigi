@@ -89,6 +89,8 @@
     </h3>
   {% endif %}
   <div class="landing-page__content">
-    {# PUT FUTURE PARAGRAPH RENDER HERE! #}
+    {% if content.field_paragraphs|render %}
+      {{ content.field_paragraphs }}
+    {% endif %}
   </div>
 </article>
