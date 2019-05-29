@@ -1,0 +1,35 @@
+uuid: 8fda7625-dfff-4bd2-be2f-8584ddc2729f
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.article_full_header_image_large
+    - image.style.article_full_header_image_medium
+    - image.style.article_full_header_image_small
+  theme:
+    - suomidigi
+id: article_full_header
+label: 'Article Full Header'
+image_style_mappings:
+  -
+    breakpoint_id: suomidigi.for_desktop_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_full_header_image_large
+  -
+    breakpoint_id: suomidigi.for_tablet_landscape_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_full_header_image_large
+  -
+    breakpoint_id: suomidigi.for_tablet_portrait_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_full_header_image_medium
+  -
+    breakpoint_id: suomidigi.for_phone_only
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_full_header_image_small
+breakpoint_group: suomidigi
+fallback_image_style: article_full_header_image_small

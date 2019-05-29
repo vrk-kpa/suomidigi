@@ -4,10 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.rss
-    - field.field.node.article.body
-    - field.field.node.article.comment
-    - field.field.node.article.field_image
-    - field.field.node.article.field_tags
     - node.type.article
   module:
     - user
@@ -22,8 +18,13 @@ content:
     weight: 100
     region: content
 hidden:
-  body: true
-  comment: true
-  field_image: true
-  field_tags: true
+  field_article_type: true
+  field_displayed_author: true
+  field_displayed_update_time: true
+  field_header_image: true
+  field_ingress: true
+  field_paragraphs: true
+  field_reading_time: true
+  field_theme: true
   langcode: true
+  published_at: true

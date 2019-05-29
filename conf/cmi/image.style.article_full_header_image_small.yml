@@ -1,0 +1,17 @@
+uuid: 5119c756-0942-4c28-9966-1ee6213ec250
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: article_full_header_image_small
+label: 'Article Full Header Image Small'
+effects:
+  35858a93-7741-4e7a-8aa8-79ef36546c3a:
+    uuid: 35858a93-7741-4e7a-8aa8-79ef36546c3a
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 286
+      crop_type: focal_point

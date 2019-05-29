@@ -1,0 +1,6 @@
+display_configuration:
+  link_text: 'Valitse tiedosto'
+widgets:
+  552cfb05-063f-47a9-81d1-e1260fc8a402:
+    settings:
+      submit_text: 'Valitse tiedosto'

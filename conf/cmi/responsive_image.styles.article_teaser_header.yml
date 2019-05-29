@@ -1,0 +1,29 @@
+uuid: 9df63dc2-dd03-4c9c-a735-e9d9d8c07c7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.article_teaser_header_image_large
+    - image.style.article_teaser_header_image_small
+  theme:
+    - suomidigi
+id: article_teaser_header
+label: 'Article Teaser Header'
+image_style_mappings:
+  -
+    breakpoint_id: suomidigi.for_desktop_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_teaser_header_image_large
+  -
+    breakpoint_id: suomidigi.for_tablet_landscape_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_teaser_header_image_large
+  -
+    breakpoint_id: suomidigi.for_tablet_portrait_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_teaser_header_image_small
+breakpoint_group: suomidigi
+fallback_image_style: article_teaser_header_image_small
