@@ -9,6 +9,11 @@ html {
     [class*=mm-menu_pagedim].mm-menu_opened~.mm-wrapper__blocker {
       opacity: .7;
     }
+
+    [class*=mm-menu_pagedim].mm-menu_opened~.menu-button--close {
+      opacity: 1;
+      transition: opacity .4s ease .4s;
+    }
   }
 
   &.mm-wrapper_opened {

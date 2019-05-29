@@ -1,0 +1,18 @@
+uuid: 22fddf08-9c7e-4c3b-a538-1957bf6589e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Landing page'
+type: landing_page
+description: 'Use landing pages for your main navigation link page.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
