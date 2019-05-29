@@ -1,0 +1,36 @@
+uuid: f673ec9a-dcdf-48e6-be99-f7f3d786f07f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.podcast.field_media_soundcloud
+    - media.type.podcast
+  module:
+    - media_entity_soundcloud
+id: media.podcast.default
+targetEntityType: media
+bundle: podcast
+mode: default
+content:
+  field_media_soundcloud:
+    weight: 0
+    label: hidden
+    settings:
+      type: visual
+      width: 100%
+      height: '150'
+      options:
+        hide_related: hide_related
+        auto_play: '0'
+        show_comments: '0'
+        show_user: '0'
+        show_reposts: '0'
+    third_party_settings: {  }
+    type: soundcloud_embed
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

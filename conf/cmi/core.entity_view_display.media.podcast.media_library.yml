@@ -1,0 +1,30 @@
+uuid: 57e06687-4c30-4c8a-a1fd-c31c46a14491
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.podcast.field_media_soundcloud
+    - media.type.podcast
+  module:
+    - image
+id: media.podcast.media_library
+targetEntityType: media
+bundle: podcast
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_soundcloud: true
+  langcode: true
+  name: true
+  uid: true
