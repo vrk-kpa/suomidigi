@@ -1,0 +1,8 @@
+uuid: 25d7c9a0-0981-4298-a0fc-181bc8770a81
+langcode: en
+status: true
+dependencies: {  }
+name: Theme
+vid: theme
+description: 'The theme category for content'
+weight: 0

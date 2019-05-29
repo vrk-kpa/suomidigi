@@ -1,0 +1,10 @@
+uuid: be8e0ecb-a2c0-4530-9a30-23899950626b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.article_full_header
+label: 'Article Full Header'
+targetEntityType: media
+cache: true

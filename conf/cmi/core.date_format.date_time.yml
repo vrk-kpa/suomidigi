@@ -1,0 +1,8 @@
+uuid: 7d3adb9b-2fe9-4688-9e74-a8b81fb96642
+langcode: en
+status: true
+dependencies: {  }
+id: date_time
+label: 'Date - Time'
+locked: false
+pattern: 'j.n.Y - H:i'

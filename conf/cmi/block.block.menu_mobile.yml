@@ -25,6 +25,6 @@ settings:
     default: '0'
   level: 1
   depth: 0
-  expand_all_items: 0
+  expand_all_items: 1
   show_siblings_of_the_initial_menu_item: 0
 visibility: {  }

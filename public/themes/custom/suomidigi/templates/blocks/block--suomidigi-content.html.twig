@@ -25,15 +25,13 @@
  * @see template_preprocess_block()
  */
 #}
-{% embed "@suomidigi/misc/container.twig" with {container_element: 'title'} %}
-  {% block container_content %}
-    {{ title_prefix }}
-    {% if label %}
-      <h2{{ title_attributes }}>{{ label }}</h2>
-    {% endif %}
-    {{ title_suffix }}
-    {% block content %}
-      {{ content }}
-    {% endblock %}
-  {% endblock container_content %}
-{% endembed %}
+{% block container_content %}
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+{% endblock container_content %}

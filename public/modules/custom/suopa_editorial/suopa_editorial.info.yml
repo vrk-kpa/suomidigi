@@ -1,0 +1,5 @@
+name: 'SuoPa - Editorial'
+type: module
+description: 'Editorial enhancements for Suomidigi.fi'
+core: 8.x
+package: 'SuoPa'

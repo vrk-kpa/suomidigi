@@ -1,0 +1,17 @@
+uuid: 767d86e2-b024-46fd-8409-c3b3a4a9f416
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: article_teaser_header_image_large
+label: 'Article Teaser Header Image Large'
+effects:
+  69a3ff88-739a-4fb6-a269-fad9f9ae4a89:
+    uuid: 69a3ff88-739a-4fb6-a269-fad9f9ae4a89
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 286
+      crop_type: focal_point

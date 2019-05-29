@@ -1,0 +1,8 @@
+uuid: a503491d-3ad6-4f82-9d9a-d8c2db3c5b04
+langcode: en
+status: true
+dependencies: {  }
+name: 'Article type'
+vid: article_type
+description: 'The sub-content type of the Article'
+weight: 0

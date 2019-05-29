@@ -1,0 +1,17 @@
+uuid: ff685a1c-148d-46dc-92b4-09ab6deaf9ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: article_full_header_image_medium
+label: 'Article Full Header Image Medium'
+effects:
+  36390604-338b-4298-9ae5-fb0e22c26132:
+    uuid: 36390604-338b-4298-9ae5-fb0e22c26132
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 381
+      crop_type: focal_point

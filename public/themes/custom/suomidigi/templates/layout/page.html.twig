@@ -52,15 +52,15 @@
 <div id="page" class="page-wrapper">
   <div class="sticky-main">
     {% if page.header or page.navigation %}
-      <header id="header" class="page-header" role="banner">
+      <header id="header" class="page-header mh-head Sticky" role="banner">
         {% if page.header %}
           <div class="container page-header__container">
             {{ page.header }}
-            <a href="#block-menu-mobile" aria-label="{{ 'Menu'|t }}" class="menu-toggle">
+            <a href="#menu--mobile" aria-label="{{ 'Open menu'|t }}" class="menu-button menu-button--open">
               {% if icons_path %}
                 <svg class="icon">
-                  <title>{{ 'Menu'|t }}</title>
-                  <use xlink:href="{{ icons_path|trim }}#burger" />
+                  <title>{{ 'Open menu'|t }}</title>
+                  <use xlink:href="{{ icons_path|trim }}#menu" />
                 </svg>
               {% else %}
                 {{ 'Menu'|t }}
@@ -71,14 +71,6 @@
       </header>
     {% endif %}
 
-    {% if page.mobile_navigation %}
-      <div id="mobile_navigation" class="page-mobile_navigation">
-        <div class="container page-mobile_navigation__container">
-          {{ page.mobile_navigation }}
-        </div>
-      </div>
-    {% endif %}
-
     {% if page.messages %}
       <div id="messages" class="page-messages">
         <div class="container page-messages__container">
@@ -87,11 +79,10 @@
       </div>
     {% endif %}
 
-    {% if page.sidebar_first or page.sidebar_second %}
-    <div class="content__wrapper container">
-    {% endif %}
+    {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
 
-      {% if page.sidebar_first %}
+    <div class="content__wrapper container">
+      {% if has_sidebar_first %}
         <aside id="sidebar-first" class="sidebar sidebar--first" role="complementary">
           {{ page.sidebar_first }}
         </aside>
@@ -105,16 +96,7 @@
           </section>
         </div>
       </main>
-
-      {% if page.sidebar_second %}
-        <aside id="sidebar-second" class="sidebar sidebar--second" role="complementary">
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
-
-    {% if page.sidebar_first or page.sidebar_second %}
     </div>
-    {% endif %}
   </div>
 
   <footer id="footer" class="page-footer" role="contentinfo">
@@ -128,3 +110,10 @@
   </footer>
 </div>
 
+{% if page.mobile_navigation %}
+  <div id="mobile_navigation" class="page-mobile_navigation">
+    <div class="container page-mobile_navigation__container">
+      {{ page.mobile_navigation }}
+    </div>
+  </div>
+{% endif %}
