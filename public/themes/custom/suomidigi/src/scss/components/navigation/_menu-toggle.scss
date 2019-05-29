@@ -20,8 +20,8 @@
       border: 0 none;
       display: block;
       position: absolute;
-      right: 4.2vw;
-      top: 4.8vh;
+      right: $gutter;
+      top: $gutter;
       z-index: 10;
 
       svg {
