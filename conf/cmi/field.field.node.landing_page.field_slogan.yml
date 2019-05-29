@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_slogan
     - node.type.landing_page
-  module:
-    - text
 id: node.landing_page.field_slogan
 field_name: field_slogan
 entity_type: node
@@ -14,8 +12,8 @@ bundle: landing_page
 label: Slogan
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string

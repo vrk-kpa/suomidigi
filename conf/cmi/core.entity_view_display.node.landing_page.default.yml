@@ -8,7 +8,6 @@ dependencies:
     - node.type.landing_page
   module:
     - entity_reference_revisions
-    - text
     - user
 id: node.landing_page.default
 targetEntityType: node
@@ -27,9 +26,10 @@ content:
   field_slogan:
     weight: 0
     label: hidden
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_default
+    type: string
     region: content
 hidden:
   langcode: true
