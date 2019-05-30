@@ -52,14 +52,14 @@
 <div id="page" class="page-wrapper">
   <div class="sticky-main">
     {% if page.header or page.navigation %}
-      <header id="header" class="page-header mh-head Sticky" role="banner">
+      <header id="header" class="page-header" role="banner">
         {% if page.header %}
           <div class="container page-header__container">
             {{ page.header }}
-            <button id="menu--mobile__button" aria-label="{{ 'Open menu'|t }}" class="menu-button menu-button--open">
+            <button id="menu-trigger" aria-label="{{ 'Open navigation'|t }}" class="menu-button menu-button--open">
               {% if icons_path %}
                 <svg class="icon">
-                  <title>{{ 'Open menu'|t }}</title>
+                  <title>{{ 'Open navigation'|t }}</title>
                   <use xlink:href="{{ icons_path|trim }}#menu" />
                 </svg>
               {% else %}

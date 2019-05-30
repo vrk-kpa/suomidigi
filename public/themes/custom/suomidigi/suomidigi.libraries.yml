@@ -17,6 +17,7 @@ global-scripting:
   version: 1.x
   js:
     dist/js/menu.mobile.min.js: {}
+    dist/js/menu.sticky.min.js: {}
   dependencies:
   - core/drupal
   - core/jquery

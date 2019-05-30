@@ -12,7 +12,7 @@
           enableEscape	 : true,
           menu: $("#menu--mobile"),
           menuClass		 : 'left-side',
-          mobyTrigger: $("#menu--mobile__button"),
+          mobyTrigger: $("#menu-trigger"),
           onClose          : false,
           onOpen           : false,
           overlay			 : true,

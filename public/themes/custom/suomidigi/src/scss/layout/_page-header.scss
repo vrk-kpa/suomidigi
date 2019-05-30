@@ -5,34 +5,21 @@
 //
 
 .page-header {
-  &,
-  &.mh-head {
-    background-color: $white;
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-
-    .toolbar-horizontal & {
-      &.mh-sticky {
-        top: 39px;
-      }
-    }
-
-    .toolbar-horizontal.toolbar-tray-open & {
-      &.mh-sticky {
-        top: 79px;
-      }
-    }
-  }
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.5s;
 
   @include breakpoint($for-tablet-portrait-up) {
-    &,
-    &.mh-head {
-      background-image: url("../../images/header_background_illustration.svg");
-      background-position: center -220px;
-      background-repeat: repeat no-repeat;
-      background-size: 1440px 435px;
-    }
+    background-image: url("../../images/header_background_illustration.svg");
+    background-position: center -220px;
+    background-repeat: repeat no-repeat;
+    background-size: 1440px 435px;
   }
 
   &__container {
@@ -49,4 +36,32 @@
       margin-right: auto;
     }
   }
+}
+
+.sticky-active {
+  transform: translateY(-100%);
+  transition-duration: 0.2s;
+  transition-property: transform;
+}
+
+.sticky-visible {
+  position: fixed;
+  top: 0;
+  transform: translateY(0) translateZ(0);
+
+  .toolbar-vertical &,
+  .toolbar-horizontal & {
+    top: 39px;
+  }
+
+  .toolbar-horizontal.toolbar-tray-open & {
+    top: 79px;
+  }
+}
+
+.sticky-hidden {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 200;
 }
