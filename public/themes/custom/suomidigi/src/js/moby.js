@@ -206,8 +206,10 @@ Moby.prototype.breakpointResize = function() {
  * @param       elem        element     The element that was clicked
  */
 Moby.prototype.mobyExpandSubMenu = function(elem) {
-
   if (!elem.hasClass('moby-submenu-open')) {
+    jQuery('.moby-menu ul.menu--is-lvl-1').slideUp(Moby.slideTransition);
+    jQuery('.moby-menu .moby-expand').removeClass('moby-submenu-open').html(this.subMenuOpenIcon);
+    elem.html(this.subMenuCloseIcon);
     elem.addClass('moby-submenu-open');
     elem.html(this.subMenuCloseIcon);
     elem.parents('li').first().find('> ul').slideDown(Moby.slideTransition);
