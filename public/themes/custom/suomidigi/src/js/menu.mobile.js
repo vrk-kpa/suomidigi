@@ -1,5 +1,5 @@
 /**
- * @file Main menu dropdown on hover.
+ * @file Mobile menu.
  */
 (function($, Drupal, drupalSettings) {
   "use strict";
