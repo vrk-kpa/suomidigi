@@ -56,7 +56,7 @@
         {% if page.header %}
           <div class="container page-header__container">
             {{ page.header }}
-            <a href="#menu--mobile" aria-label="{{ 'Open menu'|t }}" class="menu-button menu-button--open">
+            <button id="menu--mobile__button" aria-label="{{ 'Open menu'|t }}" class="menu-button menu-button--open">
               {% if icons_path %}
                 <svg class="icon">
                   <title>{{ 'Open menu'|t }}</title>
@@ -65,7 +65,7 @@
               {% else %}
                 {{ 'Menu'|t }}
               {% endif %}
-            </a>
+            </button>
           </div>
         {% endif %}
       </header>
