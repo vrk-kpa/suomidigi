@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "ansi-colors": "1.0.1",
-    "browser-sync": "^2.26.3",
     "chalk": "2.3.0",
     "fancy-log": "1.3.2",
     "gulp-sourcemaps": "^2.6.3"
