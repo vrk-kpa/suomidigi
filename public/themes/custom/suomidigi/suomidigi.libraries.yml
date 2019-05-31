@@ -1,12 +1,8 @@
-mmenu:
-  version: 7.2.2
-  css:
-    theme:
-      node_modules/jquery.mhead/dist/jquery.mhead.css: {}
-      node_modules/jquery.mmenu/dist/jquery.mmenu.all.css: {}
+# Moby.js Fixed for D8.
+# Original: https://github.com/joshsanger/moby.js
+moby:
   js:
-    node_modules/jquery.mhead/dist/jquery.mhead.js: {}
-    node_modules/jquery.mmenu/dist/jquery.mmenu.all.js: {}
+    dist/js/moby.min.js: {}
 
 global-styling:
   version: 1.x
@@ -20,6 +16,7 @@ global-scripting:
   js:
     dist/js/menu.mobile.min.js: {}
   dependencies:
-  - core/drupal
-  - core/jquery
-  - suomidigi/mmenu
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - suomidigi/moby

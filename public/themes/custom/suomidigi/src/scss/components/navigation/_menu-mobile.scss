@@ -3,128 +3,104 @@
 //
 // This file includes everything related to the main menu styles and mmenu overrides.
 //
+.page-header__mobile {
+  align-items: center;
+  background-image: url("../../images/header_background_illustration.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 134px;
+  justify-content: center;
 
-html {
-  &.mm-wrapper_opening {
-    [class*=mm-menu_pagedim].mm-menu_opened~.mm-wrapper__blocker {
-      opacity: .7;
+  p {
+    @include font-size(14px);
+    @include line-height(14px, 16px);
+    color: white;
+    margin-bottom: 0;
+    max-width: 200px;
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .logo--text {
+    @include font-size(22px);
+    color: $white;
+
+    &:hover {
+      text-decoration: none;
     }
+  }
+}
 
-    [class*=mm-menu_pagedim].mm-menu_opened~.menu-button--close {
-      opacity: 1;
-      transition: opacity .4s ease .4s;
+.moby-body-fixed {
+  .moby-overlay {
+    &.dark {
+      background: rgba(0, 0, 0, 0.6);
     }
   }
 
-  &.mm-wrapper_opened {
-    .page-header__mobile {
-      align-items: center;
-      background-image: url("../../images/header_background_illustration.svg");
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: 100vw auto;
-      display: flex;
-      flex-direction: column;
-      height: 120px;
-      justify-content: center;
+  .moby.left-side {
+    width: 85%;
+  }
 
-      p {
-        @include font-size(14px);
-        @include line-height(14px, 17px);
-        color: white;
-        margin-bottom: 0;
-        max-width: 200px;
-        padding-top: 1rem;
-      }
-
-      .logo--text {
-        color: $white;
-      }
+  .moby-menu {
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
-    .mm-panels {
-      top: 120px;
+    .menu-item {
+      margin: 0;
+      padding: 0;
 
-      .mm-panel {
-        padding: 0;
-        background: $white;
+      > span,
+      > a {
+        @include font-size(14px);
+        @include line-height(14px, 17px);
+        color: $black;
+        display: block;
+        padding: 0.75rem 1rem;
+        text-decoration: none;
 
-        >.mm-listview:first-child {
-          margin-top: 0;
-        }
-      }
-
-      .menu {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .menu-item {
-        margin: 0;
-        padding: 0;
-
-        .mm-listitem__text {
-          width: 60%;
-
-          &.is-active {
-            &+.mm-listitem__btn {
-              background-color: $gray-lighter;
-            }
-          }
+        &:hover,
+        &:focus {
+          text-decoration: underline $blue;
         }
 
-        .mm-listitem__btn {
-          width: 40%;
-          border: 0 none;
-          background-color: transparent;
-        }
-
-        &.mm-listitem_opened .mm-btn_next:after {
-          right: 21px;
-          top: -8px;
-        }
-
-        > span,
-        > a {
-          @include font-size(14px);
-          @include line-height(14px, 17px);
-          color: $black;
-          display: block;
-          padding: 0.75rem 1rem;
-          text-decoration: none;
+        &.is-active {
+          background-color: $gray-lighter;
 
           &:hover,
           &:focus {
-            text-decoration: underline $blue;
-          }
-
-          &.is-active {
-            background-color: $gray-lighter;
-
-            &:hover,
-            &:focus {
-              text-decoration: none;
-            }
-          }
-        }
-
-        &--lvl-0 {
-          > span,
-          > a {
-            @include font-size(18px);
-            @include line-height(18px, 18px);
-            font-weight: bold;
-          }
-        }
-
-        &--lvl-1 {
-          > span,
-          > a {
-            text-transform: uppercase;
+            text-decoration: none;
           }
         }
       }
+
+      &--lvl-0 {
+        > span,
+        > a {
+          @include font-size(18px);
+          @include line-height(18px, 18px);
+          font-weight: bold;
+        }
+      }
+
+      &--lvl-1 {
+        > span,
+        > a {
+          text-transform: uppercase;
+        }
+      }
     }
+  }
+}
+
+.moby-expand {
+  svg {
+    height: 1.3rem;
   }
 }
