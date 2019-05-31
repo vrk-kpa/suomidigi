@@ -1,4 +1,4 @@
-uuid: 582219a3-a95e-42dc-adc9-2499283c6e28
+uuid: b0bba912-0bf6-4626-88d7-47eb4c47b9cb
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,10 @@ dependencies:
     - views.view.media_entity_browser
   module:
     - dropzonejs_eb_widget
-    - entity_browser_entity_form
     - media
     - views
-name: media_browser
-label: 'Media Browser'
+name: media_image_browser
+label: 'Media Image Browser'
 display: modal
 display_configuration:
   width: '1000'
@@ -23,24 +22,24 @@ selection_display_configuration: {  }
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
-  c4ee464d-ac54-4aff-83dc-1979753d953d:
+  eeb7cc8f-0dbc-4bcc-91f6-357ad47bd2ca:
     settings:
       view: media_entity_browser
-      view_display: media_browser_all
+      view_display: entity_browser_1
       submit_text: 'Select entities'
       auto_select: false
-    uuid: c4ee464d-ac54-4aff-83dc-1979753d953d
+    uuid: eeb7cc8f-0dbc-4bcc-91f6-357ad47bd2ca
     weight: 1
     label: 'Existing content'
     id: view
-  b5f2fd7d-1c42-4a4e-83a5-8277154381d3:
+  b744f00d-36d5-47de-97b5-306fd36f443c:
     settings:
       form_mode: default
       media_type: image
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop files here to upload them'
       max_filesize: 64M
-      extensions: 'jpg jpeg gif png svg'
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
       clientside_resize: false
       resize_width: null
       resize_height: null
@@ -48,27 +47,7 @@ widgets:
       resize_method: contain
       thumbnail_method: contain
       submit_text: 'Select entities'
-    uuid: b5f2fd7d-1c42-4a4e-83a5-8277154381d3
+    uuid: b744f00d-36d5-47de-97b5-306fd36f443c
     weight: 2
     label: 'Add Image'
     id: dropzonejs_media_entity_inline_entity_form
-  c03fddad-2718-4c75-8ccc-e050a66e04f9:
-    settings:
-      entity_type: media
-      bundle: video
-      form_mode: default
-      submit_text: 'Save entity'
-    uuid: c03fddad-2718-4c75-8ccc-e050a66e04f9
-    weight: 3
-    label: 'Add Video'
-    id: entity_form
-  881f705e-e708-47a2-87f7-e565df3b9aa1:
-    settings:
-      entity_type: media
-      bundle: podcast
-      form_mode: default
-      submit_text: 'Save entity'
-    uuid: 881f705e-e708-47a2-87f7-e565df3b9aa1
-    weight: 4
-    label: 'Add Podcast'
-    id: entity_form

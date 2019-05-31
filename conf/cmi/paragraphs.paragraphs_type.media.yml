@@ -1,0 +1,9 @@
+uuid: 7f9c4b46-e628-42ed-9d90-b950e5a39c78
+langcode: en
+status: true
+dependencies: {  }
+id: media
+label: Media
+icon_uuid: null
+description: 'Use this type if you want to create a media paragraph.'
+behavior_plugins: {  }
