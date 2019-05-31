@@ -24,6 +24,7 @@ function suomidigi_preprocess_html(&$variables) {
  */
 function suomidigi_preprocess(&$variables) {
   $variables['icons_path'] = suomidigi_get_icons_path();
+  $variables['#attached']['drupalSettings']['iconsPath'] = $variables['icons_path'];
 }
 
 /**
