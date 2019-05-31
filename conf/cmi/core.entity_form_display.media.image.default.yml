@@ -35,5 +35,6 @@ hidden:
   created: true
   langcode: true
   path: true
+  revision_log_message: true
   status: true
   uid: true

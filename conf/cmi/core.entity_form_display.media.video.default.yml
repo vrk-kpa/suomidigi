@@ -32,4 +32,5 @@ hidden:
   langcode: true
   name: true
   path: true
+  revision_log_message: true
   uid: true

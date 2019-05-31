@@ -22,6 +22,7 @@
         "drupal/dropzonejs": "^2.0-alpha4",
         "drupal/entity_browser": "^2.1",
         "drupal/focal_point": "^1.0",
+        "drupal/hide_revision_field": "^2.1",
         "drupal/high_contrast": "^1.0",
         "drupal/inline_entity_form": "^1.0",
         "drupal/inline_responsive_images": "^2.1",
