@@ -24,14 +24,19 @@
     display: none;
     opacity: 0;
 
+    .menu-button--close {
+      transition: opacity .4s ease .4s;
+    }
+
     .moby-body-fixed & {
       display: block;
       fill: white;
+      opacity: 1;
+      padding: 5px;
       position: absolute;
-      right: $gutter;
+      right: calc(15%/2 - 20px);
       top: $gutter;
       z-index: 2001;
-      padding: 5px;
 
       svg {
         fill: white;
@@ -42,7 +47,6 @@
     .moby-body-fixed.toolbar-fixed &,
     .moby-body-fixed.toolbar-fixed.toolbar-horizontal & {
       top: 50px;
-      right: calc(15%/2 - 20px);
     }
   }
 }

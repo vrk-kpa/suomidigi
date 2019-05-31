@@ -35,14 +35,9 @@
 }
 
 .moby-body-fixed {
-  .menu-button--close {
-    opacity: 1;
-    transition: opacity .4s ease .4s;
-  }
-
   .moby-overlay {
     &.dark {
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.6);
     }
   }
 
