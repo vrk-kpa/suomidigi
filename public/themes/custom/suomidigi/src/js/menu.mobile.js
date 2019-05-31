@@ -39,6 +39,8 @@
             menuClass: 'left-side',
             mobyTrigger: $("#menu-trigger"),
             onOpen: function () {
+              $('.moby-menu ul.menu--is-lvl-1').slideUp(Moby.slideTransition);
+              $('.moby-menu .moby-expand').removeClass('moby-submenu-open').html(this.subMenuOpenIcon);
               $('.moby-menu ul > li.menu-item--active-trail > ul').slideDown(Moby.slideTransition);
               $('.moby-menu ul > li.menu-item--active-trail .moby-expand').addClass('moby-submenu-open').html(this.subMenuCloseIcon);
             },
