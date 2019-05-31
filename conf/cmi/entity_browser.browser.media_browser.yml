@@ -7,6 +7,7 @@ dependencies:
     - views.view.media_entity_browser
   module:
     - dropzonejs_eb_widget
+    - entity_browser_entity_form
     - media
     - views
 name: media_browser
@@ -51,3 +52,23 @@ widgets:
     weight: 2
     label: 'Add Image'
     id: dropzonejs_media_entity_inline_entity_form
+  c03fddad-2718-4c75-8ccc-e050a66e04f9:
+    settings:
+      entity_type: media
+      bundle: video
+      form_mode: default
+      submit_text: 'Save entity'
+    uuid: c03fddad-2718-4c75-8ccc-e050a66e04f9
+    weight: 3
+    label: 'Add Video'
+    id: entity_form
+  881f705e-e708-47a2-87f7-e565df3b9aa1:
+    settings:
+      entity_type: media
+      bundle: podcast
+      form_mode: default
+      submit_text: 'Save entity'
+    uuid: 881f705e-e708-47a2-87f7-e565df3b9aa1
+    weight: 4
+    label: 'Add Podcast'
+    id: entity_form

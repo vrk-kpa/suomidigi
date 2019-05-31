@@ -1,0 +1,32 @@
+uuid: 3b91cd87-28d3-4fc9-b651-9303e39e3d4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_media
+    - media.type.image
+    - media.type.podcast
+    - media.type.video
+    - paragraphs.paragraphs_type.media
+id: paragraph.media.field_p_media
+field_name: field_p_media
+entity_type: paragraph
+bundle: media
+label: Media
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      podcast: podcast
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference
