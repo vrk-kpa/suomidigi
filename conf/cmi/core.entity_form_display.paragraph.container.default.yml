@@ -1,0 +1,29 @@
+uuid: cca3bbc3-ba1b-49b3-ab59-78314572d8c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.container.field_p_content
+    - paragraphs.paragraphs_type.container
+  module:
+    - paragraphs
+id: paragraph.container.default
+targetEntityType: paragraph
+bundle: container
+mode: default
+content:
+  field_p_content:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {}
+    region: content
+hidden:
+  created: true
+  status: true
