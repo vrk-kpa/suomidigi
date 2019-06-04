@@ -1,0 +1,16 @@
+.paragraph--container {
+  .paragraph {
+    &:last-child {
+      width: 100%;
+      float: none;
+    }
+  }
+
+  .paragraph--media {
+    @include breakpoint($for-tablet-portrait-up) {
+      float: left;
+      width: calc(100% / 2 - #{$gutter});
+      margin: 0 calc(#{$gutter} * 2) $gutter 0;
+    }
+  }
+}
