@@ -10,13 +10,13 @@
       const panels = containers[i].getElementsByClassName('paragraph-accordion-panel');
       if (panels.length > 0 && containers[i].id.indexOf('-item-wrapper') >= 0) {
         containers[i].parentElement.classList.add('paragraph-accordion');
-        
-        let childParagraphs = document.querySelectorAll('.paragraph-accordion .field-multiple-table');
+
+        const childParagraphs = document.querySelectorAll('.paragraph-accordion .field-multiple-table');
 
         [...childParagraphs].map(e => {
-          let test = e.querySelectorAll('td > div');
+          const childDiv = e.querySelectorAll('td > div');
 
-          [...test].map(j => {
+          [...childDiv].map(j => {
             if (j.id.indexOf('-item-wrapper') >= 0) {
               j.parentElement.classList.add('paragraph-accordion');
             }
@@ -27,14 +27,18 @@
   }
 
   function mapToPanel(e) {
-    // Only proceed if srcElement is not child of the accordion panel
-    if ($(e.target).parents('.paragraph-accordion-panel').length === 0) {
+    // Only proceed if srcElement is related to the clicked target.
+    if ($(e.target).parent().siblings('.paragraph-accordion-panel').length === 1) {
       const $paragraphButtons = $('.paragraph-accordion');
       const $paragraphPanels = $('.paragraph-accordion-panel');
 
       const index = $paragraphButtons.index(this);
 
-      // Toggle visibility of corresponding panel element
+      if (index > 0) {
+        e.stopPropagation();
+      }
+
+      // Toggle visibility of corresponding panel element.
       $paragraphPanels.eq(index).toggle();
     }
   }
