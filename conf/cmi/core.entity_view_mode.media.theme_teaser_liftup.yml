@@ -1,0 +1,10 @@
+uuid: a2047a26-35a8-4c16-95f5-0ec996faf18b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.theme_teaser_liftup
+label: 'Theme Teaser Liftup'
+targetEntityType: media
+cache: true
