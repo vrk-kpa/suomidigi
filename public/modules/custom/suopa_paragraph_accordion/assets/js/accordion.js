@@ -4,10 +4,24 @@
   function addAccordionClasses() {
     const containers = document.querySelectorAll('[id^="field-paragraphs"]');
 
+    // console.log(childParagraph);
+
     for (let i = 0; i < containers.length; i++) {
       const panels = containers[i].getElementsByClassName('paragraph-accordion-panel');
       if (panels.length > 0 && containers[i].id.indexOf('-item-wrapper') >= 0) {
         containers[i].parentElement.classList.add('paragraph-accordion');
+        
+        let childParagraphs = document.querySelectorAll('.paragraph-accordion .field-multiple-table');
+
+        [...childParagraphs].map(e => {
+          let test = e.querySelectorAll('td > div');
+
+          [...test].map(j => {
+            if (j.id.indexOf('-item-wrapper') >= 0) {
+              j.parentElement.classList.add('paragraph-accordion');
+            }
+          });
+        });
       }
     }
   }

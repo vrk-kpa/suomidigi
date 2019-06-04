@@ -26,7 +26,7 @@ function suopa_paragraph_accordion_form_alter(&$form, FormStateInterface $form_s
     
     if (array_key_exists('field_paragraphs', $form) && array_key_exists('widget', $form['field_paragraphs'])) {
       foreach ($form['field_paragraphs']['widget'] as &$item) {
-        if (is_array($item) && array_key_exists('subform', $item) && array_key_exists('#type', $item) && $item['#type'] == 'container') {
+        if (is_array($item) && array_key_exists('subform', $item) && array_key_exists('#type', $item) && $item['#type'] == 'container') {  
           array_push($item['subform']['#attributes']['class'], 'paragraph-accordion-panel');
         }
       }
