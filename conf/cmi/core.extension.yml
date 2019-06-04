@@ -57,6 +57,7 @@ module:
   search: 0
   shortcut: 0
   suopa_editorial: 0
+  suopa_paragraph_accordion: 0
   swiftmailer: 0
   system: 0
   system_status: 0

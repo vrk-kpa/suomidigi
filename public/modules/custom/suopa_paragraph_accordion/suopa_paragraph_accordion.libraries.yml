@@ -1,0 +1,8 @@
+paragraph-accordion:
+  css:
+    theme:
+      assets/css/accordion.css: {}
+  js:
+    assets/js/accordion.js: {}
+  dependencies:
+    - core/jquery
