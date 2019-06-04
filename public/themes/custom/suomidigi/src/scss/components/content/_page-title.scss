@@ -3,5 +3,12 @@
     color: $black;
     margin-top: $gutter;
     text-align: center;
+
+    &.page-title--alternative {
+      @include font-size(32px, 24px);
+      @include line-height(32px, 32px, 24px, 24px);
+      font-weight: normal;
+      text-transform: uppercase;
+    }
   }
 }

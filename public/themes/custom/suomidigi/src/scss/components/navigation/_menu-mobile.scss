@@ -104,3 +104,10 @@
     height: 1.3rem;
   }
 }
+
+@include breakpoint($for-tablet-portrait-up) {
+  .moby,
+  .moby-overlay {
+    display: none;
+  }
+}
