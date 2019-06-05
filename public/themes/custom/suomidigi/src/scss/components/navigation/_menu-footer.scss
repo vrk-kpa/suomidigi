@@ -1,0 +1,27 @@
+.menu-footer {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+}
+
+.menu-footer__item {
+  &:not(:last-child) {
+    margin-right: $gutter;
+    padding-right: $gutter;
+    border-right: 2px solid $gray-dark;
+  }
+}
+
+.menu-footer__link {
+  text-decoration: none;
+  font-weight: 600;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
