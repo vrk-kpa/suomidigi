@@ -1,0 +1,31 @@
+uuid: c49970ca-d5ad-4dd6-851d-9e43c3f7a159
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.theme_teaser_liftup
+    - field.field.media.image.field_media_image
+    - image.style.theme_teaser_liftup_image_small
+    - media.type.image
+  module:
+    - image
+id: media.image.theme_teaser_liftup
+targetEntityType: media
+bundle: image
+mode: theme_teaser_liftup
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: theme_teaser_liftup_image_small
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

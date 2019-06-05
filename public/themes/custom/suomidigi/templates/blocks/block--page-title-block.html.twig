@@ -33,7 +33,18 @@
     {% endif %}
     {{ title_suffix }}
     {% block content %}
-      {{ content }}
+      {% if content.field_liftup_image|render %}
+        <div class="theme-term__header">
+          <div class="theme-term__image">
+            {{ content.field_liftup_image|render }}
+          </div>
+          <div class="theme-term__title">
+            {{ content }}
+          </div>
+        </div>
+      {% else %}
+        {{ content }}
+      {% endif %}
     {% endblock %}
   {% endblock container_content %}
 {% endembed %}
