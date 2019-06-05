@@ -1,0 +1,5 @@
+paragraph-drag-n-drop:
+  js:
+    assets/js/paragraph_drag-n-drop.js: {}
+  dependencies:
+    - core/jquery

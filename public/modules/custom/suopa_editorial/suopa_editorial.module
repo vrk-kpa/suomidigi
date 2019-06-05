@@ -12,6 +12,7 @@
  */
 function suopa_editorial_form_alter(&$form, $form_state) {
   suopa_editorial_modify_article_publishing_info($form, $form_state);
+  $form['#attached']['library'][] = 'suopa_editorial/paragraph-drag-n-drop';
 }
 
 /**
@@ -26,7 +27,7 @@ function suopa_editorial_form_alter(&$form, $form_state) {
  */
 function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
   $allowedIds = ['node_article_edit_form', 'node_article_form'];
-  
+
   if (!in_array($form['#form_id'], $allowedIds)) {
     return;
   }
