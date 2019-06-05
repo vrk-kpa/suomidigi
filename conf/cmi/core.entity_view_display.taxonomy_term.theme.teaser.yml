@@ -1,0 +1,27 @@
+uuid: 468ba715-4dfb-4fb1-b3c4-eef55085ca8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.teaser
+    - field.field.taxonomy_term.theme.field_liftup_image
+    - field.field.taxonomy_term.theme.field_paragraphs
+    - taxonomy.vocabulary.theme
+id: taxonomy_term.theme.teaser
+targetEntityType: taxonomy_term
+bundle: theme
+mode: teaser
+content:
+  field_liftup_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: theme_teaser_liftup
+      link: false
+    third_party_settings: {  }
+hidden:
+  description: true
+  field_paragraphs: true
+  langcode: true

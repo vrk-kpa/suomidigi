@@ -1,0 +1,28 @@
+uuid: 94eb5cf3-9cd4-4a6c-a637-22e1c4e1e2d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.theme.field_liftup_image
+    - field.field.taxonomy_term.theme.field_paragraphs
+    - taxonomy.vocabulary.theme
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.theme.default
+targetEntityType: taxonomy_term
+bundle: theme
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  description: true
+  field_liftup_image: true
+  langcode: true

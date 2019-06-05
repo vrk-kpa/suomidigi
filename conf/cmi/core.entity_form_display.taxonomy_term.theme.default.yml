@@ -3,17 +3,50 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_image_browser
+    - field.field.taxonomy_term.theme.field_liftup_image
+    - field.field.taxonomy_term.theme.field_paragraphs
     - taxonomy.vocabulary.theme
   module:
+    - entity_browser
+    - hide_revision_field
+    - paragraphs
     - path
 id: taxonomy_term.theme.default
 targetEntityType: taxonomy_term
 bundle: theme
 mode: default
 content:
+  field_liftup_image:
+    type: entity_browser_entity_reference
+    weight: 1
+    settings:
+      entity_browser: media_image_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+    third_party_settings: {  }
+    region: content
+  field_paragraphs:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
   langcode:
     type: language_select
-    weight: 1
+    weight: 3
     region: content
     settings:
       include_locked: true
@@ -28,12 +61,24 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
+  revision_log_message:
+    type: hide_revision_field_log_widget
+    weight: 6
+    region: content
+    settings:
+      show: true
+      default: ''
+      permission_based: false
+      allow_user_settings: true
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   translation:
-    weight: 2
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

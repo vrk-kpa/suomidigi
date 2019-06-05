@@ -43,13 +43,13 @@ var Moby = function(options) {
   // add the overlay to the beginning of the body
   if (this.overlay === true) {
 
-    jQuery('body').prepend('<div class="moby-overlay ' + this.overlayClass + '" id="moby-overlay' + Moby.instances + '"></div>');
+    jQuery('a.skip-link').after('<div class="moby-overlay ' + this.overlayClass + '" id="moby-overlay' + Moby.instances + '"></div>');
     this.overlaySelector = jQuery('body').find('#moby-overlay' + Moby.instances);
     this.overlaySelector.on('click', this.closeMoby.bind(this));
   }
 
   // add moby markup
-  jQuery('body').prepend('<div class="moby moby-hidden ' + this.menuClass + '" id="moby' + Moby.instances + '"></div>');
+  jQuery('a.skip-link').after('<div class="moby moby-hidden ' + this.menuClass + '" id="moby' + Moby.instances + '"></div>');
   this.mobySelector = jQuery('body').find('#moby' + Moby.instances);
   this.cloneMenu();
 

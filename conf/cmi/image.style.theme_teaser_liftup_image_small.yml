@@ -1,0 +1,17 @@
+uuid: c1654689-5210-4ed2-b2ed-9216b2c443b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: theme_teaser_liftup_image_small
+label: 'Theme Teaser Liftup Image Small'
+effects:
+  3dd1da00-fc81-48b9-89b7-bd53168d33ab:
+    uuid: 3dd1da00-fc81-48b9-89b7-bd53168d33ab
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 64
+      height: 64
+      crop_type: focal_point
