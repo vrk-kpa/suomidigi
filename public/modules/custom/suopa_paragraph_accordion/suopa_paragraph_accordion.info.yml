@@ -1,5 +1,0 @@
-name: 'SuoPa - Paragraph Accordion'
-type: module
-description: 'A simple module that compresses paragraphs in the edit page into an accordion. Makes it a lot easier to manage large pieces of content'
-core: 8.x
-package: 'SuoPa'

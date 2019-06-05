@@ -49,7 +49,7 @@ function suomidigi_preprocess_block(&$variables) {
   if ($variables['plugin_id'] == 'page_title_block') {
     $term = \Drupal::request()->attributes->get('taxonomy_term');
     if (!empty($term) && $term->bundle() == 'theme') {
-      if ($term->hasField('field_liftup_image')) {
+      if ($term->hasField('field_liftup_image') && !$term->get('field_liftup_image')->isEmpty()) {
         $media_id = $term->get('field_liftup_image')->first()->getValue()['target_id'];
         $media = Media::load($media_id);
         $build = \Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');

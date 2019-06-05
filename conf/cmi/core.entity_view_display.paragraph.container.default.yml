@@ -20,7 +20,7 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings: {}
+    third_party_settings: {  }
     region: content
   field_p_reverse:
     weight: 1
@@ -29,7 +29,7 @@ content:
       format: boolean
       format_custom_true: ''
       format_custom_false: ''
-    third_party_settings: {}
+    third_party_settings: {  }
     type: boolean
     region: content
-hidden: {}
+hidden: {  }

@@ -1,9 +1,9 @@
 uuid: 167af233-cc34-4d53-aa6d-d9210cc19012
 langcode: en
 status: true
-dependencies: {}
+dependencies: {  }
 id: container
 label: 'Container 50/50'
 icon_uuid: null
 description: 'Use this type if you want to create a paragraph with content side-by-side.'
-behavior_plugins: {}
+behavior_plugins: {  }
