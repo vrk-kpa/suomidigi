@@ -33,7 +33,7 @@
         "drupal/menu_block": "^1.4",
         "drupal/menu_block_current_language": "^1.2",
         "drupal/menu_trail_by_path": "^1.1",
-        "drupal/paragraphs": "^1.8",
+        "drupal/paragraphs": "1.x-dev",
         "drupal/pathauto": "^1.0",
         "drupal/publication_date": "^2.0",
         "drupal/rabbit_hole": "^1.0",
@@ -42,7 +42,8 @@
         "drupal/twig_tweak": "^2.1",
         "drupal/video_embed_field": "^2.1",
         "drush/drush": "^9.0.0",
-        "enyo/dropzone": "5.5.0"
+        "enyo/dropzone": "5.5.0",
+        "sortablejs/sortable": "^1.8.4"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -98,6 +99,21 @@
                 "type": "git",
                 "reference": "origin/master"
               }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "sortablejs/sortable",
+                "version": "1.8.4",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "Sortable"
+                },
+                "dist": {
+                    "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
+                    "type": "zip"
+                }
             }
         }
     ],

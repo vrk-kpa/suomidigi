@@ -7,10 +7,10 @@ dependencies:
     - field.field.node.landing_page.field_slogan
     - node.type.landing_page
   module:
+    - hide_revision_field
     - paragraphs
     - path
     - publication_date
-    - text
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page
@@ -27,12 +27,19 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
-      add_mode: button
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
     third_party_settings: {  }
-    type: entity_reference_paragraphs
+    type: paragraphs
     region: content
   field_slogan:
     weight: 121
@@ -67,6 +74,18 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  revision_log:
+    type: hide_revision_field_log_widget
+    weight: 80
+    region: content
+    settings:
+      show: true
+      default: ''
+      permission_based: false
+      allow_user_settings: true
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
