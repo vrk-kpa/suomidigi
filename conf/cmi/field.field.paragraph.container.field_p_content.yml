@@ -1,0 +1,39 @@
+uuid: c5152e1a-4a38-4052-972b-4e538090e8ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_content
+    - paragraphs.paragraphs_type.container
+    - paragraphs.paragraphs_type.media
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: paragraph.container.field_p_content
+field_name: field_p_content
+entity_type: paragraph
+bundle: container
+label: Content
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      media: media
+      text: text
+    target_bundles_drag_drop:
+      container:
+        weight: 4
+        enabled: false
+      media:
+        enabled: true
+        weight: 5
+      text:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

@@ -1,0 +1,15 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set reverse = content.field_p_reverse['0']['#markup'] %}
+
+  {% if reverse is same as(1) %}
+    {% set classes = classes|merge(['paragraph--reverse']) %}
+  {% endif %}
+
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+  {{ content.field_p_content }}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

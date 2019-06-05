@@ -1,0 +1,44 @@
+uuid: cca3bbc3-ba1b-49b3-ab59-78314572d8c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.container.field_p_content
+    - field.field.paragraph.container.field_p_reverse
+    - paragraphs.paragraphs_type.container
+  module:
+    - paragraphs
+id: paragraph.container.default
+targetEntityType: paragraph
+bundle: container
+mode: default
+content:
+  field_p_content:
+    type: paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 2
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
+    third_party_settings: {  }
+    region: content
+  field_p_reverse:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true

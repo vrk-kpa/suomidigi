@@ -1,0 +1,23 @@
+uuid: 47920774-3843-430a-89d7-f99bcc4c55a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_reverse
+    - paragraphs.paragraphs_type.container
+id: paragraph.container.field_p_reverse
+field_name: field_p_reverse
+entity_type: paragraph
+bundle: container
+label: Reverse
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

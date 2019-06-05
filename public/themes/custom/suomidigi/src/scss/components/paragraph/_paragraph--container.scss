@@ -1,0 +1,28 @@
+.paragraph--container {
+  .paragraph {
+    // This is for precaution, if last container item is MEDIA.
+    // Removes float and makes it full width.
+    &:last-child {
+      width: 100% !important;
+      float: none !important;
+      margin: inherit !important;
+    }
+  }
+
+  .paragraph--media {
+    @include breakpoint($for-tablet-portrait-up) {
+      float: left;
+      width: calc(100% / 2);
+      margin: 0 calc(#{$gutter} * 2) $gutter 0;
+    }
+  }
+
+  &.paragraph--reverse {
+    .paragraph--media {
+      @include breakpoint($for-tablet-portrait-up) {
+        float: right;
+        margin: 0 0 $gutter calc(#{$gutter} * 2);
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+uuid: 965df83d-afa4-413d-994b-3b8151c33b1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.container.field_p_content
+    - field.field.paragraph.container.field_p_reverse
+    - paragraphs.paragraphs_type.container
+  module:
+    - entity_reference_revisions
+id: paragraph.container.default
+targetEntityType: paragraph
+bundle: container
+mode: default
+content:
+  field_p_content:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_p_reverse:
+    weight: 1
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }
