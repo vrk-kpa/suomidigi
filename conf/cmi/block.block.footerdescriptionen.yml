@@ -1,0 +1,33 @@
+uuid: b3f0a690-6c42-4008-8fd2-aa62c3b1544f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:32db296d-64a7-469f-8427-0d2feed7d067'
+  module:
+    - block_content
+    - language
+  theme:
+    - suomidigi
+id: footerdescriptionen
+theme: suomidigi
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:32db296d-64a7-469f-8427-0d2feed7d067'
+settings:
+  id: 'block_content:32db296d-64a7-469f-8427-0d2feed7d067'
+  label: 'Footer Description EN'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  language:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
