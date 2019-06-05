@@ -25,6 +25,17 @@ nav.shortcuts--sidebar,
 
     &.is-active {
       background-color: $gray-lighter;
+      &:focus,
+      &:hover {
+        cursor: default;
+        color: $gray-darker;
+
+        .theme-term__image img {
+          max-height: calc(#{$gutter} * 2);
+          max-width: calc(#{$gutter} * 2);
+          margin: 0;
+        }
+      }
     }
 
     &:focus,
@@ -63,6 +74,9 @@ nav.shortcuts--sidebar {
     padding: $gutter/3 0 $gutter/3 $gutter;
 
     .theme-term__image {
+      min-width: $gutter*2;
+      min-height: $gutter*2;
+
       @include breakpoint($for-tablet-portrait-up) {
         display: block;
       }
