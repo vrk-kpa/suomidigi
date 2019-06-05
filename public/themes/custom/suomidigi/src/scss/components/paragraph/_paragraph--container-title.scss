@@ -1,0 +1,42 @@
+.paragraph--container-title {
+  .paragraph__header {
+    background-color: $gray-lighter;
+    padding: calc(#{$gutter} * 0.5) $gutter;
+    margin: 0 -#{$gutter} $gutter;
+  }
+
+  .paragraph__title {
+    @include font-size(20px);
+    display: inline-block;
+    font-weight: 600;
+    margin: 0;
+
+    @include breakpoint($for-tablet-landscape-up) {
+      @include font-size(22px);
+    }
+  }
+
+  .paragraph__link {
+    display: flex;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+.paragraph__link-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  display: inline-block;
+  margin-left: $gutter * 0.5;
+
+  .icon {
+    color: $blue-light;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
