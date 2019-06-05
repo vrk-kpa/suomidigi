@@ -99,8 +99,8 @@
     </div>
   </div>
 
-  <footer id="footer" class="page-footer" role="contentinfo">
-    <div class="container container--inset page-footer__container l-footer">
+  <footer id="footer" class="page-footer container container--inset" role="contentinfo">
+    <div class="page-footer__container l-footer {% if has_sidebar_first %}l-footer--small{% endif %}">
       {% if page.footer %}
         <div class="l-footer__item">
           {{ page.footer }}
