@@ -1,5 +1,6 @@
 nav.shortcuts--mobile,
-nav.shortcuts--sidebar {
+nav.shortcuts--sidebar,
+.moby-shortcuts {
   h2 {
     @include font-size(14px);
     color: $black;
@@ -39,10 +40,12 @@ nav.shortcuts--sidebar {
   }
 }
 
+.moby-shortcuts {
+  padding-bottom: $gutter;
+}
+
 nav.shortcuts--mobile {
-  @include breakpoint($for-tablet-portrait-up) {
-    display: none;
-  }
+  display: none;
 }
 
 nav.shortcuts--sidebar {
