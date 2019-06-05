@@ -1,0 +1,25 @@
+uuid: 6e7442ef-a4d6-413c-8d07-2f1daa8f8767
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4e9b8b3c-485b-455c-b4c9-72efea731247'
+  module:
+    - block_content
+  theme:
+    - suomidigi
+id: footercontent
+theme: suomidigi
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:4e9b8b3c-485b-455c-b4c9-72efea731247'
+settings:
+  id: 'block_content:4e9b8b3c-485b-455c-b4c9-72efea731247'
+  label: 'Footer Content'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
