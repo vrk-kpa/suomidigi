@@ -54,6 +54,7 @@ module:
   quickedit: 0
   rdf: 0
   responsive_image: 0
+  scheduler: 0
   search: 0
   shortcut: 0
   suopa_editorial: 0

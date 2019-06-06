@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fba0b1eed2b010f12d967bc0d9f787ff",
+    "content-hash": "255a1ebbf107066f2e0fafbf09cab10f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3780,6 +3780,70 @@
             }
         },
         {
+            "name": "drupal/scheduler",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/scheduler.git",
+                "reference": "9c6f9b60154a326cb3fe935fd2c9287ce562c5ad"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/coder": ">=8.3.3",
+                "drupal/devel_generate": ">=1.0",
+                "drupal/rules": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0+49-dev",
+                    "datestamp": "1559761685",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Eric Schaefer (Eric Schaefer)",
+                    "homepage": "https://www.drupal.org/u/eric-schaefer",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Jonathan Smith (jonathan1055)",
+                    "homepage": "https://www.drupal.org/u/jonathan1055",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Pieter Frenssen (pfrenssen)",
+                    "homepage": "https://www.drupal.org/u/pfrenssen",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Rick Manelius (rickmanelius)",
+                    "homepage": "https://www.drupal.org/u/rickmanelius",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Automatically publish and unpublish content at specified dates and times.",
+            "homepage": "https://drupal.org/project/scheduler",
+            "support": {
+                "source": "http://cgit.drupalcode.org/scheduler",
+                "issues": "https://www.drupal.org/project/issues/scheduler"
+            },
+            "time": "2019-06-05T21:56:39+00:00"
+        },
+        {
             "name": "drupal/swiftmailer",
             "version": "1.0.0-beta2",
             "source": {
@@ -5464,7 +5528,9 @@
             "version": "1.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
+                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -9962,6 +10028,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/paragraphs": 20,
+        "drupal/scheduler": 20,
         "drupal/swiftmailer": 10
     },
     "prefer-stable": true,
