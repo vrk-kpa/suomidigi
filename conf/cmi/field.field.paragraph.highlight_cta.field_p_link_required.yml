@@ -1,0 +1,23 @@
+uuid: 3c5fac5c-f7b9-44f1-bfd5-bdd950032368
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_link_required
+    - paragraphs.paragraphs_type.highlight_cta
+  module:
+    - link
+id: paragraph.highlight_cta.field_p_link_required
+field_name: field_p_link_required
+entity_type: paragraph
+bundle: highlight_cta
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

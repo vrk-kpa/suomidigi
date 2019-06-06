@@ -1,0 +1,9 @@
+uuid: 4d79652d-250f-40b0-971e-4f57315ca5bf
+langcode: en
+status: true
+dependencies: {  }
+id: highlight_cta
+label: 'Highlight - CTA'
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph with a CTA.'
+behavior_plugins: {  }
