@@ -1,0 +1,9 @@
+uuid: 15424461-785b-4b95-9aa8-8dc2c5e9cd21
+langcode: en
+status: true
+dependencies: {  }
+id: container_title
+label: 'Container with Title'
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph with paragraph content and a title.'
+behavior_plugins: {  }

@@ -3,3 +3,8 @@ paragraph-drag-n-drop:
     assets/js/paragraph_drag-n-drop.js: {}
   dependencies:
     - core/jquery
+
+media-entity-browser:
+  css:
+    theme:
+      assets/css/media_entity_browser.css: {}
