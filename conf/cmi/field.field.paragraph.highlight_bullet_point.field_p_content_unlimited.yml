@@ -1,0 +1,43 @@
+uuid: 890634cb-0db3-4af4-99c9-a01fad31bf8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_content_unlimited
+    - paragraphs.paragraphs_type.highlight_bullet_point
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+  module:
+    - entity_reference_revisions
+id: paragraph.highlight_bullet_point.field_p_content_unlimited
+field_name: field_p_content_unlimited
+entity_type: paragraph
+bundle: highlight_bullet_point
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      highlight_bullet_point_item: highlight_bullet_point_item
+    target_bundles_drag_drop:
+      highlight_bullet_point_item:
+        enabled: true
+        weight: 6
+      container:
+        weight: 7
+        enabled: false
+      highlight_bullet_point:
+        weight: 8
+        enabled: false
+      media:
+        weight: 9
+        enabled: false
+      text:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions
