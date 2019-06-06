@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.article
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
   module:
     - entity_reference_revisions
 id: node.article.field_paragraphs
@@ -21,9 +22,22 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 1
-    target_bundles: null
+    target_bundles:
+      highlight_bullet_point_item: highlight_bullet_point_item
     target_bundles_drag_drop:
       text:
         weight: 2
+        enabled: false
+      highlight_bullet_point:
+        weight: 6
+        enabled: false
+      container:
+        weight: 7
+        enabled: false
+      highlight_bullet_point_item:
+        enabled: true
+        weight: 8
+      media:
+        weight: 9
         enabled: false
 field_type: entity_reference_revisions
