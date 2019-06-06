@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.container.field_p_content
     - field.field.paragraph.container.field_p_reverse
+    - field.field.paragraph.container.field_p_small_image
     - paragraphs.paragraphs_type.container
   module:
     - entity_reference_revisions
@@ -24,6 +25,16 @@ content:
     region: content
   field_p_reverse:
     weight: 1
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_p_small_image:
+    weight: 2
     label: hidden
     settings:
       format: boolean

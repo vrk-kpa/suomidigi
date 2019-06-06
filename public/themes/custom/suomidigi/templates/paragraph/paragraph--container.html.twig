@@ -2,14 +2,19 @@
 
 {% block paragraph %}
   {% set reverse = content.field_p_reverse['0']['#markup'] %}
+  {% set small_image = content.field_p_small_image['0']['#markup'] %}
 
   {% if reverse is same as(1) %}
     {% set classes = classes|merge(['paragraph--reverse']) %}
   {% endif %}
 
+  {% if small_image is same as(1) %}
+    {% set classes = classes|merge(['paragraph--small-image']) %}
+  {% endif %}
+
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-  {{ content.field_p_content }}
+      {{ content.field_p_content }}
     {% endblock %}
   </div>
 {% endblock paragraph %}

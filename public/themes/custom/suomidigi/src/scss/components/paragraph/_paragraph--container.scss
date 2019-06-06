@@ -25,4 +25,12 @@
       }
     }
   }
+
+  &.paragraph--small-image {
+    .paragraph--media {
+      @include breakpoint($for-tablet-portrait-up) {
+        width: calc(100% / 3);
+      }
+    }
+  }
 }

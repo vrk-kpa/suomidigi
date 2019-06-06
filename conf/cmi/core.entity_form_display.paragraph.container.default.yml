@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.container.field_p_content
     - field.field.paragraph.container.field_p_reverse
+    - field.field.paragraph.container.field_p_small_image
     - paragraphs.paragraphs_type.container
   module:
     - paragraphs
@@ -34,6 +35,13 @@ content:
     region: content
   field_p_reverse:
     weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_p_small_image:
+    weight: 2
     settings:
       display_label: true
     third_party_settings: {  }
