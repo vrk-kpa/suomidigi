@@ -1,0 +1,21 @@
+uuid: 8c8cb4c3-33d8-48b9-991d-eabef2a79da6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_small_image
+    - paragraphs.paragraphs_type.container
+id: paragraph.container.field_p_small_image
+field_name: field_p_small_image
+entity_type: paragraph
+bundle: container
+label: 'Small Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
