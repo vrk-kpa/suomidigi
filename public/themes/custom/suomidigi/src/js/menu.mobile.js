@@ -30,7 +30,8 @@
             `  <span class="logo--text">${siteName}</span></a>` +
             `  <p class="site-slogan">${siteSlogan}</p>` +
             `</header>` +
-            `<div class="moby-menu"></div>`;
+            `<div class="moby-menu"></div>` +
+            `<div id="moby-shortcuts" class="moby-shortcuts"></div>`;
 
           mobyMenu = new Moby({
             breakpoint: 768,
@@ -51,6 +52,8 @@
             subMenuCloseIcon: subMenuIconClose,
             template: template
           });
+
+          $('#block-suopa-shortcuts-block-mobile').contents().appendTo('#moby-shortcuts');
         });
     },
     close() {
