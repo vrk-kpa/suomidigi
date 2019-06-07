@@ -1,0 +1,41 @@
+uuid: d77a17f6-c33a-4269-9619-7d662478efeb
+langcode: fi
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight_text_box.field_p_background_color
+    - field.field.paragraph.highlight_text_box.field_p_title
+    - field.field.paragraph.highlight_text_box.field_text
+    - paragraphs.paragraphs_type.highlight_text_box
+  module:
+    - text
+id: paragraph.highlight_text_box.default
+targetEntityType: paragraph
+bundle: highlight_text_box
+mode: default
+content:
+  field_p_background_color:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_p_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_text:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
