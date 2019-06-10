@@ -5,6 +5,7 @@ namespace Drupal\suopa_editorial\Commands;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drush\Commands\DrushCommands;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * A Drush commandfile.
@@ -40,6 +41,19 @@ class GenerateIconMediaEntities extends DrushCommands {
     if (!$this->isIconEnabled()) {
       $this->output()->writeln('Couldn\'t find icon media bundle');
       return FALSE;
+    } else {
+      $icons_dir = 'public://' . $this->iconField->getSettings()['file_directory'];
+
+      if (!file_exists($icons_dir)) {
+        $this->output()->writeln('Attempting to create icons directory...');
+
+        if (!\Drupal::service('file_system')->prepareDirectory($icons_dir, FileSystemInterface::CREATE_DIRECTORY)) {
+          $this->output()->writeln('The directory %directory could not be created. To proceed with the setup, either create the directory "%directory" manually or ensure that the installer has the permissions to create it automatically.', ['%directory' => $icons_dir]);
+          return FALSE;
+        }
+
+        $this->output()->writeln('Successfully created icons directory.');
+      }
     }
 
     $path = DRUPAL_ROOT . $path;
@@ -93,7 +107,7 @@ class GenerateIconMediaEntities extends DrushCommands {
         $file_image = file_save_data(
           $image_data,
           'public://' . $this->iconField->getSettings()['file_directory'] . '/' . $file->filename,
-          \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE
+          FileSystemInterface::EXISTS_REPLACE
         );
 
         if (!$file_image) {
