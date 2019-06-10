@@ -1,0 +1,18 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set full_width = content.field_p_full_width['0']['#markup'] %}
+  {% set content = content.field_p_entity_reference %}
+
+  {% if full_width is same as(1) %}
+    {% set classes = classes|merge(['paragraph--full-width']) %}
+  {% endif %}
+
+  {% if content|render %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+          {{ content }}
+      {% endblock %}
+    </div>
+  {% endif %}
+{% endblock paragraph %}

@@ -1,0 +1,23 @@
+.paragraph--liftup-entity-reference {
+  @include breakpoint($for-tablet-portrait-up) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.paragraph--liftup-entity-reference-item {
+  @include breakpoint($for-tablet-portrait-up) {
+    width: calc(100% / 2 - calc(#{$gutter} * 0.5));
+  }
+
+  .paragraph--liftup-entity-reference & {
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-top: 0;
+    }
+  }
+
+  &.paragraph--full-width {
+    width: 100%;
+  }
+}
