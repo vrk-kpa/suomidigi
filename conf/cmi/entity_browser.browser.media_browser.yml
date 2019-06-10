@@ -72,3 +72,13 @@ widgets:
     weight: 4
     label: 'Add Podcast'
     id: entity_form
+  b03d52f8-1ab5-4e63-a37b-ee59dc729589:
+    settings:
+      entity_type: media
+      bundle: icon
+      form_mode: default
+      submit_text: 'Save entity'
+    uuid: b03d52f8-1ab5-4e63-a37b-ee59dc729589
+    weight: 6
+    label: 'Add Icon'
+    id: entity_form

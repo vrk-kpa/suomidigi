@@ -37,6 +37,7 @@
         "drupal/pathauto": "^1.0",
         "drupal/publication_date": "^2.0",
         "drupal/rabbit_hole": "^1.0",
+        "drupal/svg_image": "^1.9",
         "drupal/swiftmailer": "^1.0@beta",
         "drupal/system_status": "^2.0",
         "drupal/twig_tweak": "^2.1",

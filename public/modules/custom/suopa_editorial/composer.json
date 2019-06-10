@@ -1,0 +1,17 @@
+{
+  "name": "drupal/suopa_editorial",
+  "description": "Editorial enhancements for Suomidigi.fi",
+  "type": "drupal-module",
+  "autoload": {
+    "psr-4": {
+      "Drupal\\suopa_editorial\\": "src/"
+    }
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  }
+}
