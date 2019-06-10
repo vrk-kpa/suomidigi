@@ -1,0 +1,9 @@
+uuid: 20c90816-174a-443b-ad2d-470751483f98
+langcode: en
+status: true
+dependencies: {  }
+id: liftup_entity_reference
+label: 'Liftup - Entity Reference'
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph with entity liftups side-by-side or full-width.'
+behavior_plugins: {  }
