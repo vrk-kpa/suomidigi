@@ -86,13 +86,20 @@ class GenerateIconMediaEntities extends DrushCommands {
   private function createIconEntities($update = FALSE) {
     if (!empty($this->files)) {
       foreach ($this->files as $file) {
-        $image_data = file_get_contents($file->uri);
+        $human_readable = '';
+        $alt_title = '';
 
+        $image_data = file_get_contents($file->uri);
         $file_image = file_save_data(
           $image_data,
           'public://' . $this->iconField->getSettings()['file_directory'] . '/' . $file->filename,
           \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE
         );
+
+        if (!$file_image) {
+          $this->output()->writeln('Couldn\'t create icon file. Please check your files directory permissions.');
+          return FALSE;
+        }
 
         $human_readable = str_replace('-', ' ', ucfirst($file->name));
 
