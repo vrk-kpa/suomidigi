@@ -1,0 +1,35 @@
+uuid: 11872fa6-9353-4b47-93c2-9c5cccf90800
+langcode: fi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.background_color
+id: taxonomy_term.background_color.default
+targetEntityType: taxonomy_term
+bundle: background_color
+mode: default
+content:
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true
+  revision_log_message: true

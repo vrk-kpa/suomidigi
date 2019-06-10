@@ -1,0 +1,21 @@
+uuid: 6b7a5942-0d66-4e75-a5c7-ac584f42c9d8
+langcode: fi
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.highlight_text_box
+  module:
+    - text
+id: paragraph.highlight_text_box.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: highlight_text_box
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
