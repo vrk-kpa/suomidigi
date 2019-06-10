@@ -15,7 +15,7 @@
     attach: function (context, settings) {
       $(window).once().on('load', function () {
           var template =
-            `${'<header class="page-header__mobile"><a href="/" class="logo logo--header" title="Home" rel="home">' +
+            `${'<div class="page-header__mobile"><a href="/" class="logo logo--header" title="Home" rel="home">' +
               '  <svg viewBox="0 0 55 55" width="55px" height="55px" aria-labelledby="title" id="suomidigi_flag" role="img" focusable="false">' +
               '    <title id="title">'}${siteName} logo</title>` +
             `      <desc id="desc">suomidigi.fi</desc>` +
@@ -29,7 +29,7 @@
             `  </svg>` +
             `  <span class="logo--text">${siteName}</span></a>` +
             `  <p class="site-slogan">${siteSlogan}</p>` +
-            `</header>` +
+            `</div>` +
             `<div class="moby-menu"></div>` +
             `<div id="moby-shortcuts" class="moby-shortcuts"></div>`;
 
