@@ -1,18 +1,18 @@
-uuid: 139ac9ea-13e5-4c71-92bf-0e26fbd27aca
+uuid: 890634cb-0db3-4af4-99c9-a01fad31bf8f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_paragraphs
-    - node.type.article
+    - field.storage.paragraph.field_p_content_unlimited
+    - paragraphs.paragraphs_type.highlight_bullet_point
     - paragraphs.paragraphs_type.highlight_bullet_point_item
   module:
     - entity_reference_revisions
-id: node.article.field_paragraphs
-field_name: field_paragraphs
-entity_type: node
-bundle: article
-label: Paragraphs
+id: paragraph.highlight_bullet_point.field_p_content_unlimited
+field_name: field_p_content_unlimited
+entity_type: paragraph
+bundle: highlight_bullet_point
+label: Content
 description: ''
 required: false
 translatable: false
@@ -21,23 +21,23 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 1
+    negate: 0
     target_bundles:
       highlight_bullet_point_item: highlight_bullet_point_item
     target_bundles_drag_drop:
-      text:
-        weight: 2
-        enabled: false
-      highlight_bullet_point:
+      highlight_bullet_point_item:
+        enabled: true
         weight: 6
-        enabled: false
       container:
         weight: 7
         enabled: false
-      highlight_bullet_point_item:
-        enabled: true
+      highlight_bullet_point:
         weight: 8
+        enabled: false
       media:
         weight: 9
+        enabled: false
+      text:
+        weight: 10
         enabled: false
 field_type: entity_reference_revisions

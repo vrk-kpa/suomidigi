@@ -1,0 +1,9 @@
+uuid: 1f631d65-abde-48e4-a0aa-6f201af28a39
+langcode: fi
+status: true
+dependencies: {  }
+id: highlight_text_box
+label: 'Highlight - Text box'
+icon_uuid: null
+description: 'Use this type if you want to create a highlight text box.'
+behavior_plugins: {  }

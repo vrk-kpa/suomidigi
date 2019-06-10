@@ -1,0 +1,20 @@
+uuid: 866420f8-56ad-4d38-96b7-26d2bf81e905
+langcode: fi
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_p_background_color
+field_name: field_p_background_color
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

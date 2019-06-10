@@ -1,0 +1,5 @@
+services:
+  suopa_editorial.commands:
+    class: \Drupal\suopa_editorial\Commands\GenerateIconMediaEntities
+    tags:
+      - { name: drush.command }

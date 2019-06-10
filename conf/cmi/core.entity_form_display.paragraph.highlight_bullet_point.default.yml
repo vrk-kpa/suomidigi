@@ -1,0 +1,45 @@
+uuid: 8c2aae35-c80d-4af3-859d-398fb8c0db66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight_bullet_point.field_p_content_unlimited
+    - field.field.paragraph.highlight_bullet_point.field_p_title
+    - paragraphs.paragraphs_type.highlight_bullet_point
+  module:
+    - paragraphs
+id: paragraph.highlight_bullet_point.default
+targetEntityType: paragraph
+bundle: highlight_bullet_point
+mode: default
+content:
+  field_p_content_unlimited:
+    type: paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: highlight_bullet_point_item
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
+    third_party_settings: {  }
+    region: content
+  field_p_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

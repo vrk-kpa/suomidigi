@@ -1,0 +1,9 @@
+uuid: e8685927-07b5-4cf1-9ccf-9faad217f016
+langcode: en
+status: true
+dependencies: {  }
+id: highlight_bullet_point_item
+label: 'Highlight - Bullet Point Item'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

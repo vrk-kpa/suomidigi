@@ -1,0 +1,9 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  <li{{ attributes.addClass('paragraph-list__item') }}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </li>
+{% endblock paragraph %}

@@ -1,0 +1,21 @@
+uuid: b5cdeef4-982b-43c5-838f-af93fd152b73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight_bullet_point_item.field_p_bullet_point_text
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+id: paragraph.highlight_bullet_point_item.default
+targetEntityType: paragraph
+bundle: highlight_bullet_point_item
+mode: default
+content:
+  field_p_bullet_point_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

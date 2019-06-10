@@ -1,0 +1,33 @@
+uuid: a0834223-ecd8-42a6-a953-c5a590121193
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight_bullet_point.field_p_content_unlimited
+    - field.field.paragraph.highlight_bullet_point.field_p_title
+    - paragraphs.paragraphs_type.highlight_bullet_point
+  module:
+    - entity_reference_revisions
+id: paragraph.highlight_bullet_point.default
+targetEntityType: paragraph
+bundle: highlight_bullet_point
+mode: default
+content:
+  field_p_content_unlimited:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_p_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

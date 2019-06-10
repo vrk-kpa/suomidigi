@@ -1,0 +1,9 @@
+uuid: e0f0c5c7-6664-400d-8746-b625c27528e4
+langcode: en
+status: true
+dependencies: {  }
+id: highlight_bullet_point
+label: 'Highlight - Bullet Point'
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph with highlighted points.'
+behavior_plugins: {  }
