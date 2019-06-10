@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_p_media
+    - media.type.icon
     - media.type.image
     - media.type.podcast
     - media.type.video
@@ -22,6 +23,7 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
+      icon: icon
       image: image
       podcast: podcast
       video: video
