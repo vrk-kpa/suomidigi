@@ -15,10 +15,10 @@
     attach: function (context, settings) {
       $(window).once().on('load', function () {
           var template =
-            `${'<div class="page-header__mobile"><a href="/" class="logo logo--header" title="Home" rel="home">' +
-              '  <svg viewBox="0 0 55 55" width="55px" height="55px" aria-labelledby="title" id="suomidigi_flag" role="img" focusable="false">' +
-              '    <title id="title">'}${siteName} logo</title>` +
-            `      <desc id="desc">suomidigi.fi</desc>` +
+            `${'<header class="page-header__mobile"><a href="/" class="logo logo--header" title="' + Drupal.t('Home') + '" rel="home">' +
+              '  <svg viewBox="0 0 55 55" width="55px" height="55px" aria-labelledby="mob_title" id="mob_suomidigi_flag" role="img" focusable="false">' +
+              '    <title id="mob_title">'}${siteName} logo</title>` +
+            `      <desc id="mob_desc">suomidigi.fi</desc>` +
             `      <g class="icon--flag">` +
             `        <path fill="#003479" d="M53,0H2C0.9,0,0,0.9,0,2v51c0,1.1,0.9,2,2,2h51c1.1,0,2-0.9,2-2V2C55,0.9,54.1,0,53,0z"></path>` +
             `        <path fill="#FFFFFF" d="M14,20v-5c0-1.1,0.9-2,2-2h5v7"></path>` +
@@ -29,7 +29,7 @@
             `  </svg>` +
             `  <span class="logo--text">${siteName}</span></a>` +
             `  <p class="site-slogan">${siteSlogan}</p>` +
-            `</div>` +
+            `</header>` +
             `<div class="moby-menu"></div>` +
             `<div id="moby-shortcuts" class="moby-shortcuts"></div>`;
 
@@ -54,6 +54,10 @@
           });
 
           $('#block-suopa-shortcuts-block-mobile').contents().appendTo('#moby-shortcuts');
+          $('#moby-shortcuts div.taxonomy-term.vocabulary-theme').each(function() {
+            var id = $(this).attr('id');
+            $(this).attr('id', 'mobile-' + id);
+          });
         });
     },
     close() {

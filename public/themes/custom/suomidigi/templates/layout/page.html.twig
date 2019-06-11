@@ -58,8 +58,8 @@
             {{ page.header }}
             <button id="menu-trigger" aria-label="{{ 'Open navigation'|t }}" class="menu-button menu-button--open">
               {% if icons_path %}
-                <svg class="icon">
-                  <title>{{ 'Open navigation'|t }}</title>
+                <svg class="icon" aria-labelledby="open-navigation">
+                  <title id="open-navigation">{{ 'Open navigation'|t }}</title>
                   <use xlink:href="{{ icons_path|trim }}#menu" />
                 </svg>
               {% else %}
