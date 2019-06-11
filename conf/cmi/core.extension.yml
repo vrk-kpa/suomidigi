@@ -57,6 +57,7 @@ module:
   scheduler: 0
   search: 0
   shortcut: 0
+  smart_trim: 0
   suopa_editorial: 0
   svg_image: 0
   swiftmailer: 0
