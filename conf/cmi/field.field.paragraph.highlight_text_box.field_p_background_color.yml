@@ -1,0 +1,29 @@
+uuid: 66748619-08ab-4592-ba6a-2ba9172070de
+langcode: fi
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_background_color
+    - paragraphs.paragraphs_type.highlight_text_box
+    - taxonomy.vocabulary.background_color
+id: paragraph.highlight_text_box.field_p_background_color
+field_name: field_p_background_color
+entity_type: paragraph
+bundle: highlight_text_box
+label: 'Background color'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      background_color: background_color
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

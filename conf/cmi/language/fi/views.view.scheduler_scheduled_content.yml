@@ -1,0 +1,76 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Suodatin
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: '‹ edellinen'
+            next: 'seuraava ›'
+            first: '« ensimmäinen'
+            last: 'viimeinen »'
+      fields:
+        title:
+          label: Otsikko
+        type:
+          separator: ', '
+        name:
+          label: Tekijä
+        status:
+          label: Tila
+          settings:
+            format_custom_true: Julkaistu
+            format_custom_false: Julkaisematon
+        publish_on:
+          label: Julkaisupäivämäärä
+        unpublish_on:
+          label: 'Julkaisun peruutuspäivämäärä'
+        operations:
+          label: Toimenpiteet
+      filters:
+        status:
+          expose:
+            label: Tila
+          group_info:
+            label: Julkaisutila
+            group_items:
+              1:
+                title: Julkaistu
+              2:
+                title: Julkaisematon
+        type:
+          expose:
+            label: Tyyppi
+        title:
+          expose:
+            label: Otsikko
+        langcode:
+          expose:
+            label: Kieli
+        publish_on:
+          expose:
+            label: Julkaisupäivämäärä
+          group_info:
+            label: Julkaisupäivämäärä
+        unpublish_on:
+          expose:
+            label: 'Julkaisun peruutuspäivämäärä'
+    display_title: Isäntä
+  overview:
+    display_options:
+      tab_options:
+        title: Sisältö
+  user_page:
+    display_options:
+      tab_options:
+        title: Sisältö
+      arguments:
+        uid:
+          exception:
+            title: Kaikki

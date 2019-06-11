@@ -27,11 +27,12 @@
   set classes = [
   'taxonomy-term',
   'vocabulary-' ~ term.bundle|clean_class,
-]
+  ]
 %}
+
 <div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
   {% if not page %}
-    <a href="{{ url }}" class="{{ term_url_is_active ? 'is-active' }} title="{{ name[0]['#context']['value'] }}">
+    <a href="{{ url }}" class="theme-term__link {{ term_url_is_active ? 'is-active' }}" title="{{ name[0]['#context']['value'] }}">
       <div class="theme-term__header theme-term__header--alternative">
         <div class="theme-term__image">
           {{ content }}
