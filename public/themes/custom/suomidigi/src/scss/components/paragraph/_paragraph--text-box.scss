@@ -1,0 +1,29 @@
+.paragraph--highlight-text-box {
+  padding: calc(#{$gutter} * 1.5) $gutter;
+
+  .paragraph__title {
+    @include font-size(18px);
+    font-weight: 600;
+    margin-bottom: $gutter * 0.5;
+  }
+
+  .paragraph__content {
+    p {
+      @include font-size(14px);
+      line-height: 24px;
+    }
+  }
+
+  &.white {
+    border: 1px solid rgba(165, 172, 176, 0.3);
+  }
+
+  &.blue {
+    background-color: $blue-medium;
+
+    .paragraph__title,
+    .paragraph__content p {
+      color: $white;
+    }
+  }
+}

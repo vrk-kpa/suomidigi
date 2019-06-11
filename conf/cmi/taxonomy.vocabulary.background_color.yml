@@ -1,0 +1,8 @@
+uuid: 1630eb70-70b3-49a1-967f-65e5063c9364
+langcode: und
+status: true
+dependencies: {  }
+name: 'Background color'
+vid: background_color
+description: 'Background color selection for elements'
+weight: 0

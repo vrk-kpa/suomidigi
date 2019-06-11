@@ -1,0 +1,28 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %} 
+  {% set title = content.field_p_title %}
+  {% set link = content.field_p_link_required['0']['#plain_text'] %}
+  {% set description = content.field_p_description %}
+
+  <a href="{{ link }}" {{ attributes.addClass(classes) }}>
+    {% block content %}
+      <span class="paragraph__title">
+        {{ title }}
+        <span class="paragraph__title-icon">
+          {% if icons_path %}
+            <svg class="icon">
+              <title>{{ title }}</title>
+              <use xlink:href="{{ icons_path|trim }}#arrow_orange" />
+            </svg>
+          {% endif %}
+        </span>
+      </span>
+      {% if description|render %}
+        <div class="paragraph__content">
+          {{ description }}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </a>
+{% endblock paragraph %}

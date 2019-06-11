@@ -1,0 +1,43 @@
+uuid: a4e37c53-f35d-454b-b371-74ad240e43ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight_cta.field_p_description
+    - field.field.paragraph.highlight_cta.field_p_link_required
+    - field.field.paragraph.highlight_cta.field_p_title
+    - paragraphs.paragraphs_type.highlight_cta
+  module:
+    - link
+id: paragraph.highlight_cta.default
+targetEntityType: paragraph
+bundle: highlight_cta
+mode: default
+content:
+  field_p_description:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_p_link_required:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_p_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

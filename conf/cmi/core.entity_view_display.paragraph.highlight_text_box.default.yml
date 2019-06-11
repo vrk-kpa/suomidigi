@@ -1,0 +1,40 @@
+uuid: e7ff5049-669c-4677-a5a0-a9c312bcb936
+langcode: fi
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight_text_box.field_p_background_color
+    - field.field.paragraph.highlight_text_box.field_p_title
+    - field.field.paragraph.highlight_text_box.field_text
+    - paragraphs.paragraphs_type.highlight_text_box
+  module:
+    - text
+id: paragraph.highlight_text_box.default
+targetEntityType: paragraph
+bundle: highlight_text_box
+mode: default
+content:
+  field_p_background_color:
+    weight: 2
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_p_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }
