@@ -13,11 +13,15 @@
 
   .paragraph--liftup-entity-reference & {
     @include breakpoint($for-tablet-portrait-up) {
-      margin-top: 0;
+      margin: 0 0 $gutter;
     }
   }
 
   &.paragraph--full-width {
     width: 100%;
+  }
+
+  .paragraph--liftup-entity-reference &:last-child {
+    margin-bottom: $gutter;
   }
 }
