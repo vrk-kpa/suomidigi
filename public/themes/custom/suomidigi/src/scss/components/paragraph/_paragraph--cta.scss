@@ -7,9 +7,11 @@
 
   &:hover,
   &:focus {
-    * {
+    .paragraph__title {
       text-decoration: underline;
     }
+
+    text-decoration: none;
   }
 
   .paragraph__title {
