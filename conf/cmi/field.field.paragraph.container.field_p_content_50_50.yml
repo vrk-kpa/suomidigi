@@ -1,0 +1,23 @@
+uuid: 66395646-a073-4eca-9a90-2b349132c2dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_content_50_50
+    - paragraphs.paragraphs_type.container
+id: paragraph.container.field_p_content_50_50
+field_name: field_p_content_50_50
+entity_type: paragraph
+bundle: container
+label: 'Content 50/50'
+description: 'Check this box, if you want your items to be 50/50 width at all times. e.g. Text will not wrap around media.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
