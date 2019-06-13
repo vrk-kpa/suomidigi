@@ -61,6 +61,12 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
  * @return string
  */
 function suopa_tokens_get_article_pattern(\Drupal\node\Entity\Node $article) {
+  $langCode = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
+
   $articleTypeTerm = $article->get('field_article_type')->entity;
+  if ($articleTypeTerm->hasTranslation($langCode)) {
+    $articleTypeTerm = $articleTypeTerm->getTranslation($langCode);
+  }
+
   return $articleTypeTerm->get('field_url_pattern')->value;
 }
