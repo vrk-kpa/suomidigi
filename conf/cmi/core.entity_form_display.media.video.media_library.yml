@@ -6,6 +6,8 @@ dependencies:
     - core.entity_form_mode.media.media_library
     - field.field.media.video.field_media_oembed_video
     - media.type.video
+  module:
+    - hide_revision_field
 id: media.video.media_library
 targetEntityType: media
 bundle: video
@@ -19,10 +21,23 @@ content:
     weight: 0
     third_party_settings: {  }
     region: content
+  revision_log_message:
+    type: hide_revision_field_log_widget
+    weight: 1
+    region: content
+    settings:
+      show: true
+      default: ''
+      permission_based: false
+      allow_user_settings: true
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
   field_media_oembed_video: true
   langcode: true
   path: true
   status: true
+  translation: true
   uid: true

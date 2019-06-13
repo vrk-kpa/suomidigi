@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.landing_page
-    - paragraphs.paragraphs_type.highlight_bullet_point_item
   module:
     - entity_reference_revisions
 id: node.landing_page.field_paragraphs
@@ -15,15 +14,14 @@ bundle: landing_page
 label: Paragraphs
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 1
-    target_bundles:
-      highlight_bullet_point_item: highlight_bullet_point_item
+    target_bundles: null
     target_bundles_drag_drop:
       text:
         weight: 2
@@ -35,9 +33,18 @@ settings:
         weight: 7
         enabled: false
       highlight_bullet_point_item:
-        enabled: true
         weight: 8
+        enabled: false
       media:
         weight: 9
+        enabled: false
+      container_title:
+        weight: 10
+        enabled: false
+      highlight_cta:
+        weight: 13
+        enabled: false
+      highlight_text_box:
+        weight: 14
         enabled: false
 field_type: entity_reference_revisions

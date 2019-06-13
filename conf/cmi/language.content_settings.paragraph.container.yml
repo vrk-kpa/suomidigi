@@ -1,9 +1,9 @@
-uuid: fd42e640-ca23-456e-b8c5-907cd8c64814
+uuid: aa210411-5913-4773-b7c5-d0b48b07b8b9
 langcode: en
 status: true
 dependencies:
   config:
-    - media.type.icon
+    - paragraphs.paragraphs_type.container
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: media.icon
-target_entity_type_id: media
-target_bundle: icon
+id: paragraph.container
+target_entity_type_id: paragraph
+target_bundle: container
 default_langcode: fi
 language_alterable: true

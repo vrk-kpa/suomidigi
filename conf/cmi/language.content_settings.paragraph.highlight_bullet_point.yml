@@ -1,9 +1,9 @@
-uuid: fd42e640-ca23-456e-b8c5-907cd8c64814
+uuid: 45bbc53f-eaf2-41fc-8435-6dff10f11428
 langcode: en
 status: true
 dependencies:
   config:
-    - media.type.icon
+    - paragraphs.paragraphs_type.highlight_bullet_point
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: media.icon
-target_entity_type_id: media
-target_bundle: icon
+id: paragraph.highlight_bullet_point
+target_entity_type_id: paragraph
+target_bundle: highlight_bullet_point
 default_langcode: fi
 language_alterable: true
