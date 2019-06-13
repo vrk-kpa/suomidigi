@@ -1,0 +1,23 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set link = content.field_p_link_required.0['#url'] %}
+  {% set text = content.field_p_link_required.0['#title'] %}
+  {% set location = content.field_p_location.0['#markup'] %}
+
+  {% if location is same as("left") %}
+    {% set classes = classes|merge(['paragraph--location-left']) %}
+  {% elseif location is same as("center") %}
+    {% set classes = classes|merge(['paragraph--location-center']) %}
+  {% elseif location is same as("right") %}
+    {% set classes = classes|merge(['paragraph--location-right']) %}
+  {% endif %}
+
+  <div {{attributes.addClass(classes)}}>
+    {% block content %}
+      <a href="{{ link }}" class="paragraph__link">
+        {{ text }}
+      </a>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
