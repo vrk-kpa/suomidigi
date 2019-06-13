@@ -1,11 +1,11 @@
-uuid: 9621f16f-2b4a-4798-ba44-74e4b9124cc6
+uuid: 2e9ba557-5f52-4849-8a37-67cbf33678e1
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_p_small
-field_name: field_p_small
+id: paragraph.field_p_big_boxes
+field_name: field_p_big_boxes
 entity_type: paragraph
 type: boolean
 settings: {  }

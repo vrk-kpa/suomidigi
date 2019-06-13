@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.liftup_box.field_p_big_boxes
     - field.field.paragraph.liftup_box.field_p_content_unlimited
-    - field.field.paragraph.liftup_box.field_p_small
     - paragraphs.paragraphs_type.liftup_box
   module:
     - entity_reference_revisions
@@ -13,6 +13,16 @@ targetEntityType: paragraph
 bundle: liftup_box
 mode: default
 content:
+  field_p_big_boxes:
+    weight: 2
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_p_content_unlimited:
     weight: 0
     label: hidden
@@ -21,15 +31,5 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
-    region: content
-  field_p_small:
-    weight: 1
-    label: hidden
-    settings:
-      format: boolean
-      format_custom_true: ''
-      format_custom_false: ''
-    third_party_settings: {  }
-    type: boolean
     region: content
 hidden: {  }

@@ -1,15 +1,15 @@
-uuid: 27604a5d-cd93-4eb4-aee4-1d8ed9456375
+uuid: d37f8d88-2c4c-417b-add9-6e45e19b05fe
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_p_small
+    - field.storage.paragraph.field_p_big_boxes
     - paragraphs.paragraphs_type.liftup_box
-id: paragraph.liftup_box.field_p_small
-field_name: field_p_small
+id: paragraph.liftup_box.field_p_big_boxes
+field_name: field_p_big_boxes
 entity_type: paragraph
 bundle: liftup_box
-label: Small
+label: 'Big boxes'
 description: ''
 required: false
 translatable: false
@@ -18,6 +18,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: Käytössä
-  off_label: 'Pois päältä'
+  on_label: 'On'
+  off_label: 'Off'
 field_type: boolean
