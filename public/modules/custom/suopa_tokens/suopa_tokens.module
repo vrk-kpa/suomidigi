@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_tokens.module.
+ */
+
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_token_info().
+ */
+function suopa_tokens_token_info() {
+  $info = [];
+
+  $info['tokens']['node']['article_type_pattern'] = [
+    'name' => t('Pattern for article subtype'),
+    'description' => t('Use the pattern defined in the selected "Article type" taxonomy term.'),
+    'type' => 'pattern_path',
+  ];
+
+  $info['types']['pattern_path'] = [
+    'name' => t('Alias pattern')
+  ];
+
+  $info['tokens']['pattern_path']['path'] = [
+    'name' => t('Pattern path'),
+    'description' => t('Use the pattern defined in the selected "Article type" taxonomy term.'),
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = []) {
+  $return = [];
+
+  if ($type == 'entity' && !empty($data['entity']) && $data['entity_type'] == 'node') {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'article_type_pattern:path':
+          $pattern = suopa_tokens_get_article_pattern($data['entity']);
+          $token = Drupal::token();
+          $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']]));
+          break;
+      }
+    }
+  }
+
+  return $return;
+}
+
+/**
+ * Load the url pattern of an article type.
+ *
+ * @param \Drupal\node\Entity\Node $article
+ *   The article node to load use as a starting point.
+ *
+ * @return string
+ */
+function suopa_tokens_get_article_pattern(\Drupal\node\Entity\Node $article) {
+  $articleTypeTerm = $article->get('field_article_type')->entity;
+  return $articleTypeTerm->get('field_url_pattern')->value;
+}
