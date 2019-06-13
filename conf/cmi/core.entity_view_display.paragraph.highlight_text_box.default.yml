@@ -1,5 +1,5 @@
 uuid: e7ff5049-669c-4677-a5a0-a9c312bcb936
-langcode: fi
+langcode: en
 status: true
 dependencies:
   config:
@@ -19,7 +19,7 @@ content:
     label: hidden
     settings:
       link: false
-    third_party_settings: {  }
+    third_party_settings: {}
     type: entity_reference_label
     region: content
   field_p_title:
@@ -27,14 +27,14 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings: {}
     type: string
     region: content
   field_text:
     weight: 1
     label: hidden
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
     type: text_default
     region: content
-hidden: {  }
+hidden: {}

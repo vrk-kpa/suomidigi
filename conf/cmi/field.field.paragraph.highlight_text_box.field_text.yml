@@ -1,5 +1,5 @@
 uuid: 6b7a5942-0d66-4e75-a5c7-ac584f42c9d8
-langcode: fi
+langcode: en
 status: true
 dependencies:
   config:
@@ -15,7 +15,7 @@ label: Text
 description: ''
 required: false
 translatable: true
-default_value: {  }
+default_value: {}
 default_value_callback: ''
-settings: {  }
+settings: {}
 field_type: text_long

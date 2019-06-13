@@ -1,5 +1,5 @@
 uuid: 66748619-08ab-4592-ba6a-2ba9172070de
-langcode: fi
+langcode: en
 status: true
 dependencies:
   config:
@@ -14,7 +14,7 @@ label: 'Background color'
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value: {}
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

@@ -1,14 +1,14 @@
-uuid: 3fe96dec-d653-48f4-9473-8fd1893d708a
+uuid: 00158810-abec-46e8-88bd-8b7bd5f8a37c
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_p_title
-    - paragraphs.paragraphs_type.highlight_text_box
-id: paragraph.highlight_text_box.field_p_title
+    - paragraphs.paragraphs_type.liftup_box_item
+id: paragraph.liftup_box_item.field_p_title
 field_name: field_p_title
 entity_type: paragraph
-bundle: highlight_text_box
+bundle: liftup_box_item
 label: Title
 description: ''
 required: true

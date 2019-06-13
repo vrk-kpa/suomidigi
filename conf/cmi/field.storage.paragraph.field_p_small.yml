@@ -1,16 +1,14 @@
-uuid: 866420f8-56ad-4d38-96b7-26d2bf81e905
+uuid: 9621f16f-2b4a-4798-ba44-74e4b9124cc6
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-    - taxonomy
-id: paragraph.field_p_background_color
-field_name: field_p_background_color
+id: paragraph.field_p_small
+field_name: field_p_small
 entity_type: paragraph
-type: entity_reference
-settings:
-  target_type: taxonomy_term
+type: boolean
+settings: {}
 module: core
 locked: false
 cardinality: 1

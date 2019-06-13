@@ -1,5 +1,5 @@
 uuid: 17a2b5ed-158a-4cd5-943a-18873301444d
-langcode: fi
+langcode: en
 status: true
 dependencies:
   config:
@@ -8,7 +8,7 @@ id: taxonomy_term.background_color.default
 targetEntityType: taxonomy_term
 bundle: background_color
 mode: default
-content: {  }
+content: {}
 hidden:
   description: true
   langcode: true

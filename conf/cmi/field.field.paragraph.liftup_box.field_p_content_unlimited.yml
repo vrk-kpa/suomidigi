@@ -1,52 +1,44 @@
-uuid: 3333e652-f118-4bd0-aa9f-9d7a9a32bcf2
+uuid: 87f33279-93df-499a-85b4-693d1d7940a1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_paragraphs
-    - node.type.landing_page
-    - paragraphs.paragraphs_type.highlight_bullet_point_item
+    - field.storage.paragraph.field_p_content_unlimited
+    - paragraphs.paragraphs_type.liftup_box
     - paragraphs.paragraphs_type.liftup_box_item
   module:
     - entity_reference_revisions
-id: node.landing_page.field_paragraphs
-field_name: field_paragraphs
-entity_type: node
-bundle: landing_page
-label: Paragraphs
+id: paragraph.liftup_box.field_p_content_unlimited
+field_name: field_p_content_unlimited
+entity_type: paragraph
+bundle: liftup_box
+label: Content
 description: ''
 required: false
 translatable: true
-default_value: {  }
+default_value: {}
 default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 1
+    negate: 0
     target_bundles:
-      highlight_bullet_point_item: highlight_bullet_point_item
       liftup_box_item: liftup_box_item
     target_bundles_drag_drop:
-      text:
-        weight: 2
-        enabled: false
-      highlight_bullet_point:
-        weight: 6
-        enabled: false
-      container:
-        weight: 7
-        enabled: false
-      highlight_bullet_point_item:
-        enabled: true
-        weight: 8
-      media:
-        weight: 9
-        enabled: false
       liftup_box_item:
         enabled: true
         weight: 11
+      container:
+        weight: 12
+        enabled: false
       container_title:
         weight: 13
+        enabled: false
+      highlight_bullet_point:
+        weight: 14
+        enabled: false
+      highlight_bullet_point_item:
+        weight: 15
         enabled: false
       highlight_cta:
         weight: 16
@@ -56,5 +48,11 @@ settings:
         enabled: false
       liftup_box:
         weight: 18
+        enabled: false
+      media:
+        weight: 19
+        enabled: false
+      text:
+        weight: 20
         enabled: false
 field_type: entity_reference_revisions
