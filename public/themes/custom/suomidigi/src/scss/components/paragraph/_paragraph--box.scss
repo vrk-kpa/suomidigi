@@ -177,9 +177,33 @@
     margin-top: 0;
     margin-bottom: $gutter;
 
+    @include breakpoint($for-mobile-landscape-up) {
+      margin-bottom: $gutter * 0.625;
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-bottom: $gutter;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      margin-bottom: $gutter * 0.625;
+    }
+
     &:last-child {
       @include breakpoint($for-mobile-portrait-up) {
         margin-bottom: $gutter;
+      }
+
+      @include breakpoint($for-mobile-landscape-up) {
+        margin-bottom: $gutter * 0.625;
+      }
+
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-bottom: $gutter;
+      }
+
+      @include breakpoint($for-tablet-landscape-up) {
+        margin-bottom: $gutter * 0.625;
       }
     }
   }
