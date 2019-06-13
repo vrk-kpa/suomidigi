@@ -43,7 +43,7 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
         case 'article_type_pattern:path':
           $pattern = suopa_tokens_get_article_pattern($data['entity']);
           $token = Drupal::token();
-          $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']]));
+          $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']], $options));
           break;
       }
     }
