@@ -1,0 +1,42 @@
+uuid: ddd12c8e-027e-4f8b-a97d-744148aab407
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.embed.field_media_mediaembed
+    - media.type.embed
+id: media.embed.default
+targetEntityType: media
+bundle: embed
+mode: default
+content:
+  field_media_mediaembed:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  revision_log_message: true
+  status: true
+  translation: true
+  uid: true

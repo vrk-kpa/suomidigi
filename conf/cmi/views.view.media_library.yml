@@ -9,9 +9,9 @@ dependencies:
     module:
       - media_library
   module:
-    - image
     - media
     - media_library
+    - svg_image
     - user
 _core:
   default_config_hash: 5sfZZetHlReG1VQx9CbyIBhKFWYSZEU94dOy0yy0deE
@@ -322,6 +322,91 @@ display:
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+        langcode:
+          id: langcode
+          table: media_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            en: en
+            fi: fi
+          group: 1
+          exposed: true
+          expose:
+            operator_id: langcode_op
+            label: Kieli
+            description: ''
+            use_operator: false
+            operator: langcode_op
+            identifier: lang
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_producer: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: 'Käännöksen kieli'
+            description: null
+            identifier: langcode
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+          entity_type: media
+          entity_field: langcode
+          plugin_id: language
+        default_langcode:
+          id: default_langcode
+          table: media_field_data
+          field: default_langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          entity_field: default_langcode
+          plugin_id: boolean
       sorts:
         created:
           id: created
@@ -385,6 +470,7 @@ display:
       display_extenders: {  }
       use_ajax: true
       css_class: 'media-library-view js-media-library-view'
+      show_admin_links: false
     cache_metadata:
       max-age: 0
       contexts:
@@ -394,7 +480,20 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.embed.default'
+        - 'config:core.entity_view_display.media.embed.media_library'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.icon.default'
+        - 'config:core.entity_view_display.media.icon.media_library'
+        - 'config:core.entity_view_display.media.icon.media_paragraph'
+        - 'config:core.entity_view_display.media.image.article_full_header'
+        - 'config:core.entity_view_display.media.image.article_teaser_header'
+        - 'config:core.entity_view_display.media.image.media_paragraph'
+        - 'config:core.entity_view_display.media.image.theme_teaser_liftup'
   page:
     display_plugin: page
     id: page
@@ -412,16 +511,29 @@ display:
         weight: 5
         context: '0'
         menu_name: admin
+      rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
       max-age: 0
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.embed.default'
+        - 'config:core.entity_view_display.media.embed.media_library'
+        - 'config:core.entity_view_display.media.icon.default'
+        - 'config:core.entity_view_display.media.icon.media_library'
+        - 'config:core.entity_view_display.media.icon.media_paragraph'
+        - 'config:core.entity_view_display.media.image.article_full_header'
+        - 'config:core.entity_view_display.media.image.article_teaser_header'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.media_paragraph'
+        - 'config:core.entity_view_display.media.image.theme_teaser_liftup'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.media_library'
   widget:
     display_plugin: page
     id: widget
@@ -696,7 +808,20 @@ display:
         - url.query_args
         - 'url.query_args:sort_by'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.media.embed.default'
+        - 'config:core.entity_view_display.media.embed.media_library'
+        - 'config:core.entity_view_display.media.icon.default'
+        - 'config:core.entity_view_display.media.icon.media_library'
+        - 'config:core.entity_view_display.media.icon.media_paragraph'
+        - 'config:core.entity_view_display.media.image.article_full_header'
+        - 'config:core.entity_view_display.media.image.article_teaser_header'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.media_paragraph'
+        - 'config:core.entity_view_display.media.image.theme_teaser_liftup'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.media_library'
   widget_table:
     display_plugin: page
     id: widget_table
