@@ -1,9 +1,9 @@
 uuid: 7805c01c-78fd-4f8f-aa11-f42b32cc2ff9
 langcode: en
 status: true
-dependencies: {}
+dependencies: {  }
 id: liftup_box_item
 label: 'Liftup - Box Item'
 icon_uuid: null
 description: ''
-behavior_plugins: {}
+behavior_plugins: {  }

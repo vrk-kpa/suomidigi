@@ -1,9 +1,9 @@
 uuid: c8043c38-8792-4565-8c32-92b093e10f1d
 langcode: en
 status: true
-dependencies: {}
+dependencies: {  }
 id: liftup_box
 label: 'Liftup - Box'
 icon_uuid: null
 description: 'Use this type if you want to create a liftup box with an icon, a title and description.'
-behavior_plugins: {}
+behavior_plugins: {  }

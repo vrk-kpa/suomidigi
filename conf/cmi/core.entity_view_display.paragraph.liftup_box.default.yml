@@ -19,7 +19,7 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings: {}
+    third_party_settings: {  }
     type: entity_reference_revisions_entity_view
     region: content
   field_p_small:
@@ -29,7 +29,7 @@ content:
       format: boolean
       format_custom_true: ''
       format_custom_false: ''
-    third_party_settings: {}
+    third_party_settings: {  }
     type: boolean
     region: content
-hidden: {}
+hidden: {  }

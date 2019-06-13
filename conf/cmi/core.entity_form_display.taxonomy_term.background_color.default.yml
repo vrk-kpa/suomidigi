@@ -15,7 +15,7 @@ content:
     region: content
     settings:
       include_locked: true
-    third_party_settings: {}
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -23,12 +23,12 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {}
+    third_party_settings: {  }
   translation:
     weight: 2
     region: content
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   description: true
   path: true

@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.liftup_box_item.field_p_description
+    - field.field.paragraph.liftup_box_item.field_p_link_required
     - field.field.paragraph.liftup_box_item.field_p_media
     - field.field.paragraph.liftup_box_item.field_p_title
     - paragraphs.paragraphs_type.liftup_box_item
+  module:
+    - link
 id: paragraph.liftup_box_item.default
 targetEntityType: paragraph
 bundle: liftup_box_item
@@ -15,9 +18,21 @@ content:
   field_p_description:
     weight: 2
     label: hidden
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
     type: basic_string
+    region: content
+  field_p_link_required:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
     region: content
   field_p_media:
     weight: 0
@@ -25,7 +40,7 @@ content:
     settings:
       view_mode: default
       link: false
-    third_party_settings: {}
+    third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
   field_p_title:
@@ -33,7 +48,7 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {}
+    third_party_settings: {  }
     type: string
     region: content
-hidden: {}
+hidden: {  }

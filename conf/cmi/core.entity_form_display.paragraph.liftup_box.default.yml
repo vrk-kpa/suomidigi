@@ -29,14 +29,14 @@ content:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
         add_above: '0'
-    third_party_settings: {}
+    third_party_settings: {  }
     type: paragraphs
     region: content
   field_p_small:
     weight: 1
     settings:
       display_label: true
-    third_party_settings: {}
+    third_party_settings: {  }
     type: boolean_checkbox
     region: content
 hidden:
