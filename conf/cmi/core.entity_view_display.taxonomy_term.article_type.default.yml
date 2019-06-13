@@ -1,0 +1,30 @@
+uuid: 76419642-45ef-4f78-bdce-e5a5e165082f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.article_type.field_url_pattern
+    - taxonomy.vocabulary.article_type
+  module:
+    - text
+id: taxonomy_term.article_type.default
+targetEntityType: taxonomy_term
+bundle: article_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_url_pattern:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  langcode: true
