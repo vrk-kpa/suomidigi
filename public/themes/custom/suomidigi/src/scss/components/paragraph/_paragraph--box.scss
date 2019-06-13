@@ -1,0 +1,131 @@
+.paragraph--liftup-box {
+  @include breakpoint($for-mobile-portrait-up) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.paragraph--liftup-box-item {
+  display: flex;
+  flex: 1 0 auto;
+  height: auto;
+  width: 100%;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
+  text-decoration: none;
+  padding: $gutter;
+  color: $black;
+
+  &::before {
+    content: '';
+    float: left;
+    padding-top: 100%;
+  }
+
+  .paragraph__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .paragraph__icon {
+    max-width: 80px;
+    width: 100%;
+    margin-bottom: $gutter * 0.5;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      max-width: 70px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .paragraph__title {
+    font-weight: 600;
+  }
+
+  .paragraph__content {
+    @include font-size(14px);
+  }
+
+  @include breakpoint($for-mobile-portrait-up) {
+    max-width: calc(100% / 2 - calc(#{$gutter} * 0.5));
+  }
+
+  @include breakpoint($for-mobile-landscape-up) {
+    max-width: calc(100% / 3 - calc(#{$gutter} * 0.5));
+  }
+
+  @include breakpoint($for-tablet-portrait-up) {
+    max-width: calc(100% / 2 - calc(#{$gutter} * 0.5));
+  }
+
+  @include breakpoint($for-tablet-landscape-up) {
+    max-width: calc(100% / 3 - calc(#{$gutter} * 0.5));
+  }
+
+  &:nth-child(2n + 1) {
+    margin-right: $gutter * 0.5;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      margin-right: inherit;
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-right: $gutter * 0.5;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      margin-right: inherit;
+    }
+  }
+
+  &:nth-child(2n + 2) {
+    margin-left: $gutter * 0.5;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      margin-left: inherit;
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-left: $gutter * 0.5 !important;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      margin-left: inherit !important;
+    }
+  }
+
+  &:nth-child(3n + 2) {
+    @include breakpoint($for-mobile-landscape-up) {
+      margin-left: $gutter * 0.75;
+      margin-right: $gutter * 0.75;
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-left: inherit;
+      margin-right: inherit;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      margin-left: $gutter * 0.75 !important;
+      margin-right: $gutter * 0.75;
+    }
+  }
+
+  .paragraph--liftup-box & {
+    margin-top: 0;
+    margin-bottom: $gutter;
+
+    &:last-child {
+      @include breakpoint($for-mobile-portrait-up) {
+        margin-bottom: $gutter;
+      }
+    }
+  }
+}
