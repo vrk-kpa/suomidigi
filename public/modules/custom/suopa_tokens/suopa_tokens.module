@@ -42,6 +42,12 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
       switch ($name) {
         case 'article_type_pattern:path':
           $pattern = suopa_tokens_get_article_pattern($data['entity']);
+
+          // Use the default pattern if no pattern is found.
+          if (!$pattern) {
+            $pattern = '[node:menu-link:parents:join-path]/[node:title]';
+          }
+
           $token = Drupal::token();
           $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']], $options));
           break;
