@@ -1,0 +1,9 @@
+uuid: cdb1d9db-c3ef-4ec1-95d5-252e63b31cc9
+langcode: en
+status: true
+dependencies: {  }
+id: link
+label: Link
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph with a link.'
+behavior_plugins: {  }

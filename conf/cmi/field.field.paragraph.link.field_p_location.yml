@@ -1,0 +1,23 @@
+uuid: c1948a4c-0818-4c9d-a4f8-78d18770529e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_location
+    - paragraphs.paragraphs_type.link
+  module:
+    - options
+id: paragraph.link.field_p_location
+field_name: field_p_location
+entity_type: paragraph
+bundle: link
+label: Location
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string
