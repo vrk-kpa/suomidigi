@@ -47,7 +47,7 @@ content:
     settings:
       width: 100%
       autocomplete: true
-      match_operator: CONTAINS
+      match_operator: STARTS_WITH
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
