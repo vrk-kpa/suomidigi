@@ -1,0 +1,32 @@
+uuid: e8f9879d-1fb7-4bf0-8c6b-d32716fd9d5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.liftup_entity_reference_item.field_p_entity_reference
+    - field.field.paragraph.liftup_entity_reference_item.field_p_full_width
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
+id: paragraph.liftup_entity_reference_item.default
+targetEntityType: paragraph
+bundle: liftup_entity_reference_item
+mode: default
+content:
+  field_p_entity_reference:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_p_full_width:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true

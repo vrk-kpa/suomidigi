@@ -1,0 +1,9 @@
+uuid: 110d84d4-fc7e-49d1-b2ac-2d1ed051bc08
+langcode: en
+status: true
+dependencies: {  }
+id: liftup_entity_reference_item
+label: 'Liftup - Entity Reference Item'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }
