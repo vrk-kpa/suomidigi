@@ -22,6 +22,7 @@ dependencies:
     - path
     - publication_date
     - scheduler
+    - select2
 _core:
   default_config_hash: vPb_yvhA-xuNoV_yOmOwYxGuHNRIH1CoMK2qi7BSga0
 id: node.article.default
@@ -44,11 +45,11 @@ content:
   field_blog_tags:
     weight: 2
     settings:
+      width: 100%
+      autocomplete: true
       match_operator: CONTAINS
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
+    type: select2_entity_reference
     region: content
   field_displayed_author:
     weight: 17

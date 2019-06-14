@@ -38,6 +38,7 @@
         "drupal/publication_date": "^2.0",
         "drupal/rabbit_hole": "^1.0",
         "drupal/scheduler": "1.x-dev",
+        "drupal/select2": "^1.1",
         "drupal/smart_trim": "^1.1",
         "drupal/svg_image": "^1.9",
         "drupal/swiftmailer": "^1.0@beta",
@@ -46,7 +47,8 @@
         "drupal/video_embed_field": "^2.1",
         "drush/drush": "^9.0.0",
         "enyo/dropzone": "5.5.0",
-        "sortablejs/sortable": "^1.8.4"
+        "sortablejs/sortable": "^1.8.4",
+        "select2/select2": "^4.0.7"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -66,7 +68,7 @@
     "extra": {
         "installer-paths": {
             "public/core": ["type:drupal-core"],
-            "public/libraries/{$name}": ["type:drupal-library"],
+            "public/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
             "public/modules/contrib/{$name}": ["type:drupal-module"],
             "public/modules/custom/{$name}": ["type:drupal-module-custom"],
             "public/profiles/{$name}": ["type:drupal-profile"],
@@ -74,6 +76,7 @@
             "public/themes/custom/{$name}": ["type:drupal-theme-custom"],
             "drush/{$name}": ["type:drupal-drush"]
         },
+        "installer-types": ["bower-asset", "npm-asset"],
         "patches": {
             "drupal/core": {
                 "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2019-05-21/2466553-translation_interface-60.patch"
@@ -115,6 +118,21 @@
                 },
                 "dist": {
                     "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "select2/select2",
+                "version": "4.0.7",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "Select2"
+                },
+                "dist": {
+                    "url": "https://github.com/select2/select2/archive/4.0.7.zip",
                     "type": "zip"
                 }
             }
