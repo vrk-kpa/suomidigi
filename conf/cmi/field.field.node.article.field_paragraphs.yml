@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.article
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
   module:
     - entity_reference_revisions
 id: node.article.field_paragraphs
@@ -21,7 +23,9 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 1
-    target_bundles: null
+    target_bundles:
+      highlight_bullet_point_item: highlight_bullet_point_item
+      liftup_entity_reference_item: liftup_entity_reference_item
     target_bundles_drag_drop:
       text:
         weight: 2
@@ -47,4 +51,10 @@ settings:
       highlight_text_box:
         weight: 14
         enabled: false
+      liftup_entity_reference:
+        weight: 13
+        enabled: false
+      liftup_entity_reference_item:
+        enabled: true
+        weight: 14
 field_type: entity_reference_revisions

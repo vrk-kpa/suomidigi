@@ -63,5 +63,6 @@
 
   @include breakpoint($for-tablet-landscape-up) {
     font-size: 1.125rem;
+    margin-bottom: $gutter * 1.5;
   }
 }

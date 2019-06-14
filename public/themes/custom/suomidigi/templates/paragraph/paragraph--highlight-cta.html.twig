@@ -1,27 +1,27 @@
 {% extends "paragraph.html.twig" %}
 
-{% block paragraph %} 
+{% block paragraph %}
   {% set title = content.field_p_title %}
   {% set link = content.field_p_link_required['0']['#plain_text'] %}
-  {% set description = content.field_p_description %}
+  {% set description = content.field_p_description.0 %}
 
-  <a href="{{ link }}" {{ attributes.addClass(classes) }}>
+  <a href="{{ link }}" {{ attributes.addClass(classes) }} aria-labelledby="highlight-textbox-title">
     {% block content %}
-      <span class="paragraph__title">
+      <span class="paragraph__title" title="highlight-textbox-title">
         {{ title }}
-        <span class="paragraph__title-icon">
+        <span aria-hidden="true" class="paragraph__title-icon">
           {% if icons_path %}
             <svg class="icon">
               <title>{{ title }}</title>
-              <use xlink:href="{{ icons_path|trim }}#arrow_orange" />
+              <use xlink:href="{{ icons_path|trim }}#arrow_orange"/>
             </svg>
           {% endif %}
         </span>
       </span>
       {% if description|render %}
-        <div class="paragraph__content">
+        <p class="paragraph__content">
           {{ description }}
-        </div>
+        </p>
       {% endif %}
     {% endblock %}
   </a>

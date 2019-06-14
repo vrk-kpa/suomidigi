@@ -19,6 +19,7 @@ regions:
 libraries:
   - suomidigi/global-styling
   - suomidigi/global-scripting
+  - suomidigi/article-teaser-content-height
 
 libraries-override:
   classy/base:
