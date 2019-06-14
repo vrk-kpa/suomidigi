@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12d45d96572255297a1d4a8371ff300d",
+    "content-hash": "556f6d10b3dad7e6b59bb51ab2cf8bb2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5708,10 +5708,10 @@
         },
         {
             "name": "select2/select2",
-            "version": "4.0.7",
+            "version": "3.5.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip",
+                "url": "https://github.com/select2/select2/archive/3.5.4.zip",
                 "reference": null,
                 "shasum": null
             },
