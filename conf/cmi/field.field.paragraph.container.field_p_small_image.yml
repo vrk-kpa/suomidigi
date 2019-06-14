@@ -10,10 +10,12 @@ field_name: field_p_small_image
 entity_type: paragraph
 bundle: container
 label: 'Small Image'
-description: ''
+description: 'Check this box, if you want your media item to be smaller.'
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 0
 default_value_callback: ''
 settings:
   on_label: 'On'

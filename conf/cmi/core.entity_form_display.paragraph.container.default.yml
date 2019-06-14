@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.container.field_p_content
+    - field.field.paragraph.container.field_p_content_50_50
     - field.field.paragraph.container.field_p_reverse
     - field.field.paragraph.container.field_p_small_image
     - paragraphs.paragraphs_type.container
@@ -32,6 +33,13 @@ content:
         collapse_edit_all: collapse_edit_all
         add_above: '0'
     third_party_settings: {  }
+    region: content
+  field_p_content_50_50:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_p_reverse:
     weight: 1
