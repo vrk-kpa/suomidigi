@@ -15,6 +15,7 @@ use Drupal\views\ViewExecutable;
 function suopa_editorial_form_alter(&$form, $form_state) {
   suopa_editorial_modify_article_publishing_info($form, $form_state);
   $form['#attached']['library'][] = 'suopa_editorial/paragraph-drag-n-drop';
+  $form['#attached']['library'][] = 'suopa_editorial/blog-tag-list-hidden';
 }
 
 /**
