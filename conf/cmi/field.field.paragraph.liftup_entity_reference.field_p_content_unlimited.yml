@@ -1,0 +1,52 @@
+uuid: c2255174-50bc-47ba-a388-5cbff476c577
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_content_unlimited
+    - paragraphs.paragraphs_type.liftup_entity_reference
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
+  module:
+    - entity_reference_revisions
+id: paragraph.liftup_entity_reference.field_p_content_unlimited
+field_name: field_p_content_unlimited
+entity_type: paragraph
+bundle: liftup_entity_reference
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      liftup_entity_reference_item: liftup_entity_reference_item
+    target_bundles_drag_drop:
+      liftup_entity_reference_item:
+        enabled: true
+        weight: 9
+      container:
+        weight: 10
+        enabled: false
+      container_title:
+        weight: 11
+        enabled: false
+      highlight_bullet_point:
+        weight: 12
+        enabled: false
+      highlight_bullet_point_item:
+        weight: 13
+        enabled: false
+      liftup_entity_reference:
+        weight: 14
+        enabled: false
+      media:
+        weight: 15
+        enabled: false
+      text:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

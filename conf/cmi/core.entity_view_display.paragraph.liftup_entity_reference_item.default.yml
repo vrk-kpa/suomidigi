@@ -1,0 +1,33 @@
+uuid: a86117b9-1daa-43d7-8d28-d2c27a63bd59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.liftup_entity_reference_item.field_p_entity_reference
+    - field.field.paragraph.liftup_entity_reference_item.field_p_full_width
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
+id: paragraph.liftup_entity_reference_item.default
+targetEntityType: paragraph
+bundle: liftup_entity_reference_item
+mode: default
+content:
+  field_p_entity_reference:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_p_full_width:
+    weight: 1
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }
