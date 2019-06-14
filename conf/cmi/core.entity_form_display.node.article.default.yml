@@ -54,11 +54,11 @@ content:
   field_displayed_author:
     weight: 17
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      width: 100%
+      autocomplete: true
+      match_operator: STARTS_WITH
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: select2_entity_reference
     region: content
   field_displayed_update_time:
     weight: 18
