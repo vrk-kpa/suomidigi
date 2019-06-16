@@ -5,6 +5,7 @@ namespace Drupal\suopa_media_embed\Plugin\Field\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\suopa_media_embed\Plugin\media\Source\MediaEmbed;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Plugin implementation of the 'Media embed' formatter.
@@ -29,10 +30,14 @@ class MediaEmbedFormatter extends FormatterBase {
     $element = [];
     if (($source = $media->getSource()) && $source instanceof MediaEmbed) {
       /** @var \Drupal\media\MediaTypeInterface $item */
+      $style = ImageStyle::load('thumbnail');
+      $uri = $style->buildUri('public://media-icons/generic/mediaembed.png');
+
       foreach ($items as $delta => $item) {
         $element[$delta] = [
-          '#theme' => 'media_embed',
-          '#thumbnail_uri' => drupal_get_path('module', 'suopa_media_embed') . '/images/icons/mediaembed.png'
+          '#theme' => 'image',
+          '#uri' => $uri,
+          '#title' => $media->getName(),
         ];
       }
     }

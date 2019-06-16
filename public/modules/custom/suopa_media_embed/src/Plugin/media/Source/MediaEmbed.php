@@ -70,10 +70,7 @@ class MediaEmbed extends MediaSourceBase {
   public function getMetadata(MediaInterface $media, $attribute_name) {
     switch ($attribute_name) {
       case 'thumbnail_uri':
-        global $base_url;
-        $source = drupal_get_path('module', 'suopa_media_embed') . '/images/icons';
-        $thumbnail_uri = $base_url . '/' . $source . '/mediaembed.png';
-        return $thumbnail_uri;
+        return 'public://media-icons/generic/mediaembed.png';
 
       default:
         return parent::getMetadata($media, $attribute_name);

@@ -10,23 +10,23 @@ function suopa_media_embed_preprocess_media(&$variables) {
   /** @var \Drupal\media\MediaInterface $media */
   $media = $variables['media'];
 
-  switch ($variables['view_mode']) {
-    case 'media_library':
-      $variables['name'] = $media->getName();
-      break;
+  if (
+    $media instanceof Media &&
+    $media->hasField('field_media_mediaembed') &&
+    !$media->get('field_media_mediaembed')->isEmpty()
+  ) {
+    switch ($variables['view_mode']) {
+      case 'media_library':
+        $variables['name'] = $media->getName();
+        break;
 
-    default:
-      if (
-        $media instanceof Media &&
-        $media->hasField('field_media_mediaembed') &&
-        !$media->get('field_media_mediaembed')->isEmpty()
-      ) {
+      case 'media_paragraph':
         $variables['code'] = [
           '#markup' => $media->field_media_mediaembed->value,
           '#allowed_tags' => suopa_media_embed_allowed_tags(),
         ];
-      }
-      break;
+        break;
+    }
   }
 }
 
@@ -41,15 +41,4 @@ function suopa_media_embed_preprocess_media(&$variables) {
  */
 function suopa_media_embed_allowed_tags() {
   return array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote', 'script']);
-}
-
-/**
- * Implements hook_theme().
- */
-function suoma_media_embed_theme() {
-  return [
-    'media_embed' => [
-      'base hook' => 'media',
-    ],
-  ];
 }
