@@ -4,26 +4,31 @@ status: true
 dependencies:
   config:
     - field.field.media.video.field_media_oembed_video
+    - image.style.thumbnail
     - media.type.video
   module:
-    - media
+    - svg_image
 id: media.video.default
 targetEntityType: media
 bundle: video
 mode: default
 content:
-  field_media_oembed_video:
-    type: oembed
+  thumbnail:
+    type: image
     weight: 0
+    region: content
     label: hidden
     settings:
-      max_width: 0
-      max_height: 0
+      image_style: thumbnail
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
+  field_media_oembed_video: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true
