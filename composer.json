@@ -29,7 +29,6 @@
         "drupal/link_attributes": "^1.5",
         "drupal/linkit": "^4.3",
         "drupal/media_entity_browser": "^2.0",
-        "drupal/media_entity_soundcloud": "^2.0",
         "drupal/menu_block": "^1.4",
         "drupal/menu_block_current_language": "^1.2",
         "drupal/menu_trail_by_path": "^1.1",
