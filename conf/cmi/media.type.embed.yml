@@ -1,0 +1,19 @@
+uuid: 07a3f6f0-5cb5-4a5e-807c-ab2ac8e48443
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+    - suopa_media_embed
+third_party_settings:
+  crop:
+    image_field: null
+id: embed
+label: Embed
+description: ''
+source: mediaembed
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_mediaembed
+field_map: {  }

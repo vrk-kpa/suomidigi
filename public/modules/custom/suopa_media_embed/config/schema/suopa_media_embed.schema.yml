@@ -1,0 +1,3 @@
+media.source.suopa_media_embed:
+  type: media.source.field_aware
+  label: '"Embed" media source configuration'

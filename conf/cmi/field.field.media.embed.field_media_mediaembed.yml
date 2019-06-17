@@ -1,0 +1,19 @@
+uuid: 7d2f36e0-2654-487f-98cf-62b7db034820
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_mediaembed
+    - media.type.embed
+id: media.embed.field_media_mediaembed
+field_name: field_media_mediaembed
+entity_type: media
+bundle: embed
+label: Embed
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
