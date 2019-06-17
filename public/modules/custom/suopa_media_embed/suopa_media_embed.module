@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\media\Entity\Media;
+use Drupal\Component\Utility\Xss;
+
+/**
+ * Implements hook_preprocess_media().
+ */
+function suopa_media_embed_preprocess_media(&$variables) {
+  /** @var \Drupal\media\MediaInterface $media */
+  $media = $variables['media'];
+
+  if (
+    $media instanceof Media &&
+    $media->hasField('field_media_mediaembed') &&
+    !$media->get('field_media_mediaembed')->isEmpty()
+  ) {
+    switch ($variables['view_mode']) {
+      case 'media_library':
+        $variables['name'] = $media->getName();
+        break;
+
+      case 'media_paragraph':
+        $variables['code'] = [
+          '#markup' => $media->field_media_mediaembed->value,
+          '#allowed_tags' => suopa_media_embed_allowed_tags(),
+        ];
+        break;
+    }
+  }
+}
+
+/**
+ * Returns allowed tags for Embed media bundle.
+ *
+ * Allowed are the tags from Xss::getAdminTagList() plus iframe, blockquote and
+ * script. Make sure that bundles of embed can only be added/edited by
+ * trusted users!
+ *
+ * @return array
+ */
+function suopa_media_embed_allowed_tags() {
+  return array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote', 'script']);
+}

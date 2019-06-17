@@ -1,16 +1,14 @@
-uuid: 99d1bf70-0181-4a59-90dd-b9cf1208bbd1
+uuid: 66e7d274-802b-4e4e-89eb-e29348df03b5
 langcode: en
 status: true
 dependencies:
   module:
     - media
-id: media.field_media_soundcloud
-field_name: field_media_soundcloud
+id: media.field_media_mediaembed
+field_name: field_media_mediaembed
 entity_type: media
-type: string
+type: string_long
 settings:
-  max_length: 255
-  is_ascii: false
   case_sensitive: false
 module: core
 locked: false

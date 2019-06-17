@@ -1,0 +1,18 @@
+uuid: ef5ca4c9-1275-4930-8541-03346227618d
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.highlight_bullet_point_item
+target_entity_type_id: paragraph
+target_bundle: highlight_bullet_point_item
+default_langcode: fi
+language_alterable: true

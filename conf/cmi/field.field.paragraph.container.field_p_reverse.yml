@@ -12,7 +12,7 @@ bundle: container
 label: Reverse
 description: 'Check this box, if you want your items to be in reverse order.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0
