@@ -1,3 +1,9 @@
+blog-tag-list-hidden:
+  js:
+    assets/js/blog-tag-list-select.js: {}
+  dependencies:
+    - core/jquery
+
 paragraph-drag-n-drop:
   js:
     assets/js/paragraph_drag-n-drop.js: {}

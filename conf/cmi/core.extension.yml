@@ -55,6 +55,7 @@ module:
   responsive_image: 0
   scheduler: 0
   search: 0
+  select2: 0
   shortcut: 0
   smart_trim: 0
   suopa_editorial: 0

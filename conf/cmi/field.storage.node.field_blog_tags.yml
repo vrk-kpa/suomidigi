@@ -1,12 +1,12 @@
-uuid: 93d8994e-bea4-474b-b972-a85c8b3b6f3c
+uuid: 7f6ebfcb-e739-468c-a4d8-43b02a1a3658
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_displayed_author
-field_name: field_displayed_author
+id: node.field_blog_tags
+field_name: field_blog_tags
 entity_type: node
 type: entity_reference
 settings:
