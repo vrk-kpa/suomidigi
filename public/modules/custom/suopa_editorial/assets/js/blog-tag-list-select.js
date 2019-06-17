@@ -12,7 +12,6 @@
         $('#edit-field-blog-tags-wrapper').hide();
       }
 
-
       $('#edit-field-article-type').on('change', function() {
         if (this.value == 13) {
           $('#edit-field-blog-tags-wrapper').show();

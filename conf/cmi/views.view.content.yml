@@ -2,8 +2,12 @@ uuid: 07faf759-6c4a-4812-9c97-884baf2dfe90
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.node.field_article_type
+    - taxonomy.vocabulary.article_type
   module:
     - node
+    - taxonomy
     - user
 _core:
   default_config_hash: tS8PbpJX90aRFC3-UTgXzdqkq7_2frk2pz4TMijEebM
@@ -60,13 +64,11 @@ display:
             node_bulk_form: node_bulk_form
             title: title
             type: type
+            field_article_type: field_article_type
             name: name
             status: status
             changed: changed
-            edit_node: edit_node
-            delete_node: delete_node
-            dropbutton: dropbutton
-            timestamp: title
+            operations: operations
           info:
             node_bulk_form:
               align: ''
@@ -81,6 +83,13 @@ display:
               empty_column: false
               responsive: ''
             type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_article_type:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -108,30 +117,7 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            edit_node:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            delete_node:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            dropbutton:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            timestamp:
-              sortable: false
-              default_sort_order: asc
+            operations:
               align: ''
               separator: ''
               empty_column: false
@@ -241,6 +227,69 @@ display:
           field_api_classes: false
           entity_type: node
           entity_field: type
+          plugin_id: field
+        field_article_type:
+          id: field_article_type
+          table: node__field_article_type
+          field: field_article_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Article type'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           plugin_id: field
         name:
           id: name
@@ -437,6 +486,52 @@ display:
           plugin_id: bundle
           entity_type: node
           entity_field: type
+        tid:
+          id: tid
+          table: taxonomy_index
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: tid_op
+            label: 'Article type'
+            description: ''
+            use_operator: false
+            operator: tid_op
+            identifier: article_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_producer: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: article_type
+          hierarchy: false
+          error_message: false
+          plugin_id: taxonomy_index_tid
         status:
           id: status
           table: node_field_data
@@ -552,6 +647,15 @@ display:
           admin_label: author
           required: true
           plugin_id: standard
+        field_article_type:
+          id: field_article_type
+          table: node__field_article_type
+          field: field_article_type
+          relationship: none
+          group_type: group
+          admin_label: 'Article type'
+          required: false
+          plugin_id: standard
       show_admin_links: false
       filter_groups:
         operator: AND
@@ -572,7 +676,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_article_type'
   page_1:
     display_options:
       path: admin/content/node
@@ -604,4 +709,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_article_type'

@@ -45,9 +45,9 @@ content:
   field_blog_tags:
     weight: 2
     settings:
-      width: 100%
-      autocomplete: true
-      match_operator: STARTS_WITH
+      width: 400px
+      match_operator: CONTAINS
+      autocomplete: false
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -117,9 +117,12 @@ content:
     region: content
   field_theme:
     weight: 3
-    settings: {  }
+    settings:
+      width: 400px
+      match_operator: CONTAINS
+      autocomplete: false
     third_party_settings: {  }
-    type: options_select
+    type: select2_entity_reference
     region: content
   langcode:
     type: language_select
