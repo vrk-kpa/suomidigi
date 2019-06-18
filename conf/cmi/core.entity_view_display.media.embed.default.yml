@@ -1,0 +1,27 @@
+uuid: 307b4f43-80e3-4cb1-b93d-eb84a3846481
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.embed.field_media_mediaembed
+    - media.type.embed
+  module:
+    - suopa_media_embed
+id: media.embed.default
+targetEntityType: media
+bundle: embed
+mode: default
+content:
+  field_media_mediaembed:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: media_embed
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,23 @@
+uuid: dce6c9af-9768-4d1e-8089-8fb982e7f70e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_full_width
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
+id: paragraph.liftup_entity_reference_item.field_p_full_width
+field_name: field_p_full_width
+entity_type: paragraph
+bundle: liftup_entity_reference_item
+label: 'Full width'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

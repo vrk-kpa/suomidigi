@@ -8,6 +8,66 @@
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Entity\Entity;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_node(&$variables) {
+  if ($variables['node']->getType() === 'article') {
+    $node = $variables['node'];
+
+    if ($node->hasField('field_header_image')) {
+      $mediaEntity = $node->get('field_header_image')->getValue();
+      $field_media = Media::load($mediaEntity[0]['target_id']);
+
+      $mediaImage = $field_media->get('field_media_image')->first();
+
+      if (!empty($mediaImage)) {
+        /** @var \Drupal\Core\Entity\Plugin\DataType\EntityReference $entity */
+        $entity = $mediaImage->get('entity');
+        $target = $entity->getTarget();
+        if ($target) {
+          /** @var \Drupal\Core\Field\FieldItemList $uri */
+          $uri = $target->get('uri');
+          $image_uri = $uri->first()->getValue();
+
+          if (is_array($image_uri) && array_key_exists('value', $image_uri)) {
+            $variables['article_teaser_image'] = $image_uri['value'];
+            $variables['is_full_width'] = drupal_static('article_full_width_' . $node->id(), false);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * {@inheritdoc}
+ */
+function suomidigi_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  if ($paragraph->getType() === 'liftup_entity_reference_item') {
+    if ($paragraph->hasField('field_p_full_width')) {
+      $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
+      $fullWidth = $fullWidthValue === 1 ? true : false;
+      $variables['is_full_width'] = $fullWidth;
+    }
+
+    if ($paragraph->hasField('field_p_entity_reference')) {
+      $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
+      $is_full_width = &drupal_static('article_full_width_' . $targetID, false);
+
+      if (isset($fullWidth) && $fullWidth) {
+        $is_full_width = true;
+      }
+    }
+  }
+}
 
 /**
  * Implements hook_preprocess_html() for HTML document templates.
@@ -148,7 +208,6 @@ function suomidigi_theme_suggestions_taxonomy_term_alter(&$suggestions, $variabl
   $suggestions[] = 'taxonomy_term__' . $element['#taxonomy_term']->bundle() . '__' . $element['#view_mode'];
 }
 
-
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -161,6 +220,27 @@ function suomidigi_preprocess_taxonomy_term(&$variables) {
 
     if ($variables['url'] == $result) {
       $variables['term_url_is_active'] = true;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Make article images full width when viewing them in taxonomy term lists.
+ */
+function suomidigi_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+
+  if ($view->id() == 'taxonomy_term' && $view->current_display == 'page_1') {
+    $variables['attributes']['class'][] = 'theme-term__list';
+    $row_style_plugin = &$variables['rows'][0]['#view']->style_plugin;
+    $row_style_plugin->options['row_class'] = 'theme-term__list-item';
+    foreach ($view->result as $result) {
+      if (isset($result->nid)) {
+        $is_full_width = &drupal_static('article_full_width_' . $result->nid, false);
+        $is_full_width = true;
+      }
     }
   }
 }

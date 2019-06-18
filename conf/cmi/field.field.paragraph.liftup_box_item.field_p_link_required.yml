@@ -1,0 +1,23 @@
+uuid: b9c3de43-afc1-43f2-8a0a-ab441047b5fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_link_required
+    - paragraphs.paragraphs_type.liftup_box_item
+  module:
+    - link
+id: paragraph.liftup_box_item.field_p_link_required
+field_name: field_p_link_required
+entity_type: paragraph
+bundle: liftup_box_item
+label: Link
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

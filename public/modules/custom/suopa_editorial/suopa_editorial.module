@@ -14,7 +14,7 @@ use Drupal\views\ViewExecutable;
  */
 function suopa_editorial_form_alter(&$form, $form_state) {
   suopa_editorial_modify_article_publishing_info($form, $form_state);
-  $form['#attached']['library'][] = 'suopa_editorial/paragraph-drag-n-drop';
+  suopa_editorial_enable_drag_and_drop($form, $form_state);
 }
 
 /**
@@ -34,13 +34,35 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
     return;
   }
 
-  // $form['published_at']['widget'][0]['#title'] = t('Displayed publish time');
-
   $form['field_displayed_update_time']['#group'] = 'revision_information';
-  // $form['field_displayed_update_time']['#weight'] = 20;
-
   $form['field_displayed_author']['#group'] = 'revision_information';
-  // $form['field_displayed_author']['#weight'] = 21;
+
+  // Attach blog tag list toggler to article forms.
+  $form['#attached']['library'][] = 'suopa_editorial/blog-tag-list-hidden';
+}
+
+/**
+ * Disable submit button from landing page and article
+ * when paragraphs drag and drop is being used.
+ *
+ * @param array $form
+ *   Form.
+ * @param array $form_state
+ *   Form state.
+ */
+function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
+  $allowedIds = [
+    'node_article_edit_form',
+    'node_article_form',
+    'node_landing_page_edit_form',
+    'node_landing_page_form'
+  ];
+
+  if (!in_array($form['#form_id'], $allowedIds)) {
+    return;
+  }
+
+  $form['#attached']['library'][] = 'suopa_editorial/paragraph-drag-n-drop';
 }
 
 /**

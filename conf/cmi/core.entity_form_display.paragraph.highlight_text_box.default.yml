@@ -1,5 +1,5 @@
 uuid: d77a17f6-c33a-4269-9619-7d662478efeb
-langcode: fi
+langcode: en
 status: true
 dependencies:
   config:
@@ -35,6 +35,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
     region: content
 hidden:
   created: true

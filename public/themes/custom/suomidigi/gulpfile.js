@@ -106,7 +106,7 @@ function compileSASS() {
           })
         : sass(sassConfig)
     )
-    .pipe(autoprefix({ browsers: ["last 3 versions"] }))
+    .pipe(autoprefix())
     .pipe(path.env === "production" ? cleanCss() : noop())
     .pipe(gulp.dest(path.styles.dist));
 }

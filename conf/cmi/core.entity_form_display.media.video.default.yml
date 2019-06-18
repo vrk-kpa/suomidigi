@@ -20,6 +20,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
@@ -29,8 +36,8 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  langcode: true
   name: true
   path: true
   revision_log_message: true
+  translation: true
   uid: true

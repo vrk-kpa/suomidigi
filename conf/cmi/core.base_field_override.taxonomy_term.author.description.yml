@@ -1,0 +1,20 @@
+uuid: 3c238215-b57b-43c3-899a-c4e8c536518e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.author
+  module:
+    - text
+id: taxonomy_term.author.description
+field_name: description
+entity_type: taxonomy_term
+bundle: author
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

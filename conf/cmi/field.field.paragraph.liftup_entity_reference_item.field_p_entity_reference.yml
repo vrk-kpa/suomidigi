@@ -1,0 +1,28 @@
+uuid: 1ea42a23-8fde-40f3-a6f8-6b27395d9c88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_entity_reference
+    - node.type.article
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
+id: paragraph.liftup_entity_reference_item.field_p_entity_reference
+field_name: field_p_entity_reference
+entity_type: paragraph
+bundle: liftup_entity_reference_item
+label: 'Entity Reference'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

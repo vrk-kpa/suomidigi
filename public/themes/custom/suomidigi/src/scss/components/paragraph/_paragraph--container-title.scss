@@ -3,26 +3,26 @@
     background-color: $gray-lighter;
     padding: calc(#{$gutter} * 0.5) $gutter;
     margin: 0 -#{$gutter} $gutter;
-  }
 
-  .paragraph__title {
-    @include font-size(20px);
-    display: inline-block;
-    font-weight: 600;
-    margin: 0;
+    .paragraph__title {
+      @include font-size(20px);
+      display: inline-block;
+      font-weight: 600;
+      margin: 0;
 
-    @include breakpoint($for-tablet-landscape-up) {
-      @include font-size(22px);
+      @include breakpoint($for-tablet-landscape-up) {
+        @include font-size(22px);
+      }
     }
-  }
 
-  .paragraph__link {
-    display: flex;
-    align-items: center;
+    .paragraph__link {
+      display: flex;
+      align-items: center;
 
-    &:hover,
-    &:focus {
-      text-decoration: underline;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
     }
   }
 }

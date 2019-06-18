@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present an embed media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ * - code: The actual embed code.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set media_classes = [
+    'media-embed',
+    'clearfix',
+  ]
+%}
+<article{{ attributes.addClass(media_classes) }}>
+  {{ code }}
+</article>

@@ -1,5 +1,5 @@
 uuid: 1f631d65-abde-48e4-a0aa-6f201af28a39
-langcode: fi
+langcode: en
 status: true
 dependencies: {  }
 id: highlight_text_box
