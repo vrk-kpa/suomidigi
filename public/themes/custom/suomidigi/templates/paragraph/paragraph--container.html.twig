@@ -3,6 +3,7 @@
 {% block paragraph %}
   {% set reverse = content.field_p_reverse['0']['#markup'] %}
   {% set small_image = content.field_p_small_image['0']['#markup'] %}
+  {% set content_5050 = content.field_p_content_50_50['0']['#markup'] %}
 
   {% if reverse is same as(1) %}
     {% set classes = classes|merge(['paragraph--reverse']) %}
@@ -12,7 +13,11 @@
     {% set classes = classes|merge(['paragraph--small-image']) %}
   {% endif %}
 
-  <div{{ attributes.addClass(classes) }}>
+  {% if content_5050 is same as(1) %}
+    {% set classes = classes|merge(['paragraph--50-50']) %}
+  {% endif %}
+
+  <div{{attributes.addClass(classes)}}>
     {% block content %}
       {{ content.field_p_content }}
     {% endblock %}

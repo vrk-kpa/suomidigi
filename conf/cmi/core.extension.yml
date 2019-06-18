@@ -41,7 +41,6 @@ module:
   media: 0
   media_entity_browser: 0
   media_entity_browser_media_library: 0
-  media_entity_soundcloud: 0
   media_library: 0
   menu_block: 0
   menu_block_current_language: 0
@@ -56,8 +55,11 @@ module:
   responsive_image: 0
   scheduler: 0
   search: 0
+  select2: 0
   shortcut: 0
+  smart_trim: 0
   suopa_editorial: 0
+  suopa_media_embed: 0
   svg_image: 0
   swiftmailer: 0
   system: 0
@@ -67,6 +69,7 @@ module:
   token: 0
   toolbar: 0
   tour: 0
+  twig_tweak: 0
   update: 0
   user: 0
   video_embed_field: 0

@@ -14,6 +14,10 @@
     "get-suomifi-icons": "if cd icons/suomifi-icons; then git pull; else git clone https://github.com/vrk-kpa/suomifi-icons.git icons/suomifi-icons; fi",
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
   },
+  "browserslist": [
+    "last 4 version",
+    "not dead"
+  ],
   "devDependencies": {
     "ansi-colors": "1.0.1",
     "chalk": "2.3.0",

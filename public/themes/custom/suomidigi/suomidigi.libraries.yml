@@ -1,3 +1,7 @@
+article-teaser-content-height:
+  js:
+    dist/js/articleTeaserContentHeight.min.js: {}
+
 # Moby.js Fixed for D8.
 # Original: https://github.com/joshsanger/moby.js
 moby:
@@ -9,7 +13,6 @@ global-styling:
   css:
     theme:
       dist/css/styles.css: {}
-#     dist/css/styles-print.css: { media: print }
 
 global-scripting:
   version: 1.x

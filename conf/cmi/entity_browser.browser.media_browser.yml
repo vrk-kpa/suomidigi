@@ -65,12 +65,12 @@ widgets:
   881f705e-e708-47a2-87f7-e565df3b9aa1:
     settings:
       entity_type: media
-      bundle: podcast
+      bundle: embed
       form_mode: default
       submit_text: 'Save entity'
     uuid: 881f705e-e708-47a2-87f7-e565df3b9aa1
     weight: 4
-    label: 'Add Podcast'
+    label: 'Add Embed'
     id: entity_form
   b03d52f8-1ab5-4e63-a37b-ee59dc729589:
     settings:

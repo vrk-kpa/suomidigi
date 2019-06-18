@@ -1,23 +1,30 @@
-uuid: 7d5c2dd7-dc48-43af-b135-097080ac1f0f
+uuid: ddd12c8e-027e-4f8b-a97d-744148aab407
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.media.podcast.field_media_soundcloud
-    - media.type.podcast
-id: media.podcast.default
+    - field.field.media.embed.field_media_mediaembed
+    - media.type.embed
+id: media.embed.default
 targetEntityType: media
-bundle: podcast
+bundle: embed
 mode: default
 content:
-  field_media_soundcloud:
+  field_media_mediaembed:
     weight: 1
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: string_textarea
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -26,16 +33,10 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 2
-    region: content
-    third_party_settings: {  }
 hidden:
   created: true
-  langcode: true
   path: true
   revision_log_message: true
+  status: true
+  translation: true
   uid: true

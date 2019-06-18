@@ -10,9 +10,9 @@ field_name: field_p_reverse
 entity_type: paragraph
 bundle: container
 label: Reverse
-description: ''
+description: 'Check this box, if you want your items to be in reverse order.'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 0

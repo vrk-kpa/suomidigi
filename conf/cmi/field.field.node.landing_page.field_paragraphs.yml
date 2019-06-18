@@ -7,6 +7,7 @@ dependencies:
     - node.type.landing_page
     - paragraphs.paragraphs_type.highlight_bullet_point_item
     - paragraphs.paragraphs_type.liftup_box_item
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
   module:
     - entity_reference_revisions
 id: node.landing_page.field_paragraphs
@@ -16,7 +17,7 @@ bundle: landing_page
 label: Paragraphs
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -25,6 +26,7 @@ settings:
     negate: 1
     target_bundles:
       highlight_bullet_point_item: highlight_bullet_point_item
+      liftup_entity_reference_item: liftup_entity_reference_item
       liftup_box_item: liftup_box_item
     target_bundles_drag_drop:
       text:
@@ -37,8 +39,8 @@ settings:
         weight: 7
         enabled: false
       highlight_bullet_point_item:
-        enabled: true
         weight: 8
+        enabled: false
       media:
         weight: 9
         enabled: false
@@ -57,4 +59,10 @@ settings:
       liftup_box:
         weight: 18
         enabled: false
+      liftup_entity_reference:
+        weight: 13
+        enabled: false
+      liftup_entity_reference_item:
+        enabled: true
+        weight: 14
 field_type: entity_reference_revisions

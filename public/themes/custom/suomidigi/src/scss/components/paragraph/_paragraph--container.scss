@@ -33,4 +33,59 @@
       }
     }
   }
+
+  &.paragraph--50-50 {
+    @include breakpoint($for-tablet-portrait-up) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .paragraph {
+      @include breakpoint($for-tablet-portrait-up) {
+        width: calc(100% / 2 - calc(#{$gutter} * 0.5)) !important;
+        margin: 0 !important;
+      }
+    }
+  }
+
+  // If 'small image' and 'content 50/50' checkboxes are checked, this will over-write 'content 50/50' styles.
+  &.paragraph--50-50.paragraph--small-image {
+    @include breakpoint($for-tablet-portrait-up) {
+      display: block; // Float will not work with flex, so block will do.
+    }
+
+    .paragraph--media {
+      @include breakpoint($for-tablet-portrait-up) {
+        width: calc(100% / 3) !important;
+        margin: 0 calc(#{$gutter} * 2) $gutter 0 !important;
+      }
+    }
+
+    .paragraph:not(.paragraph--media) {
+      @include breakpoint($for-tablet-portrait-up) {
+        width: 100% !important;
+      }
+    }
+  }
+
+  &.paragraph--50-50.paragraph--reverse {
+    @include breakpoint($for-tablet-portrait-up) {
+      flex-direction: row-reverse;
+    }
+
+    .paragraph {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin: 0 !important;
+      }
+    }
+  }
+
+  &.paragraph--50-50.paragraph--small-image.paragraph--reverse {
+    .paragraph--media {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin: 0 0 $gutter calc(#{$gutter} * 2) !important;
+      }
+    }
+  }
 }
