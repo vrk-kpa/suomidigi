@@ -15,7 +15,7 @@ bundle: liftup_entity_reference
 label: Content
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

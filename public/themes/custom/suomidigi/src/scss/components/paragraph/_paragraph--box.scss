@@ -1,76 +1,82 @@
 .paragraph--liftup-box {
-  @include breakpoint($for-mobile-portrait-up) {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+
+  &.paragraph {
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
   }
 
   &.paragraph--big-boxes {
+    justify-content: center;
+
+    // Force three items on one row after mobile landscape up.
+    @include breakpoint($for-mobile-landscape-up) {
+      padding: 0 calc(calc(100% - 3 * 164px - 2 * #{$gutter}) / 2);
+    }
+
     .paragraph--liftup-box-item {
-      @include breakpoint($for-desktop-up) {
-        max-width: calc(100% / 3 - calc(#{$gutter} * 0.5));
+      max-width: 164px;
+
+      .paragraph__title {
+        @include font-size(14px);
+        @include line-height(16px, 14px);
+        margin-bottom: $gutter / 2;
       }
 
       .paragraph__content {
+        @include font-size(12px);
+        @include line-height(16px, 12px);
         display: inline-block;
       }
     }
   }
 
   &:not(.paragraph--big-boxes) {
-    .paragraph--liftup-box-item {
-      @include breakpoint($for-desktop-up) {
-        max-width: calc(100% / 5 - calc(#{$gutter} * 0.5));
-      }
-
-      &:nth-child(3n + 1) {
-        @include breakpoint($for-desktop-up) {
-          margin-right: inherit;
-        }
-      }
-
-      &:nth-child(3n + 3) {
-        @include breakpoint($for-desktop-up) {
-          margin-left: inherit;
-        }
-      }
-
-      &:nth-child(5n + 1) {
-        @include breakpoint($for-desktop-up) {
-          margin-right: $gutter * 0.625;
-        }
-      }
-
-      &:nth-child(5n + 3) {
-        @include breakpoint($for-desktop-up) {
-          margin-right: $gutter * 0.625;
-          margin-left: $gutter * 0.625;
-        }
-      }
-
-      &:nth-child(5n + 5) {
-        @include breakpoint($for-desktop-up) {
-          margin-left: $gutter * 0.625;
-        }
-      }
-    }
-
     .paragraph__icon {
-      @include breakpoint($for-desktop-up) {
-        max-width: 50px;
-      }
+      max-width: 50px;
     }
   }
 }
 
 .paragraph--liftup-box-item {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
+  color: $black;
   display: flex;
   flex: 1 0 auto;
   height: auto;
-  width: 100%;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
-  text-decoration: none;
+  max-width: calc(100% / 2 - #{$gutter});
   padding: $gutter;
-  color: $black;
+  text-decoration: none;
+  width: 100%;
+
+  @include breakpoint($for-mobile-portrait-up) {
+    max-width: calc(100% / 3 - #{$gutter});
+  }
+
+  @include breakpoint($for-mobile-landscape-up) {
+    max-width: calc(100% / 4 - #{$gutter});
+  }
+
+  @include breakpoint(700px) {
+    max-width: calc(100% / 5 - #{$gutter});
+  }
+
+  @include breakpoint($for-tablet-portrait-up) {
+    max-width: calc(100% / 4 - #{$gutter});
+  }
+
+  @include breakpoint(860px) {
+    max-width: calc(100% / 5 - #{$gutter});
+  }
+
+  &.paragraph {
+    margin: $gutter / 2;
+
+    &:last-child {
+      margin-bottom: $gutter;
+    }
+  }
 
   &::before {
     content: '';
@@ -103,108 +109,18 @@
   }
 
   .paragraph__title {
+    @include font-size(14px);
+    @include line-height(14px, 14px);
     font-weight: 600;
   }
 
   .paragraph__content {
-    display: none;
     @include font-size(14px);
-  }
-
-  @include breakpoint($for-mobile-portrait-up) {
-    max-width: calc(100% / 2 - calc(#{$gutter} * 0.5));
-  }
-
-  @include breakpoint($for-mobile-landscape-up) {
-    max-width: calc(100% / 3 - calc(#{$gutter} * 0.5));
-  }
-
-  @include breakpoint($for-tablet-portrait-up) {
-    max-width: calc(100% / 2 - calc(#{$gutter} * 0.5));
-  }
-
-  @include breakpoint($for-tablet-landscape-up) {
-    max-width: calc(100% / 3 - calc(#{$gutter} * 0.5));
-  }
-
-  &:nth-child(2n + 1) {
-    @include breakpoint($for-mobile-portrait-up) {
-      margin-right: $gutter;
-    }
-
-    @include breakpoint($for-mobile-landscape-up) {
-      margin-right: inherit;
-    }
-
-    @media screen and (min-width: $for-tablet-portrait-up) and (max-width: $for-tablet-landscape-up) {
-      margin-right: $gutter !important;
-    }
-
-    @include breakpoint($for-tablet-landscape-up) {
-      margin-right: inherit;
-    }
-  }
-
-  &:nth-child(3n + 1) {
-    @include breakpoint($for-mobile-landscape-up) {
-      margin-right: $gutter * 0.75;
-    }
-
-    @include breakpoint($for-tablet-portrait-up) {
-      margin-right: inherit;
-    }
-
-    @include breakpoint($for-tablet-landscape-up) {
-      margin-right: $gutter * 0.75;
-    }
-  }
-
-  &:nth-child(3n + 3) {
-    @include breakpoint($for-mobile-landscape-up) {
-      margin-left: $gutter * 0.75;
-    }
-
-    @include breakpoint($for-tablet-portrait-up) {
-      margin-left: inherit;
-    }
-
-    @include breakpoint($for-tablet-landscape-up) {
-      margin-left: $gutter * 0.75;
-    }
+    display: none;
   }
 
   .paragraph--liftup-box & {
     margin-top: 0;
     margin-bottom: $gutter;
-
-    @include breakpoint($for-mobile-landscape-up) {
-      margin-bottom: $gutter * 0.625;
-    }
-
-    @include breakpoint($for-tablet-portrait-up) {
-      margin-bottom: $gutter;
-    }
-
-    @include breakpoint($for-tablet-landscape-up) {
-      margin-bottom: $gutter * 0.625;
-    }
-
-    &:last-child {
-      @include breakpoint($for-mobile-portrait-up) {
-        margin-bottom: $gutter;
-      }
-
-      @include breakpoint($for-mobile-landscape-up) {
-        margin-bottom: $gutter * 0.625;
-      }
-
-      @include breakpoint($for-tablet-portrait-up) {
-        margin-bottom: $gutter;
-      }
-
-      @include breakpoint($for-tablet-landscape-up) {
-        margin-bottom: $gutter * 0.625;
-      }
-    }
   }
 }

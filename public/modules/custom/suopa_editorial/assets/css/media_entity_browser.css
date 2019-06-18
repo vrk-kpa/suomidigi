@@ -1,11 +1,49 @@
-@media screen and (min-width:37.5em) {
-  .view-media-entity-browser-view .views-row {
-    width: 25% !important;
+.view-media-entity-browser-view .view-content .views-row {
+  flex-basis: 50%;
+}
+
+@media screen and (min-width:43.75em) {
+  .view-media-entity-browser-view .view-content .views-row {
+    flex-basis: 25%;
   }
 }
 
-@media screen and (min-width:62.5em) {
-  .view-media-entity-browser-view .views-row {
-    width: 25% !important;
+@media screen and (min-width:50em) {
+  .view-media-entity-browser-view .view-content .views-row {
+    flex-basis: 20%;
   }
 }
+
+.view-media-entity-browser-view .view-content .views-row.bundle-Icon img {
+  max-height: 150px;
+}
+
+@media screen and (min-width:37.5em) {
+  .view-media-entity-browser-view .view-content .views-row.bundle-Icon img {
+    max-height: 110px;
+  }
+
+  .view-media-entity-browser-view .form--inline {
+    display: flex;
+    align-items: center;
+  }
+
+  .view-media-entity-browser-view .form--inline .form-actions {
+    margin: 0 0 0 1rem;
+  }
+}
+
+.view-media-entity-browser-view .view-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-media-entity-browser-view .view-content .media-info {
+  font-size: 11px;
+  line-height: 11px;
+}
+
+.view-media-entity-browser-view nav.pager {
+  padding: 20px 20px 0;
+}
+
