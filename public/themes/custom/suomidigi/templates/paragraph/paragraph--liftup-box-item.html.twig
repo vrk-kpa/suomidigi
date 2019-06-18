@@ -1,0 +1,24 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set title = content.field_p_title.0 %}
+  {% set link = content.field_p_link_required['0']['#plain_text'] %}
+  {% set description = content.field_p_description %}
+  {% set icon = content.field_p_media.0 %}
+
+  <a href="{{ link }}" {{attributes.addClass(classes)}} aria-label="{{ title }}">
+    {% block content %}
+      <div class="paragraph__container">
+        <div class="paragraph__icon">{{ icon }}</div>
+        <span class="paragraph__title">
+          {{ title }}
+        </span>
+        {% if description|render %}
+          <div class="paragraph__content">
+            {{ description }}
+          </div>
+        {% endif %}
+      </div>
+    {% endblock %}
+  </a>
+{% endblock paragraph %}

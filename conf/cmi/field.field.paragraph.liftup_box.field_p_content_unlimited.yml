@@ -1,21 +1,21 @@
-uuid: c2255174-50bc-47ba-a388-5cbff476c577
+uuid: 87f33279-93df-499a-85b4-693d1d7940a1
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_p_content_unlimited
-    - paragraphs.paragraphs_type.liftup_entity_reference
-    - paragraphs.paragraphs_type.liftup_entity_reference_item
+    - paragraphs.paragraphs_type.liftup_box
+    - paragraphs.paragraphs_type.liftup_box_item
   module:
     - entity_reference_revisions
-id: paragraph.liftup_entity_reference.field_p_content_unlimited
+id: paragraph.liftup_box.field_p_content_unlimited
 field_name: field_p_content_unlimited
 entity_type: paragraph
-bundle: liftup_entity_reference
+bundle: liftup_box
 label: Content
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -23,30 +23,36 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      liftup_entity_reference_item: liftup_entity_reference_item
+      liftup_box_item: liftup_box_item
     target_bundles_drag_drop:
-      liftup_entity_reference_item:
+      liftup_box_item:
         enabled: true
-        weight: 9
-      container:
-        weight: 10
-        enabled: false
-      container_title:
         weight: 11
-        enabled: false
-      highlight_bullet_point:
+      container:
         weight: 12
         enabled: false
-      highlight_bullet_point_item:
+      container_title:
         weight: 13
         enabled: false
-      liftup_entity_reference:
+      highlight_bullet_point:
         weight: 14
         enabled: false
-      media:
+      highlight_bullet_point_item:
         weight: 15
         enabled: false
-      text:
+      highlight_cta:
         weight: 16
+        enabled: false
+      highlight_text_box:
+        weight: 17
+        enabled: false
+      liftup_box:
+        weight: 18
+        enabled: false
+      media:
+        weight: 19
+        enabled: false
+      text:
+        weight: 20
         enabled: false
 field_type: entity_reference_revisions

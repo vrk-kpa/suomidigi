@@ -1,9 +1,9 @@
-uuid: 29d37cc5-cd81-4031-9602-5514b72f497a
+uuid: b24ddbaf-427e-4dcf-9465-923a54ee2b02
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.blog_tags
+    - paragraphs.paragraphs_type.liftup_box_item
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: taxonomy_term.blog_tags
-target_entity_type_id: taxonomy_term
-target_bundle: blog_tags
+id: paragraph.liftup_box_item
+target_entity_type_id: paragraph
+target_bundle: liftup_box_item
 default_langcode: fi
 language_alterable: true

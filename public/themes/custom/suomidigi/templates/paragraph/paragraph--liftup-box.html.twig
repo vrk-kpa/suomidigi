@@ -1,0 +1,16 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set big_boxes = content.field_p_big_boxes['0']['#markup'] %}
+  {% set content = content.field_p_content_unlimited %}
+
+  {% if big_boxes is same as(1) %}
+    {% set classes = classes|merge(['paragraph--big-boxes']) %}
+  {% endif %}
+
+  <div{{attributes.addClass(classes)}}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

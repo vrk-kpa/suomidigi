@@ -1,0 +1,28 @@
+uuid: 9e6a58bc-a830-49ad-9ab9-158c6b01bd74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_media
+    - media.type.icon
+    - paragraphs.paragraphs_type.liftup_box_item
+id: paragraph.liftup_box_item.field_p_media
+field_name: field_p_media
+entity_type: paragraph
+bundle: liftup_box_item
+label: Media
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

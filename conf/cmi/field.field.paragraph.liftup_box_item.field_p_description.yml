@@ -1,0 +1,19 @@
+uuid: f11b3d82-2528-4cc5-a0e8-b276cc2d2169
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_description
+    - paragraphs.paragraphs_type.liftup_box_item
+id: paragraph.liftup_box_item.field_p_description
+field_name: field_p_description
+entity_type: paragraph
+bundle: liftup_box_item
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

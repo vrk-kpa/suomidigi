@@ -1,0 +1,32 @@
+uuid: ac5e4e34-34a1-454c-94d5-495b892f5d90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link.field_p_link_required
+    - field.field.paragraph.link.field_p_location
+    - paragraphs.paragraphs_type.link
+  module:
+    - link
+id: paragraph.link.default
+targetEntityType: paragraph
+bundle: link
+mode: default
+content:
+  field_p_link_required:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_p_location:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true

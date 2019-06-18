@@ -54,7 +54,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 9
+          items_per_page: 20
           offset: 0
           id: 0
           total_pages: null
@@ -76,7 +76,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: ''
+          row_class: 'bundle-{{ bundle }}'
           default_row_class: true
       row:
         type: fields
@@ -391,14 +391,20 @@ display:
           group: 1
           exposed: true
           expose:
+            operator_id: bundle_op
+            label: 'Media type'
+            description: ''
             use_operator: false
             operator: bundle_op
             identifier: bundle
-            label: 'Media type'
-            description: null
-            remember: false
-            multiple: false
             required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              content_producer: content_producer
+              anonymous: '0'
+              authenticated: '0'
+              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -434,11 +440,14 @@ display:
             operator: name_op
             identifier: name
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
-              authenticated: authenticated
+              content_producer: content_producer
               anonymous: '0'
+              authenticated: '0'
+              administrator: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''

@@ -1,0 +1,26 @@
+.paragraph--link {
+  display: flex;
+
+  .paragraph__link {
+    color: $blue-medium;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.paragraph--location-left {
+    justify-content: flex-start;
+  }
+
+  &.paragraph--location-center {
+    justify-content: center;
+  }
+
+  &.paragraph--location-right {
+    justify-content: flex-end;
+  }
+}
