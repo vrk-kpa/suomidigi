@@ -1,0 +1,21 @@
+uuid: 49fa1825-34ee-46cc-a717-3eccc87458d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_url_pattern
+    - taxonomy.vocabulary.article_type
+  module:
+    - text
+id: taxonomy_term.article_type.field_url_pattern
+field_name: field_url_pattern
+entity_type: taxonomy_term
+bundle: article_type
+label: 'URL pattern'
+description: "Leave empty if you want to use URL pattern based on menu link. \r\n<em>Field supports tokens.</em>"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

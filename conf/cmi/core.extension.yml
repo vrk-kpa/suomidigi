@@ -59,6 +59,7 @@ module:
   shortcut: 0
   smart_trim: 0
   suopa_editorial: 0
+  suopa_tokens: 0
   suopa_media_embed: 0
   svg_image: 0
   swiftmailer: 0

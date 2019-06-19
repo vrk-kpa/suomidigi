@@ -3,14 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.article_type.field_url_pattern
     - taxonomy.vocabulary.article_type
   module:
+    - hide_revision_field
     - path
+    - text
 id: taxonomy_term.article_type.default
 targetEntityType: taxonomy_term
 bundle: article_type
 mode: default
 content:
+  field_url_pattern:
+    weight: 81
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
   langcode:
     type: language_select
     weight: 1
@@ -31,6 +42,18 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  revision_log_message:
+    type: hide_revision_field_log_widget
+    weight: 80
+    region: content
+    settings:
+      show: true
+      default: ''
+      permission_based: false
+      allow_user_settings: true
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   translation:
     weight: 2
