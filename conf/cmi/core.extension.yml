@@ -52,6 +52,7 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
+  redirect: 0
   responsive_image: 0
   scheduler: 0
   search: 0
@@ -59,8 +60,8 @@ module:
   shortcut: 0
   smart_trim: 0
   suopa_editorial: 0
-  suopa_tokens: 0
   suopa_media_embed: 0
+  suopa_tokens: 0
   svg_image: 0
   swiftmailer: 0
   system: 0
