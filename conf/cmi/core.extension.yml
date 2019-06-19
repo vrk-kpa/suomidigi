@@ -53,6 +53,7 @@ module:
   quickedit: 0
   rdf: 0
   redirect: 0
+  redirect_404: 0
   responsive_image: 0
   scheduler: 0
   search: 0

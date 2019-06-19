@@ -27,6 +27,7 @@ permissions:
   - 'administer blocks'
   - 'administer menu'
   - 'administer nodes'
+  - 'administer redirects'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'change own username'
