@@ -1,0 +1,19 @@
+uuid: 4bd71ccc-84e6-4641-a6f4-0ece86f6c0b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_externalfile
+    - media.type.attachment_external
+id: media.attachment_external.field_media_externalfile
+field_name: field_media_externalfile
+entity_type: media
+bundle: attachment_external
+label: 'External file'
+description: 'Enter URL to external file.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

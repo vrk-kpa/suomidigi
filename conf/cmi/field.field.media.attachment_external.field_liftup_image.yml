@@ -1,0 +1,28 @@
+uuid: 02e246b3-4e4c-4e4c-94ad-1a56368ae73b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_liftup_image
+    - media.type.attachment_external
+    - media.type.image
+id: media.attachment_external.field_liftup_image
+field_name: field_liftup_image
+entity_type: media
+bundle: attachment_external
+label: 'Liftup image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

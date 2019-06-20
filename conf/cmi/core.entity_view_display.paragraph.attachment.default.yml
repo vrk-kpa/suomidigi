@@ -1,0 +1,31 @@
+uuid: b8733ca3-77c3-4099-9b5c-5e0edf92d445
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.attachment.field_p_attachment
+    - field.field.paragraph.attachment.field_p_title
+    - paragraphs.paragraphs_type.attachment
+id: paragraph.attachment.default
+targetEntityType: paragraph
+bundle: attachment
+mode: default
+content:
+  field_p_attachment:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: media_paragraph
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_p_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

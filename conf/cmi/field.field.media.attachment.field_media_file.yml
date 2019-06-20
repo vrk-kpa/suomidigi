@@ -1,0 +1,27 @@
+uuid: 260404d4-e7b8-4ccd-b94f-c5f844fc120d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_file
+    - media.type.attachment
+  module:
+    - file
+id: media.attachment.field_media_file
+field_name: field_media_file
+entity_type: media
+bundle: attachment
+label: File
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'jpg jpeg png gif ico pdf doc docx ppt pptx pps ppsx odt xls xlsx psd mp3 m4a ogg wav mp4 m4v mov wmv avi mpg ogv 3gp 3g2 zip tar'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

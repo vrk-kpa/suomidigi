@@ -1,0 +1,32 @@
+uuid: 8ab0a94b-2b8b-4038-a426-1c4a489b8f1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.attachment.field_liftup_image
+    - field.field.media.attachment.field_media_file
+    - image.style.thumbnail
+    - media.type.attachment
+  module:
+    - media
+id: media.attachment.default
+targetEntityType: media
+bundle: attachment
+mode: default
+content:
+  field_liftup_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+hidden:
+  created: true
+  field_media_file: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

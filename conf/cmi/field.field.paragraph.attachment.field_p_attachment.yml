@@ -1,0 +1,30 @@
+uuid: db32978b-46a4-4d4d-96bc-aa5aa17c2d5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_attachment
+    - media.type.attachment
+    - media.type.attachment_external
+    - paragraphs.paragraphs_type.attachment
+id: paragraph.attachment.field_p_attachment
+field_name: field_p_attachment
+entity_type: paragraph
+bundle: attachment
+label: Attachments
+description: '<sup><em>Multiple attachments can be added to the same paragraph.</em></sup>'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      attachment: attachment
+      attachment_external: attachment_external
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: attachment
+field_type: entity_reference
