@@ -1,0 +1,21 @@
+.paragraph__attachment {
+  @include breakpoint($for-tablet-portrait-up) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .paragraph__title {
+    @include font-size(14px);
+    @include line-height(20px, 14px);
+    font-weight: 600;
+    margin-bottom: $gutter;
+  }
+
+  .paragraph__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
+  }
+}
