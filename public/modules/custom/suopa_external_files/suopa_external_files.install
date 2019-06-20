@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, uninstall and update hooks for Suopa external files module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function suopa_external_files_install() {
+  $source = drupal_get_path('module', 'suopa_external_files') . '/images/icons';
+  $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+  file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+
+  $files = file_scan_directory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  foreach ($files as $file) {
+    if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
+      file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
+    }
+  }
+}
