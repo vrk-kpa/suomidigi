@@ -4,6 +4,15 @@ blog-tag-list-hidden:
   dependencies:
     - core/jquery
 
+disable-sibling-checkbox:
+  js:
+    assets/js/disable-sibling-checkbox.js: {}
+  css:
+    theme:
+      assets/css/editor_enhancements.css: {}
+  dependencies:
+    - core/jquery
+
 paragraph-drag-n-drop:
   js:
     assets/js/paragraph_drag-n-drop.js: {}
