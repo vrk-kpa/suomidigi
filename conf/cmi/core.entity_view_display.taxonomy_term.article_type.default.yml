@@ -19,12 +19,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_url_pattern:
-    weight: 1
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
 hidden:
+  field_url_pattern: true
   langcode: true
