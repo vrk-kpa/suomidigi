@@ -1,12 +1,4 @@
 .paragraph__attachment {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  @include breakpoint($for-tablet-portrait-up) {
-
-  }
-
   .paragraph__title {
     @include font-size(14px);
     @include line-height(14px, 20px);

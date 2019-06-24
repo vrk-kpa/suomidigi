@@ -1,7 +1,14 @@
-CLI_SERVICE := drupal
+LAGOON := $(shell test -f .lagoon.yml && echo yes || echo no)
+
+ifeq ($(LAGOON),yes)
+	CLI_SERVICE := cli
+else
+	CLI_SERVICE := drupal
+	CLI_USER := drupal
+	DOCKER_PROJECT_ROOT := /var/www/drupal/public_html
+endif
+
 CLI_SHELL := bash
-CLI_USER := drupal
-DOCKER_PROJECT_ROOT := /var/www/drupal/public_html
 
 PHONY += amazeeio-env
 amazeeio-env: ## Print Amazee.io env variables
