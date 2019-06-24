@@ -5,10 +5,7 @@
  * Functions to support theming in the Suomidigi theme.
  */
 
-use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
-use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\Core\Entity\Entity;
 
 /**
  * Implements hook_preprocess().
@@ -54,7 +51,7 @@ function suomidigi_preprocess_node(&$variables) {
 
           if (is_array($image_uri) && array_key_exists('value', $image_uri)) {
             $variables['article_teaser_image'] = $image_uri['value'];
-            $variables['is_full_width'] = drupal_static('article_full_width_' . $node->id(), false);
+            $variables['is_full_width'] = drupal_static('article_full_width_' . $node->id(), FALSE);
           }
         }
       }
@@ -74,16 +71,16 @@ function suomidigi_preprocess_paragraph(&$variables) {
   if ($paragraph->getType() === 'liftup_entity_reference_item') {
     if ($paragraph->hasField('field_p_full_width')) {
       $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
-      $fullWidth = $fullWidthValue === 1 ? true : false;
+      $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
       $variables['is_full_width'] = $fullWidth;
     }
 
     if ($paragraph->hasField('field_p_entity_reference')) {
       $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
-      $is_full_width = &drupal_static('article_full_width_' . $targetID, false);
+      $is_full_width = &drupal_static('article_full_width_' . $targetID, FALSE);
 
       if (isset($fullWidth) && $fullWidth) {
-        $is_full_width = true;
+        $is_full_width = TRUE;
       }
     }
   }
@@ -180,12 +177,15 @@ function suomidigi_theme_suggestions_menu_alter(&$suggestions, $variables) {
       case 'menu_desktop':
         $suggestions[] = 'menu__desktop';
         break;
+
       case 'menu_mobile':
         $suggestions[] = 'menu__mobile';
         break;
+
       case 'menu_sidebar':
         $suggestions[] = 'menu__sidebar';
         break;
+
       default:
         $suggestions[] = 'menu__' . $variables['attributes']['block_id'];
         break;
@@ -221,7 +221,7 @@ function suomidigi_preprocess_taxonomy_term(&$variables) {
     $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
 
     if ($variables['url'] == $result) {
-      $variables['term_url_is_active'] = true;
+      $variables['term_url_is_active'] = TRUE;
     }
   }
 }
@@ -240,8 +240,8 @@ function suomidigi_preprocess_views_view(&$variables) {
     $row_style_plugin->options['row_class'] = 'theme-term__list-item';
     foreach ($view->result as $result) {
       if (isset($result->nid)) {
-        $is_full_width = &drupal_static('article_full_width_' . $result->nid, false);
-        $is_full_width = true;
+        $is_full_width = &drupal_static('article_full_width_' . $result->nid, FALSE);
+        $is_full_width = TRUE;
       }
     }
   }

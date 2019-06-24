@@ -27,6 +27,7 @@ class GenerateIconMediaEntities extends DrushCommands {
    *   Argument provided to the command.
    *
    * @param array $options
+   *
    * @command suopa_editorial:generateIcons
    * @aliases gemi
    * @options path Path to SVG files without trailing slash.
@@ -41,7 +42,8 @@ class GenerateIconMediaEntities extends DrushCommands {
     if (!$this->isIconEnabled()) {
       $this->output()->writeln('Couldn\'t find icon media bundle');
       return FALSE;
-    } else {
+    }
+    else {
       $icons_dir = 'public://' . $this->iconField->getSettings()['file_directory'];
 
       if (!file_exists($icons_dir)) {
@@ -57,26 +59,32 @@ class GenerateIconMediaEntities extends DrushCommands {
     }
 
     $path = DRUPAL_ROOT . $path;
-    $files = file_scan_directory($path,'/.*.svg$/i');
+    $files = file_scan_directory($path, '/.*.svg$/i');
     if (empty($files)) {
       $this->output()->writeln('Couldn\'t find any SVG files from ' . $path);
       return FALSE;
-    } else {
+    }
+    else {
       $this->files = $files;
     }
 
     if ($options['update']) {
       $this->output()->writeln('Attempting to update icons. Path: ' . $path);
       $this->createIconEntities(TRUE);
-    } elseif ($options['clean']) {
+    }
+    elseif ($options['clean']) {
       $this->output()->writeln('Attempting to delete icons. Path: ' . $path);
       $this->cleanUp();
-    } else {
+    }
+    else {
       $this->output()->writeln('Attempting to create icons. Path: ' . $path);
       $this->createIconEntities();
     }
   }
 
+  /**
+   *
+   */
   private function isIconEnabled() {
     $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
 
@@ -134,10 +142,11 @@ class GenerateIconMediaEntities extends DrushCommands {
               $media_image->setName($human_readable);
               $media_image->{$this->iconField->get('field_name')}->alt = (!empty($alt_title)) ? $alt_title : $human_readable;
               $media_image->save();
-              $this->output()->writeln('Updated icon: '. $file->name);
+              $this->output()->writeln('Updated icon: ' . $file->name);
             }
           }
-        } else {
+        }
+        else {
           $media_image = Media::create([
             'bundle' => $this->iconField->get('bundle'),
             'name' => $human_readable,
@@ -172,7 +181,8 @@ class GenerateIconMediaEntities extends DrushCommands {
             $entity->delete();
             $this->output()->writeln('Deleted icon: ' . $file->filename);
           }
-        } else {
+        }
+        else {
           $deleted = FALSE;
           $query = \Drupal::entityQuery('file')->condition('filename', $file->filename);
           $file_managed_ids = $query->execute();

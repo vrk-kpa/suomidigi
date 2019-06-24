@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\media\Entity\Media;
 use Drupal\Component\Utility\Xss;
 

@@ -66,7 +66,6 @@ class MediaEmbed extends MediaSourceBase {
   /**
    * {@inheritdoc}
    */
-
   public function getMetadata(MediaInterface $media, $attribute_name) {
     switch ($attribute_name) {
       case 'thumbnail_uri':
