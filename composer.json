@@ -93,7 +93,6 @@
             }
         },
         "hooks": {
-            "pre-commit": "make test",
             "pre-push": "make test"
         }
     },
