@@ -52,6 +52,7 @@
         "sortablejs/sortable": "^1.8.4"
     },
     "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.7",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
         "drupal/coder": "^8.2",
         "drupal/drupal-extension": "~3.3",
@@ -90,6 +91,10 @@
             "drupal/menu_block_current_language": {
                 "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
             }
+        },
+        "hooks": {
+            "pre-commit": "make test",
+            "pre-push": "make test"
         }
     },
     "repositories": [
