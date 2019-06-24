@@ -1,0 +1,18 @@
+uuid: 9a92686b-1ece-4d1e-9437-f9e63da61766
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.attachment_external
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: media.attachment_external
+target_entity_type_id: media
+target_bundle: attachment_external
+default_langcode: fi
+language_alterable: true

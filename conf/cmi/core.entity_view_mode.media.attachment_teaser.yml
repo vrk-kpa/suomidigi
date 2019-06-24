@@ -1,0 +1,10 @@
+uuid: 5cea0575-489a-4722-96c7-53f2e9e8fb2c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.attachment_teaser
+label: 'Attachment Teaser'
+targetEntityType: media
+cache: true

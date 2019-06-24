@@ -1,0 +1,15 @@
+uuid: 435ea4e0-fa0d-4f76-be03-f0a7cb7d6699
+langcode: en
+status: true
+dependencies:
+  module:
+    - suopa_external_files
+id: attachment_external
+label: 'Attachment External'
+description: ''
+source: externalfile
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_externalfile
+field_map: {  }

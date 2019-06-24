@@ -1,0 +1,15 @@
+.paragraph__attachment {
+  .paragraph__title {
+    @include font-size(14px);
+    @include line-height(14px, 20px);
+    font-weight: 600;
+    margin-bottom: $gutter / 2;
+  }
+
+  .paragraph__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
+  }
+}

@@ -5,6 +5,7 @@
  * Contains suopa_tokens.module.
  */
 
+use Drupal\node\Entity\Node;
 use Drupal\Core\Render\Markup;
 
 /**
@@ -20,7 +21,7 @@ function suopa_tokens_token_info() {
   ];
 
   $info['types']['pattern_path'] = [
-    'name' => t('Alias pattern')
+    'name' => t('Alias pattern'),
   ];
 
   $info['tokens']['pattern_path']['path'] = [
@@ -66,7 +67,7 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
  *
  * @return string
  */
-function suopa_tokens_get_article_pattern(\Drupal\node\Entity\Node $article) {
+function suopa_tokens_get_article_pattern(Node $article) {
   $langCode = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
 
   $articleTypeTerm = $article->get('field_article_type')->entity;

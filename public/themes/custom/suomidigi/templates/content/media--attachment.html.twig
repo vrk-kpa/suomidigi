@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+  'media',
+  'attachment-teaser',
+  not media.isPublished() ? 'media--unpublished',
+  view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  {{ title_suffix.contextual_links }}
+  <a href="{{ file_url }}" class="attachment-teaser__link">
+    {% block image %}
+      {% if content.field_liftup_image|render %}
+        <div class="attachment-teaser__image">
+          {{ content.field_liftup_image|render }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block content %}
+      <div class="attachment-teaser__content">
+        <h2 class="attachment-teaser__title">
+          {{ name }}
+        </h2>
+        {% if file_extension|render %}
+          <p class="attachment-teaser__file-type">
+            {% if file_size|render %}
+              <span class="attachment-teaser__file-size">
+                {{ file_size }}
+              </span>
+            {% endif %}
+            {{ file_extension }}
+          </p>
+        {% endif %}
+      </div>
+    {% endblock %}
+  </a>
+</article>

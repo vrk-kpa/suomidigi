@@ -56,7 +56,7 @@ function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
     'node_article_edit_form',
     'node_article_form',
     'node_landing_page_edit_form',
-    'node_landing_page_form'
+    'node_landing_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {

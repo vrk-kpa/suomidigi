@@ -1,0 +1,35 @@
+uuid: 550dafa2-8e53-4965-b53c-a56fc23e03d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.attachment_teaser
+    - field.field.media.image.field_media_image
+    - image.style.attachment_teaser_image_small
+    - media.type.image
+  module:
+    - svg_image
+id: media.image.attachment_teaser
+targetEntityType: media
+bundle: image
+mode: attachment_teaser
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: attachment_teaser_image_small
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

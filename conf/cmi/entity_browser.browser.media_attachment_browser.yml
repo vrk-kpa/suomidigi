@@ -1,0 +1,52 @@
+uuid: ccb57ba0-ca8b-424a-82ee-42d60a53c65e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: media_attachment_browser
+label: 'Media Attachment Browser'
+display: modal
+display_configuration:
+  width: '1000'
+  height: '1000'
+  link_text: 'Select entities'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  35855c98-d662-41c5-83d2-966c81adc754:
+    settings:
+      view: media_entity_browser
+      view_display: entity_browser_3
+      submit_text: 'Select entities'
+      auto_select: false
+    uuid: 35855c98-d662-41c5-83d2-966c81adc754
+    weight: 1
+    label: 'Existing attachments'
+    id: view
+  851683f0-0cad-432f-bc32-827320a20abd:
+    settings:
+      entity_type: media
+      bundle: attachment
+      form_mode: default
+      submit_text: 'Save entity'
+    uuid: 851683f0-0cad-432f-bc32-827320a20abd
+    weight: 2
+    label: 'Add attachment'
+    id: entity_form
+  c99dca39-3bc7-4383-8cfa-384e10101593:
+    settings:
+      entity_type: media
+      bundle: attachment_external
+      form_mode: default
+      submit_text: 'Save entity'
+    uuid: c99dca39-3bc7-4383-8cfa-384e10101593
+    weight: 3
+    label: 'Add external attachment'
+    id: entity_form

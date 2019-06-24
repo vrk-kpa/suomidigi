@@ -1,0 +1,32 @@
+uuid: 71ae4b58-d705-4365-828c-e6257238b616
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.attachment_external.field_liftup_image
+    - field.field.media.attachment_external.field_media_externalfile
+    - image.style.thumbnail
+    - media.type.attachment_external
+  module:
+    - media
+id: media.attachment_external.default
+targetEntityType: media
+bundle: attachment_external
+mode: default
+content:
+  field_liftup_image:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_media_externalfile: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

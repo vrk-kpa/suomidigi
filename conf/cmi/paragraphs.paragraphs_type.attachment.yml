@@ -1,0 +1,9 @@
+uuid: 3efbd95e-03ab-4824-b172-d9e93cc173d5
+langcode: en
+status: true
+dependencies: {  }
+id: attachment
+label: Attachments
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph which contains attachments or external attachments'
+behavior_plugins: {  }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "062a0f70803bb55071f58611b41a3a67",
+    "content-hash": "227610e30d74fa6137cadb484ad579d3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2834,7 +2834,8 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/hide_revision_field/issues/3018160": "https://www.drupal.org/files/issues/2019-05-15/hide-revision-field-3018160-5-8.x-2.1.patch"
+                    "https://www.drupal.org/project/hide_revision_field/issues/3032473": "https://www.drupal.org/files/issues/2019-05-10/hide_revision_field-3032473-8.patch",
+                    "https://www.drupal.org/project/hide_revision_field/issues/3018160": "https://www.drupal.org/files/issues/2019-06-10/hide_revision_field-3018160-user_profile_error_plus_media_incompatibility-12.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4534,16 +4535,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.8",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98"
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/c26463ff9241f27907112fbcd0c86fa670cfef98",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
                 "shasum": ""
             },
             "require": {
@@ -4587,7 +4588,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-05-16T22:02:54+00:00"
+            "time": "2019-06-23T10:14:27+00:00"
         },
         {
             "name": "enyo/dropzone",

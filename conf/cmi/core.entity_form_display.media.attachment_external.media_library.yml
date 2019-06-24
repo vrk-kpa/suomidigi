@@ -1,0 +1,32 @@
+uuid: 62ade07a-5992-42dc-911b-6ceb48d6b5e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.attachment_external.field_liftup_image
+    - field.field.media.attachment_external.field_media_externalfile
+    - media.type.attachment_external
+id: media.attachment_external.media_library
+targetEntityType: media
+bundle: attachment_external
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    weight: 0
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_liftup_image: true
+  field_media_externalfile: true
+  langcode: true
+  path: true
+  revision_log_message: true
+  status: true
+  translation: true
+  uid: true

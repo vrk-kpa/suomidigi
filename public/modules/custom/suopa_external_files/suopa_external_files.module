@@ -1,0 +1,30 @@
+<?php
+
+use Drupal\media\Entity\Media;
+use Drupal\Component\Utility\Xss;
+
+/**
+ * Implements hook_preprocess_media().
+ */
+function suopa_external_files_preprocess_media(&$variables) {
+  /** @var \Drupal\media\MediaInterface $media */
+  $media = $variables['media'];
+
+  if (
+    $media instanceof Media &&
+    $media->hasField('field_external_file') &&
+    !$media->get('field_external_file')->isEmpty()
+  ) {
+    switch ($variables['view_mode']) {
+      case 'media_library':
+        $variables['name'] = $media->getName();
+        break;
+
+      case 'media_paragraph':
+        $variables['code'] = [
+          '#markup' => $media->field_external_file->value,
+        ];
+        break;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+name: 'SuoPa - External files'
+type: module
+description: 'External files as media entities for Suomidigi.fi'
+core: 8.x
+package: 'SuoPa'

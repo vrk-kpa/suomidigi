@@ -1,0 +1,17 @@
+uuid: b41a720a-b6a5-4bf1-a7f3-d2c4a0dfda26
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: attachment_teaser_image_small
+label: 'Attachment Teaser Image Small'
+effects:
+  c8c66068-2ca1-40f4-97a4-5a8cc80082b1:
+    uuid: c8c66068-2ca1-40f4-97a4-5a8cc80082b1
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 350
+      height: 175
+      crop_type: focal_point
