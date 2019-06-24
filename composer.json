@@ -153,6 +153,8 @@
         "fix": [
             "phpcbf --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
         ],
+        "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
+        "post-update-cmd": "vendor/bin/cghooks update",
         "test": [
             "@test-behavioral",
             "@test-static-js",
