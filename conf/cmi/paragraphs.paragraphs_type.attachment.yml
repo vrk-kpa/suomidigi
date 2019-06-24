@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: attachment
-label: Attachment
+label: Attachments
 icon_uuid: null
 description: 'Use this type if you want to create a paragraph which contains attachments or external attachments'
 behavior_plugins: {  }

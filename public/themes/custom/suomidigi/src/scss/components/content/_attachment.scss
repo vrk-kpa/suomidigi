@@ -1,13 +1,21 @@
 .attachment-teaser {
-  @include breakpoint($for-tablet-portrait-up) {
+  margin: $gutter / 2;
+  border: 1px solid $gray;
+  padding: $gutter / 2;
+  width: 100%;
+
+  @include breakpoint($for-mobile-landscape-up) {
     width: calc(100% / 2 - calc(#{$gutter}));
-    margin: $gutter / 2;
-    border: 1px solid $gray;
-    padding: $gutter / 2;
   }
 
   &__content {
-    margin: $gutter/2 $gutter 0;
+    margin: $gutter/2 $gutter/2 0;
+  }
+
+  &__image {
+    img {
+      width: 100%;
+    }
   }
 
   &__title {
