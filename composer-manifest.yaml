@@ -8,7 +8,6 @@ packages:
     behat/mink-goutte-driver: v1.2.1
     behat/mink-selenium2-driver: v1.3.1
     behat/transliterator: v1.2.0
-    brainmaestro/composer-git-hooks: v2.7.0
     brumann/polyfill-unserialize: v1.0.3
     chi-teck/drupal-code-generator: 1.29.2
     composer/installers: v1.6.0
@@ -51,7 +50,6 @@ packages:
     drupal/entity_browser_entity_form: 2.1.0
     drupal/entity_reference_revisions: 1.6.0
     drupal/focal_point: 1.0.0
-    drupal/hide_revision_field: 2.1.0
     drupal/high_contrast: 1.0.0-beta1
     drupal/inline_entity_form: 1.0.0-rc1
     drupal/inline_responsive_images: 2.1.0
@@ -78,7 +76,6 @@ packages:
     drupal/video_embed_field: 2.1.0
     drush/drush: 9.7.0
     easyrdf/easyrdf: 0.9.1
-    egulias/email-validator: 2.1.9
     enyo/dropzone: 5.5.0
     fabpot/goutte: v3.2.3
     grasmash/expander: 1.0.0
@@ -90,7 +87,6 @@ packages:
     instaclick/php-webdriver: 1.4.5
     jakub-onderka/php-console-color: v0.2
     jakub-onderka/php-console-highlighter: v0.4
-    joachim-n/composer-manifest: 1.0.3
     league/container: 2.4.1
     masterminds/html5: 2.6.0
     myclabs/deep-copy: 1.9.1
@@ -170,3 +166,7 @@ packages:
     zendframework/zend-escaper: 2.6.0
     zendframework/zend-feed: 2.12.0
     zendframework/zend-stdlib: 3.2.1
+    joachim-n/composer-manifest: 1.0.3
+    egulias/email-validator: 2.1.9
+    drupal/hide_revision_field: 2.1.0
+    brainmaestro/composer-git-hooks: v2.7.0
