@@ -13,6 +13,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
+        "brainmaestro/composer-git-hooks": "^2.7",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal-composer/drupal-scaffold": "^2.5",
@@ -47,6 +48,7 @@
         "drupal/video_embed_field": "^2.1",
         "drush/drush": "^9.0.0",
         "enyo/dropzone": "5.5.0",
+        "joachim-n/composer-manifest": "^1.0",
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4"
     },
@@ -89,6 +91,9 @@
             "drupal/menu_block_current_language": {
                 "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
             }
+        },
+        "hooks": {
+            "pre-push": "make test"
         }
     },
     "repositories": [
@@ -147,6 +152,8 @@
         "fix": [
             "phpcbf --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
         ],
+        "post-install-cmd": "cghooks add --force-setup",
+        "post-update-cmd": "cghooks update",
         "test": [
             "@test-behavioral",
             "@test-static-js",
