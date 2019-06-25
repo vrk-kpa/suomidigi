@@ -76,7 +76,6 @@ class ExternalFile extends MediaSourceBase {
   /**
    * {@inheritdoc}
    */
-
   public function getMetadata(MediaInterface $media, $attribute_name) {
     switch ($attribute_name) {
       case 'thumbnail_uri':
@@ -144,21 +143,21 @@ class ExternalFile extends MediaSourceBase {
   public function getExternalFileData($url) {
     $file_data = [];
 
-    $curl = curl_init( $url );
-    curl_setopt( $curl, CURLOPT_NOBODY, true );
-    curl_setopt( $curl, CURLOPT_HEADER, true );
-    curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
-    curl_setopt( $curl, CURLOPT_FOLLOWLOCATION, true );
-    $data = curl_exec( $curl );
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_NOBODY, TRUE);
+    curl_setopt($curl, CURLOPT_HEADER, TRUE);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, TRUE);
+    $data = curl_exec($curl);
     $mime = curl_getinfo($curl, CURLINFO_CONTENT_TYPE);
-    curl_close( $curl );
+    curl_close($curl);
 
     if ($data) {
-      if (preg_match( "/^HTTP\/1\.[01] (\d\d\d)/", $data, $matches )) {
+      if (preg_match("/^HTTP\/1\.[01] (\d\d\d)/", $data, $matches)) {
         $status = (int) $matches[1];
       }
 
-      if (preg_match( "/Content-Length: (\d+)/", $data, $matches )) {
+      if (preg_match("/Content-Length: (\d+)/", $data, $matches)) {
         $content_length = (int) $matches[1];
       }
 
@@ -174,6 +173,7 @@ class ExternalFile extends MediaSourceBase {
 
   /**
    * Map mime types to file types.
+   *
    * @param $mime
    *   Mime type.
    *
@@ -365,4 +365,5 @@ class ExternalFile extends MediaSourceBase {
 
     return isset($mime_map[$mime]) ? $mime_map[$mime] : '';
   }
+
 }
