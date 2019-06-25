@@ -33,6 +33,11 @@ function suomidigi_preprocess_html(&$variables) {
 function suomidigi_preprocess_node(&$variables) {
   if ($variables['node']->getType() === 'article') {
     $node = $variables['node'];
+    $published_at = $node->get('published_at')->getString();
+
+    if (isset($published_at)) {
+      $variables['published_at'] = $published_at;
+    }
 
     if ($node->hasField('field_header_image')) {
       $mediaEntity = $node->get('field_header_image')->getValue();

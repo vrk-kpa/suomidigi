@@ -94,7 +94,7 @@
         </span>
       {% endif %}
       <span class="article__data-item article__published">
-        {{ node.createdtime|date('j.n.Y - H:i') }}
+        {{ published_at|date('j.n.Y - H:i') }}
       </span>
       {% if content.field_displayed_update_time|render %}
         <span class="article__data-item article__modified">
