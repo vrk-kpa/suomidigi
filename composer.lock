@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "227610e30d74fa6137cadb484ad579d3",
+    "content-hash": "0a7e8a65a4dd3723a7c1b6c2fbee95be",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,74 @@
                 "stack"
             ],
             "time": "2017-12-20T14:37:45+00:00"
+        },
+        {
+            "name": "brainmaestro/composer-git-hooks",
+            "version": "v2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BrainMaestro/composer-git-hooks.git",
+                "reference": "974e17fcae40dc389d1529e1342f5468d0b7b028"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BrainMaestro/composer-git-hooks/zipball/974e17fcae40dc389d1529e1342f5468d0b7b028",
+                "reference": "974e17fcae40dc389d1529e1342f5468d0b7b028",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || >=7.0",
+                "symfony/console": "^3.2 || ^4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.9",
+                "phpunit/phpunit": "^5.7|^7.0"
+            },
+            "bin": [
+                "cghooks"
+            ],
+            "type": "library",
+            "extra": {
+                "hooks": {
+                    "pre-commit": "composer check-style",
+                    "pre-push": [
+                        "composer test",
+                        "appver=$(grep -o -E '\\d.\\d.\\d' cghooks)",
+                        "tag=$(git describe --tags --abbrev=0)",
+                        "if [ \"$tag\" != \"v$appver\" ]; then",
+                        "echo \"The most recent tag $tag does not match the application version $appver\\n\"",
+                        "tag=${tag#v}",
+                        "sed -i -E \"s/$appver/$tag/\" cghooks",
+                        "exit 1",
+                        "fi"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BrainMaestro\\GitHooks\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ezinwa Okpoechi",
+                    "email": "brainmaestro@outlook.com"
+                }
+            ],
+            "description": "Easily manage git hooks in your composer config",
+            "keywords": [
+                "HOOK",
+                "composer",
+                "git"
+            ],
+            "time": "2019-06-09T11:00:13+00:00"
         },
         {
             "name": "brumann/polyfill-unserialize",
@@ -5004,6 +5072,46 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
+            "name": "joachim-n/composer-manifest",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joachim-n/composer-manifest.git",
+                "reference": "094604c55baa0000193fe73e34e402d2348221f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joachim-n/composer-manifest/zipball/094604c55baa0000193fe73e34e402d2348221f1",
+                "reference": "094604c55baa0000193fe73e34e402d2348221f1",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "symfony/yaml": "^3.4 || ^4.2"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "ComposerManifest\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ComposerManifest\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Joachim Noreiko",
+                    "email": "joachim@107701.no-reply.drupal.org"
+                }
+            ],
+            "time": "2019-03-15T14:56:15+00:00"
+        },
+        {
             "name": "league/container",
             "version": "2.4.1",
             "source": {
@@ -5708,7 +5816,9 @@
             "version": "4.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip"
+                "url": "https://github.com/select2/select2/archive/4.0.7.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -5720,7 +5830,9 @@
             "version": "1.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
+                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {

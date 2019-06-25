@@ -1,4 +1,5 @@
 # Ignore project files that should not be in version control
+cghooks.lock
 drush/contrib/
 files
 files_private

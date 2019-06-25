@@ -86,8 +86,6 @@ function suomidigi_preprocess_paragraph(&$variables) {
   }
 }
 
-
-
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -267,6 +265,7 @@ function suomidigi_preprocess_media(&$variables) {
         }
       }
       break;
+
     case 'attachment_external':
       $file_data = $media->getSource()->getFileMetadata($media);
       if (is_array($file_data) && !empty($file_data)) {

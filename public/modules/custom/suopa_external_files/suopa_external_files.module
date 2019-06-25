@@ -1,7 +1,10 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\media\Entity\Media;
-use Drupal\Component\Utility\Xss;
 
 /**
  * Implements hook_preprocess_media().

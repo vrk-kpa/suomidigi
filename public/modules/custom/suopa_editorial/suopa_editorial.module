@@ -80,7 +80,7 @@ function suopa_editorial_disable_sibling_checkbox(&$form, $form_state) {
     'node_article_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
-    'taxonomy_term_theme_form'
+    'taxonomy_term_theme_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
