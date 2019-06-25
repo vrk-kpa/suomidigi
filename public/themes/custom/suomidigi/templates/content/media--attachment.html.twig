@@ -23,7 +23,7 @@
 
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
-  <a href="{{ file_url }}" class="attachment-teaser__link">
+  <a href="{{ file_url(file_url) }}" class="attachment-teaser__link">
     {% block image %}
       {% if content.field_liftup_image|render %}
         <div class="attachment-teaser__image">
