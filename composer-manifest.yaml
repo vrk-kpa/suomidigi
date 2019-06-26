@@ -39,6 +39,7 @@ packages:
     doctrine/reflection: v1.0.0
     drupal-composer/drupal-scaffold: 2.6.1
     drupal/admin_toolbar: 1.27.0
+    drupal/captcha: 1.0.0-beta1
     drupal/cdn: 3.3.0
     drupal/coder: 8.3.5
     drupal/core: 8.7.3
@@ -66,6 +67,7 @@ packages:
     drupal/pathauto: 1.4.0
     drupal/publication_date: 2.0.0-beta1
     drupal/rabbit_hole: 1.0.0-beta6
+    drupal/recaptcha: 2.4.0
     drupal/redirect: 1.3.0
     drupal/scheduler: 'dev-1.x:63b5ca8c1205e8cd047d8f85014fbc3c203d56ba'
     drupal/select2: 1.1.0
@@ -76,6 +78,7 @@ packages:
     drupal/token: 1.5.0
     drupal/twig_tweak: 2.3.0
     drupal/video_embed_field: 2.1.0
+    drupal/webform: 5.2.0
     drush/drush: 9.7.0
     easyrdf/easyrdf: 0.9.1
     egulias/email-validator: 2.1.9
@@ -135,31 +138,31 @@ packages:
     stack/builder: v1.0.5
     swiftmailer/swiftmailer: v5.4.12
     symfony-cmf/routing: 1.4.1
-    symfony/browser-kit: v3.4.28
-    symfony/class-loader: v3.4.28
-    symfony/config: v3.4.28
-    symfony/console: v3.4.28
-    symfony/css-selector: v3.4.28
-    symfony/debug: v3.4.28
-    symfony/dependency-injection: v3.4.28
-    symfony/dom-crawler: v3.4.28
-    symfony/event-dispatcher: v3.4.28
-    symfony/filesystem: v3.4.28
-    symfony/finder: v3.4.28
-    symfony/http-foundation: v3.4.28
-    symfony/http-kernel: v3.4.28
+    symfony/browser-kit: v3.4.29
+    symfony/class-loader: v3.4.29
+    symfony/config: v3.4.29
+    symfony/console: v3.4.29
+    symfony/css-selector: v3.4.29
+    symfony/debug: v3.4.29
+    symfony/dependency-injection: v3.4.29
+    symfony/dom-crawler: v3.4.29
+    symfony/event-dispatcher: v3.4.29
+    symfony/filesystem: v3.4.29
+    symfony/finder: v3.4.29
+    symfony/http-foundation: v3.4.29
+    symfony/http-kernel: v3.4.29
     symfony/polyfill-ctype: v1.11.0
     symfony/polyfill-iconv: v1.11.0
     symfony/polyfill-mbstring: v1.11.0
     symfony/polyfill-php70: v1.11.0
-    symfony/process: v3.4.28
+    symfony/process: v3.4.29
     symfony/psr-http-message-bridge: v1.2.0
-    symfony/routing: v3.4.28
-    symfony/serializer: v3.4.28
-    symfony/translation: v3.4.28
-    symfony/validator: v3.4.28
-    symfony/var-dumper: v3.4.28
-    symfony/yaml: v3.4.28
+    symfony/routing: v3.4.29
+    symfony/serializer: v3.4.29
+    symfony/translation: v3.4.29
+    symfony/validator: v3.4.29
+    symfony/var-dumper: v3.4.29
+    symfony/yaml: v3.4.29
     theseer/tokenizer: 1.1.3
     twig/twig: v1.42.2
     typo3/phar-stream-wrapper: v2.1.2
