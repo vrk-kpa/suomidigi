@@ -35,7 +35,7 @@ function suomidigi_preprocess_node(&$variables) {
     $node = $variables['node'];
     $published_at = $node->get('published_at')->getString();
 
-    if (isset($published_at)) {
+    if (isset($published_at) && $node->isPublished()) {
       $variables['published_at'] = $published_at;
     }
 

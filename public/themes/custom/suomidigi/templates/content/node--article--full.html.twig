@@ -93,9 +93,11 @@
           {{ content.field_displayed_author }}
         </span>
       {% endif %}
-      <span class="article__data-item article__published">
-        {{ published_at|date('j.n.Y - H:i') }}
-      </span>
+      {% if node.isPublished() and published_at is not empty %}
+        <span class="article__data-item article__published">
+          {{ published_at|date('j.n.Y - H:i') }}
+        </span>
+      {% endif %}
       {% if content.field_displayed_update_time|render %}
         <span class="article__data-item article__modified">
           <span class="article__modified-text">{{ 'Updated on'|trans }}</span> <span class="article__modified-date">{{ content.field_displayed_update_time }}</span>
