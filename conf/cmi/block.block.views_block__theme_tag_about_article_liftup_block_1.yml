@@ -1,0 +1,25 @@
+uuid: 0db6a336-0928-4d26-9b3c-7ea266d29e2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.theme_tag_about_article_liftup
+  module:
+    - views
+  theme:
+    - suomidigi
+id: views_block__theme_tag_about_article_liftup_block_1
+theme: suomidigi
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:theme_tag_about_article_liftup-block_1'
+settings:
+  id: 'views_block:theme_tag_about_article_liftup-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

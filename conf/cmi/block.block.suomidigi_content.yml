@@ -11,7 +11,7 @@ _core:
 id: suomidigi_content
 theme: suomidigi
 region: content
-weight: 1
+weight: -3
 provider: null
 plugin: system_main_block
 settings:
