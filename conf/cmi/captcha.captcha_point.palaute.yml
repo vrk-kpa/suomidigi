@@ -1,0 +1,7 @@
+uuid: 6e803733-e6e0-4247-8b7a-23b25b20f3ad
+langcode: fi
+status: false
+dependencies: {  }
+formId: palaute
+captchaType: recaptcha/reCAPTCHA
+label: palaute
