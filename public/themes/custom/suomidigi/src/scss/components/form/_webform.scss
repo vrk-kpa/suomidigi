@@ -1,0 +1,8 @@
+.webform-submission-form {
+  h2 {
+    @include font-size(18px);
+    @include line-height(18px, 20px);
+    font-weight: 600;
+    margin-bottom: $gutter;
+  }
+}
