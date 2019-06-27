@@ -18,6 +18,7 @@
         "cweagans/composer-patches": "^1.6.5",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/admin_toolbar": "^1.0",
+        "drupal/captcha": "^1.0",
         "drupal/cdn": "^3.2",
         "drupal/core": "^8.7.0",
         "drupal/dropzonejs": "^2.0-alpha4",
@@ -27,6 +28,7 @@
         "drupal/high_contrast": "^1.0",
         "drupal/inline_entity_form": "^1.0",
         "drupal/inline_responsive_images": "^2.1",
+        "drupal/key": "^1.8",
         "drupal/link_attributes": "^1.5",
         "drupal/linkit": "^4.3",
         "drupal/media_entity_browser": "^2.0",
@@ -37,6 +39,7 @@
         "drupal/pathauto": "^1.0",
         "drupal/publication_date": "^2.0",
         "drupal/rabbit_hole": "^1.0",
+        "drupal/recaptcha": "^2.4",
         "drupal/redirect": "^1.3",
         "drupal/scheduler": "1.x-dev",
         "drupal/select2": "^1.1",
@@ -46,6 +49,7 @@
         "drupal/system_status": "^2.0",
         "drupal/twig_tweak": "^2.1",
         "drupal/video_embed_field": "^2.1",
+        "drupal/webform": "^5.2",
         "drush/drush": "^9.0.0",
         "enyo/dropzone": "5.5.0",
         "joachim-n/composer-manifest": "^1.0",
@@ -86,7 +90,6 @@
             "drupal/hide_revision_field": {
                 "https://www.drupal.org/project/hide_revision_field/issues/3032473": "https://www.drupal.org/files/issues/2019-05-10/hide_revision_field-3032473-8.patch",
                 "https://www.drupal.org/project/hide_revision_field/issues/3018160": "https://www.drupal.org/files/issues/2019-06-10/hide_revision_field-3018160-user_profile_error_plus_media_incompatibility-12.patch"
-
             },
             "drupal/menu_block_current_language": {
                 "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"

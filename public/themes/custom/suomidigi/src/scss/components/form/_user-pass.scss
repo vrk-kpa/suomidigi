@@ -1,0 +1,15 @@
+.section--content form.user-pass {
+  .form-item {
+    margin-bottom: $gutter;
+  }
+
+  > p {
+    @include font-size(18px);
+    font-weight: 400;
+    background-color: $gray;
+    border-radius: 4px;
+    margin-bottom: $gutter;
+    padding: 20px 30px;
+    text-align: left;
+  }
+}

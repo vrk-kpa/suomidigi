@@ -26,3 +26,4 @@ libraries-override:
     css:
       component:
         css/components/menu.css: false
+        css/components/button.css: false

@@ -19,13 +19,12 @@
 @mixin button() {
   @include font-size(14px);
   background-color: transparent;
-  border: 1px solid $black;
-  border-radius: 50px;
-  box-shadow: 0 8px 6px -6px rgba($black, 0.3);
+  border: 1px solid $gray-darker;
+  box-shadow: 0 8px 6px -6px rgba($black, 0.15);
   color: $black;
   display: flex;
   font-family: $default-font-family;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0 auto;
   padding: 0.3rem 0.75rem;
   position: relative;
@@ -43,9 +42,9 @@
   }
 
   &:hover {
-    background-color: $black;
-    color: $white;
-    border-color: $black;
+    background-color: $gray;
+    box-shadow: 0 8px 6px -6px rgba($black, 0.1);
+    color: $black;
     cursor: pointer;
   }
 }

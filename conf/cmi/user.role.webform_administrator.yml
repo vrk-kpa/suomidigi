@@ -1,0 +1,33 @@
+uuid: ebb68284-3e0d-4d59-acfb-770bb18b490b
+langcode: en
+status: true
+dependencies: {  }
+id: webform_administrator
+label: 'Webform administrator'
+weight: -5
+is_admin: null
+permissions:
+  - 'access webform overview'
+  - 'access webform submission log'
+  - 'create webform'
+  - 'create webform content'
+  - 'delete any webform content'
+  - 'delete any webform submission'
+  - 'delete own webform'
+  - 'delete own webform content'
+  - 'delete own webform submission'
+  - 'delete webform submissions any node'
+  - 'delete webform submissions own node'
+  - 'edit any webform'
+  - 'edit any webform content'
+  - 'edit any webform submission'
+  - 'edit own webform'
+  - 'edit own webform submission'
+  - 'edit webform submissions any node'
+  - 'edit webform submissions own node'
+  - 'revert webform revisions'
+  - 'view any webform submission'
+  - 'view own webform submission'
+  - 'view webform revisions'
+  - 'view webform submissions any node'
+  - 'view webform submissions own node'
