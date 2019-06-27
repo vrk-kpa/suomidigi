@@ -76,7 +76,7 @@ content:
       default: ''
       permission_based: false
       allow_user_settings: true
-      rows: '5'
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   status:
@@ -99,6 +99,11 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+    region: content
+  translation:
+    weight: 10
+    settings: {  }
     third_party_settings: {  }
     region: content
   uid:

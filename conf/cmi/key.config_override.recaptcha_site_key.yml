@@ -1,0 +1,14 @@
+uuid: 6aef0b1e-4ef7-494f-aa17-2a180d462a22
+langcode: fi
+status: true
+dependencies:
+  config:
+    - key.key.recaptcha_site_key
+    - recaptcha.settings
+id: recaptcha_site_key
+label: 'recaptcha - Site key'
+config_type: system.simple
+config_prefix: ''
+config_name: recaptcha.settings
+config_item: site_key
+key_id: recaptcha_site_key

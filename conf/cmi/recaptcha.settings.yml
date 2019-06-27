@@ -1,3 +1,5 @@
+site_key: null
+secret_key: null
 verify_hostname: false
 use_globally: false
 widget:
