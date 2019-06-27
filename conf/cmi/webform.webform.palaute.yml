@@ -190,8 +190,8 @@ handlers:
       body: _default
       excluded_elements: {  }
       ignore_access: false
-      exclude_empty: true
-      exclude_empty_checkbox: true
+      exclude_empty: false
+      exclude_empty_checkbox: false
       html: true
       attachments: false
       twig: false
