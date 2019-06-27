@@ -186,12 +186,12 @@ handlers:
       from_mail: noreply@suomidigi.fi
       from_options: {  }
       from_name: '[site:name]'
-      subject: _default
+      subject: 'Palaute lomakkeelta: [webform_submission:source-entity]'
       body: _default
       excluded_elements: {  }
       ignore_access: false
-      exclude_empty: false
-      exclude_empty_checkbox: false
+      exclude_empty: true
+      exclude_empty_checkbox: true
       html: true
       attachments: false
       twig: false
