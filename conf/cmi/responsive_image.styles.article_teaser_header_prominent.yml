@@ -1,0 +1,18 @@
+uuid: 13493f0e-a56e-4bd9-8512-dff503fab1b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.article_teaser_header_image_alternative_large
+  theme:
+    - suomidigi
+id: article_teaser_header_prominent
+label: 'Article Teaser Header Prominent'
+image_style_mappings:
+  -
+    breakpoint_id: suomidigi.for_tablet_landscape_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: article_teaser_header_image_alternative_large
+breakpoint_group: suomidigi
+fallback_image_style: article_teaser_header_image_alternative_large

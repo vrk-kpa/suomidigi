@@ -1,11 +1,24 @@
 .article-teaser {
   height: 100%;
+
+  // Article Teaser Prominent
+  &--prominent {
+    height: 100%;
+    margin: 0 -#{$gutter} $gutter * 2 -#{$gutter};
+    background-color: $gray-lighter;
+    padding: $gutter;
+  }
 }
 
 .article-teaser__link {
   display: block;
   text-decoration: none;
   height: 100%;
+
+  .article-teaser--prominent & {
+    background-color: $white;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.22);
+  }
 }
 
 .article-teaser__image {
@@ -16,34 +29,52 @@
 }
 
 .article-teaser__content {
-  padding: $gutter;
   border: 1px solid rgba(165, 172, 176, 0.3);
   border-top: 0;
+  line-height: 12px;
+  padding: $gutter;
+
+  .article-teaser--prominent & {
+    border: 0 none;
+    margin-bottom: $gutter;
+  }
 }
 
 .article-teaser__type {
+  @include font-size(12px);
+  @include line-height(12px, 14px);
   color: $gray-darker;
-  font-weight: 600;
-  font-size: 0.875rem;
   display: inline-block;
+  font-weight: 600;
+
+  .article-teaser--prominent & {
+    @include line-height(12px, 12px);
+  }
 }
 
 .article-teaser__label {
-  @include font-size(24px);
+  @include font-size(22px);
+  @include line-height(22px, 24px);
   font-weight: 800;
-  margin: calc(#{$gutter} * 0.5) 0;
+  margin: $gutter * 0.5 0;
   color: $black;
 
   @include breakpoint($for-tablet-portrait-up) {
     @include font-size(20px);
+    margin: $gutter * 0.5 0 $gutter;
   }
 
-  @include breakpoint($for-tablet-portrait-up) {
+  @include breakpoint($for-tablet-landscape-up) {
     @include font-size(22px);
   }
 
   @include breakpoint($for-desktop-up) {
     @include font-size(24px);
+  }
+
+  .article-teaser--prominent & {
+    @include font-size(32px);
+    @include line-height(32px, 32px);
   }
 }
 
@@ -55,8 +86,19 @@
 }
 
 .article-teaser__lead {
+  @include line-height(14px, 22px);
   color: $black;
   margin: 0;
+
+  .article-teaser--prominent & {
+    @include font-size(14px);
+    @include line-height(14px, 18px);
+
+    @include breakpoint($for-tablet-portrait-up) {
+      @include line-height(14px, 20px);
+      text-shadow: 0 1px 1px 0 rgba(0,0,0,0.19);
+    }
+  }
 }
 
 .article-teaser__modified-text,

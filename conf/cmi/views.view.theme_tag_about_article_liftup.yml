@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.teaser_prominent
     - field.storage.node.field_article_type
     - field.storage.node.field_theme
     - node.type.article
@@ -70,7 +70,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: teaser_prominent
       fields:
         title:
           id: title
