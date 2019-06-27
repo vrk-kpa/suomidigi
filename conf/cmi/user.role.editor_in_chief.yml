@@ -138,6 +138,7 @@ permissions:
   - 'use text format restricted_html'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view any unpublished content'
   - 'view article revisions'
   - 'view landing_page revisions'
   - 'view own unpublished content'
