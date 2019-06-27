@@ -1,0 +1,10 @@
+uuid: 5b3992aa-fd78-46ac-b6e9-9d60c185cdbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.article_teaser_header_prominent
+label: 'Article Teaser Header Prominent'
+targetEntityType: media
+cache: true
