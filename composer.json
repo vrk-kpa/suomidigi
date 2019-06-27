@@ -28,6 +28,7 @@
         "drupal/high_contrast": "^1.0",
         "drupal/inline_entity_form": "^1.0",
         "drupal/inline_responsive_images": "^2.1",
+        "drupal/key": "^1.8",
         "drupal/link_attributes": "^1.5",
         "drupal/linkit": "^4.3",
         "drupal/media_entity_browser": "^2.0",
