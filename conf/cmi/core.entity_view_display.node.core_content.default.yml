@@ -1,0 +1,90 @@
+uuid: 48a48ccb-e334-4b71-9250-a7ba9a1d3e01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.core_content.field_core_content_type
+    - field.field.node.core_content.field_displayed_author
+    - field.field.node.core_content.field_displayed_update_time
+    - field.field.node.core_content.field_ingress
+    - field.field.node.core_content.field_media
+    - field.field.node.core_content.field_paragraphs
+    - field.field.node.core_content.field_reading_time
+    - field.field.node.core_content.field_theme
+    - node.type.core_content
+  module:
+    - datetime
+    - entity_reference_revisions
+    - user
+id: node.core_content.default
+targetEntityType: node
+bundle: core_content
+mode: default
+content:
+  field_core_content_type:
+    weight: 0
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_displayed_author:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_displayed_update_time:
+    weight: 3
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ingress:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_paragraphs:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_reading_time:
+    weight: 4
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 0
+      prefix_suffix: false
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  published_at:
+    type: timestamp
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      date_format: date_time
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+hidden:
+  field_media: true
+  field_theme: true
+  langcode: true
+  links: true
