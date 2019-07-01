@@ -1,5 +1,25 @@
 .core-content-teaser {
   height: 100%;
+
+  .paragraph--full-width & {
+    border-bottom: 1px solid rgba(165, 172, 176, 0.3);
+
+    .core-content-teaser__link {
+      box-shadow: none;
+    }
+
+    .core-content-teaser__label-type {
+      display: block;
+    }
+
+    .core-content-teaser__data {
+      margin-bottom: 0;
+    }
+
+    .core-content-teaser__data {
+      display: none;
+    }
+  }
 }
 
 .core-content-teaser__link {
@@ -52,6 +72,14 @@
   font-weight: 600;
   display: block;
   line-height: 100%;
+}
+
+.core-content-teaser__label-type {
+  @include font-size(12px);
+  color: $gray-darker;
+  display: none;
+  line-height: 100%;
+  margin-top: $gutter * 0.35;
 }
 
 .core-content__published {
