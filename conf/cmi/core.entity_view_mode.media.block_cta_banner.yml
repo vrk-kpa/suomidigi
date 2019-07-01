@@ -1,0 +1,10 @@
+uuid: 7b38390d-b6e9-4fac-93a7-3466443f94e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.block_cta_banner
+label: 'Block CTA Banner'
+targetEntityType: media
+cache: true

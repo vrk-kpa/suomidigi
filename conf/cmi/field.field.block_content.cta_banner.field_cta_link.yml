@@ -1,0 +1,23 @@
+uuid: 5b55860d-1415-4281-9179-74df7eee7853
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.storage.block_content.field_cta_link
+  module:
+    - link
+id: block_content.cta_banner.field_cta_link
+field_name: field_cta_link
+entity_type: block_content
+bundle: cta_banner
+label: Link
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link
