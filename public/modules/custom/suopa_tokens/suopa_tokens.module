@@ -30,14 +30,9 @@ function suopa_tokens_token_info() {
     'name' => t('Alias pattern'),
   ];
 
-  $info['tokens']['pattern_path']['path_article'] = [
+  $info['tokens']['pattern_path']['path'] = [
     'name' => t('Pattern path'),
-    'description' => t('Use the pattern defined in the selected "Article type" taxonomy term.'),
-  ];
-
-  $info['tokens']['pattern_path']['path_core_content'] = [
-    'name' => t('Pattern path'),
-    'description' => t('Use the pattern defined in the selected "Core content type" taxonomy term.'),
+    'description' => t('Use the pattern defined in the selected "Article type" or "Core content type" taxonomy term.'),
   ];
 
   return $info;
@@ -52,7 +47,7 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
   if ($type == 'entity' && !empty($data['entity']) && $data['entity_type'] == 'node') {
     foreach ($tokens as $name => $original) {
       switch ($name) {
-        case 'article_type_pattern:path_article':
+        case 'article_type_pattern:path':
           $pattern = suopa_tokens_get_node_pattern($data['entity']);
 
           // Use the default pattern if no pattern is found.
@@ -63,7 +58,7 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
           $token = Drupal::token();
           $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']], $options));
           break;
-        case 'core_content_type_pattern:path_core_content':
+        case 'core_content_type_pattern:path':
           $pattern = suopa_tokens_get_node_pattern($data['entity'], 'field_core_content_type');
 
           // Use the default pattern if no pattern is found.
