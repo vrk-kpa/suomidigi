@@ -1,7 +1,7 @@
 uuid: 210e82d7-9a1e-4c91-877d-3f0601862a0e
-langcode: fi
+langcode: en
 status: false
-dependencies: {  }
+dependencies: {}
 formId: node_landing_page_form
 captchaType: default
 label: null

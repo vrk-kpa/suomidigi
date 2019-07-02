@@ -20,13 +20,19 @@ function suopa_tokens_token_info() {
     'type' => 'pattern_path',
   ];
 
+  $info['tokens']['node']['core_content_type_pattern'] = [
+    'name' => t('Pattern for core content subtype'),
+    'description' => t('Use the pattern defined in the selected "Core content type" taxonomy term.'),
+    'type' => 'pattern_path',
+  ];
+
   $info['types']['pattern_path'] = [
     'name' => t('Alias pattern'),
   ];
 
   $info['tokens']['pattern_path']['path'] = [
     'name' => t('Pattern path'),
-    'description' => t('Use the pattern defined in the selected "Article type" taxonomy term.'),
+    'description' => t('Use the pattern defined in the selected "Article type" or "Core content type" taxonomy term.'),
   ];
 
   return $info;
@@ -42,7 +48,19 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
     foreach ($tokens as $name => $original) {
       switch ($name) {
         case 'article_type_pattern:path':
-          $pattern = suopa_tokens_get_article_pattern($data['entity']);
+          $pattern = suopa_tokens_get_node_pattern($data['entity']);
+
+          // Use the default pattern if no pattern is found.
+          if (!$pattern) {
+            $pattern = '[node:menu-link:parents:join-path]/[node:title]';
+          }
+
+          $token = Drupal::token();
+          $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']], $options));
+          break;
+
+        case 'core_content_type_pattern:path':
+          $pattern = suopa_tokens_get_node_pattern($data['entity'], 'field_core_content_type');
 
           // Use the default pattern if no pattern is found.
           if (!$pattern) {
@@ -67,13 +85,13 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
  *
  * @return string
  */
-function suopa_tokens_get_article_pattern(Node $article) {
+function suopa_tokens_get_node_pattern(Node $node, $type = 'field_article_type') {
   $langCode = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
 
-  $articleTypeTerm = $article->get('field_article_type')->entity;
-  if ($articleTypeTerm->hasTranslation($langCode)) {
-    $articleTypeTerm = $articleTypeTerm->getTranslation($langCode);
+  $nodeTypeTerm = $node->get($type)->entity;
+  if ($nodeTypeTerm->hasTranslation($langCode)) {
+    $nodeTypeTerm = $nodeTypeTerm->getTranslation($langCode);
   }
 
-  return $articleTypeTerm->get('field_url_pattern')->value;
+  return $nodeTypeTerm->get('field_url_pattern')->value;
 }

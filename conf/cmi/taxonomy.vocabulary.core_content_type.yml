@@ -1,0 +1,8 @@
+uuid: a0a807d0-d618-4a6f-9b51-9bb08d036a9f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Core content type'
+vid: core_content_type
+description: 'The sub-content type of Core content'
+weight: 0

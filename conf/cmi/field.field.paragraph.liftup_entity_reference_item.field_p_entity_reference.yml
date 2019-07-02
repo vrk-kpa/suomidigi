@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_p_entity_reference
     - node.type.article
+    - node.type.core_content
     - paragraphs.paragraphs_type.liftup_entity_reference_item
 id: paragraph.liftup_entity_reference_item.field_p_entity_reference
 field_name: field_p_entity_reference
@@ -21,8 +22,9 @@ settings:
   handler_settings:
     target_bundles:
       article: article
+      core_content: core_content
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: article
 field_type: entity_reference
