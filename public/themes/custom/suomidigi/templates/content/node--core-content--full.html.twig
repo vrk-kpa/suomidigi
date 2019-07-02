@@ -83,7 +83,7 @@
 %}
 
 <article{{attributes.addClass(classes)}}>
-  <div class="article__header">
+  <div class="article__header {% if node.field_header_image.isEmpty() %}is-empty{% endif %}">
     <div class="article__data">
       <div class="article__data-item article__type">
         {{ content.field_core_content_type }}
@@ -111,6 +111,11 @@
         </span>
       {% endif %}
     </div>
+    {% if content.field_header_image|render %}
+      <div class="article__image">
+        {{ content.field_header_image }}
+      </div>
+    {% endif %}
   </div>
   <div class="article__content">
     {% if content.field_ingress|render %}
