@@ -58,6 +58,7 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
           $token = Drupal::token();
           $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']], $options));
           break;
+
         case 'core_content_type_pattern:path':
           $pattern = suopa_tokens_get_node_pattern($data['entity'], 'field_core_content_type');
 
