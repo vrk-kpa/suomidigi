@@ -1,0 +1,19 @@
+uuid: 0b184561-98b1-415d-9ed5-944312763b43
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.storage.block_content.field_cta_title
+id: block_content.cta_banner.field_cta_title
+field_name: field_cta_title
+entity_type: block_content
+bundle: cta_banner
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,28 @@
+uuid: 823fed80-e85b-48d5-b68f-26ac008497f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.storage.block_content.field_cta_background_image
+    - media.type.image
+id: block_content.cta_banner.field_cta_background_image
+field_name: field_cta_background_image
+entity_type: block_content
+bundle: cta_banner
+label: 'Background image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,17 @@
+uuid: 5b0100f9-ec7a-4535-aba0-7b1cfcdacc6d
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: cta_banner_background
+label: 'CTA Banner Background'
+effects:
+  bd5fbb9a-2de9-4778-953f-b74e741071a4:
+    uuid: bd5fbb9a-2de9-4778-953f-b74e741071a4
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 152
+      crop_type: focal_point

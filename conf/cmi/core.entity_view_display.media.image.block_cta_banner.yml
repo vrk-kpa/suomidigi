@@ -1,0 +1,35 @@
+uuid: f58a05ec-3182-48d9-ad2b-c69d4c7a754f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.block_cta_banner
+    - field.field.media.image.field_media_image
+    - image.style.cta_banner_background
+    - media.type.image
+  module:
+    - svg_image
+id: media.image.block_cta_banner
+targetEntityType: media
+bundle: image
+mode: block_cta_banner
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: cta_banner_background
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
