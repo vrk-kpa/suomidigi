@@ -1,0 +1,30 @@
+uuid: 1d9664c9-b0ac-45e1-bce4-a20df85c8cd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.core_content_type.field_url_pattern
+    - taxonomy.vocabulary.core_content_type
+  module:
+    - text
+id: taxonomy_term.core_content_type.default
+targetEntityType: taxonomy_term
+bundle: core_content_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {}
+    third_party_settings: {}
+  field_url_pattern:
+    weight: 1
+    label: above
+    settings: {}
+    third_party_settings: {}
+    type: text_default
+    region: content
+hidden:
+  langcode: true

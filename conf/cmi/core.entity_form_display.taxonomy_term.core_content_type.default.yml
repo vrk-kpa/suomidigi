@@ -1,0 +1,64 @@
+uuid: 96ce7150-6546-4f15-8ecf-bfaedc05ab3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.core_content_type.field_url_pattern
+    - taxonomy.vocabulary.core_content_type
+  module:
+    - hide_revision_field
+    - path
+    - text
+id: taxonomy_term.core_content_type.default
+targetEntityType: taxonomy_term
+bundle: core_content_type
+mode: default
+content:
+  field_url_pattern:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+    type: text_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {}
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {}
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {}
+    third_party_settings: {}
+  revision_log_message:
+    type: hide_revision_field_log_widget
+    weight: 4
+    region: content
+    settings:
+      show: true
+      default: ''
+      permission_based: false
+      allow_user_settings: true
+      rows: 5
+      placeholder: ''
+    third_party_settings: {}
+  translation:
+    weight: 2
+    region: content
+    settings: {}
+    third_party_settings: {}
+hidden:
+  description: true
