@@ -6,9 +6,11 @@ dependencies:
     - block_content.type.cta_banner
     - field.field.block_content.cta_banner.field_cta_background_image
     - field.field.block_content.cta_banner.field_cta_link
+    - field.field.block_content.cta_banner.field_cta_text_align
     - field.field.block_content.cta_banner.field_cta_title
   module:
     - link
+    - options
 id: block_content.cta_banner.default
 targetEntityType: block_content
 bundle: cta_banner
@@ -34,6 +36,13 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_cta_text_align:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
     region: content
   field_cta_title:
     weight: 1
