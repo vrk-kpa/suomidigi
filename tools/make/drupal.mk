@@ -1,18 +1,4 @@
 SYNC_TARGETS += drush-sync
-TEST_TARGETS += drupal-lint-js
-DRUPAL_LINT_PATHS += ./$(DRUPAL_WEBROOT)/modules/custom/*/js
-DRUPAL_LINT_PATHS += ./$(DRUPAL_WEBROOT)/themes/custom/*/js
-
-PHONY += drupal-lint-js
-drupal-lint-js: DOCKER_NODE_IMG ?= node:8.16.0-alpine
-drupal-lint-js: WD := /usr/src/app
-drupal-lint-js: ## Lint JS files
-	$(call colorecho, "\nDo Yarn install...\n")
-	@docker run --rm -v "$(CURDIR)":$(WD) -w $(WD) $(DOCKER_NODE_IMG) yarn --cwd $(DRUPAL_WEBROOT)/core install
-	$(call colorecho, "\nLint JS files in: $(DRUPAL_LINT_PATHS)\n")
-	@docker run --rm -v "$(CURDIR)":$(WD) -w $(WD) $(DOCKER_NODE_IMG) \
-		$(DRUPAL_WEBROOT)/core/node_modules/eslint/bin/eslint.js --color --ignore-pattern '**/vendor/*' \
-		--c ./$(DRUPAL_WEBROOT)/core/.eslintrc.json --global nav,moment,responsiveNav:true $(DRUPAL_LINT_PATHS)
 
 PHONY += drush-cex
 drush-cex: ## Export configuration

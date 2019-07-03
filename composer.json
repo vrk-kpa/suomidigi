@@ -155,12 +155,11 @@
         "fix": [
             "phpcbf --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
         ],
-        "post-install-cmd": "cghooks add --force-setup",
         "post-update-cmd": "cghooks update",
         "test": [
             "@test-behavioral",
             "@test-static-js",
-            "@test-static-php",
+            "@fix",
             "@test-unit"
         ],
         "test-behavioral": [
@@ -170,7 +169,7 @@
             "node_modules/eslint/bin/eslint.js --color --ignore-pattern '**/vendor/*' --c ./public/core/.eslintrc.json --global nav,moment,responsiveNav:true ./public/modules/custom/*/js",
             "node_modules/eslint/bin/eslint.js --color --ignore-pattern '**/vendor/*' --c ./public/core/.eslintrc.json --global nav,moment,responsiveNav:true ./public/themes/custom/*/js"
         ],
-        "test-static-php": [
+        "lint": [
             "phpcs --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
         ],
         "test-unit": [
