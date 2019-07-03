@@ -53,7 +53,6 @@
         "drupal/webform": "^5.2",
         "drush/drush": "^9.0.0",
         "enyo/dropzone": "5.5.0",
-        "joachim-n/composer-manifest": "^1.0",
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4"
     },
