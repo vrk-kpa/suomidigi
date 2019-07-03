@@ -74,8 +74,8 @@
   set classes = [
     'node',
     'node--type-' ~ node.bundle|clean_class,
-    'article-teaser',
-    'article-teaser--prominent',
+    'article-prominent',
+    'article-prominent--secondary',
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
@@ -84,20 +84,20 @@
 %}
 
 <article{{attributes.addClass(classes)}}>
-  <a href="{{ url }}" class="article-teaser__link">
-    <div class="article-teaser__image">
+  <a href="{{ url }}" class="article-prominent__link">
+    <div class="article-prominent__image">
       {{ content.field_header_image }}
     </div>
-    <div class="article-teaser__content">
-      <span class="article-teaser__type">
-        {{ content.field_article_type }}
+    <div class="article-prominent__content">
+      <span class="article-prominent__type">
+        {{ content.field_article_type.0 }}
       </span>
-      <h2 class="article-teaser__label">
-        {{ label }}
+      <h2 class="article-prominent__label">
+        {{ label.0 }}
       </h2>
       {% if content.field_ingress|render %}
-        <p class="article-teaser__lead">
-          {{ content.field_ingress['0']['#markup'] }}
+        <p class="article-prominent__lead">
+          {{ content.field_ingress.0['#markup'] }}
         </p>
       {% endif %}
     </div>

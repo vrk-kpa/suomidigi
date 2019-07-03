@@ -89,6 +89,7 @@
 .article-prominent__lead {
   @include font-size(14px);
   @include line-height(14px, 20px);
+  margin-bottom: 0;
 
   @include breakpoint($for-tablet-portrait-up) {
     @include font-size(16px);
