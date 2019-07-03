@@ -45,7 +45,7 @@ content:
     region: content
     label: hidden
     settings:
-      trim_length: 150
+      trim_length: 250
       trim_type: chars
       trim_suffix: ...
       wrap_class: trimmed
