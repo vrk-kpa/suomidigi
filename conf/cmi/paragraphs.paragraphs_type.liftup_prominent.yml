@@ -1,0 +1,9 @@
+uuid: 311cbf68-a5e0-413f-96a0-0b1d67f31eba
+langcode: en
+status: true
+dependencies: {  }
+id: liftup_prominent
+label: 'Liftup - Prominent'
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph liftup (e g. first liftup on the frontpage) with blue background color.'
+behavior_plugins: {  }

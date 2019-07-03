@@ -75,7 +75,7 @@
     'node',
     'node--type-' ~ node.bundle|clean_class,
     'article-prominent',
-    'article-prominent--secondary',
+    'article-prominent--primary',
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
@@ -90,11 +90,29 @@
     </div>
     <div class="article-prominent__content">
       <span class="article-prominent__type">
-        {{ content.field_article_type.0 }}
+        {{ content.field_core_content_type.0 }}
       </span>
       <h2 class="article-prominent__label">
         {{ label.0 }}
       </h2>
+      <div class="article-prominent__data">
+        {% if content.field_displayed_author|render %}
+          <div class="article-prominent__data-item article__author">
+            {{ content.field_displayed_author.0 }}
+          </div>
+        {% endif %}
+        {% if node.isPublished() %}
+          <span class="article-prominent__data-item article__published">
+            {{ published_at|date('j.n.Y') }}
+          </span>
+        {% endif %}
+        {% if content.field_reading_time|render %}
+          <span class="article-prominent__data-item article__reading">
+            <span class="article__reading-time">{{ content.field_reading_time }}</span>
+            <span class="article__reading-text">{{ 'min read'|trans }}</span>
+          </span>
+        {% endif %}
+      </div>
       {% if content.field_ingress|render %}
         <p class="article-prominent__lead">
           {{ content.field_ingress.0['#markup'] }}

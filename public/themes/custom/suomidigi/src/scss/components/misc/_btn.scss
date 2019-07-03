@@ -1,0 +1,25 @@
+.btn {
+  @include font-size(12px);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $black;
+  background-color: $gray-lighter;
+  padding: $gutter * 0.5 $gutter * 1.75;
+  display: inline-block;
+  font-weight: 800;
+  letter-spacing: 0.025rem;
+
+  @include breakpoint($for-tablet-landscape-up) {
+    @include font-size(14px);
+  }
+}
+
+.btn--blue {
+  color: $white;
+  background-color: $blue-light;
+
+  &:focus,
+  &:hover {
+    color: $white;
+  }
+}

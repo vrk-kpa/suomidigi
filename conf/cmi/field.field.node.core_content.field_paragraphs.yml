@@ -25,50 +25,53 @@ settings:
   handler_settings:
     negate: 1
     target_bundles:
-      highlight_bullet_point_item: highlight_bullet_point_item
       liftup_box_item: liftup_box_item
       liftup_entity_reference_item: liftup_entity_reference_item
+      highlight_bullet_point_item: highlight_bullet_point_item
     target_bundles_drag_drop:
-      attachment:
-        weight: 15
-        enabled: false
       container:
-        weight: 16
+        weight: -31
         enabled: false
       container_title:
-        weight: 17
+        weight: -30
         enabled: false
-      highlight_bullet_point:
-        weight: 18
+      text:
+        weight: -29
         enabled: false
-      highlight_bullet_point_item:
-        enabled: true
-        weight: 19
-      highlight_cta:
-        weight: 20
+      media:
+        weight: -28
         enabled: false
-      highlight_text_box:
-        weight: 21
+      attachment:
+        weight: -27
+        enabled: false
+      link:
+        weight: -26
         enabled: false
       liftup_box:
-        weight: 22
+        weight: -25
         enabled: false
       liftup_box_item:
         enabled: true
-        weight: 23
+        weight: -24
       liftup_entity_reference:
-        weight: 24
+        weight: -23
         enabled: false
       liftup_entity_reference_item:
         enabled: true
-        weight: 25
-      link:
-        weight: 26
+        weight: -22
+      liftup_prominent:
+        weight: -21
         enabled: false
-      media:
-        weight: 27
+      highlight_bullet_point:
+        weight: -20
         enabled: false
-      text:
-        weight: 28
+      highlight_bullet_point_item:
+        enabled: true
+        weight: -19
+      highlight_cta:
+        weight: -18
+        enabled: false
+      highlight_text_box:
+        weight: -17
         enabled: false
 field_type: entity_reference_revisions

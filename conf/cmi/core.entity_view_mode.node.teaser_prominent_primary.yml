@@ -1,0 +1,10 @@
+uuid: d4c24202-80ac-4a7c-a0b6-5c1f32b3043d
+langcode: fi
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_prominent_primary
+label: 'Teaser Prominent Primary'
+targetEntityType: node
+cache: true

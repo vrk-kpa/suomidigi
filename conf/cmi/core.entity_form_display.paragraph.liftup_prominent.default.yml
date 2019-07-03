@@ -1,0 +1,36 @@
+uuid: 888c36a5-794b-4e9f-9f90-a0dc5605a5c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.liftup_prominent.field_p_entity_reference
+    - field.field.paragraph.liftup_prominent.field_p_link
+    - paragraphs.paragraphs_type.liftup_prominent
+  module:
+    - link
+    - select2
+id: paragraph.liftup_prominent.default
+targetEntityType: paragraph
+bundle: liftup_prominent
+mode: default
+content:
+  field_p_entity_reference:
+    weight: 0
+    settings:
+      width: 400px
+      autocomplete: true
+      match_operator: STARTS_WITH
+    third_party_settings: {  }
+    type: select2_entity_reference
+    region: content
+  field_p_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true
