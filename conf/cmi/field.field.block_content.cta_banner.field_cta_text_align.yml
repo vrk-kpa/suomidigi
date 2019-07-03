@@ -1,0 +1,23 @@
+uuid: ad39d65b-bf12-4ecd-a1c3-0e22d117fe4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.storage.block_content.field_cta_text_align
+  module:
+    - options
+id: block_content.cta_banner.field_cta_text_align
+field_name: field_cta_text_align
+entity_type: block_content
+bundle: cta_banner
+label: 'Text align'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: normal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

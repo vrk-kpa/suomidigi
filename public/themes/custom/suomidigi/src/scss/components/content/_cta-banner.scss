@@ -42,6 +42,10 @@
     }
   }
 
+  &__link {
+    display: block;
+  }
+
   &__title {
     @include font-size(18px);
     @include line-height(18px, 20px);
@@ -83,5 +87,9 @@
         }
       }
     }
+  }
+
+  &.text-align--right {
+    text-align: right;
   }
 }
