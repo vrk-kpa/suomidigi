@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.core_content.field_core_content_type
     - field.field.node.core_content.field_displayed_author
     - field.field.node.core_content.field_displayed_update_time
+    - field.field.node.core_content.field_header_image
     - field.field.node.core_content.field_ingress
     - field.field.node.core_content.field_media
     - field.field.node.core_content.field_paragraphs
@@ -46,15 +47,24 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_header_image:
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: article_full_header
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
   field_ingress:
-    weight: 5
+    weight: 6
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_paragraphs:
-    weight: 6
+    weight: 7
     label: hidden
     settings:
       view_mode: default
@@ -63,7 +73,7 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_reading_time:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       thousand_separator: ''

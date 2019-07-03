@@ -7,10 +7,12 @@ dependencies:
     - entity_browser.browser.media_image_browser
     - field.field.block_content.cta_banner.field_cta_background_image
     - field.field.block_content.cta_banner.field_cta_link
+    - field.field.block_content.cta_banner.field_cta_text_align
     - field.field.block_content.cta_banner.field_cta_title
   module:
     - entity_browser
     - link
+    - select2
 id: block_content.cta_banner.default
 targetEntityType: block_content
 bundle: cta_banner
@@ -18,7 +20,7 @@ mode: default
 content:
   field_cta_background_image:
     type: entity_browser_entity_reference
-    weight: 4
+    weight: 5
     settings:
       entity_browser: media_image_browser
       field_widget_display: rendered_entity
@@ -32,12 +34,19 @@ content:
     third_party_settings: {  }
     region: content
   field_cta_link:
-    weight: 3
+    weight: 4
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_cta_text_align:
+    weight: 3
+    settings:
+      width: 400px
+    third_party_settings: {  }
+    type: select2
     region: content
   field_cta_title:
     weight: 2
@@ -63,7 +72,7 @@ content:
       include_locked: true
     third_party_settings: {  }
   translation:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

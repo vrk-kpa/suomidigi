@@ -14,6 +14,7 @@ ENV := dev
 PACKAGE_JSON_EXISTS := $(shell test -f package.json && echo yes || echo no)
 PHP_BIN := $(shell which php)
 TEST_TARGETS := test-foobar
+UNAME_S := $(shell uname -s)
 # Shorten with https://git.io/ : https://raw.githubusercontent.com/druidfi/tools/master/update.sh
 UPDATE_SCRIPT_URL := https://git.io/fh771
 
@@ -49,6 +50,7 @@ debug: ## Show debug information
 	$(call dbg,ENV,${ENV})
 	$(call dbg,PHP_BIN,${PHP_BIN})
 	$(call dbg,RUN_ON,${RUN_ON})
+	$(call dbg,UNAME_S,${UNAME_S})
 ifeq ($(RUN_ON),docker)
 	@echo "${YELLOW}Assumption: We should run on Docker and not on host${NO_COLOR}"
 else

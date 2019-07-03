@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Contains suopa_external_files.module.
  */
 
 use Drupal\media\Entity\Media;

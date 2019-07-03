@@ -32,11 +32,15 @@ class ExternalFile extends MediaSourceBase {
 
   /**
    * URL to file.
+   *
+   * @var fileURL
    */
   protected $fileURL;
 
   /**
    * Media ID.
+   *
+   * @var mediaID
    */
   protected $mediaID;
 
