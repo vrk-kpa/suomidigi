@@ -85,6 +85,7 @@ content:
       timezone: ''
     third_party_settings: {  }
 hidden:
+  field_header_image: true
   field_media: true
   field_theme: true
   langcode: true
