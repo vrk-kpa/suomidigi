@@ -19,7 +19,7 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {}
+    third_party_settings: {  }
     type: text_textfield
     region: content
   langcode:
@@ -28,7 +28,7 @@ content:
     region: content
     settings:
       include_locked: true
-    third_party_settings: {}
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0
@@ -36,13 +36,13 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {}
+    third_party_settings: {  }
   path:
     type: path
     weight: 3
     region: content
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
   revision_log_message:
     type: hide_revision_field_log_widget
     weight: 4
@@ -54,11 +54,11 @@ content:
       allow_user_settings: true
       rows: 5
       placeholder: ''
-    third_party_settings: {}
+    third_party_settings: {  }
   translation:
     weight: 2
     region: content
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   description: true

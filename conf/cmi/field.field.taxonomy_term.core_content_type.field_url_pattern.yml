@@ -15,7 +15,7 @@ label: 'URL pattern'
 description: "Leave empty if you want to use URL pattern based on menu link. \r\n<em>Field supports tokens.</em>"
 required: false
 translatable: true
-default_value: {}
+default_value: {  }
 default_value_callback: ''
-settings: {}
+settings: {  }
 field_type: text
