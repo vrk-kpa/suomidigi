@@ -17,13 +17,13 @@ content:
     type: text_default
     weight: 0
     region: content
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
   field_url_pattern:
     weight: 1
     label: above
-    settings: {}
-    third_party_settings: {}
+    settings: {  }
+    third_party_settings: {  }
     type: text_default
     region: content
 hidden:
