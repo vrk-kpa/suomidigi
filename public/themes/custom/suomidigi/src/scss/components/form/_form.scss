@@ -3,49 +3,60 @@
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid $gray;
-  padding-bottom: $gutter;
+  padding-bottom: $gutter * 1.5;
   margin-bottom: $gutter * 1.5;
 
   .form-wrapper {
     margin-bottom: $gutter * 2;
   }
 
-  .container--full {
-    &.is-centered {
-      margin: 0 auto 10px auto;
+  .container {
+    border-bottom: 1px solid $gray;
+    margin-bottom: $gutter * 1.5;
+    padding-bottom: $gutter;
+
+    &--full {
+      &.is-centered {
+        margin: 0 auto 10px auto;
+      }
     }
-  }
 
-  .container--half {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    &--half {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin-left: -#{$gutter};
+      margin-right: -#{$gutter};
 
-    @include breakpoint($for-tablet-portrait-up) {
-      flex-direction: row;
-      margin-left: -#{$gutter / 2};
-      margin-right: -#{$gutter / 2};
 
-      > .form-item {
-        width: calc(100% / 2 - #{$gutter});
-        margin-left: $gutter / 2;
-        margin-right: $gutter / 2;
+      @include breakpoint($for-tablet-portrait-up) {
+        flex-direction: row;
+        margin-left: -#{$gutter * 1.5};
+        margin-right: -#{$gutter * 1.5};
 
-        &.is-full-width {
-          width: 100%;
+        > .form-item {
+          width: calc(100% / 2 - #{$gutter});
+          margin-left: $gutter / 2;
+          margin-right: $gutter / 2;
+
+          &.is-full-width {
+            width: 100%;
+          }
+        }
+
+        .radios--wrapper legend{
+          display: inline-block;
+          margin-bottom: 13px;
         }
       }
-
-      .radios--wrapper legend{
-        display: inline-block;
-        margin-bottom: 13px;
-      }
     }
+
   }
 
   .fieldset-legend {
     @include font-size(14px);
     @include line-height(14px, 18px);
+    display: inline-block;
     font-weight: normal;
   }
 
@@ -123,6 +134,10 @@
       align-self: flex-end;
       height: 2.5em;
     }
+  }
+
+  .form-textarea-wrapper {
+    margin-bottom: $gutter;
   }
 
   .form-type-radio {
