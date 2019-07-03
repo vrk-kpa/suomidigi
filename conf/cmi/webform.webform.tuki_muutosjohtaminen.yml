@@ -1,4 +1,4 @@
-uuid: 4f9aeec1-3410-4a38-a0f9-7d4c5e4852fa
+uuid: b6216467-5b4e-475c-839e-044ab48c7ac1
 langcode: en
 status: open
 dependencies: {  }
@@ -8,11 +8,11 @@ weight: 0
 uid: 1
 template: false
 archive: false
-id: palaute
-title: Palaute
+id: tuki_muutosjohtaminen
+title: 'Asiantuntijatuki: Muutosjohtaminen'
 description: ''
-category: ''
-elements: "palaute_kontti:\n  '#type': container\n  '#align': horiz\n  palaute_otsikko:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - is-full-width\n    '#markup': '<h2>Palaute</h2>'\n  onko_suomidigi_sinulle_aiemmin_tuttu:\n    '#type': radios\n    '#title': 'Onko Suomidigi sinulle aiemmin tuttu?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  mitka_aihealueet_kiinnostivat_sinua_erityisesti:\n    '#type': webform_term_checkboxes\n    '#title': 'Mitkä aihealueet kiinnostivat sinua erityisesti?'\n    '#vocabulary': theme\n    '#breadcrumb_delimiter': ''\n    '#scroll': false\n  saitko_sivuilta_kaipaamasi_tietoa:\n    '#type': radios\n    '#title': 'Saitko sivuilta kaipaamasi tietoa?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  millaista_sisaltoa_haluaisit_nahda_sivuilla_enemman:\n    '#type': textarea\n    '#title': 'Millaista sisältöä haluaisit nähdä sivuilla enemmän?'\n  millaista_muuta_palautetta_haluat_antaa_sivuston_kehittajille:\n    '#type': textarea\n    '#title': 'Millaista muuta palautetta haluat antaa sivuston kehittäjille?'\nyhteystiedot_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - container--half\n  yhteystiedot_otsikko:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - is-full-width\n    '#markup': '<h2>Yhteystiedot</h2>'\n  sahkopostiosoite:\n    '#type': email\n    '#title': Sähköpostiosoite\n  haluatko_mukaan_suomidigi_kehittajayhteisoon:\n    '#type': radios\n    '#title': 'Haluatko mukaan Suomidigi-kehittäjäyhteisöön?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  puhelinnumero:\n    '#type': tel\n    '#title': Puhelinnumero\n  organisaatio:\n    '#type': textfield\n    '#title': Organisaatio\ncaptcha_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container--full is-centered'\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__attributes':\n    class:\n      - is-center"
+category: Asiantuntijatuki
+elements: "yhteystiedot_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container container--half'\n  yhteystiedot_otsikko:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - is-full-width\n    '#markup': '<h2>Yhteystiedot</h2>'\n  nimi:\n    '#type': textfield\n    '#title': Nimi\n    '#required': true\n  sahkopostiosoite:\n    '#type': email\n    '#title': Sähköpostiosoite\n    '#required': true\n  puhelinnumero:\n    '#type': tel\n    '#title': Puhelinnumero\n    '#required': true\n  organisaatio:\n    '#type': textfield\n    '#title': Organisaatio\n    '#required': true\ntaustatiedot_kontti:\n  '#type': container\n  taustatiedot_otsikko:\n    '#type': webform_markup\n    '#markup': \"<h2>Projektin taustatiedot</h2>\\r\\n<p class=\\\"fieldset-legend \\\">Vastaathan kaikkiin kysymyksiin ennen lomakkeen l&auml;hetyst&auml;</p>\"\n  oletko_jo_hyodyntanyt_aiemmin_asiakaslahtoisen_kehittamisen_tai_:\n    '#type': radios\n    '#title': 'Oletko jo hyödyntänyt aiemmin asiakaslähtöisen kehittämisen tai muutosjohtamisen asiantuntijoita projektiisi liittyen?'\n    '#options': yes_no\n    '#options_display': side_by_side\n    '#required': true\n  jos_olet_niin_milla_tavalla_hyodynsit_heita:\n    '#type': textarea\n    '#title': 'Jos olet, niin millä tavalla hyödynsit heitä?'\n  onko_organisaatiossasi_palvelumuotoilun_tai_muutosjohtamisen_asi:\n    '#type': radios\n    '#title': 'Onko organisaatiossasi palvelumuotoilun tai muutosjohtamisen asiantuntijoita?'\n    '#options': yes_no\n    '#options_display': side_by_side\n    '#required': true\n  millaisesta_yhteistyosta_on_kyse_kuvaile_tarkemmin_projektia_:\n    '#type': textarea\n    '#title': 'Millaisesta yhteistyöstä on kyse? Kuvaile tarkemmin projektia.'\n    '#required': true\n  kerro_projektin_aikataulusta_:\n    '#type': textarea\n    '#title': 'Kerro projektin aikataulusta.'\n    '#required': true\ncaptcha_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container--full is-centered'\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__attributes':\n    class:\n      - is-center"
 css: ''
 javascript: ''
 settings:
@@ -94,7 +94,7 @@ settings:
   draft_loaded_message: ''
   confirmation_type: inline
   confirmation_title: ''
-  confirmation_message: '<h2 style="text-align: center;">Kiitos palautteestasi!</h2>'
+  confirmation_message: '<h2 style="text-align: center;">Kiitos yhteydenotostasi!</h2>'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: false
@@ -186,7 +186,7 @@ handlers:
       from_mail: noreply@suomidigi.fi
       from_options: {  }
       from_name: '[site:name]'
-      subject: 'Palaute lomakkeelta: [webform_submission:source-entity]'
+      subject: 'Yhteydenotto lomakkeelta: [webform_submission:source-entity]'
       body: _default
       excluded_elements: {  }
       ignore_access: false
