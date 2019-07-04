@@ -2,6 +2,7 @@
 
 {% block paragraph %}
   {% set link = content.field_p_link_required.0['#url'] %}
+  {% set link_target = content.field_p_link_target['0']['#markup'] %}
   {% set text = content.field_p_link_required.0['#title'] %}
   {% set location = content.field_p_location.0['#markup'] %}
 
@@ -15,7 +16,7 @@
 
   <div {{attributes.addClass(classes)}}>
     {% block content %}
-      <a href="{{ link }}" class="paragraph__link">
+      <a href="{{ link }}" {% if link_target is same as(1) %} target="_blank" {% endif %} class="paragraph__link">
         {{ text }}
       </a>
     {% endblock %}
