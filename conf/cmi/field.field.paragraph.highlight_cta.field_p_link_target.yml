@@ -1,0 +1,23 @@
+uuid: 3d99da92-f2e6-4976-8c3e-29c2333444d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_link_target
+    - paragraphs.paragraphs_type.highlight_cta
+id: paragraph.highlight_cta.field_p_link_target
+field_name: field_p_link_target
+entity_type: paragraph
+bundle: highlight_cta
+label: 'Open in new window'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
