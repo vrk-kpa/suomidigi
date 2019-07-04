@@ -47,6 +47,7 @@
         "drupal/svg_image": "^1.9",
         "drupal/swiftmailer": "^1.0@beta",
         "drupal/system_status": "^2.0",
+        "drupal/timepicker-timepicker": "^1.11",
         "drupal/twig_tweak": "^2.1",
         "drupal/video_embed_field": "^2.1",
         "drupal/view_unpublished": "^1.0",
@@ -54,7 +55,8 @@
         "drush/drush": "^9.0.0",
         "enyo/dropzone": "5.5.0",
         "select2/select2": "^4.0.7",
-        "sortablejs/sortable": "^1.8.4"
+        "sortablejs/sortable": "^1.8.4",
+        "jonthornton/jquery-timepicker": "^1.8.4"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -143,6 +145,21 @@
                 },
                 "dist": {
                     "url": "https://github.com/select2/select2/archive/4.0.7.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jonthornton/jquery-timepicker",
+                "version": "1.11.15",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "jonthornton-jquery-timepicker"
+                },
+                "dist": {
+                    "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
                     "type": "zip"
                 }
             }

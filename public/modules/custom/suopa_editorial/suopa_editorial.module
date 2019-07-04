@@ -6,6 +6,7 @@
  */
 
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
@@ -16,6 +17,49 @@ function suopa_editorial_form_alter(&$form, $form_state) {
   suopa_editorial_modify_article_publishing_info($form, $form_state);
   suopa_editorial_enable_drag_and_drop($form, $form_state);
   suopa_editorial_disable_sibling_checkbox($form, $form_state);
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ *
+ * Alter the datetime_default widget.
+ */
+function suopa_editorial_field_widget_datetime_timestamp_form_alter(
+  &$element,
+  FormStateInterface $form_state,
+  $context) {
+
+  /** @var \Drupal\Core\Field\WidgetInterface $widget */
+  $widget = $context['widget'];
+  // Fetch settings by the timepicker module.
+  $settings = $widget->getThirdPartySettings('timepicker');
+  
+  if (!empty($settings['enabled'])) {
+    $library_info = timepicker_get_library($settings['type']);
+
+    // Attach callback library.
+    $callback_library = $library_info['callback library'];
+    $callback_library_name = str_replace('-', '_', $callback_library['name']);
+    $element['#attached']['library'][] =
+      "{$callback_library['extension']}/{$callback_library['name']}";
+      
+    // Attach js settings.
+    /** @var \Drupal\Core\Field\FieldItemListInterface $items */
+    $items = $context['items'];
+    $field_name = $items->getName();
+    $js_options = [];
+    $js_options_value = $settings['js_options']['value'];
+
+    if (!empty($js_options_value)) {
+      $js_options_values = explode("\n", $js_options_value);
+      foreach ($js_options_values as $value) {
+        $data = explode(':', $value);
+        $js_options[Xss::filter(trim($data[0]))] = Xss::filter(trim($data[1]));
+      }
+    }
+
+    $element['#attached']['drupalSettings'][$callback_library['extension']][$callback_library_name][$field_name] = $js_options;
+  }
 }
 
 /**
