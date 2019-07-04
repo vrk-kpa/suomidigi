@@ -33,7 +33,7 @@ function suopa_editorial_field_widget_datetime_timestamp_form_alter(
   $widget = $context['widget'];
   // Fetch settings by the timepicker module.
   $settings = $widget->getThirdPartySettings('timepicker');
-  
+
   if (!empty($settings['enabled'])) {
     $library_info = timepicker_get_library($settings['type']);
 
@@ -42,7 +42,7 @@ function suopa_editorial_field_widget_datetime_timestamp_form_alter(
     $callback_library_name = str_replace('-', '_', $callback_library['name']);
     $element['#attached']['library'][] =
       "{$callback_library['extension']}/{$callback_library['name']}";
-      
+
     // Attach js settings.
     /** @var \Drupal\Core\Field\FieldItemListInterface $items */
     $items = $context['items'];
