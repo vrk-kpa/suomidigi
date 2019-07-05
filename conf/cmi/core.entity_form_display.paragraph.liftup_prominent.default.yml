@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.liftup_prominent.field_p_entity_reference
     - field.field.paragraph.liftup_prominent.field_p_link
+    - field.field.paragraph.liftup_prominent.field_p_link_target
     - paragraphs.paragraphs_type.liftup_prominent
   module:
     - link
@@ -30,6 +31,13 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_p_link_target:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
 hidden:
   created: true

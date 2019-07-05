@@ -9,7 +9,7 @@ id: paragraph.container_title.field_p_title
 field_name: field_p_title
 entity_type: paragraph
 bundle: container_title
-label: TItle
+label: Title
 description: ''
 required: true
 translatable: true

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.link.field_p_link_required
+    - field.field.paragraph.link.field_p_link_target
     - field.field.paragraph.link.field_p_location
     - paragraphs.paragraphs_type.link
   module:
@@ -26,8 +27,18 @@ content:
     third_party_settings: {  }
     type: link_separate
     region: content
-  field_p_location:
+  field_p_link_target:
     weight: 1
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_p_location:
+    weight: 2
     label: hidden
     settings: {  }
     third_party_settings: {  }
