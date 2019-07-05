@@ -13,11 +13,12 @@ use Drupal\ckwordcount\Plugin\CKEditorPlugin\Wordcount;
  * )
  */
 class ReadTime extends Wordcount {
+
   /**
    * {@inheritdoc}
    */
   public function getFile() {
     return drupal_get_path('module', 'suopa_editorial') . "/assets/js/plugin.js";
   }
-}
 
+}
