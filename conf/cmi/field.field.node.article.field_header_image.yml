@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_header_image
     - media.type.image
     - node.type.article
+  content:
+    - 'media:image:5694163d-8bdd-4b35-97c4-16fa82e224a9'
 id: node.article.field_header_image
 field_name: field_header_image
 entity_type: node
@@ -14,7 +16,9 @@ label: 'Header Image'
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 5694163d-8bdd-4b35-97c4-16fa82e224a9
 default_value_callback: ''
 settings:
   handler: 'default:media'
