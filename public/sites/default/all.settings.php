@@ -23,3 +23,16 @@ $settings['file_private_path'] = realpath(getenv('AMAZEEIO_WEBROOT') .'/../files
 $config['cdn.settings'] = [
   'status' => FALSE,
 ];
+
+// Set environment indicator.
+switch (getenv('HTTP_HOST')) {
+  case 'suomidigi.fi.docker.amazee.io':
+    $settings['simple_environment_indicator'] = '#0F0F0F';
+    break;
+  case 'dev.suomidigi.fi':
+    $settings['simple_environment_indicator'] = '#2a6ebb';
+    break;
+  default:
+    $settings['simple_environment_indicator'] = '#bb2a2a';
+    break;
+}
