@@ -14,12 +14,9 @@
 }
 
 .sidebar--first {
-  margin-top: $gutter;
-  padding-right: $gutter;
-  padding-left: $gutter;
-  width: 100%;
-
   @include breakpoint($for-tablet-portrait-up) {
+    margin-top: $gutter;
+    width: 100%;
     flex-basis: 25%;
     min-width: 224px;
     padding: 0;

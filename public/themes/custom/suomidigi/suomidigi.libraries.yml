@@ -17,6 +17,7 @@ global-styling:
 global-scripting:
   version: 1.x
   js:
+    dist/js/searchToggle.min.js: {}
     dist/js/menu.mobile.min.js: {}
   dependencies:
     - core/drupal
