@@ -49,18 +49,28 @@
 ]
 %}
 
-<div id="page" class="page-wrapper">
+<div class="page-wrapper" id="page">
   <div class="sticky-main">
     {% if page.header or page.navigation %}
-      <header id="header" class="page-header" role="banner">
+      <header class="page-header" id="header" role="banner">
         {% if page.header %}
           <div class="container page-header__container">
             {{ page.header }}
+            <button id="search-trigger" aria-label="{{ 'Open search'|t }}" class="search-button search-button--open">
+              {% if icons_path %}
+                <svg aria-labelledby="open-search" class="icon">
+                  <title id="open-search">{{ 'Open search'|t }}</title>
+                  <use xlink:href="{{ icons_path|trim }}#search"/>
+                </svg>
+              {% else %}
+                {{ 'Search'|t }}
+              {% endif %}
+            </button>
             <button id="menu-trigger" aria-label="{{ 'Open navigation'|t }}" class="menu-button menu-button--open">
               {% if icons_path %}
-                <svg class="icon" aria-labelledby="open-navigation">
+                <svg aria-labelledby="open-navigation" class="icon">
                   <title id="open-navigation">{{ 'Open navigation'|t }}</title>
-                  <use xlink:href="{{ icons_path|trim }}#menu" />
+                  <use xlink:href="{{ icons_path|trim }}#menu"/>
                 </svg>
               {% else %}
                 {{ 'Menu'|t }}
@@ -72,7 +82,7 @@
     {% endif %}
 
     {% if page.messages %}
-      <div id="messages" class="page-messages">
+      <div class="page-messages" id="messages">
         <div class="container page-messages__container">
           {{ page.messages }}
         </div>
@@ -83,14 +93,14 @@
 
     <div class="content__wrapper container">
       {% if has_sidebar_first %}
-        <aside id="sidebar-first" class="sidebar sidebar--first" role="complementary">
+        <aside class="sidebar sidebar--first" id="sidebar-first" role="complementary">
           {{ page.sidebar_first }}
         </aside>
       {% endif %}
 
-      <main id="main" class="page-main" role="main">
+      <main class="page-main" id="main" role="main">
         <a id="main-content" tabindex="-1"></a>
-        <div id="content" {{ create_attribute({'class': page_content_classes}) }}>
+        <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
           <section class="section section--content">
             {{ page.content }}
           </section>
@@ -99,7 +109,7 @@
     </div>
   </div>
 
-  <footer id="footer" class="page-footer container container--inset" role="contentinfo">
+  <footer class="page-footer container container--inset" id="footer" role="contentinfo">
     <div class="page-footer__container l-footer {% if has_sidebar_first %}l-footer--small{% endif %}">
       {% if page.footer %}
         <div class="l-footer__item">
@@ -111,7 +121,7 @@
 </div>
 
 {% if page.mobile_navigation %}
-  <div id="mobile_navigation" class="page-mobile_navigation">
+  <div class="page-mobile_navigation" id="mobile_navigation">
     <div class="container page-mobile_navigation__container">
       {{ page.mobile_navigation }}
     </div>
