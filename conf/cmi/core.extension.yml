@@ -62,6 +62,7 @@ module:
   search: 0
   select2: 0
   shortcut: 0
+  simplei: 0
   smart_trim: 0
   suopa_editorial: 0
   suopa_external_files: 0

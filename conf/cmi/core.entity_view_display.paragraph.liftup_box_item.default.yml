@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.liftup_box_item.field_p_description
     - field.field.paragraph.liftup_box_item.field_p_link_required
+    - field.field.paragraph.liftup_box_item.field_p_link_target
     - field.field.paragraph.liftup_box_item.field_p_media
     - field.field.paragraph.liftup_box_item.field_p_title
     - paragraphs.paragraphs_type.liftup_box_item
@@ -33,6 +34,16 @@ content:
       target: '0'
     third_party_settings: {  }
     type: link
+    region: content
+  field_p_link_target:
+    weight: 4
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
     region: content
   field_p_media:
     weight: 0
