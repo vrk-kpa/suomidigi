@@ -60,6 +60,9 @@ module:
   responsive_image: 0
   scheduler: 0
   search: 0
+  search_api: 0
+  search_api_autocomplete: 0
+  search_api_db: 0
   select2: 0
   shortcut: 0
   simplei: 0

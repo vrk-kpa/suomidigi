@@ -1,0 +1,23 @@
+uuid: 1e86d257-24e6-4ee1-825c-5bec6109d222
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - views
+  theme:
+    - suomidigi
+id: search
+theme: suomidigi
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'views_exposed_filter_block:search-search'
+settings:
+  id: 'views_exposed_filter_block:search-search'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility: {  }
