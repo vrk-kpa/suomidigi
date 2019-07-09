@@ -297,7 +297,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      title: Search
+      title: 'Search results'
       filter_groups:
         operator: AND
         groups:
