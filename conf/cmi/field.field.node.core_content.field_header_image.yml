@@ -1,5 +1,5 @@
 uuid: 29ec5f37-d250-49eb-bd76-f9885132af0e
-langcode: fi
+langcode: en
 status: true
 dependencies:
   config:
@@ -14,7 +14,7 @@ label: 'Header Image'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value: {}
 default_value_callback: ''
 settings:
   handler: 'default:media'

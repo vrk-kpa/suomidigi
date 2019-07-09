@@ -1,5 +1,5 @@
 uuid: 75a8dc09-66fb-4704-bbd7-0223bd0e7be7
-langcode: fi
+langcode: en
 status: true
 dependencies:
   content:
@@ -36,4 +36,4 @@ visibility:
     id: request_path
     pages: /asiakaslahtoisyys
     negate: false
-    context_mapping: {  }
+    context_mapping: {}

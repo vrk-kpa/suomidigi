@@ -309,9 +309,9 @@ display:
         - url
         - url.query_args
       tags: {  }
-  search:
+  search_api_view:
     display_plugin: page
-    id: search
+    id: search_api_view
     display_title: Page
     position: 1
     display_options:

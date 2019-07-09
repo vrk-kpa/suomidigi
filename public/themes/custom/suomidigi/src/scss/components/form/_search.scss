@@ -60,11 +60,17 @@
   &::-ms-expand {
     display: none;
   }
+
+  &.form-autocomplete {
+    background-image: none !important;
+  }
 }
 
 .search-form__button {
   position: absolute;
-  right: $gutter;
+  right: $gutter * 0.75;
+  top: 50%;
+  transform: translateY(-50%);
   background: transparent;
   border: 0 none;
   color: $black;

@@ -2,8 +2,4 @@ display:
   default:
     display_options:
       title: Hakutulokset
-      filters:
-        search_api_fulltext:
-          group_info:
-            description: ''
 label: Haku
