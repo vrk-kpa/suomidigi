@@ -1,7 +1,7 @@
 uuid: 07a395bf-9bea-4153-8d47-926930cd52a8
 langcode: en
 status: true
-dependencies: {  }
+dependencies: {}
 id: content_producer
 label: 'Content producer'
 weight: -8
@@ -28,6 +28,7 @@ permissions:
   - 'create article content'
   - 'create attachment media'
   - 'create attachment_external media'
+  - 'create content translations'
   - 'create core_content content'
   - 'create embed media'
   - 'create icon media'
@@ -40,6 +41,7 @@ permissions:
   - 'create url aliases'
   - 'create video media'
   - 'delete any podcast media'
+  - 'delete content translations'
   - 'delete media'
   - 'delete own article content'
   - 'delete own attachment media'
@@ -75,6 +77,7 @@ permissions:
   - 'translate core_content node'
   - 'translate landing_page node'
   - 'translate page node'
+  - 'update content translations'
   - 'update media'
   - 'use text format restricted_html'
   - 'view all media revisions'
