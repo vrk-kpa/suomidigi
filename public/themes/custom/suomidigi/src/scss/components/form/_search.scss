@@ -91,3 +91,12 @@
     }
   }
 }
+
+
+// Search page styling
+
+.search-result-information {
+  @include font-size(18px);
+  text-align: center;
+  color: $gray-darker;
+}

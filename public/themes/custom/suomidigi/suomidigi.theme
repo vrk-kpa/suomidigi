@@ -257,6 +257,11 @@ function suomidigi_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  if ($view->id() === "search") {
+    $variables["searchInputValue"] = $view->exposed_raw_input['query'];
+    $variables["searchResultCount"] = count($view->result);
+  }
 }
 
 /**

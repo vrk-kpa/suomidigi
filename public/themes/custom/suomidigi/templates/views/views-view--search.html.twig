@@ -43,6 +43,8 @@
   {{ title }}
   {{ title_suffix }}
 
+  <h2 class="search-result-information">{{ 'Found ' ~ searchResultCount ~ ' hits for "' ~ searchInputValue|trans ~ '"' }}</h2>
+
   {% if header %}
     <header>
       {{ header }}
