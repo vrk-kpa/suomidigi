@@ -1,3 +1,7 @@
+search-toggle:
+  js:
+    dist/js/searchToggle.min.js: {}
+
 article-teaser-content-height:
   js:
     dist/js/articleTeaserContentHeight.min.js: {}
@@ -17,10 +21,11 @@ global-styling:
 global-scripting:
   version: 1.x
   js:
-    dist/js/searchToggle.min.js: {}
     dist/js/menu.mobile.min.js: {}
   dependencies:
     - core/drupal
     - core/jquery
     - core/jquery.once
     - suomidigi/moby
+    - suomidigi/search-toggle
+    - suomidigi/article-teaser-content-height
