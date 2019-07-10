@@ -6,7 +6,7 @@
 
       if (window.innerWidth > 769) {
         searchFormParentElement.classList.remove("is-hidden");
-      } else {
+      } else {
         searchFormParentElement.classList.add("is-hidden");
       }
 
