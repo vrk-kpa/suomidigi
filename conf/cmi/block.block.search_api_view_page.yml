@@ -1,4 +1,4 @@
-uuid: c586b82d-ff81-40e4-a84c-435933b6e769
+uuid: 5b6fae4f-98df-4814-a01b-a19f2120eec7
 langcode: en
 status: true
 dependencies:
@@ -9,10 +9,10 @@ dependencies:
     - views
   theme:
     - suomidigi
-id: search_api_view_form
+id: search_api_view_page
 theme: suomidigi
-region: sidebar_first
-weight: -8
+region: content
+weight: -5
 provider: null
 plugin: 'views_exposed_filter_block:search-search_api_view'
 settings:
@@ -25,5 +25,5 @@ visibility:
   request_path:
     id: request_path
     pages: "/search\r\n/haku"
-    negate: true
+    negate: false
     context_mapping: {  }

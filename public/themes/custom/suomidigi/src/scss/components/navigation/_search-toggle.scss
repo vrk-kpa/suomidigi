@@ -22,4 +22,9 @@
       transition: opacity .4s ease .4s;
     }
   }
+
+  .path-search & {
+    display: none;
+    visibility: hidden;
+  }
 }
