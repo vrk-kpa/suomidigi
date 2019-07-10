@@ -5,6 +5,7 @@
  * Functions to support theming in the Suomidigi theme.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\media\Entity\Media;
 
 /**
@@ -302,7 +303,7 @@ function suomidigi_preprocess_media(&$variables) {
 /**
  * Implements hook_form_alter().
  */
-function suomidigi_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function suomidigi_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id === "views_exposed_form" && $form['#id'] === "views-exposed-form-search-search-api-view") {
     // dump($form);
     $form["#id"] = "search_form";
@@ -312,15 +313,15 @@ function suomidigi_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form
     $form['#attributes']['class'][] = "search-form";
     $form['actions']['submit']['#attributes']['data-twig-suggestion'] = "search_form_submit";
     $form['actions']['submit']['#attributes']['class'][] = "search-form__button";
-    // Remove form-item wrapper from input and button
-    $form['query']['#theme_wrappers'] = array();
-    $form['actions']['#theme_wrappers'] = array();
+    // Remove form-item wrapper from input and button.
+    $form['query']['#theme_wrappers'] = [];
+    $form['actions']['#theme_wrappers'] = [];
   }
 }
 
 /**
-* Implements hook_theme_suggestions_input_alter().
-*/
+ * Implements hook_theme_suggestions_input_alter().
+ */
 function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
 
