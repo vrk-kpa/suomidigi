@@ -65,6 +65,7 @@ permissions:
   - 'edit own podcast media'
   - 'edit own video media'
   - 'edit terms in author'
+  - 'generate preview links'
   - 'schedule publishing of nodes'
   - 'set any published on date'
   - 'set article published on date'
