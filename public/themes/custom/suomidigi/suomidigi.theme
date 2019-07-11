@@ -341,7 +341,8 @@ function suomidigi_preprocess_pager(&$variables) {
   if (!empty($variables['items']['last']['href'])) {
     $splittedLink = explode("&page=", $variables['items']['last']['href']);
     $variables['pagesTotalAmount'] = (int) $splittedLink[1] + 1;
-  } else {
+  }
+  else {
     $variables['pagesTotalAmount'] = count($variables['items']['pages']) + 1;
   }
 }
