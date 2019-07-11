@@ -335,14 +335,18 @@ function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables
  */
 function suomidigi_preprocess_pager(&$variables) {
   // Cast current to be INT instead of FLOAT.
-  $variables['current'] = (int) $variables['current'];
+  $variables['current'] = isset($variables['current']) ? (int) $variables['current'] : 1;
 
   // Check for last pager item href link.
   if (!empty($variables['items']['last']['href'])) {
-    $splittedLink = explode("&page=", $variables['items']['last']['href']);
-    $variables['pagesTotalAmount'] = (int) $splittedLink[1] + 1;
+    $splittedLink = explode("&page=", $variables['items']['last']['href'])[1];
+    $variables['pagesTotalAmount'] = (int) $splittedLink + 1;
   }
   else {
-    $variables['pagesTotalAmount'] = count($variables['items']['pages']) + 1;
+    if (!empty($variables['items']['pages'])) {
+      $lastArrayItem = end($variables['items']['pages'])['href'];
+      $splittedLink = explode("&page=", $lastArrayItem)[1];
+      $variables['pagesTotalAmount'] = (int) $splittedLink + 1;
+    }
   }
 }
