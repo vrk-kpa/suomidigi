@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54c76f641370b60bfd50f605739f2ec8",
+    "content-hash": "d972fcb51ffd3bde733940ec9dd015b6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4050,6 +4050,48 @@
             }
         },
         {
+            "name": "drupal/roleassign",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/roleassign.git",
+                "reference": "440eba77696c7229ff255baeead352620b414ffd"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2+6-dev",
+                    "datestamp": "1524488584",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "salvis",
+                    "homepage": "https://www.drupal.org/user/82964"
+                }
+            ],
+            "description": "Allows site administrators to further delegate the task of managing user's roles.",
+            "homepage": "https://www.drupal.org/project/roleassign",
+            "support": {
+                "source": "https://git.drupalcode.org/project/roleassign"
+            },
+            "time": "2018-04-23T12:58:24+00:00"
+        },
+        {
             "name": "drupal/scheduler",
             "version": "dev-1.x",
             "source": {
@@ -6198,7 +6240,9 @@
             "version": "4.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip"
+                "url": "https://github.com/select2/select2/archive/4.0.7.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -6210,7 +6254,9 @@
             "version": "1.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
+                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -10708,6 +10754,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/paragraphs": 20,
+        "drupal/roleassign": 20,
         "drupal/scheduler": 20,
         "drupal/swiftmailer": 10
     },
