@@ -334,10 +334,10 @@ function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_pager(&$variables) {
-  // Cast current to be INT instead of FLOAT
+  // Cast current to be INT instead of FLOAT.
   $variables['current'] = (int) $variables['current'];
-  
-  // Check for last pager item href link
+
+  // Check for last pager item href link.
   if (!empty($variables['items']['last']['href'])) {
     $splittedLink = explode("&page=", $variables['items']['last']['href']);
     $variables['pagesTotalAmount'] = (int) $splittedLink[1] + 1;
