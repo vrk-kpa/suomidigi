@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
+    - field.field.paragraph.media.field_p_description
     - field.field.paragraph.media.field_p_media
     - paragraphs.paragraphs_type.media
   module:
@@ -13,9 +14,17 @@ targetEntityType: paragraph
 bundle: media
 mode: default
 content:
+  field_p_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_p_media:
     type: entity_browser_entity_reference
-    weight: 1
+    weight: 0
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
@@ -28,6 +37,11 @@ content:
       open: false
     third_party_settings: {  }
     region: content
+  translation:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true
