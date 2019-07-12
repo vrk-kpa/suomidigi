@@ -1,0 +1,11 @@
+.listing {
+  margin-bottom: $gutter * 2;
+}
+
+.listing__item {
+  margin-bottom: $gutter * 1.5;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
