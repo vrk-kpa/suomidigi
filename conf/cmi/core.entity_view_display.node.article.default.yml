@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.article.field_ingress
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_reading_time
+    - field.field.node.article.field_tags
     - field.field.node.article.field_theme
     - node.type.article
   module:
@@ -34,9 +35,9 @@ content:
     region: content
   field_blog_tags:
     weight: 8
-    label: above
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
@@ -92,6 +93,14 @@ content:
       prefix_suffix: false
     third_party_settings: {  }
     type: number_decimal
+    region: content
+  field_tags:
+    weight: 9
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   published_at:
     type: timestamp
