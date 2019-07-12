@@ -18,12 +18,11 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="listing {% if rows|length is even %}listing--even{% else %}listing--odd{% endif %}">
+<div class="views-row-wrapper {% if rows|length is even %}views-row-wrapper--even{% else %}views-row-wrapper--odd{% endif %}">
   {% for row in rows %}
     {%
       set row_classes = [
-        default_row_class ? "",
-        "listing__item",
+        default_row_class ? 'views__row',
       ]
     %}
     <div{{row.attributes.addClass(row_classes)}}>
