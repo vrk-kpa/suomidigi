@@ -7,6 +7,7 @@ dependencies:
     - paragraphs.paragraphs_type.container_title
     - paragraphs.paragraphs_type.highlight_bullet_point_item
     - paragraphs.paragraphs_type.liftup_box_item
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
   module:
     - entity_reference_revisions
 id: paragraph.container_title.field_p_content_unlimited
@@ -27,6 +28,7 @@ settings:
       container_title: container_title
       liftup_box_item: liftup_box_item
       highlight_bullet_point_item: highlight_bullet_point_item
+      liftup_entity_reference_item: liftup_entity_reference_item
     target_bundles_drag_drop:
       container_title:
         enabled: true
@@ -49,6 +51,9 @@ settings:
       link:
         weight: 15
         enabled: false
+      attachment:
+        weight: 16
+        enabled: false
       highlight_bullet_point:
         weight: 19
         enabled: false
@@ -60,5 +65,14 @@ settings:
         enabled: false
       highlight_text_box:
         weight: 22
+        enabled: false
+      liftup_entity_reference:
+        weight: 25
+        enabled: false
+      liftup_entity_reference_item:
+        enabled: true
+        weight: 26
+      liftup_prominent:
+        weight: 27
         enabled: false
 field_type: entity_reference_revisions
