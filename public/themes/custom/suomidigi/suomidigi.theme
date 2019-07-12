@@ -293,3 +293,24 @@ function suomidigi_preprocess_media(&$variables) {
       return;
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_pager(&$variables) {
+  // Cast current to be INT instead of FLOAT.
+  $variables['current'] = isset($variables['current']) ? (int) $variables['current'] : 1;
+
+   // Check for last pager item href link.
+  if (!empty($variables['items']['last']['href'])) {
+    $splittedLink = explode("page=", $variables['items']['last']['href'])[1];
+    $variables['pagesTotalAmount'] = (int) $splittedLink + 1;
+  }
+  else {
+    if (!empty($variables['items']['pages'])) {
+      $lastArrayItem = end($variables['items']['pages'])['href'];
+      $splittedLink = explode("page=", $lastArrayItem)[1];
+      $variables['pagesTotalAmount'] = (int) $splittedLink + 1;
+    }
+  }
+}
