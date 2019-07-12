@@ -301,7 +301,7 @@ function suomidigi_preprocess_pager(&$variables) {
   // Cast current to be INT instead of FLOAT.
   $variables['current'] = isset($variables['current']) ? (int) $variables['current'] : 1;
 
-   // Check for last pager item href link.
+  // Check for last pager item href link.
   if (!empty($variables['items']['last']['href'])) {
     $splittedLink = explode("page=", $variables['items']['last']['href'])[1];
     $variables['pagesTotalAmount'] = (int) $splittedLink + 1;
