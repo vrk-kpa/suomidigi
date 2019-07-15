@@ -6,6 +6,7 @@
  */
 
 use Drupal\media\Entity\Media;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_preprocess().
@@ -255,6 +256,21 @@ function suomidigi_preprocess_views_view(&$variables) {
         $is_full_width = &drupal_static('article_full_width_' . $result->nid, FALSE);
         $is_full_width = TRUE;
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ */
+function suomidigi_views_pre_render(&$view) {
+  if ($view->id() === "taxonomy_term") {
+    $term = Term::load((int) $view->args[0]);
+
+    if ($term->bundle() === "tags") {
+      // Sort view listing according to published time, if node is sticky on top of lists -> is not going to stick
+      usort($view->result, function ($a, $b) { return $b->node_field_data_published_at - $a->node_field_data_published_at; });
     }
   }
 }
