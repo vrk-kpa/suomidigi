@@ -262,15 +262,16 @@ function suomidigi_preprocess_views_view(&$variables) {
 
 /**
  * Implements hook_views_pre_render().
- *
  */
 function suomidigi_views_pre_render(&$view) {
   if ($view->id() === "taxonomy_term") {
     $term = Term::load((int) $view->args[0]);
 
     if ($term->bundle() === "tags") {
-      // Sort view listing according to published time, if node is sticky on top of lists -> is not going to stick
-      usort($view->result, function ($a, $b) { return $b->node_field_data_published_at - $a->node_field_data_published_at; });
+      // Sort view listing according to published time, if node is sticky on top of lists -> is not going to stick.
+      usort($view->result, function ($a, $b) {
+        return $b->node_field_data_published_at - $a->node_field_data_published_at;
+      });
     }
   }
 }
@@ -317,7 +318,7 @@ function suomidigi_preprocess_pager(&$variables) {
   // Cast current to be INT instead of FLOAT.
   $variables['current'] = isset($variables['current']) ? (int) $variables['current'] : 1;
 
-   // Check for last pager item href link.
+  // Check for last pager item href link.
   if (!empty($variables['items']['last']['href'])) {
     $splittedLink = explode("page=", $variables['items']['last']['href'])[1];
     $variables['pagesTotalAmount'] = (int) $splittedLink + 1;
