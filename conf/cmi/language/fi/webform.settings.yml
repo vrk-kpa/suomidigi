@@ -21,6 +21,5 @@ settings:
       title: Leveä
 element:
   default_more_title: Lisää
-  default_section_title_tag: h2
 mail:
   default_body_html: '<p>Lomake on on tallennettu [webform_submission:created]</p> <p>Käyttäjä: [webform_submission:user]</p> <p>Lomakkeen tiedot:</p> [webform_submission:values]'
