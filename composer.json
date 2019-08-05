@@ -61,7 +61,7 @@
         "jonthornton/jquery-timepicker": "^1.8.4",
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4",
-        "w8tcha/CKEditor-WordCount-Plugin": "1.17.6"
+        "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -160,14 +160,14 @@
         {
             "type": "package",
             "package": {
-                "name": "w8tcha/CKEditor-WordCount-Plugin",
+                "name": "w8tcha/ckeditor-wordcount-plugin",
                 "version": "1.17.6",
                 "type": "drupal-library",
                 "extra": {
                     "installer-name": "ckeditor-wordcount-plugin"
                 },
                 "dist": {
-                    "url": "https://github.com/w8tcha/CKEditor-WordCount-Plugin/archive/v1.17.6.zip",
+                    "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip",
                     "type": "zip"
                 }
             }

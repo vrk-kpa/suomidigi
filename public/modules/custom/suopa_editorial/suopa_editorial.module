@@ -23,12 +23,9 @@ function suopa_editorial_form_alter(&$form, $form_state) {
  *
  * Mainly move the publishing info fields to the left sidebar.
  *
- * @param array $form
- *   Form.
- * @param array $form_state
- *   Form state.
+ * {@inheritDoc}
  */
-function suopa_editorial_modify_article_publishing_info(array &$form, array $form_state) {
+function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
   $allowedIds = [
     'node_article_edit_form',
     'node_article_form',
@@ -56,12 +53,9 @@ function suopa_editorial_modify_article_publishing_info(array &$form, array $for
  * Disable submit button from landing page and article,
  * when paragraphs drag and drop is being used.
  *
- * @param array $form
- *   Form.
- * @param array $form_state
- *   Form state.
+ * {@inheritDoc}
  */
-function suopa_editorial_enable_drag_and_drop(array &$form, array $form_state) {
+function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
   $allowedIds = [
     'node_article_edit_form',
     'node_article_form',
@@ -81,12 +75,9 @@ function suopa_editorial_enable_drag_and_drop(array &$form, array $form_state) {
 /**
  * Disable sibling checkbox if the current has been clicked.
  *
- * @param array $form
- *   Form.
- * @param array $form_state
- *   Form state.
+ * {@inheritDoc}
  */
-function suopa_editorial_disable_sibling_checkbox(array &$form, array $form_state) {
+function suopa_editorial_disable_sibling_checkbox(&$form, $form_state) {
   $allowedIds = [
     'node_article_edit_form',
     'node_article_form',
