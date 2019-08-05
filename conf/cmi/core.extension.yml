@@ -60,10 +60,12 @@ module:
   redirect: 0
   redirect_404: 0
   responsive_image: 0
+  roleassign: 0
   scheduler: 0
   search: 0
   select2: 0
   shortcut: 0
+  simplei: 0
   smart_trim: 0
   suopa_editorial: 0
   suopa_external_files: 0
@@ -75,6 +77,7 @@ module:
   system_status: 0
   taxonomy: 0
   text: 0
+  timepicker: 0
   token: 0
   toolbar: 0
   tour: 0

@@ -29,7 +29,12 @@ function suopa_editorial_form_alter(&$form, $form_state) {
  *   Form state.
  */
 function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
-  $allowedIds = ['node_article_edit_form', 'node_article_form', 'node_core_content_edit_form', 'node_core_content_form'];
+  $allowedIds = [
+    'node_article_edit_form',
+    'node_article_form',
+    'node_core_content_edit_form',
+    'node_core_content_form',
+  ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
     return;
@@ -40,6 +45,9 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
 
   // Attach blog tag list toggler to article forms.
   $form['#attached']['library'][] = 'suopa_editorial/blog-tag-list-hidden';
+
+  // Attach timepicker styles.
+  $form['#attached']['library'][] = 'suopa_editorial/suopa-timepicker';
 }
 
 /**
@@ -55,6 +63,8 @@ function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
   $allowedIds = [
     'node_article_edit_form',
     'node_article_form',
+    'node_core_content_edit_form',
+    'node_core_content_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
   ];
@@ -78,6 +88,8 @@ function suopa_editorial_disable_sibling_checkbox(&$form, $form_state) {
   $allowedIds = [
     'node_article_edit_form',
     'node_article_form',
+    'node_core_content_edit_form',
+    'node_core_content_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
     'taxonomy_term_theme_form',
@@ -148,5 +160,36 @@ function suopa_editorial_preprocess_container(&$variables) {
     ) {
       $variables['attributes']['class'] = 'is-disableable--wrapper';
     }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * Alter the datetime widget.
+ */
+function suopa_editorial_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (
+    $context['widget']->getPluginId() == 'datetime_timestamp' ||
+    $context['widget']->getPluginId() == 'datetime_timestamp_no_default' ||
+    $context['widget']->getPluginId() == 'publication_date_timestamp'
+  ) {
+    /** @var \Drupal\Core\Field\WidgetInterface $widget */
+    $library_info = timepicker_get_library('timepicker_jonthornton');
+
+    // Attach callback library.
+    $callback_library = $library_info['callback library'];
+    $callback_library_name = str_replace('-', '_', $callback_library['name']);
+    $element['#attached']['library'][] =
+      "{$callback_library['extension']}/{$callback_library['name']}";
+
+    // Attach js settings.
+    /** @var \Drupal\Core\Field\FieldItemListInterface $items */
+    $items = $context['items'];
+    $field_name = $items->getName();
+
+    $element['#attached']['drupalSettings'][$callback_library['extension']][$callback_library_name][$field_name] = [
+      'timeFormat' => 'H:i:s',
+    ];
   }
 }

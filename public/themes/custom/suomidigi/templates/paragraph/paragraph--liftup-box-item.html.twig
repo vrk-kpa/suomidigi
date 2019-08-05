@@ -3,10 +3,11 @@
 {% block paragraph %}
   {% set title = content.field_p_title.0 %}
   {% set link = content.field_p_link_required['0']['#plain_text'] %}
+  {% set link_target = content.field_p_link_target['0']['#markup'] %}
   {% set description = content.field_p_description %}
   {% set icon = content.field_p_media.0 %}
 
-  <a href="{{ link }}" {{attributes.addClass(classes)}} aria-label="{{ title }}">
+  <a href="{{ link }}" {% if link_target is same as(1) %} target="_blank" {% endif %} {{attributes.addClass(classes)}} aria-label="{{ title }}">
     {% block content %}
       <div class="paragraph__container">
         <div class="paragraph__icon">{{ icon }}</div>

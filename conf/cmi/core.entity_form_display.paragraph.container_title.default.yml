@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.container_title.field_p_content_unlimited
     - field.field.paragraph.container_title.field_p_link
+    - field.field.paragraph.container_title.field_p_link_target
     - field.field.paragraph.container_title.field_p_title
     - paragraphs.paragraphs_type.container_title
   module:
@@ -17,7 +18,7 @@ mode: default
 content:
   field_p_content_unlimited:
     type: entity_reference_paragraphs
-    weight: 2
+    weight: 3
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -35,6 +36,13 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_p_link_target:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_p_title:
     weight: 0
     settings:
@@ -43,6 +51,11 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  translation:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true
