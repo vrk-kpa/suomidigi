@@ -12,10 +12,15 @@ endif
 
 ifeq ($(ENV),production)
 	BUILD_THEME_ARGS := production
+	BUILD_TARGETS += build-theme
 	NPM_BUILD_FLAG := --production
 else
 	BUILD_THEME_ARGS := development
 	NPM_BUILD_FLAG :=
+endif
+
+ifeq ($(ENV),testing)
+	BUILD_TARGETS += build-theme
 endif
 
 build-theme: ## Install NPM packages and build theme
