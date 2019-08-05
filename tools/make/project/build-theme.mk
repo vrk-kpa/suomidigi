@@ -22,6 +22,7 @@ else
 	NPM_BUILD_FLAG :=
 endif
 
+PHONY += build-theme
 build-theme: ## Install NPM packages and build theme
 	$(call colorecho, "\n-Do npm install for theme on ${RUN_ON}...\n")
 	$(call npm_on_${RUN_ON},install ${NPM_BUILD_FLAG} --prefix ${PATH_TO_THEME}/${DRUPAL_THEME_NAME} --engine-strict true)
