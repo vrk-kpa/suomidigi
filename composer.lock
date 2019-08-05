@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e69b56782d5a23b630e35b51f535bf8",
+    "content-hash": "0f42d5ae5ff6b54cd1af06aac9d90722",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2752,7 +2752,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.2",
-                    "datestamp": "1562240585",
+                    "datestamp": "1562512232",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2827,7 +2827,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.2",
-                    "datestamp": "1562240585",
+                    "datestamp": "1562512232",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5779,9 +5779,7 @@
             "version": "1.11.15",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -6493,9 +6491,7 @@
             "version": "4.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/select2/select2/archive/4.0.7.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -6507,9 +6503,7 @@
             "version": "1.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -8138,13 +8132,11 @@
             "time": "2019-05-14T13:14:31+00:00"
         },
         {
-            "name": "w8tcha/CKEditor-WordCount-Plugin",
+            "name": "w8tcha/ckeditor-wordcount-plugin",
             "version": "1.17.6",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/w8tcha/CKEditor-WordCount-Plugin/archive/v1.17.6.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip"
             },
             "type": "drupal-library",
             "extra": {
