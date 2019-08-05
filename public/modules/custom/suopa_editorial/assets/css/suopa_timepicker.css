@@ -1,0 +1,11 @@
+.field--name-field-displayed-update-time fieldset:not(.fieldgroup) {
+  padding: 0;
+  border: 0 none;
+}
+
+.field--name-field-displayed-update-time fieldset:not(.fieldgroup) > legend {
+  position: static;
+  letter-spacing: normal;
+  text-transform: none;
+  top: 0;
+}
