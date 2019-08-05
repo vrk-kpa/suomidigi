@@ -20,6 +20,7 @@
         "drupal/admin_toolbar": "^1.0",
         "drupal/captcha": "^1.0",
         "drupal/cdn": "^3.2",
+        "drupal/ckwordcount": "^1.0",
         "drupal/core": "^8.7.5",
         "drupal/dropzonejs": "^2.0-alpha4",
         "drupal/entity_browser": "^2.1",
@@ -57,9 +58,10 @@
         "drupal/webform": "^5.2",
         "drush/drush": "^9.0.0",
         "enyo/dropzone": "5.5.0",
+        "jonthornton/jquery-timepicker": "^1.8.4",
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4",
-        "jonthornton/jquery-timepicker": "^1.8.4"
+        "w8tcha/CKEditor-WordCount-Plugin": "1.17.6"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -98,6 +100,9 @@
             },
             "drupal/menu_block_current_language": {
                 "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
+            },
+            "drupal/ckwordcount": {
+                "https://www.drupal.org/project/ckwordcount/issues/2850845": "https://www.drupal.org/files/issues/2019-06-23/ckwordcount_plugin_path_2850845-10.patch"
             }
         },
         "hooks": {
@@ -148,6 +153,21 @@
                 },
                 "dist": {
                     "url": "https://github.com/select2/select2/archive/4.0.7.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "w8tcha/CKEditor-WordCount-Plugin",
+                "version": "1.17.6",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "ckeditor-wordcount-plugin"
+                },
+                "dist": {
+                    "url": "https://github.com/w8tcha/CKEditor-WordCount-Plugin/archive/v1.17.6.zip",
                     "type": "zip"
                 }
             }

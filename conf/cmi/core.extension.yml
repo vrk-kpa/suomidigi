@@ -7,6 +7,7 @@ module:
   breakpoint: 0
   captcha: 0
   ckeditor: 0
+  ckwordcount: 0
   color: 0
   comment: 0
   config: 0
@@ -49,6 +50,7 @@ module:
   menu_trail_by_path: 0
   menu_ui: 0
   node: 0
+  notification: 0
   options: 0
   page_cache: 0
   path: 0
