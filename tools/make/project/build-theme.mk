@@ -7,7 +7,7 @@ endif
 THEME_PACKAGE_JSON_EXISTS := $(shell test -f ./public/themes/custom/$(DRUPAL_THEME_NAME)/package.json && echo yes || echo no)
 
 ifeq (${THEME_PACKAGE_JSON_EXISTS},yes)
-	BUILD_TARGETS += build-theme
+	BUILD_TARGETS += build-theme-container
 endif
 
 ifeq ($(ENV),production)
