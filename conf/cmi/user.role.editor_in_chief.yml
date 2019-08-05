@@ -115,6 +115,7 @@ permissions:
   - 'edit terms in core_content_type'
   - 'edit terms in tags'
   - 'edit terms in theme'
+  - 'generate preview links'
   - 'revert all revisions'
   - 'revert article revisions'
   - 'revert core_content revisions'

@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Contains Suopa Media Embed module.
  */
 
 use Drupal\media\Entity\Media;
@@ -42,6 +43,7 @@ function suopa_media_embed_preprocess_media(&$variables) {
  * trusted users!
  *
  * @return array
+ *   Returns an array of allowed tags.
  */
 function suopa_media_embed_allowed_tags() {
   return array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote', 'script']);

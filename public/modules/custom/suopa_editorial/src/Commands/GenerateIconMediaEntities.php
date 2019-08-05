@@ -16,8 +16,18 @@ use Drupal\Core\File\FileSystemInterface;
  */
 class GenerateIconMediaEntities extends DrushCommands {
 
+  /**
+   * Files.
+   *
+   * @var array
+   */
   private $files;
 
+  /**
+   * Icon field.
+   *
+   * @var \Drupal\Core\Field\FieldDefinition
+   */
   private $iconField;
 
   /**
@@ -25,8 +35,8 @@ class GenerateIconMediaEntities extends DrushCommands {
    *
    * @param string $path
    *   Argument provided to the command.
-   *
    * @param array $options
+   *   Options.
    *
    * @command suopa_editorial:generateIcons
    * @aliases gemi
@@ -37,8 +47,11 @@ class GenerateIconMediaEntities extends DrushCommands {
    *   Updates all changed svg files from given folder.
    * @usage gemi /themes/custom/suomidigi/icons/svg --clean
    *   Deletes all programmatically added icons and files.
+   *
+   * @return false
+   *   Returns false or nothing.
    */
-  public function generateIcons($path = NULL, $options = ['update' => FALSE, 'clean' => FALSE]) {
+  public function generateIcons($path = NULL, array $options = ['update' => FALSE, 'clean' => FALSE]) {
     if (!$this->isIconEnabled()) {
       $this->output()->writeln('Couldn\'t find icon media bundle');
       return FALSE;
@@ -83,15 +96,15 @@ class GenerateIconMediaEntities extends DrushCommands {
   }
 
   /**
-   *
+   * Check if icon is enabled.
    */
   private function isIconEnabled() {
     $bundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
 
-    if (key_exists('icon', $bundles)) {
+    if (array_key_exists('icon', $bundles)) {
       $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('media', 'icon');
 
-      foreach ($fields as $key => $field) {
+      foreach ($fields as $field) {
         if ($field->getType() === 'image' && $field->getSettings()['file_extensions'] === 'svg') {
           $this->iconField = $field;
           return TRUE;
