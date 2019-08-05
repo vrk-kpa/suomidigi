@@ -20,7 +20,7 @@
         "drupal/admin_toolbar": "^1.0",
         "drupal/captcha": "^1.0",
         "drupal/cdn": "^3.2",
-        "drupal/core": "^8.7.0",
+        "drupal/core": "^8.7.5",
         "drupal/dropzonejs": "^2.0-alpha4",
         "drupal/entity_browser": "^2.1",
         "drupal/focal_point": "^1.0",
