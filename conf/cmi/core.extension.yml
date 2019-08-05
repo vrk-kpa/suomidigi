@@ -58,6 +58,7 @@ module:
   redirect: 0
   redirect_404: 0
   responsive_image: 0
+  roleassign: 0
   scheduler: 0
   search: 0
   select2: 0
