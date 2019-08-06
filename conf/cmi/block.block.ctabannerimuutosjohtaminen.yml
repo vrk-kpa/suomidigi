@@ -1,5 +1,5 @@
 uuid: 7d872c21-a79d-4f1b-8bcd-c1bd9abba775
-langcode: fi
+langcode: en
 status: true
 dependencies:
   content:
@@ -36,4 +36,4 @@ visibility:
     id: request_path
     pages: /muutosjohtaminen
     negate: false
-    context_mapping: {  }
+    context_mapping: {}

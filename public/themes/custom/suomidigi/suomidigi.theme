@@ -5,6 +5,7 @@
  * Functions to support theming in the Suomidigi theme.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
 
@@ -258,6 +259,11 @@ function suomidigi_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  if ($view->id() === "search") {
+    $variables["searchInputValue"] = $view->exposed_raw_input['query'];
+    $variables["searchResultCount"] = $view->total_rows;
+  }
 }
 
 /**
@@ -309,6 +315,38 @@ function suomidigi_preprocess_media(&$variables) {
 
     default:
       return;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function suomidigi_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (
+    $form_id === 'views_exposed_form' &&
+    $form['#id'] === 'views-exposed-form-search-search-api-view'
+  ) {
+    $form['#id'] = 'search_form';
+    $form['query']['#attributes']['placeholder'] = t('Search');
+    $form['query']['#attributes']['id'] = 'search';
+    $form['query']['#attributes']['class'][] = 'search-form__input';
+    $form['#attributes']['class'][] = 'search-form';
+    $form['actions']['submit']['#attributes']['data-twig-suggestion'] = 'search_form_submit';
+    $form['actions']['submit']['#attributes']['class'][] = 'search-form__button';
+    // Remove form-item wrapper from input and button.
+    $form['query']['#theme_wrappers'] = [];
+    $form['actions']['#theme_wrappers'] = [];
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_input_alter().
+ */
+function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+
+  if (isset($element['#attributes']['data-twig-suggestion'])) {
+    $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
   }
 }
 

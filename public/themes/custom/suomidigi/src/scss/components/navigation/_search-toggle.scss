@@ -1,0 +1,30 @@
+.search-button {
+  background: transparent;
+  border: 0 none;
+  color: $black;
+  margin: 0 0 0 auto;
+
+  .icon {
+    height: 30px;
+    margin-top: 5px;
+    width: 30px;
+  }
+
+  @include breakpoint($for-tablet-portrait-up) {
+    display: none;
+  }
+
+  &--close {
+    display: none;
+    opacity: 0;
+
+    .search-button--close {
+      transition: opacity .4s ease .4s;
+    }
+  }
+
+  .path-search & {
+    display: none;
+    visibility: hidden;
+  }
+}

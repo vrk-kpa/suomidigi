@@ -1,0 +1,17 @@
+uuid: a32ee9f6-29d2-428f-8d6e-d9c145ad1ad8
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: content_search_server
+name: 'Content Search Server'
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  matching: words
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

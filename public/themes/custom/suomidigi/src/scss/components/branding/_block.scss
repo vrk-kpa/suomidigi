@@ -1,0 +1,7 @@
+.block-system-branding-block {
+  margin-right: auto;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    margin-right: 0;
+  }
+}

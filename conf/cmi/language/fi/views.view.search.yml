@@ -1,0 +1,5 @@
+display:
+  default:
+    display_options:
+      title: Hakutulokset
+label: Haku

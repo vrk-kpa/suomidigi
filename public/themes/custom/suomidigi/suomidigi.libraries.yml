@@ -1,3 +1,7 @@
+search-toggle:
+  js:
+    dist/js/searchToggle.min.js: {}
+
 article-teaser-content-height:
   js:
     dist/js/articleTeaserContentHeight.min.js: {}
@@ -23,3 +27,5 @@ global-scripting:
     - core/jquery
     - core/jquery.once
     - suomidigi/moby
+    - suomidigi/search-toggle
+    - suomidigi/article-teaser-content-height
