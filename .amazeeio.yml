@@ -1,5 +1,8 @@
 sitegroup: suomidigi
 
+versions:
+  node: 8
+
 deploy_tasks:
   development:
     before_deploy:

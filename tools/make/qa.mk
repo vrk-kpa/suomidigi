@@ -1,5 +1,4 @@
-TEST_TARGETS += fix test-phpunit lint-js
-#TEST_TARGETS += lint
+TEST_TARGETS += lint
 LINT_PATHS_JS += ./$(DRUPAL_WEBROOT)/modules/custom/*/js
 LINT_PATHS_JS += ./$(DRUPAL_WEBROOT)/themes/custom/*/js
 

@@ -24,6 +24,7 @@ dependencies:
     - publication_date
     - scheduler
     - select2
+    - timepicker
 _core:
   default_config_hash: vPb_yvhA-xuNoV_yOmOwYxGuHNRIH1CoMK2qi7BSga0
 id: node.article.default
@@ -64,7 +65,12 @@ content:
   field_displayed_update_time:
     weight: 19
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      timepicker:
+        enabled: '1'
+        type: timepicker_jonthornton
+        js_options:
+          value: ''
     type: datetime_default
     region: content
   field_header_image:
@@ -227,6 +233,11 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
