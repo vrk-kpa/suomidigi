@@ -8,6 +8,7 @@ endif
 COMPOSER_VENDOR_BIN := vendor/bin
 PHPUNIT_BIN := ${COMPOSER_VENDOR_BIN}/phpunit
 PHPUNIT_BIN_EXISTS := $(shell test -f ${PHPUNIT_BIN} && echo yes || echo no)
+TEST_TARGETS += test-phpunit
 PHPCBF_BIN := ${COMPOSER_VENDOR_BIN}/phpcbf
 PHPCBF_BIN_EXISTS := $(shell test -f ${PHPCBF_BIN} && echo yes || echo no)
 

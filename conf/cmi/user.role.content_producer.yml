@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {}
 id: content_producer
-label: 'Content producer'
+label: Sisällöntuottaja
 weight: -8
 is_admin: null
 permissions:
@@ -69,6 +69,7 @@ permissions:
   - 'edit own podcast media'
   - 'edit own video media'
   - 'edit terms in author'
+  - 'generate preview links'
   - 'schedule publishing of nodes'
   - 'set any published on date'
   - 'set article published on date'

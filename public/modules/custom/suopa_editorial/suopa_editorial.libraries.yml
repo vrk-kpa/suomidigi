@@ -23,3 +23,8 @@ media-entity-browser:
   css:
     theme:
       assets/css/media_entity_browser.css: {}
+
+suopa-timepicker:
+  css:
+    theme:
+      assets/css/suopa_timepicker.css: {}
