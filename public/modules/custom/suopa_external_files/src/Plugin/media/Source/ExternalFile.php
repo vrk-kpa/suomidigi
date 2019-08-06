@@ -2,13 +2,9 @@
 
 namespace Drupal\suopa_external_files\Plugin\media\Source;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Entity\EntityFieldManagerInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\media\MediaInterface;
 use Drupal\media\MediaSourceBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Field\FieldTypePluginManagerInterface;
 
 /**
  * External file entity media source.
@@ -18,7 +14,7 @@ use Drupal\Core\Field\FieldTypePluginManagerInterface;
  *   label = @Translation("External file"),
  *   allowed_field_types = {"string"},
  *   default_thumbnail_filename = "externalfile.png",
- *   description = @Translation("Provides business logic and metadata for External file.")
+ *   description = @Translation("Provides business logic for External file.")
  * )
  */
 class ExternalFile extends MediaSourceBase {
@@ -33,23 +29,16 @@ class ExternalFile extends MediaSourceBase {
   /**
    * URL to file.
    *
-   * @var fileURL
+   * @var string
    */
   protected $fileURL;
 
   /**
    * Media ID.
    *
-   * @var mediaID
+   * @var int
    */
   protected $mediaID;
-
-  /**
-   * {@inheritdoc}
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager, FieldTypePluginManagerInterface $field_type_manager, ConfigFactoryInterface $config_factory) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_type_manager, $entity_field_manager, $field_type_manager, $config_factory);
-  }
 
   /**
    * {@inheritdoc}
@@ -138,7 +127,7 @@ class ExternalFile extends MediaSourceBase {
   /**
    * Get file metadata without downloading the actual file.
    *
-   * @param $url
+   * @param string $url
    *   URL to check the file metadata for.
    *
    * @return array
@@ -157,6 +146,9 @@ class ExternalFile extends MediaSourceBase {
     curl_close($curl);
 
     if ($data) {
+      $status = 0;
+      $content_length = 0;
+
       if (preg_match("/^HTTP\/1\.[01] (\d\d\d)/", $data, $matches)) {
         $status = (int) $matches[1];
       }
@@ -178,7 +170,7 @@ class ExternalFile extends MediaSourceBase {
   /**
    * Map mime types to file types.
    *
-   * @param $mime
+   * @param string $mime
    *   Mime type.
    *
    * @return mixed|string

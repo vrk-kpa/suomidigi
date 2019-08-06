@@ -80,13 +80,16 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
 /**
  * Load the url pattern of an article type.
  *
- * @param \Drupal\node\Entity\Node $article
- *   The article node to load use as a starting point.
+ * @param Drupal\node\Entity\Node $node
+ *   Node.
+ * @param string $type
+ *   Node type.
  *
  * @return string
+ *   Returns url pattern.
  */
 function suopa_tokens_get_node_pattern(Node $node, $type = 'field_article_type') {
-  $langCode = \Drupal::service('language_manager')->getCurrentLanguage()->getId();
+  $langCode = Drupal::service('language_manager')->getCurrentLanguage()->getId();
 
   $nodeTypeTerm = $node->get($type)->entity;
   if ($nodeTypeTerm->hasTranslation($langCode)) {

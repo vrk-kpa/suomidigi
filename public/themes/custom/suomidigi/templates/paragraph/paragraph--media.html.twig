@@ -1,0 +1,19 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set media = content.field_p_media.0 %}
+  {% set description = content.field_p_description.0 %}
+
+  <div{{attributes.addClass(classes)}}>
+    {% block content %}
+      <div class="paragraph__media">
+        {{ media }}
+      </div>
+      {% if description|render %}
+        <p class="paragraph__text">
+          {{ description }}
+        </p>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
