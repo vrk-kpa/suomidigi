@@ -370,3 +370,12 @@ function suomidigi_preprocess_pager(&$variables) {
     }
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_input__textfield(&$variables) {
+  if ($variables['attributes']['id'] == 'search') {
+    $variables['attributes']['aria-label'] = t('Search');
+  }
+}
