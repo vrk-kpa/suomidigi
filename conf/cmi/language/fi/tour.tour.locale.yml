@@ -8,3 +8,5 @@ tips:
     label: Etsi
   locale-translate:
     label: Käännä
+  locale-continue:
+    label: Jatkuu

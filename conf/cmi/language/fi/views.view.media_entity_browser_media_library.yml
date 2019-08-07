@@ -1,0 +1,36 @@
+label: 'Media Browser (Media Library)'
+display:
+  default:
+    display_options:
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
+      fields:
+      filters:
+        status:
+          group_info:
+            label: Julkaistu
+        name:
+          expose:
+            label: Nimi
+        bundle:
+          expose:
+            label: 'Tyyppi'
+  media_browser_all:
+    display_title: 'Media browser'

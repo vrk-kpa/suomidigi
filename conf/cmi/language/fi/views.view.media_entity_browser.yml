@@ -1,0 +1,82 @@
+label: 'Mediaselain'
+display:
+  default:
+    display_title: Isäntä
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
+          tags:
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+      filters:
+        status:
+          group_info:
+            label: 'Tila'
+        bundle:
+          expose:
+            label: 'Median tyyppi'
+        name:
+          expose:
+            label: 'Hae median nimellä'
+  entity_browser_1:
+    display_options:
+      filters:
+        status:
+          group_info:
+            label: 'Tila'
+        bundle:
+          expose:
+            label: 'Tyyppi'
+        name:
+          expose:
+            label: 'Hae nimellä'
+  entity_browser_2:
+    display_options:
+      filters:
+        status:
+          group_info:
+            label: 'Tila'
+        bundle:
+          expose:
+            label: 'Tyyppi'
+        name:
+          expose:
+            label: 'Hae nimellä'
+  entity_browser_3:
+    display_title: 'Media Attachment browser'
+    display_options:
+      filters:
+        status:
+          group_info:
+            label: 'Tila'
+        bundle:
+          expose:
+            label: 'Tyyppi'
+        name:
+          expose:
+            label: 'Hae nimellä'
+  media_browser_all:
+    display_options:
+      filters:
+        status:
+          group_info:
+            label: 'Tila'
+        bundle:
+          expose:
+            label: 'Tyyppi'
+        name:
+          expose:
+            label: 'Hae nimellä'

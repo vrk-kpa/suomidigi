@@ -5,3 +5,5 @@ tips:
     label: 'Kielen nimi'
   language-edit-direction:
     label: 'Kielen suunta'
+  language-edit-continue:
+    label: Jatkuu

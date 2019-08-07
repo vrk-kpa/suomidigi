@@ -40,6 +40,7 @@ display:
           label: Muutospäivämäärä
         count:
           label: Käytetään
+          format_plural_string: !!binary MSBwYWlra2EDQGNvdW50IHBhaWtrb2ph
       filters:
         filename:
           expose:
@@ -79,6 +80,7 @@ display:
           label: 'Käytön kirjannut moduuli'
         count:
           label: Käyttömäärä
+          format_plural_string: !!binary MQNAY291bnQ=
       title: 'Tiedoston käyttö'
       arguments:
         fid:

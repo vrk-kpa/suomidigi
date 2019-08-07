@@ -1,0 +1,16 @@
+display_configuration:
+  link_text: 'Valitse liite'
+widgets:
+  35855c98-d662-41c5-83d2-966c81adc754:
+    settings:
+      submit_text: 'Valitse liite'
+      auto_select: false
+    label: 'Olemassa olevat liitteet'
+  851683f0-0cad-432f-bc32-827320a20abd:
+    settings:
+      submit_text: 'Tallenna'
+    label: 'Lisää uusi liite'
+  c99dca39-3bc7-4383-8cfa-384e10101593:
+    settings:
+      submit_text: 'Tallenna'
+    label: 'Lisää uusi ulkoinen liite'

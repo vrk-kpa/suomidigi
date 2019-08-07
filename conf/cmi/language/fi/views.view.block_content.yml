@@ -1,4 +1,5 @@
 label: 'Kustomoitujen lohkojen kirjasto'
+description: 'Etsi ja ylläpidä kustomoituja lohkoja.'
 display:
   default:
     display_title: Isäntä

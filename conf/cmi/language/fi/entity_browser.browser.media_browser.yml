@@ -1,0 +1,24 @@
+display_configuration:
+  link_text: 'Valitse media'
+widgets:
+  c4ee464d-ac54-4aff-83dc-1979753d953d:
+    settings:
+      submit_text: 'Valitse media'
+    label: 'Olemassa oleva media'
+  b5f2fd7d-1c42-4a4e-83a5-8277154381d3:
+    settings:
+      dropzone_description: 'Pudota tiedostot tähän ladataksesi ne'
+      submit_text: 'Valitse kuva'
+    label: 'Lisää uusi kuva'
+  c03fddad-2718-4c75-8ccc-e050a66e04f9:
+    settings:
+      submit_text: 'Tallenna'
+    label: 'Lisää uusi video'
+  881f705e-e708-47a2-87f7-e565df3b9aa1:
+    settings:
+      submit_text: 'Tallenna'
+    label: 'Lisää uusi upotus'
+  b03d52f8-1ab5-4e63-a37b-ee59dc729589:
+    settings:
+      submit_text: 'Tallenna'
+    label: 'Lisää uusi ikoni'

@@ -1,0 +1,5 @@
+label: 'Näytetään etusivulla'
+description: ''
+settings:
+  on_label: Käytössä
+  off_label: 'Pois päältä'

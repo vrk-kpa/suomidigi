@@ -1,3 +1,7 @@
 tips:
   language-add-choose:
     label: 'Valitse kieli'
+    body: '<p>Valitse kieli luettelosta tai valitse luettelon lopusta "Mukautettu kieli...". </p><p> Napsauta Lisää kieli -painiketta, kun olet valinnut kielen.</p><p>Kun lisäät mukautetun kielen, saat lisälomakkeen, jolla voit antaa kielen nimen, koodin ja suunnan.</p>'
+  language-add-continue:
+    label: Jatkuu
+    body: '<p>Nyt kun sinulla on yleiskatsaus "Lisää kieli" -ominaisuudesta, voit jatkaa:<ul><li> lisäämällä kielen</li><li>lisäämällä mukautetun kielen</li><li></li><li><a href="[site:url]admin/config/regional/language">Katselemalla konfiguroituja kieliä</a></li></ul></p>'

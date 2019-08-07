@@ -36,4 +36,4 @@ visibility:
     id: request_path
     pages: /asiakaslahtoisyys
     negate: false
-    context_mapping: {}
+    context_mapping: {  }
