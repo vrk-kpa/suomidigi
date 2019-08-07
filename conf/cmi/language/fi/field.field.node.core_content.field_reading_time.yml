@@ -1,1 +1,4 @@
-label: Lukuaika
+label: 'Lukuaika'
+description: ''
+settings:
+  suffix: minuuttia

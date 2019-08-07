@@ -1,4 +1,4 @@
 label: 'Lukuaika'
-description: 'Lukuaika minuuteissa'
+description: ''
 settings:
   suffix: minuuttia
