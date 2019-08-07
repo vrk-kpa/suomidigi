@@ -1,0 +1,11 @@
+display_configuration:
+  link_text: 'Valitse ikoni'
+widgets:
+  91430a82-c40e-4904-a754-ed2559698f21:
+    settings:
+      submit_text: 'Valitse ikoni'
+    label: 'Olemassa olevat ikonit'
+  ef812992-21eb-43c1-8043-466395ef1e7e:
+    settings:
+      submit_text: 'Tallenna'
+    label: 'Lisää uusi ikoni'

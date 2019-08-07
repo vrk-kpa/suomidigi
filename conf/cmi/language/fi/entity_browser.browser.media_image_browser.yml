@@ -1,0 +1,12 @@
+display_configuration:
+  link_text: 'Valitse kuva'
+widgets:
+  eeb7cc8f-0dbc-4bcc-91f6-357ad47bd2ca:
+    settings:
+      submit_text: 'Valitse kuva'
+    label: 'Olemassa olevat kuvat'
+  b744f00d-36d5-47de-97b5-306fd36f443c:
+    settings:
+      dropzone_description: 'Pudota tiedostot tähän ladataksesi ne'
+      submit_text: 'Valitse kuva'
+    label: 'Lisää uusi kuva'
