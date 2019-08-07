@@ -1,4 +1,5 @@
 label: 'Uusimmat kommentit'
+description: 'Viimeisimmät kommentit'
 display:
   default:
     display_title: Isäntä

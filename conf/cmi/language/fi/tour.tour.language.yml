@@ -4,3 +4,5 @@ tips:
     label: Kielet
   language-default:
     body: '<p>Voit vaihtaa oletuskieltä valitsemalla yhden käytössä olevista kielistä oletukseksi. Oletuskieltä käytetään silloin kun kieltä ei ole erikseen valittu mutta esimerkiksi käyttöliittymän kieli täytyy asettaa.</p>'
+  language-continue:
+    label: Jatkuu

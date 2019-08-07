@@ -1,7 +1,7 @@
 uuid: 07a395bf-9bea-4153-8d47-926930cd52a8
 langcode: en
 status: true
-dependencies: {}
+dependencies: {  }
 id: content_producer
 label: Sisällöntuottaja
 weight: -8

@@ -1,2 +1,27 @@
+cancel_confirm:
+  body: "[user:display-name], \r\n\r\nPyyntö käyttäjätilisi poistamiseksi sivustolla [site:name] on vastaanotettu.\r\n\r\nVoit nyt perua käyttäjätilisi sivustolla [site:url-brief] klikkaamalla allaolevaa linkkiä tai kopioimalla sen selaimesi osoitekenttään:\r\n\r\n[user:cancel-url]\r\n\r\nHuom. Käyttäjätilin poistoa ei voi perua. \r\nTämä linkki vanhenee vuorokaudessa ja mitään ei tapahdu jos sitä ei käytetä.\r\n\r\n-- [site:name] ylläpitotiimi"
+  subject: 'Käyttäjätilin peruutuspyyntö käyttäjälle [user:display-name] sivustolla [site:name]'
+password_reset:
+  body: "[user:display-name],\r\n\r\nOlemme vastaanottaneet pyynnön salasanasi muuttamiseksi sivustolla [site:name]. \r\n\r\nVoit nyt kirjautua klikkaamalla seuraavaa linkkiä tai kopioimalla sen käsin selaimeesi: \r\n\r\n[user:one-time-login-url]\r\n\r\nLinkki on kertakäyttöinen ja ohjaa sivulle jolla voit asettaa salasanasi. Linkki vanhenee päivässä ja mitään ei tapahdu jos sitä ei käytetä. \r\n\r\n-- [site:name] ylläpitotiimi"
+  subject: 'Korvaavat kirjautumistiedot käyttäjälle [user:display-name] sivustolla [site:name]'
 register_admin_created:
+  body: "[user:display-name], \r\n\r\nSivuston [site:name] ylläpitäjä on luonut sinulle käyttäjätilin. Voit nyt kirjautua sisään klikkaamalla seuraavaa linkkiä tai kopioimalla sen selaimeesi:\r\n\r\n[user:one-time-login-url] \r\n\r\nLinkki on kertakäyttöinen ja osoittaa sivulle jossa voit asettaa salasanasi.\r\n\r\nKun olet asettanut salasanasi, voit jatkossa kirjautua sisään osoitteessa [site:login-url] seuraavilla käyttäjätunnuksilla:\r\n\r\nkäyttäjätunnus: [user:name] \r\nsalasana: Asettamasi salasana\r\n\r\n-- [site:name] ylläpitotiimi"
   subject: 'Ylläpitäjä loi sinulle tilin sivustolla [site:name]'
+register_no_approval_required:
+  body: "[user:display-name], \r\n\r\nKiitoksia rekisteröitymisestäsi sivustolla [site:name]. Voit nyt kirjautua sisään klikkamalla seuraavaa linkkiä tai kopioimalla sen selaimeesi:\r\n\r\n[user:one-time-login-url] \r\n\r\nLinkki on kertakäyttöinen ja johtaa sivulle jossa voit asettaa salasanasi. Kun olet asettanut salasanasi voit jatkossa kirjautua sisään osoitteessa [site:login-url] seuraavilla käyttäjätunnuksilla: \r\n\r\nkäyttäjtunnus: [user:name]\r\nsalasana: Asettamasi salasana\r\n\r\n-- [site:name] ylläpitotiimi"
+  subject: 'Käyttäjätiedot käyttäjälle [user:display-name] sivustolla [site:name]'
+register_pending_approval:
+  body: "[user:name],\r\n\r\nKiitos, että rekisteröidyitte sivustolla [site:name].\r\n\r\nPyyntösi on vastaanotettu ja odottaa ylläpitäjien hyväksyntää. Kun käyttäjätilisi on hyväksytty, saat uuden sähköpostin sisältäen ohjeet sivustolle kirjautumiseksi ja salasanasi muuttamiseksi.\r\n\r\n-- [site:name] ylläpitotiimi"
+  subject: 'Käyttäjätiedot käyttäjälle [user:display-name] sivustolla [site:name] (odottaa hyväksyntää)'
+register_pending_approval_admin:
+  body: '[user:display-name] on anonut käyttäjätiliä'
+  subject: 'Käyttäjätiedot käyttäjälle [user:display-name] sivustolla [site:name] (odottaa hyväksyntää)'
+status_activated:
+  body: "[user:name],\r\n\r\nKäyttäjätilisi sivustolla [site:name] on aktivoitu. \r\n\r\nVoit nyt kirjautua sisään klikkaamalla allaolevaa linkkiä tai kopioimalla sen selaimesi osoitekenttään: [user:one-time-login-url]\r\nTätä kirjautumislinkkiä voi käyttää vain yhden kerran ja kirjautumisen jälkeen sinut ohjataan sivulle jolla voit asettaa salasanasi. Asetettuasi salasanasi voit jatkossa kirjautua sisään osoitteessa [site:login-url] seuraavalla käyttäjätunnuksella: \r\n\r\nkäyttäjätunnus: [user:name]\r\nsalasana: Asettamasi salasana\r\n\r\n-- [site:name] ylläpitotiimi"
+  subject: 'Käyttäjätiedot käyttäjälle [user:display-name] sivustolla [site:name] (rekisteröityminen hyväksytty)'
+status_blocked:
+  body: "[user:display-name],\r\n\r\nKäyttäjätilisi sivulla [site:name] on suljettu.\r\n\r\n--  [site:name] ylläpitotiimi"
+  subject: 'Käyttäjätiedot käyttäjälle [user:display-name] sivustolla [site:name] (käyttö estetty)'
+status_canceled:
+  body: "[user:display-name],\r\n\r\nKäyttäjätilisi sivulla [site:name] on peruutettu.\r\n\r\n--  [site:name] ylläpitotiimi"
+  subject: 'Käyttäjätiedot käyttäjälle [user:display-name] sivustolla [site:name] (käyttäjätili peruutettu)'

@@ -1,5 +1,6 @@
 settings:
   default_form_open_message: 'Tätä lomaketta ei ole vielä avattu lähetyksille.'
+  default_form_close_message: 'Tätä lomaketta ei voi enää lähettää.'
   default_submit_button_label: Lähetä
   default_reset_button_label: Palauta
   default_form_confidential_message: 'Tämä lomake on luottamuksellinen. Sinun täytyy <a href="[site:login-url]/logout?destination=[current-page:url:relative]">kirjautua ulos</a> lähettääksesi se.'
@@ -9,6 +10,7 @@ settings:
   default_wizard_confirmation_label: Valmis
   default_preview_next_button_label: Esikatselu
   default_preview_label: Esikatselu
+  default_preview_title: '[webform:title]: Esikatselu'
   default_draft_button_label: 'Tallenna keskeneräinen'
   default_draft_saved_message: 'Tiedot tallennettu. Voit palata tähän lomakkeeseen myöhemmin ja palauttaa nykyiset tiedot.'
   default_confirmation_message: 'Lisätty uusi lähetys lomakkeelle [webform:title].'
