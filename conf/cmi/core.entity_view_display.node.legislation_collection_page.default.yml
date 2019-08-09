@@ -3,21 +3,40 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.legislation_collection_page.body
+    - field.field.node.legislation_collection_page.field_header_image
+    - field.field.node.legislation_collection_page.field_ingress
+    - field.field.node.legislation_collection_page.field_legis_cpage_paragraphs
     - node.type.legislation_collection_page
   module:
-    - text
+    - entity_reference_revisions
     - user
 id: node.legislation_collection_page.default
 targetEntityType: node
 bundle: legislation_collection_page
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
+  field_header_image:
     weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_ingress:
+    weight: 102
+    label: above
     settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_legis_cpage_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 103
+    label: above
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     region: content
   links:

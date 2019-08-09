@@ -1,22 +1,19 @@
-uuid: 583f0dac-4c81-41ce-b49a-32a4cd4af4b1
+uuid: 6d0915c0-1c4d-4b3d-958d-67b123382c50
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
+    - field.storage.node.field_ingress
     - node.type.legislation_collection_page
-  module:
-    - text
-id: node.legislation_collection_page.body
-field_name: body
+id: node.legislation_collection_page.field_ingress
+field_name: field_ingress
 entity_type: node
 bundle: legislation_collection_page
-label: Body
+label: Ingress
 description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
-settings:
-  display_summary: true
-field_type: text_with_summary
+settings: {  }
+field_type: string_long
