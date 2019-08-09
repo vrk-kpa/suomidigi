@@ -1,0 +1,32 @@
+uuid: 91e1d928-f55a-42a7-9b7b-4c1f53b74445
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.legislation_collection_page.body
+    - node.type.legislation_collection_page
+  module:
+    - text
+    - user
+id: node.legislation_collection_page.teaser
+targetEntityType: node
+bundle: legislation_collection_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  published_at: true

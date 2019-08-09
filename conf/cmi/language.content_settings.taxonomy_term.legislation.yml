@@ -1,0 +1,11 @@
+uuid: 22a4ca26-8aa1-4297-99ea-09c20405496e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.legislation
+id: taxonomy_term.legislation
+target_entity_type_id: taxonomy_term
+target_bundle: legislation
+default_langcode: fi
+language_alterable: false

@@ -1,0 +1,30 @@
+uuid: 8797dfdd-d121-47fd-b360-49b54f5bda49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.legislation_collection_page.body
+    - node.type.legislation_collection_page
+  module:
+    - text
+    - user
+id: node.legislation_collection_page.default
+targetEntityType: node
+bundle: legislation_collection_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  published_at: true
