@@ -12,13 +12,13 @@ widgets:
     label: 'Lisää uusi kuva'
   c03fddad-2718-4c75-8ccc-e050a66e04f9:
     settings:
-      submit_text: 'Tallenna'
+      submit_text: Tallenna
     label: 'Lisää uusi video'
   881f705e-e708-47a2-87f7-e565df3b9aa1:
     settings:
-      submit_text: 'Tallenna'
+      submit_text: Tallenna
     label: 'Lisää uusi upotus'
   b03d52f8-1ab5-4e63-a37b-ee59dc729589:
     settings:
-      submit_text: 'Tallenna'
+      submit_text: Tallenna
     label: 'Lisää uusi ikoni'

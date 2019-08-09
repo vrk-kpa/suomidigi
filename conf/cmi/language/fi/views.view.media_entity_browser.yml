@@ -1,4 +1,4 @@
-label: 'Mediaselain'
+label: Mediaselain
 display:
   default:
     display_title: Isäntä
@@ -24,7 +24,7 @@ display:
       filters:
         status:
           group_info:
-            label: 'Tila'
+            label: Tila
         bundle:
           expose:
             label: 'Median tyyppi'
@@ -36,10 +36,10 @@ display:
       filters:
         status:
           group_info:
-            label: 'Tila'
+            label: Tila
         bundle:
           expose:
-            label: 'Tyyppi'
+            label: Tyyppi
         name:
           expose:
             label: 'Hae nimellä'
@@ -48,10 +48,10 @@ display:
       filters:
         status:
           group_info:
-            label: 'Tila'
+            label: Tila
         bundle:
           expose:
-            label: 'Tyyppi'
+            label: Tyyppi
         name:
           expose:
             label: 'Hae nimellä'
@@ -61,10 +61,10 @@ display:
       filters:
         status:
           group_info:
-            label: 'Tila'
+            label: Tila
         bundle:
           expose:
-            label: 'Tyyppi'
+            label: Tyyppi
         name:
           expose:
             label: 'Hae nimellä'
@@ -73,10 +73,10 @@ display:
       filters:
         status:
           group_info:
-            label: 'Tila'
+            label: Tila
         bundle:
           expose:
-            label: 'Tyyppi'
+            label: Tyyppi
         name:
           expose:
             label: 'Hae nimellä'

@@ -7,5 +7,5 @@ widgets:
     label: 'Olemassa olevat ikonit'
   ef812992-21eb-43c1-8043-466395ef1e7e:
     settings:
-      submit_text: 'Tallenna'
+      submit_text: Tallenna
     label: 'Lisää uusi ikoni'

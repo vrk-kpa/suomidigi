@@ -6,6 +6,7 @@ dependencies:
     - search_api.index.content_search_index
   module:
     - search_api
+    - user
 id: search
 label: Search
 module: views
@@ -22,8 +23,9 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -308,6 +310,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags: {  }
   search_api_view:
     display_plugin: page
@@ -324,4 +327,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags: {  }
