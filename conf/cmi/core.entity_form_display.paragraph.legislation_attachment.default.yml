@@ -1,0 +1,40 @@
+uuid: 802fd639-5533-454d-a0a7-7090e609997e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.legislation_attachment.field_legislation_attachment
+    - field.field.paragraph.legislation_attachment.field_legislation_colour
+    - field.field.paragraph.legislation_attachment.field_p_title
+    - paragraphs.paragraphs_type.legislation_attachment
+  module:
+    - file
+id: paragraph.legislation_attachment.default
+targetEntityType: paragraph
+bundle: legislation_attachment
+mode: default
+content:
+  field_legislation_attachment:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_legislation_colour:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_p_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

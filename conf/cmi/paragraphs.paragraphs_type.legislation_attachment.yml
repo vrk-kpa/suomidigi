@@ -1,0 +1,9 @@
+uuid: f74a9f55-eca1-4a0d-b45f-61e7fe0e20f1
+langcode: en
+status: true
+dependencies: {  }
+id: legislation_attachment
+label: 'Legislation Attachment'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

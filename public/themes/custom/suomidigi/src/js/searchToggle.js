@@ -18,7 +18,8 @@
         }
       });
 
-      searchToggleButton.addEventListener("click", () => {
+      searchToggleButton.addEventListener("click", (e) => {
+        e.stopImmediatePropagation();
         const searchFormInput = document.getElementById("search");
         searchFormParentElement.classList.toggle("is-hidden");
         searchFormInput.focus();

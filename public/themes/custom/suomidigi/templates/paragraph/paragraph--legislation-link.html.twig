@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+  'legislation-link',
+]
+%}
+
+{% set link = content.field_p_link_required.0['#url'] %}
+{% set link_target = content.field_p_link_target['0']['#markup'] %}
+{% set text = content.field_p_link_required.0['#title'] %}
+
+<article{{ attributes.addClass(classes) }}>
+  {{ title_suffix.contextual_links }}
+  <a href="{{ link }}" {% if link_target is same as(1) %} target="_blank" {% endif %} class="legislation-link__link">
+    <div class="legislation-link__content">
+      <div class="legislation-link__title_wrapper">
+        <h2 class="legislation-link__title">
+          {{ text }}
+        </h2>
+        <p class="legislation-link__destination">
+          {{ content.field_link_destination.0['#context'].value|striptags }}
+        </p>
+      </div>
+      <button class="legislation-link__cta">
+        {{ 'Open link'|t }}
+      </button>
+    </div>
+    <div class="legislation-link__description">
+      {{ content.field_link_description }}
+    </div>
+  </a>
+</article>

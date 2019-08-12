@@ -1,0 +1,44 @@
+uuid: 1477429f-a5a6-4eee-bc1a-199f8fd22f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.legislation_link.field_link_description
+    - field.field.paragraph.legislation_link.field_link_destination
+    - field.field.paragraph.legislation_link.field_p_link_required
+    - paragraphs.paragraphs_type.legislation_link
+  module:
+    - link
+id: paragraph.legislation_link.default
+targetEntityType: paragraph
+bundle: legislation_link
+mode: default
+content:
+  field_link_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_link_destination:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_p_link_required:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

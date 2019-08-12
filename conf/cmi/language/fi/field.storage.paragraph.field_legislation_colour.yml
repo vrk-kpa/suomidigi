@@ -1,0 +1,12 @@
+settings:
+  allowed_values:
+    -
+      label: Suosituskortti
+    -
+      label: 'Velvoittava ohje tai määräys'
+    -
+      label: Arviointikysymykset
+    -
+      label: 'Tiivis suositus'
+    -
+      label: 'Muu tukimateriaali'

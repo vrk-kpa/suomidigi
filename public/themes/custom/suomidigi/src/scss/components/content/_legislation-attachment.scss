@@ -1,0 +1,68 @@
+.legislation-attachment {
+  background-color: $white;
+  display: block;
+  margin-bottom: $gutter / 2;
+  padding: $gutter / 2;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link,
+  &__link:hover {
+    text-decoration: none;
+  }
+
+  &__icon {
+    margin-right: $gutter;
+    width: $gutter * 2;
+    height: $gutter * 2;
+  }
+
+  &__title {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    color: $black;
+    font-weight: 600;
+    margin-bottom: $gutter / 4;
+
+    .legislation-attachment__link:hover & {
+      text-decoration: underline;
+    }
+  }
+
+  &__file-type {
+    @include font-size(12px);
+    @include line-height(14px, 12px);
+    color: $gray-dark;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  &__file-size {
+    color: $gray-dark;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  &__cta {
+    @include font-size(12px);
+    @include line-height(12px, 12px);
+    border: 1px solid $legislation-blue;
+    color: $legislation-blue;
+    font-weight: bold;
+    margin-left: auto;
+    padding: $gutter * 0.75 $gutter;
+    text-align: center;
+    text-transform: uppercase;
+
+    .legislation-attachment__link:hover & {
+      background-color: $legislation-blue;
+      border-color: $legislation-blue;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+uuid: 8b270ef4-4cf6-45f2-b407-c3a5fb3ba6aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_title
+    - paragraphs.paragraphs_type.legislation_attachment
+id: paragraph.legislation_attachment.field_p_title
+field_name: field_p_title
+entity_type: paragraph
+bundle: legislation_attachment
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
