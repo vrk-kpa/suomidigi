@@ -111,8 +111,66 @@ function suomidigi_preprocess_paragraph(&$variables) {
       }
 
       break;
+    case 'legislation_cards':
+      // Get selected terms (legislation sections) from the paragraph.
+      $terms = $paragraph->get('field_legislation_section')->referencedEntities();
+      foreach ($terms as $term) {
+        // Fetch all potential legislation card collections from the selected
+        // terms. Note that all the child terms are not necessarily collections!
+        $cardCollectionTerms = \Drupal::entityTypeManager()
+          ->getStorage('taxonomy_term')
+          ->getChildren($term);
+        foreach ($cardCollectionTerms as $collectionTerm) {
+          $cards = suomidigi_get_related_legislation_cards($collectionTerm);
+          if (!count($cards)) {
+            continue;
+          }
+
+          $renderedLegislationCollection = [
+            'title' => [
+              '#markup' => $collectionTerm->getName(),
+            ],
+            'cards' => $cards,
+          ];
+
+
+          $variables['legislation_collections'][] = $renderedLegislationCollection;
+        }
+      }
+      break;
+  }
+}
+
+/**
+ * Get legislation cards that are attached to the selected collection term.
+ *
+ * @param \Drupal\taxonomy\Entity\Term $collection
+ *   The collection term to fetch the cards from.
+ *
+ * @return array
+ *   Return found legislation cards.
+ */
+function suomidigi_get_related_legislation_cards(Term $collection) {
+  $cards = [];
+
+  $ids = \Drupal::entityQuery('node')
+    ->condition('type', 'legislation_card')
+    ->condition('status', 1)
+    ->condition('field_legislation_section', $collection->id())
+    ->execute();
+
+  $entity_type = 'node';
+  $view_mode = 'full';
+
+  $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+  $nodeRendered = \Drupal::entityTypeManager()->getViewBuilder('node');
+
+  foreach ($ids as $id) {
+    $node = $nodeStorage->load($id);
+    $cards[] = $nodeRendered->view($node, $view_mode);
   }
 
+  return $cards;
 }
 
 /**
