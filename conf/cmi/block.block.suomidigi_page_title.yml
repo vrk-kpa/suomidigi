@@ -2,6 +2,8 @@ uuid: 626295e5-3b8b-440d-8114-ddfdfefadfb0
 langcode: en
 status: true
 dependencies:
+  module:
+    - ctools
   theme:
     - suomidigi
 _core:
@@ -17,4 +19,11 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      legislation_card: legislation_card
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

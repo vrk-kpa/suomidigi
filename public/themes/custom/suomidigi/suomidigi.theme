@@ -75,22 +75,44 @@ function suomidigi_preprocess_paragraph(&$variables) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
 
-  if ($paragraph->getType() === 'liftup_entity_reference_item') {
-    if ($paragraph->hasField('field_p_full_width')) {
-      $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
-      $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
-      $variables['is_full_width'] = $fullWidth;
-    }
-
-    if ($paragraph->hasField('field_p_entity_reference')) {
-      $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
-      $is_full_width = &drupal_static('article_full_width_' . $targetID, FALSE);
-
-      if (isset($fullWidth) && $fullWidth) {
-        $is_full_width = TRUE;
+  switch ($paragraph->getType()) {
+    case 'liftup_entity_reference_item':
+      if ($paragraph->hasField('field_p_full_width')) {
+        $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
+        $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
+        $variables['is_full_width'] = $fullWidth;
       }
-    }
+
+      if ($paragraph->hasField('field_p_entity_reference')) {
+        $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
+        $is_full_width = &drupal_static('article_full_width_' . $targetID, FALSE);
+
+        if (isset($fullWidth) && $fullWidth) {
+          $is_full_width = TRUE;
+        }
+      }
+      break;
+
+    case 'legislation_attachment':
+      if ($paragraph->hasField('field_legislation_attachment')) {
+        /** @var \Drupal\file\Entity\File $file */
+        $file = $paragraph->get('field_legislation_attachment')->entity;
+        $path = $file->getFileUri();
+
+        if ($path) {
+          $variables['file_extension'] = pathinfo($path, PATHINFO_EXTENSION);
+          $variables['file_size'] = format_size($file->getSize());
+          $variables['file_url'] = $path;
+        }
+      }
+
+      if ($paragraph->hasField('field_legislation_colour')) {
+        $variables['legislation_colour'] = $paragraph->get('field_legislation_colour')->value;
+      }
+
+      break;
   }
+
 }
 
 /**

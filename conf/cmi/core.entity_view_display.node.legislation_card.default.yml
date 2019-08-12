@@ -1,0 +1,59 @@
+uuid: 17a6f4c0-0d6e-4a14-a880-88184b9e3fe4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.legislation_card.field_attachments
+    - field.field.node.legislation_card.field_ingress
+    - field.field.node.legislation_card.field_legislation_content
+    - field.field.node.legislation_card.field_legislation_materials
+    - node.type.legislation_card
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.legislation_card.default
+targetEntityType: node
+bundle: legislation_card
+mode: default
+content:
+  field_attachments:
+    type: entity_reference_revisions_entity_view
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_ingress:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_legislation_content:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_legislation_materials:
+    type: entity_reference_revisions_entity_view
+    weight: 5
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  published_at: true

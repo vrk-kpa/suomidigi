@@ -1,0 +1,41 @@
+uuid: 4f91a7dc-0d45-4d0b-ab05-9bcd993392a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.legislation_attachment.field_legislation_attachment
+    - field.field.paragraph.legislation_attachment.field_legislation_colour
+    - field.field.paragraph.legislation_attachment.field_p_title
+    - paragraphs.paragraphs_type.legislation_attachment
+  module:
+    - file
+    - options
+id: paragraph.legislation_attachment.default
+targetEntityType: paragraph
+bundle: legislation_attachment
+mode: default
+content:
+  field_legislation_attachment:
+    weight: 2
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_legislation_colour:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_p_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }
