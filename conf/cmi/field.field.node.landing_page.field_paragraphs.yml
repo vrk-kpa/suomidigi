@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.landing_page
     - paragraphs.paragraphs_type.highlight_bullet_point_item
+    - paragraphs.paragraphs_type.legislation_cards
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
   module:
@@ -28,6 +29,7 @@ settings:
       liftup_box_item: liftup_box_item
       liftup_entity_reference_item: liftup_entity_reference_item
       highlight_bullet_point_item: highlight_bullet_point_item
+      legislation_cards: legislation_cards
     target_bundles_drag_drop:
       container:
         weight: -31
@@ -74,4 +76,7 @@ settings:
       highlight_text_box:
         weight: -17
         enabled: false
+      legislation_cards:
+        enabled: true
+        weight: 17
 field_type: entity_reference_revisions
