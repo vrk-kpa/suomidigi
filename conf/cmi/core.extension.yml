@@ -73,6 +73,7 @@ module:
   smart_trim: 0
   suopa_editorial: 0
   suopa_external_files: 0
+  suopa_legislations: 0
   suopa_media_embed: 0
   suopa_tokens: 0
   svg_image: 0

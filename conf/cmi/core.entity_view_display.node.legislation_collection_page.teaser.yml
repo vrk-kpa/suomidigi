@@ -18,5 +18,8 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_header_image: true
+  field_ingress: true
+  field_legis_cpage_paragraphs: true
   langcode: true
   published_at: true

@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_legis_cpage_paragraphs
     - node.type.legislation_collection_page
     - paragraphs.paragraphs_type.highlight_bullet_point_item
+    - paragraphs.paragraphs_type.legislation_attachment
+    - paragraphs.paragraphs_type.legislation_link
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
   module:
@@ -27,7 +29,9 @@ settings:
     target_bundles:
       highlight_bullet_point_item: highlight_bullet_point_item
       liftup_box_item: liftup_box_item
+      legislation_attachment: legislation_attachment
       liftup_entity_reference_item: liftup_entity_reference_item
+      legislation_link: legislation_link
     target_bundles_drag_drop:
       attachment:
         weight: 16
@@ -59,12 +63,21 @@ settings:
       liftup_entity_reference:
         weight: 25
         enabled: false
+      legislation_attachment:
+        enabled: true
+        weight: 26
       liftup_entity_reference_item:
         enabled: true
         weight: 26
       liftup_prominent:
         weight: 27
         enabled: false
+      legislation_cards:
+        weight: 27
+        enabled: false
+      legislation_link:
+        enabled: true
+        weight: 28
       link:
         weight: 28
         enabled: false
