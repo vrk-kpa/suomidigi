@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  'legislation-collection',
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  {% if content.field_ingress|render %}
+    <div class="legislation-collection__ingress">
+      {{ content.field_ingress }}
+    </div>
+  {% endif %}
+  {% if content.field_header_image|render %}
+    <div class="legislation-collection__header-image">
+      {{ content.field_header_image }}
+    </div>
+  {% endif %}
+  <div class="legislation-collection__content-wrapper">
+    <div{{ content_attributes.addClass(['node__content', 'legislation-collection-page__content']) }}>
+      {{ content|without('field_ingress','field_header_image') }}
+    </div>
+  </div>
+</article>

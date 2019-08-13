@@ -9,6 +9,10 @@
     color: $legislation-blue;
     font-weight: bold;
     padding: 0 0 $gutter;
+
+    &--icon {
+      fill: $legislation-blue;
+    }
   }
 
   &__ingress {

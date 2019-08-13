@@ -111,75 +111,23 @@ function suomidigi_preprocess_paragraph(&$variables) {
       }
 
       break;
-    case 'legislation_cards':
-      // Get selected terms (legislation sections) from the paragraph.
-      $terms = $paragraph->get('field_legislation_section')->referencedEntities();
-      foreach ($terms as $term) {
-        // Fetch all potential legislation card collections from the selected
-        // terms. Note that all the child terms are not necessarily collections!
-        $cardCollectionTerms = \Drupal::entityTypeManager()
-          ->getStorage('taxonomy_term')
-          ->getChildren($term);
-        foreach ($cardCollectionTerms as $collectionTerm) {
-          $cards = suomidigi_get_related_legislation_cards($collectionTerm);
-          if (!count($cards)) {
-            continue;
-          }
-
-          $renderedLegislationCollection = [
-            'title' => [
-              '#markup' => $collectionTerm->getName(),
-            ],
-            'cards' => $cards,
-          ];
-
-
-          $variables['legislation_collections'][] = $renderedLegislationCollection;
-        }
-      }
-      break;
   }
-}
-
-/**
- * Get legislation cards that are attached to the selected collection term.
- *
- * @param \Drupal\taxonomy\Entity\Term $collection
- *   The collection term to fetch the cards from.
- *
- * @return array
- *   Return found legislation cards.
- */
-function suomidigi_get_related_legislation_cards(Term $collection) {
-  $cards = [];
-
-  $ids = \Drupal::entityQuery('node')
-    ->condition('type', 'legislation_card')
-    ->condition('status', 1)
-    ->condition('field_legislation_section', $collection->id())
-    ->execute();
-
-  $entity_type = 'node';
-  $view_mode = 'full';
-
-  $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
-  $nodeRendered = \Drupal::entityTypeManager()->getViewBuilder('node');
-
-  foreach ($ids as $id) {
-    $node = $nodeStorage->load($id);
-    $cards[] = $nodeRendered->view($node, $view_mode);
-  }
-
-  return $cards;
 }
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_page_title(&$variables) {
-  $term = \Drupal::request()->attributes->get('taxonomy_term');
+  // Modify title classes for Theme taxonomy terms.
+  $term = Drupal::request()->attributes->get('taxonomy_term');
   if (!empty($term) && $term->bundle() == 'theme') {
     $variables['page_title_alternative'] = TRUE;
+  }
+
+  // Modify title classes for Legislation collection page nodes.
+  $node = Drupal::request()->attributes->get('node');
+  if (!empty($node) && $node->bundle() == 'legislation_collection_page') {
+    $variables['page_title_secondary'] = TRUE;
   }
 }
 
@@ -192,12 +140,12 @@ function suomidigi_preprocess_block(&$variables) {
   }
 
   if ($variables['plugin_id'] == 'page_title_block') {
-    $term = \Drupal::request()->attributes->get('taxonomy_term');
+    $term = Drupal::request()->attributes->get('taxonomy_term');
     if (!empty($term) && $term->bundle() == 'theme') {
       if ($term->hasField('field_liftup_image') && !$term->get('field_liftup_image')->isEmpty()) {
         $media_id = $term->get('field_liftup_image')->first()->getValue()['target_id'];
         $media = Media::load($media_id);
-        $build = \Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
+        $build = Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
         $variables['content']['field_liftup_image'] = $build;
       }
     }
@@ -234,7 +182,7 @@ function suomidigi_preprocess_menu(&$variables) {
     isset($variables['attributes']['block_id']) &&
     $variables['attributes']['block_id'] == 'menu_mobile'
   ) {
-    $site_config = \Drupal::config('system.site');
+    $site_config = Drupal::config('system.site');
     $variables['#attached']['drupalSettings']['siteSlogan'] = $site_config->get('slogan');
     $variables['#attached']['drupalSettings']['siteName'] = $site_config->get('name');
   }
@@ -311,8 +259,8 @@ function suomidigi_preprocess_taxonomy_term(&$variables) {
   $element = $variables['elements'];
 
   if ($element['#taxonomy_term']->bundle() == 'theme') {
-    $current_path = \Drupal::service('path.current')->getPath();
-    $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $current_path = Drupal::service('path.current')->getPath();
+    $result = Drupal::service('path.alias_manager')->getAliasByPath($current_path);
 
     if ($variables['url'] == $result) {
       $variables['term_url_is_active'] = TRUE;
