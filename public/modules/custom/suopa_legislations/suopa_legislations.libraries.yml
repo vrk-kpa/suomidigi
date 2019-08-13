@@ -1,0 +1,5 @@
+expanding-panel:
+  js:
+    assets/js/expanding-panel.js: {}
+  dependencies:
+    - core/jquery

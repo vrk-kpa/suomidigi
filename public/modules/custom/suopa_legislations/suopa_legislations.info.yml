@@ -1,0 +1,5 @@
+name: 'SuoPa - Legislations'
+type: module
+description: 'Legislation collections and cards related functionalities for Suomidigi.fi'
+core: 8.x
+package: 'SuoPa'
