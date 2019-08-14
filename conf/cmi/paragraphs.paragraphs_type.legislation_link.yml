@@ -1,0 +1,9 @@
+uuid: 3588db1f-ad20-4c02-b6c3-567b2f2fa3c9
+langcode: en
+status: true
+dependencies: {  }
+id: legislation_link
+label: 'Legislation Link'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

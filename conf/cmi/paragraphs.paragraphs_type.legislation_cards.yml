@@ -1,0 +1,9 @@
+uuid: 57eca51c-78a6-4fb6-9a93-2b290b57f54b
+langcode: en
+status: true
+dependencies: {  }
+id: legislation_cards
+label: 'Legislation Cards'
+icon_uuid: null
+description: 'Displays the Legislation Cards based on the selected Legislation taxonomy term. '
+behavior_plugins: {  }

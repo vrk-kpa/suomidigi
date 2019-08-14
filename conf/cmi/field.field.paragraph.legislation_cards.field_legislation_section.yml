@@ -1,0 +1,29 @@
+uuid: fe2e8849-6f1c-4d28-b248-279e73d4f296
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_legislation_section
+    - paragraphs.paragraphs_type.legislation_cards
+    - taxonomy.vocabulary.legislation
+id: paragraph.legislation_cards.field_legislation_section
+field_name: field_legislation_section
+entity_type: paragraph
+bundle: legislation_cards
+label: 'Legislation section'
+description: 'The section of the legislation from which the Legislation Cards are shown.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      legislation: legislation
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

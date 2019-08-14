@@ -1,0 +1,22 @@
+uuid: 9a0dae20-54d6-407e-a5a2-f0c8a8efa41d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legislation_card
+id: node.legislation_card.status
+field_name: status
+entity_type: node
+bundle: legislation_card
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

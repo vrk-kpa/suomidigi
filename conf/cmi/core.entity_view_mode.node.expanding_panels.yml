@@ -1,0 +1,10 @@
+uuid: 5d799c75-5155-4979-9db6-368c2243337d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.expanding_panels
+label: 'Expanding panels'
+targetEntityType: node
+cache: true

@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_legislations.module.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * {@inheritdoc}
+ */
+function suopa_legislations_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  if ($paragraph->getType() == 'legislation_cards') {
+    // Get selected terms (legislation sections) from the paragraph.
+    $terms = $paragraph->get('field_legislation_section')->referencedEntities();
+    foreach ($terms as $term) {
+      // Fetch all potential legislation card collections from the selected
+      // terms. Note that all the child terms are not necessarily collections!
+      $cardCollectionTerms = Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->getChildren($term);
+      foreach ($cardCollectionTerms as $collectionTerm) {
+        $cards = suopa_legislations_get_related_legislation_cards($collectionTerm);
+        if (!count($cards)) {
+          continue;
+        }
+
+        $renderedLegislationCollection = [
+          'title' => [
+            '#theme' => 'suopa_legislations_collection_label',
+            '#collection_label' => $collectionTerm->getName(),
+          ],
+          'cards' => [
+            '#theme' => 'suopa_legislations_collection',
+            '#collection' => $cards,
+            '#attached' => [
+              'library' => [
+                'suopa_legislations/expanding-panel',
+              ],
+            ],
+          ],
+        ];
+
+        $variables['legislation_collections'][] = $renderedLegislationCollection;
+      }
+    }
+  }
+}
+
+/**
+ * Get legislation cards that are attached to the selected collection term.
+ *
+ * @param \Drupal\taxonomy\Entity\Term $collection
+ *   The collection term to fetch the cards from.
+ *
+ * @return array
+ *   Return found legislation cards.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ *   Thrown if the entity type doesn't exist.
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ *   Thrown if the storage handler couldn't be loaded.
+ */
+function suopa_legislations_get_related_legislation_cards(Term $collection) {
+  $cards = [];
+
+  $ids = Drupal::entityQuery('node')
+    ->condition('type', 'legislation_card')
+    ->condition('status', 1)
+    ->condition('field_legislation_section', $collection->id())
+    ->execute();
+
+  $entity_type = 'node';
+  $view_mode = 'expanding_panels';
+
+  $nodeStorage = Drupal::entityTypeManager()->getStorage($entity_type);
+  $nodeRendered = Drupal::entityTypeManager()->getViewBuilder($entity_type);
+
+  foreach ($ids as $id) {
+    $node = $nodeStorage->load($id);
+    $cards[] = $nodeRendered->view($node, $view_mode);
+  }
+
+  return $cards;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function suopa_legislations_theme() {
+  return [
+    'suopa_legislations_collection' => [
+      'variables' => [
+        'collection' => NULL,
+      ],
+    ],
+    'suopa_legislations_collection_label' => [
+      'variables' => [
+        'collection_label' => NULL,
+      ],
+    ],
+  ];
+}

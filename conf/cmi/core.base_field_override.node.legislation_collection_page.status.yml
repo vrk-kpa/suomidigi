@@ -1,0 +1,22 @@
+uuid: a6cbf357-0f1b-4297-afc0-41ed31d52b7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legislation_collection_page
+id: node.legislation_collection_page.status
+field_name: status
+entity_type: node
+bundle: legislation_collection_page
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

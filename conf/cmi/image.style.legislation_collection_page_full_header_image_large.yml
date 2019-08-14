@@ -1,0 +1,17 @@
+uuid: 8e5d42cb-87d1-45ae-a22d-d73dd6f330a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: legislation_collection_page_full_header_image_large
+label: 'Legislation Collection Page Full Header Image Large'
+effects:
+  96af1e42-901e-419c-86d8-d9221ed3ee84:
+    uuid: 96af1e42-901e-419c-86d8-d9221ed3ee84
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 285
+      crop_type: focal_point

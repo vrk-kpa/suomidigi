@@ -1,0 +1,26 @@
+uuid: d0187251-97c9-4bb9-830a-50f8e908663d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.legislation_card
+  module:
+    - user
+id: node.legislation_card.teaser
+targetEntityType: node
+bundle: legislation_card
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_attachments: true
+  field_ingress: true
+  field_legislation_content: true
+  field_legislation_materials: true
+  langcode: true
+  published_at: true

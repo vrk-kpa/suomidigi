@@ -1,0 +1,53 @@
+.legislation-card {
+  background-color: $legislation-blue-light;
+  border: 1px solid $legislation-gray;
+  padding: $gutter;
+
+  &__title {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    color: $legislation-blue;
+    font-weight: bold;
+    padding: 0 0 $gutter;
+
+    &--icon {
+      fill: $legislation-blue;
+    }
+  }
+
+  &__ingress {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    padding: 0 0 $gutter;
+  }
+
+  &__content {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    padding: 0 0 $gutter * 2;
+
+    p {
+      @include font-size(18px);
+      @include line-height(18px, 18px);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__attachments {
+    padding: 0 0 $gutter * 2;
+  }
+
+  &__support-attachments {
+    padding: 0 0 $gutter * 2;
+
+    &__title {
+      @include font-size(18px);
+      @include line-height(18px, 18px);
+      font-weight: bold;
+      padding-bottom: $gutter / 2;
+    }
+  }
+}

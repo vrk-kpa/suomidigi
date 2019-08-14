@@ -1,4 +1,4 @@
-label: 'Pikkukuva'
+label: Pikkukuva
 description: 'Aseta valituksi mikäli haluat median olevan kolmasosan sisältöalueen leveydestä'
 required: false
 translatable: true

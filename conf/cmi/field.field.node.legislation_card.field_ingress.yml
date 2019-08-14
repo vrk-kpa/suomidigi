@@ -1,0 +1,19 @@
+uuid: 508de006-3258-4ce1-abbb-1153c117cd24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ingress
+    - node.type.legislation_card
+id: node.legislation_card.field_ingress
+field_name: field_ingress
+entity_type: node
+bundle: legislation_card
+label: Ingress
+description: 'Long name of the legislation card'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

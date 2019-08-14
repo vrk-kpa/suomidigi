@@ -1,0 +1,10 @@
+uuid: 091eb793-9781-4cce-abc3-9d935caf9f92
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.legislation_collection_page_full_header
+label: 'Legislation Collection Page Full Header'
+targetEntityType: media
+cache: true
