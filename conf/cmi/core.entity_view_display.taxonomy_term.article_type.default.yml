@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.article_type.field_plural_name
     - field.field.taxonomy_term.article_type.field_url_pattern
     - taxonomy.vocabulary.article_type
   module:
@@ -20,5 +21,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_plural_name: true
   field_url_pattern: true
   langcode: true

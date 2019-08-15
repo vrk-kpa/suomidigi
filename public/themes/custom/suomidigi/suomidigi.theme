@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess().
@@ -296,8 +297,10 @@ function suomidigi_preprocess_views_view(&$variables) {
 
 /**
  * Implements hook_views_pre_render().
+ *
+ * {@inheritDoc}
  */
-function suomidigi_views_pre_render(&$view) {
+function suomidigi_views_pre_render(ViewExecutable &$view) {
   if ($view->id() === "taxonomy_term") {
     $term = Term::load((int) $view->args[0]);
 
@@ -308,6 +311,16 @@ function suomidigi_views_pre_render(&$view) {
         return $b->node_field_data_published_at - $a->node_field_data_published_at;
       });
     }
+
+    // Replace taxonomy term view title to correspond taxonomy term plural
+    // name, if one exists. Otherwise use taxonomy term name.
+//    $view->setTitle($term->getName());
+//
+//    if ($term->hasField('field_plural_name')) {
+//      if (!empty($term->get('field_plural_name')->value)) {
+//        $view->setTitle($term->get('field_plural_name')->value);
+//      }
+//    }
   }
 }
 
