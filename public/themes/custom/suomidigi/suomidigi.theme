@@ -314,13 +314,13 @@ function suomidigi_views_pre_render(ViewExecutable &$view) {
 
     // Replace taxonomy term view title to correspond taxonomy term plural
     // name, if one exists. Otherwise use taxonomy term name.
-//    $view->setTitle($term->getName());
-//
-//    if ($term->hasField('field_plural_name')) {
-//      if (!empty($term->get('field_plural_name')->value)) {
-//        $view->setTitle($term->get('field_plural_name')->value);
-//      }
-//    }
+    if ($term->hasField('field_plural_name')) {
+      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+      if (!empty($translated_title)) {
+        $view->setTitle($translated_title);
+      }
+    }
   }
 }
 
