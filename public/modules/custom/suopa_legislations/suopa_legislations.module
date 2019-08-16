@@ -5,6 +5,9 @@
  * Contains suopa_legislations.module.
  */
 
+use Drupal\block\Entity\Block;
+use Drupal\Core\Access\AccessResult;
+use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 
 /**
@@ -106,4 +109,19 @@ function suopa_legislations_theme() {
       ],
     ],
   ];
+}
+
+/**
+ * Implements hook_block_access().
+ */
+function suopa_legislations_block_access(Block $block, $operation) {
+  if ($operation == 'view' && $block->getPluginId() == 'page_title_block') {
+    $node = Drupal::routeMatch()->getParameter('node');
+
+    if ($node instanceof NodeInterface && $node->bundle() == 'legislation_card') {
+      return AccessResult::forbidden('No need to show title on legislation card.');
+    }
+  }
+
+  return AccessResult::neutral();
 }

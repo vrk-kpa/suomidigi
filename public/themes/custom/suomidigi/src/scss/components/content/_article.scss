@@ -52,6 +52,10 @@
   margin-bottom: 0.25rem;
   width: 100%;
   line-height: 100%;
+
+  a {
+    color: $gray-darker;
+  }
 }
 
 .article__modified-text,

@@ -1,0 +1,19 @@
+uuid: f9bc4359-3fef-401e-950b-74ca4c11016c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_plural_name
+    - taxonomy.vocabulary.core_content_type
+id: taxonomy_term.core_content_type.field_plural_name
+field_name: field_plural_name
+entity_type: taxonomy_term
+bundle: core_content_type
+label: 'Plural Name'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

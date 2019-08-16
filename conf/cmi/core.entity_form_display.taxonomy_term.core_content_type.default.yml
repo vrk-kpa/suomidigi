@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.core_content_type.field_plural_name
     - field.field.taxonomy_term.core_content_type.field_url_pattern
     - taxonomy.vocabulary.core_content_type
   module:
@@ -14,8 +15,16 @@ targetEntityType: taxonomy_term
 bundle: core_content_type
 mode: default
 content:
+  field_plural_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_url_pattern:
-    weight: 5
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -24,7 +33,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 1
+    weight: 2
     region: content
     settings:
       include_locked: true
@@ -39,13 +48,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   revision_log_message:
     type: hide_revision_field_log_widget
-    weight: 4
+    weight: 5
     region: content
     settings:
       show: true
@@ -56,7 +65,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }

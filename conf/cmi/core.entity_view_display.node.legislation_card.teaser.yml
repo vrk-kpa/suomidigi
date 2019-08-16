@@ -22,5 +22,6 @@ hidden:
   field_ingress: true
   field_legislation_content: true
   field_legislation_materials: true
+  field_legislation_section: true
   langcode: true
   published_at: true
