@@ -6,6 +6,10 @@ article-teaser-content-height:
   js:
     dist/js/articleTeaserContentHeight.min.js: {}
 
+leanlab-questionnaire:
+  js:
+    dist/js/leanLabInterQuest.min.js: {}
+
 # Moby.js Fixed for D8.
 # Original: https://github.com/joshsanger/moby.js
 moby:
@@ -29,3 +33,4 @@ global-scripting:
     - suomidigi/moby
     - suomidigi/search-toggle
     - suomidigi/article-teaser-content-height
+    - suomidigi/leanlab-questionnaire
