@@ -1,0 +1,10 @@
+[main]
+host = https://www.transifex.com
+
+[suomidigi-demo.drupal8-po]
+file_filter = conf/translations/<lang>/drupal8.po
+minimum_perc = 0
+source_file = conf/translations/drupal8.po
+source_lang = en_GB
+type = PO
+
