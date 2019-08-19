@@ -46,6 +46,7 @@
 {% set page_content_classes = [
   'page-content',
   node ? 'page-content--node',
+  not node.isPublished() ? 'page-content--unpublished',
 ]
 %}
 
@@ -76,6 +77,9 @@
                 {{ 'Menu'|t }}
               {% endif %}
             </button>
+            {% if not node.isPublished() %}
+              <div class="page-flag is-unpublished">{{ 'Unpublished'|t }}</div>
+            {% endif %}
           </div>
         {% endif %}
       </header>

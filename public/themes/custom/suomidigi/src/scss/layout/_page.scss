@@ -23,3 +23,28 @@
     margin-right: $gutter * 2;
   }
 }
+
+.page-flag {
+  &.is-unpublished {
+    background: $red;
+    border-radius: $gutter 0 0 $gutter;
+    bottom: -23px;
+    color: $white;
+    font-weight: 600;
+    font-size: 12px;
+    padding: $gutter / 4 $gutter;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      border-radius: 0 0 $gutter $gutter;
+      bottom: -31px;
+      padding: 0 $gutter $gutter / 4 $gutter;
+    }
+    @include breakpoint($for-desktop-up) {
+      right: calc(-120px - #{$gutter});
+    }
+  }
+}
