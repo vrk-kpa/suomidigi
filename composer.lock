@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aff94120fd8bdf3a2ca82400a6d9b255",
+    "content-hash": "7fcd2f74b195425d529c1ca5e0a0042a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2724,11 +2724,17 @@
         },
         {
             "name": "drupal/drush_language",
-            "version": "dev-1.x",
+            "version": "1.0.0-rc2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/drush_language.git",
-                "reference": "b523e3e1a358d45db8bfcfa3929e7b20c2847cc2"
+                "reference": "8.x-1.0-rc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/drush_language-8.x-1.0-rc2.zip",
+                "reference": "8.x-1.0-rc2",
+                "shasum": "5df4e02a54bcf7afbee36f2174c9923f45758855"
             },
             "require": {
                 "drupal/core": "*",
@@ -2740,11 +2746,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-rc2+0-dev",
+                    "version": "8.x-1.0-rc2",
                     "datestamp": "1523365384",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -2787,8 +2793,7 @@
             "homepage": "https://www.drupal.org/project/drush_language",
             "support": {
                 "source": "https://git.drupalcode.org/project/drush_language"
-            },
-            "time": "2018-04-10T12:57:15+00:00"
+            }
         },
         {
             "name": "drupal/entity_browser",
@@ -5177,17 +5182,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.3.0",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "8.x-5.3"
+                "reference": "8.x-5.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.3.zip",
-                "reference": "8.x-5.3",
-                "shasum": "0ac8066ed09c688d7900f35d961ea521c6da6e3a"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.4.zip",
+                "reference": "8.x-5.4",
+                "shasum": "367de6af2485d3838ec80f41c536f6ecc52a405f"
             },
             "require": {
                 "drupal/core": "*"
@@ -5218,8 +5223,8 @@
                     "dev-5.x": "5.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-5.3",
-                    "datestamp": "1563460085",
+                    "version": "8.x-5.4",
+                    "datestamp": "1566209286",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11222,7 +11227,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/drush_language": 20,
         "drupal/paragraphs": 20,
         "drupal/roleassign": 20,
         "drupal/scheduler": 20,

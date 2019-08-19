@@ -23,7 +23,7 @@
         "drupal/ckwordcount": "^1.0",
         "drupal/core": "^8.7.5",
         "drupal/dropzonejs": "^2.0-alpha4",
-        "drupal/drush_language": "1.x-dev",
+        "drupal/drush_language": "^1.0",
         "drupal/entity_browser": "^2.1",
         "drupal/focal_point": "^1.0",
         "drupal/hide_revision_field": "^2.1",
