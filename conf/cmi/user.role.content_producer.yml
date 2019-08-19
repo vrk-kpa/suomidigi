@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: content_producer
-label: Sisällöntuottaja
+label: 'Content producer'
 weight: -8
 is_admin: null
 permissions:
@@ -31,7 +31,6 @@ permissions:
   - 'create attachment_external media'
   - 'create content translations'
   - 'create core_content content'
-  - 'create embed media'
   - 'create icon media'
   - 'create image media'
   - 'create landing_page content'
@@ -48,7 +47,6 @@ permissions:
   - 'delete own attachment media'
   - 'delete own attachment_external media'
   - 'delete own core_content content'
-  - 'delete own embed media'
   - 'delete own icon media'
   - 'delete own image media'
   - 'delete own landing_page content'
@@ -61,7 +59,6 @@ permissions:
   - 'edit own attachment media'
   - 'edit own attachment_external media'
   - 'edit own core_content content'
-  - 'edit own embed media'
   - 'edit own icon media'
   - 'edit own image media'
   - 'edit own landing_page content'
@@ -77,9 +74,13 @@ permissions:
   - 'set landing_page published on date'
   - 'set page published on date'
   - 'translate article node'
+  - 'translate attachment media'
   - 'translate core_content node'
+  - 'translate icon media'
+  - 'translate image media'
   - 'translate landing_page node'
   - 'translate page node'
+  - 'translate video media'
   - 'update content translations'
   - 'update media'
   - 'use text format restricted_html'
