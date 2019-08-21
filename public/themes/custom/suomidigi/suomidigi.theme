@@ -47,22 +47,27 @@ function suomidigi_preprocess_node(&$variables) {
 
     if ($node->hasField('field_header_image')) {
       $mediaEntity = $node->get('field_header_image')->getValue();
-      $field_media = Media::load($mediaEntity[0]['target_id']);
 
-      $mediaImage = $field_media->get('field_media_image')->first();
+      if (!empty($mediaEntity)) {
+        $field_media = Media::load($mediaEntity[0]['target_id']);
+        $mediaImage = $field_media->get('field_media_image')->first();
 
-      if (!empty($mediaImage)) {
-        /** @var \Drupal\Core\Entity\Plugin\DataType\EntityReference $entity */
-        $entity = $mediaImage->get('entity');
-        $target = $entity->getTarget();
-        if ($target) {
-          /** @var \Drupal\Core\Field\FieldItemList $uri */
-          $uri = $target->get('uri');
-          $image_uri = $uri->first()->getValue();
+        if (!empty($mediaImage)) {
+          /** @var \Drupal\Core\Entity\Plugin\DataType\EntityReference $entity */
+          $entity = $mediaImage->get('entity');
+          $target = $entity->getTarget();
+          if ($target) {
+            /** @var \Drupal\Core\Field\FieldItemList $uri */
+            $uri = $target->get('uri');
+            $image_uri = $uri->first()->getValue();
 
-          if (is_array($image_uri) && array_key_exists('value', $image_uri)) {
-            $variables['big_liftup_teaser_image'] = $image_uri['value'];
-            $variables['is_full_width'] = drupal_static('article_full_width_' . $node->id(), FALSE);
+            if (is_array($image_uri) && array_key_exists('value', $image_uri)) {
+              $variables['big_liftup_teaser_image'] = $image_uri['value'];
+              $variables['is_full_width'] = drupal_static(
+                'article_full_width_' . $node->id(),
+                FALSE
+              );
+            }
           }
         }
       }
