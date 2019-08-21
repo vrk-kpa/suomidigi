@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: Legislation
 vid: legislation
-description: ''
+description: 'The tree structure for legislation cards and collections'
 weight: 0
