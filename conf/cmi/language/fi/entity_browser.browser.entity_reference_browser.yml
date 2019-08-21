@@ -1,0 +1,6 @@
+display_configuration:
+  link_text: 'Valitse nosto'
+widgets:
+  7ff0ef88-6791-46af-bb11-3fdcbbe9b203:
+    settings:
+      submit_text: 'Valitse nosto'

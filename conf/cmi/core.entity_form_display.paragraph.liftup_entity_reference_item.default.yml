@@ -3,9 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.entity_reference_browser
     - field.field.paragraph.liftup_entity_reference_item.field_p_entity_reference
     - field.field.paragraph.liftup_entity_reference_item.field_p_full_width
     - paragraphs.paragraphs_type.liftup_entity_reference_item
+  module:
+    - entity_browser
 id: paragraph.liftup_entity_reference_item.default
 targetEntityType: paragraph
 bundle: liftup_entity_reference_item
@@ -14,11 +17,16 @@ content:
   field_p_entity_reference:
     weight: 0
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      entity_browser: entity_reference_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_p_full_width:
     weight: 1
@@ -27,6 +35,11 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

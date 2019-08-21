@@ -1,0 +1,33 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Tyhjennä
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_options_all_label: '- Kaikki -'
+      fields:
+        entity_browser_select:
+          label: Valitse
+        title:
+          label: Otsikko
+        field_core_content_type:
+          label: Alasisältötyyppi
+        type:
+          label: Sisältötyyppi
+      filters:
+        title:
+          expose:
+            label: Otsikko
+        entity_browser_bundle:
+          expose:
+            label: Sisältötyyppi
+  entity_browser_1:
+    display_title: ''

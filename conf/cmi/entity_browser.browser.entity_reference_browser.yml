@@ -1,0 +1,31 @@
+uuid: 00b73ba6-2a70-4ba0-9878-4906dde2ef19
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_reference_browser
+  module:
+    - views
+name: entity_reference_browser
+label: 'Entity Reference Browser'
+display: modal
+display_configuration:
+  width: '1070'
+  height: '500'
+  link_text: 'Select Entity'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  7ff0ef88-6791-46af-bb11-3fdcbbe9b203:
+    settings:
+      view: entity_reference_browser
+      view_display: entity_browser_1
+      submit_text: 'Select entities'
+      auto_select: false
+    uuid: 7ff0ef88-6791-46af-bb11-3fdcbbe9b203
+    weight: 1
+    label: View
+    id: view
