@@ -14,7 +14,7 @@ entity_type: node
 bundle: legislation_card
 label: Attachments
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -63,6 +63,12 @@ settings:
         enabled: false
       liftup_prominent:
         weight: 27
+        enabled: false
+      legislation_cards:
+        weight: 27
+        enabled: false
+      legislation_link:
+        weight: 28
         enabled: false
       link:
         weight: 28
