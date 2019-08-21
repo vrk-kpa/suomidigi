@@ -14,7 +14,7 @@ bundle: legislation_attachment
 label: 'Legislation Colour'
 description: ''
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

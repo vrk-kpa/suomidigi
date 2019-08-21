@@ -1,0 +1,18 @@
+uuid: 9e8d5843-4c40-4aeb-84ac-7e2558b921fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.legislation_attachment
+id: paragraph.legislation_attachment.created
+field_name: created
+entity_type: paragraph
+bundle: legislation_attachment
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

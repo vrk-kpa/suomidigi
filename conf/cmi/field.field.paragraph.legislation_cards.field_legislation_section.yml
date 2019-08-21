@@ -13,7 +13,7 @@ bundle: legislation_cards
 label: 'Legislation section'
 description: 'The section of the legislation from which the Legislation Cards are shown.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

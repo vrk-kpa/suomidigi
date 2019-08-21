@@ -18,12 +18,15 @@
         }
       });
 
-      searchToggleButton.addEventListener("click", (e) => {
-        e.stopImmediatePropagation();
+      function handleInteraction(e) {
+        e.preventDefault();
         const searchFormInput = document.getElementById("search");
         searchFormParentElement.classList.toggle("is-hidden");
         searchFormInput.focus();
-      });
+      }
+
+      searchToggleButton.addEventListener('touchstart', handleInteraction);
+      searchToggleButton.addEventListener('click', handleInteraction);
     }
   }
 })(jQuery, Drupal);

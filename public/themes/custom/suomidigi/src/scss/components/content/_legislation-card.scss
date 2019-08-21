@@ -3,6 +3,11 @@
   border: 1px solid $legislation-gray;
   padding: $gutter;
 
+  > .contextual {
+    right: -20px;
+    top: 12px;
+  }
+
   &__title {
     @include font-size(18px);
     @include line-height(18px, 18px);

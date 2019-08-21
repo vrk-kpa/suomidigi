@@ -1,9 +1,9 @@
-uuid: 4ef2997c-ed90-4202-9534-fe7fa50d8a3e
+uuid: 5416cd8b-a744-4c89-8684-d272a7663e69
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.webform
+    - paragraphs.paragraphs_type.legislation_cards
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: node.webform
-target_entity_type_id: node
-target_bundle: webform
+id: paragraph.legislation_cards
+target_entity_type_id: paragraph
+target_bundle: legislation_cards
 default_langcode: fi
 language_alterable: true
