@@ -1,0 +1,22 @@
+uuid: 384bab6d-50f7-4990-876f-5ef8122f3a9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.legislation_attachment
+id: paragraph.legislation_attachment.status
+field_name: status
+entity_type: paragraph
+bundle: legislation_attachment
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
