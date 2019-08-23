@@ -18,6 +18,7 @@ nav.menu--desktop {
   }
 
   .menu-item {
+    @include line-height(14px, 18px);
     margin: 0 calc(1rem / 2);
     padding: 0;
 
@@ -27,7 +28,6 @@ nav.menu--desktop {
       border-bottom: 2px solid transparent;
       color: $white;
       font-weight: 600;
-      line-height: 1rem;
       padding-bottom: 2px;
       text-transform: uppercase;
       text-decoration: none;
