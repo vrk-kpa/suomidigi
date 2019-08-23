@@ -42,6 +42,56 @@
     margin-bottom: $gutter * 2;
   }
 
+  &--teaser {
+    height: 100%;
+
+    &__link {
+      display: block;
+      text-decoration: none;
+      height: 100%;
+    }
+
+    &__image {
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &__content {
+      border: 1px solid rgba(165, 172, 176, 0.3);
+      line-height: 12px;
+      padding: $gutter;
+    }
+
+    &__label {
+      @include font-size(22px);
+      @include line-height(22px, 24px);
+      color: $black;
+      font-weight: 800;
+      margin: 0;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        @include font-size(20px);
+      }
+
+      @include breakpoint($for-tablet-landscape-up) {
+        @include font-size(22px);
+      }
+
+      @include breakpoint($for-desktop-up) {
+        @include font-size(24px);
+      }
+    }
+
+
+    &__lead {
+      @include line-height(14px, 22px);
+      color: $black;
+      margin: 0;
+    }
+  }
+
   .legislation-card {
     background-color: $white;
     margin-bottom: 0;
@@ -95,3 +145,4 @@
 
   }
 }
+

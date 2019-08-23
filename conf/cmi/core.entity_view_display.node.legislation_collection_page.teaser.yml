@@ -4,6 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.legislation_collection_page.field_header_image
+    - field.field.node.legislation_collection_page.field_ingress
+    - field.field.node.legislation_collection_page.field_legis_cpage_paragraphs
     - node.type.legislation_collection_page
   module:
     - user
@@ -12,14 +15,18 @@ targetEntityType: node
 bundle: legislation_collection_page
 mode: teaser
 content:
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
+  field_header_image:
+    type: entity_reference_entity_view
+    weight: 0
     region: content
+    label: hidden
+    settings:
+      view_mode: article_teaser_header
+      link: false
+    third_party_settings: {  }
 hidden:
-  field_header_image: true
   field_ingress: true
   field_legis_cpage_paragraphs: true
   langcode: true
+  links: true
   published_at: true
