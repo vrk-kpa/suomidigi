@@ -1,32 +1,38 @@
 (function ($, Drupal) {
   Drupal.behaviors.searchToggle = {
-    attach: function(context, settings) {
-      const searchToggleButton = document.querySelector("#search-trigger");
-      const searchFormParentElement = document.querySelector(".search-form-container");
+    attach: function(context) {
+      let searchToggleButton = $('#search-trigger', context);
+      let searchFormParentElement = $('.search-form-container', context);
 
       if (window.innerWidth > 769) {
-        searchFormParentElement.classList.remove("is-hidden");
+        searchFormParentElement.removeClass('is-hidden');
       } else {
-        searchFormParentElement.classList.add("is-hidden");
+        searchFormParentElement.addClass('is-hidden');
       }
 
-      window.addEventListener("resize", () => {
+      window.addEventListener('resize', () => {
         if (window.innerWidth > 769) {
-          searchFormParentElement.classList.remove("is-hidden");
+          searchFormParentElement.removeClass('is-hidden');
         } else {
-          searchFormParentElement.classList.add("is-hidden");
+          searchFormParentElement.addClass('is-hidden');
         }
       });
 
       function handleInteraction(e) {
         e.preventDefault();
-        const searchFormInput = document.getElementById("search");
-        searchFormParentElement.classList.toggle("is-hidden");
+        let searchFormInput = $('#search', context);
+        searchFormParentElement.toggleClass('is-hidden');
         searchFormInput.focus();
       }
 
-      searchToggleButton.addEventListener('touchstart', handleInteraction);
-      searchToggleButton.addEventListener('click', handleInteraction);
+      searchToggleButton.on({
+        touchstart: function(e){
+          handleInteraction(e);
+        },
+        click: function(e){
+          handleInteraction(e);
+        }
+      });
     }
   }
 })(jQuery, Drupal);
