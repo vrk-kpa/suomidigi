@@ -85,6 +85,14 @@
       </header>
     {% endif %}
 
+    {% if page.announcement %}
+      <div class="page-announcement" id="announcement">
+        <div class="container page-announcement__container">
+          {{ page.announcement }}
+        </div>
+      </div>
+    {% endif %}
+
     {% if page.messages %}
       <div class="page-messages" id="messages">
         <div class="container page-messages__container">
