@@ -4,25 +4,16 @@
       let searchToggleButton = $('#search-trigger', context);
       let searchFormParentElement = $('.search-form-container', context);
 
-      if (window.innerWidth > 769) {
-        searchFormParentElement.removeClass('is-hidden');
-      } else {
-        searchFormParentElement.addClass('is-hidden');
-      }
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 769) {
-          searchFormParentElement.removeClass('is-hidden');
-        } else {
-          searchFormParentElement.addClass('is-hidden');
-        }
-      });
-
       function handleInteraction(e) {
         e.preventDefault();
         let searchFormInput = $('#search', context);
-        searchFormParentElement.toggleClass('is-hidden');
-        searchFormInput.focus();
+        if (searchFormParentElement.hasClass('is-open')) {
+          searchFormParentElement.removeClass('is-open');
+        }
+        else {
+          searchFormParentElement.addClass('is-open');
+          searchFormInput.focus();
+        }
       }
 
       searchToggleButton.on({
