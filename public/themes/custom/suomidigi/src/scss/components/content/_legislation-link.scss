@@ -42,6 +42,7 @@
   &__cta {
     @include font-size(12px);
     @include line-height(12px, 12px);
+    background-color: $white;
     border: 1px solid $legislation-blue;
     color: $legislation-blue;
     font-weight: bold;
