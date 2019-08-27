@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_communities.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_communities_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_communities module.
+    case 'help.page.suopa_communities':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Community entity type and related functionalities for Suomidigi.fi') . '</p>';
+      return $output;
+
+    default:
+  }
+}
