@@ -10,6 +10,7 @@ permissions:
   - 'access administration pages'
   - 'access content overview'
   - 'access contextual links'
+  - 'access entity_reference_browser entity browser pages'
   - 'access files overview'
   - 'access in-place editing'
   - 'access media overview'
