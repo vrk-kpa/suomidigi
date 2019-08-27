@@ -1,8 +1,0 @@
-uuid: c7f9a199-5ae1-4cc4-9dd0-c9b679107e59
-langcode: en
-status: true
-dependencies: {  }
-id: cta_banner
-label: 'CTA Banner'
-revision: 0
-description: 'CTA Banner block contains a title, background image and link fields'
