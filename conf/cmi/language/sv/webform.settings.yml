@@ -1,4 +1,5 @@
 settings:
+  default_form_close_message: 'Sorry…This form is closed to new submissions.'
   default_submit_button_label: Skicka
   default_reset_button_label: Återställ
   default_wizard_prev_button_label: '< Föregående sida'
@@ -12,10 +13,7 @@ settings:
   dialog_options:
     narrow:
       title: Smal
-    normal:
-      title: Normal
     wide:
       title: Bred
 element:
   default_more_title: Mer
-  default_section_title_tag: h2
