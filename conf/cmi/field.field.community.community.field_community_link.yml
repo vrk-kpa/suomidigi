@@ -1,0 +1,23 @@
+uuid: 1aeba6f9-796e-4226-bbc4-d7f1054b1eae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.community.field_community_link
+  module:
+    - link
+    - suopa_communities
+id: community.community.field_community_link
+field_name: field_community_link
+entity_type: community
+bundle: community
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 2
+field_type: link

@@ -1,0 +1,73 @@
+uuid: 9e1fd98d-e53b-45e5-982c-9094af783f9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.community_domain.field_community_domain_logo
+    - image.style.thumbnail
+    - taxonomy.vocabulary.community_domain
+  module:
+    - hide_revision_field
+    - path
+    - svg_image
+    - text
+id: taxonomy_term.community_domain.default
+targetEntityType: taxonomy_term
+bundle: community_domain
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  field_community_domain_logo:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  revision_log_message:
+    type: hide_revision_field_log_widget
+    weight: 6
+    region: content
+    settings:
+      show: true
+      default: ''
+      permission_based: false
+      allow_user_settings: true
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

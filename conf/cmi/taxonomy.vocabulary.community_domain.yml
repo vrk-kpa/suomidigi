@@ -1,0 +1,8 @@
+uuid: d2a35b05-d260-487f-9ee2-78ba1430f7d0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Community domain'
+vid: community_domain
+description: 'Where is the community hosted?'
+weight: 0
