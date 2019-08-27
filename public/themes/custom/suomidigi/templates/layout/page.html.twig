@@ -77,7 +77,7 @@
                 {{ 'Menu'|t }}
               {% endif %}
             </button>
-            {% if not node.isPublished() and logged_in %}
+            {% if node and not node.isPublished() and logged_in %}
               <div class="page-flag is-unpublished">{{ 'Unpublished'|t }}</div>
             {% endif %}
           </div>

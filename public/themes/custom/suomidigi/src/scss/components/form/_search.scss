@@ -1,24 +1,29 @@
 .search-form-container {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  display: none;
+  margin-bottom: -90px;
+  opacity: 0;
+  transform: translateY(-100%);
   transition: transform .2s, visibility .2s, margin-bottom .2s, opacity .2s;
-  margin-bottom: $gutter * 1.5;
-  margin-top: -$gutter;
-
+  visibility: hidden;
 
   @include breakpoint($for-tablet-portrait-up) {
-    margin-top: 0;
-    margin-bottom: 0;
     border-bottom: 1px solid rgba(165, 172, 176, .3);
+    display: block;
+    margin-bottom: 0;
+    margin-top: 0;
+    opacity: 1;
     padding-bottom: $gutter * 2;
+    transform: translateY(0);
+    visibility: visible;
   }
 
-  &.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    margin-bottom: -90px;
-    transform: translateY(-100%);
+  &.is-open {
+    display: block;
+    margin-bottom: $gutter * 1.5;
+    margin-top: -$gutter;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
   }
 }
 

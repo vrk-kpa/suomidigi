@@ -67,6 +67,48 @@ function suopa_legislations_preprocess_paragraph(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function suopa_legislations_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->getType() !== 'legislation_card') {
+    return;
+  }
+
+  // Attach SuoPa Legislation expanding panels library to legislation card.
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['#attached'] = [
+      'library' => [
+        'suopa_legislations/expanding-panel',
+      ],
+    ];
+
+    // Get label for legislation card and render it as a breadcrumb.
+    // Label is built from legislation section term parents.
+    if ($node->hasField('field_legislation_section')) {
+      $section = $node->get('field_legislation_section')->target_id;
+
+      if (!empty($section)) {
+        $ancestors = array_reverse(
+          Drupal::service('entity_type.manager')
+            ->getStorage("taxonomy_term")
+            ->loadAllParents($section)
+        );
+
+        $list = [];
+        foreach ($ancestors as $term) {
+          $list[$term->id()] = $term->label();
+        }
+
+        if (!empty($list)) {
+          $variables['legislation_card_breadcrumb'] = $list;
+        }
+      }
+    }
+  }
+}
+
+/**
  * Get legislation cards that are attached to the selected collection term.
  *
  * @param \Drupal\taxonomy\Entity\Term $collection
