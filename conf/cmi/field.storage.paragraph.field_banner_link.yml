@@ -1,13 +1,13 @@
-uuid: 743d1d57-7d15-4172-ba4a-eb9515031869
+uuid: 50f537db-f4e4-40d4-aa5f-0fb0b84f440e
 langcode: en
 status: true
 dependencies:
   module:
-    - block_content
     - link
-id: block_content.field_cta_link
-field_name: field_cta_link
-entity_type: block_content
+    - paragraphs
+id: paragraph.field_banner_link
+field_name: field_banner_link
+entity_type: paragraph
 type: link
 settings: {  }
 module: link

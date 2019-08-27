@@ -1,0 +1,9 @@
+uuid: 3611e14b-aa8e-4d78-b46b-fcc46057f1b5
+langcode: en
+status: true
+dependencies: {  }
+id: banner_cta
+label: 'Banner - CTA'
+icon_uuid: null
+description: 'Use this type when you to create a banner with a call-to-action link.'
+behavior_plugins: {  }

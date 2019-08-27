@@ -1,22 +1,22 @@
-uuid: 49fd9ddb-810b-4dbd-a94b-f892767cdbc9
+uuid: 6b1c5a9d-7652-4c31-9574-34190cbc07ac
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.cta_banner
-    - field.field.block_content.cta_banner.field_cta_background_image
-    - field.field.block_content.cta_banner.field_cta_link
-    - field.field.block_content.cta_banner.field_cta_text_align
-    - field.field.block_content.cta_banner.field_cta_title
+    - field.field.paragraph.banner_cta.field_banner_background_image
+    - field.field.paragraph.banner_cta.field_banner_link
+    - field.field.paragraph.banner_cta.field_banner_text_align
+    - field.field.paragraph.banner_cta.field_banner_title
+    - paragraphs.paragraphs_type.banner_cta
   module:
     - link
     - options
-id: block_content.cta_banner.default
-targetEntityType: block_content
-bundle: cta_banner
+id: paragraph.banner_cta.default
+targetEntityType: paragraph
+bundle: banner_cta
 mode: default
 content:
-  field_cta_background_image:
+  field_banner_background_image:
     type: entity_reference_entity_view
     weight: 0
     label: hidden
@@ -25,7 +25,7 @@ content:
       link: false
     third_party_settings: {  }
     region: content
-  field_cta_link:
+  field_banner_link:
     weight: 2
     label: hidden
     settings:
@@ -37,14 +37,14 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_cta_text_align:
+  field_banner_text_align:
     weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
-  field_cta_title:
+  field_banner_title:
     weight: 1
     label: hidden
     settings:
@@ -52,5 +52,4 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-hidden:
-  langcode: true
+hidden: {  }

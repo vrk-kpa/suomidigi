@@ -1,19 +1,19 @@
-uuid: 823fed80-e85b-48d5-b68f-26ac008497f6
+uuid: 42ad49c5-f5ff-4cb4-9262-5dc7291317fd
 langcode: en
 status: true
 dependencies:
   config:
-    - block_content.type.cta_banner
-    - field.storage.block_content.field_cta_background_image
+    - field.storage.paragraph.field_banner_background_image
     - media.type.image
-id: block_content.cta_banner.field_cta_background_image
-field_name: field_cta_background_image
-entity_type: block_content
-bundle: cta_banner
+    - paragraphs.paragraphs_type.banner_cta
+id: paragraph.banner_cta.field_banner_background_image
+field_name: field_banner_background_image
+entity_type: paragraph
+bundle: banner_cta
 label: 'Background image'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

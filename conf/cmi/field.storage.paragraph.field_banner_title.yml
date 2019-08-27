@@ -1,12 +1,12 @@
-uuid: 259cccc6-4b23-4ed6-a989-246164010333
+uuid: dd932c21-8bec-4cab-8aba-18db3d5bcd92
 langcode: en
 status: true
 dependencies:
   module:
-    - block_content
-id: block_content.field_cta_title
-field_name: field_cta_title
-entity_type: block_content
+    - paragraphs
+id: paragraph.field_banner_title
+field_name: field_banner_title
+entity_type: paragraph
 type: string
 settings:
   max_length: 255

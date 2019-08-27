@@ -1,0 +1,22 @@
+uuid: 933abec3-e369-45c2-b57e-a22ea8e0fce4
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.banner_cta
+id: paragraph.banner_cta.status
+field_name: status
+entity_type: paragraph
+bundle: banner_cta
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

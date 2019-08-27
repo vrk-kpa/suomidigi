@@ -342,7 +342,8 @@ display:
         type: 'entity:node'
         options:
           view_mode: teaser
-      header:
+      header: {  }
+      footer:
         entity_taxonomy_term:
           id: entity_taxonomy_term
           table: views
@@ -356,7 +357,6 @@ display:
           view_mode: full
           bypass_access: false
           plugin_id: entity
-      footer: {  }
       empty: {  }
       relationships: {  }
       fields: {  }

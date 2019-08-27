@@ -1,13 +1,13 @@
-uuid: 3d96616f-48c2-4a3a-8f9d-b7bd1d46b0e6
+uuid: f485fe77-05ae-4a36-ae40-ab547e5a07f0
 langcode: en
 status: true
 dependencies:
   module:
-    - block_content
     - options
-id: block_content.field_cta_text_align
-field_name: field_cta_text_align
-entity_type: block_content
+    - paragraphs
+id: paragraph.field_banner_text_align
+field_name: field_banner_text_align
+entity_type: paragraph
 type: list_string
 settings:
   allowed_values:

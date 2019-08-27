@@ -1,9 +1,25 @@
-.cta-banner {
-  margin-bottom: $gutter * 2;
-  margin-left: -$gutter;
-  margin-right: -$gutter;
+.paragraph--banner-cta  {
+  &.paragraph {
+    margin-bottom: $gutter * 2;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+  }
 
-  &__background {
+  .paragraph__link {
+    display: block;
+
+    &:hover {
+      .icon {
+        color: $white;
+      }
+    }
+
+    &.text-align--right {
+      text-align: right;
+    }
+  }
+
+  .paragraph__background {
     height: 0;
     overflow: hidden;
     padding-bottom: calc(112 / 375 * 100%);
@@ -22,7 +38,7 @@
     }
   }
 
-  &__inner {
+  .paragraph__inner {
     align-items: center;
     display: flex;
     height: 100%;
@@ -42,11 +58,7 @@
     }
   }
 
-  &__link {
-    display: block;
-  }
-
-  &__title {
+  .paragraph__title {
     @include font-size(18px);
     @include line-height(18px, 20px);
     color: $white;
@@ -58,7 +70,7 @@
     }
   }
 
-  &__description {
+  .paragraph__description {
     @include font-size(14px);
     @include line-height(14px, 14px);
 
@@ -82,14 +94,10 @@
         display: inline-block;
         vertical-align: text-bottom;
 
-        .cta-banner__link:hover & {
+        .paragraph__link:hover & {
           color: $white;
         }
       }
     }
-  }
-
-  &.text-align--right {
-    text-align: right;
   }
 }
