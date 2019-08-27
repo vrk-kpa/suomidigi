@@ -67,6 +67,8 @@
     @include breakpoint($for-mobile-portrait-up) {
       @include font-size(20px);
       @include line-height(20px, 25px);
+      display: block;
+      max-width: 490px;
     }
   }
 
