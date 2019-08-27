@@ -1,0 +1,21 @@
+uuid: 6459a3d1-42c5-4d39-b014-5afb2ab8d1d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_banner_text_align
+    - paragraphs.paragraphs_type.banner_cta
+  module:
+    - options
+id: paragraph.banner_cta.field_banner_text_align
+field_name: field_banner_text_align
+entity_type: paragraph
+bundle: banner_cta
+label: 'Text align'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

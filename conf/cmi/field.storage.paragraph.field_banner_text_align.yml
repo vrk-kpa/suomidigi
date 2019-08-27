@@ -1,0 +1,27 @@
+uuid: f485fe77-05ae-4a36-ae40-ab547e5a07f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_banner_text_align
+field_name: field_banner_text_align
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: Normal
+    -
+      value: right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

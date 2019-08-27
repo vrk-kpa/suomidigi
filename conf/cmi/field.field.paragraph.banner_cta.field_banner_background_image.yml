@@ -1,0 +1,28 @@
+uuid: 42ad49c5-f5ff-4cb4-9262-5dc7291317fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_banner_background_image
+    - media.type.image
+    - paragraphs.paragraphs_type.banner_cta
+id: paragraph.banner_cta.field_banner_background_image
+field_name: field_banner_background_image
+entity_type: paragraph
+bundle: banner_cta
+label: 'Background image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
