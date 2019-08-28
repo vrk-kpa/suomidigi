@@ -1,0 +1,16 @@
+uuid: 649065d2-3353-4afa-a737-38cad71a2294
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.legislation.field_legislation_liftup_title
+    - taxonomy.vocabulary.legislation
+id: taxonomy_term.legislation.default
+targetEntityType: taxonomy_term
+bundle: legislation
+mode: default
+content: {  }
+hidden:
+  description: true
+  field_legislation_liftup_title: true
+  langcode: true
