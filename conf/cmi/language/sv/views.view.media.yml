@@ -1,3 +1,4 @@
+label: Media
 display:
   default:
     display_title: Huvud
@@ -54,3 +55,6 @@ display:
         langcode:
           expose:
             label: Språk
+      title: Media
+  media_page_list:
+    display_title: Media

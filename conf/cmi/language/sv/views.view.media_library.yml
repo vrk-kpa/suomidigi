@@ -35,8 +35,12 @@ display:
         created:
           expose:
             label: 'Nyaste först'
+      title: Media
   page:
     display_title: Sida
+    display_options:
+      menu:
+        title: Media
   widget:
     display_options:
       filters:
