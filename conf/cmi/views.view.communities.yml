@@ -150,7 +150,7 @@ display:
           entity_type: community
           entity_field: created
           plugin_id: date
-      title: Communities
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }

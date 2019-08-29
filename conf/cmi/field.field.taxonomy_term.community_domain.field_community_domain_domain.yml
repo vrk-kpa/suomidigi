@@ -1,0 +1,19 @@
+uuid: 9c304524-6a9c-489c-885b-ac32771e09ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_community_domain_domain
+    - taxonomy.vocabulary.community_domain
+id: taxonomy_term.community_domain.field_community_domain_domain
+field_name: field_community_domain_domain
+entity_type: taxonomy_term
+bundle: community_domain
+label: Domain
+description: 'For example <em>facebook.com</em>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
