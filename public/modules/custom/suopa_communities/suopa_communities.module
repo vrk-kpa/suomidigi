@@ -49,7 +49,6 @@ function template_preprocess_community(&$variables) {
   }
 }
 
-
 /**
  * Implements hook_theme_suggestions_HOOK().
  *

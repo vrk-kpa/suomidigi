@@ -7,7 +7,6 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\media\Entity\Media;
-use Drupal\file\Entity\File;
 use Drupal\suopa_communities\Entity\Community;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\views\ViewExecutable;
