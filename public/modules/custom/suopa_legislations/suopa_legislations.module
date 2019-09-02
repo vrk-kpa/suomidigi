@@ -86,6 +86,7 @@ function suopa_legislations_preprocess_node(&$variables) {
     // Get label for legislation card and render it as a breadcrumb.
     // Label is built from legislation section term parents.
     if ($node->hasField('field_legislation_section')) {
+      $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
       $section = $node->get('field_legislation_section')->target_id;
 
       if (!empty($section)) {
@@ -97,7 +98,20 @@ function suopa_legislations_preprocess_node(&$variables) {
 
         $list = [];
         foreach ($ancestors as $term) {
-          $list[$term->id()] = $term->label();
+          if ($term->hasTranslation($current_language)) {
+            $term = $term->getTranslation($current_language);
+          }
+
+          $label = $term->label();
+
+          // Use legislation term liftup title if it exists.
+          if (
+            $term->hasField('field_legislation_liftup_title') &&
+            !empty($term->field_legislation_liftup_title->value)
+          ) {
+            $label = $term->field_legislation_liftup_title->value;
+          }
+          $list[$term->id()] = $label;
         }
 
         if (!empty($list)) {
