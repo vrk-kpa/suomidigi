@@ -1,0 +1,19 @@
+uuid: 83cb442f-1b77-44e8-9587-a31f58f1c546
+langcode: en
+status: true
+dependencies:
+  module:
+    - suopa_communities
+    - text
+id: community.field_community_description
+field_name: field_community_description
+entity_type: community
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

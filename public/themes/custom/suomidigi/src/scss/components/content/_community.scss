@@ -1,0 +1,98 @@
+.community {
+  margin-bottom: $gutter * 2;
+
+  > .contextual {
+    right: -20px;
+    top: 12px;
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    margin-bottom: $gutter;
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__icon {
+    align-content: center;
+    display: flex;
+    margin-right: $gutter;
+    justify-content: center;
+
+    img {
+      min-width: $gutter * 2;
+      min-height: $gutter * 2;
+      max-width: $gutter * 2;
+    }
+
+    &--letter {
+      @include font-size(24px);
+      align-items: center;
+      background-color: $blue-medium;
+      border-radius: 2px;
+      color: $white;
+      display: flex;
+      font-weight: bold;
+      height: $gutter * 2;
+      justify-content: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      width: $gutter * 2;
+
+      .community__link:hover & {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__title {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    color: $black;
+    font-weight: 600;
+    margin-bottom: $gutter / 4;
+  }
+
+  &__domain {
+    @include font-size(10px);
+    @include line-height(10px, 10px);
+    color: $gray-darker;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__cta {
+    @include font-size(12px);
+    @include line-height(12px, 12px);
+    background-color: $white;
+    border: 1px solid $legislation-blue;
+    color: $legislation-blue;
+    font-weight: bold;
+    margin-left: auto;
+    padding: $gutter * 0.8 $gutter;
+    text-align: center;
+    text-transform: uppercase;
+
+    .community__link:hover & {
+      background-color: $legislation-blue;
+      border-color: $legislation-blue;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  &__content,
+  &__content p {
+    @include font-size(12px);
+    @include line-height(12px, 16px);
+    color: $black;
+  }
+
+}

@@ -1,0 +1,30 @@
+uuid: 32be4507-fa6c-4d7d-91df-a5a5218a35ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.community.field_community_domain
+    - taxonomy.vocabulary.community_domain
+  module:
+    - suopa_communities
+id: community.community.field_community_domain
+field_name: field_community_domain
+entity_type: community
+bundle: community
+label: 'Community domain'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      community_domain: community_domain
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

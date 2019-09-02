@@ -1,0 +1,9 @@
+uuid: 5a5e37ca-988b-4a5c-a51b-b0e12a8a18cd
+langcode: en
+status: true
+dependencies: {  }
+id: view
+label: View
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph which shows views.'
+behavior_plugins: {  }

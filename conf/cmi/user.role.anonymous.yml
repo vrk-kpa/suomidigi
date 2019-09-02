@@ -14,3 +14,4 @@ permissions:
   - 'search content'
   - 'use search_api_autocomplete for search'
   - 'view media'
+  - 'view published community entities'

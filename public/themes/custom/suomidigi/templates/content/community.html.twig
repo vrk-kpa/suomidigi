@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'community',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {{ title_suffix.contextual_links }}
+
+  <a class="community__link community__wrapper" href="{{ content.field_community_link.0['#url'] }}">
+    <div class="community__header">
+      <div class="community__icon">
+        {% if community_domain_logo is not empty %}
+          {{ drupal_image(community_domain_logo) }}
+        {% else %}
+          {% if community_domain_label|first|upper %}
+            <span class="community__icon--letter">
+            {{ community_domain_label|first|upper }}
+          </span>
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="community__title-wrapper">
+        {% if content.name %}
+          <h2 class="community__title">
+            {{ content.name }}
+          </h2>
+        {% endif %}
+        {% if community_domain_domain %}
+          <p class="community__domain">
+            {{ community_domain_domain }}
+          </p>
+        {% endif %}
+      </div>
+      <button class="community__cta">
+        {{ 'Join'|t }}
+      </button>
+    </div>
+    <div class="community__content">
+      {{ content.field_community_description }}
+    </div>
+  </a>
+</article>

@@ -71,6 +71,7 @@ module:
   shortcut: 0
   simplei: 0
   smart_trim: 0
+  suopa_communities: 0
   suopa_editorial: 0
   suopa_external_files: 0
   suopa_legislations: 0
@@ -92,6 +93,7 @@ module:
   video_embed_field: 0
   view_unpublished: 0
   views_ui: 0
+  viewsreference: 0
   webform: 0
   webform_node: 0
   webform_ui: 0

@@ -26,22 +26,14 @@ display:
           action_title: Åtgärd
         subject:
           label: Ämne
-          separator: ', '
-        uid:
-          separator: ', '
         name:
           label: Författare
-          separator: ', '
         entity_id:
           label: 'Inlagt i'
-          separator: ', '
         changed:
           label: Uppdaterad
-          separator: ', '
         operations:
           label: Funktioner
-        name_1:
-          separator: ', '
       filters:
         subject:
           expose:
@@ -85,19 +77,11 @@ display:
           action_title: Åtgärd
         subject:
           label: Ämne
-          separator: ', '
-        uid:
-          separator: ', '
         name:
           label: Författare
-          separator: ', '
         entity_id:
           label: 'Inlagt i'
-          separator: ', '
         changed:
           label: Uppdaterad
-          separator: ', '
         operations:
           label: Funktioner
-        name_1:
-          separator: ', '
