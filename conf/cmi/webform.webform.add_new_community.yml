@@ -1,7 +1,9 @@
 uuid: 8e78d56e-327c-4a58-83b0-a084168c38dd
-langcode: en
+langcode: fi
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - suopa_communities
 open: null
 close: null
 weight: 0
@@ -180,7 +182,7 @@ handlers:
     handler_id: email
     status: true
     conditions: {  }
-    weight: 0
+    weight: -49
     settings:
       states:
         - completed
@@ -208,3 +210,11 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+  create_a_community_entity_on_submit:
+    id: community_from_webform
+    label: 'Create a community entity on submit'
+    handler_id: create_a_community_entity_on_submit
+    status: true
+    conditions: {  }
+    weight: -50
+    settings: {  }
