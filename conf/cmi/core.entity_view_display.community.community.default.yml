@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.community.community.field_approved
     - field.field.community.community.field_community_description
     - field.field.community.community.field_community_domain
     - field.field.community.community.field_community_link
@@ -16,6 +17,16 @@ targetEntityType: community
 bundle: community
 mode: default
 content:
+  field_approved:
+    weight: 4
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_community_description:
     weight: 1
     label: hidden
