@@ -83,3 +83,13 @@ function _suopa_communities_theme_suggestion(array $variables, $entity_name) {
 
   return $suggestions;
 }
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * @inheritdoc
+ */
+function suopa_communities_entity_type_alter(array &$entity_types) {
+  $entity = $entity_types['community'];
+  $entity->addConstraint('ApprovalConstraint');
+}
