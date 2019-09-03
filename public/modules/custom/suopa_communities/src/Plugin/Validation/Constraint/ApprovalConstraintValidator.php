@@ -1,9 +1,13 @@
 <?php
+
 namespace Drupal\suopa_communities\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
+/**
+ * Validator for ApprovalConstraint.
+ */
 class ApprovalConstraintValidator extends ConstraintValidator {
 
   /**
@@ -26,4 +30,5 @@ class ApprovalConstraintValidator extends ConstraintValidator {
       $this->context->addViolation($constraint->message);
     }
   }
+
 }

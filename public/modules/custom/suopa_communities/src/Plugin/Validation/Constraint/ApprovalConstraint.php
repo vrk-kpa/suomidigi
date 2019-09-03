@@ -1,5 +1,7 @@
 <?php
+
 namespace Drupal\suopa_communities\Plugin\Validation\Constraint;
+
 use Symfony\Component\Validator\Constraint;
 
 /**
@@ -19,4 +21,5 @@ class ApprovalConstraint extends Constraint {
    * @var string
    */
   public $message = "Entity save failed: Entity has to be approved in order to be published.";
+
 }

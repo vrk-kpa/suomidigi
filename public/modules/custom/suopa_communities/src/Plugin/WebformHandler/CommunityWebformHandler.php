@@ -4,7 +4,6 @@ namespace Drupal\suopa_communities\Plugin\WebformHandler;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\suopa_communities\Entity\Community;
-use Drupal\webform\WebformInterface;
 use Drupal\webform\Plugin\WebformHandlerBase;
 use Drupal\webform\webformSubmissionInterface;
 
