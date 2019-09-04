@@ -48,3 +48,29 @@ function suopa_media_embed_preprocess_media(&$variables) {
 function suopa_media_embed_allowed_tags() {
   return array_merge(Xss::getAdminTagList(), ['iframe', 'blockquote', 'script']);
 }
+
+/**
+ * Implements hook_media_source_info_alter().
+ */
+function suopa_media_embed_media_source_info_alter(array &$sources) {
+  $sources['oembed:video']['providers'][] = 'Dream Broker';
+}
+
+/**
+ * Implements hook_oembed_providers_alter().
+ */
+function suopa_media_embed_oembed_providers_alter(array &$providers) {
+  $providers[] = [
+    'provider_name' => 'Dream Broker',
+    'provider_url' => 'https://dreambroker.com',
+    'endpoints' => [
+      [
+        'schemes' => [
+          'https://dreambroker.com/channel/*/iframe/*',
+        ],
+        'url' => 'https://dreambroker.com/channel/*/iframe/*',
+        'discovery' => 'true',
+      ],
+    ],
+  ];
+}

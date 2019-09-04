@@ -18,5 +18,6 @@ source_configuration:
   providers:
     - YouTube
     - Vimeo
+    - 'Dream Broker'
   source_field: field_media_oembed_video
 field_map: {  }
