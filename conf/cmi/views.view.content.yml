@@ -9,6 +9,7 @@ dependencies:
     - node
     - taxonomy
     - user
+    - view_unpublished
 _core:
   default_config_hash: tS8PbpJX90aRFC3-UTgXzdqkq7_2frk2pz4TMijEebM
 id: content
@@ -669,6 +670,7 @@ display:
           value:
             en: en
             fi: fi
+            sv: sv
           group: 1
           exposed: true
           expose:
@@ -685,7 +687,9 @@ display:
               authenticated: authenticated
               anonymous: '0'
               content_producer: '0'
+              editor_in_chief: '0'
               administrator: '0'
+              webform_administrator: '0'
             reduce: true
           is_grouped: false
           group_info:
@@ -761,6 +765,7 @@ display:
       max-age: 0
       tags:
         - 'config:field.storage.node.field_article_type'
+        - extensions
   page_1:
     display_options:
       path: admin/content/node
@@ -794,3 +799,4 @@ display:
       max-age: 0
       tags:
         - 'config:field.storage.node.field_article_type'
+        - extensions
