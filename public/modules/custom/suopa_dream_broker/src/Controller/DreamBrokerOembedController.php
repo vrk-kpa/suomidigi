@@ -5,6 +5,7 @@ namespace Drupal\suopa_dream_broker\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Class DreamBrokerOembedController.
@@ -48,7 +49,13 @@ class DreamBrokerOembedController extends ControllerBase {
   protected $currentRequest;
 
   /**
-   * {@inheritDoc}
+   * Instantiates a new instance of this class.
+   *
+   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   *   The container.
+   *
+   * @return \Drupal\Core\Controller\ControllerBase|\Drupal\suopa_dream_broker\Controller\DreamBrokerOembedController
+   *   Returns the static container.
    */
   public static function create(ContainerInterface $container) {
     return new static(
@@ -62,7 +69,7 @@ class DreamBrokerOembedController extends ControllerBase {
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    *   The request stack.
    */
-  public function __construct($request_stack) {
+  public function __construct(RequestStack $request_stack) {
     $this->requestStack = $request_stack;
     $this->currentRequest = $this->requestStack->getCurrentRequest();
   }
@@ -86,7 +93,7 @@ class DreamBrokerOembedController extends ControllerBase {
    */
   private function getResults() {
     return [
-      'html' => '<iframe width="480" height="270" src="' . $this->dreamBrokerUrl. '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen</iframe>',
+      'html' => '<iframe width="480" height="270" src="' . $this->dreamBrokerUrl . '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen</iframe>',
       'height' => 270,
       'type' => 'video',
       'thumbnail_width' => 480,
@@ -96,7 +103,7 @@ class DreamBrokerOembedController extends ControllerBase {
       'width' => 480,
       'thumbnail_url' => $this->getRemoteThumbnailUrl(),
       'provider_name' => 'Dream Broker',
-      'title' => 'Dream Broker Video'
+      'title' => 'Dream Broker Video',
     ];
   }
 
@@ -108,7 +115,7 @@ class DreamBrokerOembedController extends ControllerBase {
     preg_match('/(?:channel\/([a-z0-9]{8}))\/(?:iframe\/([a-z0-9]{8}))/', $this->dreamBrokerUrl, $matches);
 
     if ($matches && !empty($matches[1]) && !empty($matches[2])) {
-      return [ $matches[1], $matches[2] ];
+      return [$matches[1], $matches[2]];
     }
     else {
       return FALSE;
