@@ -1,0 +1,7 @@
+suopa_dream_broker.dream_broker_oembed_controller_oembed:
+  path: '/dreambroker/oembed'
+  defaults:
+    _controller: '\Drupal\suopa_dream_broker\Controller\DreamBrokerOembedController::oembed'
+    _title: 'Oembed'
+  requirements:
+    _permission: 'access content'
