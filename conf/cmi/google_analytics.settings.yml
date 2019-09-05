@@ -18,7 +18,7 @@ track:
   urlfragments: false
   userid: false
   messages: {  }
-  site_search: false
+  site_search: true
   adsense: false
   displayfeatures: false
 privacy:
