@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddc7e5aeb36a8d626c8394f97b67f8a6",
+    "content-hash": "90d4a4ba22e45cc2b7452bfdacf435c0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4980,6 +4980,58 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/video_embed_dreambroker",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/video_embed_dreambroker.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/video_embed_dreambroker-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "ca0cb620e5eb4b827c49cf08c671f8d8b47e6ab5"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/video_embed_field": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1476692039",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ZeiP",
+                    "homepage": "https://www.drupal.org/user/201465"
+                },
+                {
+                    "name": "mErilainen",
+                    "homepage": "https://www.drupal.org/user/304437"
+                }
+            ],
+            "description": "Embed Dreambroker videos into your website using Video Embed Field.",
+            "homepage": "https://www.drupal.org/project/video_embed_dreambroker",
+            "support": {
+                "source": "https://git.drupalcode.org/project/video_embed_dreambroker"
             }
         },
         {

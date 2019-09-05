@@ -55,6 +55,7 @@
         "drupal/system_status": "^2.0",
         "drupal/timepicker-timepicker": "^1.11",
         "drupal/twig_tweak": "^2.1",
+        "drupal/video_embed_dreambroker": "^1.0",
         "drupal/video_embed_field": "^2.1",
         "drupal/view_unpublished": "^1.0",
         "drupal/viewsreference": "^2.0",
@@ -95,7 +96,8 @@
         "installer-types": ["bower-asset", "npm-asset"],
         "patches": {
             "drupal/core": {
-                "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2019-05-21/2466553-translation_interface-60.patch"
+                "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2019-05-21/2466553-translation_interface-60.patch",
+                "https://www.drupal.org/project/drupal/issues/3008119": "https://www.drupal.org/files/issues/2019-05-15/drupal-allow_alter_oembed_providers-3008119-4.patch"
             },
             "drupal/hide_revision_field": {
                 "https://www.drupal.org/project/hide_revision_field/issues/3032473": "https://www.drupal.org/files/issues/2019-05-10/hide_revision_field-3032473-8.patch",

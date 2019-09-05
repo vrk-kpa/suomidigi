@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_dream_broker.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\media\Entity\Media;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_dream_broker_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_dream_broker module.
+    case 'help.page.suopa_dream_broker':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Oembed functionality for Dream Broker videos') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_media_source_info_alter().
+ */
+function suopa_dream_broker_media_source_info_alter(array &$sources) {
+  $sources['oembed:video']['providers'][] = 'Dream Broker';
+}
+
+/**
+ * Implements hook_oembed_providers_alter().
+ */
+function suopa_dream_broker_oembed_providers_alter(array &$providers) {
+  global $base_url;
+  $provider_url = $base_url . '/dreambroker/oembed';
+
+  $providers[] = [
+    'provider_name' => 'Dream Broker',
+    'provider_url' => 'https://dreambroker.com',
+    'endpoints' => [
+      [
+        'schemes' => [
+          'https://www.dreambroker.com/channel/*',
+          'http://www.dreambroker.com/channel/*',
+          'https://www.dreambroker.com/channel/*/iframe/*',
+          'http://www.dreambroker.com/channel/*/iframe/*',
+          'https://dreambroker.com/channel/*',
+          'http://dreambroker.com/channel/*',
+          'https://dreambroker.com/channel/*/iframe/*',
+          'http://dreambroker.com/channel/*/iframe/*',
+        ],
+        'url' => $provider_url,
+        'discovery' => 'true',
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function suopa_dream_broker_form_alter(&$form, &$form_state, $form_id) {
+  if (
+    $form_id == 'media_video_edit_form' ||
+    $form_id == 'media_video_add_form' ||
+    $form_id == 'entity_browser_media_browser_form'
+  ) {
+    // Attach Dream Broker video title handler.
+    $form['#attached']['library'][] = 'suopa_dream_broker/handle-dream-broker-title';
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * Change video label to customised label if it has been set.
+ */
+function suopa_dream_broker_entity_presave($entity) {
+  if (
+    $entity instanceof Media &&
+    $entity->bundle() == 'video' &&
+    !empty($entity->get('field_title')->value)
+  ) {
+    $entity->setName($entity->get('field_title')->value);
+  }
+}
