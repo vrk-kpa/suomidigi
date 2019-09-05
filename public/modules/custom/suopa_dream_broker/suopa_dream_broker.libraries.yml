@@ -1,0 +1,5 @@
+handle-dream-broker-title:
+  js:
+    assets/js/handleDreamBrokerTitle.js: {}
+  dependencies:
+    - core/jquery

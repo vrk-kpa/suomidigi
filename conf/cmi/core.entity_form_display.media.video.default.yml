@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.video.field_media_oembed_video
+    - field.field.media.video.field_title
     - media.type.video
   module:
     - media
@@ -20,9 +21,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: true
@@ -31,7 +40,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 1
+    weight: 2
     region: content
     third_party_settings: {  }
 hidden:
