@@ -72,6 +72,11 @@ module:
   shortcut: 0
   simplei: 0
   smart_trim: 0
+  social_api: 0
+  social_auth: 0
+  social_auth_facebook: 0
+  social_auth_google: 0
+  social_auth_linkedin: 0
   suopa_communities: 0
   suopa_dream_broker: 0
   suopa_editorial: 0
