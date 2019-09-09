@@ -2,6 +2,10 @@ search-toggle:
   js:
     dist/js/searchToggle.min.js: {}
 
+language-switcher:
+  js:
+    dist/js/languageSwitcher.min.js: {}
+
 article-teaser-content-height:
   js:
     dist/js/articleTeaserContentHeight.min.js: {}
@@ -34,3 +38,4 @@ global-scripting:
     - suomidigi/search-toggle
     - suomidigi/article-teaser-content-height
     - suomidigi/leanlab-questionnaire
+    - suomidigi/language-switcher

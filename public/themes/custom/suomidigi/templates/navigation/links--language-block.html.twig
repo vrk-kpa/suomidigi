@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Theme override for a set of links.
+ *
+ * Available variables:
+ * - attributes: Attributes for the UL containing the list of links.
+ * - links: Links to be output.
+ *   Each link will have the following elements:
+ *   - title: The link text.
+ *   - href: The link URL. If omitted, the 'title' is shown as a plain text
+ *     item in the links list. If 'href' is supplied, the entire link is passed
+ *     to l() as its $options parameter.
+ *   - attributes: (optional) HTML attributes for the anchor, or for the <span>
+ *     tag if no 'href' is supplied.
+ * - heading: (optional) A heading to precede the links.
+ *   - text: The heading text.
+ *   - level: The heading level (e.g. 'h2', 'h3').
+ *   - attributes: (optional) A keyed list of attributes for the heading.
+ *   If the heading is a string, it will be used as the text of the heading and
+ *   the level will default to 'h2'.
+ *
+ *   Headings should be used on navigation menus and any list of links that
+ *   consistently appears on multiple pages. To make the heading invisible use
+ *   the 'visually-hidden' CSS class. Do not use 'display:none', which
+ *   removes it from screen readers and assistive technology. Headings allow
+ *   screen reader and keyboard only users to navigate to or skip the links.
+ *   See http://juicystudio.com/article/screen-readers-display-none.php and
+ *   http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
+ *
+ * @see template_preprocess_links()
+ */
+#}
+
+{% if links -%}
+  <div {{ attributes.addClass('language-switch__wrapper') }}>
+    <button class="language-switch__button" aria-expanded="false" aria-controls="language-switch-dropdown" aria-haspopup="menu" aria-label="{{ 'Select language'|t }}">
+      {% if current_language %}
+        {{ current_language|upper }}
+      {% endif %}
+      <span class="icon__wrapper" aria-hidden="true">
+        {% if icons_path %}
+          <svg class="icon">
+            <title>{{ text }}</title>
+            <use xlink:href="{{ icons_path|trim }}#chevron-down"/>
+          </svg>
+        {% endif %}
+      </span>
+    </button>
+    <div aria-hidden="true" id="language-switch-dropdown" class="language-switch__dropdown">
+      <div class="language-links">
+        {%- for item in links -%}
+          {% set lang = item.link['#options']['#abbreviation'] %}
+          {% set untranslated = item.link['#options']['#untranslated'] %}
+
+          {%- if not untranslated and lang != current_language -%}
+            {% set language_link = path('<current>', {}, {'language': item.link['#options']['language']}) %}
+            <a class="language-link{{ lang == current_language ? ' is-active' : '' }}" lang="{{ lang }}" href="{{ language_link }}">{{ item.text }} <span class="language-link--abbreviation">({{ lang|upper }})</span></a>
+          {%- elseif lang == current_language -%}
+            <span class="language-link is-active">{{ item.text }} <span class="language-link--abbreviation">({{ lang|upper }})</span></span>
+          {%- else -%}
+            <span class="language-link">{{ item.text }} <span class="language-link--abbreviation">({{ lang|upper }})</span></span>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endif %}
