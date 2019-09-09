@@ -1,0 +1,23 @@
+{% set module = 'social-auth' %}
+
+{{ attach_library('social_auth/auth-icons') }}
+
+{% for social_network in social_networks %}
+
+  {% if social_network.route starts with 'social_auth_facebook' %}
+    {% set link_class = ' auth-link--facebook' %}
+    {% set link_text = 'Facebook' %}
+  {% elseif social_network.route starts with 'social_auth_google' %}
+    {% set link_class = ' auth-link--google' %}
+    {% set link_text = 'Google' %}
+  {% elseif social_network.route starts with 'social_auth_linkedin' %}
+      {% set link_class = ' auth-link--linkedin' %}
+      {% set link_text = 'Linkedin' %}
+  {% endif %}
+
+  <a class="{{ module }} auth-link{{ link_class }}" href="{{ path(social_network.route) }}">
+    {% trans %}
+      Log in with {{ link_text }}
+    {% endtrans %}
+  </a>
+{% endfor %}
