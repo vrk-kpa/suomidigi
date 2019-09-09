@@ -3,13 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.entity_reference_browser
     - field.field.paragraph.liftup_prominent.field_p_entity_reference
     - field.field.paragraph.liftup_prominent.field_p_link
     - field.field.paragraph.liftup_prominent.field_p_link_target
     - paragraphs.paragraphs_type.liftup_prominent
   module:
+    - entity_browser
     - link
-    - select2
 id: paragraph.liftup_prominent.default
 targetEntityType: paragraph
 bundle: liftup_prominent
@@ -18,11 +19,16 @@ content:
   field_p_entity_reference:
     weight: 0
     settings:
-      width: 400px
-      autocomplete: true
-      match_operator: STARTS_WITH
+      entity_browser: entity_reference_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: select2_entity_reference
+    type: entity_browser_entity_reference
     region: content
   field_p_link:
     weight: 1
@@ -39,6 +45,11 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

@@ -1,0 +1,5 @@
+name: 'SuoPa Content'
+type: module
+description: 'Performs alterations for Suomidigi content.'
+core: 8.x
+package: 'SuoPa'
