@@ -33,27 +33,27 @@ function suopa_content_language_switch_links_alter(array &$links, $type, $path) 
   $params = \Drupal::routeMatch()->getParameters()->all();
   $entity = reset($params);
 
-  if ($entity instanceof ContentEntityInterface) {
-    foreach ($links as $lang_code => &$link) {
-      switch ($lang_code) {
-        case 'en':
-          $link['title'] = 'In English';
-          break;
+  foreach ($links as $lang_code => &$link) {
+    switch ($lang_code) {
+      case 'en':
+        $link['title'] = 'In English';
+        break;
 
-        case 'sv':
-          $link['title'] = 'På svenska';
-          break;
+      case 'sv':
+        $link['title'] = 'På svenska';
+        break;
 
-        case 'fi':
-          $link['title'] = 'Suomeksi';
-          break;
-      }
+      case 'fi':
+        $link['title'] = 'Suomeksi';
+        break;
+    }
 
-      $link['#abbreviation'] = $lang_code;
-
-      if (!$entity->hasTranslation($lang_code)) {
-        $link['#untranslated'] = TRUE;
-      }
+    $link['#abbreviation'] = $lang_code;
+    if (
+      $entity instanceof ContentEntityInterface &&
+      !$entity->hasTranslation($lang_code)
+    ) {
+      $link['#untranslated'] = TRUE;
     }
   }
 }
