@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - key.key.social_auth_fb_app_id
+    - social_auth_fb.settings
+id: social_auth_fb_app_id
+label: 'Social Auth - Facebook - App Id'
+config_type: system.simple
+config_prefix: ''
+config_name: social_auth_fb.settings
+config_item: app_id
+key_id: social_auth_fb_app_id
