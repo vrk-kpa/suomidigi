@@ -30,7 +30,7 @@
             `  <span class="logo--text">${siteName}</span></a>` +
             `  <p class="site-slogan">${siteSlogan}</p>` +
             `</header>` +
-            `<div class="moby-menu"></div>` +
+            `<div id="moby-menu" class="moby-menu"></div>` +
             `<div id="moby-shortcuts" class="moby-shortcuts"></div>`;
 
           mobyMenu = new Moby({
@@ -53,6 +53,7 @@
             template: template
           });
 
+          $('#block-languageswitcher').contents().clone().appendTo('#moby-menu');
           $('#block-suopa-shortcuts-block-mobile').contents().appendTo('#moby-shortcuts');
           $('#moby-shortcuts div.taxonomy-term.vocabulary-theme').each(function() {
             var id = $(this).attr('id');

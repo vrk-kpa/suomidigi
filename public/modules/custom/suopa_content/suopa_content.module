@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_content.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_content_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_content module.
+    case 'help.page.suopa_content':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Performs alterations for Suomidigi content.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_language_switch_links_alter().
+ *
+ * Switch link title as desired.
+ */
+function suopa_content_language_switch_links_alter(array &$links, $type, $path) {
+  $entity = suopa_content_get_route_entity();
+
+  foreach ($links as $lang_code => &$link) {
+    switch ($lang_code) {
+      case 'en':
+        $link['title'] = 'In English';
+        break;
+
+      case 'sv':
+        $link['title'] = 'På svenska';
+        break;
+
+      case 'fi':
+        $link['title'] = 'Suomeksi';
+        break;
+    }
+
+    $link['#abbreviation'] = $lang_code;
+    if (
+      $entity &&
+      $entity instanceof ContentEntityInterface &&
+      !$entity->hasTranslation($lang_code)
+    ) {
+      $link['#untranslated'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Helper function to extract the entity for the supplied route.
+ *
+ * @return null|ContentEntityInterface
+ *   Returns the found entity or null.
+ */
+function suopa_content_get_route_entity() {
+  $route_match = \Drupal::routeMatch();
+  // Entity will be found in the route parameters.
+  if (($route = $route_match->getRouteObject()) && ($parameters = $route->getOption('parameters'))) {
+    // Determine if the current route represents an entity.
+    foreach ($parameters as $name => $options) {
+      if (isset($options['type']) && strpos($options['type'], 'entity:') === 0) {
+        $entity = $route_match->getParameter($name);
+        if ($entity instanceof ContentEntityInterface && $entity->hasLinkTemplate('canonical')) {
+          return $entity;
+        }
+
+        // Since entity was found, no need to iterate further.
+        return NULL;
+      }
+    }
+  }
+}

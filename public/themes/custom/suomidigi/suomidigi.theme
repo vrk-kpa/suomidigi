@@ -16,6 +16,9 @@ use Drupal\views\ViewExecutable;
  */
 function suomidigi_preprocess(&$variables) {
   $variables['icons_path'] = suomidigi_get_icons_path();
+  $variables['current_language'] = Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
   $variables['#attached']['drupalSettings']['iconsPath'] = $variables['icons_path'];
 }
 
@@ -29,6 +32,20 @@ function suomidigi_preprocess(&$variables) {
  */
 function suomidigi_preprocess_html(&$variables) {
   $variables['theme_path'] = file_create_url(drupal_get_path('theme', 'suomidigi'));
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Set site slogan and site name as variables for javascript templates.
+ */
+function suomidigi_preprocess_page(&$variables) {
+  $site_config = Drupal::config('system.site');
+  $settings = [
+    'siteSlogan' => $site_config->get('slogan'),
+    'siteName' => $site_config->get('name'),
+  ];
+  $variables['#attached']['drupalSettings'] = $settings;
 }
 
 /**
@@ -186,15 +203,6 @@ function suomidigi_preprocess_menu(&$variables) {
         unset($variables['items'][$key]);
       }
     }
-  }
-
-  if (
-    isset($variables['attributes']['block_id']) &&
-    $variables['attributes']['block_id'] == 'menu_mobile'
-  ) {
-    $site_config = Drupal::config('system.site');
-    $variables['#attached']['drupalSettings']['siteSlogan'] = $site_config->get('slogan');
-    $variables['#attached']['drupalSettings']['siteName'] = $site_config->get('name');
   }
 }
 

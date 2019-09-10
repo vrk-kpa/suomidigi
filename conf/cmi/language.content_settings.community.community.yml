@@ -1,18 +1,17 @@
-uuid: dc565d9c-73a3-464a-8c37-6f1923540b0c
+uuid: 5089ec21-c7e8-4b62-9739-a7326e3ae821
 langcode: en
 status: true
 dependencies:
-  config:
-    - taxonomy.vocabulary.community_domain
   module:
     - content_translation
+    - suopa_communities
 third_party_settings:
   content_translation:
-    enabled: true
+    enabled: false
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: taxonomy_term.community_domain
-target_entity_type_id: taxonomy_term
-target_bundle: community_domain
+id: community.community
+target_entity_type_id: community
+target_bundle: community
 default_langcode: fi
 language_alterable: false
