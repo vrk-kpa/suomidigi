@@ -62,6 +62,7 @@ function suopa_content_language_switch_links_alter(array &$links, $type, $path) 
  * Helper function to extract the entity for the supplied route.
  *
  * @return null|ContentEntityInterface
+ *   Returns the found entity or null.
  */
 function suopa_content_get_route_entity() {
   $route_match = \Drupal::routeMatch();
