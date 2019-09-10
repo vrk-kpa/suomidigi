@@ -30,8 +30,7 @@ function suopa_content_help($route_name, RouteMatchInterface $route_match) {
  * Switch link title as desired.
  */
 function suopa_content_language_switch_links_alter(array &$links, $type, $path) {
-  $params = \Drupal::routeMatch()->getParameters()->all();
-  $entity = reset($params);
+  $entity = suopa_content_get_route_entity();
 
   foreach ($links as $lang_code => &$link) {
     switch ($lang_code) {
@@ -50,10 +49,35 @@ function suopa_content_language_switch_links_alter(array &$links, $type, $path) 
 
     $link['#abbreviation'] = $lang_code;
     if (
+      $entity &&
       $entity instanceof ContentEntityInterface &&
       !$entity->hasTranslation($lang_code)
     ) {
       $link['#untranslated'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Helper function to extract the entity for the supplied route.
+ *
+ * @return null|ContentEntityInterface
+ */
+function suopa_content_get_route_entity() {
+  $route_match = \Drupal::routeMatch();
+  // Entity will be found in the route parameters.
+  if (($route = $route_match->getRouteObject()) && ($parameters = $route->getOption('parameters'))) {
+    // Determine if the current route represents an entity.
+    foreach ($parameters as $name => $options) {
+      if (isset($options['type']) && strpos($options['type'], 'entity:') === 0) {
+        $entity = $route_match->getParameter($name);
+        if ($entity instanceof ContentEntityInterface && $entity->hasLinkTemplate('canonical')) {
+          return $entity;
+        }
+
+        // Since entity was found, no need to iterate further.
+        return NULL;
+      }
     }
   }
 }
