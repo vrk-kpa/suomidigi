@@ -112,7 +112,13 @@ content:
       custom_date_format: ''
       timezone: ''
     third_party_settings: {  }
+  rate_vote_widget:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_theme: true
   langcode: true
   links: true
+  search_api_excerpt: true
