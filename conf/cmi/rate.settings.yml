@@ -1,0 +1,19 @@
+use_ajax: true
+widget_type: number_up_down
+_core:
+  default_config_hash: OSlQ2kt5a0lrAfT2zNXmTuCSQVBy_0Yyisd4KkNMBpk
+enabled_types_widgets:
+  node:
+    article:
+      widget_type: yesno
+      use_ajax: true
+    core_content:
+      widget_type: yesno
+      use_ajax: true
+  taxonomy_term:
+    theme:
+      widget_type: yesno
+      use_ajax: true
+bot_minute_threshold: '0'
+bot_hour_threshold: '0'
+botscout_key: ''
