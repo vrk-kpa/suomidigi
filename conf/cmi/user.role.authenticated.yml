@@ -5,13 +5,16 @@ dependencies: {  }
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
-label: 'Authenticated user'
+label: 'Sisäänkirjautunut käyttäjä'
 weight: -9
 is_admin: false
 permissions:
   - 'access content'
+  - 'cast rate vote on node of article'
+  - 'cast rate vote on node of core_content'
   - 'search content'
   - 'use search_api_autocomplete for search'
   - 'use text format basic_html'
   - 'view media'
   - 'view published community entities'
+  - 'view rate results page'
