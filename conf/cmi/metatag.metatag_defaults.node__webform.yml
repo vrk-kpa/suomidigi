@@ -1,0 +1,11 @@
+uuid: aaa19c57-cbf3-49e6-a693-08536ee0930c
+langcode: en
+status: true
+dependencies: {  }
+id: node__webform
+label: 'Content: Webform'
+tags:
+  description: '[node:field_slogan]'
+  article_published_time: '[node:published:html_datetime]'
+  og_url: '[current-page:url:absolute]'
+  og_description: '[node:summary]'

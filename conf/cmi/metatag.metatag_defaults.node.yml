@@ -1,0 +1,17 @@
+uuid: ecf4de62-add1-46d1-ae98-3a940ffd9e59
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  content_language: '[node:langcode]'
+  canonical_url: '[node:url]'
+  description: '[node:field_ingress]'
+  og_image: '[site:origin-url]/themes/custom/suomidigi/images/header_background_illustration.svg'
+  og_image_alt: '[site:name]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title]'

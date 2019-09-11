@@ -1,0 +1,13 @@
+uuid: 5b833517-2090-46ef-93d4-4a9de9370668
+langcode: en
+status: true
+dependencies: {  }
+id: node__legislation_card
+label: 'Content: Legislation card'
+tags:
+  description: '[node:field_ingress]'
+  article_published_time: '[node:published:html_datetime]'
+  og_url: '[current-page:url:absolute]'
+  og_description: '[node:field_ingress]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title]'
