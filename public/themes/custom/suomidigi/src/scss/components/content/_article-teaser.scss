@@ -1,4 +1,5 @@
 .article-teaser {
+  border: 1px solid rgba(165, 172, 176, 0.3);
   height: 100%;
 }
 
@@ -16,8 +17,8 @@
 }
 
 .article-teaser__content {
-  border: 1px solid rgba(165, 172, 176, 0.3);
-  line-height: 12px;
+  @include line-height(12px, 14px);
+  border-top: 1px solid rgba(165, 172, 176, 0.3);
   padding: $gutter;
 }
 
@@ -51,7 +52,7 @@
 }
 
 .article-teaser__data {
-  font-size: 0.875rem;
+  @include font-size(14px);
   display: flex;
   flex-wrap: wrap;
   color: $gray-darker;

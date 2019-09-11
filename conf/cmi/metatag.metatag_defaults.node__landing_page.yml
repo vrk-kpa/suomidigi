@@ -1,0 +1,11 @@
+uuid: c2260d32-73a3-4725-9216-6e4fa84d5869
+langcode: en
+status: true
+dependencies: {  }
+id: node__landing_page
+label: 'Content: Landing page'
+tags:
+  description: '[node:field_slogan]'
+  article_published_time: '[node:published:html_datetime]'
+  og_url: '[current-page:url:absolute]'
+  og_description: '[node:field_slogan]'

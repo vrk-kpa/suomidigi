@@ -1,0 +1,19 @@
+uuid: 9bd05771-809c-4fdb-827e-c8b39b93b5d4
+langcode: en
+status: true
+dependencies: {  }
+id: node__article
+label: 'Content: Article'
+tags:
+  description: '[node:field_ingress]'
+  article_modified_time: '[node:field_displayed_update_time:date:html_datetime]'
+  article_published_time: '[node:published:html_datetime]'
+  og_type: '[node:field_article_type]'
+  og_image: '[node:field_header_image:entity:field_media_image:entity:url]'
+  og_image_alt: '[node:field_header_image:entity:field_media_image:alt]'
+  og_updated_time: '[node:field_displayed_update_time:date:html_datetime]'
+  og_url: '[current-page:url:absolute]'
+  og_description: '[node:field_ingress]'
+  article_tag: '[node:field_tags]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title]'
