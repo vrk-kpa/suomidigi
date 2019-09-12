@@ -4,7 +4,7 @@ Add your new icon to ./src/ folder.
 
 In theme folder /themes/custom/suomidigi/ run
  
-    npm run gulp svg-sprite
+    npm run generate-svg-sprite
     
 ## Usage
 

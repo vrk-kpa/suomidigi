@@ -48,3 +48,23 @@
     cursor: pointer;
   }
 }
+
+@mixin border($side: '') {
+  $color: rgba(165, 172, 176, 0.3);
+
+  @if $side == '' {
+    border: 1px solid $color;
+  }
+  @else if $side == 'bottom' {
+    border-bottom: 1px solid $color;
+  }
+  @else if($side == 'top') {
+    border-top: 1px solid $color;
+  }
+  @else if($side == 'left') {
+    border-left: 1px solid $color;
+  }
+  @else if($side == 'right') {
+    border-right: 1px solid $color;
+  }
+}

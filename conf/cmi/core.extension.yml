@@ -81,6 +81,7 @@ module:
   social_auth_facebook: 0
   social_auth_google: 0
   social_auth_linkedin: 0
+  social_media: 0
   suopa_communities: 0
   suopa_content: 0
   suopa_dream_broker: 0

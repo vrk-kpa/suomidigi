@@ -117,6 +117,14 @@
             {{ page.content }}
           </section>
         </div>
+
+        {% if page.after_content %}
+          <div class="page-after_content" id="after_content">
+            <section class="section section--after-content">
+              {{ page.after_content }}
+            </section>
+          </div>
+        {% endif %}
       </main>
     </div>
   </div>

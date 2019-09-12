@@ -2,7 +2,7 @@
   height: 100%;
 
   .paragraph--full-width & {
-    border-bottom: 1px solid rgba(165, 172, 176, 0.3);
+    @include border('bottom');
 
     .core-content-teaser__link {
       box-shadow: none;
