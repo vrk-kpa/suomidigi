@@ -16,7 +16,7 @@
 }
 
 .article-teaser__content {
-  border: 1px solid rgba(165, 172, 176, 0.3);
+  @include border();
   line-height: 12px;
   padding: $gutter;
 }

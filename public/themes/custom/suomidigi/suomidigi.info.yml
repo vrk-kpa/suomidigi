@@ -11,9 +11,10 @@ regions:
   mobile_navigation: Mobile navigation
   announcement: Announcement
   messages: Messages
-  sidebar_first: First Sidebar
-  sidebar_second: Second Sidebar
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
   content: Content
+  after_content: After content
   footer: Footer
 
 # Define Libraries

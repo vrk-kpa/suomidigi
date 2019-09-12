@@ -7,7 +7,7 @@
   visibility: hidden;
 
   @include breakpoint($for-tablet-portrait-up) {
-    border-bottom: 1px solid rgba(165, 172, 176, .3);
+    @include border('bottom');
     display: block;
     margin-bottom: 0;
     margin-top: 0;
