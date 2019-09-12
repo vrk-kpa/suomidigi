@@ -1,0 +1,15 @@
+uuid: 56ac0742-cb8d-4f18-9a7b-e1f496657921
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 92bXZdyYJ5xqukdfmGRr_CYcwm1vfuS8b8aJ7X_G7E0
+id: taxonomy_term
+label: 'Taxonomy term'
+tags:
+  title: '[term:name] | [site:name]'
+  canonical_url: '[term:url]'
+  description: '[term:description]'
+  image_src: '[term:field_liftup_image:entity:field_media_image:article_full_header_image_large:url]'
+  og_image: '[term:field_liftup_image:entity:field_media_image:article_full_header_image_large:url]'
+  og_image_alt: '[term:name]'

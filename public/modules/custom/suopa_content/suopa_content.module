@@ -7,6 +7,7 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_help().
@@ -48,12 +49,16 @@ function suopa_content_language_switch_links_alter(array &$links, $type, $path) 
     }
 
     $link['#abbreviation'] = $lang_code;
-    if (
-      $entity &&
-      $entity instanceof ContentEntityInterface &&
-      !$entity->hasTranslation($lang_code)
-    ) {
-      $link['#untranslated'] = TRUE;
+    if ($entity && $entity instanceof ContentEntityInterface) {
+      if (
+        !$entity->hasTranslation($lang_code) ||
+        (
+          method_exists($entity->getTranslation($lang_code), 'isPublished') &&
+          !$entity->getTranslation($lang_code)->isPublished()
+        )
+      ) {
+        $link['#untranslated'] = TRUE;
+      }
     }
   }
 }
@@ -79,6 +84,40 @@ function suopa_content_get_route_entity() {
         // Since entity was found, no need to iterate further.
         return NULL;
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_node_access_records_alter().
+ *
+ * Because of a bug in View Unpublished module, the anonymous can
+ * view unpublished translations. Alter the access records based on
+ * node translations.
+ *
+ * {@inheritDoc}
+ */
+function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) {
+  foreach ($node->getTranslationLanguages() as $langcode => $value) {
+    if ($node->getTranslation($langcode)->isPublished() === FALSE) {
+      $grants[] = [
+        'realm' => 'view_unpublished_content',
+        'gid' => 1,
+        'grant_view' => 1,
+        'grant_update' => 0,
+        'grant_delete' => 0,
+        'langcode' => $langcode,
+      ];
+    }
+    else {
+      $grants[] = [
+        'realm' => 'all',
+        'gid' => 0,
+        'grant_view' => 1,
+        'grant_update' => 0,
+        'grant_delete' => 0,
+        'langcode' => $langcode,
+      ];
     }
   }
 }
