@@ -2,12 +2,14 @@
 .section--content form {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid $gray;
   padding-bottom: $gutter * 1.5;
-  margin-bottom: $gutter * 1.5;
 
-  .form-wrapper {
-    margin-bottom: $gutter * 2;
+  &:not(.user-login-form) {
+    margin-bottom: $gutter * 1.5;
+
+    .form-wrapper {
+      margin-bottom: $gutter * 2;
+    }
   }
 
   .container {

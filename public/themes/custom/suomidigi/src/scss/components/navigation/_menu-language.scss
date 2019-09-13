@@ -134,8 +134,8 @@
     }
 
     &__wrapper {
+      @include border('top');
       padding-top: $gutter;
-      border-top: 1px solid rgba(165, 172, 176, .3);
       margin-top: $gutter;
 
       .language-links {
