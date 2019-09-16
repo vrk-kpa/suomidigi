@@ -32,6 +32,7 @@ global-scripting:
     dist/js/menu.mobile.min.js: {}
   dependencies:
     - core/drupal
+    - core/drupal.ajax
     - core/jquery
     - core/jquery.once
     - suomidigi/moby

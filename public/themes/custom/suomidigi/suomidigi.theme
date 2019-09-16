@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
 use Drupal\suopa_communities\Entity\Community;
 use Drupal\taxonomy\Entity\Term;
@@ -471,5 +473,25 @@ function suomidigi_preprocess_community(&$variables) {
 
     $variables['community_domain_label'] = $domain->label();
     $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for rate-template-yes_no.html.twig.
+ */
+function suomidigi_preprocess_rate_template_yesno(&$variables) {
+  $undo_link_class = 'rate__undo';
+  if ($variables['use_ajax']) {
+    $undo_link_class .= ' use-ajax';
+  }
+  if ($variables['has_voted']) {
+    $undo_url = Url::fromRoute('rate.undo_vote', [
+      'entity_type_id' => $variables['entity_type_id'],
+      'entity_id' => $variables['entity_id'],
+      'widget_type' => $variables['widget_type'],
+      'destination' => \Drupal::destination()->getAsArray()['destination'],
+    ]);
+    $variables['undo_url'] = $undo_url->toString();
+    $variables['undo_classes'] = $undo_link_class;
   }
 }

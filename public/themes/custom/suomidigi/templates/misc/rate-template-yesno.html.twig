@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Default theme implementation for yes/no voting display.
+ *
+ * Available variables:
+ * - widget_attributes: Attributes for outer div.
+ * - yes_li_attributes: Attributes for yes li.
+ * - yes_attributes: Attributes for yes div or link.
+ * - up_votes: Number of up/yes votes.
+ * - up_url: Url to vote yes/up.
+ * - no_li_attributes: Attributes for no li.
+ * - no_attributes: Attributes for no div or link.
+ * - score_attributes: Attributes for vote total div.
+ * - down_votes: Number of down/no votes.
+ * - down_url: Url to vote no/down.
+ * - undo: Link to undo placed vote.
+ * - undo_attributes: Attributes for undo div.
+ * - info_description: Extra textual info to display.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set icon_yes %}
+  {% if icons_path %}
+    <svg class="icon icon--yes">
+      <title>{{ 'Helpful'|t }}</title>
+      <use xlink:href="{{ icons_path|trim }}#thumbs-up-solid" />
+    </svg>
+  {% else %}
+    {{ 'Helpful'|t }}
+  {% endif %}
+{% endset %}
+
+{% set icon_no %}
+  {% if icons_path %}
+    <svg class="icon icon--no">
+      <title>{{ 'Not helpful'|t }}</title>
+      <use xlink:href="{{ icons_path|trim }}#thumbs-down-solid" />
+    </svg>
+  {% else %}
+    {{ 'Not helpful'|t }}
+  {% endif %}
+{% endset %}
+
+<div{{ widget_attributes.addClass(['rate', 'rate__wrapper']) }}>
+  <div class="rate__button--wrapper">
+    {% if (has_voted or not can_vote) %}
+      <div{{ yes_attributes.addClass(['rate__button', 'rate__button--yes', 'is-disabled']) }}>{{ icon_yes }}</div>
+    {% else %}
+      <a{{ yes_attributes.addClass(['rate__button', 'rate__button--yes']) }} href="{{ up_url }}">{{ icon_yes }}</a>
+    {% endif %}
+    <div{{ score_attributes.addClass(['rate__votes']) }}>{{ up_votes }}</div>
+  </div>
+  <div class="rate__button--wrapper">
+    {% if (has_voted or not can_vote) %}
+      <div{{ yes_attributes.addClass(['rate__button', 'rate__button--no', 'is-disabled']) }}>{{ icon_no }}</div>
+    {% else %}
+      <a{{ yes_attributes.addClass(['rate__button', 'rate__button--no']) }} href="{{ down_url }}">{{ icon_no }}</a>
+    {% endif %}
+    <div{{ score_attributes.addClass(['rate__votes']) }}>{{ down_votes }}</div>
+  </div>
+
+  {% if undo_url %}
+    <div class="rate__button--wrapper">
+      <a{{ undo_attributes.addClass(['rate__button', 'rate__button--undo', 'use-ajax']) }} href="{{ undo_url }}">
+        {% if icons_path %}
+          <svg class="icon icon--undo">
+            <title>{{ 'Undo'|t }}</title>
+            <use xlink:href="{{ icons_path|trim }}#close" />
+          </svg>
+        {% else %}
+          {{ 'Undo'|t }}
+        {% endif %}
+      </a>
+    </div>
+  {% endif %}
+</div>
