@@ -291,6 +291,22 @@ function copySuomiFiStaticIcons() {
     .pipe(gulp.dest(`${svgOutDir}/src/`));
 }
 
+// ------------------------------------
+// Copy external icons from src to svg.
+// ------------------------------------
+function copyExternalIcons() {
+  return gulp
+    .src(`${svgOutDir}/src/**/*`)
+    .pipe(rename((opt) => {
+        opt.basename = opt.basename.replace(/^icon-/, "");
+        return opt;
+      })
+    )
+    .pipe(gulp.dest(`${svgOutDir}/svg/`));
+}
+
+
+
 // ----------------------------------
 // Save SVG filenames to a JSON file.
 // ----------------------------------
@@ -322,6 +338,7 @@ gulp.task(
     cleanSVGSprite,
     copySuomiFiIcons,
     copySuomiFiStaticIcons,
+    copyExternalIcons,
     "svgNamesToJson",
     () =>
       gulp
