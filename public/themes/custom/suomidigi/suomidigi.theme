@@ -6,7 +6,6 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
 use Drupal\suopa_communities\Entity\Community;

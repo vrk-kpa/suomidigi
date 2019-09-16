@@ -1,0 +1,111 @@
+.block-views-blockrate-block-1 {
+  margin: 0 auto $gutter * 2 auto;
+
+  .views--rate {
+    margin-left: $gutter * 2;
+  }
+
+  @include breakpoint($for-mobile-landscape-up) {
+    margin: 0;
+
+    .views--rate {
+      margin: 0;
+    }
+  }
+}
+
+.rate {
+  &__wrapper {
+    display: flex;
+  }
+
+  &__button {
+    background: transparent;
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+
+    &--wrapper {
+      align-items: center;
+      display: flex;
+      line-height: 0;
+      margin-right: $gutter;
+    }
+
+    &--yes {
+      background: $rate-green;
+      border: 2px solid $rate-green;
+      border-radius: 50%;
+      color: $white;
+      padding: 8px;
+
+      &:not(.is-disabled):focus,
+      &:not(.is-disabled):active,
+      &:not(.is-disabled):hover {
+        color: $rate-green;
+        background: $white;
+      }
+
+      &.is-disabled {
+        background-color: lighten($rate-green, 25%);
+        border-color: lighten($rate-green, 25%);
+      }
+    }
+
+    &--no {
+      background: $rate-red;
+      border: 2px solid $rate-red;
+      border-radius: 50%;
+      color: $white;
+      padding: 8px;
+
+      &:not(.is-disabled):focus,
+      &:not(.is-disabled):active,
+      &:not(.is-disabled):hover {
+        color: $rate-red;
+        background: $white;
+      }
+
+      &.is-disabled {
+        background-color: lighten($rate-red, 25%);
+        border-color: lighten($rate-red, 25%);
+      }
+    }
+  }
+
+  &__votes {
+    @include font-size(16px);
+    font-weight: 600;
+    padding: 0 $gutter / 2;
+  }
+
+  .icon {
+    max-width: $gutter * 1.25;
+    max-height: $gutter * 1.25;
+
+    &--undo {
+      margin-left: $gutter;
+      fill: $rate-red;
+      transition: all 0.1s;
+
+      &:focus,
+      &:active,
+      &:hover {
+        fill: darken($rate-red, 10%);
+        margin-left: calc(#{$gutter} - 2px);
+        margin-top: -2px;
+        max-width: 24px;
+        max-height: 24px;
+      }
+    }
+  }
+}
+
+// Move contextual links to aside.
+.block-views-blockrate-block-1,
+.views--rate {
+  .contextual {
+    top: 0;
+    right: -35px;
+  }
+}
