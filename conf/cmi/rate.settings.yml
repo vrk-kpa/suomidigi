@@ -10,10 +10,6 @@ enabled_types_widgets:
     core_content:
       widget_type: yesno
       use_ajax: true
-  taxonomy_term:
-    theme:
-      widget_type: yesno
-      use_ajax: true
 bot_minute_threshold: '0'
 bot_hour_threshold: '0'
 botscout_key: ''
