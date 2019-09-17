@@ -98,6 +98,14 @@ function suopa_content_get_route_entity() {
  * {@inheritDoc}
  */
 function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) {
+  foreach ($grants as $key => $grant) {
+    if (
+      strpos($grant['realm'], 'view_unpublished') !== FALSE &&
+      !array_key_exists('langcode', $grant)
+    ) {
+      unset($grants[$key]);
+    }
+  }
   foreach ($node->getTranslationLanguages() as $langcode => $value) {
     if ($node->getTranslation($langcode)->isPublished() === FALSE) {
       $grants[] = [
