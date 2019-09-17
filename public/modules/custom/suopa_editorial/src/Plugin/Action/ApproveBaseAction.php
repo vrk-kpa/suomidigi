@@ -6,11 +6,17 @@ use Drupal\views_bulk_operations\Action\ViewsBulkOperationsActionBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+/**
+ * An abstract base class for the approval actions.
+ */
 abstract class ApproveBaseAction extends ViewsBulkOperationsActionBase {
 
   use StringTranslationTrait;
 
-  protected abstract function execCommand($entity = NULL);
+  /**
+   * The actual exec command to run after checks have been run.
+   */
+  abstract protected function execCommand($entity = NULL);
 
   /**
    * {@inheritdoc}
