@@ -173,12 +173,21 @@ display:
           action_title: Action
           selected_actions:
             comment_delete_action: 0
+            suopa_editorial_approve_and_publish_action: suopa_editorial_approve_and_publish_action
+            suopa_editorial_disapprove_action: suopa_editorial_disapprove_action
+            suopa_editorial_approve_action: suopa_editorial_approve_action
             views_bulk_operations_delete_entity: 0
             pathauto_update_alias: 0
             'entity:save_action:community': 0
             'entity:unpublish_action:community': 'entity:unpublish_action:community'
             'entity:publish_action:community': 'entity:publish_action:community'
           preconfiguration:
+            suopa_editorial_approve_and_publish_action:
+              label_override: ''
+            suopa_editorial_disapprove_action:
+              label_override: ''
+            suopa_editorial_approve_action:
+              label_override: ''
             'entity:unpublish_action:community':
               label_override: ''
             'entity:publish_action:community':

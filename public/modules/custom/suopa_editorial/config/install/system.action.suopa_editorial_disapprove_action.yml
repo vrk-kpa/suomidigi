@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+    - suopa_editorial
+  module:
+  - suopa_editorial
+id: suopa_editorial_disapprove_action
+label: 'Disapprove'
+type:
+plugin: "suopa_editorial_disapprove_action"
+configuration: {  }

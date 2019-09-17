@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+    - suopa_editorial
+  module:
+  - suopa_editorial
+id: suopa_editorial_approve_action
+label: 'Approve'
+type:
+plugin: "suopa_editorial_approve_action"
+configuration: {  }
