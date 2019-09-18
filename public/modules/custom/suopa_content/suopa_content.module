@@ -148,7 +148,7 @@ function suopa_content_field_widget_form_alter(&$element, FormStateInterface $fo
 }
 
 /**
- * #after_build callback.
+ * After build callback for widget form alter.
  */
 function _remove_text_format_box($form_element, FormStateInterface $form_state) {
   // Remove help, guidelines and wrappers.

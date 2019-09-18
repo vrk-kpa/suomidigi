@@ -509,7 +509,8 @@ function suomidigi_preprocess_comment__field_comments(&$variables) {
   if ($user->hasField('field_first_name') && !$user->field_first_name->isEmpty()) {
     $variables['first_name'] = $user->field_first_name->value;
     $variables['avatar_abbreviation'] = $user->field_first_name->value;
-  } else {
+  }
+  else {
     $variables['avatar_abbreviation'] = $user->name->value;
   }
 
