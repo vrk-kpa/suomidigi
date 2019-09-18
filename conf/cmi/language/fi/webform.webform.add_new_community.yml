@@ -1,6 +1,6 @@
 title: 'Lisää uusi yhteisö'
 description: 'Lomake uuden yhteisön luomiseen.'
-elements: "name:\n  '#title': Nimi\n  '#description': 'Yhteisön nimi.'\ndescription:\n  '#title': Kuvaus\n  '#description': 'Lyhyt kuvaus yhteisöstä.'\ndomain:\n  '#title': Palvelu\n  '#description': 'Valitse palvelu jossa yhteisö sijaitsee.'\nurl:\n  '#description': 'Suora URL-osoite yhteisöön / yhteisön sivulle.'\n"
+elements: "name:\n  '#title': Nimi\n  '#description': 'Yhteisön nimi.'\ndescription:\n  '#title': Kuvaus\n  '#description': 'Lyhyt kuvaus yhteisöstä.'\ndomain:\n  '#title': Palvelu\n  '#description': 'Valitse palvelu jossa yhteisö sijaitsee.'\nurl:\n  '#description': 'Suora URL-osoite yhteisöön / yhteisön sivulle. Esim. https://www.facebook.com/suomidigi/ '\n"
 handlers:
   email:
     label: Sähköposti
