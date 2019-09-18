@@ -5,8 +5,9 @@
  * Contains suopa_content.module.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -128,4 +129,33 @@ function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) 
       ];
     }
   }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function suopa_content_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $formats = [
+    'comment_body' => ['plain_text'],
+  ];
+
+  $field_name = $context['items']->getFieldDefinition()->getName();
+
+  if (array_key_exists($field_name, $formats)) {
+    $element['#allowed_formats'] = $formats[$field_name];
+    $element['#after_build'][] = '_remove_text_format_box';
+  }
+}
+
+/**
+ * #after_build callback.
+ */
+function _remove_text_format_box($form_element, FormStateInterface $form_state) {
+  // Remove help, guidelines and wrappers.
+  unset($form_element['format']['help']);
+  unset($form_element['format']['guidelines']);
+  unset($form_element['format']['#type']);
+  unset($form_element['format']['#theme_wrappers']);
+
+  return $form_element;
 }
