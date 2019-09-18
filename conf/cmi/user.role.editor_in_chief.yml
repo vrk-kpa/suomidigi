@@ -27,6 +27,7 @@ permissions:
   - 'access user profiles'
   - 'add community entities'
   - 'administer blocks'
+  - 'administer comments'
   - 'administer community entities'
   - 'administer menu'
   - 'administer nodes'
