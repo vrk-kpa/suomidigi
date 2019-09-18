@@ -3,8 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
     - field.field.node.article.field_article_type
     - field.field.node.article.field_blog_tags
+    - field.field.node.article.field_comments
     - field.field.node.article.field_displayed_author
     - field.field.node.article.field_displayed_update_time
     - field.field.node.article.field_header_image
@@ -15,6 +17,7 @@ dependencies:
     - field.field.node.article.field_theme
     - node.type.article
   module:
+    - comment
     - datetime
     - entity_reference_revisions
     - user
@@ -41,6 +44,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_comments:
+    type: comment_default
+    weight: 10
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
   field_displayed_author:
     type: entity_reference_label
     weight: 1
