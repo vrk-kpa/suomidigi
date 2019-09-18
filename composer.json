@@ -68,6 +68,7 @@
         "drupal/video_embed_dreambroker": "^1.0",
         "drupal/video_embed_field": "^2.1",
         "drupal/view_unpublished": "^1.0",
+        "drupal/views_bulk_operations": "^3.2",
         "drupal/viewsreference": "^2.0",
         "drupal/webform": "^5.2",
         "drush/drush": "^9.0.0",
@@ -80,6 +81,7 @@
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
         "drupal/coder": "^8.2",
+        "drupal/console": "~1.0",
         "drupal/drupal-extension": "~3.3",
         "phpunit/phpunit": "~6.1"
     },

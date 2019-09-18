@@ -196,7 +196,7 @@ handlers:
       from_options: {  }
       from_name: _default
       subject: 'Suomidigi - Uusi yhteisö tarkastettavaksi: [webform_submission:values:name]'
-      body: _default
+      body: "<p>L&auml;hetetty: [webform_submission:created]</p>\r\n\r\n<p>L&auml;hett&auml;j&auml;: [webform_submission:user]</p>\r\n\r\n<p>Tallennetut arvot:&nbsp;[webform_submission:values]</p>\r\nVoit hyv&auml;ksy&auml; yhteis&ouml;n <a href=\"[site:origin-url]/admin/content/approval-queue\">hyv&auml;ksymisjonon</a> kautta."
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
