@@ -28,6 +28,7 @@ display:
         filesize:
           label: Storlek
         status:
+          label: Status
           settings:
             format_custom_false: Temporär
         created:
@@ -43,6 +44,9 @@ display:
         filemime:
           expose:
             label: 'Typ av MIME'
+        status:
+          expose:
+            label: Status
       title: Filer
       empty:
         area_text_custom:
