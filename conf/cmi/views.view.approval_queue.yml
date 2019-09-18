@@ -189,9 +189,9 @@ display:
             suopa_editorial_approve_action:
               label_override: ''
             'entity:unpublish_action:community':
-              label_override: ''
+              label_override: 'Unpublish community'
             'entity:publish_action:community':
-              label_override: ''
+              label_override: 'Publish community'
           plugin_id: views_bulk_operations_bulk_form
         name:
           table: community_field_data
