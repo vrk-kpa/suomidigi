@@ -1,0 +1,65 @@
+{#
+/**
+ * @file
+ * Theme override for comments.
+ */
+#}
+{%
+  set classes = [
+    'comment',
+    'js-comment',
+    status != 'published' ? 'comment--' ~ status,
+    comment.owner.anonymous ? 'by-anonymous',
+    author_id and author_id == commented_entity.getOwnerId() ? 'by-' ~ commented_entity.getEntityTypeId() ~ '-author',
+    'clearfix',
+  ]
+%}
+<article role="article"{{ attributes.addClass(classes)|without('role') }}>
+  {#
+    Hide the "new" indicator by default, let a piece of JavaScript ask the
+    server which comments are new for the user. Rendering the final "new"
+    indicator here would break the render cache.
+  #}
+  <span class="visually-hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></span>
+
+  <footer class="comment__meta">
+    <div class="comment__avatar">
+      {% if avatar is not empty %}
+        {{ avatar }}
+      {% else %}
+        <span class="comment__avatar--letter">
+          {{ avatar_abbreviation|first|upper }}
+        </span>
+      {% endif %}
+    </div>
+
+    <span class="comment__author">
+      {% if first_name is not empty and last_name is not empty %}
+        {{ first_name }} {{ last_name }}
+      {% else %}
+        {{ avatar_abbreviation }}
+      {% endif %}
+    </span>
+    <span class="comment__time">
+      {% if comment_created %}
+        {{ comment_created }}
+      {% endif %}
+      {% if comment_changed %}
+        <em>({{ 'Updated'|t }}: {{ comment_changed }})</em>
+      {% endif %}
+    </span>
+    <span class="comment__permalink">{{ permalink }}</span>
+    {#
+      Indicate the semantic relationship between parent and child comments
+      for accessibility. The list is difficult to navigate in a screen
+      reader without this information.
+    #}
+    {% if parent %}
+      <p class="visually-hidden">{{ parent }}</p>
+    {% endif %}
+  </footer>
+
+  <div{{ content_attributes.addClass('comment__content') }}>
+    {{ content }}
+  </div>
+</article>

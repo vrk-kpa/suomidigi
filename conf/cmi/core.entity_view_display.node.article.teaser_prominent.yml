@@ -6,12 +6,14 @@ dependencies:
     - core.entity_view_mode.node.teaser_prominent
     - field.field.node.article.field_article_type
     - field.field.node.article.field_blog_tags
+    - field.field.node.article.field_comments
     - field.field.node.article.field_displayed_author
     - field.field.node.article.field_displayed_update_time
     - field.field.node.article.field_header_image
     - field.field.node.article.field_ingress
     - field.field.node.article.field_paragraphs
     - field.field.node.article.field_reading_time
+    - field.field.node.article.field_tags
     - field.field.node.article.field_theme
     - node.type.article
   module:
@@ -62,11 +64,15 @@ content:
     region: content
 hidden:
   field_blog_tags: true
+  field_comments: true
   field_displayed_author: true
   field_displayed_update_time: true
   field_paragraphs: true
   field_reading_time: true
+  field_tags: true
   field_theme: true
   langcode: true
   links: true
   published_at: true
+  rate_vote_widget: true
+  search_api_excerpt: true

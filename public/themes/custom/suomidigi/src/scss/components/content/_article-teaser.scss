@@ -18,7 +18,6 @@
 }
 
 .article-teaser__content {
-  @include border();
   @include line-height(12px, 14px);
   padding: $gutter;
 }

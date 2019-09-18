@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.core_content.field_comments
     - field.field.node.core_content.field_core_content_type
     - field.field.node.core_content.field_displayed_author
     - field.field.node.core_content.field_displayed_update_time
@@ -14,6 +16,7 @@ dependencies:
     - field.field.node.core_content.field_theme
     - node.type.core_content
   module:
+    - comment
     - datetime
     - entity_reference_revisions
     - user
@@ -22,6 +25,15 @@ targetEntityType: node
 bundle: core_content
 mode: default
 content:
+  field_comments:
+    type: comment_default
+    weight: 8
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
   field_core_content_type:
     weight: 0
     label: hidden
