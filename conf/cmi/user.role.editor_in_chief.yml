@@ -199,6 +199,7 @@ permissions:
   - 'view own unpublished media'
   - 'view page revisions'
   - 'view published community entities'
+  - 'view rate results page'
   - 'view scheduled content'
   - 'view the administration theme'
   - 'view unpublished community entities'

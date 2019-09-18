@@ -5,6 +5,7 @@ npm-debug.log
 
 # Distribution folder
 dist
+icons/src
 icons/suomifi-icons
 icons/sprite.symbol.html
 

@@ -10,6 +10,8 @@ weight: -9
 is_admin: false
 permissions:
   - 'access content'
+  - 'cast rate vote on node of article'
+  - 'cast rate vote on node of core_content'
   - 'search content'
   - 'use search_api_autocomplete for search'
   - 'use text format basic_html'

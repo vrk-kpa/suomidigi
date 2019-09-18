@@ -61,6 +61,7 @@ module:
   path: 0
   preview_link: 0
   quickedit: 0
+  rate: 0
   rdf: 0
   recaptcha: 0
   redirect: 0
@@ -108,6 +109,7 @@ module:
   views_bulk_operations: 0
   views_ui: 0
   viewsreference: 0
+  votingapi: 0
   webform: 0
   webform_node: 0
   webform_ui: 0
