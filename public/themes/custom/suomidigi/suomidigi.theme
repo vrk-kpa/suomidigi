@@ -494,3 +494,37 @@ function suomidigi_preprocess_rate_template_yesno(&$variables) {
     $variables['undo_classes'] = $undo_link_class;
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_comment__field_comments(&$variables) {
+  $user = $variables['user_picture']['#user'];
+  $comment = $variables['comment'];
+
+  if (!$user->user_picture->isEmpty()) {
+    $variables['avatar'] = $user->user_picture->view('medium');
+  }
+
+  if ($user->hasField('field_first_name') && !$user->field_first_name->isEmpty()) {
+    $variables['first_name'] = $user->field_first_name->value;
+    $variables['avatar_abbreviation'] = $user->field_first_name->value;
+  } else {
+    $variables['avatar_abbreviation'] = $user->name->value;
+  }
+
+  if ($user->hasField('field_last_name') && !$user->field_last_name->isEmpty()) {
+    $variables['last_name'] = $user->field_last_name->value;
+  }
+
+  if (!$comment->created->isEmpty()) {
+    $variables['comment_created'] = Drupal::service('date.formatter')->format($comment->created->value, 'date_time');
+
+    if (
+      !$comment->changed->isEmpty() &&
+      $comment->changed->value !== $comment->created->value
+    ) {
+      $variables['comment_changed'] = Drupal::service('date.formatter')->format($comment->changed->value, 'date_time');
+    }
+  }
+}
