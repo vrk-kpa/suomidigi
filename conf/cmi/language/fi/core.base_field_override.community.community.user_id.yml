@@ -1,20 +1,2 @@
-uuid: edc94cb1-a0c4-4796-9f0f-2e04abbdb328
-langcode: en
-status: true
-dependencies:
-  module:
-    - suopa_communities
-id: community.community.user_id
-field_name: user_id
-entity_type: community
-bundle: community
-label: 'Authored by'
-description: 'The user ID of author of the Community entity.'
-required: false
-translatable: false
-default_value: {  }
-default_value_callback: ''
-settings:
-  handler: default
-  handler_settings: {  }
-field_type: entity_reference
+label: 'Tekijä'
+description: 'Yhteisön tekijän / lisääjän ID.'
