@@ -12,7 +12,9 @@
 $config['system.logging']['error_level'] = 'all';
 
 // Disable Google Analytics from sending dev GA data.
-$config['google_analytics.settings']['account'] = 'UA-XXXXXXXX-YY';
+if (getenv('HTTP_HOST') === 'suomidigi.fi.docker.amazee.io') {
+  $config['google_analytics.settings']['account'] = 'UA-XXXXXXXX-YY';
+}
 
 // Expiration of cached pages to 0
 $config['system.performance']['cache']['page']['max_age'] = 0;

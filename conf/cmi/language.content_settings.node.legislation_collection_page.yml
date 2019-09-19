@@ -1,0 +1,18 @@
+uuid: 89edc20b-0685-4e26-88eb-1865cc82ab0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.legislation_collection_page
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.legislation_collection_page
+target_entity_type_id: node
+target_bundle: legislation_collection_page
+default_langcode: fi
+language_alterable: true

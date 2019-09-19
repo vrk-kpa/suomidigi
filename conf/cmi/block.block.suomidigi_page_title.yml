@@ -9,7 +9,7 @@ _core:
 id: suomidigi_page_title
 theme: suomidigi
 region: content
-weight: -7
+weight: -11
 provider: null
 plugin: page_title_block
 settings:

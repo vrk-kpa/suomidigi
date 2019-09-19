@@ -1,0 +1,289 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_legislations.module.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Access\AccessResult;
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\TypedData\TranslationStatusInterface;
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * {@inheritdoc}
+ */
+function suopa_legislations_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  if ($paragraph->getType() == 'legislation_cards') {
+    // Get selected terms (legislation sections) from the paragraph.
+    $terms = $paragraph->get('field_legislation_section')->referencedEntities();
+    $langcode = Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    foreach ($terms as $term) {
+      // Fetch all potential legislation card collections from the selected
+      // terms. Note that all the child terms are not necessarily collections!
+      $cardCollectionTerms = Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->getChildren($term);
+      foreach ($cardCollectionTerms as $collectionTerm) {
+        $cards = suopa_legislations_get_related_legislation_cards($collectionTerm, $langcode);
+        if (!count($cards)) {
+          continue;
+        }
+
+        if ($collectionTerm->hasTranslation($langcode)) {
+          $collectionLabel = $collectionTerm->getTranslation($langcode)->getName();
+        }
+        else {
+          $collectionLabel = $collectionTerm->getName();
+        }
+
+        $renderedLegislationCollection = [
+          'title' => [
+            '#theme' => 'suopa_legislations_collection_label',
+            '#collection_label' => $collectionLabel,
+          ],
+          'cards' => [
+            '#theme' => 'suopa_legislations_collection',
+            '#collection' => $cards,
+            '#attached' => [
+              'library' => [
+                'suopa_legislations/expanding-panel',
+              ],
+            ],
+          ],
+        ];
+
+        $variables['legislation_collections'][] = $renderedLegislationCollection;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suopa_legislations_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->getType() !== 'legislation_card') {
+    return;
+  }
+
+  // Attach SuoPa Legislation expanding panels library to legislation card.
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['#attached'] = [
+      'library' => [
+        'suopa_legislations/expanding-panel',
+      ],
+    ];
+
+    // Get label for legislation card and render it as a breadcrumb.
+    // Label is built from legislation section term parents.
+    if ($node->hasField('field_legislation_section')) {
+      $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
+      $section = $node->get('field_legislation_section')->target_id;
+
+      if (!empty($section)) {
+        $ancestors = array_reverse(
+          Drupal::service('entity_type.manager')
+            ->getStorage("taxonomy_term")
+            ->loadAllParents($section)
+        );
+
+        $list = [];
+        foreach ($ancestors as $term) {
+          if ($term->hasTranslation($current_language)) {
+            $term = $term->getTranslation($current_language);
+          }
+
+          $label = $term->label();
+
+          // Use legislation term liftup title if it exists.
+          if (
+            $term->hasField('field_legislation_liftup_title') &&
+            !empty($term->field_legislation_liftup_title->value)
+          ) {
+            $label = $term->field_legislation_liftup_title->value;
+          }
+          $list[$term->id()] = $label;
+        }
+
+        if (!empty($list)) {
+          $variables['legislation_card_breadcrumb'] = $list;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Get legislation cards that are attached to the selected collection term.
+ *
+ * @param \Drupal\taxonomy\Entity\Term $collection
+ *   The collection term to fetch the cards from.
+ * @param string $langcode
+ *   The current language id.
+ *
+ * @return array
+ *   Return found legislation cards.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ *   Thrown if the entity type doesn't exist.
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ *   Thrown if the storage handler couldn't be loaded.
+ */
+function suopa_legislations_get_related_legislation_cards(Term $collection, $langcode) {
+  $cards = [];
+
+  $ids = Drupal::entityQuery('node')
+    ->condition('type', 'legislation_card')
+    ->condition('status', 1)
+    ->condition('field_legislation_section', $collection->id())
+    ->execute();
+
+  $entity_type = 'node';
+  $view_mode = 'expanding_panels';
+
+  $nodeStorage = Drupal::entityTypeManager()->getStorage($entity_type);
+  $nodeRendered = Drupal::entityTypeManager()->getViewBuilder($entity_type);
+
+  foreach ($ids as $id) {
+    $node = $nodeStorage->load($id);
+    if ($node->hasTranslation($langcode)) {
+      $cards[] = $nodeRendered->view($node, $view_mode, $langcode);
+    }
+  }
+
+  return $cards;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function suopa_legislations_theme() {
+  return [
+    'suopa_legislations_collection' => [
+      'variables' => [
+        'collection' => NULL,
+      ],
+    ],
+    'suopa_legislations_collection_label' => [
+      'variables' => [
+        'collection_label' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_block_access().
+ */
+function suopa_legislations_block_access(Block $block, $operation) {
+  if ($operation == 'view' && $block->getPluginId() == 'page_title_block') {
+    $node = Drupal::routeMatch()->getParameter('node');
+
+    if ($node instanceof NodeInterface && $node->bundle() == 'legislation_card') {
+      return AccessResult::forbidden('No need to show title on legislation card.');
+    }
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ *
+ * When creating translation of a paragraph with file entity, clear the default
+ * value of the file upload field from form. Set the original filename to file
+ * upload field prefix as a reminder of the original file.
+ *
+ * Use the functionality for legislation attachments for now.
+ */
+function suopa_legislations_field_widget_entity_reference_paragraphs_form_alter(&$element, &$form_state, $context) {
+
+  // Allowed paragraph types.
+  $paragraph_types = [
+    'legislation_attachment',
+  ];
+
+  // Handle only entity reference paragraphs.
+  if ($context['widget']->getPluginId() !== 'entity_reference_paragraphs') {
+    return;
+  }
+
+  // Handle only allowed paragraph types.
+  if (!suopa_legislations_check_paragraph_types(
+    $paragraph_types,
+    $context['widget']->getAllowedTypes())
+  ) {
+    return;
+  }
+
+  // Handle only translations.
+  if ($form_state->getFormObject()->getEntity()->get('default_langcode')->value) {
+    return;
+  }
+
+  // Get translation status of the node.
+  $entity = $form_state->getFormObject()->getEntity();
+  $current_language = $entity->langcode->value;
+  $translation_status = $entity->getTranslationStatus($current_language);
+
+  // Return if translation status is not 2; Translation being created.
+  if ($translation_status !== TranslationStatusInterface::TRANSLATION_CREATED) {
+    return;
+  }
+
+  // Handle only legislation attachment field for now.
+  if (isset($element['subform']['field_legislation_attachment'])) {
+    $widgets = &$element['subform']['field_legislation_attachment']['widget'];
+
+    // Get field widget default values filename and set it as field widget
+    // description. Remove the default value from the widget to reduce confusion
+    // when translating file entities.
+    foreach ($widgets as &$widget) {
+      if (
+        isset($widget['#default_value']) &&
+        !empty($widget['#default_value']['target_id'])
+      ) {
+        $filename = Drupal::entityTypeManager()
+          ->getStorage('file')
+          ->load($widget['#default_value']['target_id'])
+          ->getFilename();
+
+        unset($widget['#default_value']);
+        $widget['#description'] = '<em>' . t(
+          'Filename in original language: @filename',
+          ['@filename' => $filename]
+        ) . '</em>';
+      }
+    }
+  }
+}
+
+/**
+ * Helper function to check for acceptable paragraph type.
+ *
+ * @param array $indexes
+ *   An array of possible array keys.
+ * @param array $types
+ *   An array of paragraph types.
+ *
+ * @return bool
+ *   Returns true or false.
+ */
+function suopa_legislations_check_paragraph_types(array $indexes, array $types) {
+  foreach ($indexes as $index) {
+    if (array_key_exists($index, $types)) {
+      return TRUE;
+    }
+    continue;
+  }
+  return FALSE;
+}

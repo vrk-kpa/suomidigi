@@ -1,0 +1,22 @@
+uuid: 3288980f-94e4-48db-8b28-cca2b32938a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.legislation_cards
+id: paragraph.legislation_cards.status
+field_name: status
+entity_type: paragraph
+bundle: legislation_cards
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

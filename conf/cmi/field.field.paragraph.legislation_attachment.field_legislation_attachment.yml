@@ -1,0 +1,27 @@
+uuid: eb57cca3-05c4-4103-a7d8-e7b1d76b625f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_legislation_attachment
+    - paragraphs.paragraphs_type.legislation_attachment
+  module:
+    - file
+id: paragraph.legislation_attachment.field_legislation_attachment
+field_name: field_legislation_attachment
+entity_type: paragraph
+bundle: legislation_attachment
+label: 'Attachment File'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

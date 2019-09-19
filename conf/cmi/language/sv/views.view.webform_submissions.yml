@@ -1,0 +1,118 @@
+display:
+  default:
+    display_title: Huvud
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Verkställ
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          tags:
+            first: '« Första'
+            last: 'Sista »'
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      fields:
+        in_draft:
+          label: Utkast
+        created:
+          label: Skapad
+        remote_addr:
+          label: IP-adress
+        view_webform_submission:
+          label: Funktioner
+          text: visa
+      header:
+        result:
+          content: 'Visar @start - @end av @total'
+      arguments:
+        in_draft:
+          exception:
+            title: Alla
+  embed_administer:
+    display_options:
+      fields:
+        webform_submission_bulk_form:
+          action_title: Åtgärd
+        in_draft:
+          label: Utkast
+        sticky:
+          label: Klistrad
+        locked:
+          label: Låst
+        created:
+          label: Skapad
+        completed:
+          label: Slutförd
+        remote_addr:
+          label: IP-adress
+        operations:
+          label: Funktioner
+      filters:
+        sticky:
+          expose:
+            label: Klistrad
+        locked:
+          expose:
+            label: Låst
+  embed_manage:
+    display_options:
+      fields:
+        webform_submission_bulk_form:
+          action_title: Åtgärd
+        in_draft:
+          label: Utkast
+        sticky:
+          label: Klistrad
+        locked:
+          label: Låst
+        created:
+          label: Skapad
+        completed:
+          label: Slutförd
+        remote_addr:
+          label: IP-adress
+        view_webform_submission:
+          label: Funktioner
+          text: visa
+        edit_webform_submission:
+          label: Funktioner
+          text: redigera
+      filters:
+        sticky:
+          expose:
+            label: Klistrad
+        locked:
+          expose:
+            label: Låst
+  embed_review:
+    display_options:
+      fields:
+        in_draft:
+          label: Utkast
+        sticky:
+          label: Klistrad
+        locked:
+          label: Låst
+        created:
+          label: Skapad
+        completed:
+          label: Slutförd
+        remote_addr:
+          label: IP-adress
+        view_webform_submission:
+          label: Funktioner
+          text: visa
+      filters:
+        sticky:
+          expose:
+            label: Klistrad
+        locked:
+          expose:
+            label: Låst

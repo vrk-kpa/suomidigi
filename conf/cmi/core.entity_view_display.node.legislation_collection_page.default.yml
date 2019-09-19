@@ -1,0 +1,50 @@
+uuid: 8797dfdd-d121-47fd-b360-49b54f5bda49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.legislation_collection_page.field_header_image
+    - field.field.node.legislation_collection_page.field_ingress
+    - field.field.node.legislation_collection_page.field_legis_cpage_paragraphs
+    - node.type.legislation_collection_page
+  module:
+    - entity_reference_revisions
+    - user
+id: node.legislation_collection_page.default
+targetEntityType: node
+bundle: legislation_collection_page
+mode: default
+content:
+  field_header_image:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: legislation_collection_page_full_header
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_ingress:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_legis_cpage_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  published_at: true

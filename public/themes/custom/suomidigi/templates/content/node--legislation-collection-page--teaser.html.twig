@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    'legislation-collection--teaser',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{attributes.addClass(classes)}}>
+  <a href="{{ url }}" class="legislation-collection--teaser__link">
+    <div class="legislation-collection--teaser__image">
+      {% if is_full_width %}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header', responsive=true) }}
+      {% else %}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header_alternative', responsive=true) }}
+      {% endif %}
+    </div>
+    <div class="legislation-collection--teaser__content">
+      <h2 class="legislation-collection--teaser__label">
+        {{ label }}
+      </h2>
+      {% if content.field_ingress|render %}
+        <p class="legislation-collection--teaser__lead">
+          {{ content.field_ingress['0']['#markup'] }}
+        </p>
+      {% endif %}
+    </div>
+  </a>
+</article>

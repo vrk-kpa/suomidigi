@@ -1,0 +1,25 @@
+uuid: 6f054bc2-e387-4d45-8dbf-70c22d94c637
+langcode: fi
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:6a03f539-49d9-4445-ab52-3b4569ac84a5'
+  module:
+    - block_content
+  theme:
+    - suomidigi
+id: tervetuloalohko
+theme: suomidigi
+region: announcement
+weight: -10
+provider: null
+plugin: 'block_content:6a03f539-49d9-4445-ab52-3b4569ac84a5'
+settings:
+  id: 'block_content:6a03f539-49d9-4445-ab52-3b4569ac84a5'
+  label: Tervetuloa-lohko
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

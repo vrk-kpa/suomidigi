@@ -6,14 +6,20 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
+use Drupal\suopa_communities\Entity\Community;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess().
  */
 function suomidigi_preprocess(&$variables) {
   $variables['icons_path'] = suomidigi_get_icons_path();
+  $variables['current_language'] = Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
   $variables['#attached']['drupalSettings']['iconsPath'] = $variables['icons_path'];
 }
 
@@ -31,9 +37,26 @@ function suomidigi_preprocess_html(&$variables) {
 
 /**
  * Implements hook_preprocess_HOOK().
+ *
+ * Set site slogan and site name as variables for javascript templates.
+ */
+function suomidigi_preprocess_page(&$variables) {
+  $site_config = Drupal::config('system.site');
+  $settings = [
+    'siteSlogan' => $site_config->get('slogan'),
+    'siteName' => $site_config->get('name'),
+  ];
+  $variables['#attached']['drupalSettings'] = $settings;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_node(&$variables) {
-  if ($variables['node']->getType() === 'article') {
+  if (
+    $variables['node']->getType() === 'article' ||
+    $variables['node']->getType() === 'legislation_collection_page'
+  ) {
     $node = $variables['node'];
     $published_at = $node->get('published_at')->getString();
 
@@ -43,22 +66,27 @@ function suomidigi_preprocess_node(&$variables) {
 
     if ($node->hasField('field_header_image')) {
       $mediaEntity = $node->get('field_header_image')->getValue();
-      $field_media = Media::load($mediaEntity[0]['target_id']);
 
-      $mediaImage = $field_media->get('field_media_image')->first();
+      if (!empty($mediaEntity)) {
+        $field_media = Media::load($mediaEntity[0]['target_id']);
+        $mediaImage = $field_media->get('field_media_image')->first();
 
-      if (!empty($mediaImage)) {
-        /** @var \Drupal\Core\Entity\Plugin\DataType\EntityReference $entity */
-        $entity = $mediaImage->get('entity');
-        $target = $entity->getTarget();
-        if ($target) {
-          /** @var \Drupal\Core\Field\FieldItemList $uri */
-          $uri = $target->get('uri');
-          $image_uri = $uri->first()->getValue();
+        if (!empty($mediaImage)) {
+          /** @var \Drupal\Core\Entity\Plugin\DataType\EntityReference $entity */
+          $entity = $mediaImage->get('entity');
+          $target = $entity->getTarget();
+          if ($target) {
+            /** @var \Drupal\Core\Field\FieldItemList $uri */
+            $uri = $target->get('uri');
+            $image_uri = $uri->first()->getValue();
 
-          if (is_array($image_uri) && array_key_exists('value', $image_uri)) {
-            $variables['article_teaser_image'] = $image_uri['value'];
-            $variables['is_full_width'] = drupal_static('article_full_width_' . $node->id(), FALSE);
+            if (is_array($image_uri) && array_key_exists('value', $image_uri)) {
+              $variables['big_liftup_teaser_image'] = $image_uri['value'];
+              $variables['is_full_width'] = drupal_static(
+                'article_full_width_' . $node->id(),
+                FALSE
+              );
+            }
           }
         }
       }
@@ -75,21 +103,42 @@ function suomidigi_preprocess_paragraph(&$variables) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $variables['paragraph'];
 
-  if ($paragraph->getType() === 'liftup_entity_reference_item') {
-    if ($paragraph->hasField('field_p_full_width')) {
-      $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
-      $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
-      $variables['is_full_width'] = $fullWidth;
-    }
-
-    if ($paragraph->hasField('field_p_entity_reference')) {
-      $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
-      $is_full_width = &drupal_static('article_full_width_' . $targetID, FALSE);
-
-      if (isset($fullWidth) && $fullWidth) {
-        $is_full_width = TRUE;
+  switch ($paragraph->getType()) {
+    case 'liftup_entity_reference_item':
+      if ($paragraph->hasField('field_p_full_width')) {
+        $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
+        $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
+        $variables['is_full_width'] = $fullWidth;
       }
-    }
+
+      if ($paragraph->hasField('field_p_entity_reference')) {
+        $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
+        $is_full_width = &drupal_static('article_full_width_' . $targetID, FALSE);
+
+        if (isset($fullWidth) && $fullWidth) {
+          $is_full_width = TRUE;
+        }
+      }
+      break;
+
+    case 'legislation_attachment':
+      if ($paragraph->hasField('field_legislation_attachment')) {
+        /** @var \Drupal\file\Entity\File $file */
+        $file = $paragraph->get('field_legislation_attachment')->entity;
+        $path = $file->getFileUri();
+
+        if ($path) {
+          $variables['file_extension'] = pathinfo($path, PATHINFO_EXTENSION);
+          $variables['file_size'] = format_size($file->getSize());
+          $variables['file_url'] = $path;
+        }
+      }
+
+      if ($paragraph->hasField('field_legislation_colour')) {
+        $variables['legislation_colour'] = $paragraph->get('field_legislation_colour')->value;
+      }
+
+      break;
   }
 }
 
@@ -97,9 +146,16 @@ function suomidigi_preprocess_paragraph(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_page_title(&$variables) {
-  $term = \Drupal::request()->attributes->get('taxonomy_term');
+  // Modify title classes for Theme taxonomy terms.
+  $term = Drupal::request()->attributes->get('taxonomy_term');
   if (!empty($term) && $term->bundle() == 'theme') {
     $variables['page_title_alternative'] = TRUE;
+  }
+
+  // Modify title classes for Legislation collection page nodes.
+  $node = Drupal::request()->attributes->get('node');
+  if (!empty($node) && $node->bundle() == 'legislation_collection_page') {
+    $variables['page_title_secondary'] = TRUE;
   }
 }
 
@@ -112,12 +168,12 @@ function suomidigi_preprocess_block(&$variables) {
   }
 
   if ($variables['plugin_id'] == 'page_title_block') {
-    $term = \Drupal::request()->attributes->get('taxonomy_term');
+    $term = Drupal::request()->attributes->get('taxonomy_term');
     if (!empty($term) && $term->bundle() == 'theme') {
       if ($term->hasField('field_liftup_image') && !$term->get('field_liftup_image')->isEmpty()) {
         $media_id = $term->get('field_liftup_image')->first()->getValue()['target_id'];
         $media = Media::load($media_id);
-        $build = \Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
+        $build = Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
         $variables['content']['field_liftup_image'] = $build;
       }
     }
@@ -148,15 +204,6 @@ function suomidigi_preprocess_menu(&$variables) {
         unset($variables['items'][$key]);
       }
     }
-  }
-
-  if (
-    isset($variables['attributes']['block_id']) &&
-    $variables['attributes']['block_id'] == 'menu_mobile'
-  ) {
-    $site_config = \Drupal::config('system.site');
-    $variables['#attached']['drupalSettings']['siteSlogan'] = $site_config->get('slogan');
-    $variables['#attached']['drupalSettings']['siteName'] = $site_config->get('name');
   }
 }
 
@@ -231,8 +278,8 @@ function suomidigi_preprocess_taxonomy_term(&$variables) {
   $element = $variables['elements'];
 
   if ($element['#taxonomy_term']->bundle() == 'theme') {
-    $current_path = \Drupal::service('path.current')->getPath();
-    $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $current_path = Drupal::service('path.current')->getPath();
+    $result = Drupal::service('path.alias_manager')->getAliasByPath($current_path);
 
     if ($variables['url'] == $result) {
       $variables['term_url_is_active'] = TRUE;
@@ -268,8 +315,10 @@ function suomidigi_preprocess_views_view(&$variables) {
 
 /**
  * Implements hook_views_pre_render().
+ *
+ * {@inheritDoc}
  */
-function suomidigi_views_pre_render(&$view) {
+function suomidigi_views_pre_render(ViewExecutable &$view) {
   if ($view->id() === "taxonomy_term") {
     $term = Term::load((int) $view->args[0]);
 
@@ -279,6 +328,16 @@ function suomidigi_views_pre_render(&$view) {
       usort($view->result, function ($a, $b) {
         return $b->node_field_data_published_at - $a->node_field_data_published_at;
       });
+    }
+
+    // Replace taxonomy term view title to correspond taxonomy term plural
+    // name, if one exists. Otherwise use taxonomy term name.
+    if ($term->hasField('field_plural_name')) {
+      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+      if (!empty($translated_title)) {
+        $view->setTitle($translated_title);
+      }
     }
   }
 }
@@ -377,5 +436,96 @@ function suomidigi_preprocess_pager(&$variables) {
 function suomidigi_preprocess_input__textfield(&$variables) {
   if ($variables['attributes']['id'] == 'search') {
     $variables['attributes']['aria-label'] = t('Search');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_community(&$variables) {
+
+  // Get community domain values and set them as variables for the template.
+  $community = $variables['elements']['#community'];
+  if (
+    $community instanceof Community &&
+    $community->hasField('field_community_domain')
+  ) {
+    $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
+    $community_domain_id = $community->field_community_domain->target_id;
+
+    $domain = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($community_domain_id);
+
+    if ($domain->hasTranslation($current_language)) {
+      $domain = $domain->getTranslation($current_language);
+    }
+
+    if ($domain->hasField('field_community_domain_logo')) {
+      $image_target = $domain->get('field_community_domain_logo')->first();
+
+      if (!empty($image_target)) {
+        $image_id = $image_target->get('target_id')->getValue();
+        $variables['community_domain_logo'] = $image_id;
+      }
+    }
+
+    $variables['community_domain_label'] = $domain->label();
+    $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for rate-template-yes_no.html.twig.
+ */
+function suomidigi_preprocess_rate_template_yesno(&$variables) {
+  $undo_link_class = 'rate__undo';
+  if ($variables['use_ajax']) {
+    $undo_link_class .= ' use-ajax';
+  }
+  if ($variables['has_voted']) {
+    $undo_url = Url::fromRoute('rate.undo_vote', [
+      'entity_type_id' => $variables['entity_type_id'],
+      'entity_id' => $variables['entity_id'],
+      'widget_type' => $variables['widget_type'],
+      'destination' => \Drupal::destination()->getAsArray()['destination'],
+    ]);
+    $variables['undo_url'] = $undo_url->toString();
+    $variables['undo_classes'] = $undo_link_class;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_comment__field_comments(&$variables) {
+  $user = $variables['user_picture']['#user'];
+  $comment = $variables['comment'];
+
+  if (!$user->user_picture->isEmpty()) {
+    $variables['avatar'] = $user->user_picture->view('medium');
+  }
+
+  if ($user->hasField('field_first_name') && !$user->field_first_name->isEmpty()) {
+    $variables['first_name'] = $user->field_first_name->value;
+    $variables['avatar_abbreviation'] = $user->field_first_name->value;
+  }
+  else {
+    $variables['avatar_abbreviation'] = $user->name->value;
+  }
+
+  if ($user->hasField('field_last_name') && !$user->field_last_name->isEmpty()) {
+    $variables['last_name'] = $user->field_last_name->value;
+  }
+
+  if (!$comment->created->isEmpty()) {
+    $variables['comment_created'] = Drupal::service('date.formatter')->format($comment->created->value, 'date_time');
+
+    if (
+      !$comment->changed->isEmpty() &&
+      $comment->changed->value !== $comment->created->value
+    ) {
+      $variables['comment_changed'] = Drupal::service('date.formatter')->format($comment->changed->value, 'date_time');
+    }
   }
 }

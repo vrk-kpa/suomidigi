@@ -1,0 +1,60 @@
+.block-suopa-content-social-sharing-block {
+  margin: 0 auto;
+
+  @include breakpoint($for-mobile-landscape-up) {
+    margin: 0 0 0 auto;
+  }
+
+  // Contextual link.
+  .contextual {
+    top: 30px;
+    right: 7px;
+
+    .trigger {
+      top: -20px;
+      right: -32px;
+    }
+  }
+}
+
+.social-media-sharing {
+  line-height: 0;
+
+  .share {
+    background-color: $white;
+    display: inline-block;
+    margin-right: 8px;
+    list-style: none;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    .icon {
+      max-width: $gutter * 2;
+      max-height: $gutter * 2;
+    }
+
+    &.email {
+      color: #3C3C3C;
+    }
+
+    &.facebook-share {
+      color: #4169AF;
+    }
+
+    &.linkedin {
+      color: #0079B2;
+    }
+
+    &.twitter {
+      color: #0DA4EE;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      color: $black;
+    }
+  }
+}

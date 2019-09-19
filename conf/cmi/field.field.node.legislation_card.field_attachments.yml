@@ -1,0 +1,82 @@
+uuid: 577f9757-4727-4bd9-8e3c-9e790c54ced1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - node.type.legislation_card
+    - paragraphs.paragraphs_type.legislation_attachment
+  module:
+    - entity_reference_revisions
+id: node.legislation_card.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: legislation_card
+label: Attachments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      legislation_attachment: legislation_attachment
+    target_bundles_drag_drop:
+      attachment:
+        weight: 16
+        enabled: false
+      legislation_attachment:
+        enabled: true
+        weight: 17
+      container:
+        weight: 17
+        enabled: false
+      container_title:
+        weight: 18
+        enabled: false
+      highlight_bullet_point:
+        weight: 19
+        enabled: false
+      highlight_bullet_point_item:
+        weight: 20
+        enabled: false
+      highlight_cta:
+        weight: 21
+        enabled: false
+      highlight_text_box:
+        weight: 22
+        enabled: false
+      liftup_box:
+        weight: 23
+        enabled: false
+      liftup_box_item:
+        weight: 24
+        enabled: false
+      liftup_entity_reference:
+        weight: 25
+        enabled: false
+      liftup_entity_reference_item:
+        weight: 26
+        enabled: false
+      liftup_prominent:
+        weight: 27
+        enabled: false
+      legislation_cards:
+        weight: 27
+        enabled: false
+      legislation_link:
+        weight: 28
+        enabled: false
+      link:
+        weight: 28
+        enabled: false
+      media:
+        weight: 29
+        enabled: false
+      text:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

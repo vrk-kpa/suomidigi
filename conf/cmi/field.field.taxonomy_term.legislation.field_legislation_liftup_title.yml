@@ -1,0 +1,19 @@
+uuid: c7fe18c1-d1ec-4ef2-8785-f324f04a0dd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_legislation_liftup_title
+    - taxonomy.vocabulary.legislation
+id: taxonomy_term.legislation.field_legislation_liftup_title
+field_name: field_legislation_liftup_title
+entity_type: taxonomy_term
+bundle: legislation
+label: 'Liftup title'
+description: 'Type in a shortened version of the term name. This field will replace term name in legislation card liftup.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

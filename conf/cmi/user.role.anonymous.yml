@@ -9,8 +9,11 @@ label: 'Anonymous user'
 weight: -10
 is_admin: false
 permissions:
+  - 'access comments'
   - 'access content'
-  - 'access site-wide contact form'
+  - 'cast rate vote on node of article'
+  - 'cast rate vote on node of core_content'
   - 'search content'
   - 'use search_api_autocomplete for search'
   - 'view media'
+  - 'view published community entities'

@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_communities.module.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_communities_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_communities module.
+    case 'help.page.suopa_communities':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Community entity type and related functionalities for Suomidigi.fi') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Theme function for SuoPa Communities module.
+ *
+ * {@inheritdoc}
+ */
+function suopa_communities_theme() {
+  return [
+    'community' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for community templates.
+ *
+ * {@inheritdoc}
+ */
+function template_preprocess_community(&$variables) {
+  $variables['content'] = [];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ *
+ * {@inheritdoc}
+ */
+function suopa_communities_theme_suggestions_community(array $variables) {
+  return _suopa_communities_theme_suggestion($variables, 'community');
+}
+
+/**
+ * Helper function to create theme suggestions for custom entities.
+ *
+ * @param array $variables
+ *   Variables.
+ * @param string $entity_name
+ *   The name of the entity.
+ *
+ * @return array
+ *   Returns suggestions.
+ */
+function _suopa_communities_theme_suggestion(array $variables, $entity_name) {
+  $suggestions = [];
+
+  $entity = $variables['elements']["#{$entity_name}"];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = "{$entity_name}__" . $sanitized_view_mode;
+  $suggestions[] = "{$entity_name}__" . $entity->bundle();
+  $suggestions[] = "{$entity_name}__" . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = "{$entity_name}__" . $entity->id();
+  $suggestions[] = "{$entity_name}__" . $entity->id() . '__' . $sanitized_view_mode;
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ *
+ * @inheritdoc
+ */
+function suopa_communities_entity_type_alter(array &$entity_types) {
+  $entity = $entity_types['community'];
+  $entity->addConstraint('ApprovalConstraint');
+}

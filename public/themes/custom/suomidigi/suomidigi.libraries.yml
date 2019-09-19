@@ -2,9 +2,17 @@ search-toggle:
   js:
     dist/js/searchToggle.min.js: {}
 
+language-switcher:
+  js:
+    dist/js/languageSwitcher.min.js: {}
+
 article-teaser-content-height:
   js:
     dist/js/articleTeaserContentHeight.min.js: {}
+
+leanlab-questionnaire:
+  js:
+    dist/js/leanLabInterQuest.min.js: {}
 
 # Moby.js Fixed for D8.
 # Original: https://github.com/joshsanger/moby.js
@@ -24,8 +32,11 @@ global-scripting:
     dist/js/menu.mobile.min.js: {}
   dependencies:
     - core/drupal
+    - core/drupal.ajax
     - core/jquery
     - core/jquery.once
     - suomidigi/moby
     - suomidigi/search-toggle
     - suomidigi/article-teaser-content-height
+    - suomidigi/leanlab-questionnaire
+    - suomidigi/language-switcher

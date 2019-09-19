@@ -1,0 +1,146 @@
+.legislation-collection {
+  padding-bottom: $gutter * 2;
+
+  &__ingress {
+    @include font-size(14px);
+    @include line-height(14px, 20px);
+    color: $black;
+    text-align: center;
+    margin-bottom: $gutter * 2;
+  }
+
+  &__toggle-button {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    background: transparent;
+    border: 0 none;
+    color: $legislation-blue;
+    display: block;
+    font-weight: bold;
+    margin-left: auto;
+    margin-bottom: $gutter;
+    padding: 0;
+  }
+
+  &__header-image {
+    margin-bottom: $gutter * 2;
+  }
+
+  &__label {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    font-weight: bold;
+    color: $black;
+    margin-bottom: $gutter;
+  }
+
+  &__item {
+    background-color: $gray-lighter;
+    margin-left: -#{$gutter};
+    margin-right: -#{$gutter};
+    padding: $gutter;
+    margin-bottom: $gutter * 2;
+  }
+
+  &--teaser {
+    height: 100%;
+
+    &__link {
+      display: block;
+      text-decoration: none;
+      height: 100%;
+    }
+
+    &__image {
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &__content {
+      @include border();
+      line-height: 12px;
+      padding: $gutter;
+    }
+
+    &__label {
+      @include font-size(22px);
+      @include line-height(22px, 24px);
+      color: $black;
+      font-weight: 800;
+      margin: 0;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        @include font-size(20px);
+      }
+
+      @include breakpoint($for-tablet-landscape-up) {
+        @include font-size(22px);
+      }
+
+      @include breakpoint($for-desktop-up) {
+        @include font-size(24px);
+      }
+    }
+
+
+    &__lead {
+      @include line-height(14px, 22px);
+      color: $black;
+      margin: 0;
+    }
+  }
+
+  .legislation-card {
+    background-color: $white;
+    margin-bottom: 0;
+    border-bottom: 0 none;
+    transition: all 50ms cubic-bezier(0.28, 0.84, 0.42, 1) 0s;
+
+    &:last-of-type {
+      border-bottom: 1px solid $legislation-gray;
+    }
+
+    &__header {
+      &.is-active {
+        .legislation-card__title--icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &__title {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      padding: 0;
+
+      &--icon {
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &__content-wrapper {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    &.is-open {
+      background-color: $legislation-blue-light;
+      border-bottom: 1px solid $legislation-gray;
+      margin-bottom: $gutter / 2;
+
+      .legislation-card__content-wrapper {
+        max-height: 100%;
+      }
+
+      .legislation-card__title {
+        padding: 0 0 $gutter;
+      }
+    }
+  }
+}
+

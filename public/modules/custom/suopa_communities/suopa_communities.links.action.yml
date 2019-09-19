@@ -1,0 +1,5 @@
+entity.community.add_form:
+  route_name: entity.community.add_form
+  title: 'Add Community'
+  appears_on:
+    - entity.community.collection

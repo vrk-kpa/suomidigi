@@ -1,0 +1,123 @@
+.legislation-card {
+  background-color: $legislation-blue-light;
+  border: 1px solid $legislation-gray;
+  padding: $gutter;
+
+  > .contextual {
+    right: -20px;
+    top: 12px;
+  }
+
+  &__title {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    color: $legislation-blue;
+    font-weight: bold;
+    padding: 0 0 $gutter;
+
+    &--icon {
+      fill: $legislation-blue;
+    }
+  }
+
+  &__ingress {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    padding: 0 0 $gutter;
+  }
+
+  &__content {
+    @include font-size(18px);
+    @include line-height(18px, 18px);
+    padding: 0 0 $gutter * 2;
+
+    p {
+      @include font-size(18px);
+      @include line-height(18px, 18px);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__attachments {
+    padding: 0 0 $gutter * 2;
+  }
+
+  &__support-attachments {
+    padding: 0 0 $gutter * 2;
+
+    &__title {
+      @include font-size(18px);
+      @include line-height(18px, 18px);
+      font-weight: bold;
+      padding-bottom: $gutter / 2;
+    }
+  }
+
+  &--teaser {
+    background-color: $white;
+    margin-bottom: 0;
+    border-bottom: 0 none;
+    transition: all 50ms cubic-bezier(0.28, 0.84, 0.42, 1) 0s;
+
+    &:last-of-type {
+      border-bottom: 1px solid $legislation-gray;
+    }
+
+    .legislation-card__header {
+      &.is-active {
+        .legislation-card__title--icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .legislation-card__breadcrumb {
+      @include font-size(12px);
+      @include line-height(12px, 12px);
+      color: $gray-darkest;
+      margin-bottom: $gutter / 2;
+
+      .divider {
+        @include font-size(15px);
+        @include line-height(15px, 15px);
+        color: $black;
+        font-weight: 600;
+      }
+    }
+
+    .legislation-card__title {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      padding: 0;
+
+      &--icon {
+        margin-left: auto;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .legislation-card__content-wrapper {
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    &.is-open {
+      background-color: $legislation-blue-light;
+      border-bottom: 1px solid $legislation-gray;
+      margin-bottom: $gutter / 2;
+
+      .legislation-card__content-wrapper {
+        max-height: 100%;
+      }
+
+      .legislation-card__title {
+        padding: 0 0 $gutter;
+      }
+    }
+  }
+}

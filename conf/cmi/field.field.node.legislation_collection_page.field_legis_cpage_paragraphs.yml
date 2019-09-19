@@ -1,0 +1,90 @@
+uuid: 258f1cd4-c935-4637-98ac-ee448a580081
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_legis_cpage_paragraphs
+    - node.type.legislation_collection_page
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+    - paragraphs.paragraphs_type.legislation_attachment
+    - paragraphs.paragraphs_type.legislation_link
+    - paragraphs.paragraphs_type.liftup_box_item
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
+  module:
+    - entity_reference_revisions
+id: node.legislation_collection_page.field_legis_cpage_paragraphs
+field_name: field_legis_cpage_paragraphs
+entity_type: node
+bundle: legislation_collection_page
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles:
+      highlight_bullet_point_item: highlight_bullet_point_item
+      liftup_box_item: liftup_box_item
+      legislation_attachment: legislation_attachment
+      liftup_entity_reference_item: liftup_entity_reference_item
+      legislation_link: legislation_link
+    target_bundles_drag_drop:
+      attachment:
+        weight: 16
+        enabled: false
+      container:
+        weight: 17
+        enabled: false
+      container_title:
+        weight: 18
+        enabled: false
+      highlight_bullet_point:
+        weight: 19
+        enabled: false
+      highlight_bullet_point_item:
+        enabled: true
+        weight: 20
+      highlight_cta:
+        weight: 21
+        enabled: false
+      highlight_text_box:
+        weight: 22
+        enabled: false
+      liftup_box:
+        weight: 23
+        enabled: false
+      liftup_box_item:
+        enabled: true
+        weight: 24
+      liftup_entity_reference:
+        weight: 25
+        enabled: false
+      legislation_attachment:
+        enabled: true
+        weight: 26
+      liftup_entity_reference_item:
+        enabled: true
+        weight: 26
+      liftup_prominent:
+        weight: 27
+        enabled: false
+      legislation_cards:
+        weight: 27
+        enabled: false
+      legislation_link:
+        enabled: true
+        weight: 28
+      link:
+        weight: 28
+        enabled: false
+      media:
+        weight: 29
+        enabled: false
+      text:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

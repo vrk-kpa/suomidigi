@@ -16,6 +16,7 @@
 
     a {
       @include button;
+      background-color: $white;
 
       &.is-active {
         background-color: $black;

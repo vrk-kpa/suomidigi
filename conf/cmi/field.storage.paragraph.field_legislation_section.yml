@@ -1,0 +1,20 @@
+uuid: 942e4d64-f498-4a34-84db-aea9c65b8ae1
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_legislation_section
+field_name: field_legislation_section
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

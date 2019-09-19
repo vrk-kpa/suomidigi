@@ -1,0 +1,22 @@
+uuid: ab6e0bf5-a9e3-40f1-9461-66bf0397dc34
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.liftup_prominent
+id: paragraph.liftup_prominent.status
+field_name: status
+entity_type: paragraph
+bundle: liftup_prominent
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,8 @@
+uuid: d59dd1ea-cb2d-4198-b909-1cba9419a125
+langcode: en
+status: true
+dependencies: {  }
+name: Legislation
+vid: legislation
+description: 'The tree structure for legislation cards and collections'
+weight: 0

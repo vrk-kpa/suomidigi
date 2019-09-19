@@ -1,0 +1,126 @@
+.auth-links {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto $gutter auto;
+  min-width: 280px;
+  padding: 0 ($gutter / 2);
+
+  .auth-links-description {
+    @include font-size(16px);
+    color: $gray-dark;
+    display: block;
+    margin-bottom: $gutter;
+    max-width: 360px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+
+    .auth-links-description__text {
+      background-color: $white;
+      display: inline-block;
+      position: relative;
+      padding: 0 10px;
+    }
+
+    &::before {
+      background-color: $gray-dark;
+      content: "";
+      height: 1px;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+  }
+
+  .auth-link {
+    @include font-size(16px);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0, 0.5);
+    border: none;
+    background-color: $blue;
+    color: $white;
+    display: block;
+    margin: 0 auto $gutter;
+    max-width: 370px;
+    padding: 15px 10px 15px 50px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    width: 100%;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 30px;
+      left: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+    }
+
+    &:active {
+      background-color: (darken($blue, 20%));
+    }
+
+    &:focus,
+    &:hover {
+      background-color: (darken($blue, 10%));
+      box-shadow: 0 2px 7px 0 rgba(0,0,0, 0.5);
+      cursor: pointer;
+      outline: none;
+      text-decoration: none;
+    }
+
+    &.auth-link--facebook {
+      background-color: $facebook-blue;
+
+      &::before {
+        background: url('../../images/facebook-f.svg') no-repeat 0 0 transparent;
+      }
+
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: darken($facebook-blue, 5%);
+      }
+    }
+
+    &.auth-link--google {
+      background-color: $white;
+      color: $black;
+
+      &::before {
+        background: url('../../images/google-g.svg') no-repeat 0 0 transparent;
+      }
+
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $gray-light;
+      }
+    }
+
+    &.auth-link--linkedin {
+      background-color: $white;
+      color: $black;
+
+      &::before {
+        background: url('../../images/linkedin-in.png') no-repeat 0 0 transparent;
+        background-size: contain;
+        background-position-x: 1px;
+      }
+
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $gray-light;
+      }
+    }
+  }
+}

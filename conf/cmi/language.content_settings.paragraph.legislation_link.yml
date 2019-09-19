@@ -1,0 +1,18 @@
+uuid: 513e1c2f-0d94-4f17-8342-1acdf7e8037f
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.legislation_link
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.legislation_link
+target_entity_type_id: paragraph
+target_bundle: legislation_link
+default_langcode: fi
+language_alterable: true

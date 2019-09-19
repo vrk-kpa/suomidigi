@@ -1,13 +1,41 @@
 display:
   default:
     display_options:
+      filters:
+        publish_on:
+          expose:
+            label: Julkaisupäivämäärä
+          group_info:
+            label: Julkaisupäivämäärä
+        unpublish_on:
+          expose:
+            label: 'Julkaisun peruutuspäivämäärä'
+        title:
+          expose:
+            label: Otsikko
+        type:
+          expose:
+            label: Sisältötyyppi
+        status:
+          expose:
+            label: Tila
+          group_info:
+            label: Julkaisutila
+            group_items:
+              1:
+                title: Julkaistu
+              2:
+                title: Julkaisematon
+        langcode:
+          expose:
+            label: Kieli
       exposed_form:
         options:
           submit_button: Suodatin
           reset_button_label: Palauta
           exposed_sorts_label: Lajittele
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
       pager:
         options:
           tags:
@@ -33,34 +61,6 @@ display:
           label: 'Julkaisun peruutuspäivämäärä'
         operations:
           label: Toimenpiteet
-      filters:
-        status:
-          expose:
-            label: Tila
-          group_info:
-            label: Julkaisutila
-            group_items:
-              1:
-                title: Julkaistu
-              2:
-                title: Julkaisematon
-        type:
-          expose:
-            label: Tyyppi
-        title:
-          expose:
-            label: Otsikko
-        langcode:
-          expose:
-            label: Kieli
-        publish_on:
-          expose:
-            label: Julkaisupäivämäärä
-          group_info:
-            label: Julkaisupäivämäärä
-        unpublish_on:
-          expose:
-            label: 'Julkaisun peruutuspäivämäärä'
     display_title: Isäntä
   overview:
     display_options:

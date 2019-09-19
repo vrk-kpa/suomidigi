@@ -1,0 +1,161 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_content.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_content_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_content module.
+    case 'help.page.suopa_content':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Performs alterations for Suomidigi content.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_language_switch_links_alter().
+ *
+ * Switch link title as desired.
+ */
+function suopa_content_language_switch_links_alter(array &$links, $type, $path) {
+  $entity = suopa_content_get_route_entity();
+
+  foreach ($links as $lang_code => &$link) {
+    switch ($lang_code) {
+      case 'en':
+        $link['title'] = 'In English';
+        break;
+
+      case 'sv':
+        $link['title'] = 'På svenska';
+        break;
+
+      case 'fi':
+        $link['title'] = 'Suomeksi';
+        break;
+    }
+
+    $link['#abbreviation'] = $lang_code;
+    if ($entity && $entity instanceof ContentEntityInterface) {
+      if (
+        !$entity->hasTranslation($lang_code) ||
+        (
+          method_exists($entity->getTranslation($lang_code), 'isPublished') &&
+          !$entity->getTranslation($lang_code)->isPublished()
+        )
+      ) {
+        $link['#untranslated'] = TRUE;
+      }
+    }
+  }
+}
+
+/**
+ * Helper function to extract the entity for the supplied route.
+ *
+ * @return null|ContentEntityInterface
+ *   Returns the found entity or null.
+ */
+function suopa_content_get_route_entity() {
+  $route_match = \Drupal::routeMatch();
+  // Entity will be found in the route parameters.
+  if (($route = $route_match->getRouteObject()) && ($parameters = $route->getOption('parameters'))) {
+    // Determine if the current route represents an entity.
+    foreach ($parameters as $name => $options) {
+      if (isset($options['type']) && strpos($options['type'], 'entity:') === 0) {
+        $entity = $route_match->getParameter($name);
+        if ($entity instanceof ContentEntityInterface && $entity->hasLinkTemplate('canonical')) {
+          return $entity;
+        }
+
+        // Since entity was found, no need to iterate further.
+        return NULL;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_node_access_records_alter().
+ *
+ * Because of a bug in View Unpublished module, the anonymous can
+ * view unpublished translations. Alter the access records based on
+ * node translations.
+ *
+ * {@inheritDoc}
+ */
+function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) {
+  foreach ($grants as $key => $grant) {
+    if (
+      strpos($grant['realm'], 'view_unpublished') !== FALSE &&
+      !array_key_exists('langcode', $grant)
+    ) {
+      unset($grants[$key]);
+    }
+  }
+  foreach ($node->getTranslationLanguages() as $langcode => $value) {
+    if ($node->getTranslation($langcode)->isPublished() === FALSE) {
+      $grants[] = [
+        'realm' => 'view_unpublished_content',
+        'gid' => 1,
+        'grant_view' => 1,
+        'grant_update' => 0,
+        'grant_delete' => 0,
+        'langcode' => $langcode,
+      ];
+    }
+    else {
+      $grants[] = [
+        'realm' => 'all',
+        'gid' => 0,
+        'grant_view' => 1,
+        'grant_update' => 0,
+        'grant_delete' => 0,
+        'langcode' => $langcode,
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function suopa_content_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $formats = [
+    'comment_body' => ['plain_text'],
+  ];
+
+  $field_name = $context['items']->getFieldDefinition()->getName();
+
+  if (array_key_exists($field_name, $formats)) {
+    $element['#allowed_formats'] = $formats[$field_name];
+    $element['#after_build'][] = '_remove_text_format_box';
+  }
+}
+
+/**
+ * After build callback for widget form alter.
+ */
+function _remove_text_format_box($form_element, FormStateInterface $form_state) {
+  // Remove help, guidelines and wrappers.
+  unset($form_element['format']['help']);
+  unset($form_element['format']['guidelines']);
+  unset($form_element['format']['#type']);
+  unset($form_element['format']['#theme_wrappers']);
+
+  return $form_element;
+}

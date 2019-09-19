@@ -1,0 +1,23 @@
+uuid: c8ae942a-600f-4d31-8b31-66e47811a43b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_link_required
+    - paragraphs.paragraphs_type.legislation_link
+  module:
+    - link
+id: paragraph.legislation_link.field_p_link_required
+field_name: field_p_link_required
+entity_type: paragraph
+bundle: legislation_link
+label: Link
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

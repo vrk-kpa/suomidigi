@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.core_content.field_comments
     - field.field.node.core_content.field_core_content_type
     - field.field.node.core_content.field_displayed_author
     - field.field.node.core_content.field_displayed_update_time
+    - field.field.node.core_content.field_header_image
     - field.field.node.core_content.field_ingress
     - field.field.node.core_content.field_media
     - field.field.node.core_content.field_paragraphs
@@ -68,10 +70,14 @@ content:
       timezone: ''
     third_party_settings: {  }
 hidden:
+  field_comments: true
   field_displayed_author: true
   field_displayed_update_time: true
+  field_header_image: true
   field_paragraphs: true
   field_reading_time: true
   field_theme: true
   langcode: true
   links: true
+  rate_vote_widget: true
+  search_api_excerpt: true

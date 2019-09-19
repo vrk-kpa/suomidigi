@@ -46,8 +46,8 @@
   }
 
   .moby-menu {
-    border-bottom: 1px solid rgba(165,172,176,.3);
-    padding-bottom: $gutter*2;
+    @include border('bottom');
+    padding-bottom: $gutter;
 
     .menu {
       list-style: none;

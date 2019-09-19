@@ -1,0 +1,6 @@
+label: 'Linkin kohde'
+description: 'Esimerkiksi, <em>Finlex.fi</em>'
+required: true
+translatable: false
+default_value_callback: ''
+field_type: string

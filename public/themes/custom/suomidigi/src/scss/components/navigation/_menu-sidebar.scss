@@ -3,7 +3,7 @@
 // This file includes styling related to menus in general
 //
 nav.menu--sidebar {
-  border-bottom: 1px solid rgba(165,172,176,.3);
+  @include border('bottom');
   display: none;
   padding-bottom: $gutter*2;
 

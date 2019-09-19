@@ -1,0 +1,21 @@
+uuid: f7375062-ea7d-4f8c-b0f2-35b733cb3d09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_legislation_colour
+    - paragraphs.paragraphs_type.legislation_attachment
+  module:
+    - options
+id: paragraph.legislation_attachment.field_legislation_colour
+field_name: field_legislation_colour
+entity_type: paragraph
+bundle: legislation_attachment
+label: 'Legislation Colour'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

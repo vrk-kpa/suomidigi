@@ -1,0 +1,22 @@
+uuid: c8a5422b-99d3-4df5-a7b2-886e05a88bca
+langcode: en
+status: true
+dependencies:
+  module:
+    - suopa_communities
+id: community.community.status
+field_name: status
+entity_type: community
+bundle: community
+label: Published
+description: 'A boolean indicating whether the Community is published.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

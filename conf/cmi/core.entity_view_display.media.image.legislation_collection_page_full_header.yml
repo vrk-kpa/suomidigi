@@ -1,0 +1,35 @@
+uuid: 3ffb7a06-2e07-40ee-851b-d19289c88837
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.legislation_collection_page_full_header
+    - field.field.media.image.field_media_image
+    - image.style.legislation_collection_page_full_header_image_large
+    - media.type.image
+  module:
+    - svg_image
+id: media.image.legislation_collection_page_full_header
+targetEntityType: media
+bundle: image
+mode: legislation_collection_page_full_header
+content:
+  field_media_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: legislation_collection_page_full_header_image_large
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

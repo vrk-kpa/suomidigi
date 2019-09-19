@@ -1,0 +1,57 @@
+uuid: 469ec1fa-15d8-4ae2-99a1-4665b6016991
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.community.teaser
+    - field.field.community.community.field_community_description
+    - field.field.community.community.field_community_domain
+    - field.field.community.community.field_community_link
+  module:
+    - link
+    - suopa_communities
+    - text
+id: community.community.teaser
+targetEntityType: community
+bundle: community
+mode: teaser
+content:
+  field_community_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_community_domain:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_community_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  user_id: true

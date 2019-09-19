@@ -27,6 +27,7 @@
     align-items: center;
     display: flex;
     margin: 0;
+    position: relative;
 
     @include breakpoint(0, $for-tablet-portrait-up) {
       width: 100%;
