@@ -20,10 +20,8 @@
   ]
 %}
 <section{{ attributes.addClass(classes) }}>
-  {% if comments and not label_hidden %}
-    {{ title_prefix }}
-    <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
-    {{ title_suffix }}
+  {% if not comment_form %}
+    <h3{{ title_attributes.addClass(title_classes) }}>{{ 'Comments'|t }}</h3>
   {% endif %}
 
   {{ comments }}
@@ -31,6 +29,12 @@
   {% if comment_form %}
     <h3 class="title comment-form__title">{{ 'Add new comment'|t }}</h3>
     {{ comment_form }}
+  {% elseif not comments %}
+    {% set login_path = path('user.login') %}
+    {% set register_path = path('user.register') %}
+    {% trans %}
+      <a href="{{ login_path }}">Log in</a> or <a href="{{ register_path }}">register</a> to post comments
+    {% endtrans %}
   {% endif %}
 
 </section>
