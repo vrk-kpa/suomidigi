@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+#}
+{%
+  set classes = [
+    'media-image__creator',
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+  ]
+%}
+{%
+  set title_classes = [
+    'field__label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{% for item in items %}
+  <div{{ attributes.addClass(classes) }}>
+    <span class="media-image__creator--label">
+      {{ 'Photo'|t }}:
+    </span> {{ item.content }}
+  </div>
+{% endfor %}
