@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_paragraph
+    - field.field.media.image.field_creator
     - field.field.media.image.field_media_image
     - media.type.image
     - responsive_image.styles.inline_image_full_width
@@ -14,8 +15,16 @@ targetEntityType: media
 bundle: image
 mode: media_paragraph
 content:
-  field_media_image:
+  field_creator:
+    type: string
     weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_media_image:
+    weight: 1
     label: hidden
     settings:
       responsive_image_style: inline_image_full_width
@@ -27,5 +36,6 @@ hidden:
   created: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true
