@@ -20,9 +20,9 @@
   <a href="{{ url }}" class="legislation-collection--teaser__link">
     <div class="legislation-collection--teaser__image">
       {% if is_full_width %}
-        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header', responsive=true) }}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
       {% else %}
-        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header_alternative', responsive=true) }}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header_alternative', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
       {% endif %}
     </div>
     <div class="legislation-collection--teaser__content">

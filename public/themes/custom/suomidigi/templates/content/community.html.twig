@@ -16,7 +16,7 @@
     <div class="community__header">
       <div class="community__icon">
         {% if community_domain_logo is not empty %}
-          {{ drupal_image(community_domain_logo) }}
+          {{ drupal_image(community_domain_logo, 'large', { alt: community_domain_logo_alt, title: community_domain_logo_alt }) }}
         {% else %}
           {% if community_domain_label|first|upper %}
             <span class="community__icon--letter">

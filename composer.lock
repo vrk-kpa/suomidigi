@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dd4cf3aef65c0801e35de981bfd4a31",
+    "content-hash": "11e9fbe7a2cb2526f8661bf05c2f7c1c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5373,6 +5373,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5830,7 +5833,8 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
-                }
+                },
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -6860,9 +6864,7 @@
             "version": "1.11.15",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -7799,9 +7801,7 @@
             "version": "4.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/select2/select2/archive/4.0.7.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -7813,9 +7813,7 @@
             "version": "1.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -9445,13 +9443,11 @@
             "time": "2019-05-14T13:14:31+00:00"
         },
         {
-            "name": "w8tcha/ckeditor-wordcount-plugin",
+            "name": "w8tcha/CKEditor-WordCount-Plugin",
             "version": "1.17.6",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -11059,16 +11055,16 @@
         },
         {
             "name": "instaclick/php-webdriver",
-            "version": "1.4.5",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/instaclick/php-webdriver.git",
-                "reference": "6fa959452e774dcaed543faad3a9d1a37d803327"
+                "reference": "bd9405077ca04129a73059a06873bedb5e138402"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/6fa959452e774dcaed543faad3a9d1a37d803327",
-                "reference": "6fa959452e774dcaed543faad3a9d1a37d803327",
+                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/bd9405077ca04129a73059a06873bedb5e138402",
+                "reference": "bd9405077ca04129a73059a06873bedb5e138402",
                 "shasum": ""
             },
             "require": {
@@ -11114,7 +11110,7 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2017-06-30T04:02:48+00:00"
+            "time": "2019-09-23T15:50:44+00:00"
         },
         {
             "name": "myclabs/deep-copy",

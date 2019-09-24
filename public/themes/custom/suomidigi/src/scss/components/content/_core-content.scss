@@ -1,4 +1,11 @@
 .core-content {
+
+  &__published {
+    @include font-size(14px);
+    color: $gray-darker;
+    line-height: 100%;
+  }
+
   .article__header.is-empty {
     @include border('bottom');
     margin-bottom: $gutter * 0.75;
