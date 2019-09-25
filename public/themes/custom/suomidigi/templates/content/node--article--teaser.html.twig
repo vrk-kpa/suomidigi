@@ -86,18 +86,18 @@
   <a href="{{ url }}" class="article-teaser__link">
     <div class="article-teaser__image">
       {% if is_full_width %}
-        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header', responsive=true) }}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
       {% else %}
-        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header_alternative', responsive=true) }}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header_alternative', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
       {% endif %}
     </div>
     <div class="article-teaser__content">
       <span class="article-teaser__type">
         {{ content.field_article_type }}
       </span>
-      <h2 class="article-teaser__label">
+      <h3 class="article-teaser__label">
         {{ label }}
-      </h2>
+      </h3>
       {% if content.field_ingress|render %}
         <p class="article-teaser__lead">
           {{ content.field_ingress['0']['#markup'] }}

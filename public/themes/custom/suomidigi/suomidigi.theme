@@ -86,6 +86,8 @@ function suomidigi_preprocess_node(&$variables) {
                 'article_full_width_' . $node->id(),
                 FALSE
               );
+              $variables['big_liftup_teaser_image_alt'] = $mediaImage->get('alt')->getValue();
+              $variables['big_liftup_teaser_image_title'] = $mediaImage->get('title')->getValue();
             }
           }
         }
@@ -471,6 +473,8 @@ function suomidigi_preprocess_community(&$variables) {
       if (!empty($image_target)) {
         $image_id = $image_target->get('target_id')->getValue();
         $variables['community_domain_logo'] = $image_id;
+        $variables['community_domain_logo_alt'] = $image_target->get('alt')->getValue();
+        $variables['community_domain_logo_title'] = $image_target->get('title')->getValue();
       }
     }
 
