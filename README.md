@@ -6,7 +6,7 @@ A Suomidigi Drupal 8 website.
 
 Env | Branch | Drush alias | URL
 --- | ------ | ----------- | ---
-development | * | - | http://suomidigi.fi.docker.amazee.io/
+development | * | - | https://suomidigi.fi.docker.sh/
 production | master | @master | TBD
 
 ## Requirements
@@ -14,7 +14,7 @@ production | master | @master | TBD
 You need to have these applications installed to operate on all environments:
 
 - [Docker](https://github.com/druidfi/guidelines/blob/master/docs/docker.md)
-- [Pygmy](https://github.com/druidfi/guidelines/blob/master/docs/pygmy.md)
+- [Stonehenge](https://github.com/druidfi/stonehenge)
 - For the new person: Your SSH public key needs to be added to servers
 
 ## Setup a new local environment
