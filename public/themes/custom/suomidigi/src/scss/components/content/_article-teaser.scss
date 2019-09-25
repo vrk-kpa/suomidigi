@@ -33,9 +33,10 @@
 .article-teaser__label {
   @include font-size(22px);
   @include line-height(22px, 24px);
+  color: $black;
   font-weight: 800;
   margin: $gutter * 0.5 0;
-  color: $black;
+  overflow-wrap: break-word;
 
   @include breakpoint($for-tablet-portrait-up) {
     @include font-size(20px);
