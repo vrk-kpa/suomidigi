@@ -6,7 +6,7 @@ A Suomidigi Drupal 8 website.
 
 Env | Branch | Drush alias | URL
 --- | ------ | ----------- | ---
-development | * | - | https://suomidigi.fi.docker.sh/
+development | * | - | https://suomidigi.docker.sh/
 production | master | @master | TBD
 
 ## Requirements
@@ -20,9 +20,6 @@ You need to have these applications installed to operate on all environments:
 ## Setup a new local environment
 
 By default we'll use Docker based environment.
-
-- Change the hostname in `docker-compose.yml` file:
-  E.g. `mysite.fi.docker.amazee.io` to `yoursite.fi.docker.amazee.io`
 
 ## Create and start the environment
 

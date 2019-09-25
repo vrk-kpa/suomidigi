@@ -12,7 +12,7 @@
 $config['system.logging']['error_level'] = 'all';
 
 // Disable Google Analytics from sending dev GA data.
-if (getenv('HTTP_HOST') === 'suomidigi.fi.docker.sh') {
+if (getenv('HTTP_HOST') === 'suomidigi.docker.sh') {
   $config['google_analytics.settings']['account'] = 'UA-XXXXXXXX-YY';
 }
 
