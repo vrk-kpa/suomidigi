@@ -342,7 +342,20 @@ display:
         type: 'entity:node'
         options:
           view_mode: teaser
-      header: {  }
+      header:
+        entity_taxonomy_term:
+          id: entity_taxonomy_term
+          table: views
+          field: entity_taxonomy_term
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: true
+          target: '{{ raw_arguments.tid }}'
+          view_mode: before_content
+          bypass_access: false
+          plugin_id: entity
       footer:
         entity_taxonomy_term:
           id: entity_taxonomy_term

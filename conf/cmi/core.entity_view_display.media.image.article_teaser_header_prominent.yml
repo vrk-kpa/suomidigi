@@ -25,6 +25,7 @@ content:
     region: content
 hidden:
   created: true
+  field_creator: true
   langcode: true
   name: true
   search_api_excerpt: true

@@ -1,0 +1,10 @@
+uuid: 5a5e767b-113d-4b7c-8e18-cfa9051a0ae0
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.before_content
+label: 'Before content'
+targetEntityType: taxonomy_term
+cache: true
