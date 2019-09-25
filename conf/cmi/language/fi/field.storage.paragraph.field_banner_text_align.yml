@@ -1,0 +1,8 @@
+settings:
+  allowed_values:
+    -
+      label: Teksti tasattu vasemmalle
+    -
+      label: Normaali
+    -
+      label: Teksti tasattu oikealle

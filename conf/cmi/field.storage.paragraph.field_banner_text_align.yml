@@ -12,6 +12,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: left
+      label: Left
+    -
       value: normal
       label: Normal
     -

@@ -119,6 +119,9 @@
             "drupal/menu_block_current_language": {
                 "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
             },
+            "drupal/svg_image": {
+                "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"
+            },
             "drupal/ckwordcount": {
                 "https://www.drupal.org/project/ckwordcount/issues/2850845": "https://www.drupal.org/files/issues/2019-06-23/ckwordcount_plugin_path_2850845-10.patch"
             }

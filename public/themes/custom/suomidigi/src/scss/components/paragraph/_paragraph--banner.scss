@@ -7,15 +7,12 @@
 
   .paragraph__link {
     display: block;
+    text-decoration: none;
 
     &:hover {
       .icon {
         color: $white;
       }
-    }
-
-    &.text-align--right {
-      text-align: right;
     }
   }
 
@@ -101,5 +98,98 @@
         }
       }
     }
+  }
+}
+
+.paragraph__link {
+  &.no-background-image {
+    background-color: $blue-dark;
+  }
+
+  &.text-align--left {
+    text-align: left;
+
+    &.no-background-image {
+      background-color: $gray-lighter;
+    }
+
+    .paragraph__inner {
+      @include breakpoint($for-mobile-landscape-up) {
+        position: static;
+      }
+    }
+
+    .paragraph__inner--container {
+      margin-left: 0;
+      text-align: center;
+
+      @include breakpoint($for-mobile-landscape-up) {
+        align-items: center;
+        display: flex;
+        width: 100%;
+      }
+    }
+
+    .paragraph__background {
+      padding-bottom: calc(122 / 375 * 100%);
+
+      @include breakpoint($for-mobile-landscape-up) {
+        padding: $gutter 0;
+        height: auto;
+      }
+    }
+
+    .paragraph__title {
+      @include font-size(16px);
+      @include line-height(16px, 20px);
+      margin-bottom: $gutter;
+      color: $blue-medium;
+      font-weight: 600;
+      text-align: center;
+      padding: 0 $gutter;
+
+      @include breakpoint($for-mobile-landscape-up) {
+        margin: 0 $gutter 0 $gutter * 2;
+        padding: 0;
+        text-align: left;
+      }
+    }
+
+    .paragraph__description {
+      @include font-size(14px);
+      border: 2px solid $blue-light;
+      background-color: $blue-light;
+      color: $white;
+      display: inline-block;
+      font-weight: bold;
+      padding: $gutter / 2 $gutter;
+      text-transform: uppercase;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+      @include breakpoint($for-mobile-landscape-up) {
+        @include font-size(12px);
+        margin: 0 $gutter 0 auto;
+      }
+
+      &-icon {
+        display: none;
+      }
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      .paragraph__description {
+        background-color: $white;
+        color: $blue-light;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+
+  &.text-align--right {
+    text-align: right;
   }
 }
