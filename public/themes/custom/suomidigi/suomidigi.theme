@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
 use Drupal\suopa_communities\Entity\Community;
@@ -191,6 +192,16 @@ function suomidigi_preprocess_block(&$variables) {
         $variables['content']['field_liftup_image'] = $build;
       }
     }
+
+    // Replace taxonomy term page title to correspond taxonomy term plural
+    // name, if one exists. Otherwise use taxonomy term name.
+    if (!empty($term) && $term->hasField('field_plural_name')) {
+      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+      if (!empty($translated_title)) {
+        $variables['content']['#title'] = Markup::create($translated_title);
+      }
+    }
   }
 }
 
@@ -346,16 +357,6 @@ function suomidigi_views_pre_render(ViewExecutable &$view) {
       usort($view->result, function ($a, $b) {
         return $b->node_field_data_published_at - $a->node_field_data_published_at;
       });
-    }
-
-    // Replace taxonomy term view title to correspond taxonomy term plural
-    // name, if one exists. Otherwise use taxonomy term name.
-    if ($term->hasField('field_plural_name')) {
-      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
-
-      if (!empty($translated_title)) {
-        $view->setTitle($translated_title);
-      }
     }
   }
 }
