@@ -32,7 +32,8 @@ function suomidigi_preprocess(&$variables) {
  * {@inheritdoc}
  */
 function suomidigi_preprocess_html(&$variables) {
-  $variables['theme_path'] = file_create_url(drupal_get_path('theme', 'suomidigi'));
+  global $base_secure_url;
+  $variables['theme_path'] = file_create_url($base_secure_url . '/' . drupal_get_path('theme', 'suomidigi'));
 }
 
 /**
@@ -88,6 +89,17 @@ function suomidigi_preprocess_node(&$variables) {
               );
               $variables['big_liftup_teaser_image_alt'] = $mediaImage->get('alt')->getValue();
               $variables['big_liftup_teaser_image_title'] = $mediaImage->get('title')->getValue();
+
+              // Override full width value for taxonomy term views.
+              if (isset($variables['view'])) {
+                $variables['is_full_width'] = in_array(
+                  $variables['view']->id(),
+                  [
+                    'theme_tag_lists',
+                    'taxonomy_term',
+                  ]
+                ) ? TRUE : FALSE;
+              }
             }
           }
         }
@@ -218,8 +230,8 @@ function suomidigi_preprocess_menu(&$variables) {
 function suomidigi_get_icons_path() {
   static $icon_path;
   if (!isset($icon_path)) {
-    global $base_url;
-    $icon_path = $base_url . '/' . drupal_get_path('theme', 'suomidigi') . '/icons/icons.svg';
+    global $base_secure_url;
+    $icon_path = $base_secure_url . '/' . drupal_get_path('theme', 'suomidigi') . '/icons/icons.svg';
 
     if (!empty($icon_path)) {
       // Add icons path as a global variable.
