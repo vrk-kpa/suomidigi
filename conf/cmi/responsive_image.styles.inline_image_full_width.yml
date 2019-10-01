@@ -25,7 +25,7 @@ image_style_mappings:
     breakpoint_id: suomidigi.for_tablet_portrait_up
     multiplier: 1x
     image_mapping_type: image_style
-    image_mapping: 600_width
+    image_mapping: 900_width
   -
     breakpoint_id: suomidigi.for_phone_only
     multiplier: 1x
