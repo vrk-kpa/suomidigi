@@ -236,4 +236,3 @@ function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
 
   return $form;
 }
-

@@ -28,7 +28,7 @@ content:
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
-      add_mode: dropdown
+      add_mode: button
       form_display_mode: default
       default_paragraph_type: _none
       features:
@@ -47,9 +47,9 @@ content:
         view_mode: media_library
       field_widget_edit: true
       field_widget_remove: true
-      field_widget_replace: true
       open: true
       selection_mode: selection_append
+      field_widget_replace: false
     third_party_settings: {  }
     region: content
   field_paragraphs:
@@ -62,7 +62,7 @@ content:
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
-      add_mode: dropdown
+      add_mode: button
       form_display_mode: default
       default_paragraph_type: _none
       features:
