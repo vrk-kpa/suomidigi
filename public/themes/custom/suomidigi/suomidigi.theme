@@ -55,17 +55,19 @@ function suomidigi_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->hasField('published_at')) {
+    $published_at = $node->get('published_at')->getString();
+  }
+
+  if (isset($published_at) && $node->isPublished()) {
+    $variables['published_at'] = $published_at;
+  }
+
   if (
     $variables['node']->getType() === 'article' ||
     $variables['node']->getType() === 'legislation_collection_page'
   ) {
-    $node = $variables['node'];
-    $published_at = $node->get('published_at')->getString();
-
-    if (isset($published_at) && $node->isPublished()) {
-      $variables['published_at'] = $published_at;
-    }
-
     if ($node->hasField('field_header_image')) {
       $mediaEntity = $node->get('field_header_image')->getValue();
 
