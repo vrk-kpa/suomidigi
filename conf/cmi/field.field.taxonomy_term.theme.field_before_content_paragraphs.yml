@@ -1,0 +1,23 @@
+uuid: b0ed7a79-07c8-4dee-82cf-ec32104082c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_before_content_paragraphs
+    - taxonomy.vocabulary.theme
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.theme.field_before_content_paragraphs
+field_name: field_before_content_paragraphs
+entity_type: taxonomy_term
+bundle: theme
+label: 'Before content - Paragraphs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings: {  }
+field_type: entity_reference_revisions

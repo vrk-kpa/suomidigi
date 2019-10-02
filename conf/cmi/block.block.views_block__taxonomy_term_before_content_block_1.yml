@@ -1,0 +1,31 @@
+uuid: 600bfda8-12ff-42ad-b3ab-4c57e1381845
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.taxonomy_term_before_content
+  module:
+    - system
+    - views
+  theme:
+    - suomidigi
+id: views_block__taxonomy_term_before_content_block_1
+theme: suomidigi
+region: content
+weight: -5
+provider: null
+plugin: 'views_block:taxonomy_term_before_content-block_1'
+settings:
+  id: 'views_block:taxonomy_term_before_content-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/taxonomy/term/*'
+    negate: false
+    context_mapping: {  }

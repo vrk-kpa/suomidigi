@@ -5,10 +5,12 @@
  * Contains suopa_content.module.
  */
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_help().
@@ -158,4 +160,78 @@ function _remove_text_format_box($form_element, FormStateInterface $form_state) 
   unset($form_element['format']['#theme_wrappers']);
 
   return $form_element;
+}
+
+/**
+ * This function stores/returns nids for the given category.
+ *
+ * Static storage of our excluded nids.
+ *
+ * @param string $cat
+ *   A category given by the exclude plugin.
+ * @param int $tid
+ *   Taxonomy term, if available.
+ * @param int $nid
+ *   The nid to be excluded. Optional so the function just returns the category.
+ *
+ * @return array
+ *   Always returns the given category.
+ */
+function _suopa_content_exclude_previous_entities($cat, $tid = NULL, $nid = NULL) {
+  $cached = \Drupal::cache()->get('cache_tag_id__' . $tid);
+  if ($cached) {
+    $excludes = $cached->data;
+  }
+
+  // Add nid to be excluded in the current category.
+  if (!empty($nid)) {
+    $excludes[$cat][$nid] = $nid;
+    \Drupal::cache()->set(
+      'cache_tag_id__' . $tid,
+      $excludes,
+      Cache::PERMANENT,
+      ['node:' . $nid]
+    );
+  }
+
+  return !empty($excludes[$cat]) ? $excludes[$cat] : [];
+}
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function suopa_content_views_data_alter(&$data) {
+  $data['node']['views_exclude_previous'] = [
+    'group' => t('Content'),
+    'title' => t('Views Exclude Previous'),
+    'help' => t('Excludes nodes that have already been loaded/viewed in the current page.'),
+    'filter' => ['id' => 'views_exclude_previous'],
+  ];
+}
+
+/**
+ * Implements hook_views_post_execute().
+ */
+function suopa_content_views_post_execute(ViewExecutable $view) {
+  $views = [
+    'theme_tag_lists',
+    'theme_tag_communities',
+  ];
+
+  if (
+    in_array('node_field_data', array_keys($view->getBaseTables())) &&
+    in_array($view->id(), $views)
+  ) {
+    $term_id = 0;
+
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+      $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+    }
+
+    foreach ($view->result as $result) {
+      if (!empty($result->nid)) {
+        _suopa_content_exclude_previous_entities('views', $term_id, $result->nid);
+      }
+    }
+  }
 }

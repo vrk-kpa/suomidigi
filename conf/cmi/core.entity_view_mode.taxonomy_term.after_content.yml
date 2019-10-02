@@ -1,0 +1,10 @@
+uuid: cc60a8cd-98d6-4779-af19-5d8c2b333907
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.after_content
+label: 'After content'
+targetEntityType: taxonomy_term
+cache: true

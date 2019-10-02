@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_image_browser
+    - field.field.taxonomy_term.theme.field_before_content_paragraphs
     - field.field.taxonomy_term.theme.field_liftup_image
     - field.field.taxonomy_term.theme.field_paragraphs
     - taxonomy.vocabulary.theme
@@ -17,24 +18,43 @@ targetEntityType: taxonomy_term
 bundle: theme
 mode: default
 content:
+  field_before_content_paragraphs:
+    type: paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
+    third_party_settings: {  }
+    region: content
   field_liftup_image:
     type: entity_browser_entity_reference
-    weight: 1
+    weight: 2
     settings:
       entity_browser: media_image_browser
       field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: media_library
       field_widget_edit: true
       field_widget_remove: true
       field_widget_replace: true
       open: true
       selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: default
     third_party_settings: {  }
     region: content
   field_paragraphs:
     type: paragraphs
-    weight: 2
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -53,7 +73,7 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 3
+    weight: 1
     region: content
     settings:
       include_locked: true
@@ -68,13 +88,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   revision_log_message:
     type: hide_revision_field_log_widget
-    weight: 6
+    weight: 7
     region: content
     settings:
       show: true
@@ -85,7 +105,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

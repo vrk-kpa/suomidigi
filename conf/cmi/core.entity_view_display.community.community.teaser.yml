@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.community.teaser
+    - field.field.community.community.field_approved
     - field.field.community.community.field_community_description
     - field.field.community.community.field_community_domain
     - field.field.community.community.field_community_link
+    - field.field.community.community.field_theme
   module:
     - link
     - suopa_communities
@@ -53,5 +55,8 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  field_approved: true
+  field_theme: true
   langcode: true
+  search_api_excerpt: true
   user_id: true

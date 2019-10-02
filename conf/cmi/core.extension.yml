@@ -109,6 +109,7 @@ module:
   video_embed_field: 0
   view_unpublished: 0
   views_bulk_operations: 0
+  views_infinite_scroll: 0
   views_ui: 0
   viewsreference: 0
   votingapi: 0

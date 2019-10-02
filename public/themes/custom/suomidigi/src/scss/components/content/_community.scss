@@ -23,13 +23,13 @@
   &__icon {
     align-content: center;
     display: flex;
-    margin-right: $gutter;
     justify-content: center;
+    margin-right: $gutter;
 
     img {
-      min-width: $gutter * 2;
-      min-height: $gutter * 2;
       max-width: $gutter * 2;
+      min-height: $gutter * 2;
+      min-width: $gutter * 2;
     }
 
     &--letter {
@@ -42,8 +42,8 @@
       font-weight: bold;
       height: $gutter * 2;
       justify-content: center;
-      text-transform: uppercase;
       text-decoration: none;
+      text-transform: uppercase;
       width: $gutter * 2;
 
       .community__link:hover & {
@@ -95,4 +95,8 @@
     color: $black;
   }
 
+  .theme-term__list-item & {
+    @include border();
+    padding: $gutter;
+  }
 }

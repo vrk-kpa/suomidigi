@@ -1,21 +1,32 @@
-uuid: 94eb5cf3-9cd4-4a6c-a637-22e1c4e1e2d9
+uuid: efb09cfb-1482-40e9-8928-66e2ad1627e6
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.taxonomy_term.after_content
     - field.field.taxonomy_term.theme.field_before_content_paragraphs
     - field.field.taxonomy_term.theme.field_liftup_image
     - field.field.taxonomy_term.theme.field_paragraphs
     - taxonomy.vocabulary.theme
-id: taxonomy_term.theme.default
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.theme.after_content
 targetEntityType: taxonomy_term
 bundle: theme
-mode: default
-content: {  }
+mode: after_content
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
 hidden:
   description: true
   field_before_content_paragraphs: true
   field_liftup_image: true
-  field_paragraphs: true
   langcode: true
   search_api_excerpt: true

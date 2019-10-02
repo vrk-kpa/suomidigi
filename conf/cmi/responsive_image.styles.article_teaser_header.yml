@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - image.style.article_teaser_header_image_large
-    - image.style.article_teaser_header_image_small
   theme:
     - suomidigi
 id: article_teaser_header
@@ -20,10 +19,5 @@ image_style_mappings:
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: article_teaser_header_image_large
-  -
-    breakpoint_id: suomidigi.for_tablet_portrait_up
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: article_teaser_header_image_small
 breakpoint_group: suomidigi
-fallback_image_style: article_teaser_header_image_small
+fallback_image_style: article_teaser_header_image_large

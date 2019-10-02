@@ -17,7 +17,7 @@ filters:
     status: false
     weight: -50
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption> <a href hreflang !href accesskey id rel target title>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption data-responsive-image-style> <a href hreflang !href accesskey id rel target title> <pre>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -75,6 +75,10 @@ filters:
     status: true
     weight: -49
     settings:
+      responsive_style_article_full_header: '0'
+      responsive_style_article_teaser_header: '0'
+      responsive_style_article_teaser_header_alternative: '0'
+      responsive_style_article_teaser_header_prominent: '0'
       responsive_style_inline_image_full_width: '1'
       responsive_style_inline_image_half_width: '1'
   filter_imagestyle:
@@ -86,7 +90,20 @@ filters:
       image_style_1200_width: '0'
       image_style_600_width: '0'
       image_style_900_width: '0'
+      image_style_article_full_header_image_large: '0'
+      image_style_article_full_header_image_medium: '0'
+      image_style_article_full_header_image_small: '0'
+      image_style_article_teaser_header_image_alternative_large: '0'
+      image_style_article_teaser_header_image_alternative_small: '0'
+      image_style_article_teaser_header_image_large: '0'
+      image_style_article_teaser_header_image_small: '0'
+      image_style_attachment_teaser_image_small: '0'
+      image_style_cta_banner_background: '0'
       image_style_large: '0'
+      image_style_legislation_collection_page_full_header_image_large: '0'
       image_style_linkit_result_thumbnail: '0'
+      image_style_media_entity_browser_thumbnail: '0'
+      image_style_media_library: '0'
       image_style_medium: '0'
+      image_style_theme_teaser_liftup_image_small: '0'
       image_style_thumbnail: '0'
