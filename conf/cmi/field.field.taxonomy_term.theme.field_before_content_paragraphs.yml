@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_before_content_paragraphs
+    - paragraphs.paragraphs_type.view
     - taxonomy.vocabulary.theme
   module:
     - entity_reference_revisions
@@ -19,5 +20,69 @@ default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:paragraph'
-  handler_settings: {  }
+  handler_settings:
+    negate: 0
+    target_bundles:
+      view: view
+    target_bundles_drag_drop:
+      attachment:
+        weight: 21
+        enabled: false
+      banner_cta:
+        weight: 22
+        enabled: false
+      container:
+        weight: 23
+        enabled: false
+      container_title:
+        weight: 24
+        enabled: false
+      highlight_bullet_point:
+        weight: 25
+        enabled: false
+      highlight_bullet_point_item:
+        weight: 26
+        enabled: false
+      highlight_cta:
+        weight: 27
+        enabled: false
+      highlight_text_box:
+        weight: 28
+        enabled: false
+      legislation_attachment:
+        weight: 29
+        enabled: false
+      legislation_cards:
+        weight: 30
+        enabled: false
+      legislation_link:
+        weight: 31
+        enabled: false
+      liftup_box:
+        weight: 32
+        enabled: false
+      liftup_box_item:
+        weight: 33
+        enabled: false
+      liftup_entity_reference:
+        weight: 34
+        enabled: false
+      liftup_entity_reference_item:
+        weight: 35
+        enabled: false
+      liftup_prominent:
+        weight: 36
+        enabled: false
+      link:
+        weight: 37
+        enabled: false
+      media:
+        weight: 38
+        enabled: false
+      text:
+        weight: 39
+        enabled: false
+      view:
+        enabled: true
+        weight: 40
 field_type: entity_reference_revisions
