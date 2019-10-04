@@ -10,7 +10,7 @@ CKEDITOR.plugins.add("readtime",
         requires: 'htmlwriter,notification,undo',
         bbcodePluginLoaded: false,
         onLoad: function() {
-            CKEDITOR.document.appendStyleSheet(this.path + "css/wordcount.css");
+            CKEDITOR.document.appendStyleSheet("/libraries/ckeditor-wordcount-plugin/wordcount/css/wordcount.css");
         },
         init: function(editor) {
             var defaultFormat = "",

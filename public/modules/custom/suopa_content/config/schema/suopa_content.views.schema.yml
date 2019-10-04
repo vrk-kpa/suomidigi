@@ -1,0 +1,4 @@
+# Schema for the views plugins of the SuoPa Content module.
+views.filter.views_exclude_previous:
+  type: views.filter.in_operator
+  label: 'Views Exclude Previous'

@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
 use Drupal\suopa_communities\Entity\Community;
@@ -32,7 +33,8 @@ function suomidigi_preprocess(&$variables) {
  * {@inheritdoc}
  */
 function suomidigi_preprocess_html(&$variables) {
-  $variables['theme_path'] = file_create_url(drupal_get_path('theme', 'suomidigi'));
+  global $base_secure_url;
+  $variables['theme_path'] = file_create_url($base_secure_url . '/' . drupal_get_path('theme', 'suomidigi'));
 }
 
 /**
@@ -53,17 +55,19 @@ function suomidigi_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->hasField('published_at')) {
+    $published_at = $node->get('published_at')->getString();
+  }
+
+  if (isset($published_at) && $node->isPublished()) {
+    $variables['published_at'] = $published_at;
+  }
+
   if (
     $variables['node']->getType() === 'article' ||
     $variables['node']->getType() === 'legislation_collection_page'
   ) {
-    $node = $variables['node'];
-    $published_at = $node->get('published_at')->getString();
-
-    if (isset($published_at) && $node->isPublished()) {
-      $variables['published_at'] = $published_at;
-    }
-
     if ($node->hasField('field_header_image')) {
       $mediaEntity = $node->get('field_header_image')->getValue();
 
@@ -86,6 +90,19 @@ function suomidigi_preprocess_node(&$variables) {
                 'article_full_width_' . $node->id(),
                 FALSE
               );
+              $variables['big_liftup_teaser_image_alt'] = $mediaImage->get('alt')->getValue();
+              $variables['big_liftup_teaser_image_title'] = $mediaImage->get('title')->getValue();
+
+              // Override full width value for taxonomy term views.
+              if (isset($variables['view'])) {
+                $variables['is_full_width'] = in_array(
+                  $variables['view']->id(),
+                  [
+                    'theme_tag_lists',
+                    'taxonomy_term',
+                  ]
+                ) ? TRUE : FALSE;
+              }
             }
           }
         }
@@ -177,6 +194,16 @@ function suomidigi_preprocess_block(&$variables) {
         $variables['content']['field_liftup_image'] = $build;
       }
     }
+
+    // Replace taxonomy term page title to correspond taxonomy term plural
+    // name, if one exists. Otherwise use taxonomy term name.
+    if (!empty($term) && $term->hasField('field_plural_name')) {
+      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+      if (!empty($translated_title)) {
+        $variables['content']['#title'] = Markup::create($translated_title);
+      }
+    }
   }
 }
 
@@ -216,8 +243,8 @@ function suomidigi_preprocess_menu(&$variables) {
 function suomidigi_get_icons_path() {
   static $icon_path;
   if (!isset($icon_path)) {
-    global $base_url;
-    $icon_path = $base_url . '/' . drupal_get_path('theme', 'suomidigi') . '/icons/icons.svg';
+    global $base_secure_url;
+    $icon_path = $base_secure_url . '/' . drupal_get_path('theme', 'suomidigi') . '/icons/icons.svg';
 
     if (!empty($icon_path)) {
       // Add icons path as a global variable.
@@ -295,7 +322,11 @@ function suomidigi_preprocess_taxonomy_term(&$variables) {
 function suomidigi_preprocess_views_view(&$variables) {
   $view = $variables['view'];
 
-  if ($view->id() == 'taxonomy_term' && $view->current_display == 'page_1') {
+  if (
+    ($view->id() == 'taxonomy_term' && $view->current_display == 'page_1') ||
+    $view->id() == 'theme_tag_communities' ||
+    $view->id() == 'theme_tag_lists'
+  ) {
     $variables['attributes']['class'][] = 'theme-term__list';
     $row_style_plugin = &$variables['rows'][0]['#view']->style_plugin;
     $row_style_plugin->options['row_class'] = 'theme-term__list-item';
@@ -328,16 +359,6 @@ function suomidigi_views_pre_render(ViewExecutable &$view) {
       usort($view->result, function ($a, $b) {
         return $b->node_field_data_published_at - $a->node_field_data_published_at;
       });
-    }
-
-    // Replace taxonomy term view title to correspond taxonomy term plural
-    // name, if one exists. Otherwise use taxonomy term name.
-    if ($term->hasField('field_plural_name')) {
-      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
-
-      if (!empty($translated_title)) {
-        $view->setTitle($translated_title);
-      }
     }
   }
 }
@@ -467,6 +488,8 @@ function suomidigi_preprocess_community(&$variables) {
       if (!empty($image_target)) {
         $image_id = $image_target->get('target_id')->getValue();
         $variables['community_domain_logo'] = $image_id;
+        $variables['community_domain_logo_alt'] = $image_target->get('alt')->getValue();
+        $variables['community_domain_logo_title'] = $image_target->get('title')->getValue();
       }
     }
 

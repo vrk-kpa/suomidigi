@@ -23,7 +23,11 @@ display:
         tid:
           exception:
             title: Kaikki
+  block_1:
+    display_options:
+      pager:
+        options:
+          views_infinite_scroll:
+            button_text: 'Näytä lisää'
   feed_1:
     display_title: Syöte
-  page_1:
-    display_title: Sivu

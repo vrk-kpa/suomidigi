@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ */
+#}
+{%
+  set classes = [
+  'taxonomy-term',
+  'vocabulary-' ~ term.bundle|clean_class,
+]
+%}
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+  <div class="content">
+    {{ content }}
+  </div>
+</div>

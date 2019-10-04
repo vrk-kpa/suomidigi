@@ -7,8 +7,10 @@ dependencies:
     - field.field.community.community.field_community_description
     - field.field.community.community.field_community_domain
     - field.field.community.community.field_community_link
+    - field.field.community.community.field_theme
   module:
     - link
+    - select2
     - suopa_communities
     - text
 id: community.community.default
@@ -38,16 +40,25 @@ content:
     type: options_select
     region: content
   field_community_link:
-    weight: 4
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
+  field_theme:
+    weight: 4
+    settings:
+      width: 400px
+      match_operator: CONTAINS
+      autocomplete: false
+    third_party_settings: {  }
+    type: select2_entity_reference
+    region: content
   langcode:
     type: language_select
-    weight: 5
+    weight: 6
     region: content
     settings:
       include_locked: true
@@ -62,7 +73,7 @@ content:
     third_party_settings: {  }
   user_id:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60

@@ -31,6 +31,9 @@ settings:
     embed: 0
   preselect_views:
     communities: communities
+    theme_tag_communities: theme_tag_communities
+    theme_tag_lists: theme_tag_lists
+    approval_queue: 0
     block_content: 0
     comment: 0
     comments_recent: 0
@@ -43,6 +46,7 @@ settings:
     media_entity_browser: 0
     media_entity_browser_media_library: 0
     media_library: 0
+    rate: 0
     redirect: 0
     scheduler_scheduled_content: 0
     search: 0

@@ -16,6 +16,7 @@ function suopa_editorial_form_alter(&$form, $form_state) {
   suopa_editorial_modify_article_publishing_info($form, $form_state);
   suopa_editorial_enable_drag_and_drop($form, $form_state);
   suopa_editorial_disable_sibling_checkbox($form, $form_state);
+  suopa_editorial_modify_taxonomy_term_forms($form, $form_state);
 }
 
 /**
@@ -185,4 +186,53 @@ function suopa_editorial_field_widget_form_alter(&$element, &$form_state, $conte
       'timeFormat' => 'H:i:s',
     ];
   }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * {@inheritdoc}
+ */
+function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
+  if (in_array('taxonomy_term_form', $form['#theme'])) {
+    // Make taxonomy term add/edit form look like node edit form.
+    $form['#theme'] = ['node_edit_form'];
+    $form['#attached']['library'][] = 'seven/node-form';
+
+    $form['advanced']['#type'] = 'container';
+    $form['advanced']['#attributes']['class'][] = 'entity-meta';
+
+    $form['entity-meta-header']['#type'] = 'container';
+    $form['entity-meta-header']['#group'] = 'advanced';
+    $form['entity-meta-header']['#attributes']['class'][] = 'entity-meta__header';
+
+    $form['revision_log_message']['#group'] = 'entity-meta-header';
+    $form['revision_log_message']['#weight'] = 100;
+
+    // Alter fields.
+    $form['path']['#group'] = 'url_alias';
+    $form['relations']['#group'] = 'advanced';
+    $form['relations']['#weight'] = 0;
+    $form['relations']['#open'] = TRUE;
+    $form['content_translation']['#weight'] = 0;
+    $form['langcode']['#weight'] = 0;
+
+    $form['url_alias'] = [
+      '#type' => 'details',
+      '#title' => t('URL alias'),
+      '#open' => TRUE,
+      '#group' => 'advanced',
+      '#weight' => 0,
+      '#optional' => TRUE,
+      '#attributes' => [
+        'class' => ['node-form-options'],
+      ],
+      '#attached' => [
+        'library' => ['node/drupal.node'],
+      ],
+    ];
+
+  }
+
+  return $form;
 }

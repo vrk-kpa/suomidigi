@@ -26,10 +26,11 @@ $config['cdn.settings'] = [
 
 // Set environment indicator.
 switch (getenv('HTTP_HOST')) {
-  case 'suomidigi.fi.docker.amazee.io':
+  case 'suomidigi.docker.sh':
     $settings['simple_environment_indicator'] = '#0F0F0F';
     break;
   case 'dev.suomidigi.fi':
+  case 'testi.suomidigi.fi':
     $settings['simple_environment_indicator'] = '#2a6ebb';
     break;
   default:

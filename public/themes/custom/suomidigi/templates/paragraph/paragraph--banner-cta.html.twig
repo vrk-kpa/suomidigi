@@ -4,18 +4,31 @@
 {% set text_align = content.field_banner_text_align.0['#markup'] %}
 {% set link = content.field_banner_link.0['#url'] %}
 {% set text = content.field_banner_link.0['#title'] %}
+{% set link_classes = [
+  'paragraph__link',
+  'text-align--' ~ text_align|clean_class
+] %}
 
 {% block content %}
-  <a href="{{ link }}" title="{{ text }}" class="paragraph__link {{ 'text-align--' ~ text_align|clean_class }}">
+  {% set image = "" %}
+
+  {% if content.field_banner_background_image|render %}
+    {% for key, val in content.field_banner_background_image %}
+      {% if val.entity %}
+        {% set media = val.entity %}
+        {% set image = drupal_image(media.fields.field_media_image.entity.uri.value, 'cta_banner_background') %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% if image is empty or text_align is same as('left') %}
+    {% set link_classes = link_classes|merge(['no-background-image']) %}
+  {% endif %}
+
+  <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">
     <div class="paragraph__background">
-      {% if content.field_banner_background_image|render %}
-        {% for key, image in content.field_banner_background_image %}
-          {% if image.entity %}
-            {% set media = image.entity %}
-            {% set image = drupal_image(media.fields.field_media_image.entity.uri.value, 'cta_banner_background') %}
-            {{ image }}
-          {% endif %}
-        {% endfor %}
+      {% if text_align is not same as('left') %}
+        {{ image }}
       {% endif %}
       <div class="paragraph__inner">
         {% if text_align is same as('normal') %}

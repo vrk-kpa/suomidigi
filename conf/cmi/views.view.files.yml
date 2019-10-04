@@ -136,7 +136,7 @@ display:
               empty_column: false
               responsive: ''
             count:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''

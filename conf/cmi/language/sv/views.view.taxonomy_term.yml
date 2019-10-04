@@ -21,7 +21,11 @@ display:
         tid:
           exception:
             title: Alla
+  block_1:
+    display_options:
+      pager:
+        options:
+          views_infinite_scroll:
+            button_text: 'Visa fler'
   feed_1:
     display_title: Innehållsflöde
-  page_1:
-    display_title: Sida

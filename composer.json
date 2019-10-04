@@ -69,6 +69,7 @@
         "drupal/video_embed_field": "^2.1",
         "drupal/view_unpublished": "^1.0",
         "drupal/views_bulk_operations": "^3.2",
+        "drupal/views_infinite_scroll": "^1.6",
         "drupal/viewsreference": "^2.0",
         "drupal/webform": "^5.2",
         "drush/drush": "^9.0.0",
@@ -118,6 +119,12 @@
             },
             "drupal/menu_block_current_language": {
                 "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
+            },
+            "drupal/svg_image": {
+                "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"
+            },
+            "drupal/views_infinite_scroll": {
+                "https://www.drupal.org/project/views_infinite_scroll/issues/2877652": "https://www.drupal.org/files/issues/2019-07-30/fix_views_infinite_scroll_pager_when_multi_views_on_single_page.patch"
             },
             "drupal/ckwordcount": {
                 "https://www.drupal.org/project/ckwordcount/issues/2850845": "https://www.drupal.org/files/issues/2019-06-23/ckwordcount_plugin_path_2850845-10.patch"
