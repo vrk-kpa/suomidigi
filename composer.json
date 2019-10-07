@@ -28,6 +28,7 @@
         "drupal/entity_browser": "^2.1",
         "drupal/focal_point": "^1.0",
         "drupal/google_analytics": "^2.4",
+        "drupal/group": "^1.0",
         "drupal/hide_revision_field": "^2.1",
         "drupal/high_contrast": "^1.0",
         "drupal/inline_entity_form": "^1.0",
