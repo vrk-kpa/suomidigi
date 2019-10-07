@@ -8,9 +8,76 @@
   }
 
   .paragraph__content {
+    li,
     p {
       @include font-size(14px);
-      line-height: 24px;
+      @include line-height(14px, 22px);
+    }
+
+    li {
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 0;
+
+      li {
+        list-style: none;
+        margin-bottom: $gutter * 0.625;
+        padding-left: $gutter;
+        position: relative;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &:before {
+          background-color: $blue-light;
+          border-radius: 100%;
+          content: '';
+          height: $gutter * 0.5;
+          left: 0;
+          position: absolute;
+          top: $gutter * 0.5;
+          width: $gutter * 0.5;
+        }
+
+        ul {
+          li {
+            margin-bottom: 0;
+
+            &:before {
+              background: transparent;
+              border: 1px solid $blue-light;
+            }
+
+            ul {
+              li {
+                margin-bottom: 0;
+
+                &:before {
+                  background-color: $blue-light;
+                  border-radius: 1px;
+                }
+
+                ul {
+                  li {
+                    margin-bottom: 0;
+
+                    &:before {
+                      background: transparent;
+                      border: 1px solid $blue-light;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -22,8 +89,41 @@
     background-color: $blue-medium;
 
     .paragraph__title,
-    .paragraph__content p {
+    .paragraph__content p,
+    .paragraph__content li {
       color: $white;
+    }
+
+    ul {
+      li {
+        &:before {
+          background-color: $white;
+        }
+
+        ul {
+          li {
+            &:before {
+              border: 1px solid $white;
+            }
+
+            ul {
+              li {
+                &:before {
+                  background-color: $white;
+                }
+
+                ul {
+                  li {
+                    &:before {
+                      border: 1px solid $white;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
