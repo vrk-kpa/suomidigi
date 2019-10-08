@@ -180,6 +180,7 @@ permissions:
   - 'translate event node'
   - 'translate icon media'
   - 'translate image media'
+  - 'translate interface'
   - 'translate landing_page node'
   - 'translate legislation taxonomy_term'
   - 'translate legislation_card node'
