@@ -1,0 +1,152 @@
+uuid: cdf33332-3c25-46ff-9970-fbf6001da7f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_event_date_and_time
+    - field.field.node.event.field_event_description
+    - field.field.node.event.field_event_image
+    - field.field.node.event.field_event_link
+    - field.field.node.event.field_event_materials
+    - field.field.node.event.field_event_org_contact_info
+    - field.field.node.event.field_event_organiser
+    - field.field.node.event.field_event_registration
+    - field.field.node.event.field_event_schedule
+    - field.field.node.event.field_venue_address
+    - field.field.node.event.field_venue_description
+    - field.field.node.event.field_venue_name
+    - field.field.node.event.field_venue_travel_information
+    - node.type.event
+    - responsive_image.styles.article_full_header
+  module:
+    - address
+    - datetime_range
+    - link
+    - responsive_image
+    - suopa_events
+    - text
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_event_date_and_time:
+    weight: 1
+    label: inline
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_event_description:
+    weight: 3
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_event_image:
+    weight: 2
+    label: inline
+    settings:
+      responsive_image_style: article_full_header
+      image_link: ''
+    third_party_settings: {  }
+    type: responsive_image
+    region: content
+  field_event_link:
+    weight: 5
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_event_materials:
+    type: entity_reference_entity_view
+    weight: 7
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_event_org_contact_info:
+    weight: 13
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: contact_information_field_formatter
+    region: content
+  field_event_organiser:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_event_registration:
+    weight: 6
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_event_schedule:
+    weight: 4
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_venue_address:
+    weight: 9
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_venue_description:
+    weight: 10
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_venue_name:
+    weight: 8
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_venue_travel_information:
+    weight: 11
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  published_at: true
+  search_api_excerpt: true
