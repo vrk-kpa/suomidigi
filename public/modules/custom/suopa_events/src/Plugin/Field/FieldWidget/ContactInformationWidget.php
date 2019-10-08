@@ -124,7 +124,6 @@ class ContactInformationWidget extends WidgetBase {
       '#required' => $this->getFieldSetting('phone_number') === DRUPAL_REQUIRED && $element['#required'],
     ];
 
-
     return $element;
   }
 

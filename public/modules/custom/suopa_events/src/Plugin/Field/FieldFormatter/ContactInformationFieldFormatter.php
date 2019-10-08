@@ -2,7 +2,6 @@
 
 namespace Drupal\suopa_events\Plugin\Field\FieldFormatter;
 
-use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
@@ -44,8 +43,6 @@ class ContactInformationFieldFormatter extends FormatterBase {
    */
   public function settingsSummary() {
     $summary = [];
-    // Implement settings summary.
-
     return $summary;
   }
 
