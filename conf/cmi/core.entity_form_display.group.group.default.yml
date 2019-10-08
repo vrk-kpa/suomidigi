@@ -1,0 +1,50 @@
+uuid: 2c9fb5e0-4664-4558-a753-733b278b8ed2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.group.field_paragraphs
+    - group.type.group
+  module:
+    - paragraphs
+    - path
+id: group.group.default
+targetEntityType: group
+bundle: group
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_paragraphs
+    weight: 31
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  label:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  uid: true

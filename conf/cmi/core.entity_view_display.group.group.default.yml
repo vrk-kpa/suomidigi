@@ -1,0 +1,37 @@
+uuid: 7f2a4b4f-fc3b-4219-93c9-ac92f90eacbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.group.field_paragraphs
+    - group.type.group
+  module:
+    - entity_reference_revisions
+id: group.group.default
+targetEntityType: group
+bundle: group
+mode: default
+content:
+  field_paragraphs:
+    type: entity_reference_revisions_entity_view
+    weight: -4
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  label:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true
