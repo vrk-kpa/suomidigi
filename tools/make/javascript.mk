@@ -3,7 +3,7 @@ ifeq (${PACKAGE_JSON_EXISTS},yes)
 endif
 
 node_modules: package.json ## Install NPM packages
-	$(call colorecho, "\n-Do npm install (${RUN_ON})...\n")
+	$(call step,Do npm install (${RUN_ON})...)
 	$(call npm_on_${RUN_ON},install --engine-strict true)
 
 define npm_on_docker
