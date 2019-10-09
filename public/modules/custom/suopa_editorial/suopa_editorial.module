@@ -194,7 +194,10 @@ function suopa_editorial_field_widget_form_alter(&$element, &$form_state, $conte
  * {@inheritdoc}
  */
 function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
-  if (in_array('taxonomy_term_form', $form['#theme'])) {
+  if (
+    is_array($form['#theme']) &&
+    in_array('taxonomy_term_form', $form['#theme'])
+  ) {
     // Make taxonomy term add/edit form look like node edit form.
     $form['#theme'] = ['node_edit_form'];
     $form['#attached']['library'][] = 'seven/node-form';

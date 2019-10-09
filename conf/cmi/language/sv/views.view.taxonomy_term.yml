@@ -1,6 +1,10 @@
-label: Taxonomiterm
-description: 'Innehåll som hör till en viss taxonomiterm.'
 display:
+  block_1:
+    display_options:
+      pager:
+        options:
+          views_infinite_scroll:
+            button_text: 'Visa fler'
   default:
     display_title: Huvud
     display_options:
@@ -21,11 +25,7 @@ display:
         tid:
           exception:
             title: Alla
-  block_1:
-    display_options:
-      pager:
-        options:
-          views_infinite_scroll:
-            button_text: 'Visa fler'
   feed_1:
     display_title: Innehållsflöde
+label: Taxonomiterm
+description: 'Innehåll som hör till en viss taxonomiterm.'
