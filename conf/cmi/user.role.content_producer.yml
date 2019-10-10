@@ -40,6 +40,7 @@ permissions:
   - 'create page content'
   - 'create podcast media'
   - 'create terms in author'
+  - 'create terms in blog_tags'
   - 'create url aliases'
   - 'create video media'
   - 'delete any podcast media'
