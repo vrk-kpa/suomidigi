@@ -25,7 +25,9 @@ use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 class EventWebformHandler extends WebformHandlerBase {
 
   /**
-   * The submission array.
+   * The Webform submission array.
+   *
+   * @var array
    */
   protected $submissionArray = [];
 
@@ -40,7 +42,7 @@ class EventWebformHandler extends WebformHandlerBase {
       // Create the entity.
       $event = Node::create([
         'status' => FALSE,
-        'title' => $this->_validate('name'),
+        'title' => $this->validateField('name'),
         'type' => 'event',
       ]);
 
@@ -49,12 +51,12 @@ class EventWebformHandler extends WebformHandlerBase {
       // database without timezone.
       // See https://www.drupal.org/project/drupal/issues/2716891.
       // Reformat the dates to a more suitable format for the database.
-      if ($this->_validate('start_date_and_time')) {
-        $start_date = new DrupalDateTime($this->_validate('start_date_and_time'));
+      if ($this->validateField('start_date_and_time')) {
+        $start_date = new DrupalDateTime($this->validateField('start_date_and_time'));
         $start = $start_date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
-        if ($this->_validate('end_date_and_time')) {
-          $end_date = new DrupalDateTime($this->_validate('end_date_and_time'));
+        if ($this->validateField('end_date_and_time')) {
+          $end_date = new DrupalDateTime($this->validateField('end_date_and_time'));
           $end = $end_date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
         }
 
@@ -65,61 +67,61 @@ class EventWebformHandler extends WebformHandlerBase {
       }
 
       $event->set('field_event_description', [
-        'value' => nl2br($this->_validate('description')),
+        'value' => nl2br($this->validateField('description')),
         'format' => 'basic_html',
       ]);
 
       $event->set('field_event_image', [
-        'target_id' => $this->_validate('image'),
-        'alt' => $this->_validate('name'),
+        'target_id' => $this->validateField('image'),
+        'alt' => $this->validateField('name'),
       ]);
 
       $event->set('field_event_schedule', [
-        'value' => nl2br($this->_validate('schedule')),
+        'value' => nl2br($this->validateField('schedule')),
         'format' => 'basic_html',
       ]);
 
       $event->set('field_event_link', [
-        'uri' => $this->_validate('link_to_official_event_page'),
+        'uri' => $this->validateField('link_to_official_event_page'),
       ]);
 
       $event->set('field_event_registration', [
-        'uri' => $this->_validate('link_to_event_registration_page'),
+        'uri' => $this->validateField('link_to_event_registration_page'),
       ]);
 
       $event->set('field_venue_name', [
-        'value' => $this->_validate('venue_name'),
+        'value' => $this->validateField('venue_name'),
       ]);
 
       $event->set('field_venue_description', [
-        'value' => nl2br($this->_validate('venue_description')),
+        'value' => nl2br($this->validateField('venue_description')),
         'format' => 'basic_html',
       ]);
 
       $event->set('field_venue_address', [
-        'address_line1' => $this->_validate('venue_address')['address'],
-        'postal_code' => $this->_validate('venue_address')['postal_code'],
-        'locality' => $this->_validate('venue_address')['city'],
-        'country_code' => $this->_validate('venue_address')['country'],
+        'address_line1' => $this->validateField('venue_address')['address'],
+        'postal_code' => $this->validateField('venue_address')['postal_code'],
+        'locality' => $this->validateField('venue_address')['city'],
+        'country_code' => $this->validateField('venue_address')['country'],
       ]);
 
       $event->set('field_venue_travel_information', [
-        'value' => nl2br($this->_validate('travel_information')),
+        'value' => nl2br($this->validateField('travel_information')),
         'format' => 'basic_html',
       ]);
 
       $event->set('field_event_organiser', [
-        'value' => $this->_validate('organiser'),
+        'value' => $this->validateField('organiser'),
       ]);
 
-      if ($this->_validate('contact_information')) {
-        foreach ($this->_validate('contact_information') as $delta => $value) {
+      if ($this->validateField('contact_information')) {
+        foreach ($this->validateField('contact_information') as $delta => $value) {
           $event->field_event_org_contact_info[$delta] = $value;
         }
       }
 
       $event->set('field_event_organiser', [
-        'value' => $this->_validate('organiser'),
+        'value' => $this->validateField('organiser'),
       ]);
 
       $event->save();
@@ -133,8 +135,9 @@ class EventWebformHandler extends WebformHandlerBase {
    *   The field name.
    *
    * @return bool|mixed
+   *   Returns submission value or NULL.
    */
-  private function _validate($key) {
+  private function validateField($key) {
     return (
       array_key_exists($key, $this->submissionArray) &&
       !empty($this->submissionArray[$key])
