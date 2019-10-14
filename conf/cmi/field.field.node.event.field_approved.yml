@@ -1,0 +1,23 @@
+uuid: bbe3f68a-87f4-49ab-a210-5378d16ecbc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approved
+    - node.type.event
+id: node.event.field_approved
+field_name: field_approved
+entity_type: node
+bundle: event
+label: Approved
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Approved
+  off_label: Unapproved
+field_type: boolean

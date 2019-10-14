@@ -1,16 +1,15 @@
-uuid: 4bd892b3-3330-49bc-a752-11a83fb05e13
+uuid: 93d04d32-35ce-404d-b26c-caee087bb487
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - text
-id: node.field_venue_description
-field_name: field_venue_description
+id: node.field_approved
+field_name: field_approved
 entity_type: node
-type: text_long
+type: boolean
 settings: {  }
-module: text
+module: core
 locked: false
 cardinality: 1
 translatable: true
