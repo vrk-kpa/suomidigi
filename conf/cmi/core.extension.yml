@@ -16,6 +16,7 @@ module:
   config: 0
   config_translation: 0
   contact: 0
+  content_moderation: 0
   contextual: 0
   crop: 0
   ctools: 0
@@ -36,6 +37,7 @@ module:
   file: 0
   filter: 0
   focal_point: 0
+  formtips: 0
   google_analytics: 0
   help: 0
   history: 0
@@ -74,6 +76,7 @@ module:
   redirect: 0
   redirect_404: 0
   responsive_image: 0
+  role_based_theme_switcher: 0
   roleassign: 0
   scheduler: 0
   search: 0
@@ -122,6 +125,7 @@ module:
   webform: 0
   webform_node: 0
   webform_ui: 0
+  workflows: 0
   hide_revision_field: 1
   menu_link_content: 1
   pathauto: 1

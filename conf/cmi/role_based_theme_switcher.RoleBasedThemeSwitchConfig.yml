@@ -1,0 +1,19 @@
+roletheme:
+  anonymous:
+    id: ''
+    weight: 0
+  authenticated:
+    id: ''
+    weight: 1
+  content_producer:
+    id: ''
+    weight: 2
+  editor_in_chief:
+    id: ''
+    weight: 3
+  administrator:
+    id: ''
+    weight: 4
+  webform_administrator:
+    id: ''
+    weight: 5
