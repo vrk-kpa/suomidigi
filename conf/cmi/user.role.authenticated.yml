@@ -13,6 +13,7 @@ permissions:
   - 'access content'
   - 'cast rate vote on node of article'
   - 'cast rate vote on node of core_content'
+  - 'create terms in tags'
   - 'edit own comments'
   - 'post comments'
   - 'search content'
