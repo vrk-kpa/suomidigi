@@ -11,8 +11,8 @@ dependencies:
     - suomidigi
 id: search_api_view_form
 theme: suomidigi
-region: sidebar_first
-weight: -8
+region: header
+weight: -10
 provider: null
 plugin: 'views_exposed_filter_block:search-search_api_view'
 settings:

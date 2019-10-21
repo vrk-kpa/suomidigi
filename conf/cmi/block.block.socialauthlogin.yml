@@ -9,8 +9,8 @@ dependencies:
     - suomidigi
 id: socialauthlogin
 theme: suomidigi
-region: after_content
-weight: -10
+region: content
+weight: -7
 provider: null
 plugin: social_auth_login
 settings:
