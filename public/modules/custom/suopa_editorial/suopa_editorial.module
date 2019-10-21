@@ -5,6 +5,7 @@
  * Contains suopa_editorial.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -236,6 +237,22 @@ function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
     ];
 
   }
+
+  return $form;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * {@inheritdoc}
+ */
+function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (!isset($form['field_approved'])) {
+    return;
+  }
+
+  $form['field_approved']['#group'] = 'footer';
+  $form['field_approved']['#weight'] = 0;
 
   return $form;
 }

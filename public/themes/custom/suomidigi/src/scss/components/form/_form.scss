@@ -83,7 +83,7 @@
     margin: 0 0 6px;
     padding: 0;
 
-    label {
+    label:not(.visually-hidden) {
       @include font-size(16px);
       @include line-height(14px, 24px);
       color: #333333;
@@ -113,6 +113,7 @@
       border: 1px solid $gray;
       border-radius: 3px;
       color: $gray-darkest;
+      height: auto;
       padding: 10px;
       transition-duration: 0.2s;
       transition-property: all;
@@ -147,7 +148,7 @@
     }
   }
 
-  .form-textarea-wrapper {
+  .form-type-textarea {
     margin-bottom: $gutter;
   }
 

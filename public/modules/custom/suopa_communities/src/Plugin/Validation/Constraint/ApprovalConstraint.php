@@ -20,6 +20,6 @@ class ApprovalConstraint extends Constraint {
    *
    * @var string
    */
-  public $message = "Entity save failed: Entity has to be approved in order to be published.";
+  public $message = 'Save failed: Entity has to be approved in order to be published.';
 
 }
