@@ -1,5 +1,5 @@
 name: 'SuoPa - Communities'
 type: module
-description: 'Community entity type and related functionalities for Suomidigi.fi'
+description: 'Community related functionalities for Suomidigi.fi'
 core: 8.x
 package: 'SuoPa'

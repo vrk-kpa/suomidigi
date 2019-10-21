@@ -1,0 +1,16 @@
+uuid: 1d916c1c-0c6c-4bdf-9541-d3bb574dba38
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.community
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.community
+target_entity_type_id: node
+target_bundle: community
+default_langcode: fi
+language_alterable: true

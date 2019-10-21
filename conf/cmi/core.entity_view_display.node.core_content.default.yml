@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.core_content.field_media
     - field.field.node.core_content.field_paragraphs
     - field.field.node.core_content.field_reading_time
+    - field.field.node.core_content.field_tags
     - field.field.node.core_content.field_theme
     - node.type.core_content
   module:
@@ -107,6 +108,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_media: true
+  field_tags: true
   field_theme: true
   langcode: true
   links: true

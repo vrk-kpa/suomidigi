@@ -9,6 +9,7 @@ deploy_tasks:
       - mkdir -p -m 770 files files_private
       - make build-testing
     after_deploy:
+      - cd $AMAZEEIO_WEBROOT && drush -y cr
       - cd $AMAZEEIO_WEBROOT && drush -y updb
       - cd $AMAZEEIO_WEBROOT && drush -y cim
       - cd $AMAZEEIO_WEBROOT && drush -y cr
@@ -18,6 +19,7 @@ deploy_tasks:
       - mkdir -p -m 770 ~/shared/files ~/shared/files_private
       - make build-production
     after_deploy:
+      - cd $AMAZEEIO_WEBROOT && drush -y cr
       - cd $AMAZEEIO_WEBROOT && drush -y updb
       - cd $AMAZEEIO_WEBROOT && drush -y cim
       - cd $AMAZEEIO_WEBROOT && drush -y cr

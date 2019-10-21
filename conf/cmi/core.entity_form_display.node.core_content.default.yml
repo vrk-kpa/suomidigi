@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.core_content.field_media
     - field.field.node.core_content.field_paragraphs
     - field.field.node.core_content.field_reading_time
+    - field.field.node.core_content.field_tags
     - field.field.node.core_content.field_theme
     - node.type.core_content
   module:
@@ -33,12 +34,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_comments:
-    weight: 24
+    weight: 25
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -50,7 +51,7 @@ content:
     type: options_select
     region: content
   field_displayed_author:
-    weight: 18
+    weight: 19
     settings:
       width: 100%
       autocomplete: true
@@ -59,7 +60,7 @@ content:
     type: select2_entity_reference
     region: content
   field_displayed_update_time:
-    weight: 17
+    weight: 18
     settings: {  }
     third_party_settings:
       timepicker:
@@ -70,7 +71,7 @@ content:
     type: datetime_default
     region: content
   field_header_image:
-    weight: 5
+    weight: 6
     settings:
       entity_browser: media_image_browser
       field_widget_display: rendered_entity
@@ -85,7 +86,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_ingress:
-    weight: 7
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -94,7 +95,7 @@ content:
     region: content
   field_media:
     type: entity_browser_entity_reference
-    weight: 6
+    weight: 7
     settings:
       entity_browser: media_icon_browser
       field_widget_display: rendered_entity
@@ -108,7 +109,7 @@ content:
     third_party_settings: {  }
     region: content
   field_paragraphs:
-    weight: 8
+    weight: 9
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -127,11 +128,20 @@ content:
     type: paragraphs
     region: content
   field_reading_time:
-    weight: 3
+    weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_tags:
+    weight: 3
+    settings:
+      width: 400px
+      autocomplete: true
+      match_operator: CONTAINS
+    third_party_settings: {  }
+    type: select2_entity_reference
     region: content
   field_theme:
     weight: 2
@@ -151,7 +161,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -159,24 +169,24 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 13
     region: content
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 21
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
   published_at:
     type: publication_date_timestamp
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   revision_log:
     type: hide_revision_field_log_widget
-    weight: 22
+    weight: 23
     region: content
     settings:
       show: true
@@ -187,7 +197,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   scheduler_settings:
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -195,32 +205,32 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 17
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 15
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 10
     settings:
       match_operator: CONTAINS
       size: 60
@@ -229,12 +239,12 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 23
+    weight: 24
     region: content
     settings: {  }
     third_party_settings: {  }
