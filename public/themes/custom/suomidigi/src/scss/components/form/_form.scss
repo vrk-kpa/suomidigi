@@ -25,8 +25,8 @@
 
     &--half {
       display: flex;
-      flex-wrap: wrap;
       flex-direction: column;
+      flex-wrap: wrap;
       margin-left: -#{$gutter};
       margin-right: -#{$gutter};
 
@@ -37,9 +37,9 @@
         margin-right: -#{$gutter * 1.5};
 
         > .form-item {
-          width: calc(100% / 2 - #{$gutter});
           margin-left: $gutter / 2;
           margin-right: $gutter / 2;
+          width: calc(100% / 2 - #{$gutter});
 
           &.is-full-width {
             width: 100%;
@@ -78,19 +78,26 @@
   }
 
   .form-item {
-    margin: 0 0 6px;
     display: block;
-    padding: 0;
     line-height: 24px;
+    margin: 0 0 6px;
+    padding: 0;
 
     label {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(16px);
+      @include line-height(14px, 24px);
       color: #333333;
-      font-weight: normal;
       display: inline-block;
-      width: 100%;
+      font-weight: normal;
+      letter-spacing: 0;
       margin-bottom: $gutter / 2;
+      text-align: left;
+      width: 100%;
+    }
+
+    .description {
+      @include font-size(13px);
+      @include line-height(13px, 20px);
     }
 
     select,
@@ -103,13 +110,13 @@
     .select2-container--default .select2-selection--single {
       @include font-size(16px);
       background: white;
-      border-radius: 0;
-      border: 1px solid $gray-dark;
+      border: 1px solid $gray;
+      border-radius: 3px;
       color: $gray-darkest;
       padding: 10px;
       transition-duration: 0.2s;
       transition-property: all;
-      width: 100%;
+      width: 440px;
 
       &:focus {
         border-color: transparent;
@@ -147,8 +154,8 @@
   .form-type-radio {
     cursor: pointer;
     display: inline;
-    margin-right: $gutter * 1.5;
     margin-bottom: 0;
+    margin-right: $gutter * 1.5;
 
     input[type="radio"] {
       opacity: 0;
@@ -189,13 +196,13 @@
       &:after {
         background-color: #333333;
         border-radius: 50%;
-        position: absolute;
         content: "";
         display: inline-block;
         height: 10px;
-        width: 10px;
         left: 3px;
+        position: absolute;
         top: 6px;
+        width: 10px;
       }
     }
   }
@@ -237,16 +244,16 @@
       }
 
       &:after {
-        border-left: 3px solid #333333;
         border-bottom: 3px solid #333333;
-        position: absolute;
+        border-left: 3px solid #333333;
         content: "";
         display: inline-block;
         height: 6px;
-        width: 10px;
-        transform: rotate(-45deg);
         left: 3px;
+        position: absolute;
         top: 7px;
+        transform: rotate(-45deg);
+        width: 10px;
       }
     }
   }

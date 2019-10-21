@@ -1,0 +1,12 @@
+.section {
+  &--content {
+    .path-user & {
+      background-color: $white;
+      padding: $gutter;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        padding: $gutter * 2;
+      }
+    }
+  }
+}

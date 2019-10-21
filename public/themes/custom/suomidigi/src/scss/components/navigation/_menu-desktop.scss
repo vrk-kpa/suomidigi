@@ -6,43 +6,44 @@ nav.menu--desktop {
   display: none;
 
   @include breakpoint($for-tablet-portrait-up) {
-    align-items: center;
-    display: flex;
+    display: block;
   }
 
   .menu {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
-    margin: -3px 0 0 calc(40px - 1rem / 2);
+    margin: 0 -#{$gutter * 2};
     padding: 0;
   }
 
   .menu-item {
-    @include line-height(14px, 18px);
-    margin: 0 calc(1rem / 2);
+    @include line-height(18px, 23px);
+    margin: 0 $gutter * 2;
     padding: 0;
+    text-align: center;
 
     > span,
     > a {
-      @include font-size(14px);
-      border-bottom: 2px solid transparent;
+      @include font-size(18px);
+      border-bottom: 5px solid transparent;
+      border-top: 5px solid transparent;
       color: $white;
-      font-weight: 600;
-      padding-bottom: 2px;
-      text-transform: uppercase;
+      display: inline-block;
+      padding: $gutter / 1.5  $gutter / 3;
       text-decoration: none;
 
       &:hover,
       &:focus,
       &.is-active {
-        border-bottom: 2px solid $white;
+        border-bottom: 5px solid $blue-light;
       }
     }
 
     &.menu-item--active-trail {
       > span,
       > a {
-        border-bottom: 2px solid $white;
+        border-bottom: 5px solid $blue-light;
       }
     }
   }
