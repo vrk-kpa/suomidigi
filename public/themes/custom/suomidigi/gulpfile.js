@@ -305,7 +305,19 @@ function copyExternalIcons() {
     .pipe(gulp.dest(`${svgOutDir}/svg/`));
 }
 
-
+// ------------------------
+// Override modified icons.
+// ------------------------
+function copyOverriddenIcons() {
+  return gulp
+    .src(`${svgOutDir}/overridden/**/*`)
+    .pipe(rename((opt) => {
+        opt.basename = opt.basename.replace(/^icon-/, "");
+        return opt;
+      })
+    )
+    .pipe(gulp.dest(`${svgOutDir}/svg/`));
+}
 
 // ----------------------------------
 // Save SVG filenames to a JSON file.
@@ -339,6 +351,7 @@ gulp.task(
     copySuomiFiIcons,
     copySuomiFiStaticIcons,
     copyExternalIcons,
+    copyOverriddenIcons,
     "svgNamesToJson",
     () =>
       gulp
