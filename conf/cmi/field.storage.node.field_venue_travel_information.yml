@@ -4,13 +4,13 @@ status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_venue_travel_information
 field_name: field_venue_travel_information
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true
