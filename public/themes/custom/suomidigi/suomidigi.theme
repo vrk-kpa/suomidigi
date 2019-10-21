@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
-use Drupal\suopa_communities\Entity\Community;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\views\ViewExecutable;
 
@@ -65,8 +64,8 @@ function suomidigi_preprocess_node(&$variables) {
   }
 
   if (
-    $variables['node']->getType() === 'article' ||
-    $variables['node']->getType() === 'legislation_collection_page'
+    $node->getType() === 'article' ||
+    $node->getType() === 'legislation_collection_page'
   ) {
     if ($node->hasField('field_header_image')) {
       $mediaEntity = $node->get('field_header_image')->getValue();
@@ -108,6 +107,37 @@ function suomidigi_preprocess_node(&$variables) {
         }
       }
     }
+  }
+
+  // Get community domain values and set them as variables for the template.
+  if (
+    $node->getType() === 'community' &&
+    $node->hasField('field_community_domain')
+  ) {
+    $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
+    $community_domain_id = $node->field_community_domain->target_id;
+
+    $domain = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($community_domain_id);
+
+    if ($domain->hasTranslation($current_language)) {
+      $domain = $domain->getTranslation($current_language);
+    }
+
+    if ($domain->hasField('field_community_domain_logo')) {
+      $image_target = $domain->get('field_community_domain_logo')->first();
+
+      if (!empty($image_target)) {
+        $image_id = $image_target->get('target_id')->getValue();
+        $variables['community_domain_logo'] = $image_id;
+        $variables['community_domain_logo_alt'] = $image_target->get('alt')->getValue();
+        $variables['community_domain_logo_title'] = $image_target->get('title')->getValue();
+      }
+    }
+
+    $variables['community_domain_label'] = $domain->label();
+    $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
   }
 }
 
@@ -457,44 +487,6 @@ function suomidigi_preprocess_pager(&$variables) {
 function suomidigi_preprocess_input__textfield(&$variables) {
   if ($variables['attributes']['id'] == 'search') {
     $variables['attributes']['aria-label'] = t('Search');
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function suomidigi_preprocess_community(&$variables) {
-
-  // Get community domain values and set them as variables for the template.
-  $community = $variables['elements']['#community'];
-  if (
-    $community instanceof Community &&
-    $community->hasField('field_community_domain')
-  ) {
-    $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
-    $community_domain_id = $community->field_community_domain->target_id;
-
-    $domain = \Drupal::entityTypeManager()
-      ->getStorage('taxonomy_term')
-      ->load($community_domain_id);
-
-    if ($domain->hasTranslation($current_language)) {
-      $domain = $domain->getTranslation($current_language);
-    }
-
-    if ($domain->hasField('field_community_domain_logo')) {
-      $image_target = $domain->get('field_community_domain_logo')->first();
-
-      if (!empty($image_target)) {
-        $image_id = $image_target->get('target_id')->getValue();
-        $variables['community_domain_logo'] = $image_id;
-        $variables['community_domain_logo_alt'] = $image_target->get('alt')->getValue();
-        $variables['community_domain_logo_title'] = $image_target->get('title')->getValue();
-      }
-    }
-
-    $variables['community_domain_label'] = $domain->label();
-    $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
   }
 }
 

@@ -6,8 +6,8 @@
 #}
 {%
   set classes = [
-    'community',
-  ]
+  'community',
+]
 %}
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
@@ -26,9 +26,9 @@
         {% endif %}
       </div>
       <div class="community__title-wrapper">
-        {% if content.name %}
+        {% if label %}
           <h2 class="community__title">
-            {{ content.name }}
+            {{ label }}
           </h2>
         {% endif %}
         {% if community_domain_domain %}
