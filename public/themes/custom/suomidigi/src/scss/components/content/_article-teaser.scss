@@ -5,6 +5,7 @@
 }
 
 .article-teaser__link {
+  background-color: $white;
   display: block;
   height: 100%;
   text-decoration: none;
@@ -19,7 +20,6 @@
 
 .article-teaser__content {
   @include line-height(12px, 14px);
-  background-color: $white;
   padding: $gutter;
 }
 

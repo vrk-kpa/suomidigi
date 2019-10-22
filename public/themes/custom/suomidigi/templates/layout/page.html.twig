@@ -46,8 +46,15 @@
 {% set page_content_classes = [
   'page-content',
   node ? 'page-content--node',
+  webform ? 'page-content--webform',
   not node.isPublished() ? 'page-content--unpublished',
 ]
+%}
+
+{%
+  set section_variables = has_background
+    ? { section_element: 'content', section_modifier: 'colored' }
+    : { section_element: 'content' }
 %}
 
 <div class="page-wrapper" id="page">
@@ -138,11 +145,15 @@
           {% endblock %}
         {% endif %}
 
-        <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
-          <section class="section section--content">
-            {{ page.content }}
-          </section>
-        </div>
+        {% block content %}
+          <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
+            {% embed "@suomidigi/misc/section.twig" with section_variables %}
+              {% block section_content %}
+                {{ page.content }}
+              {% endblock section_content %}
+            {% endembed %}
+          </div>
+        {% endblock %}
 
         {% if page.after_content %}
           <div class="page-after_content" id="after_content">

@@ -6,6 +6,11 @@
     margin-bottom: $gutter / 2;
   }
 
+  .webform-progress-tracker.progress-tracker {
+    @include border('bottom');
+    padding-bottom: $gutter * 2;
+  }
+
   .webform-image-file,
   .webform-multiple-add {
     input[type="submit"]:not(.js-hide) {
@@ -90,12 +95,6 @@
         margin-right: $gutter;
       }
     }
-  }
-
-  .captcha {
-    display: block;
-    margin: 0 auto;
-    width: 50%;
   }
 }
 

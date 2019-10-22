@@ -48,6 +48,23 @@ function suomidigi_preprocess_page(&$variables) {
     'siteName' => $site_config->get('name'),
   ];
   $variables['#attached']['drupalSettings'] = $settings;
+
+  // Set entities as variables for templates.
+  $variables['webform'] = Drupal::routeMatch()->getParameters()->get('webform');
+
+  // Set section area based on entity type.
+  $entities = [
+    'article',
+    'core_content',
+    'webform',
+  ];
+
+  if (
+    isset($variables['node']) &&
+    in_array($variables['node']->getType(), $entities)
+  ) {
+    $variables['has_background'] = TRUE;
+  }
 }
 
 /**

@@ -50,7 +50,7 @@
 ]
 %}
 
-{% embed "@suomidigi/layout/page.html.twig" with {before_content_element: 'user'} %}
+{% embed "@suomidigi/layout/page.html.twig" with {before_content_element: 'webform'} %}
   {% block content %}
     <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
       {% embed "@suomidigi/misc/section.twig" with {section_element: 'content', section_modifier: 'colored'} %}
