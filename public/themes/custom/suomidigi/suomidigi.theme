@@ -293,7 +293,8 @@ function suomidigi_preprocess_menu(&$variables) {
     if ($variables['logged_in']) {
       $icons['user.logout'] = 'logout';
       $variables['#attached']['library'][] = 'suomidigi/account-menu';
-    } else {
+    }
+    else {
       $icons['user.logout'] = 'login';
     }
 
