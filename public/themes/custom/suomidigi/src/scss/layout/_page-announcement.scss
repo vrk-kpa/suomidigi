@@ -3,13 +3,12 @@
   border-bottom: 2px solid $blue-medium;
   border-top: 2px solid $blue-medium;
   color: $white;
-  font-weight: 600;
   padding: $gutter / 2;
 
   @include breakpoint($for-tablet-portrait-up) {
-    border-top: 1px solid $blue-medium;
     background: $white;
-    color: $blue-medium;
+    border-top: 1px solid $blue-medium;
+    color: $black;
   }
 
   &__container {
@@ -27,8 +26,8 @@
     }
 
     div {
-      width: 100%;
       text-align: center;
+      width: 100%;
     }
   }
 
@@ -40,6 +39,14 @@
     @include breakpoint($for-tablet-portrait-up) {
       @include font-size(14px);
       @include line-height(14px, 20px);
+    }
+  }
+
+  a {
+    color: $white;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      color: $blue-medium;
     }
   }
 }

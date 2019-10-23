@@ -46,8 +46,15 @@
 {% set page_content_classes = [
   'page-content',
   node ? 'page-content--node',
+  webform ? 'page-content--webform',
   not node.isPublished() ? 'page-content--unpublished',
 ]
+%}
+
+{%
+  set section_variables = has_background
+    ? { section_element: 'content', section_modifier: 'colored' }
+    : { section_element: 'content' }
 %}
 
 <div class="page-wrapper" id="page">
@@ -77,12 +84,20 @@
                 {{ 'Menu'|t }}
               {% endif %}
             </button>
-            {% if node and not node.isPublished() and logged_in %}
-              <div class="page-flag is-unpublished">{{ 'Unpublished'|t }}</div>
-            {% endif %}
           </div>
         {% endif %}
       </header>
+      {% if page.navigation %}
+        <div class="page-navigation" id="navigation">
+          <div class="container page-navigation__container">
+            {{ page.navigation }}
+          </div>
+        </div>
+        {% if node and not node.isPublished() and logged_in %}
+          <div class="page-flag is-unpublished">{{ 'Unpublished'|t }}</div>
+        {% endif %}
+      {% endif %}
+
     {% endif %}
 
     {% if page.announcement %}
@@ -101,6 +116,14 @@
       </div>
     {% endif %}
 
+    {% if page.breadcrumb %}
+      <div class="page-breadcrumb" id="breadcrumb">
+        <section class="section section--breadcrumb">
+          {{ page.breadcrumb }}
+        </section>
+      </div>
+    {% endif %}
+
     {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
 
     <div class="content__wrapper container">
@@ -112,11 +135,25 @@
 
       <main class="page-main" id="main" role="main">
         <a id="main-content" tabindex="-1"></a>
-        <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
-          <section class="section section--content">
-            {{ page.content }}
-          </section>
-        </div>
+        {% if page.before_content %}
+          {% block before_content %}
+          <div class="page-before_content page-before_content--{{ before_content_element }}" id="before_content">
+            <section class="section section--before-content">
+              {{ page.before_content }}
+            </section>
+          </div>
+          {% endblock %}
+        {% endif %}
+
+        {% block content %}
+          <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
+            {% embed "@suomidigi/misc/section.twig" with section_variables %}
+              {% block section_content %}
+                {{ page.content }}
+              {% endblock section_content %}
+            {% endembed %}
+          </div>
+        {% endblock %}
 
         {% if page.after_content %}
           <div class="page-after_content" id="after_content">
@@ -129,7 +166,7 @@
     </div>
   </div>
 
-  <footer class="page-footer container container--inset" id="footer" role="contentinfo">
+  <footer class="page-footer container" id="footer" role="contentinfo">
     <div class="page-footer__container l-footer {% if has_sidebar_first %}l-footer--small{% endif %}">
       {% if page.footer %}
         <div class="l-footer__item">

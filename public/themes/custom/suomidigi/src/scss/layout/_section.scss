@@ -1,0 +1,10 @@
+.section {
+  &--colored {
+    background-color: $white;
+    padding: $gutter * 2;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      padding: $gutter * 2;
+    }
+  }
+}

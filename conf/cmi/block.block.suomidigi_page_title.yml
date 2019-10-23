@@ -8,7 +8,7 @@ _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
 id: suomidigi_page_title
 theme: suomidigi
-region: content
+region: before_content
 weight: -11
 provider: null
 plugin: page_title_block

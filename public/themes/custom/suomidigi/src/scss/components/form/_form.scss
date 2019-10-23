@@ -84,13 +84,20 @@
     padding: 0;
 
     label:not(.visually-hidden) {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(16px);
+      @include line-height(14px, 24px);
       color: #333333;
       display: inline-block;
-      font-weight: 600;
+      font-weight: normal;
+      letter-spacing: 0;
       margin-bottom: $gutter / 2;
+      text-align: left;
       width: 100%;
+    }
+
+    .description {
+      @include font-size(13px);
+      @include line-height(13px, 20px);
     }
 
     select,
@@ -103,8 +110,8 @@
     .select2-container--default .select2-selection--single {
       @include font-size(16px);
       background: white;
-      border: 1px solid $gray-dark;
-      border-radius: 0;
+      border: 1px solid $gray;
+      border-radius: 3px;
       color: $gray-darkest;
       height: auto;
       padding: 10px;
@@ -139,116 +146,116 @@
       align-self: flex-end;
       height: 2.5em;
     }
-  }
 
-  .form-type-textarea {
-    margin-bottom: $gutter;
-  }
-
-  .form-type-radio {
-    cursor: pointer;
-    display: inline;
-    margin-bottom: 0;
-    margin-right: $gutter * 1.5;
-
-    input[type="radio"] {
-      opacity: 0;
-
-      &+ label:after {
-        content: none;
-      }
-
-      &:checked + label::after {
-        content: "";
-      }
-
-      &:focus + label::before {
-        outline: $gray-dark auto 5px;
-      }
-    }
-
-    label {
+    &.form-type-radio {
       cursor: pointer;
       display: inline;
-      margin-left: -#{$gutter};
-      padding-left: 28px;
-      position: relative;
+      margin-bottom: 0;
+      margin-right: $gutter * 1.5;
 
-      &:before {
-        background-color: #FBFBFB;
-        border: 1px solid #BEBEBE;
-        border-radius: 50%;
-        content: "";
-        display: inline-block;
-        height: 16px;
-        left: 0px;
-        position: absolute;
-        top: 3px;
-        width: 16px;
+      input[type="radio"] {
+        opacity: 0;
+
+        &+ label:after {
+          content: none;
+        }
+
+        &:checked + label::after {
+          content: "";
+        }
+
+        &:focus + label::before {
+          outline: $gray-dark auto 5px;
+        }
       }
 
-      &:after {
-        background-color: #333333;
-        border-radius: 50%;
-        content: "";
-        display: inline-block;
-        height: 10px;
-        left: 3px;
-        position: absolute;
-        top: 6px;
-        width: 10px;
+      label {
+        cursor: pointer;
+        display: inline;
+        margin-left: -#{$gutter};
+        padding-left: 28px;
+        position: relative;
+
+        &:before {
+          background-color: #FBFBFB;
+          border: 1px solid #BEBEBE;
+          border-radius: 50%;
+          content: "";
+          display: inline-block;
+          height: 16px;
+          left: 0px;
+          position: absolute;
+          top: 3px;
+          width: 16px;
+        }
+
+        &:after {
+          background-color: #333333;
+          border-radius: 50%;
+          content: "";
+          display: inline-block;
+          height: 10px;
+          left: 3px;
+          position: absolute;
+          top: 6px;
+          width: 10px;
+        }
       }
     }
-  }
 
-  .form-type-checkbox {
-    input[type="checkbox"] {
-      opacity: 0;
+    &.form-type-checkbox {
+      input[type="checkbox"] {
+        opacity: 0;
 
-      &+ label:after {
-        content: none;
+        &+ label:after {
+          content: none;
+        }
+
+        &:checked + label::after {
+          content: "";
+        }
+
+        &:focus + label::before {
+          outline: $gray-dark auto 5px;
+        }
       }
 
-      &:checked + label::after {
-        content: "";
-      }
+      label {
+        cursor: pointer;
+        display: inline;
+        margin-left: -#{$gutter};
+        padding-left: 28px;
+        position: relative;
 
-      &:focus + label::before {
-        outline: $gray-dark auto 5px;
+        &:before{
+          background-color: #FBFBFB;
+          border: 1px solid #BEBEBE;
+          content: "";
+          display: inline-block;
+          height: 16px;
+          left: 0;
+          position: absolute;
+          top: 3px;
+          width: 16px;
+        }
+
+        &:after {
+          border-bottom: 3px solid #333333;
+          border-left: 3px solid #333333;
+          content: "";
+          display: inline-block;
+          height: 6px;
+          left: 3px;
+          position: absolute;
+          top: 7px;
+          transform: rotate(-45deg);
+          width: 10px;
+        }
       }
     }
 
-    label {
-      cursor: pointer;
-      display: inline;
-      margin-left: -#{$gutter};
-      padding-left: 28px;
-      position: relative;
-
-      &:before{
-        background-color: #FBFBFB;
-        border: 1px solid #BEBEBE;
-        content: "";
-        display: inline-block;
-        height: 16px;
-        left: 0;
-        position: absolute;
-        top: 3px;
-        width: 16px;
-      }
-
-      &:after {
-        border-bottom: 3px solid #333333;
-        border-left: 3px solid #333333;
-        content: "";
-        display: inline-block;
-        height: 6px;
-        left: 3px;
-        position: absolute;
-        top: 7px;
-        transform: rotate(-45deg);
-        width: 10px;
-      }
+    &.form-type-textarea {
+      margin-bottom: $gutter;
     }
   }
 }

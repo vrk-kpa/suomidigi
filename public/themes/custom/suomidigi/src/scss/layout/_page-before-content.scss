@@ -1,0 +1,14 @@
+.page-before_content {
+
+  &--user {
+    .section--before-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        flex-direction: row;
+      }
+    }
+  }
+}

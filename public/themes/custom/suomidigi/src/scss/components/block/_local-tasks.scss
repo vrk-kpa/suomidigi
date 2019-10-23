@@ -1,0 +1,5 @@
+.block-local-tasks-block {
+  @include breakpoint($for-tablet-portrait-up) {
+    margin-left: auto;
+  }
+}

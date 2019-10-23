@@ -1,4 +1,5 @@
 .core-content-teaser {
+  background-color: $white;
   height: 100%;
 
   .paragraph--full-width & {
@@ -22,13 +23,13 @@
   }
 
   &__link {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
+    color: $black;
     display: flex;
     flex-direction: column;
-    color: $black;
-    text-decoration: none;
-    padding: calc(#{$gutter} * 1.25) $gutter;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
     height: 100%;
+    padding: calc(#{$gutter} * 1.25) $gutter;
+    text-decoration: none;
   }
 
   &__header {
@@ -47,16 +48,16 @@
     width: $gutter * 3;
 
     svg {
-      width: 100%;
       height: 100%;
+      width: 100%;
     }
   }
 
   &__label {
     @include font-size(20px);
-    margin-bottom: 0;
     font-weight: 600;
     line-height: 100%;
+    margin-bottom: 0;
   }
 
   &__lead {
@@ -70,8 +71,8 @@
   &__type {
     @include font-size(14px);
     color: $gray-darker;
-    font-weight: 600;
     display: block;
+    font-weight: 600;
     line-height: 100%;
   }
 

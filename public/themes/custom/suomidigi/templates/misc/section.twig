@@ -1,0 +1,13 @@
+{% if section_element %}
+  {% set section_element = 'section--' ~ section_element %}
+{% endif %}
+
+{% if section_modifier %}
+  {% set section_modifier = 'section--' ~ section_modifier %}
+{% endif %}
+
+<section class="section {{ section_element }} {{ section_modifier }}">
+  {% block section_content %}
+    {{ content }}
+  {% endblock %}
+</section>

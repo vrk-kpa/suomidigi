@@ -3,17 +3,20 @@ nav.shortcuts--sidebar,
 .moby-shortcuts {
   h2 {
     @include font-size(14px);
-    color: $black;
+    @include line-height(14px, 18px);
+    @include border('bottom');
+    color: $blue;
     font-weight: bold;
-    margin: 0;
-    padding: $gutter $gutter 0;
+    letter-spacing: 0;
+    margin: 0 0 $gutter;
+    padding: 0 0 $gutter;
     text-transform: uppercase;
   }
 
   a {
     @include font-size(14px);
     @include line-height(14px, 18px);
-    color: $gray-darker;
+    color: $blue-light;
     display: block;
     font-weight: 600;
     text-decoration: none;
@@ -27,13 +30,13 @@ nav.shortcuts--sidebar,
       background-color: $gray-lighter;
       &:focus,
       &:hover {
-        cursor: default;
         color: $gray-darker;
+        cursor: default;
 
         .theme-term__image img {
+          margin: 0;
           max-height: calc(#{$gutter} * 2);
           max-width: calc(#{$gutter} * 2);
-          margin: 0;
         }
       }
     }
@@ -43,9 +46,9 @@ nav.shortcuts--sidebar,
       color: $black;
 
       .theme-term__image img {
+        margin: -2px -2px -2px -2px;
         max-height: calc(#{$gutter} * 2 + 4px);
         max-width: calc(#{$gutter} * 2 + 4px);
-        margin: -2px -2px -2px -2px;
       }
     }
   }
@@ -53,6 +56,16 @@ nav.shortcuts--sidebar,
 
 .moby-shortcuts {
   padding-bottom: $gutter;
+
+  h2 {
+    border: 0 none;
+    margin: 0 0 $gutter;
+    padding: $gutter $gutter 0;
+  }
+
+  .theme-term__header--alternative {
+    padding: $gutter/3 0 $gutter/3 $gutter;
+  }
 }
 
 nav.shortcuts--mobile {
@@ -71,11 +84,11 @@ nav.shortcuts--sidebar {
   &__header--alternative {
     justify-content: flex-start;
     margin: 0;
-    padding: $gutter/3 0 $gutter/3 $gutter;
+    padding: $gutter/3 0 $gutter/3 0;
 
     .theme-term__image {
-      min-width: $gutter*2;
       min-height: $gutter*2;
+      min-width: $gutter*2;
 
       @include breakpoint($for-tablet-portrait-up) {
         display: block;

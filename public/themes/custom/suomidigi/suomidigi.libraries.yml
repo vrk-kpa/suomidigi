@@ -6,10 +6,6 @@ language-switcher:
   js:
     dist/js/languageSwitcher.min.js: {}
 
-article-teaser-content-height:
-  js:
-    dist/js/articleTeaserContentHeight.min.js: {}
-
 leanlab-questionnaire:
   js:
     dist/js/leanLabInterQuest.min.js: {}
@@ -37,6 +33,5 @@ global-scripting:
     - core/jquery.once
     - suomidigi/moby
     - suomidigi/search-toggle
-    - suomidigi/article-teaser-content-height
     - suomidigi/leanlab-questionnaire
     - suomidigi/language-switcher

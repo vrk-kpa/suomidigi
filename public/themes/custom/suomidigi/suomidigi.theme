@@ -48,6 +48,23 @@ function suomidigi_preprocess_page(&$variables) {
     'siteName' => $site_config->get('name'),
   ];
   $variables['#attached']['drupalSettings'] = $settings;
+
+  // Set entities as variables for templates.
+  $variables['webform'] = Drupal::routeMatch()->getParameters()->get('webform');
+
+  // Set section area based on entity type.
+  $entities = [
+    'article',
+    'core_content',
+    'webform',
+  ];
+
+  if (
+    isset($variables['node']) &&
+    in_array($variables['node']->getType(), $entities)
+  ) {
+    $variables['has_background'] = TRUE;
+  }
 }
 
 /**
@@ -437,7 +454,7 @@ function suomidigi_form_alter(&$form, FormStateInterface $form_state, $form_id) 
     $form['#id'] === 'views-exposed-form-search-search-api-view'
   ) {
     $form['#id'] = 'search_form';
-    $form['query']['#attributes']['placeholder'] = t('Search');
+    $form['query']['#attributes']['placeholder'] = t('Search from Suomidigi');
     $form['query']['#attributes']['id'] = 'search';
     $form['query']['#attributes']['class'][] = 'search-form__input';
     $form['#attributes']['class'][] = 'search-form';
@@ -457,6 +474,10 @@ function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables
 
   if (isset($element['#attributes']['data-twig-suggestion'])) {
     $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
+  }
+
+  if (isset($element['#attributes']['id'])) {
+    $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['id'];
   }
 }
 
