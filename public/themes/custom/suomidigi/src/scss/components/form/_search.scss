@@ -7,7 +7,9 @@
   visibility: hidden;
 
   @include breakpoint($for-tablet-portrait-up) {
-    display: block;
+    display: flex;
+    flex: 2 2 310px;
+    justify-content: flex-end;
     margin-bottom: 0;
     margin-top: 0;
     opacity: 1;

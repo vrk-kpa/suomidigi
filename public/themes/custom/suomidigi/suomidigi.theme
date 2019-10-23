@@ -10,6 +10,7 @@ use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -278,6 +279,43 @@ function suomidigi_preprocess_menu(&$variables) {
         unset($variables['items'][$key]);
       }
     }
+  }
+
+  // Add icons to account menu.
+  if (
+    isset($variables['attributes']['block_id']) &&
+    $variables['attributes']['block_id'] == 'account_menu'
+  ) {
+    $icons = [
+      'user.page' => 'user',
+    ];
+
+    if ($variables['logged_in']) {
+      $icons['user.logout'] = 'logout';
+      $variables['#attached']['library'][] = 'suomidigi/account-menu';
+    } else {
+      $icons['user.logout'] = 'login';
+    }
+
+    foreach ($variables['items'] as $key => $item) {
+      if (array_key_exists($key, $icons)) {
+        $variables['items'][$key]['icon'] = $icons[$key];
+      }
+    }
+
+    // Set user real name or display name as variable for the template.
+    $user = User::load(Drupal::currentUser()->id());
+    if ($user->hasField('field_first_name') && !$user->field_first_name->isEmpty()) {
+      $first_name = $user->field_first_name->value;
+
+      if ($user->hasField('field_last_name') && !$user->field_last_name->isEmpty()) {
+        $last_name = $user->field_last_name->value;
+      }
+    }
+
+    $variables['user_name'] = (isset($first_name) && isset($last_name))
+      ? $first_name . ' ' . $last_name
+      : $user->getDisplayName();
   }
 }
 

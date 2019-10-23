@@ -1,0 +1,146 @@
+.menu--account {
+  display: none;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    display: flex;
+    flex: 2 2 120px;
+    justify-content: flex-end;
+    margin-right: $gutter * 2;
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .icon__wrapper {
+      margin-right: $gutter / 1.5;
+
+      .icon {
+        height: 23px;
+        width: 23px;
+
+        &--user {
+          margin-right: $gutter / 1.5;
+        }
+
+        &--chevron {
+          color: $blue;
+          height: $gutter;
+          margin-left: $gutter / 3;
+          width: $gutter;
+        }
+      }
+    }
+
+    .menu-item {
+      a {
+        align-items: center;
+        display: flex;
+        text-decoration: none;
+
+        &:hover {
+          color: $blue-light;
+        }
+      }
+    }
+
+    .logged-out {
+      @include font-size(14px);
+      @include line-height(14px, 18px);
+      color: $blue-light;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    &__dropdown {
+      &:not(.is-active) {
+        display: none;
+      }
+
+      &.logged-in {
+        background: $white;
+        box-shadow: 0 3px 6px #00000029;
+        list-style: none;
+        margin: 0;
+        padding: $gutter / 1.5 0;
+        position: absolute;
+        right: 0;
+        top: 45px;
+        width: 200px;
+        z-index: 1000;
+
+        &:after,
+        &:before {
+          border: solid transparent;
+          bottom: 100%;
+          content: " ";
+          height: 0;
+          pointer-events: none;
+          position: absolute;
+          right: 20px;
+          width: 0;
+        }
+
+        &:before {
+          border-bottom-color: $gray-light;
+          border-width: 8px;
+          margin-right: -8px;
+        }
+
+        &:after {
+          border-bottom-color: $white;
+          border-width: 7px;
+          margin-right: -7px;
+        }
+
+        .icon {
+          height: $gutter;
+          width: $gutter;
+        }
+
+        .menu-item {
+          @include font-size(14px);
+          @include line-height(14px, 18px);
+          font-weight: 600;
+
+          a {
+            border-left: 5px solid transparent;
+            padding: $gutter / 1.5 $gutter;
+          }
+
+          &--active-trail a,
+          a:focus,
+          a:hover {
+            background-color: $gray-light;
+            border-left: 5px solid $blue-light;
+            color: $blue-light;
+          }
+        }
+      }
+    }
+
+    &__button {
+      @include font-size(14px);
+      @include line-height(14px, 18px);
+      border: 0 none;
+      color: $blue-light;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin: 0;
+      padding: 0;
+
+      .icon__wrapper {
+        align-items: center;
+        display: flex;
+      }
+
+      &[aria-expanded=true] {
+        .icon--chevron {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+

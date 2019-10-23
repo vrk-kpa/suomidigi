@@ -3,7 +3,7 @@
 
   @include breakpoint($for-tablet-portrait-up) {
     display: block;
-    margin: 0 0 0 auto;
+    margin: 0;
     padding: 0;
 
     &__wrapper {
