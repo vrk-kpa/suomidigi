@@ -5,12 +5,65 @@ dependencies:
   config:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_user_description
+    - field.field.user.user.field_user_linkedin
+    - field.field.user.user.field_user_organisation
+    - field.field.user.user.field_user_title
+    - field.field.user.user.field_user_twitter
     - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - image.style.medium
   module:
+    - field_group
     - focal_point
-    - path
+    - link
     - user
+third_party_settings:
+  field_group:
+    group_profile_settings:
+      children:
+        - field_first_name
+        - field_last_name
+        - user_picture
+        - field_user_title
+        - field_user_organisation
+        - field_user_description
+        - field_user_linkedin
+        - field_user_twitter
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'form__group'
+        required_fields: false
+      label: 'Profiilin tiedot'
+      region: content
+    group_account_settings:
+      children:
+        - account
+      parent_name: ''
+      weight: 9
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: 'form__group form__divider'
+        required_fields: false
+      label: 'Tilin asetukset'
+      region: content
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
 id: user.user.default
@@ -19,24 +72,11 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  contact:
-    weight: 6
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_first_name:
-    weight: 0
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_last_name:
     weight: 1
     settings:
       size: 60
@@ -44,36 +84,68 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  google_analytics:
-    weight: 5
-    region: content
-    settings: {  }
+  field_last_name:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-  language:
-    weight: 4
+    type: string_textfield
     region: content
-    settings: {  }
+  field_user_description:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 8
+    type: string_textarea
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  timezone:
+  field_user_linkedin:
     weight: 7
-    region: content
-    settings: {  }
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
+    type: link_default
+    region: content
+  field_user_organisation:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_user_title:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_user_twitter:
+    weight: 8
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   user_picture:
     type: image_focal_point
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-      preview_link: true
+      preview_image_style: medium
       offsets: '50,50'
+      progress_indicator: throbber
+      preview_link: false
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
 hidden:
+  contact: true
+  google_analytics: true
   langcode: true
+  language: true
+  path: true
+  timezone: true
