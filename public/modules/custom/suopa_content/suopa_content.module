@@ -247,7 +247,6 @@ function suopa_editorial_local_tasks_alter(&$local_tasks) {
   $local_tasks['entity.user.edit_form']['title'] = new TranslatableMarkup('Edit profile');
 }
 
-
 /**
  * Implements hook_preprocess_HOOK().
  */

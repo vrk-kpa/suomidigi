@@ -16,10 +16,17 @@ class UserPageRouteSubscriber extends RouteSubscriberBase {
   public function alterRoutes(RouteCollection $collection) {
     // Retrieve the user edit and view form route.
     if ($route = $collection->get('entity.user.canonical')) {
-      $route->setDefault('_title_callback','Drupal\suopa_content\EventSubscriber\UserPageRouteSubscriber::userTitle');
+      $route->setDefault(
+        '_title_callback',
+        'Drupal\suopa_content\EventSubscriber\UserPageRouteSubscriber::userTitle'
+      );
     }
+
     if ($route = $collection->get('entity.user.edit_form')) {
-      $route->setDefault('_title_callback','Drupal\suopa_content\EventSubscriber\UserPageRouteSubscriber::userTitle');
+      $route->setDefault(
+        '_title_callback',
+        'Drupal\suopa_content\EventSubscriber\UserPageRouteSubscriber::userTitle'
+      );
     }
   }
 
@@ -35,4 +42,5 @@ class UserPageRouteSubscriber extends RouteSubscriberBase {
       '#markup' => t('My profile'),
     ];
   }
+
 }
