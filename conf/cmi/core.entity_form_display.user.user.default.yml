@@ -41,7 +41,7 @@ third_party_settings:
         effect: none
         speed: fast
         id: ''
-        classes: 'form__group'
+        classes: form__group
         required_fields: false
       label: 'Profiilin tiedot'
       region: content

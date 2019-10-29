@@ -11,7 +11,7 @@ dependencies:
     - field.field.user.user.field_user_title
     - field.field.user.user.field_user_twitter
     - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - image.style.large
   module:
     - link
     - svg_image
@@ -25,7 +25,7 @@ mode: default
 content:
   field_first_name:
     weight: 6
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -33,7 +33,7 @@ content:
     region: content
   field_last_name:
     weight: 7
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -41,14 +41,14 @@ content:
     region: content
   field_user_description:
     weight: 10
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_user_linkedin:
     weight: 11
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -60,7 +60,7 @@ content:
     region: content
   field_user_organisation:
     weight: 9
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -68,7 +68,7 @@ content:
     region: content
   field_user_title:
     weight: 8
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -76,7 +76,7 @@ content:
     region: content
   field_user_twitter:
     weight: 12
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -89,13 +89,19 @@ content:
   member_for:
     weight: 5
     region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
     region: content
     settings:
-      image_style: thumbnail
-      image_link: content
+      image_style: large
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
     third_party_settings: {  }
     label: hidden
 hidden:
