@@ -35,6 +35,10 @@
 .article__author {
   display: flex;
   flex-wrap: wrap;
+
+  &--prominent {
+    margin-top: $gutter * 4;
+  }
 }
 
 .article__author-item {
