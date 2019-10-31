@@ -3,12 +3,130 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.author.field_author_description
+    - field.field.taxonomy_term.author.field_author_linkedin
+    - field.field.taxonomy_term.author.field_author_organisation
+    - field.field.taxonomy_term.author.field_author_picture
+    - field.field.taxonomy_term.author.field_author_title
+    - field.field.taxonomy_term.author.field_author_twitter
+    - field.field.taxonomy_term.author.field_reference_to_user_profile
+    - image.style.thumbnail
     - taxonomy.vocabulary.author
+  module:
+    - field_group
+    - link
+    - suopa_editorial
+    - svg_image
+third_party_settings:
+  field_group:
+    group_does_author_have_user_prof:
+      children:
+        - group_author_no
+        - group_author_yes
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: 'Does author have user profile?'
+      region: content
+    group_author_yes:
+      children:
+        - field_reference_to_user_profile
+      parent_name: group_does_author_have_user_prof
+      weight: 13
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: open
+        required_fields: true
+      label: 'Yes'
+      region: content
+    group_author_no:
+      children:
+        - field_author_picture
+        - field_author_description
+        - field_author_linkedin
+        - field_author_twitter
+        - field_author_organisation
+        - field_author_title
+      parent_name: group_does_author_have_user_prof
+      weight: 12
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        description: 'Fill in all of the fields below.'
+        formatter: closed
+        required_fields: true
+      label: 'No'
+      region: content
 id: taxonomy_term.author.default
 targetEntityType: taxonomy_term
 bundle: author
 mode: default
 content:
+  field_author_description:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_author_linkedin:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_author_organisation:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_author_picture:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_author_title:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_author_twitter:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_reference_to_user_profile:
+    weight: 10
+    settings:
+      width: 100%
+      match_operator: CONTAINS
+      autocomplete: 0
+    third_party_settings: {  }
+    type: select2_entity_reference_views
+    region: content
   name:
     type: string_textfield
     weight: 0
@@ -21,3 +139,4 @@ hidden:
   description: true
   langcode: true
   path: true
+  revision_log_message: true
