@@ -20,9 +20,9 @@
       <div class="profile-card__picture">
         {% if content.field_author_picture|render %}
           {{ content.field_author_picture }}
-        {% elseif name|render|first|upper %}
+        {% elseif name|render %}
           <span class="profile-card__picture--letter">
-            {{ name|first|upper }}
+            {{ name|render|striptags|trim|first|upper }}
           </span>
         {% endif %}
       </div>
