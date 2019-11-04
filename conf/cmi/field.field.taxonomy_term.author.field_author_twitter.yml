@@ -1,0 +1,23 @@
+uuid: 0f240874-bdd1-4ca3-bd85-25b24ee16d56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_author_twitter
+    - taxonomy.vocabulary.author
+  module:
+    - link
+id: taxonomy_term.author.field_author_twitter
+field_name: field_author_twitter
+entity_type: taxonomy_term
+bundle: author
+label: Twitter
+description: 'Direct URL to your Twitter account. F.e https://twitter.com/suomidigi'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

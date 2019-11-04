@@ -276,3 +276,16 @@ function suopa_editorial_theme_suggestions_captcha_alter(array &$suggestions, ar
     $suggestions[] = 'captcha__user_register_form';
   }
 }
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function suopa_content_node_view(&$build, $entity, $display, $view_mode) {
+  // Duplicate displayed author field for rendering it in the footer of the page
+  // with different view mode.
+  if ($view_mode == 'full' && isset($build['field_displayed_author']['#items'])) {
+    $build['field_displayed_author_footer'] = $build['field_displayed_author']['#items']->view([
+      'type' => 'entity_reference_entity_view',
+    ]);
+  }
+}
