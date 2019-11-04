@@ -2,11 +2,17 @@
 
 namespace Drupal\suopa_editorial\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Render\RendererInterface;
 use Drupal\select2\Plugin\Field\FieldWidget\Select2EntityReferenceWidget;
 use Drupal\user\EntityOwnerInterface;
+use Drupal\views\ViewExecutableFactory;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'select2' widget.
@@ -21,6 +27,63 @@ use Drupal\user\EntityOwnerInterface;
  * )
  */
 class Select2EntityReferenceViewsWidget extends Select2EntityReferenceWidget implements ContainerFactoryPluginInterface {
+
+  /**
+   * The entity type manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * The renderer.
+   *
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
+   * The exec factory.
+   *
+   * @var \Drupal\views\ViewExecutableFactory
+   */
+  protected $viewFactory;
+
+  /**
+   * The loader.
+   *
+   * @var \Drupal\Core\Entity\EntityStorageInterface
+   */
+  protected $viewLoader;
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $plugin_id,
+      $plugin_definition,
+      $configuration['field_definition'],
+      $configuration['settings'],
+      $configuration['third_party_settings'],
+      $container->get('entity_type.manager'),
+      $container->get('entity_type.manager')->getStorage('view'),
+      $container->get('views.executable'),
+      $container->get('renderer')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, array $third_party_settings, EntityTypeManagerInterface $entity_type_manager, EntityStorageInterface $view_loader, ViewExecutableFactory $view_factory, RendererInterface $renderer) {
+    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $third_party_settings, $entity_type_manager);
+
+    $this->entityTypeManager = $entity_type_manager;
+    $this->viewLoader = $view_loader;
+    $this->viewFactory = $view_factory;
+    $this->renderer = $renderer;
+  }
 
   /**
    * {@inheritdoc}
