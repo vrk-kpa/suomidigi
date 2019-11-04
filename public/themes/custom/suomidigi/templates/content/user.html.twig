@@ -1,0 +1,95 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<article{{ attributes.addClass('profile-card') }}>
+  <div class="profile-card__picture">
+    {% if content.user_picture|render %}
+      {{ content.user_picture }}
+    {% else %}
+      {% if content.field_first_name|render|first|upper %}
+        <span class="profile-card__picture--letter">
+          {{ content.field_first_name.0['#context'].value|first|upper }}
+        </span>
+      {% else %}
+        <span class="profile-card__picture--letter">
+          {{ user.name.0.value|first|upper }}
+        </span>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="profile-card__content">
+    {% if content.field_first_name|render or content.field_user_title|render or content.field_user_organisation|render %}
+      <div class="profile-card__content--primary with-border">
+    {% else %}
+      <div class="profile-card__content--primary">
+    {% endif %}
+      <div class="profile-card__name">
+        {% if content.field_first_name|render %}
+          {{ content.field_first_name }} {{ content.field_last_name }}
+        {% else %}
+          {{ user.name.0.value }}
+        {% endif %}
+      </div>
+      <div class="profile-card__profession">
+        {% set user_title = content.field_user_title|render|striptags|trim %}
+        {% if content.field_user_title|render and content.field_user_organisation|render %}
+          {% set user_title = user_title ~ ', ' %}
+        {% endif %}
+        {{ user_title }}
+        {% if content.field_user_organisation|render %}
+          {{ content.field_user_organisation|render|striptags|trim }}
+        {% endif %}
+      </div>
+    </div>
+    <div class="profile-card__content--secondary">
+      {% if content.field_user_description|render %}
+        <div class="profile-card__description">
+          {{ content.field_user_description }}
+        </div>
+      {% endif %}
+
+
+      {% if content.field_user_linkedin|render %}
+        <a href="{{ content.field_user_linkedin.0['#url'] }}" class="profile-card__some linkedin" target="_blank" title="LinkedIn">
+          {% if icons_path %}
+            <svg class="icon">
+              <title>LinkedIn</title>
+              <use xlink:href="{{ icons_path|trim }}#social-media-linkedin" />
+            </svg>
+          {% else %}
+            LinkedIn
+          {% endif %}
+        </a>
+      {% endif %}
+
+      {% if content.field_user_twitter|render %}
+        <a href="{{ content.field_user_twitter.0['#url'] }}" class="profile-card__some twitter" target="_blank" title="Twitter">
+          {% if icons_path %}
+            <svg class="icon">
+              <title>Twitter</title>
+              <use xlink:href="{{ icons_path|trim }}#social-media-twitter" />
+            </svg>
+          {% else %}
+            Twitter
+          {% endif %}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

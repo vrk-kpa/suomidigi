@@ -9,6 +9,7 @@ use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
 
@@ -233,5 +234,45 @@ function suopa_content_views_post_execute(ViewExecutable $view) {
         _suopa_content_exclude_previous_entities('views', $term_id, $result->nid);
       }
     }
+  }
+}
+
+/**
+ * Implements hook_local_tasks_alter().
+ */
+function suopa_editorial_local_tasks_alter(&$local_tasks) {
+  // Change user 'Edit' and 'View' local tasks to 'Edit profile' and
+  // 'View profile' when in user page.
+  $local_tasks['entity.user.canonical']['title'] = new TranslatableMarkup('View profile');
+  $local_tasks['entity.user.edit_form']['title'] = new TranslatableMarkup('Edit profile');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suopa_editorial_preprocess_page(&$variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  if (
+    $route_name == 'entity.user.canonical' ||
+    $route_name == 'entity.user.edit_form'
+  ) {
+    $variables['#attached']['library'][] = 'suopa_content/local-tasks';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function suopa_editorial_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+  $form['name']['#title'] = t('Email');
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function suopa_editorial_theme_suggestions_captcha_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#captcha_info']['form_id'])) {
+    $suggestions[] = 'captcha__user_register_form';
   }
 }

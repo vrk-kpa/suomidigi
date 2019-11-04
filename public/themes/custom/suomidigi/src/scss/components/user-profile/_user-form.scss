@@ -1,0 +1,32 @@
+.user-form {
+  .image-widget {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .file {
+      padding: 0;
+
+      &--image {
+        background-image: none;
+      }
+    }
+
+    .image-preview {
+      margin-right: $gutter;
+    }
+
+    input[type="submit"] {
+      margin-top: $gutter / 3;
+      padding: 0 $gutter;
+    }
+  }
+
+  .form-item {
+    @include breakpoint($for-mobile-landscape-up) {
+      max-width: 500px;
+    }
+  }
+}
+

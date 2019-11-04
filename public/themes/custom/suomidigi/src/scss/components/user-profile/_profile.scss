@@ -1,0 +1,116 @@
+.profile-card {
+  align-items: center;
+  background-color: $white;
+  border-bottom: 8px solid $blue-light;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 $gutter;
+
+  @include breakpoint($for-tablet-landscape-up) {
+    flex-direction: row;
+  }
+
+  &__picture {
+    align-content: center;
+    display: flex;
+    height: calc(210px + (#{$gutter} * 2 * 2));
+    justify-content: center;
+    min-width: calc(210px + (#{$gutter} * 2 * 2));
+    padding: $gutter * 2;
+    width: calc(210px + (#{$gutter} * 2 * 2));
+
+    img {
+      border-radius: 100%;
+    }
+
+    &--letter {
+      @include font-size(72px);
+      align-items: center;
+      background-color: $blue-light;
+      border-radius: 100%;
+      color: $white;
+      display: flex;
+      font-weight: bold;
+      height: 100%;
+      justify-content: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    padding: $gutter * 2;
+    width: 100%;
+
+    &--primary {
+      &.with-border {
+        border-bottom: 1px solid $gray-medium;
+        margin-bottom: $gutter;
+        padding-bottom: $gutter * 1.35;
+      }
+    }
+  }
+
+  &__name {
+    @include font-size(22px);
+    @include line-height(22px, 28px);
+    color: $blue;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin-bottom: $gutter / 2;
+
+    > div {
+      display: inline;
+    }
+  }
+
+  &__profession {
+    @include font-size(14px);
+    @include line-height(14px, 18px);
+    font-weight: 600;
+    letter-spacing: 0;
+
+    > div {
+      display: inline;
+    }
+  }
+
+  &__description {
+    @include font-size(16px);
+    @include line-height(16px, 24px);
+    letter-spacing: 0;
+    margin-bottom: $gutter;
+  }
+
+  &__some {
+    background-color: $white;
+    display: inline-block;
+    list-style: none;
+    margin-right: $gutter;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    .icon {
+      max-height: $gutter * 2;
+      max-width: $gutter * 2;
+    }
+
+    &.linkedin {
+      color: #0079B2;
+    }
+
+    &.twitter {
+      color: #0DA4EE;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      color: $black;
+    }
+  }
+
+}

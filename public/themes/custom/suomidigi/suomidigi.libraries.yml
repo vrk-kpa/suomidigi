@@ -6,6 +6,10 @@ language-switcher:
   js:
     dist/js/languageSwitcher.min.js: {}
 
+account-menu:
+  js:
+    dist/js/accountMenu.min.js: {}
+
 leanlab-questionnaire:
   js:
     dist/js/leanLabInterQuest.min.js: {}
