@@ -255,10 +255,14 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
   }
 
   if (isset($form['field_displayed_author'])) {
-    $url = Url::fromRoute('entity.taxonomy_vocabulary.overview_form', ['taxonomy_vocabulary' => 'author']);
+    $current_path = \Drupal::service('path.current')->getPath();
+    $url = Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
+      'taxonomy_vocabulary' => 'author',
+      'destination' => $current_path,
+    ]);
     $link = Link::fromTextAndUrl(t('Edit authors'), $url);
     $link = $link->toRenderable();
-    $form['field_displayed_author']['#suffix'] = t('Complete the author information.') . ' ' . render($link);
+    $form['field_displayed_author']['#suffix'] = t('Complete the author information.') . ' ' . render($link) . '.';
   }
 
   return $form;

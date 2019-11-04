@@ -38,26 +38,24 @@
 #}
 
 {% if label_hidden %}
-  {% if multiple %}
-    {% for item in items %}
-      <span class="article__author-item">{{ item.content }}</span>
-    {% endfor %}
-  {% else %}
-    {% for item in items %}
-      <span class="article__author-item">{{ item.content }}</span>
-    {% endfor %}
-  {% endif %}
+  {% for item in items %}
+    <span class="article__author-item">{{ item.content }}</span>
+  {% endfor %}
 {% else %}
-  <div{{attributes}}>
-    <div{{title_attributes}}>{{ label }}</div>
-    {% if multiple %}
-      <div>
-      {% endif %}
-      {% for item in items %}
-        <div{{item.attributes}}>{{ item.content }}</div>
-      {% endfor %}
-      {% if multiple %}
-      </div>
-    {% endif %}
+  <div class="author__label">
+    {% trans %}
+      Author
+    {% plural items|length %}
+      Authors
+    {% endtrans %}
   </div>
+  {% if multiple %}
+    <div class="article__author-items">
+  {% endif %}
+  {% for item in items %}
+    {{ item.content }}
+  {% endfor %}
+  {% if multiple %}
+    </div>
+  {% endif %}
 {% endif %}
