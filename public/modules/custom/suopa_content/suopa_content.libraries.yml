@@ -1,0 +1,8 @@
+exposed-filters:
+  js:
+    assets/js/exposed-filters.js: {}
+  css:
+    theme:
+      assets/css/exposed-filters.css: {}
+  dependencies:
+    - core/jquery

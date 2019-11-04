@@ -235,3 +235,32 @@ function suopa_content_views_post_execute(ViewExecutable $view) {
     }
   }
 }
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @inheritDoc
+ */
+function suopa_content_form_alter(&$form) {
+  if ($form['#id'] !== 'views-exposed-form-profile-own-content-block-1') {
+    return;
+  }
+  // Prepare the views exposed filters for conversion to links.
+  $index = 0;
+  $items = [];
+
+  foreach ($form['type']['#options'] as $tid => $term_name) {
+    $items[$index]['#markup'] = ($tid == 'All')
+      ? '<span class="filter-tab"><a href="" class="active" id="' . $tid . '">' . $term_name . '</a></span>'
+      : '<span class="filter-tab"><a href="" id="' . $tid . '">' . $term_name . '</a></span>';
+    $index++;
+  }
+
+  $form['links'] = [
+    '#theme' => 'item_list',
+    '#items' => $items,
+    '#attributes' => ['class' => ['pop-list']],
+  ];
+
+  $form['#attached']['library'][] = 'suopa_content/exposed-filters';
+}
