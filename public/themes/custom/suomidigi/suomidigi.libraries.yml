@@ -10,10 +10,6 @@ account-menu:
   js:
     dist/js/accountMenu.min.js: {}
 
-leanlab-questionnaire:
-  js:
-    dist/js/leanLabInterQuest.min.js: {}
-
 # Moby.js Fixed for D8.
 # Original: https://github.com/joshsanger/moby.js
 moby:
@@ -37,5 +33,4 @@ global-scripting:
     - core/jquery.once
     - suomidigi/moby
     - suomidigi/search-toggle
-    - suomidigi/leanlab-questionnaire
     - suomidigi/language-switcher
