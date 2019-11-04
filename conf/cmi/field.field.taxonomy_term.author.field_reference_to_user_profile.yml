@@ -1,0 +1,25 @@
+uuid: 79ddd7f3-f863-4f81-b376-f75518f35255
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_reference_to_user_profile
+    - taxonomy.vocabulary.author
+id: taxonomy_term.author.field_reference_to_user_profile
+field_name: field_reference_to_user_profile
+entity_type: taxonomy_term
+bundle: author
+label: 'Reference to user profile'
+description: 'Select a user profile which this author refers to. If there is no user profile available, fill in all the detail fields.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: profile_entity_reference
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

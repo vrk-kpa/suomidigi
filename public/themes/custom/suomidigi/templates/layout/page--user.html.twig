@@ -53,7 +53,7 @@
 {% embed "@suomidigi/layout/page.html.twig" with {before_content_element: 'user'} %}
   {% block content %}
     <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
-      {% embed "@suomidigi/misc/section.twig" with {section_element: 'content', section_modifier: 'colored'} %}
+      {% embed "@suomidigi/misc/section.twig" with {section_element: 'content'} %}
         {% block section_content %}
           {{ page.content }}
         {% endblock section_content %}

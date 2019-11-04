@@ -5,11 +5,12 @@
 
   > p {
     @include font-size(18px);
-    font-weight: 400;
     background-color: $gray;
     border-radius: 4px;
+    font-weight: 400;
     margin-bottom: $gutter;
     padding: 20px 30px;
     text-align: left;
   }
 }
+

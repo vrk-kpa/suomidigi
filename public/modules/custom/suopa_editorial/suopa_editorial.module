@@ -7,6 +7,8 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
@@ -247,12 +249,21 @@ function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
  * {@inheritdoc}
  */
 function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (!isset($form['field_approved'])) {
-    return;
+  if (isset($form['field_approved'])) {
+    $form['field_approved']['#group'] = 'footer';
+    $form['field_approved']['#weight'] = 0;
   }
 
-  $form['field_approved']['#group'] = 'footer';
-  $form['field_approved']['#weight'] = 0;
+  if (isset($form['field_displayed_author'])) {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $url = Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
+      'taxonomy_vocabulary' => 'author',
+      'destination' => $current_path,
+    ]);
+    $link = Link::fromTextAndUrl(t('Edit authors'), $url);
+    $link = $link->toRenderable();
+    $form['field_displayed_author']['#suffix'] = t('Complete the author information.') . ' ' . render($link) . '.';
+  }
 
   return $form;
 }
