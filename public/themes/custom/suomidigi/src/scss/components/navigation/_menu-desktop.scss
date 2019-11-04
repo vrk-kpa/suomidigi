@@ -13,13 +13,13 @@ nav.menu--desktop {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin: 0 -#{$gutter * 2};
+    margin: 0 -#{$gutter * 1.4};
     padding: 0;
   }
 
   .menu-item {
     @include line-height(18px, 23px);
-    margin: 0 $gutter * 2;
+    margin: 0 $gutter * 1.4;
     padding: 0;
     text-align: center;
 

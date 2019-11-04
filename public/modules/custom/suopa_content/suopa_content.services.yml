@@ -1,0 +1,6 @@
+services:
+  suopa_content.user_page:
+    class: Drupal\suopa_content\EventSubscriber\UserPageRouteSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }

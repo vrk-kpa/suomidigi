@@ -9,7 +9,7 @@ _core:
 id: suomidigi_local_tasks
 theme: suomidigi
 region: before_content
-weight: -10
+weight: -11
 provider: null
 plugin: local_tasks_block
 settings:

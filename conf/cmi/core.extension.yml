@@ -27,6 +27,7 @@ module:
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
   editor: 0
+  email_registration: 0
   entity_browser: 0
   entity_browser_entity_form: 0
   entity_reference_revisions: 0
@@ -36,6 +37,7 @@ module:
   file: 0
   filter: 0
   focal_point: 0
+  formtips: 0
   google_analytics: 0
   help: 0
   history: 0
