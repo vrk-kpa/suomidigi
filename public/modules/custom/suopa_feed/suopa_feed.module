@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_feed.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_feed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_feed module.
+    case 'help.page.suopa_feed':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Hosts all feed related custom code.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
