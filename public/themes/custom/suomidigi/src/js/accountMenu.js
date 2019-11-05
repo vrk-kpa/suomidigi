@@ -20,12 +20,10 @@
         e.stopImmediatePropagation();
 
         if (accountMenuWrapper.hasClass('is-active')) {
-          console.log('on classi');
           accountMenuWrapper.removeClass('is-active').attr('aria-hidden', 'true');
           accountMenuToggleButton.attr('aria-expanded', 'false');
         }
         else {
-          console.log('ei oo mut laitetaan');
           accountMenuWrapper.addClass('is-active').attr('aria-hidden', 'false');
           accountMenuToggleButton.attr('aria-expanded', 'true');
           document.addEventListener('click', outsideClickListener);
