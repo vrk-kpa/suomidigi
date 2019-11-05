@@ -267,3 +267,17 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
 
   return $form;
 }
+
+/**
+ * Implements hook_theme().
+ */
+function suopa_editorial_theme() {
+  return [
+    'content_creation_links_block' => [
+      'variables' => [
+        'content' => NULL
+      ],
+      'render element' => 'children',
+    ],
+  ];
+}

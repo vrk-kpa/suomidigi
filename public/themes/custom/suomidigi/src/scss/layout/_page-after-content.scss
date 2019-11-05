@@ -1,5 +1,4 @@
 .page-after_content {
-  @include border('top');
   margin: $gutter * 2 -#{$gutter} 0;
   padding: $gutter;
 

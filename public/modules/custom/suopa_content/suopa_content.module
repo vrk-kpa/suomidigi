@@ -291,14 +291,11 @@ function suopa_content_node_view(&$build, $entity, $display, $view_mode) {
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  *
  * @inheritDoc
  */
-function suopa_content_form_alter(&$form) {
-  if ($form['#id'] !== 'views-exposed-form-profile-own-content-block-1') {
-    return;
-  }
+function suopa_content_views_exposed_form_profile_own_content_block_1_form_alter(&$form) {
   // Prepare the views exposed filters for conversion to links.
   $index = 0;
   $items = [];
@@ -313,7 +310,7 @@ function suopa_content_form_alter(&$form) {
   $form['links'] = [
     '#theme' => 'item_list',
     '#items' => $items,
-    '#attributes' => ['class' => ['pop-list']],
+    '#attributes' => ['class' => ['buttons', 'buttons--horizontal']],
   ];
 
   $form['#attached']['library'][] = 'suopa_content/exposed-filters';

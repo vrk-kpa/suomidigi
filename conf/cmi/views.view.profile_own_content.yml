@@ -156,6 +156,47 @@ display:
           expose:
             operator: ''
           group: 1
+        type_1:
+          id: type_1
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            article: article
+            event: event
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
         type:
           id: type
           table: node_field_data
@@ -232,7 +273,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "No custom content yet. You can start producing content.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/article\" class=\"link\">Create an article</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/event\" class=\"link\">Create an event</a>\r\n</div>"
+            value: "No custom content yet.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/article\" class=\"link\">Create an article</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/event\" class=\"link\">Create an event</a>\r\n</div>"
             format: full_html
           plugin_id: text
       relationships:
@@ -291,6 +332,10 @@ display:
           plugin_id: user_uid
       display_extenders: {  }
       use_ajax: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
