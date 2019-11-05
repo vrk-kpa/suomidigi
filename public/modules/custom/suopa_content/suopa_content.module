@@ -5,10 +5,13 @@
  * Contains suopa_content.module.
  */
 
+use Drupal\block\Entity\Block;
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
@@ -131,6 +134,31 @@ function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) 
         'grant_delete' => 0,
         'langcode' => $langcode,
       ];
+    }
+  }
+}
+
+/**
+ * Implements hook_block_access().
+ *
+ * Hide content creation links block and own content block if user is not on
+ * own account page.
+ *
+ * {@inheritDoc}
+ */
+function suopa_content_block_access(Block $block, $operation, AccountInterface $account) {
+  if ($operation == 'view') {
+    if (
+      $block->getPluginId() === 'content_creation_links_block' ||
+      $block->getPluginId() === 'views_block:profile_own_content-block_1'
+    ) {
+      if (!empty($viewed_user = \Drupal::routeMatch()->getParameter('user'))) {
+        $user = \Drupal::currentUser();
+
+        return ($user->id() === $viewed_user->id())
+          ? AccessResult::neutral()->addCacheableDependency($viewed_user->id())
+          : AccessResult::forbidden()->addCacheableDependency($viewed_user->id());
+      }
     }
   }
 }
