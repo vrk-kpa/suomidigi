@@ -275,7 +275,8 @@ function suopa_editorial_theme() {
   return [
     'content_creation_links_block' => [
       'variables' => [
-        'content' => NULL
+        'content' => NULL,
+        'label' => NULL,
       ],
       'render element' => 'children',
     ],
