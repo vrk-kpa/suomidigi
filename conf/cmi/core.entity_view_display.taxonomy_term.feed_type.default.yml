@@ -1,0 +1,32 @@
+uuid: 10af4b5c-37fb-40ba-856f-bc4eac8e7e4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.feed_type.field_feed_source
+    - taxonomy.vocabulary.feed_type
+  module:
+    - suopa_feed
+    - text
+id: taxonomy_term.feed_type.default
+targetEntityType: taxonomy_term
+bundle: feed_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_feed_source:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: feed_source_field_formatter
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
