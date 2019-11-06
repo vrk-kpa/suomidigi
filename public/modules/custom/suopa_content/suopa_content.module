@@ -150,7 +150,8 @@ function suopa_content_block_access(Block $block, $operation, AccountInterface $
   if ($operation == 'view') {
     if (
       $block->getPluginId() === 'content_creation_links_block' ||
-      $block->getPluginId() === 'views_block:profile_own_content-block_1'
+      $block->getPluginId() === 'views_block:profile_own_content-block_1' ||
+      $block->getPluginId() === 'views_block:profile_my_bookmarks-block_1'
     ) {
       if (!empty($viewed_user = \Drupal::routeMatch()->getParameter('user'))) {
         $user = \Drupal::currentUser();
@@ -390,4 +391,15 @@ function suopa_content_theme() {
       ],
     ],
   ];
+}
+
+/**
+ * Implements hook_views_pre_render().
+ *
+ * {@inheritDoc}
+ */
+function suopa_content_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'profile_my_bookmarks')) {
+    $view->element['#attached']['library'][] = 'suopa_content/update-custom-view';
+  }
 }

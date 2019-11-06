@@ -7,6 +7,12 @@ exposed-filters:
   dependencies:
     - core/jquery
 
+update-custom-view:
+  js:
+    assets/js/update-custom-view.js: {}
+  dependencies:
+    - core/jquery
+
 local-tasks:
   css:
     theme:
