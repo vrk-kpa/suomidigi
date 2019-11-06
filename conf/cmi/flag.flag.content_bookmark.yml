@@ -1,0 +1,39 @@
+uuid: a76daad7-ae2c-44eb-a90c-8db308d44c4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content_bookmark
+label: 'Content bookmark'
+bundles:
+  - article
+  - community
+  - core_content
+  - event
+  - legislation_card
+  - legislation_collection_page
+entity_type: node
+global: false
+weight: 0
+flag_short: Bookmark
+flag_long: 'Bookmark this page'
+flag_message: 'Bookmark added'
+unflag_short: 'Remove bookmark'
+unflag_long: 'Remove this page from your bookmarks'
+unflag_message: 'Bookmark was removed'
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links:
+    full: full
+    teaser: teaser
+    teaser_prominent: teaser_prominent
+    teaser_prominent_primary: teaser_prominent_primary
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }
