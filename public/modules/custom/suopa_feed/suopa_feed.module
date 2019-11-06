@@ -33,6 +33,15 @@ function suopa_feed_theme() {
         'id' => NULL,
       ],
     ],
+
+    'suopa_feed_item' => [
+      'variables' => [
+        'title' => NULL,
+        'link' => NULL,
+        'authors' => NULL,
+        'published' => NULL,
+      ],
+    ],
   ];
 }
 
@@ -53,44 +62,6 @@ function suopa_feed_preprocess_paragraph(&$variables) {
     '#markup' => $paragraph->id(),
   ];
 
+  $variables['#attached']['library'][] = 'suopa_feed/async-feed-loader';
   return;
-
-  /*foreach ($terms as $term) {
-    // Fetch all potential legislation card collections from the selected
-    // terms. Note that all the child terms are not necessarily collections!
-    $cardCollectionTerms = Drupal::entityTypeManager()
-      ->getStorage('taxonomy_term')
-      ->getChildren($term);
-    foreach ($cardCollectionTerms as $collectionTerm) {
-      $cards = suopa_legislations_get_related_legislation_cards($collectionTerm, $langcode);
-      if (!count($cards)) {
-        continue;
-      }
-
-      if ($collectionTerm->hasTranslation($langcode)) {
-        $collectionLabel = $collectionTerm->getTranslation($langcode)->getName();
-      }
-      else {
-        $collectionLabel = $collectionTerm->getName();
-      }
-
-      $renderedLegislationCollection = [
-        'title' => [
-          '#theme' => 'suopa_legislations_collection_label',
-          '#collection_label' => $collectionLabel,
-        ],
-        'cards' => [
-          '#theme' => 'suopa_legislations_collection',
-          '#collection' => $cards,
-          '#attached' => [
-            'library' => [
-              'suopa_legislations/expanding-panel',
-            ],
-          ],
-        ],
-      ];
-
-      $variables['legislation_collections'][] = $renderedLegislationCollection;
-    }
-  }*/
 }

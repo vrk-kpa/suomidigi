@@ -4,8 +4,10 @@ namespace Drupal\suopa_feed\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\AlertCommand;
+use Drupal\Core\Ajax\AppendCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Render\Markup;
 use Drupal\suopa_feed\Feed\GuzzleClient;
 use Zend\Feed\Reader\Reader;
 
@@ -35,7 +37,7 @@ class FeedController extends ControllerBase {
 
     $renderArray = $this->renderParagraph($paragraph);
 
-    $response->addCommand(new ReplaceCommand('#feed-' . $id, "<div>THIS IS REPLACED</div>"));
+    $response->addCommand(new AppendCommand('#feed-' . $id, $renderArray));
     return $response;
   }
 
@@ -79,11 +81,14 @@ class FeedController extends ControllerBase {
         }
         $counter++;
 
-        $renderItem = [];
-        $renderItem['title'] = $item->getTitle();
-        $renderItem['link'] = $item->getLink();
-        $renderItem['created'] = $item->getDateCreated();
-        $renderItem['authors'] = (array) $item->getAuthors();
+        $renderItem = [
+          '#theme' => 'suopa_feed_item',
+        ];
+        $renderItem['#title'] = Markup::create($item->getTitle());
+        $renderItem['#link'] = $item->getLink();
+        $renderItem['#published'] = $item->getDateCreated()->format("Y-m-d H:i:s");
+        $renderItem['#authors'] = array_map(function($i) { return $i['name']; }, (array) $item->getAuthors());
+        $renderItem['#authors'] = Markup::create(join(" & ", $renderItem['#authors']));
 
         $renderItems[] = $renderItem;
       }
