@@ -1,28 +1,29 @@
 .profile {
-
-}
-
-.profile__own-content {
-  margin-top: $gutter;
-  width: 100%;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    margin-top: 0;
-  }
-
-  h2 {
-    @include font-size(22px);
-    @include line-height(22px, 28px);
-    @include border('bottom');
-    color: $blue;
-    font-weight: 600;
-    letter-spacing: 0;
-    padding-bottom: 10px;
+  &__my-bookmarks,
+  &__own-content {
+    margin-bottom: $gutter * 2;
+    margin-top: $gutter;
     width: 100%;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-top: 0;
+    }
+
+    h2 {
+      @include font-size(22px);
+      @include line-height(22px, 28px);
+      @include border('bottom');
+      color: $blue;
+      font-weight: 600;
+      letter-spacing: 0;
+      padding-bottom: 10px;
+      width: 100%;
+    }
   }
 }
 
-.views--profile-own-content {
+.views--profile-own-content,
+.views--profile-my-bookmarks {
   .views-row-wrapper {
     display: flex;
     flex-direction: column;
