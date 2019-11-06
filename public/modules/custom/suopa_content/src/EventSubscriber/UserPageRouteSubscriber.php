@@ -37,9 +37,27 @@ class UserPageRouteSubscriber extends RouteSubscriberBase {
    *   Returns title as markup.
    */
   public function userTitle() {
+    $title = t('My profile');
+
+    if (
+      !empty($viewed_user = \Drupal::routeMatch()->getParameter('user')) &&
+      $viewed_user->hasField('field_first_name') &&
+      $viewed_user->hasField('field_last_name')
+    ) {
+      $first_name = $viewed_user->field_first_name->value;
+      $last_name = $viewed_user->field_last_name->value;
+      $user = \Drupal::currentUser();
+
+      if ($user->id() !== $viewed_user->id()) {
+        $title = (!empty($first_name) && !empty($last_name))
+          ? $first_name . ' ' . $last_name
+          : explode('@', $viewed_user->getAccountName())[0];
+      }
+    }
+
     return [
       '#type' => 'markup',
-      '#markup' => t('My profile'),
+      '#markup' => $title,
     ];
   }
 
