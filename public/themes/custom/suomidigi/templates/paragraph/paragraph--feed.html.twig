@@ -1,0 +1,11 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <div class="feed-wrapper feed-{{ id }}" id="feed-{{ id }}">
+        <a href="suopa_feed/load/{{ id }}" class="use-ajax">Click for testData!</a>
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
