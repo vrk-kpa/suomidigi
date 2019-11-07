@@ -5,7 +5,7 @@ namespace Drupal\suopa_feed\Controller;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\AppendCommand;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Render\Element\Url;
+use Drupal\Core\Url;
 use Drupal\Core\Render\Markup;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\suopa_feed\Feed\GuzzleClient;
@@ -116,7 +116,15 @@ class FeedController extends ControllerBase {
         '#theme' => 'suopa_feed_item',
       ];
       $renderItem['#title'] = Markup::create($item->getTitle());
-      $renderItem['#link'] = $item->getLink();
+
+      // Sanitize the link with Drupal's Url class.
+      try {
+        $link = Url::fromUri($item->getLink())->toString();
+      }
+      catch (\Exception $e) {
+        $link = '';
+      }
+      $renderItem['#link'] = $link;
       $renderItem['#published'] = $item->getDateCreated()->format("Y-m-d H:i:s");
       $renderItem['#authors'] = array_map(function ($i) {
         return $i['name'];
