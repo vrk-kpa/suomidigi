@@ -28,9 +28,10 @@ function suopa_feed_help($route_name, RouteMatchInterface $route_match) {
  */
 function suopa_feed_theme() {
   return [
-    'suopa_feed_wrapper' => [
+    'suopa_feed_source' => [
       'variables' => [
-        'id' => NULL,
+        'title' => NULL,
+        'items' => [],
       ],
     ],
 

@@ -1,16 +1,20 @@
 /**
  * @file
- * Provides Fivestar voting effect.
+ * Provides automatic async loading for feed paragraphs.
  */
 
 (function($, Drupal) {
   Drupal.behaviors.async_feed_loader = {
     attach(context, settings) {
-      const $feedWrappers = $(".feed-wrapper").once();
+      const $feedWrappers = $(".suopa-feed-wrapper").once();
 
-      $feedWrappers.each(() => {
-        const classes = $(this).attr("class");
-        Drupal.ajax({ url: "/suopa_feed/load/1002" }).execute();
+      // Fetch each feed asynchronously.
+      $feedWrappers.each((i, wrapper) => {
+        if (typeof wrapper.dataset.feedId !== "undefined") {
+          Drupal.ajax({
+            url: `/suopa_feed/load/${wrapper.dataset.feedId}`
+          }).execute();
+        }
       });
     }
   };

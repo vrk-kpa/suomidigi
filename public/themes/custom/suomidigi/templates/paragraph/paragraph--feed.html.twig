@@ -3,7 +3,7 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <div class="feed-wrapper feed-{{ id }}" id="feed-{{ id }}">
+      <div class="suopa-feed-wrapper suopa-feed-{{ id }}" data-feed-id="{{ id }}">
         <a href="suopa_feed/load/{{ id }}" class="use-ajax">Click for testData!</a>
       </div>
     {% endblock %}

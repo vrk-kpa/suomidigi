@@ -37,7 +37,7 @@ class FeedController extends ControllerBase {
 
     $renderArray = $this->renderParagraph($paragraph);
 
-    $response->addCommand(new AppendCommand('#feed-' . $paragraph->id(), $renderArray));
+    $response->addCommand(new AppendCommand('.suopa-feed-' . $paragraph->id(), $renderArray));
     return $response;
   }
 
@@ -68,37 +68,65 @@ class FeedController extends ControllerBase {
     }
 
     Reader::setHttpClient(new GuzzleClient());
-    $renderItems = [];
+    $renderArray = [];
 
     // Fetch and format the data from the sources.
     foreach ($feedSources as $source) {
+      $renderedSource = [
+        '#theme' => 'suopa_feed_source',
+        '#title' => $source['name'],
+      ];
+
+      // Fetch feed items and place them to the rendered source.
       $formattedUrl = sprintf($source['url'], $keyword);
-      $feed = Reader::import($formattedUrl);
+      $renderedItems = $this->renderFeed($formattedUrl, $limit);
+      $renderedSource['#items'] = $renderedItems;
 
-      $counter = 0;
-      foreach ($feed as $item) {
-        // Limit the number of items if limit set.
-        if ($limit && $counter == $limit) {
-          break;
-        }
-        $counter++;
-
-        $renderItem = [
-          '#theme' => 'suopa_feed_item',
-        ];
-        $renderItem['#title'] = Markup::create($item->getTitle());
-        $renderItem['#link'] = Url:: $item->getLink();
-        $renderItem['#published'] = $item->getDateCreated()->format("Y-m-d H:i:s");
-        $renderItem['#authors'] = array_map(function ($i) {
-          return $i['name'];
-        }, (array) $item->getAuthors());
-        $renderItem['#authors'] = Markup::create(implode(" & ", $renderItem['#authors']));
-
-        $renderItems[] = $renderItem;
-      }
+      $renderArray[] = $renderedSource;
     }
 
-    return $renderItems;
+    return $renderArray;
+  }
+
+  /**
+   * Render a feed based on the given parameters.
+   *
+   * @param string $url
+   *   The URL of the feed.
+   * @param int $limit
+   *   Number of items to fetch.
+   *
+   * @return array
+   *   A render array containing the items.
+   */
+  protected function renderFeed($url, $limit) {
+    $renderedItemsArray = [];
+
+    $feed = Reader::import($url);
+
+    $counter = 0;
+    foreach ($feed as $item) {
+      // Limit the number of items if limit set.
+      if ($limit && $counter == $limit) {
+        break;
+      }
+      $counter++;
+
+      $renderItem = [
+        '#theme' => 'suopa_feed_item',
+      ];
+      $renderItem['#title'] = Markup::create($item->getTitle());
+      $renderItem['#link'] = $item->getLink();
+      $renderItem['#published'] = $item->getDateCreated()->format("Y-m-d H:i:s");
+      $renderItem['#authors'] = array_map(function ($i) {
+        return $i['name'];
+      }, (array) $item->getAuthors());
+      $renderItem['#authors'] = Markup::create(implode(" & ", $renderItem['#authors']));
+
+      $renderedItemsArray[] = $renderItem;
+    }
+
+    return $renderedItemsArray;
   }
 
 }
