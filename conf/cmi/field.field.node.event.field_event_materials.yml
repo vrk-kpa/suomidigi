@@ -1,0 +1,30 @@
+uuid: 1cd82346-8fa3-4dd2-806b-929259e28ddf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_materials
+    - media.type.attachment
+    - media.type.attachment_external
+    - node.type.event
+id: node.event.field_event_materials
+field_name: field_event_materials
+entity_type: node
+bundle: event
+label: 'Event materials'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      attachment: attachment
+      attachment_external: attachment_external
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: attachment
+field_type: entity_reference

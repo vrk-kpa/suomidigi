@@ -6,7 +6,7 @@
 
 .content__wrapper {
   display: block;
-  margin-top: $gutter * 1.5;
+  margin-top: $gutter;
 
   @include breakpoint($for-tablet-portrait-up) {
     display: flex;
@@ -15,12 +15,19 @@
 
 .sidebar--first {
   @include breakpoint($for-tablet-portrait-up) {
-    margin-top: $gutter;
-    width: 100%;
-    flex-basis: 25%;
-    min-width: 224px;
-    padding: 0;
     margin-right: $gutter * 2;
+    min-width: 190px;
+    padding: $gutter * 2 0 0;
+  }
+
+  @include breakpoint($for-tablet-landscape-up) {
+    min-width: 270px;
+  }
+}
+
+.page-main {
+  @include breakpoint($for-tablet-portrait-up) {
+    padding-top: $gutter * 2;
   }
 }
 
@@ -30,8 +37,8 @@
     border-radius: $gutter 0 0 $gutter;
     bottom: -75px;
     color: $white;
-    font-weight: 600;
     font-size: 12px;
+    font-weight: 600;
     padding: $gutter / 4 $gutter;
     position: absolute;
     right: 0;

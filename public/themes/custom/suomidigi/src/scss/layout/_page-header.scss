@@ -7,25 +7,18 @@
 .page-header {
   background-color: $white;
   display: flex;
-  justify-content: space-between;
   height: 80px;
-  top: 0;
+  justify-content: space-between;
   left: 0;
+  top: 0;
+  transition: all 0.5s;
   width: 100%;
   z-index: 100;
-  transition: all 0.5s;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    background-color: $blue-dark;
-    background-image: url('../../images/header_background_illustration.svg');
-    background-position: center -220px;
-    background-repeat: repeat no-repeat;
-    background-size: 1440px 435px;
-  }
 
   &__container {
     align-items: center;
     display: flex;
+    justify-content: space-between;
     margin: 0;
     position: relative;
 

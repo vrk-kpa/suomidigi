@@ -3,10 +3,10 @@
 }
 
 .article__data {
-  font-size: 0.875rem;
+  color: $gray-darker;
   display: flex;
   flex-wrap: wrap;
-  color: $gray-darker;
+  font-size: 0.875rem;
 }
 
 .article__data-item {
@@ -19,15 +19,15 @@
 
   &:not(:first-child):not(:last-child) {
     &:after {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
       background: $gray-darker;
+      border-radius: 50%;
+      content: '';
+      height: 4px;
+      position: absolute;
       right: -0.6rem;
       top: 50%;
-      position: absolute;
       transform: translateY(-50%);
+      width: 4px;
     }
   }
 }
@@ -35,6 +35,10 @@
 .article__author {
   display: flex;
   flex-wrap: wrap;
+
+  &--prominent {
+    margin-top: $gutter * 4;
+  }
 }
 
 .article__author-item {
@@ -49,9 +53,9 @@
 
 .article__type {
   font-weight: 600;
+  line-height: 100%;
   margin-bottom: 0.25rem;
   width: 100%;
-  line-height: 100%;
 
   a {
     color: $gray-darker;
@@ -67,7 +71,7 @@
   margin: calc(#{$gutter} * 0.5) -#{$gutter} #{$gutter};
 
   @include breakpoint($for-tablet-landscape-up) {
-    margin: #{$gutter} #{-$gutter} calc(#{$gutter} * 2);
+    margin: #{$gutter} 0 calc(#{$gutter} * 2);
   }
 
   img {

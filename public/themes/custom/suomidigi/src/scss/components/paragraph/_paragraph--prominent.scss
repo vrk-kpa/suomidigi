@@ -4,8 +4,8 @@
 
   .article-prominent {
     background-color: $white;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 
   .paragraph__content {
@@ -17,6 +17,6 @@
   }
 
   &.paragraph {
-    margin: 0 -#{$gutter} $gutter * 2 -#{$gutter};
+    margin: 0 0 $gutter;
   }
 }

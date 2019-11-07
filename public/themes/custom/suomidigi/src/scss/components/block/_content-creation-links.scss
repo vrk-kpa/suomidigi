@@ -1,0 +1,14 @@
+.block-content-creation-links-block {
+  @include breakpoint($for-tablet-portrait-up) {
+    margin: $gutter $gutter 0 $gutter;
+    padding: $gutter / 3;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    .contextual {
+      top: -25px;
+    }
+  }
+}

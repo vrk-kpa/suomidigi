@@ -1,0 +1,57 @@
+uuid: 5993072c-523d-403a-8d03-946daeabac5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_user_description
+    - field.field.user.user.field_user_linkedin
+    - field.field.user.user.field_user_organisation
+    - field.field.user.user.field_user_title
+    - field.field.user.user.field_user_twitter
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_first_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_last_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  contact: true
+  field_user_description: true
+  field_user_linkedin: true
+  field_user_organisation: true
+  field_user_title: true
+  field_user_twitter: true
+  google_analytics: true
+  langcode: true
+  language: true
+  path: true
+  timezone: true
+  user_picture: true

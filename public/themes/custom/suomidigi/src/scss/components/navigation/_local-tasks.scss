@@ -6,21 +6,26 @@
 .local-tasks {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   list-style: none;
-  margin: $gutter 0;
+  margin: $gutter -5px;
   padding: 0;
 
   .local-task {
-    margin: .5rem;
+    margin: $gutter / 3;
 
     a {
       @include button;
+      @include font-size(14px);
+      @include line-height(14px, 18px);
+
       background-color: $white;
+      border: 1px solid $blue;
+      box-shadow: 0 3px 6px #00000029;
+      color: $blue;
 
       &.is-active {
-        background-color: $black;
-        box-shadow: 0 8px 6px -6px rgba($black, 0.1);
+        background-color: $blue;
+        box-shadow: 0 0 0 transparent;
         color: $white;
         cursor: default;
       }

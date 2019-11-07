@@ -14,7 +14,7 @@ suomidigi.for_tablet_portrait_up:
   - 2x
 suomidigi.for_tablet_landscape_up:
   label: for-tablet-landscape-up
-  mediaQuery: 'all and (min-width: 900px)'
+  mediaQuery: 'all and (min-width: 992px)'
   weight: 1
   multipliers:
   - 1x

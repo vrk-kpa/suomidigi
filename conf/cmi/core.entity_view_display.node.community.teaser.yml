@@ -1,0 +1,60 @@
+uuid: cb02609f-29de-486c-a063-ac308d670a6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.community.field_approved
+    - field.field.node.community.field_community_description
+    - field.field.node.community.field_community_domain
+    - field.field.node.community.field_community_link
+    - field.field.node.community.field_theme
+    - node.type.community
+  module:
+    - link
+    - text
+    - user
+id: node.community.teaser
+targetEntityType: node
+bundle: community
+mode: teaser
+content:
+  field_community_description:
+    type: text_default
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_community_domain:
+    type: entity_reference_entity_view
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+  field_community_link:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_approved: true
+  field_theme: true
+  langcode: true
+  published_at: true
+  search_api_excerpt: true

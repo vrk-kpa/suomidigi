@@ -1,8 +1,10 @@
 module:
+  address: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
   ajax_comments: 0
   automated_cron: 0
+  better_exposed_filters: 0
   block: 0
   block_content: 0
   breakpoint: 0
@@ -18,20 +20,26 @@ module:
   contextual: 0
   crop: 0
   ctools: 0
+  daterange_compact: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
   editor: 0
+  email_registration: 0
   entity_browser: 0
   entity_browser_entity_form: 0
   entity_reference_revisions: 0
+  entity_reference_views_select: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
   focal_point: 0
+  formtips: 0
   google_analytics: 0
   help: 0
   history: 0
@@ -58,6 +66,7 @@ module:
   metatag_views: 0
   node: 0
   notification: 0
+  optional_end_date: 0
   options: 0
   page_cache: 0
   path: 0
@@ -70,6 +79,7 @@ module:
   redirect_404: 0
   responsive_image: 0
   roleassign: 0
+  route_condition: 0
   scheduler: 0
   search: 0
   search_api: 0
@@ -89,6 +99,7 @@ module:
   suopa_content: 0
   suopa_dream_broker: 0
   suopa_editorial: 0
+  suopa_events: 0
   suopa_external_files: 0
   suopa_legislations: 0
   suopa_media_embed: 0

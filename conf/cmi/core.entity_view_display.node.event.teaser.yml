@@ -1,0 +1,37 @@
+uuid: 1e5ccd0c-b351-43ba-a2a8-2e7ec25738a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.event
+  module:
+    - user
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_approved: true
+  field_event_date_and_time: true
+  field_event_description: true
+  field_event_image: true
+  field_event_link: true
+  field_event_materials: true
+  field_event_org_contact_info: true
+  field_event_organiser: true
+  field_event_registration: true
+  field_event_schedule: true
+  field_venue_address: true
+  field_venue_description: true
+  field_venue_name: true
+  field_venue_travel_information: true
+  langcode: true
+  published_at: true
+  search_api_excerpt: true

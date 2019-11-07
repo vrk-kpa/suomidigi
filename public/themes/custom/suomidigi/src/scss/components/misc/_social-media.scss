@@ -7,12 +7,12 @@
 
   // Contextual link.
   .contextual {
-    top: 30px;
     right: 7px;
+    top: 30px;
 
     .trigger {
-      top: -20px;
       right: -32px;
+      top: -20px;
     }
   }
 }
@@ -22,17 +22,18 @@
 
   .share {
     background-color: $white;
+    border-radius: 100%;
     display: inline-block;
-    margin-right: 8px;
     list-style: none;
+    margin-right: 8px;
 
     &:last-of-type {
       margin-right: 0;
     }
 
     .icon {
-      max-width: $gutter * 2;
       max-height: $gutter * 2;
+      max-width: $gutter * 2;
     }
 
     &.email {

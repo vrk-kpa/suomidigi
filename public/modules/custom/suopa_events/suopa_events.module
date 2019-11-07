@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_events.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_events_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_events module.
+    case 'help.page.suopa_events':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Event entity type and related functionalities for Suomidigi.fi') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function suopa_events_theme() {
+  return [
+    'contact_information' => [
+      'variables' => [
+        'name' => NULL,
+        'email' => NULL,
+        'phone_number' => NULL,
+      ],
+    ],
+  ];
+}

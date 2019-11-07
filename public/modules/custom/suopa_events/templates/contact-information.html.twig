@@ -1,0 +1,13 @@
+<div class="contact_information">
+  <ul>
+    {% if name %}
+      <li>{{ 'Name'|t }}: {{ name }}</li>
+    {% endif %}
+    {% if email %}
+      <li>{{ 'Email'|t }}: {{ email }}</li>
+    {% endif %}
+    {% if phone_number %}
+      <li>{{ 'Phone number'|t }}: {{ phone_number }}</li>
+    {% endif %}
+  </ul>
+</div>

@@ -28,3 +28,9 @@ suopa-timepicker:
   css:
     theme:
       assets/css/suopa_timepicker.css: {}
+
+content-creation-links:
+  js:
+    assets/js/content-creation-links.js: {}
+  dependencies:
+    - core/jquery

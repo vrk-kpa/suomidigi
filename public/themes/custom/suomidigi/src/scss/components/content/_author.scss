@@ -1,0 +1,11 @@
+.author {
+  &__label {
+    @include font-size(14px);
+    @include line-height(14px, 18px);
+    border-bottom: 1px solid $gray-medium;
+    color: $blue-medium;
+    letter-spacing: 0;
+    padding-bottom: $gutter / 2;
+    text-transform: uppercase;
+  }
+}
