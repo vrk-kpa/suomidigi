@@ -63,5 +63,4 @@ function suopa_feed_preprocess_paragraph(&$variables) {
   ];
 
   $variables['#attached']['library'][] = 'suopa_feed/async-feed-loader';
-  return;
 }

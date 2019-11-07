@@ -7,21 +7,23 @@ use GuzzleHttp\ClientInterface as GuzzleClientInterface;
 use Zend\Feed\Reader\Http\ClientInterface as FeedReaderHttpClientInterface;
 use Zend\Feed\Reader\Http\Psr7ResponseDecorator;
 
-
 /**
- * Class GuzzleClient
+ * Class GuzzleClient.
  */
 class GuzzleClient implements FeedReaderHttpClientInterface {
 
   /**
-   * @var GuzzleClientInterface
+   * Guzzle client.
+   *
+   * @var \GuzzleHttp\ClientInterface
    */
   private $client;
 
   /**
    * GuzzleClient constructor.
    *
-   * @param GuzzleClientInterface|null $client
+   * @param \GuzzleHttp\ClientInterface|null $client
+   *   Guzzle client.
    */
   public function __construct(GuzzleClientInterface $client = NULL) {
     $this->client = $client ?: new Client();
@@ -34,4 +36,5 @@ class GuzzleClient implements FeedReaderHttpClientInterface {
     $response = $this->client->request('GET', $uri);
     return new Psr7ResponseDecorator($response);
   }
+
 }

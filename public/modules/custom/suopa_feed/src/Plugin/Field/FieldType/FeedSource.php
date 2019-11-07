@@ -2,13 +2,8 @@
 
 namespace Drupal\suopa_feed\Plugin\Field\FieldType;
 
-use Drupal\Component\Utility\Random;
-use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element\Url;
-use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\TypedData\DataDefinition;
 
 /**
@@ -23,6 +18,7 @@ use Drupal\Core\TypedData\DataDefinition;
  * )
  */
 class FeedSource extends FieldItemBase {
+
   /**
    * {@inheritdoc}
    */

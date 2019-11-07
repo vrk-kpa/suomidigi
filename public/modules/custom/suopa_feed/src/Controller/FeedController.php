@@ -3,11 +3,11 @@
 namespace Drupal\suopa_feed\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\AlertCommand;
 use Drupal\Core\Ajax\AppendCommand;
-use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Render\Element\Url;
 use Drupal\Core\Render\Markup;
+use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\suopa_feed\Feed\GuzzleClient;
 use Zend\Feed\Reader\Reader;
 
@@ -19,17 +19,17 @@ class FeedController extends ControllerBase {
   /**
    * Load.
    *
-   * @param $id
+   * @param \Drupal\paragraphs\Entity\Paragraph $paragraph
+   *   The feed paragraph to render (and to fetch feeds for).
    *
-   * @return AjaxResponse
+   * @return \Drupal\Core\Ajax\AjaxResponse
    *   Load feed paragraph data.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function load($id) {
+  public function load(Paragraph $paragraph) {
     $response = new AjaxResponse();
-    $paragraph = \Drupal::entityTypeManager()->getStorage('paragraph')->load($id);
 
     if ($paragraph->getType() != 'feed') {
       return $response;
@@ -37,18 +37,20 @@ class FeedController extends ControllerBase {
 
     $renderArray = $this->renderParagraph($paragraph);
 
-    $response->addCommand(new AppendCommand('#feed-' . $id, $renderArray));
+    $response->addCommand(new AppendCommand('#feed-' . $paragraph->id(), $renderArray));
     return $response;
   }
 
   /**
+   * Render paragraph before sending it back via AJAX.
+   *
    * @param \Drupal\paragraphs\Entity\Paragraph $paragraph
    *   The paragraph to render.
    *
    * @return array
    *   Render array of the paragraph.
    */
-  protected function renderParagraph($paragraph) {
+  protected function renderParagraph(Paragraph $paragraph) {
     $limit = $paragraph->get('field_limit')->value;
     $keyword = $paragraph->get('field_keyword')->value;
 
@@ -74,7 +76,7 @@ class FeedController extends ControllerBase {
       $feed = Reader::import($formattedUrl);
 
       $counter = 0;
-      foreach($feed as $item) {
+      foreach ($feed as $item) {
         // Limit the number of items if limit set.
         if ($limit && $counter == $limit) {
           break;
@@ -85,10 +87,12 @@ class FeedController extends ControllerBase {
           '#theme' => 'suopa_feed_item',
         ];
         $renderItem['#title'] = Markup::create($item->getTitle());
-        $renderItem['#link'] = $item->getLink();
+        $renderItem['#link'] = Url:: $item->getLink();
         $renderItem['#published'] = $item->getDateCreated()->format("Y-m-d H:i:s");
-        $renderItem['#authors'] = array_map(function($i) { return $i['name']; }, (array) $item->getAuthors());
-        $renderItem['#authors'] = Markup::create(join(" & ", $renderItem['#authors']));
+        $renderItem['#authors'] = array_map(function ($i) {
+          return $i['name'];
+        }, (array) $item->getAuthors());
+        $renderItem['#authors'] = Markup::create(implode(" & ", $renderItem['#authors']));
 
         $renderItems[] = $renderItem;
       }
@@ -96,4 +100,5 @@ class FeedController extends ControllerBase {
 
     return $renderItems;
   }
+
 }
