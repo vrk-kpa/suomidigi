@@ -4,7 +4,7 @@
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="suopa-feed-wrapper suopa-feed-{{ id }}" data-feed-id="{{ id }}">
-        <a href="suopa_feed/load/{{ id }}" class="use-ajax">Click for testData!</a>
+        {{ 'Loading feed...'|t }} <a href="suopa_feed/load/{{ id }}" class="use-ajax">{{ 'Click here to load manually.'|t }}</a>
       </div>
     {% endblock %}
   </div>

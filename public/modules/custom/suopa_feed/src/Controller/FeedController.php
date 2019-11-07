@@ -3,7 +3,7 @@
 namespace Drupal\suopa_feed\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\AppendCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
 use Drupal\Core\Render\Markup;
@@ -37,7 +37,7 @@ class FeedController extends ControllerBase {
 
     $renderArray = $this->renderParagraph($paragraph);
 
-    $response->addCommand(new AppendCommand('.suopa-feed-' . $paragraph->id(), $renderArray));
+    $response->addCommand(new ReplaceCommand('.suopa-feed-' . $paragraph->id(), $renderArray));
     return $response;
   }
 
