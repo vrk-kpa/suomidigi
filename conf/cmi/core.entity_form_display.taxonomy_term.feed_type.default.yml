@@ -1,0 +1,67 @@
+uuid: 56f66a5f-e945-4549-9d11-782f77d2841b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.feed_type.field_feed_source
+    - taxonomy.vocabulary.feed_type
+  module:
+    - hide_revision_field
+    - path
+    - suopa_feed
+    - text
+id: taxonomy_term.feed_type.default
+targetEntityType: taxonomy_term
+bundle: feed_type
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_feed_source:
+    weight: 81
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: feed_source_widget
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  revision_log_message:
+    type: hide_revision_field_log_widget
+    weight: 80
+    region: content
+    settings:
+      show: true
+      default: ''
+      permission_based: false
+      allow_user_settings: true
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

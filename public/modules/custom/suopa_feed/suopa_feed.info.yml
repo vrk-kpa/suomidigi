@@ -1,0 +1,7 @@
+name: 'SuoPa Feed'
+type: module
+description: 'Hosts all feed related custom code.'
+core: 8.x
+package: 'SuoPa'
+dependencies:
+  - paragraphs

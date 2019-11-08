@@ -1,0 +1,9 @@
+uuid: 7c51b1eb-7cd5-4a56-a0a7-52382b538ddf
+langcode: en
+status: true
+dependencies: {  }
+id: feed
+label: Feed
+icon_uuid: null
+description: 'Show data from feed source(s) in a paragraph.'
+behavior_plugins: {  }

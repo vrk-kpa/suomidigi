@@ -1,0 +1,29 @@
+uuid: 6a0798d5-1fd0-4399-b426-0c3bc7921074
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_feed_type
+    - paragraphs.paragraphs_type.feed
+    - taxonomy.vocabulary.feed_type
+id: paragraph.feed.field_feed_type
+field_name: field_feed_type
+entity_type: paragraph
+bundle: feed
+label: 'Feed type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      feed_type: feed_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
