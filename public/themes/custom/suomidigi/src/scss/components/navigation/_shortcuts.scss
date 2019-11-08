@@ -1,82 +1,91 @@
-nav.shortcuts--mobile,
-nav.shortcuts--sidebar,
-.moby-shortcuts {
-  h2 {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
-    @include border('bottom');
-    color: $blue;
-    font-weight: bold;
-    letter-spacing: 0;
-    margin: 0 0 $gutter;
-    padding: 0 0 $gutter;
-    text-transform: uppercase;
-  }
+.shortcuts {
 
-  a {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
-    color: $blue-light;
-    display: block;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.1s;
+  &--footer {
+    background-color: $blue-light;
+    margin-bottom: $gutter * 4;
+    width: 100%;
 
-    .theme-term__image img {
-      transition: all 0.1s;
+    h2 {
+      @include font-size(14px);
+      @include line-height(14px, 18px);
+      color: $white;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin: 0 0 25px;
+      padding: 0;
+      text-transform: uppercase;
     }
 
-    &.is-active {
-      background-color: $gray-lighter;
-      &:focus,
-      &:hover {
-        color: $gray-darker;
-        cursor: default;
+    a {
+      @include font-size(22px);
+      @include line-height(22px, 28px);
+      color: $white;
+      display: block;
+      font-weight: 600;
+      letter-spacing: 0;
+      margin-bottom: $gutter * 2;
+      text-decoration: none;
+      transition: all 0.1s;
 
-        .theme-term__image img {
-          margin: 0;
-          max-height: calc(#{$gutter} * 2);
-          max-width: calc(#{$gutter} * 2);
+      &.is-active {
+        opacity: 0.75;
+
+        &:focus,
+        &:hover {
+          cursor: default;
         }
       }
+
+      &:focus,
+      &:hover {
+        opacity: 0.75;
+        text-decoration: none;
+      }
     }
 
-    &:focus,
-    &:hover {
-      color: $black;
+    .icon {
+      color: $white;
+      display: inline;
+      height: 25px;
+      opacity: 0.5;
+      transform: rotate(-90deg) translateY(-8px);
+      width: 25px;
+    }
 
-      .theme-term__image img {
-        margin: -2px -2px -2px -2px;
-        max-height: calc(#{$gutter} * 2 + 4px);
-        max-width: calc(#{$gutter} * 2 + 4px);
+    .theme-term__title {
+      align-items: center;
+      display: flex;
+
+      > div {
+        display: inline;
+        line-height: 25px;
+        margin-left: -10px;
       }
     }
   }
-}
 
-.moby-shortcuts {
-  padding-bottom: $gutter;
+  &__container {
+    padding: 20px $gutter 40px;
 
-  h2 {
-    border: 0 none;
-    margin: 0 0 $gutter;
-    padding: $gutter $gutter 0;
+    @include breakpoint($for-tablet-portrait-up) {
+      padding: $gutter * 2 $gutter 40px;
+    }
   }
 
-  .theme-term__header--alternative {
-    padding: $gutter/3 0 $gutter/3 $gutter;
-  }
-}
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 5px;
 
-nav.shortcuts--mobile {
-  display: none;
-}
+    @include breakpoint($for-mobile-landscape-up) {
+      flex-direction: row;
+    }
 
-nav.shortcuts--sidebar {
-  display: none;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    display: block;
+    .vocabulary-theme {
+      display: inline;
+      min-width: 220px;
+    }
   }
 }
 
