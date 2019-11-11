@@ -16,3 +16,11 @@ function suopa_content_update_8001() {
   suopa_content_add_translation('Search from Suomidigi', 'fi', 'Etsi Suomidigistä');
   suopa_content_add_translation('My profile', 'fi', 'Oma profiili');
 }
+
+/**
+ * Create translations for SuoPa Events.
+ */
+function suopa_content_update_8002() {
+  suopa_content_add_translation('Sign up', 'fi', 'Ilmoittaudu mukaan');
+  suopa_content_add_translation('To registration', 'fi', 'Ilmoittautuminen');
+}
