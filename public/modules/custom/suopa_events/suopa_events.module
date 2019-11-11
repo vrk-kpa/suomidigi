@@ -37,3 +37,25 @@ function suopa_events_theme() {
     ],
   ];
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function suopa_events_theme_suggestions_contact_information_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'contact_information';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function suopa_events_form_node_event_form_alter(&$form, &$form_state, $form_id) {
+
+  // Prevent access to certain fields if user doesn't have permission.
+  $user = \Drupal::currentUser();
+  if (!$user->hasPermission('access suomidigi events')) {
+    $form['field_event_image']['#access'] = FALSE;
+    $form['field_venue_description']['#access'] = FALSE;
+    $form['field_event_org_contact_info']['#access'] = FALSE;
+    $form['field_event_free_text']['#access'] = FALSE;
+  }
+}
