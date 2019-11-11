@@ -7,14 +7,14 @@
 // Source Sans Pro
 @font-face {
   font-family: 'Source Sans Pro';
-  font-weight: normal;
+  font-weight: 400;
   src: url('../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf') format("truetype");
 }
 
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: italic;
-  font-weight: normal;
+  font-weight: 400;
   src: url('../fonts/Source_Sans_Pro/SourceSansPro-Italic.ttf') format("truetype");
 }
 
@@ -33,14 +33,14 @@
 
 @font-face {
   font-family: 'Source Sans Pro';
-  font-weight: bold;
+  font-weight: 700;
   src: url('../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf') format("truetype");
 }
 
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: italic;
-  font-weight: bold;
+  font-weight: 700;
   src: url('../fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf') format("truetype");
 }
 
@@ -79,9 +79,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0;
   font-family: $heading-font-family;
-  font-weight: normal;
+  margin-top: 0;
 
   a {
     color: inherit;
