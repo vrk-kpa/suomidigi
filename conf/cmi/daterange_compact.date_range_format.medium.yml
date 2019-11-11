@@ -7,14 +7,14 @@ _core:
 id: medium
 label: Medium
 date_settings:
-  default_pattern: 'j F Y'
+  default_pattern: 'D j.n.Y'
   separator: –
-  same_month_start_pattern: j
-  same_month_end_pattern: 'j F Y'
-  same_year_start_pattern: 'j F'
-  same_year_end_pattern: 'j F Y'
+  same_month_start_pattern: 'D j.'
+  same_month_end_pattern: j.n.Y
+  same_year_start_pattern: 'D j.n.'
+  same_year_end_pattern: 'D j.n.Y'
 datetime_settings:
-  default_pattern: 'j F Y H:i'
+  default_pattern: 'D j.n.Y H:i'
   separator: –
-  same_day_start_pattern: 'j F Y H:i'
+  same_day_start_pattern: 'D j.n.Y H:i'
   same_day_end_pattern: 'H:i'

@@ -1,0 +1,21 @@
+uuid: 73cf35c3-3e14-4673-9c83-0b613e30e57a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_free_text
+    - node.type.event
+  module:
+    - text
+id: node.event.field_event_free_text
+field_name: field_event_free_text
+entity_type: node
+bundle: event
+label: 'Free text'
+description: 'E.g. More detailed description of the event, Program, Policies, etc.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

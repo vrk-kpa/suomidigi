@@ -1,0 +1,19 @@
+uuid: af96eea9-f74e-4b3a-9647-624c7389943e
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_organiser_link
+field_name: field_organiser_link
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
