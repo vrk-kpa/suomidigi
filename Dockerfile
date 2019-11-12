@@ -2,8 +2,8 @@ FROM node:8.16.0-alpine AS theme-builder
 
 WORKDIR /usr/src/app
 COPY public/themes/custom/suomidigi /usr/src/app
-RUN npm install --engine-strict true
-RUN npm run gulp development
+RUN npm install --production --engine-strict true
+RUN npm run gulp production
 
 FROM druidfi/drupal:7.3-web
 
