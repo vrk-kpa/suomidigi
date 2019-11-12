@@ -6,7 +6,6 @@
 // General plugins
 // ---------------
 const gulp = require("gulp");
-const log = require("fancy-log");
 const noop = require("gulp-noop");
 const rename = require("gulp-rename");
 const clean = require("del");
@@ -75,6 +74,7 @@ function compileSASS() {
       path.env === "development"
         ? sass(sassConfig).on("error", function(err) {
             const chalk = require("chalk");
+            const log = require("fancy-log");
             log.error(
               chalk.black.bgRed(
                 " SASS ERROR",
