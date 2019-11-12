@@ -2,25 +2,6 @@
 /**
  * @file
  * Theme override to display a taxonomy term.
- *
- * Available variables:
- * - url: URL of the current term.
- * - name: Name of the current term.
- * - content: Items for the content of the term (fields and description).
- *   Use 'content' to print them all, or print a subset such as
- *   'content.description'. Use the following code to exclude the
- *   printing of a given child element:
- *   @code
- *   {{ content|without('description') }}
- *   @endcode
- * - attributes: HTML attributes for the wrapper.
- * - page: Flag for the full page state.
- * - term: The taxonomy term entity, including:
- *   - id: The ID of the taxonomy term.
- *   - bundle: Machine name of the current vocabulary.
- * - view_mode: View mode, e.g. 'full', 'teaser', etc.
- *
- * @see template_preprocess_taxonomy_term()
  */
 #}
 {%
@@ -33,13 +14,14 @@
 <div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
   {% if not page %}
     <a href="{{ url }}" class="theme-term__link {{ term_url_is_active ? 'is-active' }}" title="{{ name[0]['#context']['value'] }}">
-      <div class="theme-term__header theme-term__header--alternative">
-        <div class="theme-term__image">
-          {{ content }}
-        </div>
-        <div class="theme-term__title">
-         {{ name }}
-        </div>
+      <div class="theme-term__title">
+        {% if icons_path %}
+          <svg class="icon icon--chevron">
+            <title>{{ name }}</title>
+            <use xlink:href="{{ icons_path|trim }}#chevron-down" />
+          </svg>
+        {% endif %}
+        {{ name }}
       </div>
     </a>
   {% endif %}

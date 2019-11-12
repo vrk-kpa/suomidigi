@@ -11,7 +11,7 @@ dependencies:
 id: footercontent
 theme: suomidigi
 region: footer
-weight: 0
+weight: -10
 provider: null
 plugin: 'block_content:4e9b8b3c-485b-455c-b4c9-72efea731247'
 settings:
