@@ -547,6 +547,19 @@ function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables
 /**
  * Implements hook_preprocess_HOOK().
  */
+function suomidigi_preprocess_image(&$variables) {
+  // Convert double double quotes to empty string for image alt-texts.
+  if (
+    isset($variables['alt']) &&
+    $variables['alt'] === '""'
+  ) {
+    $variables['attributes']['alt'] = ' ';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function suomidigi_preprocess_pager(&$variables) {
   // Cast current to be INT instead of FLOAT.
   $variables['current'] = isset($variables['current']) ? (int) $variables['current'] : 1;
