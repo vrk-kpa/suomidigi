@@ -16,36 +16,67 @@
   line-height: ($line-height / $font-size) * $font-size;
 }
 
-@mixin button() {
-  @include font-size(14px);
-  background-color: transparent;
-  border: 1px solid $gray-darker;
-  box-shadow: 0 8px 6px -6px rgba($black, 0.15);
-  color: $black;
-  display: flex;
-  font-family: $default-font-family;
-  font-weight: 600;
-  margin: 0 auto;
-  padding: 0.3rem 0.75rem;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transform: perspective(1px) translateZ(0);
-  transition-duration: 0.1s;
-  transition-property: background-color;
-  width: auto;
+@mixin font-weight($font-weight) {
+  font-weight: $font-weight;
+}
 
-  @media screen and (min-width: $for-tablet-portrait-up) {
-    display: flex;
-    max-width: none;
-    padding: 0.3rem 1.5rem;
-  }
-
-  &:hover {
-    background-color: $gray;
-    box-shadow: 0 8px 6px -6px rgba($black, 0.1);
+@mixin button($type: '') {
+  @if $type == '' {
+    @include font-size(14px);
+    background-color: transparent;
+    border: 1px solid $gray-darker;
+    box-shadow: 0 8px 6px -6px rgba($black, 0.15);
     color: $black;
-    cursor: pointer;
+    display: flex;
+    font-family: $default-font-family;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 0.3rem 0.75rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: perspective(1px) translateZ(0);
+    transition-duration: 0.1s;
+    transition-property: background-color;
+    width: auto;
+
+    @media screen and (min-width: $for-tablet-portrait-up) {
+      display: flex;
+      max-width: none;
+      padding: 0.3rem 1.5rem;
+    }
+
+    &:hover {
+      background-color: $gray;
+      box-shadow: 0 8px 6px -6px rgba($black, 0.1);
+      color: $black;
+      cursor: pointer;
+    }
+  }
+  @else if $type == 'submit' {
+    @include font-size(14px);
+    @include line-height(14px, 14px);
+    @include font-weight($semibold);
+    background-color: $blue-light;
+    border: 2px solid $blue-light;
+    border-radius: 3px;
+    color: $white;
+    display: inline-block;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $white;
+      color: $blue-light;
+      cursor: pointer;
+      outline: none;
+    }
   }
 }
 

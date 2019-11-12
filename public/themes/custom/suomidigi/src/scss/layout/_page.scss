@@ -35,7 +35,6 @@
   &.is-unpublished {
     background: $red;
     border-radius: $gutter 0 0 $gutter;
-    bottom: -75px;
     color: $white;
     font-size: 12px;
     font-weight: 600;
@@ -48,11 +47,8 @@
 
     @include breakpoint($for-tablet-portrait-up) {
       border-radius: 0 0 $gutter $gutter;
-      bottom: -70px;
+      margin-top: 38px;
       padding: 0 $gutter $gutter / 4 $gutter;
-    }
-    @include breakpoint($for-desktop-up) {
-      right: calc(-120px - #{$gutter});
     }
   }
 }

@@ -1,0 +1,17 @@
+uuid: a02609f1-36bb-49e0-a25a-7376ec51cd14
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: event_full_header_image_large
+label: 'Event Full Header Image Large'
+effects:
+  ab8ddb1b-ea91-440e-b5bb-7374392849df:
+    uuid: ab8ddb1b-ea91-440e-b5bb-7374392849df
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1170
+      height: 320
+      crop_type: focal_point
