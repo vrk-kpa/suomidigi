@@ -5,7 +5,6 @@
 // ---------------
 // General plugins
 // ---------------
-const chalk = require("chalk");
 const gulp = require("gulp");
 const log = require("fancy-log");
 const noop = require("gulp-noop");
@@ -23,7 +22,7 @@ const cleanCss = require("gulp-clean-css");
 // ----------------------------
 // Javascript plugins
 // ----------------------------
-const uglify = require("gulp-uglify");
+const uglify = require("gulp-uglify-es").default;
 
 // ------
 // Config
@@ -75,6 +74,7 @@ function compileSASS() {
     .pipe(
       path.env === "development"
         ? sass(sassConfig).on("error", function(err) {
+            const chalk = require("chalk");
             log.error(
               chalk.black.bgRed(
                 " SASS ERROR",
