@@ -46,16 +46,21 @@ function suopa_events_theme_suggestions_contact_information_alter(array &$sugges
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_form_BASE_FORM_ID_alter().
  */
-function suopa_events_form_node_event_form_alter(&$form, &$form_state, $form_id) {
+function suopa_events_form_node_form_alter(&$form, &$form_state, $form_id) {
+  /* @var Drupal\Core\Entity\FieldableEntityInterface $node */
+  $node = $form_state->getFormObject()->getEntity();
 
-  // Prevent access to certain fields if user doesn't have permission.
-  $user = \Drupal::currentUser();
-  if (!$user->hasPermission('access suomidigi events')) {
-    $form['field_event_image']['#access'] = FALSE;
-    $form['field_venue_description']['#access'] = FALSE;
-    $form['field_event_org_contact_info']['#access'] = FALSE;
-    $form['field_event_free_text']['#access'] = FALSE;
+  if ($node->getType() == 'event') {
+    // Prevent access to certain fields if user doesn't have permission.
+    $user = \Drupal::currentUser();
+    if (!$user->hasPermission('access suomidigi events')) {
+      $form['field_event_image']['#access'] = FALSE;
+      $form['field_venue_description']['#access'] = FALSE;
+      $form['field_event_org_contact_info']['#access'] = FALSE;
+      $form['field_event_free_text']['#access'] = FALSE;
+      $form['field_approved']['#access'] = FALSE;
+    }
   }
 }

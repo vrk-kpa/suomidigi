@@ -111,7 +111,9 @@ function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) 
       strpos($grant['realm'], 'view_unpublished') !== FALSE &&
       !array_key_exists('langcode', $grant)
     ) {
-      unset($grants[$key]);
+      if ($grant['realm'] !== 'view_unpublished_author') {
+        unset($grants[$key]);
+      }
     }
   }
   foreach ($node->getTranslationLanguages() as $langcode => $value) {

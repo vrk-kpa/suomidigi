@@ -24,3 +24,12 @@ function suopa_content_update_8002() {
   suopa_content_add_translation('Sign up', 'fi', 'Ilmoittaudu mukaan');
   suopa_content_add_translation('To registration', 'fi', 'Ilmoittautuminen');
 }
+
+/**
+ * Create translations for SuoPa Events.
+ */
+function suopa_content_update_8003() {
+  suopa_content_add_translation("Link to event's own page", 'fi', 'Linkki tapahtuman omalle sivulle');
+  suopa_content_add_translation("Link to the event organiser page", 'fi', 'Linkki tapahtumajärjestäjän sivulle');
+  suopa_content_add_translation("Organiser", 'fi', 'Järjestäjä');
+}
