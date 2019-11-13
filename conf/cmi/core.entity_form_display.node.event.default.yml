@@ -24,7 +24,6 @@ dependencies:
     - datetime_range
     - field_group
     - focal_point
-    - hide_revision_field
     - link
     - path
     - publication_date
@@ -40,7 +39,7 @@ third_party_settings:
         - field_venue_address
         - field_venue_description
       parent_name: ''
-      weight: 15
+      weight: 14
       format_type: details
       format_settings:
         description: ''
@@ -59,7 +58,7 @@ third_party_settings:
         - field_event_image
         - field_event_free_text
       parent_name: ''
-      weight: 14
+      weight: 13
       format_type: details
       format_settings:
         id: ''
@@ -76,7 +75,7 @@ third_party_settings:
         - field_organiser_link
         - field_event_org_contact_info
       parent_name: ''
-      weight: 17
+      weight: 15
       format_type: details
       format_settings:
         id: ''
@@ -98,7 +97,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_approved:
-    weight: 22
+    weight: 16
     settings:
       display_label: true
     third_party_settings: {  }
@@ -243,23 +242,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  revision_log:
-    type: hide_revision_field_log_widget
-    weight: 12
-    region: content
-    settings:
-      show: true
-      default: ''
-      permission_based: false
-      allow_user_settings: true
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
@@ -302,4 +289,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  revision_log: true
