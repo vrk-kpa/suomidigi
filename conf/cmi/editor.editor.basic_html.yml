@@ -45,6 +45,7 @@ settings:
           name: Tools
           items:
             - Source
+            - endash
   plugins:
     stylescombo:
       styles: ''

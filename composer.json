@@ -120,7 +120,8 @@
             "drupal/core": {
                 "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2019-05-21/2466553-translation_interface-60.patch",
                 "https://www.drupal.org/project/drupal/issues/3008119": "https://www.drupal.org/files/issues/2019-05-15/drupal-allow_alter_oembed_providers-3008119-4.patch",
-                "https://www.drupal.org/project/drupal/issues/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch"
+                "https://www.drupal.org/project/drupal/issues/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch",
+                "https://www.drupal.org/project/drupal/issues/3070745": "https://www.drupal.org/files/issues/2019-11-04/3070745-4.patch"
             },
             "drupal/field_group": {
                 "Add title to horizontal tabs on field groups.": "patches/field_group_horizontal_tabs_title.patch"
