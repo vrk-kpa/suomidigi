@@ -7,6 +7,13 @@
     margin-right: 0;
   }
 
+  h3 {
+    @include font-size(18px);
+    @include line-height(18px, 23px);
+    @include font-weight($semibold);
+    color: $black;
+  }
+
   &__image {
 
   }
@@ -25,12 +32,16 @@
       flex-basis: 64%;
 
       @include breakpoint($for-tablet-portrait-up) {
-        margin-right: 15px;
+        margin-right: $gutter;
       }
     }
 
     &--secondary {
       flex-basis: 33%;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        padding-left: $gutter;
+      }
     }
   }
 
@@ -68,14 +79,8 @@
     @include line-height(20px, 26px);
   }
 
-
-
   &__registration {
-    h3 {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
-      @include font-weight($semibold);
-    }
+    margin-top: $gutter;
 
     .button {
       @include button('submit');
@@ -120,10 +125,6 @@
     }
 
     h3 {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
-      @include font-weight($semibold);
-      color: $black;
       margin-bottom: 0;
     }
   }
@@ -160,12 +161,6 @@
     h2 {
       @include font-size(22px);
       @include line-height(22px, 20px);
-      @include font-weight($semibold);
-    }
-
-    h3 {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
       @include font-weight($semibold);
     }
   }
@@ -214,6 +209,22 @@
         @include line-height(14px, 20px);
         @include font-weight($regular);
       }
+    }
+  }
+
+  &__organiser {
+    &--name {
+      @include font-size(16px);
+      @include line-height(16px, 24px);
+      @include font-weight($semibold);
+      margin-bottom: $gutter;
+    }
+
+    &--description {
+      @include font-size(14px);
+      @include line-height(14px, 20px);
+      @include font-weight($regular);
+      margin-bottom: $gutter;
     }
   }
 }

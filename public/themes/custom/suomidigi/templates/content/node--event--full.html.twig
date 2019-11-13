@@ -37,7 +37,8 @@
       {% if
         content.field_event_date_and_time|render or
         content.field_venue_address|render or
-        content.field_venue_name
+        content.field_venue_name or
+        content.field_event_link
       %}
         <div class="event__header--secondary">
           {% if content.field_event_date_and_time|render %}
@@ -74,6 +75,13 @@
                   </div>
                 {% endif %}
               </div>
+            </div>
+          {% endif %}
+          {% if content.field_event_link|render %}
+            <div class="event__link">
+              {% set link = content.field_event_link.0['#url'] %}
+              {% set title = "Link to event's own page"|t %}
+              <a href="{{ link }}" class="link link--external" aria-label="{{ title }}">{{ title }}</a>
             </div>
           {% endif %}
         </div>
@@ -118,6 +126,36 @@
           {% if content.field_event_org_contact_info|render %}
             <div class="event__contact-info">
               {{ content.field_event_org_contact_info }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if
+        content.field_event_organiser|render or
+        content.field_organiser_description|render or
+        content.field_organiser_link|render
+      %}
+        <div class="event__organiser">
+          <h3>{{ 'Organiser'|t }}</h3>
+
+          {% if content.field_event_organiser|render %}
+            <div class="event__organiser--name">
+              {{ content.field_event_organiser }}
+            </div>
+          {% endif %}
+
+          {% if content.field_organiser_description|render %}
+            <div class="event__organiser--description">
+              {{ content.field_organiser_description }}
+            </div>
+          {% endif %}
+
+          {% if content.field_organiser_link|render %}
+            <div class="event__link">
+              {% set link = content.field_organiser_link.0['#url'] %}
+              {% set title = "Link to the event organiser page"|t %}
+              <a href="{{ link }}" class="link link--external" aria-label="{{ title }}">{{ title }}</a>
             </div>
           {% endif %}
         </div>
