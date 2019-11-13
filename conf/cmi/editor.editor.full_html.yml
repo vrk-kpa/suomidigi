@@ -51,6 +51,7 @@ settings:
           items:
             - ShowBlocks
             - Source
+            - endash
   plugins:
     stylescombo:
       styles: ''
