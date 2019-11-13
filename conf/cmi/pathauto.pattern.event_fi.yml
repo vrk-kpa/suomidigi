@@ -1,0 +1,33 @@
+uuid: 0b82b851-38c0-46ba-9c76-992aae31999f
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: event_fi
+label: 'Event - FI'
+type: 'canonical_entities:node'
+pattern: 'tapahtumat/[node:field_event_date_and_time:start_date:custom:Y]/[node:field_event_date_and_time:start_date:custom:m]/[node:title]'
+selection_criteria:
+  a48fb490-0574-4bd4-b8c1-a1247bd31cd9:
+    id: node_type
+    bundles:
+      event: event
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a48fb490-0574-4bd4-b8c1-a1247bd31cd9
+  738c763e-88ee-4c51-84c7-c5f7ca24ed39:
+    id: language
+    langcodes:
+      fi: fi
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 738c763e-88ee-4c51-84c7-c5f7ca24ed39
+selection_logic: and
+weight: -5
+relationships:
+  'node:langcode:language':
+    label: Kieli
