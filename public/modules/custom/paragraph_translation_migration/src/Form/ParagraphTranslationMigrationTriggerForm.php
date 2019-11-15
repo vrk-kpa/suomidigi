@@ -26,9 +26,13 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Import'),
+      '#value' => $this->t('Import entities'),
     ];
 
+    $form['paragraph_submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Import paragraphs'),
+    ];
     return $form;
   }
 
@@ -53,9 +57,11 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
       }
     }
 
-    $paragraph_fields = \Drupal::getContainer()->get('entity_field.manager')->getFieldMapByFieldType('entity_reference_revisions')['paragraph'];
-    $type = \Drupal::entityTypeManager()->getDefinition('paragraph');
-    $this->handleMigration($paragraph_fields, $type);
+    if ($form_state->getTriggeringElement()['#id'] == 'edit-paragraph-submit') {
+      $paragraph_fields = \Drupal::getContainer()->get('entity_field.manager')->getFieldMapByFieldType('entity_reference_revisions')['paragraph'];
+      $type = \Drupal::entityTypeManager()->getDefinition('paragraph');
+      $this->handleMigration($paragraph_fields, $type);
+    }
 
     drupal_set_message('Migration completed.');
   }
