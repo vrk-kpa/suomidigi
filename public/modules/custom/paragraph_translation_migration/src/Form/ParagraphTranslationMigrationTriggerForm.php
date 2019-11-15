@@ -1,20 +1,17 @@
 <?php
 
-/**
- * @file
- * Definition of paragraph translation migration form.
- */
-
 namespace Drupal\paragraph_translation_migration\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\node\Entity\Node;
-use Drupal\paragraphs\Entity\Paragraph;
 
+/**
+ * Class ParagraphTranslationMigrationTriggerForm.
+ *
+ * @package Drupal\paragraph_translation_migration\Form
+ */
 class ParagraphTranslationMigrationTriggerForm extends FormBase {
-
 
   /**
    * {@inheritdoc}
@@ -27,10 +24,10 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['submit'] = array(
+    $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Import'),
-    );
+    ];
 
     return $form;
   }
@@ -46,7 +43,7 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // Get all the entities which contain entity reference revisions (paragraphs).
+    // Get all the entities which contain entity reference revisions paragraphs.
     $entities = \Drupal::getContainer()->get('entity_field.manager')->getFieldMapByFieldType('entity_reference_revisions');
 
     foreach ($entities as $entity_type => $fields) {
@@ -58,12 +55,23 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
 
     $paragraph_fields = \Drupal::getContainer()->get('entity_field.manager')->getFieldMapByFieldType('entity_reference_revisions')['paragraph'];
     $type = \Drupal::entityTypeManager()->getDefinition('paragraph');
-    $this->handleMigration($fields, $type);
+    $this->handleMigration($paragraph_fields, $type);
 
     drupal_set_message('Migration completed.');
   }
 
-  private function handleMigration($fields, $entity_type) {
+  /**
+   * Handle migration.
+   *
+   * @param array $fields
+   *   An array of fields.
+   * @param object $entity_type
+   *   Entity type.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   */
+  private function handleMigration(array $fields, $entity_type) {
     foreach ($fields as $field_name => $field) {
       $field_storage_config = FieldStorageConfig::loadByName($entity_type->id(), $field_name);
 
@@ -79,7 +87,9 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
                 $paragraph_entities = [];
 
                 foreach ($paragraph_values as $item) {
-                  $paragraph_entities[$item['target_revision_id']] = \Drupal::entityTypeManager()->getStorage('paragraph')->loadRevision($item['target_revision_id']);
+                  $paragraph_entities[$item['target_revision_id']] = \Drupal::entityTypeManager()
+                    ->getStorage('paragraph')
+                    ->loadRevision($item['target_revision_id']);
                 }
 
                 foreach ($paragraph_entities as $paragraph_entity) {
@@ -88,7 +98,10 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
                     $translated_paragraph_entity->removeTranslation($language->getId());
 
                     foreach ($paragraph_entity->getFieldDefinitions() as $paragraph_field) {
-                      if (!in_array($paragraph_field->getName(), ['langcode', 'uuid', 'id', 'default_langcode'])) {
+                      if (!in_array(
+                        $paragraph_field->getName(),
+                        ['langcode', 'uuid', 'id', 'default_langcode']
+                      )) {
                         $translated_paragraph_entity->set($paragraph_field->getName(), $paragraph_entity->getTranslation($language->getId())->get($paragraph_field->getName())->getValue());
                       }
                     }
@@ -104,7 +117,7 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
                 $translated_entity = $entity->getTranslation($language->getId());
                 $translated_entity->set($field_name, $translated_paragraph_entities);
                 $translated_entity->save();
-                drupal_set_message('Saved ' . $entity->getEntityType()->id() . ', id '. $entity->id() . '. Language: ' . $language->getId() .'. Translated entity id: ' . $translated_entity->id());
+                drupal_set_message('Saved ' . $entity->getEntityType()->id() . ', id ' . $entity->id() . '. Language: ' . $language->getId() . '. Translated entity id: ' . $translated_entity->id());
               }
             }
           }
@@ -112,4 +125,5 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
       }
     }
   }
+
 }
