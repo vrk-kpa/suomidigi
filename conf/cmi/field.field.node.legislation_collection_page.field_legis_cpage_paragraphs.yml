@@ -19,7 +19,7 @@ bundle: legislation_collection_page
 label: Paragraphs
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -92,5 +92,8 @@ settings:
         enabled: false
       view:
         weight: -22
+        enabled: false
+      feed:
+        weight: 26
         enabled: false
 field_type: entity_reference_revisions
