@@ -5,7 +5,9 @@ dependencies:
   config:
     - field.storage.paragraph.field_p_entity_reference
     - node.type.article
+    - node.type.community
     - node.type.core_content
+    - node.type.event
     - node.type.legislation_card
     - node.type.legislation_collection_page
     - paragraphs.paragraphs_type.liftup_entity_reference_item
@@ -15,7 +17,7 @@ entity_type: paragraph
 bundle: liftup_entity_reference_item
 label: 'Entity Reference'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -24,7 +26,9 @@ settings:
   handler_settings:
     target_bundles:
       article: article
+      community: community
       core_content: core_content
+      event: event
       legislation_card: legislation_card
       legislation_collection_page: legislation_collection_page
     sort:

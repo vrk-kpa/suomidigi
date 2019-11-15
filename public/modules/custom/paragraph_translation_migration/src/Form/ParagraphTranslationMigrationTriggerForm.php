@@ -26,13 +26,9 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Import entities'),
+      '#value' => $this->t('Migrate entities'),
     ];
 
-    $form['paragraph_submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Import paragraphs'),
-    ];
     return $form;
   }
 
@@ -48,21 +44,14 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Get all the entities which contain entity reference revisions paragraphs.
-    $entities = \Drupal::getContainer()->get('entity_field.manager')->getFieldMapByFieldType('entity_reference_revisions');
+    $entities = \Drupal::getContainer()
+      ->get('entity_field.manager')
+      ->getFieldMapByFieldType('entity_reference_revisions');
 
     foreach ($entities as $entity_type => $fields) {
       $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type);
-      if ($entity_type->id() !== 'paragraph') {
-        $this->handleMigration($fields, $entity_type);
-      }
+      $this->handleMigration($fields, $entity_type);
     }
-
-    if ($form_state->getTriggeringElement()['#id'] == 'edit-paragraph-submit') {
-      $paragraph_fields = \Drupal::getContainer()->get('entity_field.manager')->getFieldMapByFieldType('entity_reference_revisions')['paragraph'];
-      $type = \Drupal::entityTypeManager()->getDefinition('paragraph');
-      $this->handleMigration($paragraph_fields, $type);
-    }
-
     drupal_set_message('Migration completed.');
   }
 
