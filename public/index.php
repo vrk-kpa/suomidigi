@@ -8,9 +8,7 @@
  * See COPYRIGHT.txt and LICENSE.txt files in the "core" directory.
  */
 
-echo "HELLO!";
-
-/*use Drupal\Core\DrupalKernel;
+use Drupal\Core\DrupalKernel;
 use Symfony\Component\HttpFoundation\Request;
 
 $autoloader = require_once 'autoload.php';
@@ -21,4 +19,4 @@ $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 
-$kernel->terminate($request, $response);*/
+$kernel->terminate($request, $response);

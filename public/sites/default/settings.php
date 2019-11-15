@@ -69,7 +69,7 @@ if (getenv('AMAZEEIO_SOLR_HOST') && getenv('AMAZEEIO_SOLR_PORT')) {
 ### Trusted Host Patterns, see https://www.drupal.org/node/2410395 for more information.
 ### If your site runs on multiple domains, you need to add these domains here
 $settings['trusted_host_patterns'] = array(
-  '.*',
+  '^beta\.suomidigi\.cloud\.vrk\.fi$',
   '^' . str_replace('.', '\.', getenv('AMAZEEIO_SITE_URL')) . '$',
 );
 
