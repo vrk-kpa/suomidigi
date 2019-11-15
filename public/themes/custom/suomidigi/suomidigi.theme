@@ -86,10 +86,10 @@ function suomidigi_preprocess_node(&$variables) {
     $node->getType() === 'legislation_collection_page'
   ) {
     if ($node->hasField('field_header_image')) {
-      $mediaEntity = $node->get('field_header_image')->getValue();
+      $mediaEntity = $node->get('field_header_image')->getString();
 
       if (!empty($mediaEntity)) {
-        $field_media = Media::load($mediaEntity[0]['target_id']);
+        $field_media = Media::load($mediaEntity);
         $mediaImage = $field_media->get('field_media_image')->first();
 
         if (!empty($mediaImage)) {
