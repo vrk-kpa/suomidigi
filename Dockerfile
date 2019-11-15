@@ -29,3 +29,6 @@ COPY --from=theme-builder /usr/src/app/icons/icons.svg /app/public/themes/custom
 RUN whoami && \
     composer global require hirak/prestissimo && \
     composer install --no-dev --optimize-autoloader --prefer-dist --no-suggest
+
+RUN whoami && \
+    cat /app/public/index.php
