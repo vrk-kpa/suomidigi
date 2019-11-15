@@ -17,7 +17,7 @@ bundle: container_title
 label: Content
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -66,13 +66,31 @@ settings:
       highlight_text_box:
         weight: 22
         enabled: false
+      banner_cta:
+        weight: 23
+        enabled: false
       liftup_entity_reference:
         weight: 25
+        enabled: false
+      feed:
+        weight: 26
         enabled: false
       liftup_entity_reference_item:
         enabled: true
         weight: 26
       liftup_prominent:
         weight: 27
+        enabled: false
+      legislation_attachment:
+        weight: 31
+        enabled: false
+      legislation_cards:
+        weight: 32
+        enabled: false
+      legislation_link:
+        weight: 33
+        enabled: false
+      view:
+        weight: 42
         enabled: false
 field_type: entity_reference_revisions

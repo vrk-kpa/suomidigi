@@ -69,6 +69,7 @@ module:
   optional_end_date: 0
   options: 0
   page_cache: 0
+  paragraph_translation_migration: 0
   path: 0
   preview_link: 0
   quickedit: 0

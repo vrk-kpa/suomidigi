@@ -141,6 +141,9 @@
             },
             "drupal/ckwordcount": {
                 "https://www.drupal.org/project/ckwordcount/issues/2850845": "https://www.drupal.org/files/issues/2019-06-23/ckwordcount_plugin_path_2850845-10.patch"
+            },
+            "drupal/paragraphs": {
+                "https://www.drupal.org/project/paragraphs/issues/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
             }
         },
         "hooks": {

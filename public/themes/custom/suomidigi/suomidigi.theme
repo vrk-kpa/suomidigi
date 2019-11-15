@@ -86,10 +86,10 @@ function suomidigi_preprocess_node(&$variables) {
     $node->getType() === 'legislation_collection_page'
   ) {
     if ($node->hasField('field_header_image')) {
-      $mediaEntity = $node->get('field_header_image')->getValue();
+      $mediaEntity = $node->get('field_header_image')->getString();
 
       if (!empty($mediaEntity)) {
-        $field_media = Media::load($mediaEntity[0]['target_id']);
+        $field_media = Media::load($mediaEntity);
         $mediaImage = $field_media->get('field_media_image')->first();
 
         if (!empty($mediaImage)) {
@@ -171,13 +171,13 @@ function suomidigi_preprocess_paragraph(&$variables) {
   switch ($paragraph->getType()) {
     case 'liftup_entity_reference_item':
       if ($paragraph->hasField('field_p_full_width')) {
-        $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
+        $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getString();
         $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
         $variables['is_full_width'] = $fullWidth;
       }
 
       if ($paragraph->hasField('field_p_entity_reference')) {
-        $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
+        $targetID = $paragraph->get('field_p_entity_reference')->getString();
         $is_full_width = &drupal_static('article_full_width_' . $targetID, FALSE);
 
         if (isset($fullWidth) && $fullWidth) {
