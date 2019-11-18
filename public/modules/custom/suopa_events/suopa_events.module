@@ -35,6 +35,13 @@ function suopa_events_theme() {
         'phone_number' => NULL,
       ],
     ],
+    'suopa_back_to_events' => [
+      'variables' => [
+        'url' => NULL,
+        'link_title' => NULL,
+      ],
+      'render element' => 'children',
+    ],
   ];
 }
 
