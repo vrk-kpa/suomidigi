@@ -16,7 +16,7 @@ bundle: legislation_card
 label: 'More about the subject'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

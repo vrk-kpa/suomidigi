@@ -132,6 +132,11 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   user_picture:
     type: image_focal_point
     settings:
