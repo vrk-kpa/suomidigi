@@ -1,9 +1,19 @@
+.webform__container {
+  
+  @include breakpoint($for-tablet-portrait-up) {
+    width: 570px;
+    margin: 0 auto;
+  }
+}
+
 .webform-submission-form {
+  
   h2 {
-    @include font-size(18px);
-    @include line-height(18px, 20px);
-    font-weight: 600;
-    margin-bottom: $gutter / 2;
+    @include font-size(26px);
+    @include line-height(26px, 33px);
+    @include font-weight($semibold);
+    margin-bottom: $gutter * 1,2;
+    color: $blue-medium;
   }
 
   .webform-progress-tracker.progress-tracker {
