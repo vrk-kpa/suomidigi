@@ -31,7 +31,9 @@ function suopa_communities_help($route_name, RouteMatchInterface $route_match) {
  */
 function suopa_communities_entity_type_alter(array &$entity_types) {
   $entity = $entity_types['node'];
-  $entity->addConstraint('ApprovalConstraint');
+  if ($entity) {
+    $entity->addConstraint('ApprovalConstraint');
+  }
 }
 
 /**
