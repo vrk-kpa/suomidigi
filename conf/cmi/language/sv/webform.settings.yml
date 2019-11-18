@@ -17,3 +17,5 @@ settings:
       title: Bred
 element:
   default_more_title: Mer
+mail:
+  default_subject: 'Webform submission from: [webform_submission:source-entity]'
