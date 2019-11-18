@@ -10,8 +10,8 @@ deploy_tasks:
       - make build-testing
     after_deploy:
       - cd $AMAZEEIO_WEBROOT && drush -y cr
-      - cd $AMAZEEIO_WEBROOT && drush -y updb
       - cd $AMAZEEIO_WEBROOT && drush -y cim
+      - cd $AMAZEEIO_WEBROOT && drush -y updb
       - cd $AMAZEEIO_WEBROOT && drush -y cr
       - cd $AMAZEEIO_WEBROOT && drush status
   production:
@@ -20,8 +20,8 @@ deploy_tasks:
       - make build-production
     after_deploy:
       - cd $AMAZEEIO_WEBROOT && drush -y cr
-      - cd $AMAZEEIO_WEBROOT && drush -y updb
       - cd $AMAZEEIO_WEBROOT && drush -y cim
+      - cd $AMAZEEIO_WEBROOT && drush -y updb
       - cd $AMAZEEIO_WEBROOT && drush -y cr
       - cd $AMAZEEIO_WEBROOT && drush status
 
