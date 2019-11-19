@@ -14,6 +14,7 @@
     @include font-weight($semibold);
     @include line-height(26px, 33px);
     margin-bottom: $gutter / 2;
+    margin-top: $gutter;
   }
 
   label {
@@ -25,9 +26,7 @@
   textarea {
     @include font-size(14px);
     @include line-height(14px, 20px);
-    // margin-bottom: $gutter * 1.4;
 
-    // change font color for placeholder texts
     &::-webkit-input-placeholder { /* Edge */
       color: $black;
     }
@@ -78,14 +77,26 @@
       > .form-item {
         
         .ui-datepicker-trigger {
-          position: absolute;
-          right: 5px;
-          top: 13px;
+          display: none;
         }
 
         &.form-item-start-date-and-time-date,
         &.form-item-end-date-and-time-date {
           position: relative;
+
+          &::after {
+            background-image: url("../../icons/svg/calendar-blue.svg");
+            background-position: 10px 50%;
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            content: "";
+            height: 40px;
+            right: 0;
+            opacity: 1;
+            position: absolute;
+            top: 0;
+            width: 40px;
+          }
         }        
       }
     }
@@ -93,8 +104,10 @@
     &.form-item-start-date-and-time,
     &.form-item-end-date-and-time {
       width: 100%;
+      
       .container-inline {
         input.hasDatepicker {
+          width: 130px;
           @include breakpoint($for-small-mobile-portrait-up) {
             width: 170px;
           }
@@ -176,21 +189,20 @@
       }
     }
   }
-  // styles for label font and removing extra margins from form container, between last input and submit button
+  
   #edit-event-container {
     margin-bottom: 0;
 
     .form-item {
-
       label:not(.visually-hidden) {
         @include font-size(18px);
         @include line-height(18px, 26px);
         margin-top: $gutter * 1.4;
       }
-    }
-
-    .form-item:last-child {
-      margin-bottom: 0;
+      
+      &:last-child {
+        margin-bottom: 0;
+      } 
     }
   }  
 }
