@@ -15,6 +15,11 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
+
+<div class="event__back--top">
+  {{ drupal_block('suopa_back_to_events') }}
+</div>
+
 <article{{ attributes.addClass(classes) }}>
   <div class="event__image">
     {{ content.field_event_image|render }}
@@ -163,3 +168,7 @@
     </div>
   </div>
 </article>
+
+<div class="event__back--bottom">
+  {{ drupal_block('suopa_back_to_events') }}
+</div>
