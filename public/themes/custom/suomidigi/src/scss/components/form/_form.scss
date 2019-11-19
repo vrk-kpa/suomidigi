@@ -12,6 +12,12 @@
     }
   }
 
+  &.user-login-form {
+    .form-item {
+      max-width: 500px;
+    }
+  }
+
   .container {
     border-bottom: 1px solid $gray;
     margin-bottom: $gutter * 1.5;

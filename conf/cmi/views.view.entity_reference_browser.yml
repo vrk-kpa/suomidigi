@@ -258,7 +258,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Kieli
+          label: Language
           exclude: false
           alter:
             alter_text: false
@@ -631,7 +631,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-            label: Kieli
+            label: Language
             description: ''
             use_operator: false
             operator: langcode_op

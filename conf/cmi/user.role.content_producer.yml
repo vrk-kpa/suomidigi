@@ -74,7 +74,6 @@ permissions:
   - 'set any published on date'
   - 'set article published on date'
   - 'set core_content published on date'
-  - 'set event published on date'
   - 'set landing_page published on date'
   - 'set page published on date'
   - 'translate article node'

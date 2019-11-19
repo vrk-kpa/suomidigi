@@ -1,0 +1,33 @@
+uuid: 16a220dd-2751-4917-bc05-d507cef1f471
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: event_en
+label: 'Event - EN'
+type: 'canonical_entities:node'
+pattern: 'events/[node:field_event_date_and_time:start_date:custom:Y]/[node:field_event_date_and_time:start_date:custom:m]/[node:title]'
+selection_criteria:
+  5bf96bf2-8b0d-4e3a-9801-2f629e651437:
+    id: node_type
+    bundles:
+      event: event
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 5bf96bf2-8b0d-4e3a-9801-2f629e651437
+  54d320f3-5bf0-4cc6-b5b3-eb252b7f5a50:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 54d320f3-5bf0-4cc6-b5b3-eb252b7f5a50
+selection_logic: and
+weight: -4
+relationships:
+  'node:langcode:language':
+    label: Kieli
