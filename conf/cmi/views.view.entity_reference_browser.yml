@@ -81,10 +81,10 @@ display:
           columns:
             entity_browser_select: entity_browser_select
             title: title
+            langcode: langcode
+            type: type
             field_article_type: field_article_type
             field_core_content_type: field_core_content_type
-            type: type
-            langcode: langcode
           info:
             entity_browser_select:
               align: ''
@@ -97,6 +97,20 @@ display:
               align: ''
               separator: ''
               empty_column: true
+              responsive: ''
+            langcode:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
               responsive: ''
             field_article_type:
               sortable: true
@@ -112,13 +126,7 @@ display:
               separator: ''
               empty_column: true
               responsive: ''
-            type:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
+<<<<<<< HEAD
             langcode:
               sortable: true
               default_sort_order: asc
@@ -127,6 +135,9 @@ display:
               empty_column: false
               responsive: ''
           default: title
+=======
+          default: '-1'
+>>>>>>> 3e2d3ee700f0f5a1a8a9e2e4043a8f35742ce2e4
           empty_table: false
       row:
         type: fields
@@ -258,7 +269,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+<<<<<<< HEAD
           label: Language
+=======
+          label: Kieli
+>>>>>>> 3e2d3ee700f0f5a1a8a9e2e4043a8f35742ce2e4
           exclude: false
           alter:
             alter_text: false
@@ -631,7 +646,11 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
+<<<<<<< HEAD
             label: Language
+=======
+            label: Kieli
+>>>>>>> 3e2d3ee700f0f5a1a8a9e2e4043a8f35742ce2e4
             description: ''
             use_operator: false
             operator: langcode_op
@@ -663,20 +682,21 @@ display:
           entity_field: langcode
           plugin_id: language
       sorts:
-        title:
-          id: title
+        published_at:
+          id: published_at
           table: node_field_data
-          field: title
+          field: published_at
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
+          granularity: minute
           entity_type: node
-          entity_field: title
-          plugin_id: standard
+          entity_field: published_at
+          plugin_id: date
       header: {  }
       footer: {  }
       empty: {  }

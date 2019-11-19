@@ -20,7 +20,7 @@ bundle: landing_page
 label: Paragraphs
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -83,10 +83,19 @@ settings:
       legislation_cards:
         enabled: true
         weight: 17
+      banner_cta:
+        weight: 23
+        enabled: false
       legislation_attachment:
         enabled: true
         weight: 26
+      feed:
+        weight: 26
+        enabled: false
       legislation_link:
         enabled: true
         weight: 28
+      view:
+        weight: 42
+        enabled: false
 field_type: entity_reference_revisions
