@@ -126,18 +126,7 @@ display:
               separator: ''
               empty_column: true
               responsive: ''
-<<<<<<< HEAD
-            langcode:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: title
-=======
           default: '-1'
->>>>>>> 3e2d3ee700f0f5a1a8a9e2e4043a8f35742ce2e4
           empty_table: false
       row:
         type: fields
@@ -269,11 +258,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-<<<<<<< HEAD
           label: Language
-=======
-          label: Kieli
->>>>>>> 3e2d3ee700f0f5a1a8a9e2e4043a8f35742ce2e4
           exclude: false
           alter:
             alter_text: false
@@ -646,11 +631,7 @@ display:
           exposed: true
           expose:
             operator_id: langcode_op
-<<<<<<< HEAD
             label: Language
-=======
-            label: Kieli
->>>>>>> 3e2d3ee700f0f5a1a8a9e2e4043a8f35742ce2e4
             description: ''
             use_operator: false
             operator: langcode_op
