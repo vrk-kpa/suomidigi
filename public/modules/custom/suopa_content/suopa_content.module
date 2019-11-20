@@ -5,12 +5,17 @@
  * Contains suopa_content.module.
  */
 
+use Drupal\block\Entity\Block;
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
+use Drupal\locale\SourceString;
 
 /**
  * Implements hook_help().
@@ -106,7 +111,9 @@ function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) 
       strpos($grant['realm'], 'view_unpublished') !== FALSE &&
       !array_key_exists('langcode', $grant)
     ) {
-      unset($grants[$key]);
+      if ($grant['realm'] !== 'view_unpublished_author') {
+        unset($grants[$key]);
+      }
     }
   }
   foreach ($node->getTranslationLanguages() as $langcode => $value) {
@@ -129,6 +136,31 @@ function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) 
         'grant_delete' => 0,
         'langcode' => $langcode,
       ];
+    }
+  }
+}
+
+/**
+ * Implements hook_block_access().
+ *
+ * Hide content creation links block and own content block if user is not on
+ * own account page.
+ *
+ * {@inheritDoc}
+ */
+function suopa_content_block_access(Block $block, $operation, AccountInterface $account) {
+  if ($operation == 'view') {
+    if (
+      $block->getPluginId() === 'content_creation_links_block' ||
+      $block->getPluginId() === 'views_block:profile_own_content-block_1'
+    ) {
+      if (!empty($viewed_user = \Drupal::routeMatch()->getParameter('user'))) {
+        $user = \Drupal::currentUser();
+
+        return ($user->id() === $viewed_user->id())
+          ? AccessResult::neutral()->addCacheableDependency($viewed_user->id())
+          : AccessResult::forbidden()->addCacheableDependency($viewed_user->id());
+      }
     }
   }
 }
@@ -234,4 +266,130 @@ function suopa_content_views_post_execute(ViewExecutable $view) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_local_tasks_alter().
+ */
+function suopa_editorial_local_tasks_alter(&$local_tasks) {
+  // Change user 'Edit' and 'View' local tasks to 'Edit profile' and
+  // 'View profile' when in user page.
+  $local_tasks['entity.user.canonical']['title'] = new TranslatableMarkup('View profile');
+  $local_tasks['entity.user.edit_form']['title'] = new TranslatableMarkup('Edit profile');
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suopa_editorial_preprocess_page(&$variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+
+  if (
+    $route_name == 'entity.user.canonical' ||
+    $route_name == 'entity.user.edit_form'
+  ) {
+    $variables['#attached']['library'][] = 'suopa_content/local-tasks';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function suopa_editorial_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+  $form['name']['#title'] = t('Email');
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function suopa_editorial_theme_suggestions_captcha_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#captcha_info']['form_id'])) {
+    $suggestions[] = 'captcha__user_register_form';
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function suopa_content_node_view(&$build, $entity, $display, $view_mode) {
+  // Duplicate displayed author field for rendering it in the footer of the page
+  // with different view mode.
+  if ($view_mode == 'full' && isset($build['field_displayed_author']['#items'])) {
+    $build['field_displayed_author_footer'] = $build['field_displayed_author']['#items']->view([
+      'type' => 'entity_reference_entity_view',
+    ]);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function suopa_content_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#id'] !== 'views-exposed-form-profile-own-content-block-1') {
+    return;
+  }
+
+  // Prepare the views exposed filters for conversion to links.
+  $index = 0;
+  $items = [];
+
+  foreach ($form['type']['#options'] as $tid => $term_name) {
+    $items[$index]['#markup'] = ($tid == 'All')
+      ? '<div class="button button--secondary"><a href="" class="is-active" id="' . $tid . '">' . $term_name . '</a></div>'
+      : '<div class="button button--secondary"><a href="" id="' . $tid . '">' . $term_name . '</a></div>';
+    $index++;
+  }
+
+  $form['links'] = [
+    '#theme' => 'suopa_content_buttons',
+    '#items' => $items,
+    '#attributes' => ['class' => ['buttons', 'buttons--horizontal']],
+  ];
+
+  $form['#attached']['library'][] = 'suopa_content/exposed-filters';
+}
+
+/**
+ * Helper function to manually add a single translation string.
+ *
+ * @param string $source_string
+ *   Source string.
+ * @param string $langcode
+ *   The langcode.
+ * @param string $translated_string
+ *   Translated string.
+ *
+ * @throws \Drupal\locale\StringStorageException
+ */
+function suopa_content_add_translation($source_string, $langcode, $translated_string) {
+  // Find existing source string.
+  $storage = \Drupal::service('locale.storage');
+  $string = $storage->findString(['source' => $source_string]);
+  if (is_null($string)) {
+    $string = new SourceString();
+    $string->setString($source_string);
+    $string->setStorage($storage);
+    $string->save();
+  }
+  // Create translation. If one already exists, it will be replaced.
+  $translation = $storage->createTranslation([
+    'lid' => $string->lid,
+    'language' => $langcode,
+    'translation' => $translated_string,
+  ]);
+  $translation->save();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function suopa_content_theme() {
+  return [
+    'suopa_content_buttons' => [
+      'variables' => [
+        'items' => NULL,
+        'attributes' => NULL,
+      ],
+    ],
+  ];
 }

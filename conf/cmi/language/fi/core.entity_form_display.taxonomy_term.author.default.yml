@@ -1,0 +1,7 @@
+third_party_settings:
+  field_group:
+    group_does_author_have_user_prof:
+      label: 'Onko kirjoittajalla käyttäjäprofiili?'
+    group_author_no:
+      format_settings:
+        description: 'Täytä kaikki alla olevat kentät.'

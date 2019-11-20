@@ -1,0 +1,31 @@
+uuid: 0a911d97-60b0-44f1-8a17-bd56ee9be04b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.profile_own_content
+  module:
+    - route_condition
+    - views
+  theme:
+    - suomidigi
+id: views_block__profile_own_content_block_1
+theme: suomidigi
+region: after_content
+weight: -11
+provider: null
+plugin: 'views_block:profile_own_content-block_1'
+settings:
+  id: 'views_block:profile_own_content-block_1'
+  label: 'My content'
+  provider: views
+  label_display: visible
+  views_label: 'My content'
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  route:
+    id: route
+    routes: entity.user.canonical
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,23 @@
+uuid: 2c6d884b-e9aa-4444-8263-a97bdeb74749
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_author_linkedin
+    - taxonomy.vocabulary.author
+  module:
+    - link
+id: taxonomy_term.author.field_author_linkedin
+field_name: field_author_linkedin
+entity_type: taxonomy_term
+bundle: author
+label: LinkedIn
+description: 'Direct URL to your LinkedIn account. F.e https://www.linkedin.com/in/firstnamelastname/'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

@@ -54,10 +54,10 @@ class SuoPaSocialSharingBlock extends SocialSharingBlock {
           $library[] = $social_media['library'];
         }
         if (isset($social_media['attributes']) && !empty($social_media['attributes'])) {
-          $elements[$name]['attr'] = $this->social_media_convert_attributes($social_media['attributes']);
+          $elements[$name]['attr'] = $this->socialMediaConvertAttributes($social_media['attributes']);
         }
         if (isset($social_media['drupalSettings']) && !empty($social_media['drupalSettings'])) {
-          $settings['social_media'] = $this->social_media_convert_drupalSettings($social_media['drupalSettings']);
+          $settings['social_media'] = $this->socialMediaConvertDrupalSettings($social_media['drupalSettings']);
         }
 
         if (isset($social_media['default_img']) && $social_media['default_img']) {

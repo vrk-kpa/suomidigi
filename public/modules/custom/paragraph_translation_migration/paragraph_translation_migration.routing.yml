@@ -1,0 +1,7 @@
+paragraph_translation_migration.form_trigger:
+  path: '/admin/paragraph-translation-migration'
+  defaults:
+    _form: 'Drupal\paragraph_translation_migration\Form\ParagraphTranslationMigrationTriggerForm'
+    _title: 'Paragraph Translation'
+  requirements:
+    _permission: 'administer site configuration'

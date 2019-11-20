@@ -1,0 +1,7 @@
+suopa_feed.feed_controller_load:
+  path: '/suopa_feed/load/{paragraph}'
+  defaults:
+    _controller: '\Drupal\suopa_feed\Controller\FeedController::load'
+    _title: 'load'
+  requirements:
+    _permission: 'access content'

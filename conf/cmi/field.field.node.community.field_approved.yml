@@ -1,0 +1,23 @@
+uuid: b1acaab2-08c5-4e4f-abe3-7b4099ac5645
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approved
+    - node.type.community
+id: node.community.field_approved
+field_name: field_approved
+entity_type: node
+bundle: community
+label: Approved
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Approved
+  off_label: Unapproved
+field_type: boolean

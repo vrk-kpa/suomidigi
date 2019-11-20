@@ -5,6 +5,97 @@
     font-weight: 600;
     margin-bottom: $gutter / 2;
   }
+
+  .webform-progress-tracker.progress-tracker {
+    @include border('bottom');
+    padding-bottom: $gutter * 2;
+  }
+
+  .webform-image-file,
+  .webform-multiple-add {
+    input[type="submit"]:not(.js-hide) {
+      display: inline;
+      height: auto;
+      margin-left: $gutter;
+    }
+  }
+
+  .webform-multiple-add {
+    text-align: center;
+  }
+
+  .progress-text {
+    line-height: 1.2rem;
+  }
+
+  .select2-selection__arrow {
+    right: 10px;
+    top: 10px;
+  }
+
+  .form-actions {
+    display: flex;
+  }
+
+  .form-type-datetime {
+    .container-inline {
+      display: inline-flex;
+
+      > .form-item {
+        margin-right: $gutter;
+
+        .ui-datepicker-trigger {
+          position: absolute;
+          right: 5px;
+          top: 13px;
+        }
+
+        &.form-item-start-date-and-time-date,
+        &.form-item-end-date-and-time-date {
+          position: relative;
+        }
+      }
+    }
+  }
+
+  #edit-date-container {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .form-item-contact-information {
+    padding-top: $gutter;
+
+    .form-item-contact-information-add-more-items,
+    .tabledrag-toggle-weight-wrapper {
+      display: none;
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      .tableresponsive-toggle-columns,
+      .webform-multiple-table--handle,
+      .webform-multiple-add {
+        display: none;
+      }
+    }
+
+    .webform-multiple-table {
+      @include border();
+      margin-bottom: $gutter;
+      padding: $gutter;
+
+      th {
+        @include font-size(14px);
+        @include line-height(14px, 22px);
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .form-item {
+        margin-right: $gutter;
+      }
+    }
+  }
 }
 
 .webform-confirmation__message {

@@ -3,7 +3,7 @@
 
   @include breakpoint($for-tablet-portrait-up) {
     display: block;
-    margin: 0 0 0 auto;
+    margin: 0;
     padding: 0;
 
     &__wrapper {
@@ -19,17 +19,17 @@
       @include font-size(14px);
       @include line-height(14px, 14px);
       align-items: center;
-      background: $blue-dark;
-      border: 1px solid $gray-light;
-      border-radius: 2px;
-      color: $white;
+      background-color: $white;
+      border: 1px solid $blue;
+      border-radius: 3px;
+      color: $black;
       display: flex;
+      height: 30px;
       justify-content: center;
       padding: 0;
-      text-transform: uppercase;
       text-align: center;
-      width: 44px;
-      height: 30px;
+      text-transform: uppercase;
+      width: 50px;
 
       &[aria-expanded=true] {
         color: $orange-dark;
@@ -42,7 +42,7 @@
 
       .icon {
         display: inline-block;
-        fill: $white;
+        fill: $black;
         margin-right: -3px;
         max-height: 15px;
         width: 18px;
@@ -57,8 +57,8 @@
     &__dropdown {
       background: $white;
       border: 1px solid $gray-light;
-      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
       border-radius: 2px;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
       position: absolute;
       right: 0;
       top: 45px;
@@ -66,14 +66,14 @@
 
       &:after,
       &:before {
-        bottom: 100%;
-        right: 20px;
         border: solid transparent;
+        bottom: 100%;
         content: " ";
         height: 0;
-        width: 0;
-        position: absolute;
         pointer-events: none;
+        position: absolute;
+        right: 20px;
+        width: 0;
       }
 
       &:before {
@@ -89,19 +89,19 @@
       }
 
       .language-links {
-        padding-top: 10px;
         padding-bottom: 10px;
+        padding-top: 10px;
 
         .language-link {
           @include font-size(16px);
           @include line-height(16px, 26px);
-          padding-left: 14px;
           border-left: 6px solid transparent;
-          padding-right: 20px;
-          white-space: nowrap;
-          text-decoration: none;
-          display: block;
           color: $blue-dark;
+          display: block;
+          padding-left: 14px;
+          padding-right: 20px;
+          text-decoration: none;
+          white-space: nowrap;
 
           &.is-active,
           &:focus,
@@ -135,8 +135,8 @@
 
     &__wrapper {
       @include border('top');
-      padding-top: $gutter;
       margin-top: $gutter;
+      padding-top: $gutter;
 
       .language-links {
         align-items: center;
@@ -145,8 +145,8 @@
       }
 
       .language-link {
-        text-transform: uppercase;
         padding: 0 $gutter / 2;
+        text-transform: uppercase;
 
         &--abbreviation {
           display: none;

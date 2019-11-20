@@ -14,12 +14,12 @@ PHPCBF_BIN_EXISTS := $(shell test -f ${PHPCBF_BIN} && echo yes || echo no)
 
 PHONY += composer-info
 composer-info: ## Composer info
-	$(call colorecho, "\nDo Composer info (${RUN_ON})...\n")
+	$(call step,Do Composer info (${RUN_ON})...)
 	$(call composer_on_${RUN_ON},info)
 
 PHONY += composer-update
 composer-update: ## Update Composer packages
-	$(call colorecho, "\nDo Composer update (${RUN_ON})...\n")
+	$(call step,Do Composer update (${RUN_ON})...)
 	$(call composer_on_${RUN_ON},update)
 
 PHONY += fix
@@ -32,7 +32,7 @@ else
 endif
 
 composer-install: ## Install Composer packages
-	$(call colorecho, "\nDo Composer install (${RUN_ON})...\n")
+	$(call step,Do Composer install (${RUN_ON})...)
 	$(call composer_on_${RUN_ON},install ${COMPOSER_ARGS})
 
 PHONY += test-phpunit

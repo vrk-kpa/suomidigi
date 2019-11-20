@@ -3,7 +3,7 @@
 namespace Drupal\suopa_communities\Plugin\WebformHandler;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\suopa_communities\Entity\Community;
+use Drupal\node\Entity\Node;
 use Drupal\webform\Plugin\WebformHandlerBase;
 use Drupal\webform\webformSubmissionInterface;
 
@@ -30,9 +30,10 @@ class CommunityWebformHandler extends WebformHandlerBase {
     $submissionArray = $webform_submission->getData();
 
     // Create the entity.
-    $community = Community::create([
+    $community = Node::create([
+      'type' => 'community',
       'status' => FALSE,
-      'name' => $submissionArray['name'],
+      'title' => $submissionArray['name'],
 
       'field_community_description' => [
         'value' => $submissionArray['description'],

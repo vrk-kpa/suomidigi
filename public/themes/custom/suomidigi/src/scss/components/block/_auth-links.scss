@@ -1,10 +1,10 @@
 .auth-links {
-  align-items: center;
+  @include border('top');
   display: flex;
   flex-direction: column;
-  margin: 0 auto $gutter auto;
+  margin: $gutter * 2 0 $gutter;
   min-width: 280px;
-  padding: 0 ($gutter / 2);
+  padding: $gutter * 2 ($gutter / 2);
 
   .auth-links-description {
     @include font-size(16px);
@@ -12,15 +12,15 @@
     display: block;
     margin-bottom: $gutter;
     max-width: 360px;
-    text-align: center;
     position: relative;
+    text-align: center;
     width: 100%;
 
     .auth-links-description__text {
       background-color: $white;
       display: inline-block;
-      position: relative;
       padding: 0 10px;
+      position: relative;
     }
 
     &::before {
@@ -37,14 +37,14 @@
 
   .auth-link {
     @include font-size(16px);
+    background-color: $blue;
+    border: none;
     border-radius: 4px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0, 0.5);
-    border: none;
-    background-color: $blue;
     color: $white;
     display: block;
-    margin: 0 auto $gutter;
-    max-width: 370px;
+    margin: 0 0 $gutter;
+    max-width: 300px;
     padding: 15px 10px 15px 50px;
     position: relative;
     text-align: center;
@@ -112,8 +112,8 @@
 
       &::before {
         background: url('../../images/linkedin-in.png') no-repeat 0 0 transparent;
-        background-size: contain;
         background-position-x: 1px;
+        background-size: contain;
       }
 
       &:active,

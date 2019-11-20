@@ -1,0 +1,26 @@
+uuid: 5cffa900-db1c-4d00-9e6e-109db9b98d32
+langcode: en
+status: true
+dependencies:
+  module:
+    - route_condition
+    - suopa_editorial
+  theme:
+    - suomidigi
+id: contentcreationlinksblock
+theme: suomidigi
+region: after_content
+weight: -12
+provider: null
+plugin: content_creation_links_block
+settings:
+  id: content_creation_links_block
+  label: 'Content creation links block'
+  provider: suopa_editorial
+  label_display: '0'
+visibility:
+  route:
+    id: route
+    routes: entity.user.canonical
+    negate: false
+    context_mapping: {  }

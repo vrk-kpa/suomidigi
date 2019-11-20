@@ -1,26 +1,14 @@
 .page-footer {
-  margin-top: $gutter * 2;
   margin-bottom: $gutter * 2;
+  margin-top: $gutter * 2;
 }
 
-.l-footer__item {
+.content--footer {
+  align-items: center;
   display: flex;
   flex-flow: column wrap;
-  align-items: center;
+  padding-left: $gutter;
+  padding-right: $gutter;
   text-align: center;
   width: 100%;
-}
-
-.l-footer--small {
-  display: flex;
-
-  &::before {
-    @include breakpoint($for-tablet-portrait-up) {
-      content: '';
-      flex-basis: 25%;
-      min-width: 224px;
-      padding: 0;
-      margin-right: $gutter * 2;
-    }
-  }
 }

@@ -1,14 +1,14 @@
 .page-after_content {
-  @include border('top');
   margin: $gutter * 2 -#{$gutter} 0;
   padding: $gutter;
+  position: relative;
 
   .section--after-content {
     align-items: center;
     display: flex;
     flex-flow: column;
 
-    @include breakpoint($for-mobile-landscape-up) {
+    @include breakpoint($for-tablet-portrait-up) {
       flex-flow: row;
     }
   }

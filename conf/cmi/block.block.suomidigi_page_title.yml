@@ -2,14 +2,16 @@ uuid: 626295e5-3b8b-440d-8114-ddfdfefadfb0
 langcode: en
 status: true
 dependencies:
+  module:
+    - ctools
   theme:
     - suomidigi
 _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
 id: suomidigi_page_title
 theme: suomidigi
-region: content
-weight: -11
+region: before_content
+weight: -12
 provider: null
 plugin: page_title_block
 settings:
@@ -17,4 +19,11 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      event: event
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

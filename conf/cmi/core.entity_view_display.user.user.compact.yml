@@ -4,10 +4,18 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_user_description
+    - field.field.user.user.field_user_linkedin
+    - field.field.user.user.field_user_organisation
+    - field.field.user.user.field_user_title
+    - field.field.user.user.field_user_twitter
     - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - image.style.large
   module:
-    - image
+    - link
+    - svg_image
     - user
 _core:
   default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
@@ -16,15 +24,83 @@ targetEntityType: user
 bundle: user
 mode: compact
 content:
+  field_first_name:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_last_name:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_user_description:
+    type: basic_string
+    weight: 5
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_user_linkedin:
+    type: link
+    weight: 6
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_user_organisation:
+    type: string
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_user_title:
+    type: string
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_user_twitter:
+    type: link
+    weight: 7
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
     region: content
     settings:
-      image_style: thumbnail
+      image_style: large
       image_link: content
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
     third_party_settings: {  }
     label: hidden
 hidden:
   langcode: true
   member_for: true
+  search_api_excerpt: true

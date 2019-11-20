@@ -5,9 +5,7 @@
 // ---------------
 // General plugins
 // ---------------
-const chalk = require("chalk");
 const gulp = require("gulp");
-const log = require("fancy-log");
 const noop = require("gulp-noop");
 const rename = require("gulp-rename");
 const clean = require("del");
@@ -23,7 +21,7 @@ const cleanCss = require("gulp-clean-css");
 // ----------------------------
 // Javascript plugins
 // ----------------------------
-const uglify = require("gulp-uglify");
+const uglify = require("gulp-uglify-es").default;
 
 // ------
 // Config
@@ -75,6 +73,8 @@ function compileSASS() {
     .pipe(
       path.env === "development"
         ? sass(sassConfig).on("error", function(err) {
+            const chalk = require("chalk");
+            const log = require("fancy-log");
             log.error(
               chalk.black.bgRed(
                 " SASS ERROR",
@@ -305,7 +305,19 @@ function copyExternalIcons() {
     .pipe(gulp.dest(`${svgOutDir}/svg/`));
 }
 
-
+// ------------------------
+// Override modified icons.
+// ------------------------
+function copyOverriddenIcons() {
+  return gulp
+    .src(`${svgOutDir}/overridden/**/*`)
+    .pipe(rename((opt) => {
+        opt.basename = opt.basename.replace(/^icon-/, "");
+        return opt;
+      })
+    )
+    .pipe(gulp.dest(`${svgOutDir}/svg/`));
+}
 
 // ----------------------------------
 // Save SVG filenames to a JSON file.
@@ -339,6 +351,7 @@ gulp.task(
     copySuomiFiIcons,
     copySuomiFiStaticIcons,
     copyExternalIcons,
+    copyOverriddenIcons,
     "svgNamesToJson",
     () =>
       gulp

@@ -8,8 +8,8 @@ _core:
   default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
 id: suomidigi_local_tasks
 theme: suomidigi
-region: content
-weight: -10
+region: before_content
+weight: -11
 provider: null
 plugin: local_tasks_block
 settings:

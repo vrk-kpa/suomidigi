@@ -1,0 +1,19 @@
+uuid: 56858168-cbac-448f-a8f9-0cd3ef69c470
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - suopa_events
+id: node.field_event_org_contact_info
+field_name: field_event_org_contact_info
+entity_type: node
+type: contact_information
+settings: {  }
+module: suopa_events
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

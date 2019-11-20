@@ -13,7 +13,7 @@ archive: false
 id: add_new_community
 title: 'Add new community'
 description: 'A form for adding a new community.'
-category: ''
+category: 'Anonymous user forms'
 elements: "community_container:\n  '#type': container\n  name:\n    '#type': textfield\n    '#title': Name\n    '#description': 'The name of the community.'\n    '#required': true\n  description:\n    '#type': textarea\n    '#title': Description\n    '#description': 'Short description about the community.'\n    '#required': true\n  domain:\n    '#type': webform_term_select\n    '#title': Domain\n    '#description': 'Select the domain where the community is hosted at.'\n    '#select2': true\n    '#vocabulary': community_domain\n    '#breadcrumb_delimiter': ''\n    '#required': true\n  url:\n    '#type': url\n    '#title': URL\n    '#description': 'The direct URL to the community.'\n    '#required': true\ncaptcha_container:\n  '#type': container\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA"
 css: ''
 javascript: ''
@@ -210,6 +210,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+      parameters: {  }
   create_a_community_entity_on_submit:
     id: community_from_webform
     label: 'Create a community entity on submit'

@@ -1,0 +1,21 @@
+uuid: 0c75fa17-29a6-4d0e-9485-79796f5a7c53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_organiser_description
+    - node.type.event
+  module:
+    - text
+id: node.event.field_organiser_description
+field_name: field_organiser_description
+entity_type: node
+bundle: event
+label: 'Organiser description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

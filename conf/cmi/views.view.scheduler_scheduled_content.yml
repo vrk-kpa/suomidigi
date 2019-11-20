@@ -838,6 +838,7 @@ display:
           tokenize: true
           content: 'No scheduled content for user {{ arguments.uid }}'
           plugin_id: text_custom
+      enabled: false
     display_plugin: page
     display_title: 'User profile tab'
     id: user_page

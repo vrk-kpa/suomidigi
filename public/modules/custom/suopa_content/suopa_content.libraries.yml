@@ -1,0 +1,13 @@
+exposed-filters:
+  js:
+    assets/js/exposed-filters.js: {}
+  css:
+    theme:
+      assets/css/exposed-filters.css: {}
+  dependencies:
+    - core/jquery
+
+local-tasks:
+  css:
+    theme:
+      assets/css/local_tasks.css: {}

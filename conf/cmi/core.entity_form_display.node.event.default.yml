@@ -1,0 +1,293 @@
+uuid: f115bfef-4c1a-44ab-94e9-f4b55e453a8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_approved
+    - field.field.node.event.field_event_date_and_time
+    - field.field.node.event.field_event_description
+    - field.field.node.event.field_event_free_text
+    - field.field.node.event.field_event_image
+    - field.field.node.event.field_event_link
+    - field.field.node.event.field_event_org_contact_info
+    - field.field.node.event.field_event_organiser
+    - field.field.node.event.field_event_registration
+    - field.field.node.event.field_organiser_description
+    - field.field.node.event.field_organiser_link
+    - field.field.node.event.field_venue_address
+    - field.field.node.event.field_venue_description
+    - field.field.node.event.field_venue_name
+    - image.style.thumbnail
+    - node.type.event
+  module:
+    - address
+    - datetime_range
+    - field_group
+    - focal_point
+    - link
+    - path
+    - publication_date
+    - scheduler
+    - suopa_events
+    - text
+    - timepicker
+third_party_settings:
+  field_group:
+    group_venue:
+      children:
+        - field_venue_name
+        - field_venue_address
+        - field_venue_description
+      parent_name: ''
+      weight: 14
+      format_type: details
+      format_settings:
+        description: ''
+        open: true
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Venue
+      region: content
+    group_event:
+      children:
+        - field_event_date_and_time
+        - field_event_description
+        - field_event_registration
+        - field_event_link
+        - field_event_image
+        - field_event_free_text
+      parent_name: ''
+      weight: 13
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Event
+      region: content
+    group_organiser:
+      children:
+        - field_event_organiser
+        - field_organiser_description
+        - field_organiser_link
+        - field_event_org_contact_info
+      parent_name: ''
+      weight: 15
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        open: true
+        required_fields: true
+      label: Organiser
+      region: content
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_approved:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_event_date_and_time:
+    weight: 18
+    settings: {  }
+    third_party_settings:
+      timepicker:
+        enabled: '1'
+        type: timepicker_jonthornton
+        js_options:
+          value: ''
+    type: daterange_default
+    region: content
+  field_event_description:
+    weight: 19
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_event_free_text:
+    weight: 23
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_event_image:
+    weight: 22
+    settings:
+      preview_image_style: thumbnail
+      preview_link: true
+      offsets: '50,50'
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_focal_point
+    region: content
+  field_event_link:
+    weight: 21
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_event_org_contact_info:
+    weight: 21
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: contact_information_widget
+    region: content
+  field_event_organiser:
+    weight: 18
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_event_registration:
+    weight: 20
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_organiser_description:
+    weight: 19
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_organiser_link:
+    weight: 20
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_venue_address:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_venue_description:
+    weight: 19
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_venue_name:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  published_at:
+    type: publication_date_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 12
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  revision_log: true
