@@ -26,23 +26,25 @@
         {% endif %}
       </div>
       <div class="community__title-wrapper">
-        {% if label %}
-          <h2 class="community__title">
-            {{ label }}
-          </h2>
-        {% endif %}
         {% if community_domain_domain %}
           <p class="community__domain">
             {{ community_domain_domain }}
           </p>
         {% endif %}
       </div>
-      <button class="community__cta">
-        {{ 'Join'|t }}
-      </button>
+    </div>
+    <div class="community__title-wrapperee">
+      {% if label %}
+        <h2 class="community__title">
+          {{ label }}
+        </h2>
+      {% endif %}
     </div>
     <div class="community__content">
       {{ content.field_community_description }}
     </div>
+    <button class="community__cta">
+        {{ 'Join'|t }}
+    </button>
   </a>
 </article>
