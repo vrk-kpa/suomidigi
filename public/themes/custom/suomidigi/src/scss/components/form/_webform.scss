@@ -1,5 +1,4 @@
 .webform__container {
- 
   @include breakpoint($for-mobile-landscape-up) {
     margin: 0 auto;
     width: 570px;
@@ -7,7 +6,6 @@
 }
 
 .webform-submission-form {
-  
   h2 {
     color: $blue-medium;
     @include font-size(26px);
@@ -22,17 +20,16 @@
     @include font-size(14px);
     @include line-height(14px, 20px);
 
-    &::-ms-input-placeholder { /* Microsoft Edge */
-      color: $black;
-    } 
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: $black;
-    } 
+    &::-ms-input-placeholder, /* Microsoft Edge */
+    &:-ms-input-placeholder, /* Internet Explorer 10-11 */
     &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: $black;
+    }
+
+    &::placeholder {
       opacity: 1; /* Firefox */
     }
-    
+
     &:required {
       box-shadow: none;
     }
@@ -73,9 +70,9 @@
     .container-inline {
       display: flex;
       justify-content: flex-start;
-      
+
       > .form-item {
-        
+
         .ui-datepicker-trigger {
           display: none;
         }
@@ -91,20 +88,20 @@
             background-size: 20px 20px;
             content: "";
             height: 40px;
-            right: 0;
             opacity: 1;
             position: absolute;
+            right: 0;
             top: 0;
             width: 40px;
           }
-        }        
+        }
       }
     }
 
     &.form-item-start-date-and-time,
     &.form-item-end-date-and-time {
       width: 100%;
-      
+
       .container-inline {
         input.hasDatepicker {
           width: 130px;
@@ -117,7 +114,7 @@
             @include breakpoint($for-small-mobile-portrait-up) {
               margin-right: $gutter * 2;
             }
-          
+
             &:last-of-type {
               margin-right: 0;
               @include breakpoint($for-mobile-landscape-up) {
@@ -141,7 +138,7 @@
             margin-right: 0;
           }
         }
-      } 
+      }
     }
   }
 
@@ -189,7 +186,7 @@
       }
     }
   }
-  
+
   #edit-event-container {
     margin-bottom: 0;
 
@@ -199,17 +196,17 @@
         @include line-height(18px, 26px);
         margin-top: $gutter * 1.4;
       }
-      
+
       &:last-child {
         margin-bottom: 0;
-      } 
-    }   
-  }  
+      }
+    }
+  }
 }
 
 .captcha {
   margin-top: $gutter * 2;
-} 
+}
 
 .webform-confirmation__message {
   margin: 0 auto;
