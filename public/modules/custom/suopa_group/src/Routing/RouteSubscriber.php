@@ -9,8 +9,9 @@ use Symfony\Component\Routing\RouteCollection;
  * Class RouteSubsciber.
  *
  * @package Drupal\suopa_group\Routing
-*/
+ */
 class RouteSubscriber extends RouteSubscriberBase {
+
   /**
    * {@inheritdoc}
    */

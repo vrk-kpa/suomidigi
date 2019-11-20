@@ -5,7 +5,9 @@
  * Contains suopa_group.module.
  */
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_help().
@@ -21,4 +23,74 @@ function suopa_group_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
+}
+
+/**
+ * Implements hook_entity_create().
+ */
+function suopa_group_entity_create(EntityInterface $entity) {
+  if ($entity->getEntityType()->id() !== 'group') {
+    return;
+  }
+
+  // Set predefined paragraphs for new group.
+  $articles = Paragraph::create([
+    'type' => 'group_view',
+    'field_p_title' => [
+      'value' => t('Articles'),
+    ],
+    'field_p_description_html' => [
+      'value' => t('Articles published by the group.'),
+    ],
+    'field_p_view' => [
+      'target_id' => 'group_content',
+      'display_id' => 'articles',
+    ],
+  ]);
+  $articles->save();
+
+  $events = Paragraph::create([
+    'type' => 'group_view',
+    'field_p_title' => [
+      'value' => t('Upcoming events'),
+    ],
+    'field_p_description_html' => [
+      'value' => t('Events published by the group that are open to everyone to participate.'),
+    ],
+    'field_p_view' => [
+      'target_id' => 'group_content',
+      'display_id' => 'events',
+    ],
+  ]);
+  $events->save();
+
+  $members = Paragraph::create([
+    'type' => 'group_view',
+    'field_p_title' => [
+      'value' => t('Involved in the development'),
+    ],
+    'field_p_view' => [
+      'target_id' => 'group_members_list',
+      'display_id' => 'members',
+    ],
+  ]);
+  $members->save();
+
+  // Set the predefined paragraphs to the group entity.
+  $entity->field_group_lists = [
+    [
+      'target_id' => $articles->id(),
+      'target_revision_id' => $articles->getRevisionId(),
+    ],
+    [
+      'target_id' => $events->id(),
+      'target_revision_id' => $events->getRevisionId(),
+    ],
+    [
+      'target_id' => $members->id(),
+      'target_revision_id' => $members->getRevisionId(),
+    ],
+  ];
+
+  return $entity;
 }

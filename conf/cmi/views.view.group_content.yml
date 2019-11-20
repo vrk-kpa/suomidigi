@@ -163,7 +163,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Group articles'
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }
@@ -247,7 +247,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      block_description: 'Group Content Articles'
+      block_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -268,9 +268,8 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      title: 'Group events'
       defaults:
-        title: false
+        title: true
         filters: false
         filter_groups: false
         sorts: false
@@ -373,7 +372,7 @@ display:
         operator: AND
         groups:
           1: AND
-      block_description: 'Group Content Events'
+      block_description: ''
       sorts:
         field_event_date_and_time_value:
           id: field_event_date_and_time_value
