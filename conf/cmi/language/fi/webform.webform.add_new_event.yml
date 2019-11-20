@@ -5,4 +5,4 @@ handlers:
   email:
     label: Sähköposti
 settings:
-  confirmation_message: "Tarkistamme lähettämäsi tapahtuman tiedot ennen sen julkaisemista.\r\n\r\nOta meihin yhteyttä sähköpostitse suomidigi@vrk.fi jos haluat muutoksia lähettämäsi tapahtuman tietoihin.\r\n"
+  confirmation_message: "<h2>Kiitos!</h2>\r\n<p>Tarkistamme lähettämäsi tapahtuman tiedot ennen sen julkaisemista.</p>\r\n<p>Ota meihin yhteyttä sähköpostitse suomidigi@vrk.fi jos haluat muutoksia lähettämäsi tapahtuman tietoihin.</p>"
