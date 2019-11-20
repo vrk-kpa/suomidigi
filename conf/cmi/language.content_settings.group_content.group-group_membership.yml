@@ -1,9 +1,9 @@
-uuid: 34e6d76c-85cd-42eb-a1b8-985b00fb61f9
+uuid: 9caedc06-9b91-4d9d-8d1a-b32f88ef6a3a
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.feed_type
+    - group.content_type.group-group_membership
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: false
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: taxonomy_term.feed_type
-target_entity_type_id: taxonomy_term
-target_bundle: feed_type
-default_langcode: site_default
+id: group_content.group-group_membership
+target_entity_type_id: group_content
+target_bundle: group-group_membership
+default_langcode: fi
 language_alterable: false

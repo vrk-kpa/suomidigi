@@ -1,0 +1,33 @@
+uuid: f9283032-1015-4a3d-aff6-e1f9a698b8f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_content
+  module:
+    - ctools
+    - views
+  theme:
+    - suomidigi
+id: group_content_articles
+theme: suomidigi
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:group_content-articles'
+settings:
+  id: 'views_block:group_content-articles'
+  label: 'Group articles'
+  provider: views
+  label_display: visible
+  views_label: 'Group articles'
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  'entity_bundle:group':
+    id: 'entity_bundle:group'
+    bundles:
+      group: group
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'

@@ -1,12 +1,12 @@
-uuid: 446bd0a2-ee79-408b-8b1b-66204e138981
+uuid: 68602099-aefe-4efc-a5e4-601c150af5e8
 langcode: en
 status: true
 dependencies:
   config:
     - group.type.group
-id: group-editor_in_chief
-label: 'Editor in chief'
-weight: -4
+id: group-administrator
+label: Administrator
+weight: -1
 internal: false
 audience: member
 group_type: group

@@ -9,8 +9,8 @@ dependencies:
     - suomidigi
 id: groupoperations
 theme: suomidigi
-region: sidebar_first
-weight: -12
+region: before_content
+weight: -11
 provider: null
 plugin: group_operations
 settings:

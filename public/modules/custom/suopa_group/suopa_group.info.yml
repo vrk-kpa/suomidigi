@@ -1,0 +1,7 @@
+name: 'SuoPa Group'
+type: module
+description: 'Hosts all group related custom code.'
+core: 8.x
+package: 'SuoPa'
+dependencies:
+  - group

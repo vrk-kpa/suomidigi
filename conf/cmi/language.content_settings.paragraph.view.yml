@@ -1,9 +1,9 @@
-uuid: 34e6d76c-85cd-42eb-a1b8-985b00fb61f9
+uuid: ec935b1b-0d31-43b8-bd76-4290e2d65552
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.feed_type
+    - paragraphs.paragraphs_type.view
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: false
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: taxonomy_term.feed_type
-target_entity_type_id: taxonomy_term
-target_bundle: feed_type
+id: paragraph.view
+target_entity_type_id: paragraph
+target_bundle: view
 default_langcode: site_default
 language_alterable: false

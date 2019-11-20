@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_group.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_group_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_group module.
+    case 'help.page.suopa_group':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Hosts all group related custom code.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

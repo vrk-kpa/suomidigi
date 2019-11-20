@@ -8,4 +8,4 @@ description: ''
 creator_membership: true
 creator_wizard: false
 creator_roles:
-  - group-editor_in_chief
+  - group-administrator
