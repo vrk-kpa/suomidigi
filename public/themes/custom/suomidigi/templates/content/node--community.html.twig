@@ -7,7 +7,7 @@
 {%
   set classes = [
   'community',
-]
+  ]
 %}
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
@@ -25,7 +25,7 @@
           {% endif %}
         {% endif %}
       </div>
-      <div class="community__title-wrapper">
+      <div class="community__domain-wrapper">
         {% if community_domain_domain %}
           <p class="community__domain">
             {{ community_domain_domain }}
@@ -33,7 +33,7 @@
         {% endif %}
       </div>
     </div>
-    <div class="community__title-wrapperee">
+    <div class="community__title-wrapper">
       {% if label %}
         <h2 class="community__title">
           {{ label }}
@@ -43,8 +43,8 @@
     <div class="community__content">
       {{ content.field_community_description }}
     </div>
-    <button class="community__cta">
-        {{ 'Join'|t }}
-    </button>
+    <div class="community__cta">
+        {% trans %}Liity verkostoon {{ node.label }}{% endtrans %}
+    </div>
   </a>
 </article>
