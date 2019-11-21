@@ -94,3 +94,44 @@ function suopa_group_entity_create(EntityInterface $entity) {
 
   return $entity;
 }
+
+/**
+ * Implements hook_group_content_insert().
+ */
+function suopa_group_group_content_insert($entity) {
+  // Handle only users.
+  if ($entity->getGroupContentType()->id() !== 'group-group_membership') {
+    return;
+  }
+
+  // Add "Group member" role to the current user.
+  $user = $entity->getEntity();
+  if (!in_array('group_member', $user->getRoles())) {
+    $user->addRole('group_member');
+    $user->save();
+  }
+}
+
+/**
+ * Implements hook_group_content_delete().
+ */
+function suopa_group_group_content_delete($entity) {
+  if ($entity->getGroupContentType()->id() !== 'group-group_membership') {
+    return;
+  }
+
+  // Remove "Group member" role from the current user.
+  if ($entity->getEntity()->getEntityTypeId() == 'user') {
+    $user = $entity->getEntity();
+
+    $group_membership_service = \Drupal::service('group.membership_loader');
+    $groups = $group_membership_service->loadByUser($user);
+
+    if (empty(count($groups))) {
+      if (in_array('group_member', $user->getRoles())) {
+        $user->removeRole('group_member');
+        $user->save();
+      }
+    }
+  }
+}

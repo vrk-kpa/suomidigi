@@ -1,0 +1,10 @@
+uuid: 8205b8d0-d793-454e-a7f4-3a045c9535c0
+langcode: en
+status: true
+dependencies: {  }
+id: group_member
+label: 'Group member'
+weight: -4
+is_admin: null
+permissions:
+  - 'view the administration theme'
