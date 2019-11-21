@@ -28,9 +28,11 @@ settings:
     page: 0
     entity_browser: 0
     feed: 0
+    entity_reference: 0
     embed: 0
   preselect_views:
     communities: communities
+    events: events
     theme_tag_lists: theme_tag_lists
     approval_node_queue: 0
     block_content: 0
@@ -45,6 +47,8 @@ settings:
     media_entity_browser: 0
     media_entity_browser_media_library: 0
     media_library: 0
+    profile_entity_reference: 0
+    profile_own_content: 0
     rate: 0
     redirect: 0
     scheduler_scheduled_content: 0
@@ -53,7 +57,6 @@ settings:
     taxonomy_term: 0
     taxonomy_term_before_content: 0
     theme_tag_about_article_liftup: 0
-    theme_tag_communities: 0
     user_admin_people: 0
     watchdog: 0
     webform_submissions: 0

@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_feed.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_feed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_feed module.
+    case 'help.page.suopa_feed':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Hosts all feed related custom code.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function suopa_feed_theme() {
+  return [
+    'suopa_feed_source' => [
+      'variables' => [
+        'title' => NULL,
+        'items' => [],
+      ],
+    ],
+
+    'suopa_feed_item' => [
+      'variables' => [
+        'title' => NULL,
+        'link' => NULL,
+        'authors' => NULL,
+        'published' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * {@inheritdoc}
+ */
+function suopa_feed_preprocess_paragraph(&$variables) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+
+  if ($paragraph->getType() != 'feed') {
+    return;
+  }
+
+  $variables['id'] = [
+    '#markup' => $paragraph->id(),
+  ];
+
+  $variables['#attached']['library'][] = 'suopa_feed/async-feed-loader';
+}

@@ -1,0 +1,174 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    'event',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<div class="event__back--top">
+  {{ drupal_block('suopa_back_to_events') }}
+</div>
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="event__image">
+    {{ content.field_event_image|render }}
+  </div>
+  <div class="event__content">
+    {% if label %}
+      {% embed "@suomidigi/content/page-title.html.twig" with {title: label} %}
+      {% endembed %}
+    {% endif %}
+
+    <div class="event__header">
+      {% if content.field_event_description|render %}
+        <div class="event__header--primary">
+          <div class="event__description">
+            {{ content.field_event_description }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if
+        content.field_event_date_and_time|render or
+        content.field_venue_address|render or
+        content.field_venue_name or
+        content.field_event_link
+      %}
+        <div class="event__header--secondary">
+          {% if content.field_event_date_and_time|render %}
+            <div class="event__date">
+              {% if icons_path %}
+                <svg class="icon">
+                  <title>{{ text }}</title>
+                  <use xlink:href="{{ icons_path|trim }}#calendar"/>
+                </svg>
+              {% endif %}
+              <div class="event__date--date">
+                {{ content.field_event_date_and_time }}
+              </div>
+            </div>
+          {% endif %}
+          {% if content.field_venue_name|render %}
+            <div class="event__venue-name">
+              {% if icons_path %}
+                <svg class="icon">
+                  <title>{{ text }}</title>
+                  <use xlink:href="{{ icons_path|trim }}#map-location"/>
+                </svg>
+              {% endif %}
+              <div class="event__venue-name--wrapper">
+                <h3>
+                  {{ content.field_venue_name }}
+                </h3>
+                {% if content.field_venue_address|render %}
+                  <div class="event__address">
+                    {% set address = content.field_venue_address.0['#address_line1'] %}
+                    {% set city = content.field_venue_address.0['#locality']['code'] %}
+                    {% set country = content.field_venue_address.0['#country']['name'] %}
+                    {{ [address, city, country]|join(', ') }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+          {% if content.field_event_link|render %}
+            <div class="event__link">
+              {% set link = content.field_event_link.0['#url'] %}
+              {% set title = "Link to event's own page"|t %}
+              <a href="{{ link }}" class="link link--external" aria-label="{{ title }}">{{ title }}</a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if content.field_event_registration|render %}
+        <div class="event__header--primary">
+          <div class="event__registration">
+            <h3>{{ 'Sign up'|t }}</h3>
+            {% set link = content.field_event_registration.0['#url'] %}
+            {% set title = 'To registration'|t %}
+            <a href="{{ link }}" class="button" aria-label="{{ title }}">{{ title }}</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="event__divider">
+      {{ drupal_block('suopa_content_social_sharing_block') }}
+    </div>
+
+    <div class="event__footer">
+      {% if content.field_event_free_text|render %}
+        <div class="event__footer--primary">
+          <div class="event__free-text">
+            {{ content.field_event_free_text }}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if
+        content.field_venue_description|render or
+        content.field_event_org_contact_info|render
+      %}
+        <div class="event__footer--secondary">
+          {% if content.field_venue_description|render %}
+            <div class="event__venue-description">
+              {{ content.field_venue_description }}
+            </div>
+          {% endif %}
+
+          {% if content.field_event_org_contact_info|render %}
+            <div class="event__contact-info">
+              {{ content.field_event_org_contact_info }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if
+        content.field_event_organiser|render or
+        content.field_organiser_description|render or
+        content.field_organiser_link|render
+      %}
+        <div class="event__organiser">
+          <h3>{{ 'Organiser'|t }}</h3>
+
+          {% if content.field_event_organiser|render %}
+            <div class="event__organiser--name">
+              {{ content.field_event_organiser }}
+            </div>
+          {% endif %}
+
+          {% if content.field_organiser_description|render %}
+            <div class="event__organiser--description">
+              {{ content.field_organiser_description }}
+            </div>
+          {% endif %}
+
+          {% if content.field_organiser_link|render %}
+            <div class="event__link">
+              {% set link = content.field_organiser_link.0['#url'] %}
+              {% set title = "Link to the event organiser page"|t %}
+              <a href="{{ link }}" class="link link--external" aria-label="{{ title }}">{{ title }}</a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>
+
+<div class="event__back--bottom">
+  {{ drupal_block('suopa_back_to_events') }}
+</div>

@@ -71,16 +71,6 @@ class EventWebformHandler extends WebformHandlerBase {
         'format' => 'basic_html',
       ]);
 
-      $event->set('field_event_image', [
-        'target_id' => $this->validateField('image'),
-        'alt' => $this->validateField('name'),
-      ]);
-
-      $event->set('field_event_schedule', [
-        'value' => nl2br($this->validateField('schedule')),
-        'format' => 'basic_html',
-      ]);
-
       $event->set('field_event_link', [
         'uri' => $this->validateField('link_to_official_event_page'),
       ]);
@@ -93,35 +83,21 @@ class EventWebformHandler extends WebformHandlerBase {
         'value' => $this->validateField('venue_name'),
       ]);
 
-      $event->set('field_venue_description', [
-        'value' => nl2br($this->validateField('venue_description')),
-        'format' => 'basic_html',
-      ]);
-
       $event->set('field_venue_address', [
-        'address_line1' => $this->validateField('venue_address')['address'],
-        'postal_code' => $this->validateField('venue_address')['postal_code'],
-        'locality' => $this->validateField('venue_address')['city'],
-        'country_code' => $this->validateField('venue_address')['country'],
-      ]);
-
-      $event->set('field_venue_travel_information', [
-        'value' => nl2br($this->validateField('travel_information')),
-        'format' => 'basic_html',
+        'address_line1' => $this->validateField('address'),
+        'locality' => $this->validateField('city'),
       ]);
 
       $event->set('field_event_organiser', [
         'value' => $this->validateField('organiser'),
       ]);
 
-      if ($this->validateField('contact_information')) {
-        foreach ($this->validateField('contact_information') as $delta => $value) {
-          $event->field_event_org_contact_info[$delta] = $value;
-        }
-      }
+      $event->set('field_organiser_description', [
+        'value' => $this->validateField('organiser_description'),
+      ]);
 
-      $event->set('field_event_organiser', [
-        'value' => $this->validateField('organiser'),
+      $event->set('field_organiser_link', [
+        'value' => $this->validateField('link_to_organiser_s_page'),
       ]);
 
       $event->save();

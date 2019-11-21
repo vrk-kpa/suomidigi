@@ -1,12 +1,12 @@
-uuid: a309163c-71f9-423c-8952-8b59f2d8e56b
+uuid: f1cece21-2629-4382-85c1-5659648a6c9c
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - text
-id: node.field_venue_travel_information
-field_name: field_venue_travel_information
+id: node.field_organiser_description
+field_name: field_organiser_description
 entity_type: node
 type: text_long
 settings: {  }

@@ -1,0 +1,23 @@
+uuid: 89dbc90a-48f2-406a-8f51-13327f7f2db7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_limit
+    - paragraphs.paragraphs_type.feed
+id: paragraph.feed.field_limit
+field_name: field_limit
+entity_type: paragraph
+bundle: feed
+label: Limit
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

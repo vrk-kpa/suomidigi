@@ -19,8 +19,7 @@
             '  <span class="logo--text">'}${siteName}</span></a>` +
             `  <p class="site-slogan">${siteSlogan}</p>` +
             `</header>` +
-            `<div id="moby-menu" class="moby-menu"></div>` +
-            `<div id="moby-shortcuts" class="moby-shortcuts"></div>`;
+            `<div id="moby-menu" class="moby-menu"></div>`;
 
           mobyMenu = new Moby({
             breakpoint: 768,
@@ -43,11 +42,6 @@
           });
 
           $('#block-languageswitcher').contents().clone().appendTo('#moby-menu');
-          $('#block-suopa-shortcuts-block-mobile').contents().appendTo('#moby-shortcuts');
-          $('#moby-shortcuts div.taxonomy-term.vocabulary-theme').each(function() {
-            var id = $(this).attr('id');
-            $(this).attr('id', 'mobile-' + id);
-          });
         });
     },
     close() {

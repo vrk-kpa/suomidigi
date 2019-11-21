@@ -1,0 +1,21 @@
+uuid: d62e00a5-3fec-4fdf-be17-5b72f32f2534
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_feed_source
+    - taxonomy.vocabulary.feed_type
+  module:
+    - suopa_feed
+id: taxonomy_term.feed_type.field_feed_source
+field_name: field_feed_source
+entity_type: taxonomy_term
+bundle: feed_type
+label: 'Feed source'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: feed_source

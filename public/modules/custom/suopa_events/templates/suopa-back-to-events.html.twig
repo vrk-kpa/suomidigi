@@ -1,0 +1,25 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+{% set classes = [
+  'event__back',
+] %}
+
+<a href="{{ url }}" title="{{ link_title }}" {{ attributes.addClass(classes) }}>
+  {% if icons_path %}
+    <svg class="icon icon--chevron">
+      <title>{{ link_title }}</title>
+      <use xlink:href="{{ icons_path|trim }}#chevron-left" />
+    </svg>
+  {% endif %}
+  <div class="event__back--text">
+    {{ link_title }}
+  </div>
+</a>

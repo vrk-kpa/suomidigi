@@ -43,7 +43,7 @@ third_party_settings:
         id: ''
         classes: form__group
         required_fields: false
-      label: 'Profiilin tiedot'
+      label: 'Profile information'
       region: content
     group_account_settings:
       children:
@@ -62,7 +62,7 @@ third_party_settings:
         id: ''
         classes: 'form__group form__divider'
         required_fields: false
-      label: 'Tilin asetukset'
+      label: 'Account settings'
       region: content
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA

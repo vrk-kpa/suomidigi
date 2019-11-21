@@ -1,17 +1,17 @@
-uuid: 9609f5f0-d8b4-47fd-9310-4a0ff24338ee
+uuid: 0c75fa17-29a6-4d0e-9485-79796f5a7c53
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_event_schedule
+    - field.storage.node.field_organiser_description
     - node.type.event
   module:
     - text
-id: node.event.field_event_schedule
-field_name: field_event_schedule
+id: node.event.field_organiser_description
+field_name: field_organiser_description
 entity_type: node
 bundle: event
-label: 'Event schedule'
+label: 'Organiser description'
 description: ''
 required: false
 translatable: true

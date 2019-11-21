@@ -1,0 +1,5 @@
+async-feed-loader:
+  js:
+    assets/js/async-feed-loader.js: {}
+  dependencies:
+    - core/jquery
