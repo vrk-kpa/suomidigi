@@ -1,8 +1,0 @@
-third_party_settings:
-  field_group:
-    group_venue:
-      label: Paikka
-    group_event:
-      label: Tapahtuma
-    group_organiser:
-      label: Järjestäjä
