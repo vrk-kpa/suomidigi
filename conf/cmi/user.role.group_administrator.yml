@@ -1,15 +1,16 @@
-uuid: 8205b8d0-d793-454e-a7f4-3a045c9535c0
+uuid: e63da44f-9a45-4e0b-ba3f-3d95b5aa2923
 langcode: en
 status: true
 dependencies: {  }
-id: group_member
-label: 'Group member'
-weight: -3
+id: group_administrator
+label: 'Group administrator'
+weight: -4
 is_admin: null
 permissions:
   - 'create content translations'
   - 'edit content translations'
   - 'delete content translations'
+  - 'translate group group'
   - 'translate group-group_node-article group_content'
   - 'translate group-group_node-core_content group_content'
   - 'translate group-group_node-landing_page group_content'

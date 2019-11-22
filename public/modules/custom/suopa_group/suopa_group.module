@@ -109,10 +109,20 @@ function suopa_group_user_presave(EntityInterface $user) {
   if (empty(count($groups))) {
     if ($user->hasRole('group_member')) {
       $user->removeRole('group_member');
+      $user->removeRole('group_administrator');
     }
   }
   else {
     $user->addRole('group_member');
+    foreach ($groups as $group) {
+      $user_roles = $group->getGroup()->getMember($user)->getRoles();
+      if (
+        !empty($user_roles) &&
+        array_key_exists('group-administrator', $user_roles)
+      ) {
+        $user->addRole('group_administrator');
+      }
+    }
   }
 }
 
