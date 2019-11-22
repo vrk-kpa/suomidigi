@@ -135,3 +135,12 @@ function suopa_group_group_content_delete($entity) {
     }
   }
 }
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function suopa_group_form_group_form_alter(&$form, &$form_state, $form_id) {
+  // Prevent access to path field and set automatic url alias always.
+  $form['path']['#access'] = FALSE;
+  $form_state->setValue('path', [['pathauto' => 1]]);
+}
