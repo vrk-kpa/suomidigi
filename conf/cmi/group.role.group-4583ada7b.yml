@@ -1,0 +1,17 @@
+uuid: 5859dafa-b511-4e86-aede-550dd8c364f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+  enforced:
+    config:
+      - user.role.group_administrator
+id: group-4583ada7b
+label: 'Group administrator'
+weight: -3
+internal: true
+audience: outsider
+group_type: group
+permissions_ui: false
+permissions: {  }

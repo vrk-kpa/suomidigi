@@ -1,0 +1,13 @@
+uuid: df6d4fdb-ca07-43de-8dfb-6a7b9277f412
+langcode: en
+status: true
+dependencies: {  }
+id: group_administrator
+label: 'Group administrator'
+weight: -4
+is_admin: null
+permissions:
+  - 'access group overview'
+  - 'administer group'
+  - 'bypass group access'
+  - 'create group group'
