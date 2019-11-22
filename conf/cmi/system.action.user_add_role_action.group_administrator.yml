@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - user.role.group_administrator
+    - user.role.groups_administrator
   module:
     - user
-id: user_add_role_action.group_administrator
-label: 'Add the Group Administrator role to the selected user(s)'
+id: user_add_role_action.groups_administrator
+label: 'Add the Groups administrator role to the selected user(s)'
 type: user
 plugin: user_add_role_action
 configuration:
-  rid: group_administrator
+  rid: groups_administrator

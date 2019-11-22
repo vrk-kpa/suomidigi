@@ -6,9 +6,9 @@ dependencies:
     - group.type.group
   enforced:
     config:
-      - user.role.group_administrator
+      - user.role.groups_administrator
 id: group-4583ada7b
-label: 'Group administrator'
+label: 'Groups administrator'
 weight: -3
 internal: true
 audience: outsider
