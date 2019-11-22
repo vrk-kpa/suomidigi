@@ -14,14 +14,6 @@
     margin-bottom: $gutter;
   }
 
-  &__link {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
   &__icon {
     align-content: center;
     display: flex;
@@ -29,9 +21,8 @@
     margin-right: $gutter / 1.5;
 
     img {
-      max-width: $gutter * 2;
-      min-height: $gutter * 2;
-      min-width: $gutter * 2;
+      height: $gutter * 2;
+      width: $gutter * 2;
     }
 
     &--letter {
@@ -57,8 +48,8 @@
   &__domain {
     @include font-size(14px);
     @include line-height(14px, 18px);
+    @include font-weight($semibold);
     color: $black;
-    font-weight: 600;
     margin-bottom: 0;
     text-transform: uppercase;
   }
@@ -85,51 +76,63 @@
     padding-bottom: $gutter / 2;
   }
 
+  &__cta-wrapper {
+    color: $blue-light;
+    fill: $blue-light;
+    text-decoration: none;
+    
+    &:hover,
+    &:focus {
+      color: $black;
+      text-decoration: none;
+      
+      .community__cta-icon-left,
+      .community__cta-icon-right {
+        fill: $black;
+      }
+    }
+  }
+
   &__cta {
     display: flex;
     @include font-size(18px);
     @include line-height(18px, 26px);
     @include font-weight($semibold);
     margin-top: $gutter;
-    margin-left: -6px;
+  
+    &-icon-left,
+    &-icon-right,
+    &-text {
+      transition: all 150ms linear;
+    }
 
-    &::before {
-      display: block;
-      content: ' ';
-      background-image: url('../../icons/svg/chevron-right-blue.svg');
-      background-size: 25px 25px;
-      background-repeat: no-repeat;
+    &-icon-left {
+      .icon {
       height: 25px;
-      width: 25px;
-      background-position: center left;
       opacity: 0.5;
-      transition: all 150ms linear;
-    }
-    &:hover::before,
-    &:focus::before {
-      background-image: url('../../icons/svg/chevron-right.svg');
-    }
-
-    &::after {
-      display: block;
-      content: ' ';
-      background-image: url('../../icons/svg/link-external-blue.svg');
-      background-size: 15px 15px;
-      background-repeat: no-repeat;
-      height: 25px;
       width: 25px;
-      background-position: center;
-      transition: all 150ms linear;
-    } 
-    &:hover::after,
-    &:focus::after {
-      background-image: url('../../icons/svg/link-external.svg');
+      }
     }
 
+    &-icon-right {
+      .icon {
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    &-text {
+      padding-right: $gutter / 4;
+    }
   }
 
   .theme-term__list-item & {
     @include border();
     padding: $gutter;
   }
+
+  &--secondary {
+   border: 1px solid $gray-light;
+  }
+
 }
