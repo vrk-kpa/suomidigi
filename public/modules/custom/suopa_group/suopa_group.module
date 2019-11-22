@@ -7,7 +7,9 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\group\Entity\GroupContent;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_help().
@@ -96,43 +98,21 @@ function suopa_group_entity_create(EntityInterface $entity) {
 }
 
 /**
- * Implements hook_group_content_insert().
+ * Implements hook_ENTITY_TYPE_presave().
  */
-function suopa_group_group_content_insert($entity) {
-  // Handle only users.
-  if ($entity->getGroupContentType()->id() !== 'group-group_membership') {
-    return;
-  }
+function suopa_group_user_presave(EntityInterface $user) {
+  $group_membership_service = \Drupal::service('group.membership_loader');
+  $groups = $group_membership_service->loadByUser($user);
 
-  // Add "Group member" role to the current user.
-  $user = $entity->getEntity();
-  if (!in_array('group_member', $user->getRoles())) {
-    $user->addRole('group_member');
-    $user->save();
-  }
-}
-
-/**
- * Implements hook_group_content_delete().
- */
-function suopa_group_group_content_delete($entity) {
-  if ($entity->getGroupContentType()->id() !== 'group-group_membership') {
-    return;
-  }
-
-  // Remove "Group member" role from the current user.
-  if ($entity->getEntity()->getEntityTypeId() == 'user') {
-    $user = $entity->getEntity();
-
-    $group_membership_service = \Drupal::service('group.membership_loader');
-    $groups = $group_membership_service->loadByUser($user);
-
-    if (empty(count($groups))) {
-      if (in_array('group_member', $user->getRoles())) {
-        $user->removeRole('group_member');
-        $user->save();
-      }
+  // Check if user belongs to any of the groups. If any groups are found, add
+  // "Group member" role for the user.
+  if (empty(count($groups))) {
+    if ($user->hasRole('group_member')) {
+      $user->removeRole('group_member');
     }
+  }
+  else {
+    $user->addRole('group_member');
   }
 }
 
