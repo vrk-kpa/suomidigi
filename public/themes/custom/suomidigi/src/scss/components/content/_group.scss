@@ -1,0 +1,134 @@
+.group {
+
+  &__header {
+    align-items: center;
+    background-color: $blue-light;
+    color: $white;
+    display: flex;
+    flex-flow: column;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      flex-flow: row;
+    }
+  }
+
+  &__info-wrapper {
+    order: 1;
+    padding: $gutter * 2 $gutter;
+    width: 100%;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      padding: 48px $gutter * 2 68px $gutter;
+      width: 600px;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      padding: 48px $gutter * 2 68px 100px;
+    }
+  }
+
+  &__title {
+    @include font-size(26px);
+    @include line-height(26px, 33px);
+    @include font-weight($bold);
+  }
+
+  &__description {
+    @include font-size(20px);
+    @include line-height(20px, 28px);
+    @include font-weight($regular);
+  }
+
+  &__image {
+    align-self: stretch;
+    line-height: 0;
+    min-height: 100%;
+    order: 2;
+    width: 100%;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      width: 570px;
+    }
+
+    img {
+      min-height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__content-wrapper {
+    background-color: $white;
+    display: flex;
+    flex-flow: column;
+    padding: $gutter * 2 $gutter $gutter * 3 $gutter;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      flex-flow: row;
+      padding: $gutter * 2 $gutter;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      padding: $gutter * 2 100px;
+    }
+  }
+
+  &__content {
+    @include font-size(18px);
+    @include line-height(18px, 26px);
+    @include font-weight($regular);
+    color: $black;
+
+    h2 {
+      @include font-size(22px);
+      @include line-height(22px, 28px);
+      @include font-weight($semibold);
+      color: $blue;
+    }
+
+    p {
+      @include font-size(18px);
+      @include line-height(18px, 26px);
+      @include font-weight($regular);
+    }
+
+    a {
+      color: $blue-light;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: $black;
+      }
+    }
+  }
+
+  &__sidebar {
+    padding-top: $gutter * 2;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-left: $gutter * 2;
+      padding: 0;
+      > div {
+        width: 270px;
+      }
+    }
+
+    > .community {
+      @include border();
+      padding: $gutter;
+    }
+  }
+
+  &__after-content {
+    padding: $gutter * 2 $gutter $gutter * 3 $gutter;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      padding: $gutter * 2 $gutter;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      padding: $gutter * 2 100px;
+    }
+  }
+}
