@@ -126,9 +126,18 @@ function suopa_group_user_presave(EntityInterface $user) {
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * {@inheritdoc}
  */
 function suopa_group_form_group_form_alter(&$form, &$form_state, $form_id) {
   // Prevent access to path field and set automatic url alias always.
   $form['path']['#access'] = FALSE;
   $form_state->setValue('path', [['pathauto' => 1]]);
+
+  // Make taxonomy term add/edit form look like node edit form.
+  $form['#theme'] = ['node_edit_form'];
+  $form['#attached']['library'][] = 'seven/node-form';
+
+  $form['advanced']['#type'] = 'container';
+  $form['advanced']['#attributes']['class'][] = 'entity-meta';
 }
