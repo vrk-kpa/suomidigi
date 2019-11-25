@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 name: attachment_teaser_image_small
-label: 'Attachment Teaser Image Small'
+label: 'Attachment Teaser Image Small (350 x 175)'
 effects:
   c8c66068-2ca1-40f4-97a4-5a8cc80082b1:
     uuid: c8c66068-2ca1-40f4-97a4-5a8cc80082b1
