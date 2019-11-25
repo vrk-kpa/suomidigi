@@ -8,8 +8,8 @@ weight: -3
 is_admin: null
 permissions:
   - 'create content translations'
-  - 'edit content translations'
   - 'delete content translations'
+  - 'edit content translations'
   - 'translate group-group_node-article group_content'
   - 'translate group-group_node-core_content group_content'
   - 'translate group-group_node-landing_page group_content'
