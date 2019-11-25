@@ -115,6 +115,8 @@
     }
 
     &-icon-right {
+      position: relative;
+      top: 2px;
       .icon {
         height: 16px;
         width: 16px;
