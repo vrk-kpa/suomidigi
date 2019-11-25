@@ -6,14 +6,7 @@ dependencies:
     - field.storage.group.field_group_image
     - group.type.group
   module:
-    - content_translation
     - image
-third_party_settings:
-  content_translation:
-    translation_sync:
-      file: '0'
-      alt: '0'
-      title: '0'
 id: group.group.field_group_image
 field_name: field_group_image
 entity_type: group

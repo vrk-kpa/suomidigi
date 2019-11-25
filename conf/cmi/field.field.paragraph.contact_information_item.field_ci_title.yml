@@ -1,0 +1,19 @@
+uuid: 236229fa-14d2-4cb4-bd29-5fb3333af21a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ci_title
+    - paragraphs.paragraphs_type.contact_information_item
+id: paragraph.contact_information_item.field_ci_title
+field_name: field_ci_title
+entity_type: paragraph
+bundle: contact_information_item
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

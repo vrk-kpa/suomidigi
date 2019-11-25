@@ -5,12 +5,8 @@ dependencies:
   config:
     - field.storage.group.field_paragraphs
     - group.type.group
-    - paragraphs.paragraphs_type.highlight_bullet_point_item
-    - paragraphs.paragraphs_type.legislation_attachment
-    - paragraphs.paragraphs_type.legislation_cards
-    - paragraphs.paragraphs_type.legislation_link
-    - paragraphs.paragraphs_type.liftup_box_item
-    - paragraphs.paragraphs_type.liftup_entity_reference_item
+    - paragraphs.paragraphs_type.contact_information
+    - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
 id: group.group.field_paragraphs
@@ -26,14 +22,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 1
+    negate: 0
     target_bundles:
-      liftup_box_item: liftup_box_item
-      liftup_entity_reference_item: liftup_entity_reference_item
-      highlight_bullet_point_item: highlight_bullet_point_item
-      legislation_attachment: legislation_attachment
-      legislation_cards: legislation_cards
-      legislation_link: legislation_link
+      text: text
+      contact_information: contact_information
     target_bundles_drag_drop:
       container:
         weight: -41
@@ -42,8 +34,8 @@ settings:
         weight: -40
         enabled: false
       text:
+        enabled: true
         weight: -39
-        enabled: false
       media:
         weight: -38
         enabled: false
@@ -57,14 +49,14 @@ settings:
         weight: -35
         enabled: false
       liftup_box_item:
-        enabled: true
         weight: -34
+        enabled: false
       liftup_entity_reference:
         weight: -33
         enabled: false
       liftup_entity_reference_item:
-        enabled: true
         weight: -32
+        enabled: false
       liftup_prominent:
         weight: -31
         enabled: false
@@ -72,8 +64,8 @@ settings:
         weight: -30
         enabled: false
       highlight_bullet_point_item:
-        enabled: true
         weight: -29
+        enabled: false
       highlight_cta:
         weight: -28
         enabled: false
@@ -84,15 +76,24 @@ settings:
         weight: -26
         enabled: false
       legislation_attachment:
-        enabled: true
         weight: -25
+        enabled: false
       legislation_cards:
-        enabled: true
         weight: -24
+        enabled: false
       legislation_link:
-        enabled: true
         weight: -23
+        enabled: false
       view:
         weight: -22
+        enabled: false
+      contact_information:
+        enabled: true
+        weight: 24
+      feed:
+        weight: 27
+        enabled: false
+      group_view:
+        weight: 28
         enabled: false
 field_type: entity_reference_revisions
