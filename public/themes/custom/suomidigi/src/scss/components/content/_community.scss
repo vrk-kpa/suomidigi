@@ -99,18 +99,14 @@
     @include line-height(18px, 26px);
     @include font-weight($semibold);
     margin-top: $gutter;
-
-    &-icon-left,
-    &-icon-right,
-    &-text {
-      transition: all 150ms linear;
-    }
+    transition: all 150ms linear;
 
     &-icon-left {
       .icon {
-      height: 25px;
-      opacity: 0.5;
-      width: 25px;
+        height: 25px;
+        margin-left: -8px;
+        opacity: 0.5;
+        width: 25px;
       }
     }
 
@@ -133,11 +129,9 @@
     padding: $gutter;
   }
 
-  &--secondary {
-   border: 1px solid $gray-light;
-  }
-
   &__teaser {
+    @include border();
+
     &-title {
       @include font-size(22px);
       @include line-height(22px, 28px);
@@ -151,6 +145,10 @@
       @include font-weight($regular);
       color: $black;
       margin-bottom: 25px;
+    }
+
+    .community {
+      margin-bottom: 0;
     }
   }
 }

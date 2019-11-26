@@ -10,7 +10,9 @@
   }
 
   .paragraph-list {
-    margin: $gutter * 2 0;
+    @include breakpoint(670px) {
+      padding-top: $gutter;
+    }
 
     .field__items {
       display: flex;
@@ -28,9 +30,13 @@
   }
 
   .paragraph-list__item {
-    margin-bottom: $gutter;
+    margin-bottom: $gutter * 2;
     margin-right: $gutter;
     min-width: 270px;
+
+    @include breakpoint(670px) {
+      margin-bottom: $gutter;
+    }
 
     .icon {
       color: $gray-medium;

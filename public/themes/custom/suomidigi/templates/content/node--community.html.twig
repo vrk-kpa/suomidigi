@@ -55,7 +55,7 @@
         {% endif %}
         <div class="community__cta-content-right">
           <span class="community__cta-text">
-            {% trans %}Join the community {{ node.label }}{% endtrans %}
+            {{ 'Join the community'|t }} {{ node.label }}
           </span>
           {% if icons_path %}
             <span class="community__cta-icon-right">
