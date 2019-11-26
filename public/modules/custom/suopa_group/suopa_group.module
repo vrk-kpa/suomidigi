@@ -141,3 +141,34 @@ function suopa_group_form_group_form_alter(&$form, &$form_state, $form_id) {
   $form['advanced']['#type'] = 'container';
   $form['advanced']['#attributes']['class'][] = 'entity-meta';
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suopa_group_preprocess_entity_add_list(&$variables) {
+  $route = \Drupal::routeMatch()->getRouteName();
+
+  if (
+    $route == 'entity.group_content.create_page' ||
+    $route == 'entity.group_content.add_page'
+  ) {
+
+    $path = \Drupal::service('path.current')->getPath();
+    if (strpos($path, 'create') !== false) {
+      $current_path = reset(explode("/create", $path));
+    }
+    if (strpos($path, 'add') !== false) {
+      $current_path = reset(explode("/add", $path));
+    }
+
+    if (isset($current_path)) {
+      foreach ($variables['bundles'] as &$bundle) {
+        if (isset($bundle['add_link'])) {
+          $url = $bundle['add_link']->getUrl();
+          $url->setOptions(['query' => ['destination' => $current_path]]);
+          $bundle['add_link']->setUrl($url);
+        }
+      }
+    }
+  }
+}

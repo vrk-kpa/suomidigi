@@ -133,4 +133,19 @@
       padding: $gutter * 2 100px;
     }
   }
+
+  // TODO: Refactor these styles.
+  // Temporary styles for the lists.
+  .views--articles {
+    .views-row-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+    }
+
+    .views__row {
+      margin: 15px;
+      width: calc(50% - 30px);
+    }
+  }
 }

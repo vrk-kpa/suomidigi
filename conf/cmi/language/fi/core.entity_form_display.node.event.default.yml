@@ -5,4 +5,4 @@ third_party_settings:
     group_event:
       label: Tapahtuma
     group_organiser:
-      label: 'Järjestäjä'
+      label: Järjestäjä

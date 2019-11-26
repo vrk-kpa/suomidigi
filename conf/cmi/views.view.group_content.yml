@@ -217,10 +217,10 @@ display:
           admin_label: 'Content group content'
           required: true
           group_content_plugins:
-            'group_node:article': 'group_node:article'
+            'group_node:event': 'group_node:event'
+            'group_node:article': '0'
             'group_node:community': '0'
             'group_node:core_content': '0'
-            'group_node:event': '0'
             'group_node:landing_page': '0'
             'group_node:legislation_card': '0'
             'group_node:legislation_collection_page': '0'
@@ -289,6 +289,29 @@ display:
       display_description: ''
       block_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
+      relationships:
+        group_content:
+          id: group_content
+          table: node_field_data
+          field: group_content
+          relationship: none
+          group_type: group
+          admin_label: 'Content group content'
+          required: true
+          group_content_plugins:
+            'group_node:article': 'group_node:article'
+            'group_node:community': '0'
+            'group_node:core_content': '0'
+            'group_node:event': '0'
+            'group_node:landing_page': '0'
+            'group_node:legislation_card': '0'
+            'group_node:legislation_collection_page': '0'
+            'group_node:page': '0'
+            'group_node:webform': '0'
+          entity_type: node
+          plugin_id: group_content_to_entity_reverse
+      defaults:
+        relationships: false
     cache_metadata:
       max-age: -1
       contexts:
