@@ -1,5 +1,7 @@
 .community {
+  background: $white;
   margin-bottom: $gutter * 2;
+  padding: $gutter * 1.2;
 
   > .contextual {
     right: -20px;
@@ -12,31 +14,22 @@
     margin-bottom: $gutter;
   }
 
-  &__link {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
   &__icon {
     align-content: center;
     display: flex;
     justify-content: center;
-    margin-right: $gutter;
+    margin-right: $gutter / 1.5;
 
     img {
-      max-width: $gutter * 2;
-      min-height: $gutter * 2;
-      min-width: $gutter * 2;
+      height: $gutter * 2;
+      width: $gutter * 2;
     }
 
     &--letter {
       @include font-size(24px);
       align-items: center;
       background-color: $blue-medium;
-      border-radius: 2px;
+      border-radius: 50%;
       color: $white;
       display: flex;
       font-weight: bold;
@@ -52,53 +45,96 @@
     }
   }
 
-  &__title {
-    @include font-size(18px);
-    @include line-height(18px, 18px);
-    color: $black;
-    font-weight: 600;
-    margin-bottom: $gutter / 4;
-  }
-
   &__domain {
-    @include font-size(10px);
-    @include line-height(10px, 10px);
-    color: $gray-darker;
-    font-weight: 600;
+    @include font-size(14px);
+    @include line-height(14px, 18px);
+    @include font-weight($semibold);
+    color: $black;
     margin-bottom: 0;
     text-transform: uppercase;
   }
 
-  &__cta {
-    @include font-size(12px);
-    @include line-height(12px, 12px);
-    background-color: $white;
-    border: 1px solid $legislation-blue;
-    color: $legislation-blue;
-    font-weight: bold;
-    margin-left: auto;
-    padding: $gutter * 0.8 $gutter;
-    text-align: center;
-    text-transform: uppercase;
-
-    .community__link:hover & {
-      background-color: $legislation-blue;
-      border-color: $legislation-blue;
-      color: $white;
-      text-decoration: none;
-    }
+  &__title {
+    color: $blue-medium;
+    @include font-size(22px);
+    @include line-height(22px, 28px);
+    @include font-weight($semibold);
+    margin-bottom: $gutter;
   }
 
   &__content,
   &__content p {
-    @include font-size(12px);
-    @include line-height(12px, 16px);
+    @include font-size(18px);
+    @include line-height(18px, 26px);
     color: $black;
+  }
+
+  &__content {
+    border-bottom: 1px solid $gray-medium;
+    margin-bottom: $gutter / 2;
+    min-height: 100px;
+    padding-bottom: $gutter / 2;
+  }
+
+  &__cta-wrapper {
+    color: $blue-light;
+    fill: $blue-light;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $black;
+      text-decoration: none;
+
+      .community__cta-icon-left,
+      .community__cta-icon-right {
+        fill: $black;
+      }
+    }
+  }
+
+  &__cta {
+    display: flex;
+    @include font-size(18px);
+    @include line-height(18px, 26px);
+    @include font-weight($semibold);
+    margin-top: $gutter;
+
+    &-icon-left,
+    &-icon-right,
+    &-text {
+      transition: all 150ms linear;
+    }
+
+    &-icon-left {
+      .icon {
+      height: 25px;
+      opacity: 0.5;
+      width: 25px;
+      }
+    }
+
+    &-icon-right {
+      position: relative;
+      top: 2px;
+      .icon {
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    &-text {
+      padding-right: $gutter / 4;
+    }
   }
 
   .theme-term__list-item & {
     @include border();
     padding: $gutter;
+  }
+
+  &--secondary {
+   border: 1px solid $gray-light;
   }
 
   &__teaser {

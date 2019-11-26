@@ -65,4 +65,9 @@ function suopa_content_update_8004() {
     'fi',
     'Yhteystiedot'
   );
+  suopa_content_add_translation(
+    "Join the community",
+    'fi',
+    'Liity verkostoon'
+  );
 }
