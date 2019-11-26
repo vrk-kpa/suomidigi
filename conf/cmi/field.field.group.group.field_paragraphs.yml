@@ -6,6 +6,7 @@ dependencies:
     - field.storage.group.field_paragraphs
     - group.type.group
     - paragraphs.paragraphs_type.contact_information
+    - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -26,6 +27,7 @@ settings:
     target_bundles:
       text: text
       contact_information: contact_information
+      list_of_links: list_of_links
     target_bundles_drag_drop:
       container:
         weight: -41
@@ -96,4 +98,10 @@ settings:
       group_view:
         weight: 28
         enabled: false
+      contact_information_item:
+        weight: 29
+        enabled: false
+      list_of_links:
+        enabled: true
+        weight: 47
 field_type: entity_reference_revisions

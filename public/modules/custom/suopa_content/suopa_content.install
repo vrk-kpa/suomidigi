@@ -60,4 +60,9 @@ function suopa_content_update_8004() {
     'fi',
     'Mukana kehittämässä'
   );
+  suopa_content_add_translation(
+    "Contact information",
+    'fi',
+    'Yhteystiedot'
+  );
 }
