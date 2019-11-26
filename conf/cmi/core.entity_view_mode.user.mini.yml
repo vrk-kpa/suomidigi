@@ -1,0 +1,10 @@
+uuid: 713cf6fd-b06b-47bd-858b-f76b58889632
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.mini
+label: Mini
+targetEntityType: user
+cache: true

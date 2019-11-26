@@ -154,10 +154,10 @@ function suopa_group_preprocess_entity_add_list(&$variables) {
   ) {
 
     $path = \Drupal::service('path.current')->getPath();
-    if (strpos($path, 'create') !== false) {
+    if (strpos($path, 'create') !== FALSE) {
       $current_path = reset(explode("/create", $path));
     }
-    if (strpos($path, 'add') !== false) {
+    if (strpos($path, 'add') !== FALSE) {
       $current_path = reset(explode("/add", $path));
     }
 

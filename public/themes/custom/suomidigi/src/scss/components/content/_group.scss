@@ -6,9 +6,11 @@
     color: $white;
     display: flex;
     flex-flow: column;
+    margin: -#{$gutter} -#{$gutter} 0 -#{$gutter};
 
     @include breakpoint($for-tablet-portrait-up) {
       flex-flow: row;
+      margin: 0;
     }
   }
 
@@ -61,10 +63,12 @@
     background-color: $white;
     display: flex;
     flex-flow: column;
+    margin: 0 -#{$gutter};
     padding: $gutter * 2 $gutter $gutter * 3 $gutter;
 
     @include breakpoint($for-tablet-portrait-up) {
       flex-flow: row;
+      margin: 0;
       padding: $gutter * 2 $gutter;
     }
 
@@ -123,9 +127,11 @@
   }
 
   &__after-content {
+    margin: 0 -#{$gutter};
     padding: $gutter * 2 $gutter $gutter * 3 $gutter;
 
     @include breakpoint($for-tablet-portrait-up) {
+      margin: 0;
       padding: $gutter * 2 $gutter;
     }
 
@@ -145,7 +151,11 @@
 
     .views__row {
       margin: 15px;
-      width: calc(50% - 30px);
+      width: calc(100% - (#{$gutter} * 2));
+
+      @include breakpoint($for-tablet-portrait-up) {
+        width: calc(50% - (#{$gutter} * 2));
+      }
     }
   }
 }

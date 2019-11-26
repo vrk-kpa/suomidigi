@@ -20,4 +20,10 @@
   .paragraph__content {
     margin-top: $gutter * 2;
   }
+
+  .views--members {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -10px;
+  }
 }
