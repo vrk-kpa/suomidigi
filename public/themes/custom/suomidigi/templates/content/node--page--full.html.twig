@@ -8,7 +8,7 @@
   set classes = [
     'node',
     'node--type-' ~ node.bundle|clean_class,
-    'article',
+    'basic-page',
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
@@ -19,27 +19,14 @@
 <article{{ attributes.addClass(classes) }}>
   <div class="article__header">
     <div class="article__data">
-      <div class="article__data-item article__type">
-        {{ content.field_article_type }}
-      </div>
       {% if content.field_displayed_author|render %}
         <span class="article__data-item article__author">
           {{ content.field_displayed_author }}
         </span>
       {% endif %}
-      {% if node.isPublished() and published_at is not empty %}
-        <span class="article__data-item article__published">
-          {{ published_at|date('j.n.Y - H:i') }}
-        </span>
-      {% endif %}
       {% if content.field_displayed_update_time|render %}
         <span class="article__data-item article__modified">
           <span class="article__modified-text">{{ 'Updated on'|trans }}</span> <span class="article__modified-date">{{ content.field_displayed_update_time }}</span>
-        </span>
-      {% endif %}
-      {% if content.field_reading_time|render %}
-        <span class="article__data-item article__reading">
-          <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
         </span>
       {% endif %}
     </div>
@@ -59,17 +46,6 @@
       </div>
     {% endif %}
 
-    {% if content.field_displayed_author_footer|render %}
-      <div class="article__author--prominent author">
-        {{ content.field_displayed_author_footer }}
-      </div>
-    {% endif %}
   </div>
-
-  {% if content.field_comments|render %}
-    <div class="comments comments__container">
-      {{ content.field_comments }}
-    </div>
-  {% endif %}
 
 </article>
