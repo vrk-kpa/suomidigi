@@ -22,40 +22,41 @@ bundle: page
 mode: default
 content:
   field_displayed_author:
-    weight: 107
-    label: above
+    weight: 0
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_displayed_update_time:
-    weight: 105
-    label: above
+    weight: 4
+    label: hidden
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: date
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_header_image:
-    weight: 102
-    label: above
+    weight: 1
+    label: hidden
     settings:
-      link: true
+      view_mode: article_full_header
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_ingress:
-    weight: 106
-    label: above
+    weight: 5
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_paragraphs:
-    weight: 103
-    label: above
+    weight: 2
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -63,17 +64,15 @@ content:
     type: entity_reference_revisions_entity_view
     region: content
   field_tags:
-    weight: 104
-    label: above
+    weight: 3
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  links:
-    weight: 101
-    region: content
 hidden:
   langcode: true
+  links: true
   published_at: true
   search_api_excerpt: true
