@@ -23,6 +23,7 @@ visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
     bundles:
+      article: article
       event: event
     negate: true
     context_mapping:
