@@ -92,17 +92,22 @@
       {% endif %}
     </div>
     <div class="article-teaser__content">
-      <span class="article-teaser__type">
-        {{ content.field_article_type }}
-      </span>
+      {% if node.isPublished() and published_at is not empty %}
+        <span class="article__data-item article__published">
+          {{ published_at|date('j.n.Y') }}
+        </span>
+      {% endif %}
       <h3 class="article-teaser__label">
         {{ label }}
       </h3>
-      {% if content.field_ingress|render %}
+      <span class="article-teaser__type">
+        {{ content.field_article_type }}
+      </span>
+      {# {% if content.field_ingress|render %}
         <p class="article-teaser__lead">
           {{ content.field_ingress['0']['#markup'] }}
         </p>
-      {% endif %}
+      {% endif %} #}
     </div>
   </a>
 </article>
