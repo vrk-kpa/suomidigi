@@ -1,0 +1,29 @@
+uuid: 1605db0b-4fd7-42ce-8563-e53f28e50828
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_displayed_author
+    - node.type.page
+    - taxonomy.vocabulary.author
+id: node.page.field_displayed_author
+field_name: field_displayed_author
+entity_type: node
+bundle: page
+label: 'Displayed author'
+description: 'The author that is displayed on the article. <br /><a href="[site:url]/admin/structure/taxonomy/manage/author/overview">Edit authors</a>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      author: author
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
