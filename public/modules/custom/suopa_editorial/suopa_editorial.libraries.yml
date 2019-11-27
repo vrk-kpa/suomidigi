@@ -1,9 +1,3 @@
-blog-tag-list-hidden:
-  js:
-    assets/js/blog-tag-list-select.js: {}
-  dependencies:
-    - core/jquery
-
 disable-sibling-checkbox:
   js:
     assets/js/disable-sibling-checkbox.js: {}
