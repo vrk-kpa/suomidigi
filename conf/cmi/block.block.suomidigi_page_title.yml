@@ -25,6 +25,7 @@ visibility:
     bundles:
       article: article
       event: event
+      page: page
     negate: true
     context_mapping:
       node: '@node.node_route_context:node'

@@ -7,19 +7,13 @@
   display: block;
   height: 100%;
   text-decoration: none;
-
-  &:hover {
-    .article-teaser__label {
-      color: $black;
-    }
-  }
 }
 
 .article-teaser__image {
   padding: 0;
   img {
-    // display: block;
-    // width: 100%;
+    display: block;
+    width: 100%;
   }
 }
 
@@ -44,6 +38,10 @@
   color: $blue-medium;
   margin: $gutter * 0.5 0;
   overflow-wrap: break-word;
+
+  &:hover {
+    color: $black;
+  }
 
   h3 {
     @include font-weight($semibold);
