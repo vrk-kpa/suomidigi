@@ -2,7 +2,6 @@
 
 namespace Drupal\suopa_blog_conversion\Commands;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Database\Database;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\node\NodeStorageInterface;
@@ -16,20 +15,9 @@ use Symfony\Component\Console\Output\Output;
 class ConvertBlogPosts extends DrushCommands {
 
   /**
-   * The configuration object factory.
-   *
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
-   */
-  protected $configFactory;
-
-  /**
    * Constructs a new convertBlogPosts object.
-   *
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
-   *   The configuration object factory.
    */
-  public function __construct(ConfigFactoryInterface $configFactory) {
-    $this->configFactory = $configFactory;
+  public function __construct() {
   }
 
   /**
