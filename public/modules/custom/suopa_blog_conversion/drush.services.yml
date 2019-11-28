@@ -1,0 +1,5 @@
+services:
+  suopa_blog_conversion.commands:
+    class: \Drupal\suopa_blog_conversion\Commands\ConvertBlogPosts
+    tags:
+      - { name: drush.command }
