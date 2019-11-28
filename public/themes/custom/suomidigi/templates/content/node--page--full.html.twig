@@ -17,31 +17,38 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="article__header">
-    <div class="article__data">
+  <div class="basic-page__header">
+    <div class="basic-page__title">
+      <h1>
+        {{ label }}
+      </h1>
+    </div>
+    {% if content.field_ingress|render %}
+      <div class="basic-page__lead">
+        {{ content.field_ingress }}
+      </div>
+    {% endif %}
+    {% if content.field_displayed_author|render or content.field_displayed_update_time|render %}
+    <div class="basic-page__data">
       {% if content.field_displayed_author|render %}
-        <span class="article__data-item article__author">
+        <span class="basic-page__data-item basic-page__author">
           {{ content.field_displayed_author }}
         </span>
       {% endif %}
       {% if content.field_displayed_update_time|render %}
-        <span class="article__data-item article__modified">
-          <span class="article__modified-text">{{ 'Updated on'|trans }}</span> <span class="article__modified-date">{{ content.field_displayed_update_time }}</span>
+        <span class="basic-page__data-item basic-page__modified">
+          <span class="basic-page__modified-text">{{ 'Updated on'|trans }}</span> <span class="basic-page__modified-date">{{ content.field_displayed_update_time }}</span>
         </span>
       {% endif %}
     </div>
-    <div class="article__image">
+    {% endif %}
+    <div class="basic-page__image">
       {{ content.field_header_image }}
     </div>
   </div>
-  <div class="article__content">
-    {% if content.field_ingress|render %}
-      <div class="article__lead">
-        {{ content.field_ingress }}
-      </div>
-    {% endif %}
+  <div class="basic-page__content">
     {% if content.field_paragraphs|render %}
-      <div class="article__contents">
+      <div class="basic-page__contents">
           {{ content.field_paragraphs }}
       </div>
     {% endif %}

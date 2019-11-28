@@ -1,6 +1,4 @@
 .article-teaser {
-  @include border('top');
-  border: 1px solid rgba(165, 172, 176, 0.3);
   height: 100%;
 }
 
@@ -9,12 +7,19 @@
   display: block;
   height: 100%;
   text-decoration: none;
+
+  &:hover {
+    .article-teaser__label {
+      color: $black;
+    }
+  }
 }
 
 .article-teaser__image {
+  padding: 0;
   img {
-    display: block;
-    width: 100%;
+    // display: block;
+    // width: 100%;
   }
 }
 
@@ -24,28 +29,30 @@
 }
 
 .article-teaser__type {
-  @include font-size(12px);
-  @include line-height(12px, 14px);
-  color: $gray-darker;
-  display: inline-block;
-  font-weight: 600;
+  border-top: 1px solid $gray-medium;
+  color: $black;
+  @include font-size(14px);
+  @include line-height(14px, 18px);
+  @include font-weight($semibold);
+  padding-top: $gutter / 1.4;
+  text-transform: uppercase;
 }
 
 .article-teaser__label {
-  @include font-size(22px);
-  @include line-height(22px, 24px);
-  color: $black;
-  font-weight: 800;
+  @include font-size(20px);
+  @include line-height(20px, 24px);
+  color: $blue-medium;
   margin: $gutter * 0.5 0;
   overflow-wrap: break-word;
 
-  @include breakpoint($for-tablet-portrait-up) {
-    @include font-size(20px);
-    margin: $gutter * 0.5 0 $gutter;
+  h3 {
+    @include font-weight($semibold);
   }
 
-  @include breakpoint($for-tablet-landscape-up) {
+  @include breakpoint($for-tablet-portrait-up) {
     @include font-size(22px);
+    @include line-height(22px, 28px);
+    margin: $gutter * 0.5 0 $gutter;
   }
 
   @include breakpoint($for-desktop-up) {
@@ -55,9 +62,11 @@
 
 .article-teaser__data {
   @include font-size(14px);
-  color: $gray-darker;
-  display: flex;
-  flex-wrap: wrap;
+  @include line-height(14px, 18px);
+  @include font-weight($semibold);
+  color: $black;
+  // display: flex;
+  // flex-wrap: wrap;
 }
 
 .article-teaser__lead {
@@ -91,5 +100,45 @@
       transform: translateY(-50%);
       width: 4px;
     }
+  }
+}
+
+.paragraph--full-width {
+  width: 100%;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    .article-teaser__link {
+      // align-items: center;
+      display: flex;
+      // height: 100%;
+    }
+
+    .article-teaser__image {
+      width: 370px;
+      height: 190px;
+      .article_teaser_header {
+        object-fit: cover;
+      }
+      /* img {
+        object-fit: cover;
+      } */
+    }
+
+    /* .article-teaser__image {
+      width: 40%;
+      
+      img {
+           
+          // object-fit: cover;
+          // width: auto;
+          max-width: 100%;
+          max-height: 100%;
+          //width: 100%;
+          //height: 100%;
+      }
+    }
+    .article-teaser__content {
+      width: 60%;
+    } */
   }
 }
