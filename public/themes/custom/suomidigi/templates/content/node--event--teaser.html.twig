@@ -28,7 +28,11 @@
             </svg>
           {% endif %}
           <div class="event-teaser__date--date">
-            {{ content.field_event_date_and_time[0]['start_date'] }}
+            {% if content.field_event_date_and_time[0]['start_date'] is not empty %}
+              {{ content.field_event_date_and_time[0]['start_date'] }}
+            {% else %}
+              {{ content.field_event_date_and_time[0]['#text'] }}
+            {% endif %}
           </div>
         </div>
       {% endif %}

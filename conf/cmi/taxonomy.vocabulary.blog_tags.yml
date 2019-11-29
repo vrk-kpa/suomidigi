@@ -1,8 +1,0 @@
-uuid: 42042896-10a0-40df-bab5-2a3e177f16aa
-langcode: en
-status: true
-dependencies: {  }
-name: 'Blog tags'
-vid: blog_tags
-description: 'The tag category for blog content.'
-weight: 0
