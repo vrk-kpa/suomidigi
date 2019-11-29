@@ -9,8 +9,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
-use Drupal\suopa_communities\Entity\Community;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -49,6 +49,24 @@ function suomidigi_preprocess_page(&$variables) {
     'siteName' => $site_config->get('name'),
   ];
   $variables['#attached']['drupalSettings'] = $settings;
+
+  // Set entities as variables for templates.
+  $variables['webform'] = Drupal::routeMatch()->getParameters()->get('webform');
+
+  // Set section area based on entity type.
+  $entities = [
+    'article',
+    'core_content',
+    'webform',
+    'blog_post',
+  ];
+
+  if (
+    isset($variables['node']) &&
+    in_array($variables['node']->getType(), $entities)
+  ) {
+    $variables['has_background'] = TRUE;
+  }
 }
 
 /**
@@ -65,14 +83,15 @@ function suomidigi_preprocess_node(&$variables) {
   }
 
   if (
-    $variables['node']->getType() === 'article' ||
-    $variables['node']->getType() === 'legislation_collection_page'
+    $node->getType() === 'article' ||
+    $node->getType() === 'blog_post' ||
+    $node->getType() === 'legislation_collection_page'
   ) {
     if ($node->hasField('field_header_image')) {
-      $mediaEntity = $node->get('field_header_image')->getValue();
+      $mediaEntity = $node->get('field_header_image')->getString();
 
       if (!empty($mediaEntity)) {
-        $field_media = Media::load($mediaEntity[0]['target_id']);
+        $field_media = Media::load($mediaEntity);
         $mediaImage = $field_media->get('field_media_image')->first();
 
         if (!empty($mediaImage)) {
@@ -109,6 +128,37 @@ function suomidigi_preprocess_node(&$variables) {
       }
     }
   }
+
+  // Get community domain values and set them as variables for the template.
+  if (
+    $node->getType() === 'community' &&
+    $node->hasField('field_community_domain')
+  ) {
+    $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
+    $community_domain_id = $node->field_community_domain->target_id;
+
+    $domain = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($community_domain_id);
+
+    if ($domain->hasTranslation($current_language)) {
+      $domain = $domain->getTranslation($current_language);
+    }
+
+    if ($domain->hasField('field_community_domain_logo')) {
+      $image_target = $domain->get('field_community_domain_logo')->first();
+
+      if (!empty($image_target)) {
+        $image_id = $image_target->get('target_id')->getValue();
+        $variables['community_domain_logo'] = $image_id;
+        $variables['community_domain_logo_alt'] = $image_target->get('alt')->getValue();
+        $variables['community_domain_logo_title'] = $image_target->get('title')->getValue();
+      }
+    }
+
+    $variables['community_domain_label'] = $domain->label();
+    $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
+  }
 }
 
 /**
@@ -123,13 +173,13 @@ function suomidigi_preprocess_paragraph(&$variables) {
   switch ($paragraph->getType()) {
     case 'liftup_entity_reference_item':
       if ($paragraph->hasField('field_p_full_width')) {
-        $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getValue()[0]['value'];
+        $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getString();
         $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
         $variables['is_full_width'] = $fullWidth;
       }
 
       if ($paragraph->hasField('field_p_entity_reference')) {
-        $targetID = $paragraph->get('field_p_entity_reference')->getValue()[0]['target_id'];
+        $targetID = $paragraph->get('field_p_entity_reference')->getString();
         $is_full_width = &drupal_static('article_full_width_' . $targetID, FALSE);
 
         if (isset($fullWidth) && $fullWidth) {
@@ -217,6 +267,30 @@ function suomidigi_theme_suggestions_block_alter(array &$suggestions, array $var
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function suomidigi_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  if (
+    isset($variables['view']) &&
+    !empty($variables['view']->id())
+  ) {
+    $suggestions[] = 'view__' . $variables['view']->id();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function suomidigi_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
+  if (
+    isset($variables['view']) &&
+    !empty($variables['view']->id())
+  ) {
+    $suggestions[] = 'views_view_unformatted__' . $variables['view']->id();
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK() for menu.html.twig.
  */
 function suomidigi_preprocess_menu(&$variables) {
@@ -231,6 +305,44 @@ function suomidigi_preprocess_menu(&$variables) {
         unset($variables['items'][$key]);
       }
     }
+  }
+
+  // Add icons to account menu.
+  if (
+    isset($variables['attributes']['block_id']) &&
+    $variables['attributes']['block_id'] == 'account_menu'
+  ) {
+    $icons = [
+      'user.page' => 'user',
+    ];
+
+    if ($variables['logged_in']) {
+      $icons['user.logout'] = 'logout';
+      $variables['#attached']['library'][] = 'suomidigi/account-menu';
+    }
+    else {
+      $icons['user.logout'] = 'login';
+    }
+
+    foreach ($variables['items'] as $key => $item) {
+      if (array_key_exists($key, $icons)) {
+        $variables['items'][$key]['icon'] = $icons[$key];
+      }
+    }
+
+    // Set user real name or display name as variable for the template.
+    $user = User::load(Drupal::currentUser()->id());
+    if ($user->hasField('field_first_name') && !$user->field_first_name->isEmpty()) {
+      $first_name = $user->field_first_name->value;
+
+      if ($user->hasField('field_last_name') && !$user->field_last_name->isEmpty()) {
+        $last_name = $user->field_last_name->value;
+      }
+    }
+
+    $variables['user_name'] = (isset($first_name) && isset($last_name))
+      ? $first_name . ' ' . $last_name
+      : $user->getDisplayName();
   }
 }
 
@@ -407,7 +519,7 @@ function suomidigi_form_alter(&$form, FormStateInterface $form_state, $form_id) 
     $form['#id'] === 'views-exposed-form-search-search-api-view'
   ) {
     $form['#id'] = 'search_form';
-    $form['query']['#attributes']['placeholder'] = t('Search');
+    $form['query']['#attributes']['placeholder'] = t('Search from Suomidigi');
     $form['query']['#attributes']['id'] = 'search';
     $form['query']['#attributes']['class'][] = 'search-form__input';
     $form['#attributes']['class'][] = 'search-form';
@@ -427,6 +539,23 @@ function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables
 
   if (isset($element['#attributes']['data-twig-suggestion'])) {
     $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
+  }
+
+  if (isset($element['#attributes']['id'])) {
+    $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['id'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_image(&$variables) {
+  // Convert double double quotes to empty string for image alt-texts.
+  if (
+    isset($variables['alt']) &&
+    $variables['alt'] === '""'
+  ) {
+    $variables['attributes']['alt'] = ' ';
   }
 }
 
@@ -457,44 +586,6 @@ function suomidigi_preprocess_pager(&$variables) {
 function suomidigi_preprocess_input__textfield(&$variables) {
   if ($variables['attributes']['id'] == 'search') {
     $variables['attributes']['aria-label'] = t('Search');
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function suomidigi_preprocess_community(&$variables) {
-
-  // Get community domain values and set them as variables for the template.
-  $community = $variables['elements']['#community'];
-  if (
-    $community instanceof Community &&
-    $community->hasField('field_community_domain')
-  ) {
-    $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
-    $community_domain_id = $community->field_community_domain->target_id;
-
-    $domain = \Drupal::entityTypeManager()
-      ->getStorage('taxonomy_term')
-      ->load($community_domain_id);
-
-    if ($domain->hasTranslation($current_language)) {
-      $domain = $domain->getTranslation($current_language);
-    }
-
-    if ($domain->hasField('field_community_domain_logo')) {
-      $image_target = $domain->get('field_community_domain_logo')->first();
-
-      if (!empty($image_target)) {
-        $image_id = $image_target->get('target_id')->getValue();
-        $variables['community_domain_logo'] = $image_id;
-        $variables['community_domain_logo_alt'] = $image_target->get('alt')->getValue();
-        $variables['community_domain_logo_title'] = $image_target->get('title')->getValue();
-      }
-    }
-
-    $variables['community_domain_label'] = $domain->label();
-    $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
   }
 }
 

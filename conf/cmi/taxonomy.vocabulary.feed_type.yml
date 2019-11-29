@@ -1,0 +1,8 @@
+uuid: 2b7a3840-0418-4ead-8571-a6e3be9c40d4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Feed type'
+vid: feed_type
+description: 'The feed configuration used in feed paragraphs.'
+weight: 0

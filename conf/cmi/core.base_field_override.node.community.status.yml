@@ -1,0 +1,22 @@
+uuid: d4f03d3f-163d-49ac-8514-5f2ade9ccecf
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.community
+id: node.community.status
+field_name: status
+entity_type: node
+bundle: community
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

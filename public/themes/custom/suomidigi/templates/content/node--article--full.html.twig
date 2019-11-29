@@ -58,6 +58,12 @@
           {{ content.field_paragraphs }}
       </div>
     {% endif %}
+
+    {% if content.field_displayed_author_footer|render %}
+      <div class="article__author--prominent author">
+        {{ content.field_displayed_author_footer }}
+      </div>
+    {% endif %}
   </div>
 
   {% if content.field_comments|render %}

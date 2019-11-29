@@ -1,0 +1,19 @@
+uuid: 8205b8d0-d793-454e-a7f4-3a045c9535c0
+langcode: en
+status: true
+dependencies: {  }
+id: group_member
+label: 'Group member'
+weight: -3
+is_admin: null
+permissions:
+  - 'create content translations'
+  - 'delete content translations'
+  - 'edit content translations'
+  - 'translate group-group_node-article group_content'
+  - 'translate group-group_node-core_content group_content'
+  - 'translate group-group_node-landing_page group_content'
+  - 'translate group-group_node-page group_content'
+  - 'update content translations'
+  - 'use text format restricted_html'
+  - 'view the administration theme'

@@ -1,0 +1,8 @@
+uuid: a73615ea-94e4-40d9-b144-0588379a2230
+langcode: en
+status: true
+dependencies: {  }
+name: Blog
+vid: blog
+description: 'Defines the blog for blog posts.'
+weight: 0

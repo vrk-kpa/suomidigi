@@ -1,0 +1,4 @@
+access suomidigi events:
+  title: 'Access Suomidigi Events'
+  description: 'If enabled, user can access the extensive events.'
+  restrict access: TRUE

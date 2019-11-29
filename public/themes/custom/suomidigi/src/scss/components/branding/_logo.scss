@@ -9,26 +9,23 @@
   display: flex;
   line-height: 0;
 
-  &--header {
+  &--header,
+  &--header:hover {
     text-decoration: none;
   }
 
-  svg {
-    width: 32px;
-    height: 32px;
+  &--text {
+    @include font-size(32px);
+    @include line-height(32px, 40px);
+    color: $blue;
+    font-family: $default-font-family;
+    font-weight: bold;
+    letter-spacing: 0;
+    text-align: left;
   }
-}
 
-.logo--text {
-  @include font-size(22px);
-  color: $blue;
-  font-family: $default-font-family;
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 28px;
-  margin-left: 8px;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    color: $white;
+  svg {
+    height: 32px;
+    width: 32px;
   }
 }

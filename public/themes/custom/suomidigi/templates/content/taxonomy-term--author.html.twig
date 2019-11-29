@@ -1,0 +1,83 @@
+{#
+/**
+ * @file
+ * Theme override to display a taxonomy term.
+ */
+#}
+{%
+  set classes = [
+  'taxonomy-term',
+  'vocabulary-' ~ term.bundle|clean_class,
+  not page ? 'profile-card'
+  ]
+%}
+
+{% if not page and view_mode is not same as('after_content') %}
+  {% if content.field_reference_to_user_profile|render %}
+    {{ content.field_reference_to_user_profile }}
+  {% else %}
+    <div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+      <div class="profile-card__picture">
+        {% if content.field_author_picture|render %}
+          {{ content.field_author_picture }}
+        {% elseif name|render %}
+          <span class="profile-card__picture--letter">
+            {{ name|render|striptags|trim|first|upper }}
+          </span>
+        {% endif %}
+      </div>
+
+      <div class="profile-card__content">
+        <div class="profile-card__content--primary {% if name|render %}with-border{% endif %}">
+          <div class="profile-card__name">
+            {% if name|render %}
+              {{ name }}
+            {% endif %}
+          </div>
+          <div class="profile-card__profession">
+            {% set author_title = content.field_author_title|render|striptags|trim %}
+            {% if content.field_author_title|render and content.field_author_organisation|render %}
+              {% set author_title = author_title ~ ', ' %}
+            {% endif %}
+            {{ author_title }}
+            {% if content.field_author_organisation|render %}
+              {{ content.field_author_organisation|render|striptags|trim }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="profile-card__content--secondary">
+          {% if content.field_author_description|render %}
+            <div class="profile-card__description">
+              {{ content.field_author_description }}
+            </div>
+          {% endif %}
+          {% if content.field_author_linkedin|render %}
+            <a href="{{ content.field_author_linkedin.0['#url'] }}" class="profile-card__some linkedin" target="_blank" title="LinkedIn">
+            {% if icons_path %}
+              <svg class="icon">
+                <title>LinkedIn</title>
+                <use xlink:href="{{ icons_path|trim }}#social-media-linkedin" />
+              </svg>
+            {% else %}
+              LinkedIn
+            {% endif %}
+            </a>
+          {% endif %}
+
+          {% if content.field_author_twitter|render %}
+            <a href="{{ content.field_author_twitter.0['#url'] }}" class="profile-card__some twitter" target="_blank" title="Twitter">
+            {% if icons_path %}
+              <svg class="icon">
+                <title>Twitter</title>
+                <use xlink:href="{{ icons_path|trim }}#social-media-twitter" />
+              </svg>
+            {% else %}
+              Twitter
+            {% endif %}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

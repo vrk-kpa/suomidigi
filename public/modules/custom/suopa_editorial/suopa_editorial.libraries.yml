@@ -1,9 +1,3 @@
-blog-tag-list-hidden:
-  js:
-    assets/js/blog-tag-list-select.js: {}
-  dependencies:
-    - core/jquery
-
 disable-sibling-checkbox:
   js:
     assets/js/disable-sibling-checkbox.js: {}
@@ -28,3 +22,9 @@ suopa-timepicker:
   css:
     theme:
       assets/css/suopa_timepicker.css: {}
+
+content-creation-links:
+  js:
+    assets/js/content-creation-links.js: {}
+  dependencies:
+    - core/jquery

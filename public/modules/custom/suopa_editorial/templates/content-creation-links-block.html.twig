@@ -1,0 +1,35 @@
+{#
+/**
+* @file
+* Default theme implementation to display a block.
+*
+* @see template_preprocess_block()
+*
+* @ingroup themeable
+*/
+#}
+{% set classes = [
+    'menu',
+    'menu--content-creation',
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  <button class="menu--content-creation__button" aria-expanded="false" aria-controls="menu-content-creation-dropdown" aria-haspopup="menu" aria-label="{{ 'Create new content'|t }}">
+  <span class="icon__wrapper" aria-hidden="true">
+    {{ label }}
+    {% if icons_path %}
+      <svg class="icon icon--button-plus">
+        <title>{{ 'Expand'|t }}</title>
+        <use xlink:href="{{ icons_path|trim }}#button-plus" />
+      </svg>
+      <svg class="icon icon--button-minus">
+        <title>{{ 'Collapse'|t }}</title>
+        <use xlink:href="{{ icons_path|trim }}#button-minus" />
+      </svg>
+    {% endif %}
+  </span>
+  </button>
+  <div id="menu-content-creation-dropdown" {{ attributes.addClass('menu', 'menu--content-creation__dropdown') }}>
+    {{ content }}
+  </div>
+</div>

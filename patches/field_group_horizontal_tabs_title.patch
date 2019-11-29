@@ -1,0 +1,12 @@
+diff --git a/templates/horizontal-tabs.html.twig b/templates/horizontal-tabs.html.twig
+index 9ed2a3a..87e44d3 100644
+--- a/templates/horizontal-tabs.html.twig
++++ b/templates/horizontal-tabs.html.twig
+@@ -12,4 +12,7 @@
+  * @ingroup themeable
+  */
+ #}
++{% if element['#title'] %}
++  <h4 style="margin-top: 15px;">{{ element['#title'] }}</h4>
++{% endif %}
+ <div data-horizontal-tabs-panes{{ attributes }}>{{ children }}</div>

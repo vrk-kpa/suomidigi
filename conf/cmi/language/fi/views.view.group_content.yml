@@ -1,0 +1,5 @@
+display:
+  articles:
+    display_title: Artikkelit
+  events:
+    display_title: Tapahtumat

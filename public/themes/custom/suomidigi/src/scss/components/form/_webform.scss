@@ -1,10 +1,211 @@
+.webform__container {
+  @include breakpoint($for-mobile-landscape-up) {
+    margin: 0 auto;
+    width: 570px;
+  }
+}
+
 .webform-submission-form {
   h2 {
-    @include font-size(18px);
-    @include line-height(18px, 20px);
-    font-weight: 600;
+    color: $blue-medium;
+    @include font-size(26px);
+    @include font-weight($semibold);
+    @include line-height(26px, 33px);
     margin-bottom: $gutter / 2;
+    margin-top: $gutter;
   }
+
+  input,
+  textarea {
+    @include font-size(14px);
+    @include line-height(14px, 20px);
+
+    &::-ms-input-placeholder, /* Microsoft Edge */
+    &:-ms-input-placeholder, /* Internet Explorer 10-11 */
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $black;
+    }
+
+    &::placeholder {
+      opacity: 1; /* Firefox */
+    }
+
+    &:required {
+      box-shadow: none;
+    }
+  }
+
+  .webform-progress-tracker.progress-tracker {
+    @include border('bottom');
+    padding-bottom: $gutter * 2;
+  }
+
+  .webform-image-file,
+  .webform-multiple-add {
+    input[type="submit"]:not(.js-hide) {
+      display: inline;
+      height: auto;
+      margin-left: $gutter;
+    }
+  }
+
+  .webform-multiple-add {
+    text-align: center;
+  }
+
+  .progress-text {
+    line-height: 1.2rem;
+  }
+
+  .select2-selection__arrow {
+    right: 10px;
+    top: 10px;
+  }
+
+  .form-actions {
+    display: flex;
+  }
+
+  .form-type-datetime {
+    .container-inline {
+      display: flex;
+      justify-content: flex-start;
+
+      > .form-item {
+
+        .ui-datepicker-trigger {
+          display: none;
+        }
+
+        &.form-item-start-date-and-time-date,
+        &.form-item-end-date-and-time-date {
+          position: relative;
+
+          &::after {
+            background-image: url("../../icons/svg/calendar-blue.svg");
+            background-position: 10px 50%;
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            content: "";
+            height: 40px;
+            opacity: 1;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px;
+          }
+        }
+      }
+    }
+
+    &.form-item-start-date-and-time,
+    &.form-item-end-date-and-time {
+      width: 100%;
+
+      .container-inline {
+        input.hasDatepicker {
+          width: 130px;
+          @include breakpoint($for-small-mobile-portrait-up) {
+            width: 170px;
+          }
+        }
+        > .form-item {
+            margin-right: $gutter;
+            @include breakpoint($for-small-mobile-portrait-up) {
+              margin-right: $gutter * 2;
+            }
+
+            &:last-of-type {
+              margin-right: 0;
+              @include breakpoint($for-mobile-landscape-up) {
+                margin-right: $gutter * 2;
+              }
+            }
+        }
+      }
+    }
+
+    &.form-item-start-date-and-time {
+      @include breakpoint($for-mobile-landscape-up) {
+        width: 300px;
+      }
+    }
+    &.form-item-end-date-and-time {
+      @include breakpoint($for-mobile-landscape-up) {
+        width: 270px;
+        .container-inline {
+          > .form-item:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  #edit-date-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    width: 100%;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      flex-direction: row;
+    }
+  }
+
+  .form-item-contact-information {
+    padding-top: $gutter;
+
+    .form-item-contact-information-add-more-items,
+    .tabledrag-toggle-weight-wrapper {
+      display: none;
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      .tableresponsive-toggle-columns,
+      .webform-multiple-table--handle,
+      .webform-multiple-add {
+        display: none;
+      }
+    }
+
+    .webform-multiple-table {
+      @include border();
+      margin-bottom: $gutter;
+      padding: $gutter;
+
+      th {
+        @include font-size(14px);
+        @include line-height(14px, 22px);
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .form-item {
+        margin-right: $gutter;
+      }
+    }
+  }
+
+  #edit-event-container {
+    margin-bottom: 0;
+
+    .form-item {
+      label:not(.visually-hidden) {
+        @include font-size(18px);
+        @include line-height(18px, 26px);
+        margin-top: $gutter * 1.4;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.captcha {
+  margin-top: $gutter * 2;
 }
 
 .webform-confirmation__message {

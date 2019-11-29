@@ -5,7 +5,10 @@
  * Contains suopa_editorial.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
@@ -32,6 +35,8 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
     'node_article_form',
     'node_core_content_edit_form',
     'node_core_content_form',
+    'node_blog_post_edit_form',
+    'node_blog_post_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
@@ -40,9 +45,6 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
 
   $form['field_displayed_update_time']['#group'] = 'revision_information';
   $form['field_displayed_author']['#group'] = 'revision_information';
-
-  // Attach blog tag list toggler to article forms.
-  $form['#attached']['library'][] = 'suopa_editorial/blog-tag-list-hidden';
 
   // Attach timepicker styles.
   $form['#attached']['library'][] = 'suopa_editorial/suopa-timepicker';
@@ -62,6 +64,8 @@ function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
     'node_article_form',
     'node_core_content_edit_form',
     'node_core_content_form',
+    'node_blog_post_edit_form',
+    'node_blog_post_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
   ];
@@ -84,6 +88,8 @@ function suopa_editorial_disable_sibling_checkbox(&$form, $form_state) {
     'node_article_form',
     'node_core_content_edit_form',
     'node_core_content_form',
+    'node_blog_post_edit_form',
+    'node_blog_post_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
     'taxonomy_term_theme_form',
@@ -238,4 +244,44 @@ function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
   }
 
   return $form;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * {@inheritdoc}
+ */
+function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['field_approved'])) {
+    $form['field_approved']['#group'] = 'footer';
+    $form['field_approved']['#weight'] = 0;
+  }
+
+  if (isset($form['field_displayed_author'])) {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $url = Url::fromRoute('entity.taxonomy_vocabulary.overview_form', [
+      'taxonomy_vocabulary' => 'author',
+      'destination' => $current_path,
+    ]);
+    $link = Link::fromTextAndUrl(t('Edit authors'), $url);
+    $link = $link->toRenderable();
+    $form['field_displayed_author']['#suffix'] = t('Complete the author information.') . ' ' . render($link) . '.';
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function suopa_editorial_theme() {
+  return [
+    'content_creation_links_block' => [
+      'variables' => [
+        'content' => NULL,
+        'label' => NULL,
+      ],
+      'render element' => 'children',
+    ],
+  ];
 }

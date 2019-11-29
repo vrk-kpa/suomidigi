@@ -1,8 +1,9 @@
 .title__container {
+  margin: 0;
+  padding: 0;
+
   h1 {
-    color: $black;
-    margin-top: $gutter;
-    text-align: center;
+    color: $blue;
 
     &.page-title--alternative {
       @include font-size(32px, 24px);
@@ -16,7 +17,10 @@
       @include line-height(32px, 32px, 24px, 24px);
       font-weight: bold;
       letter-spacing: -0.02rem;
-      text-align: center;
+    }
+
+    .page-before_content--user & {
+      margin-bottom: 0;
     }
   }
 }

@@ -1,0 +1,38 @@
+uuid: 35433f3a-0c1a-430b-94e0-876906ac8b13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feed.field_feed_type
+    - field.field.paragraph.feed.field_keyword
+    - field.field.paragraph.feed.field_limit
+    - paragraphs.paragraphs_type.feed
+id: paragraph.feed.default
+targetEntityType: paragraph
+bundle: feed
+mode: default
+content:
+  field_feed_type:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_keyword:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_limit:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+hidden:
+  created: true
+  status: true

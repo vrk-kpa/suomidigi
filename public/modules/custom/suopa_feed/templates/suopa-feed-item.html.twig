@@ -1,0 +1,11 @@
+<div class="suopa-feed-item" style="margin-bottom: 15px;">
+  <div><h4 style="margin-bottom: 0px;"><a href="{{ link }}">{{ title }}</a></h4></div>
+  <div style="font-size: 12px; text-transform: uppercase;">
+    {% if authors %}
+      <span style="margin-right: 10px;">{{ authors }}</span>
+    {% endif %}
+    {% if published %}
+      <span>{{ published }}</span>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,17 @@
+uuid: 8bba9998-c26e-4a1a-a69c-1d2b6fb32f89
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+  enforced:
+    config:
+      - user.role.webform_administrator
+id: group-9cbf163f8
+label: 'Webform administrator'
+weight: -5
+internal: true
+audience: outsider
+group_type: group
+permissions_ui: false
+permissions: {  }

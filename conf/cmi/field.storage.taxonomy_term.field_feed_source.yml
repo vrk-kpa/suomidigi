@@ -1,0 +1,19 @@
+uuid: c9a89202-c366-4b1d-b5ba-fa16c9b2be8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - suopa_feed
+    - taxonomy
+id: taxonomy_term.field_feed_source
+field_name: field_feed_source
+entity_type: taxonomy_term
+type: feed_source
+settings: {  }
+module: suopa_feed
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

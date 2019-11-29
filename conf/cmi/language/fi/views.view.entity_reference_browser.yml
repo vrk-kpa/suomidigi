@@ -22,6 +22,8 @@ display:
           label: Alasisältötyyppi
         type:
           label: Sisältötyyppi
+        langcode:
+          label: Kieli
       filters:
         title:
           expose:
@@ -29,5 +31,8 @@ display:
         entity_browser_bundle:
           expose:
             label: Sisältötyyppi
+        langcode:
+          expose:
+            label: Kieli
   entity_browser_1:
     display_title: ''

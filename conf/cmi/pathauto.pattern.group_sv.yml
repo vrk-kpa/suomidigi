@@ -1,0 +1,34 @@
+uuid: dca7c30e-991f-4ee1-a06a-4db1e93e14da
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+    - language
+id: group_sv
+label: 'Group - SV'
+type: 'canonical_entities:group'
+pattern: 'grupper/[group:title]'
+selection_criteria:
+  29b2e96c-d4ff-4609-9237-c2953dd8361e:
+    id: 'entity_bundle:group'
+    bundles:
+      group: group
+    negate: false
+    context_mapping:
+      group: group
+    uuid: 29b2e96c-d4ff-4609-9237-c2953dd8361e
+  92abbf7a-94aa-4770-95a8-0aec6337ea00:
+    id: language
+    langcodes:
+      sv: sv
+    negate: false
+    context_mapping:
+      language: 'group:langcode:language'
+    uuid: 92abbf7a-94aa-4770-95a8-0aec6337ea00
+selection_logic: and
+weight: -10
+relationships:
+  'group:langcode:language':
+    label: Language

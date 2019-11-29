@@ -3,19 +3,20 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.event.field_approved
     - field.field.node.event.field_event_date_and_time
     - field.field.node.event.field_event_description
+    - field.field.node.event.field_event_free_text
     - field.field.node.event.field_event_image
     - field.field.node.event.field_event_link
-    - field.field.node.event.field_event_materials
     - field.field.node.event.field_event_org_contact_info
     - field.field.node.event.field_event_organiser
     - field.field.node.event.field_event_registration
-    - field.field.node.event.field_event_schedule
+    - field.field.node.event.field_organiser_description
+    - field.field.node.event.field_organiser_link
     - field.field.node.event.field_venue_address
     - field.field.node.event.field_venue_description
     - field.field.node.event.field_venue_name
-    - field.field.node.event.field_venue_travel_information
     - image.style.thumbnail
     - node.type.event
   module:
@@ -23,8 +24,6 @@ dependencies:
     - datetime_range
     - field_group
     - focal_point
-    - hide_revision_field
-    - inline_entity_form
     - link
     - path
     - publication_date
@@ -37,11 +36,10 @@ third_party_settings:
     group_venue:
       children:
         - field_venue_name
-        - field_venue_description
         - field_venue_address
-        - field_venue_travel_information
+        - field_venue_description
       parent_name: ''
-      weight: 15
+      weight: 14
       format_type: details
       format_settings:
         description: ''
@@ -55,13 +53,12 @@ third_party_settings:
       children:
         - field_event_date_and_time
         - field_event_description
-        - field_event_image
-        - field_event_schedule
-        - field_event_link
         - field_event_registration
-        - field_event_materials
+        - field_event_link
+        - field_event_image
+        - field_event_free_text
       parent_name: ''
-      weight: 14
+      weight: 13
       format_type: details
       format_settings:
         id: ''
@@ -74,9 +71,11 @@ third_party_settings:
     group_organiser:
       children:
         - field_event_organiser
+        - field_organiser_description
+        - field_organiser_link
         - field_event_org_contact_info
       parent_name: ''
-      weight: 17
+      weight: 15
       format_type: details
       format_settings:
         id: ''
@@ -97,8 +96,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_approved:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_event_date_and_time:
-    weight: 15
+    weight: 18
     settings: {  }
     third_party_settings:
       timepicker:
@@ -109,7 +115,15 @@ content:
     type: daterange_default
     region: content
   field_event_description:
-    weight: 16
+    weight: 19
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_event_free_text:
+    weight: 23
     settings:
       rows: 5
       placeholder: ''
@@ -117,7 +131,7 @@ content:
     type: text_textarea
     region: content
   field_event_image:
-    weight: 17
+    weight: 22
     settings:
       preview_image_style: thumbnail
       preview_link: true
@@ -127,28 +141,12 @@ content:
     type: image_focal_point
     region: content
   field_event_link:
-    weight: 19
+    weight: 21
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
-    region: content
-  field_event_materials:
-    type: inline_entity_form_complex
-    weight: 21
-    settings:
-      form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
-      collapsible: false
-      collapsed: false
-      allow_new: true
-      allow_existing: false
-      match_operator: CONTAINS
-      allow_duplicate: false
-    third_party_settings: {  }
     region: content
   field_event_org_contact_info:
     weight: 21
@@ -174,27 +172,35 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_event_schedule:
-    weight: 18
+  field_organiser_description:
+    weight: 19
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_organiser_link:
+    weight: 20
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_venue_address:
-    weight: 19
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_venue_description:
-    weight: 18
+    weight: 19
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
+    type: text_textarea
     region: content
   field_venue_name:
     weight: 17
@@ -203,14 +209,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_venue_travel_information:
-    weight: 20
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
     region: content
   langcode:
     type: language_select
@@ -244,23 +242,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  revision_log:
-    type: hide_revision_field_log_widget
-    weight: 12
-    region: content
-    settings:
-      show: true
-      default: ''
-      permission_based: false
-      allow_user_settings: true
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
@@ -303,4 +289,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  revision_log: true

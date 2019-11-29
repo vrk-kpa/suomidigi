@@ -79,6 +79,7 @@ filters:
       responsive_style_article_teaser_header: '0'
       responsive_style_article_teaser_header_alternative: '0'
       responsive_style_article_teaser_header_prominent: '0'
+      responsive_style_event_full_header: '0'
       responsive_style_inline_image_full_width: '1'
       responsive_style_inline_image_half_width: '1'
   filter_imagestyle:
@@ -99,6 +100,8 @@ filters:
       image_style_article_teaser_header_image_small: '0'
       image_style_attachment_teaser_image_small: '0'
       image_style_cta_banner_background: '0'
+      image_style_event_full_header_image_large: '0'
+      image_style_event_full_header_image_small: '0'
       image_style_large: '0'
       image_style_legislation_collection_page_full_header_image_large: '0'
       image_style_linkit_result_thumbnail: '0'

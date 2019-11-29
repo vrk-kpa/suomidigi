@@ -1,0 +1,57 @@
+.link {
+  @include font-size(18px);
+  @include line-height(18px, 23px);
+  @include font-weight($semibold);
+  color: $blue-light;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-decoration: none;
+
+  &::before {
+    background: url('../../icons/svg/chevron-right-blue.svg') no-repeat -4px 3px transparent;
+    content: '';
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: $black;
+    text-decoration: none;
+
+    &::before {
+      background: url('../../icons/svg/chevron-right.svg') no-repeat -4px 3px transparent;
+    }
+  }
+
+  &__wrapper {
+    margin: $gutter 0;
+  }
+
+  &--external {
+    align-items: center;
+    display: flex;
+
+    &::before {
+      background: url('../../icons/svg/link-external-blue.svg') no-repeat 0px 0px transparent;
+      background-size: 20px 20px;
+      color: $blue-light;
+      content: '';
+      display: inline-block;
+      height: 20px;
+      margin: 0 $gutter 0 0;
+      min-width: 20px;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      &::before {
+        background: url('../../icons/svg/link-external.svg') no-repeat 0px 0px transparent;
+        background-size: 20px 20px;
+      }
+    }
+  }
+}

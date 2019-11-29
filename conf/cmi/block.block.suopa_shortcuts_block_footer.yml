@@ -1,0 +1,24 @@
+uuid: 02695470-ed90-48bb-b217-a7d0c9dddb61
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.suopa_shortcuts
+  module:
+    - views
+  theme:
+    - suomidigi
+id: suopa_shortcuts_block_footer
+theme: suomidigi
+region: footer
+weight: -13
+provider: null
+plugin: 'views_block:suopa_shortcuts-block'
+settings:
+  id: 'views_block:suopa_shortcuts-block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

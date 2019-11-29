@@ -16,22 +16,10 @@
       $(window).once().on('load', function () {
           var template =
             `${'<header class="page-header__mobile"><a href="/" class="logo logo--header" title="' + Drupal.t('Home') + '" rel="home">' +
-              '  <svg viewBox="0 0 55 55" width="55px" height="55px" aria-labelledby="mob_title" id="mob_suomidigi_flag" role="img" focusable="false">' +
-              '    <title id="mob_title">'}${siteName} logo</title>` +
-            `      <desc id="mob_desc">suomidigi.fi</desc>` +
-            `      <g class="icon--flag">` +
-            `        <path fill="#003479" d="M53,0H2C0.9,0,0,0.9,0,2v51c0,1.1,0.9,2,2,2h51c1.1,0,2-0.9,2-2V2C55,0.9,54.1,0,53,0z"></path>` +
-            `        <path fill="#FFFFFF" d="M14,20v-5c0-1.1,0.9-2,2-2h5v7"></path>` +
-            `        <path fill="#FFFFFF" d="M14,27h7v14c0,0.5-0.4,1-1,1h-5c-0.6,0-1-0.5-1-1"></path>` +
-            `        <path fill="#FFFFFF" d="M28,13h13c0.5,0,1,0.4,1,1v6H28"></path>` +
-            `        <path fill="#FFFFFF" d="M41,34H28v-7h14v6C42,33.6,41.6,34,41,34z"></path>` +
-            `      </g>` +
-            `  </svg>` +
-            `  <span class="logo--text">${siteName}</span></a>` +
+            '  <span class="logo--text">'}${siteName}</span></a>` +
             `  <p class="site-slogan">${siteSlogan}</p>` +
             `</header>` +
-            `<div id="moby-menu" class="moby-menu"></div>` +
-            `<div id="moby-shortcuts" class="moby-shortcuts"></div>`;
+            `<div id="moby-menu" class="moby-menu"></div>`;
 
           mobyMenu = new Moby({
             breakpoint: 768,
@@ -54,11 +42,6 @@
           });
 
           $('#block-languageswitcher').contents().clone().appendTo('#moby-menu');
-          $('#block-suopa-shortcuts-block-mobile').contents().appendTo('#moby-shortcuts');
-          $('#moby-shortcuts div.taxonomy-term.vocabulary-theme').each(function() {
-            var id = $(this).attr('id');
-            $(this).attr('id', 'mobile-' + id);
-          });
         });
     },
     close() {

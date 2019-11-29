@@ -1,0 +1,17 @@
+uuid: aefb8c27-f6b7-413f-ab97-42358bac06a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+  enforced:
+    config:
+      - user.role.content_producer
+id: group-76495635a
+label: 'Content producer'
+weight: -8
+internal: true
+audience: outsider
+group_type: group
+permissions_ui: false
+permissions: {  }
