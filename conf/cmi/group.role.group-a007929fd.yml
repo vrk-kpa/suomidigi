@@ -1,0 +1,17 @@
+uuid: a19e7956-23df-481b-b683-69c242fba0fe
+langcode: fi
+status: true
+dependencies:
+  config:
+    - group.type.group
+  enforced:
+    config:
+      - user.role.group_member
+id: group-a007929fd
+label: 'Group member'
+weight: -4
+internal: true
+audience: outsider
+group_type: group
+permissions_ui: false
+permissions: {  }

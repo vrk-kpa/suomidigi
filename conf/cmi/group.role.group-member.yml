@@ -1,0 +1,21 @@
+uuid: bd26c0a1-49e6-43d7-8fc8-7cd1bc72dbe4
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+id: group-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: group
+permissions_ui: true
+permissions:
+  - 'access group_node overview'
+  - 'create group_node:landing_page content'
+  - 'leave group'
+  - 'view group'
+  - 'view group_membership content'
+  - 'view unpublished group_node:article entity'
+  - 'view unpublished group_node:core_content entity'

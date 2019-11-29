@@ -1,0 +1,21 @@
+uuid: bb2ca4e7-7849-4298-a698-e012af7f3fbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_description_html
+    - paragraphs.paragraphs_type.group_view
+  module:
+    - text
+id: paragraph.group_view.field_p_description_html
+field_name: field_p_description_html
+entity_type: paragraph
+bundle: group_view
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

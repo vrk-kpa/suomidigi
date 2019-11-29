@@ -1,0 +1,42 @@
+uuid: 2dd7fc59-db44-47b8-b861-dd1c0824d0b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.group_view.field_p_description_html
+    - field.field.paragraph.group_view.field_p_title
+    - field.field.paragraph.group_view.field_p_view
+    - paragraphs.paragraphs_type.group_view
+  module:
+    - text
+    - viewsreference
+id: paragraph.group_view.default
+targetEntityType: paragraph
+bundle: group_view
+mode: default
+content:
+  field_p_description_html:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_p_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_p_view:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: viewsreference_select
+    region: content
+hidden:
+  created: true
+  status: true
