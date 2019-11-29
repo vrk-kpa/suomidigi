@@ -86,4 +86,36 @@
       padding-right: $gutter / 4;
     }
   }
+
+  &--cta {
+    display: flex;
+    @include font-size(18px);
+    @include line-height(18px, 26px);
+    @include font-weight($semibold);
+    margin-top: $gutter;
+    transition: all 150ms linear;
+
+    &-icon-left {
+      .icon {
+        height: 25px;
+        margin-left: -8px;
+        opacity: 0.5;
+        width: 25px;
+      }
+    }
+
+    &-icon-right {
+      position: relative;
+      top: 2px;
+      .icon {
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    &-text {
+      padding-right: $gutter / 4;
+    }
+  }
+
 }
