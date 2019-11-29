@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    'blog-teaser',
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{attributes.addClass(classes)}}>
+  <a href="{{ url }}" class="blog-teaser__link">
+    <div class="blog-teaser__image">
+      {% if is_full_width %}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
+      {% else %}
+        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header_alternative', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
+      {% endif %}
+    </div>
+    <div class="blog-teaser__content">
+      <span class="blog-teaser__type">
+        {{ content.field_blog_type }}
+      </span>
+      <h3 class="blog-teaser__label">
+        {{ label }}
+      </h3>
+      {% if content.field_ingress|render %}
+        <p class="blog-teaser__lead">
+          {{ content.field_ingress['0']['#markup'] }}
+        </p>
+      {% endif %}
+    </div>
+  </a>
+</article>

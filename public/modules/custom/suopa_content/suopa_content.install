@@ -36,3 +36,10 @@ function suopa_content_update_8003() {
   suopa_content_add_translation("City", 'fi', 'Kaupunki');
   suopa_content_add_translation("Phone number", 'fi', 'Puhelinnumero');
 }
+
+/**
+ * Create translations for Blog posts.
+ */
+function suopa_content_update_8004() {
+  suopa_content_add_translation("New blog post", 'fi', 'Uusi blogikirjoitus');
+}

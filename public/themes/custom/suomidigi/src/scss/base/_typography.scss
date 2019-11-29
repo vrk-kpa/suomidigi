@@ -81,6 +81,7 @@ h5,
 h6 {
   font-family: $heading-font-family;
   margin-top: 0;
+  word-break: break-word;
 
   a {
     color: inherit;

@@ -1,0 +1,21 @@
+uuid: df5121ec-8b5b-4cb2-ad74-2fb02230c009
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_displayed_update_time
+    - node.type.blog_post
+  module:
+    - datetime
+id: node.blog_post.field_displayed_update_time
+field_name: field_displayed_update_time
+entity_type: node
+bundle: blog_post
+label: 'Displayed update time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
