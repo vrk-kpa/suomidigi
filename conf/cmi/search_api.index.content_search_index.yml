@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_article_type
-    - field.storage.node.field_blog_tags
     - field.storage.node.field_core_content_type
     - field.storage.node.field_ingress
     - search_api.server.content_search_server
@@ -28,14 +27,6 @@ field_settings:
       module:
         - taxonomy
         - taxonomy
-  field_blog_tags:
-    label: 'Blog tags'
-    datasource_id: 'entity:node'
-    property_path: field_blog_tags
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_blog_tags
   field_core_content_type_name:
     label: 'Core content type » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -88,7 +79,6 @@ processor_settings:
     all_fields: true
     fields:
       - field_article_type_name
-      - field_blog_tags
       - field_core_content_type_name
       - field_ingress
       - title
@@ -108,13 +98,13 @@ processor_settings:
     all_fields: true
     fields:
       - field_article_type_name
-      - field_blog_tags
       - field_core_content_type_name
       - field_ingress
       - title
     weights:
       preprocess_index: -20
       preprocess_query: -20
+  language_with_fallback: {  }
   rendered_item: {  }
 tracker_settings:
   default:

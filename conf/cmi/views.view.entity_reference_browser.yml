@@ -575,6 +575,7 @@ display:
           value:
             all: all
             article: article
+            blog_post: blog_post
             page: page
             core_content: core_content
             landing_page: landing_page

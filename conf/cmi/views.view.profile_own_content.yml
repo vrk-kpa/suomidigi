@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.article
+    - node.type.blog_post
     - node.type.event
   module:
     - better_exposed_filters
@@ -67,7 +67,7 @@ display:
                 bef_collapsible: false
                 is_secondary: false
                 rewrite:
-                  filter_rewrite_values: "- Any -|All\r\nArticle|Articles\r\nEvent|Events"
+                  filter_rewrite_values: "- Any -|All\r\nBlog post|Blog posts\r\nEvent|Events"
           text_input_required_format: full_html
       pager:
         type: infinite_scroll
@@ -154,7 +154,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            article: article
+            blog_post: blog_post
             event: event
           group: 1
           exposed: false
@@ -195,7 +195,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            article: article
+            blog_post: blog_post
             event: event
           group: 1
           exposed: true
@@ -299,7 +299,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "No custom content yet.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/article\" class=\"link\">Create an article</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/event\" class=\"link\">Create an event</a>\r\n</div>"
+            value: "No custom content yet.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/blog_post\" class=\"link\">Create a blog post</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/event\" class=\"link\">Create an event</a>\r\n</div>"
             format: full_html
           plugin_id: text
       relationships:
