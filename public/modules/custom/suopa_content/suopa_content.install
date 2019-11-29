@@ -71,3 +71,14 @@ function suopa_content_update_8004() {
     'Liity verkostoon'
   );
 }
+
+/**
+ * Create translations for SuoPa Group.
+ */
+function suopa_content_update_8006() {
+  suopa_content_add_translation(
+    "View group",
+    'fi',
+    'Tutustu ryhmään'
+  );
+}
