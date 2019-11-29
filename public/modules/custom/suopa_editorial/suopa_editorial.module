@@ -269,6 +269,27 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
 }
 
 /**
+ * Implements hook_group_operations_alter().
+ */
+function suopa_editorial_group_operations_alter(&$operations, $group, &$build) {
+  $links = [];
+
+  foreach ($operations as $link) {
+    $links[] = Link::fromTextAndUrl($link['title'], $link['url']);
+  }
+
+  $build['#label'] = t('Create new content');
+  $build['#content'] = [
+    '#theme' => 'item_list',
+    '#items' => $links,
+    '#attributes' => ['class' => ['links']],
+  ];
+
+  $build['#theme'] = 'content_creation_links_block';
+  $build['#attached']['library'][] = 'suopa_editorial/content-creation-links';
+}
+
+/**
  * Implements hook_theme().
  */
 function suopa_editorial_theme() {

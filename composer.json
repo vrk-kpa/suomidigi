@@ -132,7 +132,8 @@
                 "Add title to horizontal tabs on field groups.": "patches/field_group_horizontal_tabs_title.patch"
             },
             "drupal/group": {
-                "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch"
+                "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
+                "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch"
             },
             "drupal/hide_revision_field": {
                 "https://www.drupal.org/project/hide_revision_field/issues/3032473": "https://www.drupal.org/files/issues/2019-05-10/hide_revision_field-3032473-8.patch",
