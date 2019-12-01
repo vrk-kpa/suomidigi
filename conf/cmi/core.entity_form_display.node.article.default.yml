@@ -5,7 +5,6 @@ dependencies:
   config:
     - entity_browser.browser.media_image_browser
     - field.field.node.article.field_article_type
-    - field.field.node.article.field_blog_tags
     - field.field.node.article.field_comments
     - field.field.node.article.field_displayed_author
     - field.field.node.article.field_displayed_update_time
@@ -45,15 +44,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
-    region: content
-  field_blog_tags:
-    weight: 2
-    settings:
-      width: 400px
-      match_operator: CONTAINS
-      autocomplete: false
-    third_party_settings: {  }
-    type: select2_entity_reference
     region: content
   field_comments:
     weight: 25

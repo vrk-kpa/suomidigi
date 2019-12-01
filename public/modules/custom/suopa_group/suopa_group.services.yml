@@ -1,0 +1,5 @@
+services:
+  suopa_group.route_subscriber:
+    class: Drupal\suopa_group\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

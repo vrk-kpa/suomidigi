@@ -1,0 +1,18 @@
+uuid: dc97278e-47ce-42f7-864d-2c47c50353db
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.background_color
+id: taxonomy_term.background_color.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: background_color
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

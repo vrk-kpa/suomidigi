@@ -36,3 +36,36 @@ function suopa_content_update_8003() {
   suopa_content_add_translation("City", 'fi', 'Kaupunki');
   suopa_content_add_translation("Phone number", 'fi', 'Puhelinnumero');
 }
+
+/**
+ * Create translations for Blog posts.
+ */
+function suopa_content_update_8004() {
+  suopa_content_add_translation("New blog post", 'fi', 'Uusi blogikirjoitus');
+}
+
+/**
+ * Create translations for SuoPa Group.
+ */
+function suopa_content_update_8005() {
+  suopa_content_add_translation(
+    "Articles published by the group.",
+    'fi',
+    'Ryhmän julkaisemia artikkeleita'
+  );
+  suopa_content_add_translation(
+    "Upcoming events",
+    'fi',
+    'Tulevat tapahtumat'
+  );
+  suopa_content_add_translation(
+    "Events published by the group that are open to everyone to participate.",
+    'fi',
+    'Ryhmän julkaisemat tapahtumat, jotka ovat avoimia kaikille.'
+  );
+  suopa_content_add_translation(
+    "Involved in the development",
+    'fi',
+    'Mukana kehittämässä'
+  );
+}
