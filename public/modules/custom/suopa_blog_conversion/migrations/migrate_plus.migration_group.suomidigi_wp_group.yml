@@ -1,9 +1,9 @@
-uuid: f7216e75-6f3a-4724-9102-4d2da1d3686e
+uuid: 2a47fa81-3ac4-428f-9681-c7c0e7cb1ed3
 langcode: en
 status: true
 dependencies: {  }
-id: suomidigi_wp
-label: 'Imports from WordPress site'
+id: suomidigi_wp_group
+label: 'Imports from Suomidigi WordPress site'
 description: null
 source_type: WordPress
 module: null
@@ -16,4 +16,4 @@ shared_configuration:
       wfw: 'http://wellformedweb.org/CommentAPI/'
       dc: 'http://purl.org/dc/elements/1.1/'
     urls:
-      - 'public://suomidigi.wordpress.2019-10-10.xml'
+      - 'public://suomidigi.wordpress.2019-10-10_0.xml'

@@ -1,20 +1,20 @@
-uuid: c3b244d4-d503-4a83-bb60-8e9718423811
+uuid: 125fcfd9-c211-4cb2-817e-78f627fc7960
 langcode: en
 status: true
 dependencies: {  }
-id: suomidigi_wp_wordpress_content_page
+id: suomidigi_content_post
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
   - WordPress
-migration_group: suomidigi_wp
+migration_group: suomidigi_wp_group
 label: 'Import content from WordPress XML'
 source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: xml
-  item_selector: '/rss/channel/item[wp:post_type="page"]'
+  item_selector: '/rss/channel/item[wp:post_type="post"]'
   fields:
     -
       name: title
@@ -100,8 +100,13 @@ process:
     default_value: full_html
   type:
     plugin: default_value
-    default_value: page
+    default_value: blog_post
+  field_tags:
+    plugin: migration
+    migration: suomidigi_tags
+    source: post_tag
 destination:
   plugin: 'entity:node'
 migration_dependencies:
-  required: {  }
+  required:
+    - suomidigi_tags

@@ -1,14 +1,14 @@
-uuid: 95a1575b-5806-48bd-9798-3531ba40d289
+uuid: 75ceb85c-d754-4092-9250-fef3f8b181c3
 langcode: en
 status: true
 dependencies: {  }
-id: suomidigi_wp_wordpress_tags
+id: suomidigi_tags
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
   - WordPress
-migration_group: suomidigi_wp
+migration_group: suomidigi_wp_group
 label: 'Import tags from WordPress XML'
 source:
   plugin: url
