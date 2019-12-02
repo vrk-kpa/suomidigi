@@ -9,10 +9,17 @@
   }
 
   &__ingress {
-    @include font-size(14px);
-    @include line-height(14px, 20px);
     color: $black;
-    margin-bottom: $gutter * 3;
-    text-align: center;
+    @include font-size(20px);
+    @include line-height(20px, 26px);
+    @include font-weight($regular);
+    margin-bottom: $gutter * 2;
+    max-width: 650px;
+  }
+
+  &__content {
+    @include border('top');
+    margin-top: $gutter;
+    padding-top: $gutter * 2;
   }
 }

@@ -89,3 +89,14 @@ function suopa_content_update_8005() {
     'Ryhmän julkaisemia blogikirjoituksia'
   );
 }
+
+/**
+ * Create translations for SuoPa Group.
+ */
+function suopa_content_update_8006() {
+  suopa_content_add_translation(
+    "View group",
+    'fi',
+    'Tutustu ryhmään'
+  );
+}
