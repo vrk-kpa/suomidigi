@@ -6,19 +6,15 @@ dependencies:
     - field.storage.node.field_header_image
     - media.type.image
     - node.type.blog_post
-  content:
-    - 'media:image:5694163d-8bdd-4b35-97c4-16fa82e224a9'
 id: node.blog_post.field_header_image
 field_name: field_header_image
 entity_type: node
 bundle: blog_post
 label: 'Header Image'
 description: ''
-required: true
+required: false
 translatable: false
-default_value:
-  -
-    target_uuid: 5694163d-8bdd-4b35-97c4-16fa82e224a9
+default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:media'
