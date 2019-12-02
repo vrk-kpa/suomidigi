@@ -1,0 +1,21 @@
+uuid: e4ad87d3-4329-4c7c-bfca-1064c7ed0088
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_ci_organisation
+field_name: field_ci_organisation
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: kyNpSwmg-lAVp2WSkg0mEkXaF6nvxrj_xxHqM6iPoCU
 name: media_entity_browser_thumbnail
-label: 'Media Entity Browser thumbnail'
+label: 'Media Entity Browser thumbnail (350 x 200)'
 effects:
   1d899e87-51e4-4467-90db-e516c31d4688:
     uuid: 1d899e87-51e4-4467-90db-e516c31d4688

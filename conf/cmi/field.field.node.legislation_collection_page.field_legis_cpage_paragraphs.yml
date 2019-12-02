@@ -5,6 +5,9 @@ dependencies:
   config:
     - field.storage.node.field_legis_cpage_paragraphs
     - node.type.legislation_collection_page
+    - paragraphs.paragraphs_type.contact_information
+    - paragraphs.paragraphs_type.contact_information_item
+    - paragraphs.paragraphs_type.group_view
     - paragraphs.paragraphs_type.highlight_bullet_point_item
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_link
@@ -32,6 +35,9 @@ settings:
       highlight_bullet_point_item: highlight_bullet_point_item
       legislation_attachment: legislation_attachment
       legislation_link: legislation_link
+      contact_information: contact_information
+      contact_information_item: contact_information_item
+      group_view: group_view
     target_bundles_drag_drop:
       container:
         weight: -41
@@ -96,4 +102,13 @@ settings:
       feed:
         weight: 26
         enabled: false
+      contact_information:
+        enabled: true
+        weight: 27
+      contact_information_item:
+        enabled: true
+        weight: 28
+      group_view:
+        enabled: true
+        weight: 32
 field_type: entity_reference_revisions

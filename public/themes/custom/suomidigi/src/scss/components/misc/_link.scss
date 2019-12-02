@@ -54,4 +54,36 @@
       }
     }
   }
+
+  &--secondary {
+    align-content: center;
+    display: flex;
+    margin-bottom: 10px;
+
+    .link__icon-left {
+      .icon {
+        height: 25px;
+        margin-left: -8px;
+        opacity: 0.5;
+        width: 25px;
+      }
+    }
+
+    .link__icon-right {
+      .icon {
+        height: 18px;
+        left: 4px;
+        position: relative;
+        top: 2px;
+        width: 18px;
+      }
+    }
+
+    .link__text {
+      @include font-size(18px);
+      @include line-height(18px, 23px);
+      @include font-weight($semibold);
+      padding-right: $gutter / 4;
+    }
+  }
 }

@@ -3,28 +3,79 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group.group.field_community_reference
+    - field.field.group.group.field_community_reference_desc
+    - field.field.group.group.field_community_reference_title
+    - field.field.group.group.field_group_image
     - field.field.group.group.field_group_lists
+    - field.field.group.group.field_group_short_description
     - field.field.group.group.field_paragraphs
     - group.type.group
+    - image.style.16_9_half_content
   module:
     - entity_reference_revisions
+    - svg_image
 id: group.group.default
 targetEntityType: group
 bundle: group
 mode: default
 content:
+  field_community_reference:
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_community_reference_desc:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_community_reference_title:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_group_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: 16_9_half_content
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   field_group_lists:
     type: entity_reference_revisions_entity_view
-    weight: -3
+    weight: 4
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
+  field_group_short_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: -4
+    weight: 3
     label: hidden
     settings:
       view_mode: default
@@ -34,7 +85,7 @@ content:
   label:
     label: hidden
     type: string
-    weight: -5
+    weight: 0
     region: content
     settings:
       link_to_entity: false

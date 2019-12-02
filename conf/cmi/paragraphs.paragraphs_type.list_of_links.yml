@@ -1,0 +1,9 @@
+uuid: 6796e374-9630-48cc-9b45-b173a8f0ed8c
+langcode: en
+status: true
+dependencies: {  }
+id: list_of_links
+label: 'List of links'
+icon_uuid: null
+description: 'Use this paragraph to create a list of links.'
+behavior_plugins: {  }

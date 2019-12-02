@@ -14,10 +14,10 @@ filters:
   filter_html:
     id: filter_html
     provider: filter
-    status: false
+    status: true
     weight: -50
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption data-responsive-image-style> <a href hreflang !href accesskey id rel target title> <pre>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <br> <span> <img src alt height width data-entity-type data-entity-uuid data-align data-caption data-responsive-image-style> <a href hreflang !href accesskey id rel target title> <pre> <iframe allowfullscreen frameborder height mozallowfullscreen src webkitallowfullscreen width id>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_align:
@@ -89,6 +89,9 @@ filters:
     weight: -41
     settings:
       image_style_1200_width: '0'
+      image_style_16_9_full_content: '0'
+      image_style_16_9_half_content: '0'
+      image_style_16_9_hd: '0'
       image_style_600_width: '0'
       image_style_900_width: '0'
       image_style_article_full_header_image_large: '0'

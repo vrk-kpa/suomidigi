@@ -1,0 +1,17 @@
+uuid: 056726f6-055f-47ba-b07f-d0a0fbc435e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 2_1_hd
+label: '2:1 (Full HD)'
+effects:
+  b1328c5e-71d5-4b93-a48b-397ce5f86633:
+    uuid: b1328c5e-71d5-4b93-a48b-397ce5f86633
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 960
+      crop_type: focal_point

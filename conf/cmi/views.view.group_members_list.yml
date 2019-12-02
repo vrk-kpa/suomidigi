@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.user.compact
+    - core.entity_view_mode.user.mini
   module:
     - group
     - user
@@ -23,9 +23,9 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: group_permission
         options:
-          perm: 'access user profiles'
+          group_permission: 'view group'
       cache:
         type: tag
         options: {  }
@@ -58,7 +58,7 @@ display:
         type: 'entity:user'
         options:
           relationship: none
-          view_mode: compact
+          view_mode: mini
       fields:
         name:
           id: name
@@ -181,8 +181,9 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - route
+        - route.group
         - url
-        - user.permissions
+        - user.group_permissions
       tags: {  }
   members:
     display_plugin: block
@@ -198,6 +199,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - route
+        - route.group
         - url
-        - user.permissions
+        - user.group_permissions
       tags: {  }

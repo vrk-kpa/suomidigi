@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 name: theme_teaser_liftup_image_small
-label: 'Theme Teaser Liftup Image Small'
+label: 'Theme Teaser Liftup Image Small (64 x 64)'
 effects:
   3dd1da00-fc81-48b9-89b7-bd53168d33ab:
     uuid: 3dd1da00-fc81-48b9-89b7-bd53168d33ab

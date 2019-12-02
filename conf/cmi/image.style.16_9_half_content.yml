@@ -1,0 +1,17 @@
+uuid: 8bae9f99-c11a-48d2-825a-a2b84b002e46
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_half_content
+label: '16:9 (Half content)'
+effects:
+  b1328c5e-71d5-4b93-a48b-397ce5f86633:
+    uuid: b1328c5e-71d5-4b93-a48b-397ce5f86633
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 338
+      crop_type: focal_point
