@@ -39,6 +39,7 @@
     @include font-size(20px);
     @include line-height(20px, 28px);
     @include font-weight($regular);
+    min-height: 50px;
   }
 
   &__image {
