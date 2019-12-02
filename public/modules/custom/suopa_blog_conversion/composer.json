@@ -1,0 +1,17 @@
+{
+  "name": "drupal/suopa_blog_conversion",
+  "description": "Convert articles of blog subtype to blog_post content type.",
+  "type": "drupal-module",
+  "autoload": {
+    "psr-4": {
+      "Drupal\\suopa_editorial\\": "src/"
+    }
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  }
+}

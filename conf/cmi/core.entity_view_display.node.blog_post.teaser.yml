@@ -1,38 +1,30 @@
-uuid: 27b6db19-2247-45ec-98e7-c0bd917aab42
+uuid: 0301a09e-5caf-4d5c-99ae-22e4e84b1cb3
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.article.field_article_type
-    - field.field.node.article.field_comments
-    - field.field.node.article.field_displayed_author
-    - field.field.node.article.field_displayed_update_time
-    - field.field.node.article.field_header_image
-    - field.field.node.article.field_ingress
-    - field.field.node.article.field_paragraphs
-    - field.field.node.article.field_reading_time
-    - field.field.node.article.field_tags
-    - field.field.node.article.field_theme
-    - node.type.article
+    - field.field.node.blog_post.field_blog
+    - field.field.node.blog_post.field_comments
+    - field.field.node.blog_post.field_displayed_author
+    - field.field.node.blog_post.field_displayed_update_time
+    - field.field.node.blog_post.field_header_image
+    - field.field.node.blog_post.field_ingress
+    - field.field.node.blog_post.field_paragraphs
+    - field.field.node.blog_post.field_reading_time
+    - field.field.node.blog_post.field_tags
+    - field.field.node.blog_post.field_theme
+    - node.type.blog_post
   module:
     - smart_trim
     - user
 _core:
   default_config_hash: 4NcL2hSQZBpJbYtNuh5jC6kyQTcAc1m5bQpTegEWEso
-id: node.article.teaser
+id: node.blog_post.teaser
 targetEntityType: node
-bundle: article
+bundle: blog_post
 mode: teaser
 content:
-  field_article_type:
-    type: entity_reference_label
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_header_image:
     type: entity_reference_entity_view
     weight: 1
@@ -62,6 +54,7 @@ content:
       summary_handler: full
     third_party_settings: {  }
 hidden:
+  field_blog: true
   field_comments: true
   field_displayed_author: true
   field_displayed_update_time: true

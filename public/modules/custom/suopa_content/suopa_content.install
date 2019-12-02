@@ -38,9 +38,16 @@ function suopa_content_update_8003() {
 }
 
 /**
- * Create translations for SuoPa Group.
+ * Create translations for Blog posts.
  */
 function suopa_content_update_8004() {
+  suopa_content_add_translation("New blog post", 'fi', 'Uusi blogikirjoitus');
+}
+
+/**
+ * Create translations for SuoPa Group.
+ */
+function suopa_content_update_8005() {
   suopa_content_add_translation(
     "Articles published by the group.",
     'fi',
@@ -49,7 +56,8 @@ function suopa_content_update_8004() {
   suopa_content_add_translation(
     "Upcoming events",
     'fi',
-    'Tulevat tapahtumat');
+    'Tulevat tapahtumat'
+  );
   suopa_content_add_translation(
     "Events published by the group that are open to everyone to participate.",
     'fi',
