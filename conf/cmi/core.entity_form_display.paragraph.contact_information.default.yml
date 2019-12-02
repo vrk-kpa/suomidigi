@@ -1,0 +1,36 @@
+uuid: 51d0cd99-1440-4b0a-91f4-1e0b0e7ad3cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_information.field_p_content_unlimited
+    - paragraphs.paragraphs_type.contact_information
+  module:
+    - paragraphs
+id: paragraph.contact_information.default
+targetEntityType: paragraph
+bundle: contact_information
+mode: default
+content:
+  field_p_content_unlimited:
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: contact_information_item
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
+    third_party_settings: {  }
+    type: paragraphs
+    region: content
+hidden:
+  created: true
+  status: true

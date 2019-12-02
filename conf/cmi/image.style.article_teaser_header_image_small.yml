@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 name: article_teaser_header_image_small
-label: 'Article Teaser Header Image Small'
+label: 'Article Teaser Header Image Small (600 x 214)'
 effects:
   d3a7422d-4d86-4d20-9c89-cbd5a0cf51a4:
     uuid: d3a7422d-4d86-4d20-9c89-cbd5a0cf51a4

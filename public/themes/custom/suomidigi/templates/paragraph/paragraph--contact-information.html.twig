@@ -1,0 +1,14 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set title = 'Contact information'|t %}
+
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <h2 class="paragraph__title">{{ title }}</h2>
+      <div class="paragraph-list">
+        {{ content }}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

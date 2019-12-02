@@ -31,7 +31,7 @@ content:
     region: content
     label: hidden
     settings:
-      view_mode: article_teaser_header
+      view_mode: blog_teaser_header
       link: false
     third_party_settings: {  }
   field_ingress:
@@ -40,18 +40,28 @@ content:
     region: content
     label: hidden
     settings:
-      trim_length: 150
+      trim_length: 300
       trim_type: chars
       trim_suffix: ...
       wrap_class: trimmed
       more_text: More
       more_class: more-link
-      trim_options:
-        text: true
-        trim_zero: true
       wrap_output: false
       more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
       summary_handler: full
+    third_party_settings: {  }
+  published_at:
+    type: timestamp
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      date_format: date
+      custom_date_format: ''
+      timezone: ''
     third_party_settings: {  }
 hidden:
   field_blog: true
@@ -64,6 +74,5 @@ hidden:
   field_theme: true
   langcode: true
   links: true
-  published_at: true
   rate_vote_widget: true
   search_api_excerpt: true

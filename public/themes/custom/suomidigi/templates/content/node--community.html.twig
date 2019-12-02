@@ -7,12 +7,12 @@
 {%
   set classes = [
   'community',
-]
+  ]
 %}
+
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
 
-  <a class="community__link community__wrapper" href="{{ content.field_community_link.0['#url'] }}">
     <div class="community__header">
       <div class="community__icon">
         {% if community_domain_logo is not empty %}
@@ -25,24 +25,47 @@
           {% endif %}
         {% endif %}
       </div>
-      <div class="community__title-wrapper">
-        {% if label %}
-          <h2 class="community__title">
-            {{ label }}
-          </h2>
-        {% endif %}
+      <div class="community__domain-wrapper">
         {% if community_domain_domain %}
           <p class="community__domain">
             {{ community_domain_domain }}
           </p>
         {% endif %}
       </div>
-      <button class="community__cta">
-        {{ 'Join'|t }}
-      </button>
+    </div>
+    <div class="community__title-wrapper">
+      {% if label %}
+        <h2 class="community__title">
+          {{ label }}
+        </h2>
+      {% endif %}
     </div>
     <div class="community__content">
       {{ content.field_community_description }}
     </div>
-  </a>
+    <a class="community__cta-wrapper" href="{{ content.field_community_link.0['#url'] }}" target="_blank">
+      <div class="community__cta">
+        {% if icons_path %}
+          <div class="community__cta-icon-left">
+            <svg class="icon">
+              <title>{{ text }}</title>
+              <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
+            </svg>
+          </div>
+        {% endif %}
+        <div class="community__cta-content-right">
+          <span class="community__cta-text">
+            {{ 'Join the community'|t }} {{ node.label }}
+          </span>
+          {% if icons_path %}
+            <span class="community__cta-icon-right">
+              <svg class="icon">
+                <title>{{ text }}</title>
+                <use xlink:href="{{ icons_path|trim }}#link-external"/>
+              </svg>
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    </a>
 </article>

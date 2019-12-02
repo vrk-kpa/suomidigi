@@ -5,6 +5,9 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.core_content
+    - paragraphs.paragraphs_type.contact_information
+    - paragraphs.paragraphs_type.contact_information_item
+    - paragraphs.paragraphs_type.group_view
     - paragraphs.paragraphs_type.highlight_bullet_point_item
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_cards
@@ -33,7 +36,10 @@ settings:
       highlight_bullet_point_item: highlight_bullet_point_item
       legislation_cards: legislation_cards
       legislation_attachment: legislation_attachment
+      contact_information: contact_information
       legislation_link: legislation_link
+      contact_information_item: contact_information_item
+      group_view: group_view
     target_bundles_drag_drop:
       container:
         weight: -31
@@ -92,9 +98,18 @@ settings:
       feed:
         weight: 26
         enabled: false
+      contact_information:
+        enabled: true
+        weight: 27
       legislation_link:
         enabled: true
         weight: 28
+      contact_information_item:
+        enabled: true
+        weight: 28
+      group_view:
+        enabled: true
+        weight: 32
       view:
         weight: 42
         enabled: false

@@ -1,0 +1,63 @@
+uuid: 64d747db-7f4a-4c9d-bb74-84dfc1880323
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.mini
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_user_description
+    - field.field.user.user.field_user_linkedin
+    - field.field.user.user.field_user_organisation
+    - field.field.user.user.field_user_title
+    - field.field.user.user.field_user_twitter
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - svg_image
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.mini
+targetEntityType: user
+bundle: user
+mode: mini
+content:
+  field_first_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_last_name:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  field_user_description: true
+  field_user_linkedin: true
+  field_user_organisation: true
+  field_user_title: true
+  field_user_twitter: true
+  langcode: true
+  member_for: true
+  search_api_excerpt: true

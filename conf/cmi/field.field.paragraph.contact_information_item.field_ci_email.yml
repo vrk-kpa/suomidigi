@@ -1,0 +1,19 @@
+uuid: 7749e776-7662-450b-be65-5f7bedd7e9a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ci_email
+    - paragraphs.paragraphs_type.contact_information_item
+id: paragraph.contact_information_item.field_ci_email
+field_name: field_ci_email
+entity_type: paragraph
+bundle: contact_information_item
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: Y9NmnZHQq20ASSyTNA6JnwtWrJJiSajOehGDtmUFdM0
 name: medium
-label: 'Medium (220×220)'
+label: 'Medium (220 × 220)'
 effects:
   d85c6559-3375-48c1-953b-f9bbce7c371c:
     uuid: d85c6559-3375-48c1-953b-f9bbce7c371c

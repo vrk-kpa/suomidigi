@@ -1,0 +1,25 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set title = content.field_p_title.0 %}
+  {% set description = content.field_p_description_html.0 %}
+  {% set paragraph_content = content|without('field_p_title', 'field_p_description_html') %}
+
+  {% block content %}
+    <div{{ attributes.addClass(['group__list','paragraph--group-view']) }} >
+      {% if title|render %}
+        <h2 class="paragraph__title">
+          {{ title }}
+        </h2>
+      {% endif %}
+      {% if description|render %}
+        <div class="paragraph__description">
+          {{ description }}
+        </div>
+      {% endif %}
+      <div class="paragraph__content">
+        {{ content|without('field_p_title', 'field_p_description_html') }}
+      </div>
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

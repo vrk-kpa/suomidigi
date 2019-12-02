@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 name: legislation_collection_page_full_header_image_large
-label: 'Legislation Collection Page Full Header Image Large'
+label: 'Legislation Collection Page Full Header Image Large (800 x 285)'
 effects:
   96af1e42-901e-419c-86d8-d9221ed3ee84:
     uuid: 96af1e42-901e-419c-86d8-d9221ed3ee84

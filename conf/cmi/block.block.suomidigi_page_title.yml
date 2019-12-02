@@ -11,7 +11,7 @@ _core:
 id: suomidigi_page_title
 theme: suomidigi
 region: before_content
-weight: -13
+weight: -12
 provider: null
 plugin: page_title_block
 settings:

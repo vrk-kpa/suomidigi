@@ -1,3 +1,4 @@
+.block-group-operations,
 .block-content-creation-links-block {
   @include breakpoint($for-tablet-portrait-up) {
     margin: $gutter $gutter 0 $gutter;
@@ -9,6 +10,18 @@
 
     .contextual {
       top: -25px;
+    }
+  }
+}
+
+.block-group-operations {
+  @include breakpoint($for-tablet-portrait-up) {
+    margin: 10px -5px 0 $gutter;
+  }
+  .dropbutton-widget {
+    .js & {
+      background-color: transparent;
+      border: 0 none;
     }
   }
 }

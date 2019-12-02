@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<article{{ attributes.addClass('profile-card--mini') }}>
+  <div class="profile-card__picture">
+    {% if content.user_picture|render %}
+      {{ content.user_picture }}
+    {% else %}
+      {% if content.field_first_name|render|first|upper %}
+        <span class="profile-card__picture--letter">
+          {{ content.field_first_name.0['#context'].value|first|upper }}
+        </span>
+      {% else %}
+        <span class="profile-card__picture--letter">
+          {{ user.name.0.value|first|upper }}
+        </span>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="profile-card__content">
+    <div class="profile-card__name">
+      {% if content.field_first_name|render %}
+        {{ content.field_first_name }} {{ content.field_last_name }}
+      {% else %}
+        {% set user_name = user.name.0.value|split('@') %}
+        {{ user_name[0] }}
+      {% endif %}
+    </div>
+  </div>
+</article>
