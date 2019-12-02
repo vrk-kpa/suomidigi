@@ -78,4 +78,14 @@ function suopa_content_update_8005() {
     'fi',
     'Liity verkostoon'
   );
+  suopa_content_add_translation(
+    "Blog posts",
+    'fi',
+    'Blogikirjoitukset'
+  );
+  suopa_content_add_translation(
+    "Blog posts published by the group.",
+    'fi',
+    'Ryhmän julkaisemia blogikirjoituksia'
+  );
 }
