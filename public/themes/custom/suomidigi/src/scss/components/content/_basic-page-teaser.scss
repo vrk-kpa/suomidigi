@@ -1,0 +1,96 @@
+.basic-page-teaser {
+    height: 100%;
+  }
+  
+.basic-page-teaser__link {
+    background-color: $white;
+    display: block;
+    height: 100%;
+    text-decoration: none;
+}
+  
+.basic-page-teaser__image {
+    padding: 0;
+    img {
+      display: block;
+      width: 100%;
+    }
+}
+  
+.basic-page-teaser__content {
+    padding: $gutter;
+    position: relative;
+}
+  
+  
+.basic-page-teaser__label-container {
+    color: $blue-medium;
+    @include font-size(20px);
+    @include line-height(20px, 24px);
+    margin: $gutter * 0.5 0;
+    overflow-wrap: break-word;
+  
+    &:hover {
+      color: $black;
+    }
+  
+    @include breakpoint($for-tablet-portrait-up) {
+      @include font-size(22px);
+      @include line-height(22px, 28px);
+      margin: $gutter * 0.5 0 $gutter;
+    }
+  
+    @include breakpoint($for-desktop-up) {
+      @include font-size(24px);
+    }
+}
+  
+.basic-page-teaser__label {
+    @include font-weight($semibold);
+}
+  
+.basic-page-teaser__type {
+    border-top: 1px solid $gray-medium;
+    color: $black;
+    @include font-size(14px);
+    @include line-height(14px, 18px);
+    @include font-weight($semibold);
+    padding-top: $gutter / 1.4;
+    text-transform: uppercase;
+  
+    &::after {
+      background-image: url("../../icons/svg/bookmark-blue.svg");
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      bottom: 0;
+      content: "";
+      height: 32px;
+      right: 0;
+      opacity: 1;
+      position: absolute;
+      width: 32px;
+    }
+}
+  
+  /* Styles for full width teasers */ 
+  .paragraph--full-width {
+    width: 100%;
+  
+    @include breakpoint($for-tablet-portrait-up) {
+      .basic-page-teaser__link {
+        display: flex;
+      }
+  
+      .basic-page-teaser__image {
+        height: auto;
+        max-width: 370px;
+        min-width: 370px;
+        
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+    }
+  
+  }

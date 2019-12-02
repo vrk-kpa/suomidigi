@@ -97,19 +97,14 @@
           {{ published_at|date('j.n.Y') }}
         </div>
       {% endif %}
-      <div class="article-teaser__label">
-        <h3>
+      <div class="article-teaser__label-container">
+        <h3 class="article-teaser__label">
           {{ label }}
         </h3>
       </div>
       <div class="article-teaser__type">
         {{ content.field_article_type }}
       </div>
-      {# {% if content.field_ingress|render %}
-        <p class="article-teaser__lead">
-          {{ content.field_ingress['0']['#markup'] }}
-        </p>
-      {% endif %} #}
     </div>
   </a>
 </article>

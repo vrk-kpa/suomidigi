@@ -18,61 +18,17 @@
 }
 
 .article-teaser__content {
-  @include line-height(12px, 14px);
   padding: $gutter;
-}
-
-.article-teaser__type {
-  border-top: 1px solid $gray-medium;
-  color: $black;
-  @include font-size(14px);
-  @include line-height(14px, 18px);
-  @include font-weight($semibold);
-  padding-top: $gutter / 1.4;
-  text-transform: uppercase;
-
-  // tänne lisää after tyylillä bookmark.svg right 0
-}
-
-.article-teaser__label {
-  @include font-size(20px);
-  @include line-height(20px, 24px);
-  color: $blue-medium;
-  margin: $gutter * 0.5 0;
-  overflow-wrap: break-word;
-
-  &:hover {
-    color: $black;
-  }
-
-  h3 {
-    @include font-weight($semibold);
-  }
-
-  @include breakpoint($for-tablet-portrait-up) {
-    @include font-size(22px);
-    @include line-height(22px, 28px);
-    margin: $gutter * 0.5 0 $gutter;
-  }
-
-  @include breakpoint($for-desktop-up) {
-    @include font-size(24px);
-  }
+  position: relative;
 }
 
 .article-teaser__data {
+  color: $black;
+  display: flex;
+  flex-wrap: wrap;
   @include font-size(14px);
   @include line-height(14px, 18px);
   @include font-weight($semibold);
-  color: $black;
-  // display: flex;
-  // flex-wrap: wrap;
-}
-
-.article-teaser__lead {
-  @include line-height(14px, 22px);
-  color: $black;
-  margin: 0;
 }
 
 .article-teaser__modified-text,
@@ -103,31 +59,73 @@
   }
 }
 
+.article-teaser__label-container {
+  color: $blue-medium;
+  @include font-size(20px);
+  @include line-height(20px, 24px);
+  margin: $gutter * 0.5 0;
+  overflow-wrap: break-word;
+
+  &:hover {
+    color: $black;
+  }
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size(22px);
+    @include line-height(22px, 28px);
+    margin: $gutter * 0.5 0 $gutter;
+  }
+
+  @include breakpoint($for-desktop-up) {
+    @include font-size(24px);
+  }
+}
+
+.article-teaser__label {
+  @include font-weight($semibold);
+}
+
+.article-teaser__type {
+  border-top: 1px solid $gray-medium;
+  color: $black;
+  @include font-size(14px);
+  @include line-height(14px, 18px);
+  @include font-weight($semibold);
+  padding-top: $gutter / 1.4;
+  text-transform: uppercase;
+
+  &::after {
+    background-image: url("../../icons/svg/bookmark-blue.svg");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    bottom: 0;
+    content: "";
+    height: 32px;
+    right: 0;
+    opacity: 1;
+    position: absolute;
+    width: 32px;
+  }
+}
+
+/* Styles for full width teasers */ 
 .paragraph--full-width {
   width: 100%;
 
   @include breakpoint($for-tablet-portrait-up) {
     .article-teaser__link {
-      // align-items: center;
       display: flex;
-      // height: 100%;
     }
 
     .article-teaser__image {
-      min-width: 370px;
-      max-width: 370px;
-      /*height: 190px;*/
-      
       height: auto;
-
+      max-width: 370px;
+      min-width: 370px;
+      
       img {
         object-fit: cover;
-        //min-height: 100%;
         height: 100%;
       }
-        
-      
-   
     }
   }
 
