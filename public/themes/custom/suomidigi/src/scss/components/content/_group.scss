@@ -82,6 +82,7 @@
     @include line-height(18px, 26px);
     @include font-weight($regular);
     color: $black;
+    width: 100%;
 
     h2 {
       @include font-size(22px);

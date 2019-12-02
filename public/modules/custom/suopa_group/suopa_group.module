@@ -37,14 +37,14 @@ function suopa_group_entity_create(EntityInterface $entity) {
   $articles = Paragraph::create([
     'type' => 'group_view',
     'field_p_title' => [
-      'value' => t('Articles'),
+      'value' => t('Blog posts'),
     ],
     'field_p_description_html' => [
-      'value' => t('Articles published by the group.'),
+      'value' => t('Blog posts published by the group.'),
     ],
     'field_p_view' => [
       'target_id' => 'group_content',
-      'display_id' => 'articles',
+      'display_id' => 'blog_posts',
     ],
   ]);
   $articles->save();
