@@ -1,6 +1,6 @@
 display:
-  articles:
-    display_title: Artikkelit
+  blog_posts:
+    display_title: Blogikirjoitukset
   events:
     display_title: Tapahtumat
   default:
