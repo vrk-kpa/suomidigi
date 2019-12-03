@@ -39,6 +39,7 @@
     @include font-size(20px);
     @include line-height(20px, 28px);
     @include font-weight($regular);
+    min-height: 50px;
   }
 
   &__image {
@@ -157,6 +158,50 @@
       @include breakpoint($for-tablet-portrait-up) {
         width: calc(50% - (#{$gutter} * 2));
       }
+    }
+  }
+
+  &--teaser {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    margin-bottom: $gutter * 2;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      flex-flow: row;
+    }
+
+    .group__image {
+      min-width: 270px;
+      order: 1;
+      width: 100%;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        width: 270px;
+      }
+
+      img {
+        min-height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    .group__content {
+      background-color: $white;
+      order: 2;
+      padding: $gutter * 2;
+
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+
+    .group__link {
+      @include border('top');
+      margin-top: $gutter * 2;
+      padding-top: $gutter;
+      text-decoration: none;
     }
   }
 }

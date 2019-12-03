@@ -10,7 +10,7 @@ dependencies:
 id: groupoperations
 theme: suomidigi
 region: before_content
-weight: -13
+weight: 0
 provider: null
 plugin: group_operations
 settings:
@@ -20,11 +20,4 @@ settings:
   label_display: '0'
   context_mapping:
     group: '@group.group_route_context:group'
-visibility:
-  'entity_bundle:group':
-    id: 'entity_bundle:group'
-    bundles:
-      group: group
-    negate: false
-    context_mapping:
-      group: '@group.group_route_context:group'
+visibility: {  }
