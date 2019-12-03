@@ -59,6 +59,7 @@ function suomidigi_preprocess_page(&$variables) {
     'core_content',
     'webform',
     'blog_post',
+    'page',
   ];
 
   if (

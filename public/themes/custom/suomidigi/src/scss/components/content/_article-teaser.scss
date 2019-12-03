@@ -7,6 +7,13 @@
   display: block;
   height: 100%;
   text-decoration: none;
+
+  &:hover, 
+  &:focus {
+    .article-teaser__label {
+      color: $black;
+    } 
+  } 
 }
 
 .article-teaser__image {
@@ -66,10 +73,6 @@
   margin: $gutter * 0.5 0;
   overflow-wrap: break-word;
 
-  &:hover {
-    color: $black;
-  }
-
   @include breakpoint($for-tablet-portrait-up) {
     @include font-size(22px);
     @include line-height(22px, 28px);
@@ -121,12 +124,12 @@
       height: auto;
       max-width: 370px;
       min-width: 370px;
-      
-      img {
-        object-fit: cover;
-        height: 100%;
-      }
-    }
-  }
 
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+    } 
+  }
 }

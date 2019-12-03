@@ -12,6 +12,17 @@
   }
 }
 
+.basic-page__lead {
+  @include font-size(20px);
+  @include line-height(20px, 26px);
+  @include font-weight($regular);
+  margin-bottom: $gutter;
+
+  @include breakpoint($for-tablet-landscape-up) {
+    margin-bottom: $gutter * 2;
+  }
+}
+
 .basic-page__data {
   color: $black;
   display: flex;
@@ -41,20 +52,8 @@
   @include font-weight($semibold);
 }
 
-.basic-page__modified-text,
-.basic-page__reading-time {
+.basic-page__modified-text {
   margin-right: 0.25rem;
-}
-
-.basic-page__lead {
-  @include font-size(20px);
-  @include line-height(20px, 26px);
-  @include font-weight($regular);
-  margin-bottom: $gutter;
-
-  @include breakpoint($for-tablet-landscape-up) {
-    margin-bottom: $gutter * 2;
-  }
 }
 
 .basic-page__image {
@@ -69,3 +68,5 @@
     width: 100%;
   }
 }
+
+
