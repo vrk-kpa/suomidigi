@@ -1,14 +1,14 @@
-uuid: 125fcfd9-c211-4cb2-817e-78f627fc7960
+uuid: c772c467-2917-41e5-98b4-8f2fae4dd0ef
 langcode: en
 status: true
 dependencies: {  }
-id: suomidigi_content_post
+id: suomidigi_wordpress_content_post
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
   - WordPress
-migration_group: suomidigi_wp_group
+migration_group: suomidigi
 label: 'Import content from WordPress XML'
 source:
   plugin: url
@@ -64,11 +64,22 @@ process:
     -
       plugin: get
       source: title
-  body/value:
+  field_paragraphs:
     -
-      plugin: get
-      source: content
-  body/summary:
+      plugin: migration_lookup
+      migration: suomidigi_wordpress_paragraphs
+      no_stub: true
+      source_ids:
+        suomidigi_wordpress_paragraphs:
+          - post_id
+    -
+      plugin: key_wrapper
+    -
+      plugin: sub_process
+      process:
+        target_id: '0'
+        target_revision_id: '1'
+  field_ingress:
     -
       plugin: get
       source: excerpt
@@ -95,18 +106,16 @@ process:
   uid:
     plugin: default_value
     default_value: '7'
-  body/format:
-    plugin: default_value
-    default_value: full_html
   type:
     plugin: default_value
     default_value: blog_post
   field_tags:
-    plugin: migration
-    migration: suomidigi_tags
+    plugin: migration_lookup
+    migration: suomidigi_wordpress_tags
     source: post_tag
 destination:
   plugin: 'entity:node'
 migration_dependencies:
   required:
-    - suomidigi_tags
+    - suomidigi_wordpress_paragraphs
+    - suomidigi_wordpress_tags

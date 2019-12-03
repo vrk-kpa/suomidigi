@@ -1,14 +1,14 @@
-uuid: 61a02b00-64ff-4117-a6eb-18dc6ff3f251
+uuid: d38ca1b1-b826-4edf-9504-8a9cc7803ab0
 langcode: en
 status: true
 dependencies: {  }
-id: suomidigi_comment_post
+id: suomidigi_wordpress_comment_post
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
   - WordPress
-migration_group: suomidigi_wp_group
+migration_group: suomidigi
 label: 'Import comments from WordPress XML'
 source:
   plugin: url
@@ -72,12 +72,12 @@ process:
     -
       plugin: migration
       source: post_id
-      migration: suomidigi_content_post
+      migration: suomidigi_wordpress_content_post
   pid:
     -
       plugin: migration
       source: comment_parent
-      migration: suomidigi_comment_post
+      migration: suomidigi_wordpress_comment_post
   entity_type:
     -
       plugin: default_value
@@ -127,4 +127,4 @@ destination:
   plugin: 'entity:comment'
 migration_dependencies:
   required:
-    - suomidigi_content_post
+    - suomidigi_wordpress_content_post
