@@ -1,0 +1,101 @@
+uuid: 4a2a6dd9-c782-45fe-bbd5-025f0533098a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.page
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+    - paragraphs.paragraphs_type.legislation_attachment
+    - paragraphs.paragraphs_type.legislation_cards
+    - paragraphs.paragraphs_type.legislation_link
+    - paragraphs.paragraphs_type.liftup_box_item
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
+  module:
+    - entity_reference_revisions
+id: node.page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: page
+label: Paragraphs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles:
+      liftup_box_item: liftup_box_item
+      liftup_entity_reference_item: liftup_entity_reference_item
+      highlight_bullet_point_item: highlight_bullet_point_item
+      legislation_cards: legislation_cards
+      legislation_attachment: legislation_attachment
+      legislation_link: legislation_link
+    target_bundles_drag_drop:
+      container:
+        weight: -43
+        enabled: false
+      container_title:
+        weight: -42
+        enabled: false
+      text:
+        weight: -41
+        enabled: false
+      media:
+        weight: -40
+        enabled: false
+      attachment:
+        weight: -39
+        enabled: false
+      link:
+        weight: -38
+        enabled: false
+      liftup_box:
+        weight: -37
+        enabled: false
+      liftup_box_item:
+        enabled: true
+        weight: -36
+      liftup_entity_reference:
+        weight: -35
+        enabled: false
+      liftup_entity_reference_item:
+        enabled: true
+        weight: -34
+      liftup_prominent:
+        weight: -33
+        enabled: false
+      highlight_bullet_point:
+        weight: -32
+        enabled: false
+      highlight_bullet_point_item:
+        enabled: true
+        weight: -31
+      highlight_cta:
+        weight: -30
+        enabled: false
+      highlight_text_box:
+        weight: -29
+        enabled: false
+      banner_cta:
+        weight: -28
+        enabled: false
+      feed:
+        weight: -27
+        enabled: false
+      view:
+        weight: -26
+        enabled: false
+      legislation_cards:
+        enabled: true
+        weight: -25
+      legislation_attachment:
+        enabled: true
+        weight: -24
+      legislation_link:
+        enabled: true
+        weight: -23
+field_type: entity_reference_revisions

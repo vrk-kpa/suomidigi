@@ -37,6 +37,8 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
     'node_core_content_form',
     'node_blog_post_edit_form',
     'node_blog_post_form',
+    'node_page_edit_form',
+    'node_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
@@ -68,6 +70,8 @@ function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
     'node_blog_post_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
+    'node_page_edit_form',
+    'node_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
@@ -93,6 +97,8 @@ function suopa_editorial_disable_sibling_checkbox(&$form, $form_state) {
     'node_landing_page_edit_form',
     'node_landing_page_form',
     'taxonomy_term_theme_form',
+    'node_page_edit_form',
+    'node_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
@@ -266,6 +272,14 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
     $link = Link::fromTextAndUrl(t('Edit authors'), $url);
     $link = $link->toRenderable();
     $form['field_displayed_author']['#suffix'] = t('Complete the author information.') . ' ' . render($link) . '.';
+  }
+
+  // Hide menu selection from node basic page.
+  if (
+    $form_id == 'node_page_edit_form' ||
+    $form_id == 'node_page_form'
+  ) {
+    $form['menu']['#access'] = FALSE;
   }
 
   return $form;

@@ -1,0 +1,21 @@
+uuid: b25abe8e-40d5-4b1b-816a-cb081466e2c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_displayed_update_time
+    - node.type.page
+  module:
+    - datetime
+id: node.page.field_displayed_update_time
+field_name: field_displayed_update_time
+entity_type: node
+bundle: page
+label: 'Displayed update time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

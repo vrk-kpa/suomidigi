@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.storage.paragraph.field_p_entity_reference
     - node.type.article
+    - node.type.blog_post
     - node.type.community
     - node.type.core_content
     - node.type.event
     - node.type.legislation_card
     - node.type.legislation_collection_page
+    - node.type.page
     - paragraphs.paragraphs_type.liftup_entity_reference_item
 id: paragraph.liftup_entity_reference_item.field_p_entity_reference
 field_name: field_p_entity_reference
@@ -26,6 +28,8 @@ settings:
   handler_settings:
     target_bundles:
       article: article
+      page: page
+      blog_post: blog_post
       community: community
       core_content: core_content
       event: event

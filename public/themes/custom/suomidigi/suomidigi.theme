@@ -59,6 +59,7 @@ function suomidigi_preprocess_page(&$variables) {
     'core_content',
     'webform',
     'blog_post',
+    'page',
   ];
 
   if (
@@ -85,6 +86,7 @@ function suomidigi_preprocess_node(&$variables) {
   if (
     $node->getType() === 'article' ||
     $node->getType() === 'blog_post' ||
+    $node->getType() === 'page' ||
     $node->getType() === 'legislation_collection_page'
   ) {
     if ($node->hasField('field_header_image')) {

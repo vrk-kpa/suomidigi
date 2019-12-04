@@ -3,10 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
+    - field.field.node.page.field_displayed_author
+    - field.field.node.page.field_displayed_update_time
+    - field.field.node.page.field_header_image
+    - field.field.node.page.field_ingress
+    - field.field.node.page.field_paragraphs
+    - field.field.node.page.field_tags
     - node.type.page
   module:
-    - text
+    - datetime
+    - entity_reference_revisions
     - user
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
@@ -15,15 +21,58 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
-  body:
+  field_displayed_author:
+    weight: 0
     label: hidden
-    type: text_default
-    weight: 100
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
+  field_displayed_update_time:
+    weight: 4
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_header_image:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: article_full_header
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_ingress:
+    weight: 5
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 101
+    type: basic_string
+    region: content
+  field_paragraphs:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_tags:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
 hidden:
   langcode: true
+  links: true
+  published_at: true
+  search_api_excerpt: true

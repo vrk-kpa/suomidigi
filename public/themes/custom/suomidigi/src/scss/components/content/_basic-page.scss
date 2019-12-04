@@ -1,0 +1,70 @@
+.basic-page {
+  padding-bottom: $gutter * 2;
+}
+
+.basic-page__title {
+  h1 {
+    color: $blue-medium;
+    @include font-size(26px);
+    @include line-height(26px, 33px);
+    @include font-weight($bold);
+    margin-bottom: $gutter;
+  }
+}
+
+.basic-page__lead {
+  @include font-size(20px);
+  @include line-height(20px, 26px);
+  @include font-weight($regular);
+  margin-bottom: $gutter;
+
+  @include breakpoint($for-tablet-landscape-up) {
+    margin-bottom: $gutter * 2;
+  }
+}
+
+.basic-page__data {
+  @include font-size(14px);
+  @include line-height(14px, 18px);
+  color: $black;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $gutter * 2;
+
+  a {
+    text-decoration: none;
+  }
+
+  &-item {
+    display: flex;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
+
+.basic-page__author {
+  @include font-weight($semibold);
+  color: $blue-light;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.basic-page__modified-text {
+  margin-right: 0.25rem;
+}
+
+.basic-page__image {
+  margin: calc(#{$gutter} * 0.5) -#{$gutter} #{$gutter};
+
+  @include breakpoint($for-tablet-landscape-up) {
+    margin: #{$gutter} 0 calc(#{$gutter} * 2);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}

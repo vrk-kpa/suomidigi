@@ -1,18 +1,18 @@
-uuid: 5749f391-4c97-40d8-a1b4-de3777031f93
+uuid: f307bd4f-2ee8-4ef8-844d-69e025783dee
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_article_type
-    - node.type.article
-    - taxonomy.vocabulary.article_type
-id: node.article.field_article_type
-field_name: field_article_type
+    - field.storage.node.field_tags
+    - node.type.page
+    - taxonomy.vocabulary.tags
+id: node.page.field_tags
+field_name: field_tags
 entity_type: node
-bundle: article
-label: 'Article type'
+bundle: page
+label: Tags
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      article_type: article_type
+      tags: tags
     sort:
       field: name
       direction: asc
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference
