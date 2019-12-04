@@ -139,10 +139,6 @@ module:
   webform_ui: 0
   wordpress_migrate: 0
   wordpress_migrate_ui: 0
-  workflow: 0
-  workflow_access: 0
-  workflow_operations: 0
-  workflow_ui: 0
   hide_revision_field: 1
   menu_link_content: 1
   pathauto: 1

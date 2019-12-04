@@ -45,6 +45,4 @@ process:
     default_value: tags
 destination:
   plugin: 'entity:taxonomy_term'
-migration_dependencies:
-  optional: {  }
-  required: {  }
+migration_dependencies: {  }

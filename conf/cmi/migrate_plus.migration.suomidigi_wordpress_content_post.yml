@@ -56,6 +56,10 @@ source:
       name: category
       label: 'Categories assigned to the content item'
       selector: 'category[@domain="category"]/@nicename'
+    -
+      name: header_image
+      label: 'Header image'
+      selector: 'wp:postmeta[child::wp:meta_key="_social_image_id"]/child::wp:meta_value'
   ids:
     post_id:
       type: integer
@@ -92,6 +96,10 @@ process:
     -
       plugin: get
       source: '@created'
+  published_at:
+    -
+      plugin: get
+      source: '@created'
   status:
     -
       plugin: static_map
@@ -112,10 +120,12 @@ process:
   field_tags:
     plugin: migration_lookup
     migration: suomidigi_wordpress_tags
+    no_stub: true
     source: post_tag
 destination:
   plugin: 'entity:node'
 migration_dependencies:
   required:
+    - suomidigi_wordpress_media
     - suomidigi_wordpress_paragraphs
     - suomidigi_wordpress_tags
