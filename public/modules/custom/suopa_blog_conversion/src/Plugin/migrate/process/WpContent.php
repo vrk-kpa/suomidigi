@@ -17,11 +17,26 @@ class WpContent extends ProcessPluginBase {
 
   /**
    * {@inheritdoc}
-   *
-   * Split the 'administer nodes' permission from 'access content overview'.
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    return _filter_autop($value);
+    return _filter_autop($this->convertCaption($value));
+  }
+
+  /**
+   * Convert WP captions to div.
+   *
+   * @param string $content
+   *   Content as string.
+   *
+   * @return string
+   *   Returns same content without pesky captions.
+   */
+  private function convertCaption($content) {
+    return preg_replace(
+      '/\[caption([^\]]+)align="([^"]+)"\s+width="(\d+)"\](\s*\<img[^>]+>)\s*(.*?)\s*\[\/caption\]/i',
+      '<div\1style="width: \3px" class="wp-caption \2">\4<p class="caption">\5</p></div>',
+      $content
+    );
   }
 
 }
