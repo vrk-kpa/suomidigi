@@ -1,9 +1,9 @@
-uuid: 095ad14e-3edf-429f-8ade-71cc237e4603
+uuid: 01f8c678-12bb-4e40-b54c-864c73503645
 langcode: en
 status: true
 dependencies:
   config:
-    - group.content_type.group-group_node-landing_page
+    - paragraphs.paragraphs_type.contact_information_item
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: group_content.group-group_node-landing_page
-target_entity_type_id: group_content
-target_bundle: group-group_node-landing_page
+id: paragraph.contact_information_item
+target_entity_type_id: paragraph
+target_bundle: contact_information_item
 default_langcode: fi
 language_alterable: true

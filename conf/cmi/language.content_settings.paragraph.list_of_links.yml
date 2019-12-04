@@ -1,9 +1,9 @@
-uuid: f28dd353-0819-4282-a1d5-651e797b3971
+uuid: d3b6e66f-fb81-48cf-be71-aa4a85d7f0cb
 langcode: en
 status: true
 dependencies:
   config:
-    - group.content_type.group-group_node-article
+    - paragraphs.paragraphs_type.list_of_links
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: group_content.group-group_node-article
-target_entity_type_id: group_content
-target_bundle: group-group_node-article
+id: paragraph.list_of_links
+target_entity_type_id: paragraph
+target_bundle: list_of_links
 default_langcode: fi
 language_alterable: true

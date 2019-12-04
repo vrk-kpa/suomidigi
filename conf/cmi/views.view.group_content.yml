@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.article
+    - node.type.blog_post
     - node.type.event
   module:
     - datetime
@@ -142,8 +142,39 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            article: article
+            blog_post: blog_post
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
@@ -217,10 +248,10 @@ display:
           admin_label: 'Content group content'
           required: true
           group_content_plugins:
-            'group_node:article': 'group_node:article'
+            'group_node:event': 'group_node:event'
+            'group_node:article': '0'
             'group_node:community': '0'
             'group_node:core_content': '0'
-            'group_node:event': '0'
             'group_node:landing_page': '0'
             'group_node:legislation_card': '0'
             'group_node:legislation_collection_page': '0'
@@ -279,16 +310,40 @@ display:
         - user.group_permissions
         - 'user.node_grants:view'
       tags: {  }
-  articles:
+  blog_posts:
     display_plugin: block
-    id: articles
-    display_title: Articles
+    id: blog_posts
+    display_title: 'Blog posts'
     position: 1
     display_options:
       display_extenders: {  }
       display_description: ''
       block_description: ''
       rendering_language: '***LANGUAGE_entity_translation***'
+      relationships:
+        group_content:
+          id: group_content
+          table: node_field_data
+          field: group_content
+          relationship: none
+          group_type: group
+          admin_label: 'Content group content'
+          required: true
+          group_content_plugins:
+            'group_node:blog_post': 'group_node:blog_post'
+            'group_node:article': '0'
+            'group_node:community': '0'
+            'group_node:core_content': '0'
+            'group_node:event': '0'
+            'group_node:landing_page': '0'
+            'group_node:legislation_card': '0'
+            'group_node:legislation_collection_page': '0'
+            'group_node:page': '0'
+            'group_node:webform': '0'
+          entity_type: node
+          plugin_id: group_content_to_entity_reverse
+      defaults:
+        relationships: false
     cache_metadata:
       max-age: -1
       contexts:

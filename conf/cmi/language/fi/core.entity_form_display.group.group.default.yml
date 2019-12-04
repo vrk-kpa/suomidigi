@@ -1,0 +1,10 @@
+third_party_settings:
+  field_group:
+    group_group_information:
+      label: 'Ryhmän tiedot'
+    group_group_lists:
+      label: Listaukset
+    group_group_preferences:
+      label: Asetukset
+    group_reference_to_community:
+      label: Verkosto

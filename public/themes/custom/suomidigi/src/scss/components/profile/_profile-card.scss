@@ -132,4 +132,45 @@
   .article__author--prominent & {
     border-bottom: 0 none;
   }
+
+  &--mini {
+    align-items: center;
+    display: flex;
+    flex-basis: calc(50% - 20px);
+    flex-flow: column;
+    justify-items: center;
+    margin: 10px;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      flex-basis: calc(33% - 20px);
+    }
+
+    @include breakpoint($for-tablet-portrait-up) {
+      flex-basis: calc(20% - 20px);
+    }
+
+    .profile-card__picture {
+      height: calc(70px + (#{$gutter} * 2));
+      min-width: calc(70px + (#{$gutter} * 2));
+      padding: $gutter;
+      width: calc(70px + (#{$gutter} * 2));
+
+      &--letter {
+        @include font-size(40px);
+      }
+    }
+
+    .profile-card__content {
+      padding: 0;
+    }
+
+    .profile-card__name {
+      @include font-size(18px);
+      @include line-height(18px, 26px);
+      @include font-weight($semibold);
+      color: $blue-light;
+      margin: 0;
+      text-align: center;
+    }
+  }
 }

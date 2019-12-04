@@ -14,24 +14,25 @@
     }
 
     .button {
-      @include font-size(14px);
-      background-color: $blue-light;
-      border: 2px solid $blue-light;
+      @include font-size(16px);
+      @include line-height(16px, 20px);
+      @include font-weight($semibold);
+      background-color: $blue;
+      border: 2px solid $blue;
+      border-radius: 3px;
       color: $white;
       display: inline-block;
-      font-weight: bold;
       margin: 0 auto;
-      padding: 12px 40px;
+      padding: 10px 40px;
       text-align: center;
       text-decoration: none;
-      text-transform: uppercase;
       transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
       &:active,
       &:focus,
       &:hover {
         background-color: $white;
-        color: $blue-light;
+        color: $blue;
         cursor: pointer;
         outline: none;
       }

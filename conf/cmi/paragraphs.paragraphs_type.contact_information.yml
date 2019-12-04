@@ -1,0 +1,9 @@
+uuid: d47233c8-aaa0-408a-9bbf-c4f19b8b23e4
+langcode: en
+status: true
+dependencies: {  }
+id: contact_information
+label: 'Contact information'
+icon_uuid: null
+description: 'Use this type if you want to create a paragraph of multiple contact information'
+behavior_plugins: {  }
