@@ -69,7 +69,7 @@ class WpContent extends ProcessPluginBase {
    * @return array
    *   Fixed URL pieces.
    */
-  public static function convertUrl($src) {
+  public static function convertUrl(array $src) {
     $url = end(array_keys($src));
     $src[$url] = '/sites/default/files/images/' . end(explode('/', $src[$url]));
     return $src;
