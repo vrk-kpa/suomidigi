@@ -24,13 +24,13 @@
 }
 
 .basic-page__data {
+  @include font-size(14px);
+  @include line-height(14px, 18px);
   color: $black;
   display: flex;
   flex-wrap: wrap;
-  @include font-size(14px);
-  @include line-height(14px, 18px);
   margin-bottom: $gutter * 2;
-  
+
   a {
     text-decoration: none;
   }
@@ -46,10 +46,10 @@
 }
 
 .basic-page__author {
+  @include font-weight($semibold);
   color: $blue-light;
   display: flex;
   flex-wrap: wrap;
-  @include font-weight($semibold);
 }
 
 .basic-page__modified-text {
@@ -68,5 +68,3 @@
     width: 100%;
   }
 }
-
-

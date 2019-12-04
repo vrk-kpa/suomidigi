@@ -42,9 +42,11 @@
         {% endif %}
       </div>
     {% endif %}
-    <div class="basic-page__image">
-      {{ content.field_header_image }}
-    </div>
+    {% if content.field_header_image|render %}
+      <div class="basic-page__image">
+        {{ content.field_header_image }}
+      </div>
+    {% endif %}
   </div>
   <div class="basic-page__content">
     {% if content.field_paragraphs|render %}

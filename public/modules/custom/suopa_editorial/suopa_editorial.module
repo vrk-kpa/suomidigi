@@ -37,6 +37,8 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
     'node_core_content_form',
     'node_blog_post_edit_form',
     'node_blog_post_form',
+    'node_page_edit_form',
+    'node_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
