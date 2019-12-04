@@ -1,4 +1,5 @@
 <?php
+
 namespace Drupal\suopa_blog_conversion\Plugin\migrate\process;
 
 use Drupal\migrate\ProcessPluginBase;
@@ -19,9 +20,9 @@ class MigrateProcessKeyWrapper extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     if (!is_array($value)) {
-      $value = [ $value ];
+      $value = [$value];
     }
-    return [ $value ];
+    return [$value];
   }
 
 }

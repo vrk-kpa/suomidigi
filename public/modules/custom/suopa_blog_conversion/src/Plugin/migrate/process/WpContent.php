@@ -7,7 +7,7 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * Apply the automatic paragraph filter to content
+ * Apply the automatic paragraph filter to content.
  *
  * @MigrateProcessPlugin(
  *   id = "wp_content"
