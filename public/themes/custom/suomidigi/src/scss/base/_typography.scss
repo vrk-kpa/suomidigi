@@ -130,6 +130,7 @@ h6 {
 p {
   @include font-size($font-size-body, $font-size-mobile-body);
   @include line-height($font-size-body, $font-line-height-body, $font-size-mobile-body, $font-line-height-body);
+  @include font-weight($regular);
   margin-bottom: 1rem;
   margin-top: 0;
 }
