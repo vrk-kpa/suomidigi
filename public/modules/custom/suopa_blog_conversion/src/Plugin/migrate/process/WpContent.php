@@ -54,25 +54,12 @@ class WpContent extends ProcessPluginBase {
    */
   private function convertImageUrls($content) {
     return preg_replace_callback(
-      '/<img\s+.*?src=[\"\']?([^\"\' >]*)[\"\']?[^>]*>/i',
-      [&$this, 'convertUrl'],
+      '/(https?:\/\/[^ ]+?(?:\.jpeg|\.jpg|\.png|\.gif))/i',
+      function ($matches) {
+        return '/sites/default/files/images/' . end(explode('/', $matches[0]));
+      },
       $content
     );
-  }
-
-  /**
-   * Static function for preg replace callback.
-   *
-   * @param array $src
-   *   URL pieces.
-   *
-   * @return array
-   *   Fixed URL pieces.
-   */
-  public static function convertUrl(array $src) {
-    $url = end(array_keys($src));
-    $src[$url] = '/sites/default/files/images/' . end(explode('/', $src[$url]));
-    return $src;
   }
 
 }

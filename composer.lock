@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1419dbd113c4bcab7c40a2fb4e34216",
+    "content-hash": "9908ce9ae7b36c54c01b1d8153add8cd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3759,7 +3759,8 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch"
+                    "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
+                    "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4643,58 +4644,6 @@
                 "issues": "https://www.drupal.org/project/issues/migrate_plus",
                 "irc": "irc://irc.freenode.org/drupal-migrate"
             }
-        },
-        {
-            "name": "drupal/migrate_process_inline_images",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/migrate_process_inline_images.git",
-                "reference": "26fd188239f665609ea1be89d79916272ab9c1e9"
-            },
-            "require": {
-                "drupal/core": "*",
-                "symfony/css-selector": "^3.4",
-                "symfony/dom-crawler": "^3.4"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1529282924",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "bradjones1",
-                    "homepage": "https://www.drupal.org/user/405824"
-                },
-                {
-                    "name": "greg.1.anderson",
-                    "homepage": "https://www.drupal.org/user/438598"
-                }
-            ],
-            "description": "Process inline images, e.g. within a node body field, and add the appropriate file entity metadata. Requires that the file entities be already imported, of course.",
-            "homepage": "https://www.drupal.org/project/migrate_process_inline_images",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/migrate_process_inline_images",
-                "issues": "https://www.drupal.org/project/issues/migrate_process_inline_images"
-            },
-            "time": "2018-06-18T00:43:58+00:00"
         },
         {
             "name": "drupal/migrate_tools",
@@ -9263,63 +9212,6 @@
             "time": "2019-11-08T16:18:30+00:00"
         },
         {
-            "name": "symfony/dom-crawler",
-            "version": "v3.4.35",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "6bcffd2eabc4ca087faaaf54e26c8ff3a40284f3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/6bcffd2eabc4ca087faaaf54e26c8ff3a40284f3",
-                "reference": "6bcffd2eabc4ca087faaaf54e26c8ff3a40284f3",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-ctype": "~1.8",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "symfony/css-selector": "~2.8|~3.0|~4.0"
-            },
-            "suggest": {
-                "symfony/css-selector": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DomCrawler Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-10-24T15:33:53+00:00"
-        },
-        {
             "name": "symfony/event-dispatcher",
             "version": "v3.4.35",
             "source": {
@@ -12189,6 +12081,58 @@
             "time": "2017-12-06T20:35:40+00:00"
         },
         {
+            "name": "drupal/migrate_process_inline_images",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migrate_process_inline_images.git",
+                "reference": "26fd188239f665609ea1be89d79916272ab9c1e9"
+            },
+            "require": {
+                "drupal/core": "*",
+                "symfony/css-selector": "^3.4",
+                "symfony/dom-crawler": "^3.4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1529282924",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "bradjones1",
+                    "homepage": "https://www.drupal.org/user/405824"
+                },
+                {
+                    "name": "greg.1.anderson",
+                    "homepage": "https://www.drupal.org/user/438598"
+                }
+            ],
+            "description": "Process inline images, e.g. within a node body field, and add the appropriate file entity metadata. Requires that the file entities be already imported, of course.",
+            "homepage": "https://www.drupal.org/project/migrate_process_inline_images",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/migrate_process_inline_images",
+                "issues": "https://www.drupal.org/project/issues/migrate_process_inline_images"
+            },
+            "time": "2018-06-18T00:43:58+00:00"
+        },
+        {
             "name": "fabpot/goutte",
             "version": "v3.2.3",
             "source": {
@@ -13990,7 +13934,6 @@
     "stability-flags": {
         "drupal/better_exposed_filters": 15,
         "drupal/daterange_compact": 20,
-        "drupal/migrate_process_inline_images": 20,
         "drupal/roleassign": 20,
         "drupal/scheduler": 20,
         "drupal/swiftmailer": 10
