@@ -1,0 +1,85 @@
+uuid: c3715c6d-f6b0-498b-9b17-8fe110ac4e6a
+langcode: en
+status: true
+dependencies: {  }
+id: suomidigi_wordpress_media
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - WordPress
+migration_group: suomidigi
+label: 'Import files as media entities from Suomidigi WordPress'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: xml
+  item_selector: '/rss/channel/item[wp:post_type="attachment"]'
+  fields:
+    -
+      name: post_id
+      label: 'Unique image ID'
+      selector: 'wp:post_id'
+    -
+      name: image
+      label: 'URL of the image'
+      selector: 'wp:attachment_url'
+    -
+      name: image_name
+      label: Name
+      selector: title
+    -
+      name: post_date
+      label: 'Post date of the content'
+      selector: 'wp:post_date'
+  ids:
+    post_id:
+      type: integer
+process:
+  pseudo_destination_filename:
+    -
+      plugin: callback
+      callable: basename
+      source: image
+    -
+      plugin: skip_on_empty
+      method: row
+      message: 'Cannot import empty filename.'
+  pseudo_destination_path:
+    -
+      plugin: concat
+      source:
+        - '@pseudo_destination_filename'
+  name: image_name
+  field_media_image/target_id:
+    plugin: migration_lookup
+    migration: suomidigi_wordpress_images
+    source: post_id
+  thumbnail/target_id:
+    plugin: migration_lookup
+    migration: suomidigi_wordpress_images
+    source: post_id
+  uid:
+    -
+      plugin: skip_on_empty
+      method: process
+      message: 'No user for this file.'
+    -
+      plugin: migration_lookup
+      migration: users
+      source: author
+  created:
+    -
+      plugin: callback
+      source: post_date
+      callable: strtotime
+  changed:
+    -
+      plugin: get
+      source: '@created'
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - suomidigi_wordpress_images
