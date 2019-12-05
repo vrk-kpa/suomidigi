@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.group.field_paragraphs
     - group.type.group
+    - paragraphs.paragraphs_type.attachment
     - paragraphs.paragraphs_type.contact_information
     - paragraphs.paragraphs_type.list_of_links
     - paragraphs.paragraphs_type.text
@@ -26,6 +27,7 @@ settings:
     negate: 0
     target_bundles:
       text: text
+      attachment: attachment
       contact_information: contact_information
       list_of_links: list_of_links
     target_bundles_drag_drop:
@@ -45,8 +47,8 @@ settings:
         weight: -37
         enabled: false
       attachment:
+        enabled: true
         weight: -36
-        enabled: false
       liftup_box:
         weight: -35
         enabled: false
