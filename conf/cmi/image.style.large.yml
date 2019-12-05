@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: J2n0RpFzS0-bgSyxjs6rSdgxB1rb-bTAgqywNx_964M
 name: large
-label: 'Large (480×480)'
+label: 'Large (480 x 480)'
 effects:
   9c173cb9-6ffd-49d7-abf4-ce40aff7af75:
     uuid: 9c173cb9-6ffd-49d7-abf4-ce40aff7af75

@@ -58,6 +58,8 @@ function suomidigi_preprocess_page(&$variables) {
     'article',
     'core_content',
     'webform',
+    'blog_post',
+    'page',
   ];
 
   if (
@@ -83,6 +85,8 @@ function suomidigi_preprocess_node(&$variables) {
 
   if (
     $node->getType() === 'article' ||
+    $node->getType() === 'blog_post' ||
+    $node->getType() === 'page' ||
     $node->getType() === 'legislation_collection_page'
   ) {
     if ($node->hasField('field_header_image')) {
@@ -252,6 +256,19 @@ function suomidigi_preprocess_block(&$variables) {
         $variables['content']['#title'] = Markup::create($translated_title);
       }
     }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_field(&$variables) {
+  if ($variables['field_name'] !== 'field_list_of_links_link') {
+    return;
+  }
+
+  foreach ($variables['items'] as &$item) {
+    $item['is_external'] = $item['content']['#url']->isExternal();
   }
 }
 
@@ -545,6 +562,13 @@ function suomidigi_theme_suggestions_input_alter(&$suggestions, array $variables
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function suomidigi_theme_suggestions_user_alter(&$suggestions, array $variables) {
+  $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_image(&$variables) {
@@ -640,4 +664,11 @@ function suomidigi_preprocess_comment__field_comments(&$variables) {
       $variables['comment_changed'] = Drupal::service('date.formatter')->format($comment->changed->value, 'date_time');
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suomidigi_preprocess_group(&$variables) {
+  $variables['group_url'] = $variables['group']->toUrl()->toString();
 }

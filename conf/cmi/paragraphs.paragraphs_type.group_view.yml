@@ -1,0 +1,9 @@
+uuid: b24a3534-3e61-4730-847c-db87ce6ef720
+langcode: en
+status: true
+dependencies: {  }
+id: group_view
+label: 'Group view'
+icon_uuid: null
+description: 'Use this paragraph type to create lists with heading and description'
+behavior_plugins: {  }

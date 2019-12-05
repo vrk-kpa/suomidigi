@@ -1,0 +1,174 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_group.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_help().
+ */
+function suopa_group_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the suopa_group module.
+    case 'help.page.suopa_group':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Hosts all group related custom code.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_create().
+ */
+function suopa_group_entity_create(EntityInterface $entity) {
+  if ($entity->getEntityType()->id() !== 'group') {
+    return;
+  }
+
+  // Set predefined paragraphs for new group.
+  $articles = Paragraph::create([
+    'type' => 'group_view',
+    'field_p_title' => [
+      'value' => t('Blog posts'),
+    ],
+    'field_p_description_html' => [
+      'value' => t('Blog posts published by the group.'),
+    ],
+    'field_p_view' => [
+      'target_id' => 'group_content',
+      'display_id' => 'blog_posts',
+    ],
+  ]);
+  $articles->save();
+
+  $events = Paragraph::create([
+    'type' => 'group_view',
+    'field_p_title' => [
+      'value' => t('Upcoming events'),
+    ],
+    'field_p_description_html' => [
+      'value' => t('Events published by the group that are open to everyone to participate.'),
+    ],
+    'field_p_view' => [
+      'target_id' => 'group_content',
+      'display_id' => 'events',
+    ],
+  ]);
+  $events->save();
+
+  $members = Paragraph::create([
+    'type' => 'group_view',
+    'field_p_title' => [
+      'value' => t('Involved in the development'),
+    ],
+    'field_p_view' => [
+      'target_id' => 'group_members_list',
+      'display_id' => 'members',
+    ],
+  ]);
+  $members->save();
+
+  // Set the predefined paragraphs to the group entity.
+  $entity->field_group_lists = [
+    [
+      'target_id' => $articles->id(),
+      'target_revision_id' => $articles->getRevisionId(),
+    ],
+    [
+      'target_id' => $events->id(),
+      'target_revision_id' => $events->getRevisionId(),
+    ],
+    [
+      'target_id' => $members->id(),
+      'target_revision_id' => $members->getRevisionId(),
+    ],
+  ];
+
+  return $entity;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function suopa_group_user_presave(EntityInterface $user) {
+  $group_membership_service = \Drupal::service('group.membership_loader');
+  $groups = $group_membership_service->loadByUser($user);
+
+  // Check if user belongs to any of the groups. If any groups are found, add
+  // "Group member" role for the user.
+  if (empty(count($groups))) {
+    if ($user->hasRole('group_member')) {
+      $user->removeRole('group_member');
+      $user->removeRole('group_administrator');
+    }
+  }
+  else {
+    $user->addRole('group_member');
+    foreach ($groups as $group) {
+      $user_roles = $group->getGroup()->getMember($user)->getRoles();
+      if (
+        !empty($user_roles) &&
+        array_key_exists('group-administrator', $user_roles)
+      ) {
+        $user->addRole('group_administrator');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * {@inheritdoc}
+ */
+function suopa_group_form_group_form_alter(&$form, &$form_state, $form_id) {
+  // Prevent access to path field and set automatic url alias always.
+  $form['path']['#access'] = FALSE;
+  $form_state->setValue('path', [['pathauto' => 1]]);
+
+  // Make taxonomy term add/edit form look like node edit form.
+  $form['#theme'] = ['node_edit_form'];
+  $form['#attached']['library'][] = 'seven/node-form';
+
+  $form['advanced']['#type'] = 'container';
+  $form['advanced']['#attributes']['class'][] = 'entity-meta';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suopa_group_preprocess_entity_add_list(&$variables) {
+  $route = \Drupal::routeMatch()->getRouteName();
+
+  if (
+    $route == 'entity.group_content.create_page' ||
+    $route == 'entity.group_content.add_page'
+  ) {
+
+    $path = \Drupal::service('path.current')->getPath();
+    if (strpos($path, 'create') !== FALSE) {
+      $current_path = reset(explode("/create", $path));
+    }
+    if (strpos($path, 'add') !== FALSE) {
+      $current_path = reset(explode("/add", $path));
+    }
+
+    if (isset($current_path)) {
+      foreach ($variables['bundles'] as &$bundle) {
+        if (isset($bundle['add_link'])) {
+          $url = $bundle['add_link']->getUrl();
+          $url->setOptions(['query' => ['destination' => $current_path]]);
+          $bundle['add_link']->setUrl($url);
+        }
+      }
+    }
+  }
+}

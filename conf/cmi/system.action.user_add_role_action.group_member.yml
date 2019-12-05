@@ -1,0 +1,14 @@
+uuid: 3c107148-f158-4359-8c6a-02c29c64414c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.group_member
+  module:
+    - user
+id: user_add_role_action.group_member
+label: 'Add the Group member role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: group_member

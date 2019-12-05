@@ -1,0 +1,57 @@
+uuid: 2209ffba-c457-458f-9d70-03943f2a1078
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_information_item.field_ci_email
+    - field.field.paragraph.contact_information_item.field_ci_name
+    - field.field.paragraph.contact_information_item.field_ci_organisation
+    - field.field.paragraph.contact_information_item.field_ci_phone_number
+    - field.field.paragraph.contact_information_item.field_ci_title
+    - paragraphs.paragraphs_type.contact_information_item
+id: paragraph.contact_information_item.default
+targetEntityType: paragraph
+bundle: contact_information_item
+mode: default
+content:
+  field_ci_email:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: content
+  field_ci_name:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ci_organisation:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ci_phone_number:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ci_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

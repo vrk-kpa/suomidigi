@@ -1,0 +1,5 @@
+name: 'SuoPa Blog Conversion'
+type: module
+description: 'Convert Blog articles to blog posts'
+core: 8.x
+package: 'SuoPa'

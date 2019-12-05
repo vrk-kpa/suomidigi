@@ -1,0 +1,23 @@
+diff --git a/src/Plugin/Block/GroupOperationsBlock.php b/src/Plugin/Block/GroupOperationsBlock.php
+index b58f899..163865a 100644
+--- a/src/Plugin/Block/GroupOperationsBlock.php
++++ b/src/Plugin/Block/GroupOperationsBlock.php
+@@ -45,15 +45,15 @@ class GroupOperationsBlock extends BlockBase {
+       }
+ 
+       if ($links) {
+-        // Allow modules to alter the collection of gathered links.
+-        \Drupal::moduleHandler()->alter('group_operations', $links, $group);
+-
+         // Sort the operations by weight.
+         uasort($links, '\Drupal\Component\Utility\SortArray::sortByWeightElement');
+ 
+         // Create an operations element with all of the links.
+         $build['#type'] = 'operations';
+         $build['#links'] = $links;
++
++        // Allow modules to alter the collection of gathered links.
++        \Drupal::moduleHandler()->alter('group_operations', $links, $group, $build);
+       }
+     }
+ 

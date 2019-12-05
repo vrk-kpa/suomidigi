@@ -1,0 +1,19 @@
+uuid: a0f02066-f472-4be6-938e-4ceec39310bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+    - node.type.blog_post
+  module:
+    - gnode
+    - node
+id: group-group_node-blog_post
+label: 'Group: Group node (Blogikirjoitus)'
+description: 'Adds <em class="placeholder">Blogikirjoitus</em> content to groups both publicly and privately.'
+group_type: group
+content_plugin: 'group_node:blog_post'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

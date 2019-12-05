@@ -1,0 +1,12 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <h3 class="paragraph__title">{{ content.field_p_title }}</h3>
+      <div class="paragraph-list">
+        {{ content|without('field_p_title') }}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

@@ -81,6 +81,7 @@ h5,
 h6 {
   font-family: $heading-font-family;
   margin-top: 0;
+  word-break: break-word;
 
   a {
     color: inherit;
@@ -129,6 +130,7 @@ h6 {
 p {
   @include font-size($font-size-body, $font-size-mobile-body);
   @include line-height($font-size-body, $font-line-height-body, $font-size-mobile-body, $font-line-height-body);
+  @include font-weight($regular);
   margin-bottom: 1rem;
   margin-top: 0;
 }

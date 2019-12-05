@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 name: event_full_header_image_large
-label: 'Event Full Header Image Large'
+label: 'Event Full Header Image Large (1170 x 320)'
 effects:
   ab8ddb1b-ea91-440e-b5bb-7374392849df:
     uuid: ab8ddb1b-ea91-440e-b5bb-7374392849df

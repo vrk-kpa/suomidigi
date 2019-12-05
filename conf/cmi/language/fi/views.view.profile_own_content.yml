@@ -7,7 +7,7 @@ display:
             type:
               more_options:
                 rewrite:
-                  filter_rewrite_values: "- Kaikki -|Kaikki\r\nArtikkeli|Artikkelit\r\nTapahtuma|Tapahtumat"
+                  filter_rewrite_values: "- Kaikki -|Kaikki\r\nBlogikirjoitus|Blogikirjoitukset\r\nTapahtuma|Tapahtumat"
       pager:
         options:
           views_infinite_scroll:
@@ -15,4 +15,4 @@ display:
       empty:
         area:
           content:
-            value: "Ei vielä omia sisältöjä.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/article\" class=\"link\">Luo artikkeli</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/event\" class=\"link\">Luo tapahtuma</a>\r\n</div>"
+            value: "Ei vielä omia sisältöjä.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/blog_post\" class=\"link\">Luo blogikirjoitus</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/event\" class=\"link\">Luo tapahtuma</a>\r\n</div>"

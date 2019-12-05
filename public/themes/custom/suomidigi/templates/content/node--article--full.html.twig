@@ -17,11 +17,21 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="article__header">
-    <div class="article__data">
-      <div class="article__data-item article__type">
-        {{ content.field_article_type }}
+  <div class="article__header">    
+    <div class="article__type">
+      {{ content.field_article_type }}
+    </div>
+    <div class="article__title">
+      <h1>
+        {{ label }}
+      </h1>
+    </div>
+    {% if content.field_ingress|render %}
+      <div class="article__lead">
+        {{ content.field_ingress }}
       </div>
+    {% endif %}
+    <div class="article__data">
       {% if content.field_displayed_author|render %}
         <span class="article__data-item article__author">
           {{ content.field_displayed_author }}
@@ -47,12 +57,7 @@
       {{ content.field_header_image }}
     </div>
   </div>
-  <div class="article__content">
-    {% if content.field_ingress|render %}
-      <div class="article__lead">
-        {{ content.field_ingress }}
-      </div>
-    {% endif %}
+  <div class="article__content"> 
     {% if content.field_paragraphs|render %}
       <div class="article__contents">
           {{ content.field_paragraphs }}
@@ -71,5 +76,8 @@
       {{ content.field_comments }}
     </div>
   {% endif %}
+  <div class="article__social-sharing">
+    {{ drupal_block('suopa_content_social_sharing_block') }}
+  </div>
 
 </article>

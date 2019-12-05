@@ -14,9 +14,9 @@ dependencies:
     - taxonomy.vocabulary.author
   module:
     - field_group
+    - focal_point
     - link
     - suopa_editorial
-    - svg_image
 third_party_settings:
   field_group:
     group_does_author_have_user_prof:
@@ -97,10 +97,12 @@ content:
   field_author_picture:
     weight: 4
     settings:
-      progress_indicator: throbber
       preview_image_style: thumbnail
+      offsets: '50,50'
+      progress_indicator: throbber
+      preview_link: false
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     region: content
   field_author_title:
     weight: 9

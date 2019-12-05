@@ -1,0 +1,48 @@
+uuid: feb1ed36-f8b6-4f2c-b8e6-40cb5abd56f2
+langcode: en
+status: true
+dependencies: {  }
+id: suomidigi_wordpress_tags
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - WordPress
+migration_group: suomidigi
+label: 'Import tags from WordPress XML'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: xml
+  item_selector: '/rss/channel/wp:tag'
+  fields:
+    -
+      name: term_id
+      label: 'WordPress term ID'
+      selector: 'wp:term_id'
+    -
+      name: tag_slug
+      label: 'Analogous to machine name'
+      selector: 'wp:tag_slug'
+    -
+      name: tag_name
+      label: 'Human name of term'
+      selector: 'wp:tag_name'
+  ids:
+    tag_slug:
+      type: string
+process:
+  name:
+    -
+      plugin: get
+      source: tag_name
+  field_metatag:
+    -
+      plugin: metatag_d7_entities
+      source: pseudo_metatag_d7_entities
+  vid:
+    plugin: default_value
+    default_value: tags
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

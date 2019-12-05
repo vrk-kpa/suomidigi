@@ -1,0 +1,17 @@
+uuid: c6578734-206d-4b0c-ace3-47959bc7982a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 6_5_full_hd
+label: '6:5 (Full HD)'
+effects:
+  3d6491d2-27c8-41e0-99ef-0366777d8d1c:
+    uuid: 3d6491d2-27c8-41e0-99ef-0366777d8d1c
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 1600
+      crop_type: focal_point

@@ -1,0 +1,23 @@
+uuid: 0938fa85-f14e-4cfd-a526-e953a8419678
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+  theme:
+    - suomidigi
+id: groupoperations
+theme: suomidigi
+region: before_content
+weight: 0
+provider: null
+plugin: group_operations
+settings:
+  id: group_operations
+  label: 'Group operations'
+  provider: group
+  label_display: '0'
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility: {  }

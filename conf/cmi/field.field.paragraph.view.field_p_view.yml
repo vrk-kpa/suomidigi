@@ -33,6 +33,7 @@ settings:
   preselect_views:
     communities: communities
     events: events
+    groups: groups
     theme_tag_lists: theme_tag_lists
     approval_node_queue: 0
     block_content: 0
@@ -43,6 +44,10 @@ settings:
     entity_reference_browser: 0
     files: 0
     frontpage: 0
+    group_content: 0
+    group_members: 0
+    group_members_list: 0
+    group_nodes: 0
     media: 0
     media_entity_browser: 0
     media_entity_browser_media_library: 0

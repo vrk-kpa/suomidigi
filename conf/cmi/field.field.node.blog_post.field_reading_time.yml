@@ -1,0 +1,23 @@
+uuid: 8e6e3de5-1259-4355-9909-4e22f71c42ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reading_time
+    - node.type.blog_post
+id: node.blog_post.field_reading_time
+field_name: field_reading_time
+entity_type: node
+bundle: blog_post
+label: 'Reading time'
+description: 'Reading time in minutes.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: minutes
+field_type: decimal

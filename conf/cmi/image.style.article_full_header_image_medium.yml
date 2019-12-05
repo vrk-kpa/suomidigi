@@ -5,7 +5,7 @@ dependencies:
   module:
     - focal_point
 name: article_full_header_image_medium
-label: 'Article Full Header Image Medium'
+label: 'Article Full Header Image Medium (800 x 381)'
 effects:
   36390604-338b-4298-9ae5-fb0e22c26132:
     uuid: 36390604-338b-4298-9ae5-fb0e22c26132

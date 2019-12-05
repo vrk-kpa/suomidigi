@@ -1,0 +1,20 @@
+uuid: a29f6c75-ea32-4271-a600-63ceb1da5fd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.feed_type
+  module:
+    - text
+id: taxonomy_term.feed_type.description
+field_name: description
+entity_type: taxonomy_term
+bundle: feed_type
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

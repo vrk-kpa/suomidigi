@@ -8,7 +8,7 @@ id: node.community.status
 field_name: status
 entity_type: node
 bundle: community
-label: 'Promoted to front page'
+label: Published
 description: ''
 required: false
 translatable: true

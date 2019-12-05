@@ -1,0 +1,34 @@
+uuid: 6709110a-c53f-4a10-8f71-8b10db1367ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+    - language
+id: group_en
+label: 'Group - EN'
+type: 'canonical_entities:group'
+pattern: 'groups/[group:title]'
+selection_criteria:
+  83ff524a-f78c-499a-9987-667d1fe6e27d:
+    id: 'entity_bundle:group'
+    bundles:
+      group: group
+    negate: false
+    context_mapping:
+      group: group
+    uuid: 83ff524a-f78c-499a-9987-667d1fe6e27d
+  87c5fc14-858e-49e4-93cf-b99517795d0b:
+    id: language
+    langcodes:
+      en: en
+    negate: false
+    context_mapping:
+      language: 'group:langcode:language'
+    uuid: 87c5fc14-858e-49e4-93cf-b99517795d0b
+selection_logic: and
+weight: -10
+relationships:
+  'group:langcode:language':
+    label: Language

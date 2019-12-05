@@ -35,6 +35,10 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
     'node_article_form',
     'node_core_content_edit_form',
     'node_core_content_form',
+    'node_blog_post_edit_form',
+    'node_blog_post_form',
+    'node_page_edit_form',
+    'node_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
@@ -43,9 +47,6 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
 
   $form['field_displayed_update_time']['#group'] = 'revision_information';
   $form['field_displayed_author']['#group'] = 'revision_information';
-
-  // Attach blog tag list toggler to article forms.
-  $form['#attached']['library'][] = 'suopa_editorial/blog-tag-list-hidden';
 
   // Attach timepicker styles.
   $form['#attached']['library'][] = 'suopa_editorial/suopa-timepicker';
@@ -65,8 +66,12 @@ function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
     'node_article_form',
     'node_core_content_edit_form',
     'node_core_content_form',
+    'node_blog_post_edit_form',
+    'node_blog_post_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
+    'node_page_edit_form',
+    'node_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
@@ -87,9 +92,13 @@ function suopa_editorial_disable_sibling_checkbox(&$form, $form_state) {
     'node_article_form',
     'node_core_content_edit_form',
     'node_core_content_form',
+    'node_blog_post_edit_form',
+    'node_blog_post_form',
     'node_landing_page_edit_form',
     'node_landing_page_form',
     'taxonomy_term_theme_form',
+    'node_page_edit_form',
+    'node_page_form',
   ];
 
   if (!in_array($form['#form_id'], $allowedIds)) {
@@ -265,7 +274,36 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
     $form['field_displayed_author']['#suffix'] = t('Complete the author information.') . ' ' . render($link) . '.';
   }
 
+  // Hide menu selection from node basic page.
+  if (
+    $form_id == 'node_page_edit_form' ||
+    $form_id == 'node_page_form'
+  ) {
+    $form['menu']['#access'] = FALSE;
+  }
+
   return $form;
+}
+
+/**
+ * Implements hook_group_operations_alter().
+ */
+function suopa_editorial_group_operations_alter(&$operations, $group, &$build) {
+  $links = [];
+
+  foreach ($operations as $link) {
+    $links[] = Link::fromTextAndUrl($link['title'], $link['url']);
+  }
+
+  $build['#label'] = t('Create new content');
+  $build['#content'] = [
+    '#theme' => 'item_list',
+    '#items' => $links,
+    '#attributes' => ['class' => ['links']],
+  ];
+
+  $build['#theme'] = 'content_creation_links_block';
+  $build['#attached']['library'][] = 'suopa_editorial/content-creation-links';
 }
 
 /**

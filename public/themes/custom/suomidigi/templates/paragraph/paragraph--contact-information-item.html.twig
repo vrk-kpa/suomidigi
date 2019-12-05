@@ -1,0 +1,46 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  <div{{ attributes.addClass('paragraph-list__item') }}>
+    {% block content %}
+      {% if content.field_ci_name|render %}
+        <h3 class="contact-information__name">
+          {% if content.field_ci_title|render %}
+            {% set name = content.field_ci_name.0['#context'].value|striptags %}
+            {% set title = content.field_ci_title.0['#context'].value|striptags %}
+            {{ [name, title]|join(', ') }}
+          {% else %}
+            {{ content.field_ci_name }}
+          {% endif %}
+        </h3>
+      {% endif %}
+      {% if content.field_ci_organisation|render %}
+        <div class="contact-information__organisation">
+          {{ content.field_ci_organisation }}
+        </div>
+      {% endif %}
+      {% if content.field_ci_phone_number|render %}
+        <div class="contact-information__phone">
+          <a href="tel:{{ content.field_ci_phone_number.0['#context'].value|striptags }}" title="{{ content.field_ci_phone_number.0['#context'].value|striptags }}">
+            {% if icons_path %}
+              <svg class="icon">
+                <use xlink:href="{{ icons_path|trim }}#phone" />
+              </svg>
+            {% endif %}
+            {{ content.field_ci_phone_number }}
+          </a>
+        </div>
+      {% endif %}
+      {% if content.field_ci_email|render %}
+        <div class="contact-information__email">
+          {% if icons_path %}
+            <svg class="icon">
+              <use xlink:href="{{ icons_path|trim }}#message" />
+            </svg>
+          {% endif %}
+          {{ content.field_ci_email }}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

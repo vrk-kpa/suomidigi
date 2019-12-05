@@ -1,0 +1,94 @@
+uuid: a8bb1c88-8ffc-4035-844b-dcc232b91e46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_group_lists
+    - group.type.group
+    - paragraphs.paragraphs_type.group_view
+  module:
+    - entity_reference_revisions
+id: group.group.field_group_lists
+field_name: field_group_lists
+entity_type: group
+bundle: group
+label: Lists
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      group_view: group_view
+    target_bundles_drag_drop:
+      group_view:
+        enabled: true
+        weight: 23
+      attachment:
+        weight: 24
+        enabled: false
+      banner_cta:
+        weight: 25
+        enabled: false
+      container:
+        weight: 26
+        enabled: false
+      container_title:
+        weight: 27
+        enabled: false
+      feed:
+        weight: 28
+        enabled: false
+      highlight_bullet_point:
+        weight: 29
+        enabled: false
+      highlight_bullet_point_item:
+        weight: 30
+        enabled: false
+      highlight_cta:
+        weight: 31
+        enabled: false
+      highlight_text_box:
+        weight: 32
+        enabled: false
+      legislation_attachment:
+        weight: 33
+        enabled: false
+      legislation_cards:
+        weight: 34
+        enabled: false
+      legislation_link:
+        weight: 35
+        enabled: false
+      liftup_box:
+        weight: 36
+        enabled: false
+      liftup_box_item:
+        weight: 37
+        enabled: false
+      liftup_entity_reference:
+        weight: 38
+        enabled: false
+      liftup_entity_reference_item:
+        weight: 39
+        enabled: false
+      liftup_prominent:
+        weight: 40
+        enabled: false
+      link:
+        weight: 41
+        enabled: false
+      media:
+        weight: 42
+        enabled: false
+      text:
+        weight: 43
+        enabled: false
+      view:
+        weight: 44
+        enabled: false
+field_type: entity_reference_revisions

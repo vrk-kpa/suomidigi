@@ -1,0 +1,30 @@
+uuid: a65b28fd-9928-4f2d-8fc1-d5d30c46725b
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+id: group-content_producer
+label: 'Content producer'
+weight: -3
+internal: false
+audience: member
+group_type: group
+permissions_ui: true
+permissions:
+  - 'access group_node overview'
+  - 'create group_node:blog_post entity'
+  - 'create group_node:event entity'
+  - 'create group_node:page entity'
+  - 'leave group'
+  - 'update own group_node:blog_post entity'
+  - 'update own group_node:event entity'
+  - 'update own group_node:page entity'
+  - 'view group'
+  - 'view group_membership content'
+  - 'view group_node:blog_post entity'
+  - 'view group_node:event entity'
+  - 'view group_node:page entity'
+  - 'view unpublished group_node:blog_post entity'
+  - 'view unpublished group_node:event entity'
+  - 'view unpublished group_node:page entity'

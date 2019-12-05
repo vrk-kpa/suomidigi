@@ -1,0 +1,29 @@
+.paragraph--group-view {
+  padding: $gutter * 2 0;
+
+  .paragraph__title {
+    @include font-size(22px);
+    @include line-height(22px, 28px);
+    @include font-weight($semibold);
+    color: $blue;
+    margin-bottom: $gutter * 2;
+  }
+
+  .paragraph__description,
+  .paragraph__description p {
+    @include font-size(20px);
+    @include line-height(20px, 26px);
+    @include font-weight($regular);
+    color: $black;
+  }
+
+  .paragraph__content {
+    margin-top: $gutter * 2;
+  }
+
+  .views--members {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -10px;
+  }
+}

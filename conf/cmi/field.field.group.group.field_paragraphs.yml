@@ -1,0 +1,109 @@
+uuid: dee0e16e-3600-4246-9bc3-f43f337b190a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_paragraphs
+    - group.type.group
+    - paragraphs.paragraphs_type.attachment
+    - paragraphs.paragraphs_type.contact_information
+    - paragraphs.paragraphs_type.list_of_links
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+id: group.group.field_paragraphs
+field_name: field_paragraphs
+entity_type: group
+bundle: group
+label: Paragraphs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      text: text
+      attachment: attachment
+      contact_information: contact_information
+      list_of_links: list_of_links
+    target_bundles_drag_drop:
+      container:
+        weight: -41
+        enabled: false
+      container_title:
+        weight: -40
+        enabled: false
+      text:
+        enabled: true
+        weight: -39
+      media:
+        weight: -38
+        enabled: false
+      link:
+        weight: -37
+        enabled: false
+      attachment:
+        enabled: true
+        weight: -36
+      liftup_box:
+        weight: -35
+        enabled: false
+      liftup_box_item:
+        weight: -34
+        enabled: false
+      liftup_entity_reference:
+        weight: -33
+        enabled: false
+      liftup_entity_reference_item:
+        weight: -32
+        enabled: false
+      liftup_prominent:
+        weight: -31
+        enabled: false
+      highlight_bullet_point:
+        weight: -30
+        enabled: false
+      highlight_bullet_point_item:
+        weight: -29
+        enabled: false
+      highlight_cta:
+        weight: -28
+        enabled: false
+      highlight_text_box:
+        weight: -27
+        enabled: false
+      banner_cta:
+        weight: -26
+        enabled: false
+      legislation_attachment:
+        weight: -25
+        enabled: false
+      legislation_cards:
+        weight: -24
+        enabled: false
+      legislation_link:
+        weight: -23
+        enabled: false
+      view:
+        weight: -22
+        enabled: false
+      contact_information:
+        enabled: true
+        weight: 24
+      feed:
+        weight: 27
+        enabled: false
+      group_view:
+        weight: 28
+        enabled: false
+      contact_information_item:
+        weight: 29
+        enabled: false
+      list_of_links:
+        enabled: true
+        weight: 47
+field_type: entity_reference_revisions

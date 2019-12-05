@@ -1,0 +1,17 @@
+uuid: be134aec-aa5a-421a-9b5b-8c9311742dc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+  enforced:
+    config:
+      - user.role.editor_in_chief
+id: group-f3ff1566d
+label: 'Editor in chief'
+weight: -7
+internal: true
+audience: outsider
+group_type: group
+permissions_ui: false
+permissions: {  }

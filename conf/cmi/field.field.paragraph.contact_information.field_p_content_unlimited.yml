@@ -1,0 +1,100 @@
+uuid: feae1d8d-91ff-4567-8aa1-3e6d8f2908cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_content_unlimited
+    - paragraphs.paragraphs_type.contact_information
+    - paragraphs.paragraphs_type.contact_information_item
+  module:
+    - entity_reference_revisions
+id: paragraph.contact_information.field_p_content_unlimited
+field_name: field_p_content_unlimited
+entity_type: paragraph
+bundle: contact_information
+label: Content
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      contact_information_item: contact_information_item
+    target_bundles_drag_drop:
+      contact_information_item:
+        enabled: true
+        weight: 25
+      attachment:
+        weight: 26
+        enabled: false
+      banner_cta:
+        weight: 27
+        enabled: false
+      contact_information:
+        weight: 28
+        enabled: false
+      container:
+        weight: 29
+        enabled: false
+      container_title:
+        weight: 30
+        enabled: false
+      feed:
+        weight: 31
+        enabled: false
+      group_view:
+        weight: 32
+        enabled: false
+      highlight_bullet_point:
+        weight: 33
+        enabled: false
+      highlight_bullet_point_item:
+        weight: 34
+        enabled: false
+      highlight_cta:
+        weight: 35
+        enabled: false
+      highlight_text_box:
+        weight: 36
+        enabled: false
+      legislation_attachment:
+        weight: 37
+        enabled: false
+      legislation_cards:
+        weight: 38
+        enabled: false
+      legislation_link:
+        weight: 39
+        enabled: false
+      liftup_box:
+        weight: 40
+        enabled: false
+      liftup_box_item:
+        weight: 41
+        enabled: false
+      liftup_entity_reference:
+        weight: 42
+        enabled: false
+      liftup_entity_reference_item:
+        weight: 43
+        enabled: false
+      liftup_prominent:
+        weight: 44
+        enabled: false
+      link:
+        weight: 45
+        enabled: false
+      media:
+        weight: 46
+        enabled: false
+      text:
+        weight: 47
+        enabled: false
+      view:
+        weight: 48
+        enabled: false
+field_type: entity_reference_revisions
