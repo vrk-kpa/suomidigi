@@ -102,11 +102,8 @@ process:
       source: '@created'
   status:
     -
-      plugin: static_map
-      source: status
+      plugin: default_value
       default_value: 0
-      map:
-        publish: 1
   field_metatag:
     -
       plugin: metatag_d7_entities
