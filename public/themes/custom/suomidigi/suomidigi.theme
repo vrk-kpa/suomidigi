@@ -12,6 +12,7 @@ use Drupal\media\Entity\Media;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
+use Drupal\views_infinite_scroll\Plugin\views\pager\InfiniteScroll;
 
 /**
  * Implements hook_preprocess().
@@ -297,11 +298,16 @@ function suomidigi_theme_suggestions_views_view_alter(array &$suggestions, array
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function suomidigi_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
-  if (
-    isset($variables['view']) &&
-    !empty($variables['view']->id())
-  ) {
-    $suggestions[] = 'views_view_unformatted__' . $variables['view']->id();
+  if (isset($variables['view'])) {
+    $view = $variables['view'];
+
+    if (!empty($view->id())) {
+      $suggestions[] = 'views_view_unformatted__' . $view->id();
+
+      if (!empty($view->getDisplay()->display['id'])) {
+        $suggestions[] = 'views_view_unformatted__' . $view->id() . '__' . $view->getDisplay()->display['id'];
+      }
+    }
   }
 }
 
@@ -465,9 +471,21 @@ function suomidigi_preprocess_views_view(&$variables) {
     }
   }
 
-  if ($view->id() === "search") {
-    $variables["searchInputValue"] = $view->exposed_raw_input['query'];
-    $variables["searchResultCount"] = $view->total_rows;
+  if ($view->id() == 'search') {
+    $variables['searchInputValue'] = $view->exposed_raw_input['query'];
+    $variables['searchResultCount'] = $view->total_rows;
+  }
+
+  // Set classes for blogs view.
+  if (
+    $view->id() == 'blogs' &&
+    $view->getDisplay()->isPagerEnabled() &&
+    !empty($variables['rows'])
+  ) {
+    $pager = $view->getPager();
+    if ($pager && $pager instanceof InfiniteScroll) {
+      $variables['rows']['#theme_wrappers']['container']['#attributes']['class'][] = 'listing--grid';
+    }
   }
 }
 

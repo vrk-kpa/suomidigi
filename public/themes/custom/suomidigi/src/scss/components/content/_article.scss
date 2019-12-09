@@ -81,16 +81,6 @@
   }
 }
 
-.article__author-item {
-  &:not(:last-child) {
-    margin-right: $gutter * 0.25;
-
-    &::after {
-      content: ',';
-    }
-  }
-}
-
 .article__modified-text,
 .article__reading-time {
   margin-right: 0.25rem;

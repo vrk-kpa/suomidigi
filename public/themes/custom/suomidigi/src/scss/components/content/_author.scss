@@ -8,4 +8,16 @@
     padding-bottom: $gutter / 2;
     text-transform: uppercase;
   }
+
+  &-item {
+    .author__list & {
+      &:not(:last-child) {
+        margin-right: $gutter * 0.25;
+
+        &::after {
+          content: ',';
+        }
+      }
+    }
+  }
 }
