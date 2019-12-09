@@ -258,6 +258,12 @@ display:
         options:
           relationship: none
           view_mode: teaser_prominent_primary
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
     cache_metadata:
       max-age: -1
       contexts:

@@ -20,11 +20,13 @@
 
 <article{{attributes.addClass(classes)}}>
   <a href="{{ url }}" class="blog-teaser__link">
+    <div class="blog-teaser__image">
     {% if content.field_header_image|render %}
-      <div class="blog-teaser__image">
-        {{ content.field_header_image }}
-      </div>
+      {{ content.field_header_image }}
+    {% else %}
+      <img src="/themes/custom/suomidigi/images/header_background_illustration.svg" alt="" />
     {% endif %}
+    </div>
     <div class="blog-teaser__content">
       <div class="blog-teaser__date">
         {% if node.isPublished() and published_at is not empty %}
