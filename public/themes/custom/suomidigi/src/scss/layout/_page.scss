@@ -11,11 +11,6 @@
   @include breakpoint($for-tablet-portrait-up) {
     display: flex;
   }
-
-  @include breakpoint($for-desktop-up) {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 .sidebar--first {
