@@ -32,6 +32,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/blogit\r\n/bloggar\r\n/blogs\r\n/yhteisot-ja-tapahtumat\r\n"
+    pages: "/blogit\r\n/blogit/*\r\n/bloggar\r\n/blogs\r\n/yhteisot-ja-tapahtumat\r\n/ryhmat-ja-verkostot\r\n/lainsaadanto\r\n\r\n"
     negate: true
     context_mapping: {  }
