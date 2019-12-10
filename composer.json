@@ -13,6 +13,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
+        "abraham/twitteroauth": "^0.7.4",
+        "cosenary/instagram": "v2.3",
+        "facebook/graph-sdk": "^5.4.3",
+        "google/apiclient": "^2.0",
+        "nesbot/carbon": "1.9.*",
         "brainmaestro/composer-git-hooks": "^2.7",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",

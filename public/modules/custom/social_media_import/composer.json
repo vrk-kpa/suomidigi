@@ -1,0 +1,21 @@
+{
+  "name": "drupal/social_media_import",
+  "type": "drupal-module",
+  "description": "Import social media from desired services and accounts.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://itis.fi",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.com/druidfi/itis/issues",
+    "source": "https://github.com/druidfi/itis"
+  },
+  "require": {
+    "abraham/twitteroauth": "^0.7.4",
+    "cosenary/instagram": "v2.3",
+    "drupal/entity":"^1.0",
+    "facebook/graph-sdk": "^5.4.3",
+    "google/apiclient": "^2.0",
+    "nesbot/carbon": "1.9.*"
+  }
+}

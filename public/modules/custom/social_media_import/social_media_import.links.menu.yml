@@ -1,0 +1,35 @@
+social_media_import.admin.structure.settings:
+  title: Social media types
+  description: 'Configure social media settings'
+  route_name: entity.social_media_post
+  parent: system.admin_structure
+
+social_media_feed.youtube:
+  title: Youtube
+  description: 'Youtube feed'
+  route_name: social_media_feed.youtube
+  parent: social_media_import.admin.structure.settings
+
+social_media_feed.twitter:
+  title: Twitter
+  description: 'Twitter feed'
+  route_name: social_media_feed.twitter
+  parent: social_media_import.admin.structure.settings
+
+social_media_feed.instagram:
+  title: Instagram
+  description: 'Instagram feed'
+  route_name: social_media_feed.instagram
+  parent: social_media_import.admin.structure.settings
+
+social_media_feed.facebook:
+  title: Facebook
+  description: 'Facebook feed'
+  route_name: social_media_feed.facebook
+  parent: social_media_import.admin.structure.settings
+
+entity.social_media_post.import:
+  title: Clear social media entities and rerun the importer
+  description: 'Clear all social media post entities from database and rerun each social media type importer.'
+  route_name: entity.social_media_post.import
+  parent: social_media_import.admin.structure.settings
