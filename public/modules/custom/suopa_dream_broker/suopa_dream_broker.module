@@ -35,8 +35,8 @@ function suopa_dream_broker_media_source_info_alter(array &$sources) {
  * Implements hook_oembed_providers_alter().
  */
 function suopa_dream_broker_oembed_providers_alter(array &$providers) {
-  global $base_url;
-  $provider_url = $base_url . '/dreambroker/oembed';
+  global $base_secure_url;
+  $provider_url = $base_secure_url . '/dreambroker/oembed';
 
   $providers[] = [
     'provider_name' => 'Dream Broker',
@@ -86,5 +86,21 @@ function suopa_dream_broker_entity_presave($entity) {
     !empty($entity->get('field_title')->value)
   ) {
     $entity->setName($entity->get('field_title')->value);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function suopa_dream_broker_preprocess_media_oembed_iframe(&$variables) {
+  if (isset($variables['media'])) {
+    $media = &$variables['media'];
+
+    $pattern = '/allowfullscreen/i';
+    $replacement = 'allowfullscreen frameborder=0 style="overflow: hidden;"';
+
+    if (strpos($media, '<iframe') !== FALSE) {
+      $media = preg_replace($pattern, $replacement, $media);
+    }
   }
 }
