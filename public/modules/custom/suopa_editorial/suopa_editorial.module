@@ -6,9 +6,14 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\user\Entity\User;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
 
 /**
  * Implements hook_form_BASE_FORM_ID_alter().
@@ -282,7 +287,47 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
     $form['menu']['#access'] = FALSE;
   }
 
+  // Hide hero paragraph from non EiC users.
+  if (
+    $form_id == 'node_landing_page_edit_form' ||
+    $form_id == 'node_landing_page_form'
+  ) {
+    $form['field_hero']['#states'] = [
+      'visible' => [
+        ':input[name="field_front_page[value]"]' => ['checked' => TRUE],
+      ],
+    ];
+    $user = User::load(\Drupal::currentUser()->id());
+
+    if ($user->id() == 1) {
+      return $form;
+    }
+
+    if (!$user->hasRole('editor_in_chief')) {
+      $form['field_hero']['#access'] = FALSE;
+      $form['field_front_page']['#access'] = FALSE;
+    }
+  }
+
   return $form;
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * Prevent users of deleting landing page if it is set as front page.
+ */
+function suopa_editorial_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  if ($op == 'delete') {
+    if (
+      $node->bundle() == 'landing_page' &&
+      $node->hasField('field_front_page') &&
+      $node->get('field_front_page')->value == 1
+    ) {
+      return AccessResult::forbidden();
+    }
+  }
+  return AccessResult::neutral();
 }
 
 /**
