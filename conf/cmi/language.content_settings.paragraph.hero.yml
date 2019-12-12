@@ -1,9 +1,9 @@
-uuid: 8307617b-d40e-4b2c-b37e-4b253276c7ce
+uuid: 7a79a014-51ff-4400-8625-9cf1a8b6c6d4
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.blog
+    - paragraphs.paragraphs_type.hero
   module:
     - content_translation
 third_party_settings:
@@ -11,8 +11,8 @@ third_party_settings:
     enabled: true
     bundle_settings:
       untranslatable_fields_hide: '0'
-id: taxonomy_term.blog
-target_entity_type_id: taxonomy_term
-target_bundle: blog
+id: paragraph.hero
+target_entity_type_id: paragraph
+target_bundle: hero
 default_langcode: fi
 language_alterable: true

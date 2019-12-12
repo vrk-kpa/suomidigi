@@ -7,6 +7,7 @@ dependencies:
     - node.type.landing_page
     - paragraphs.paragraphs_type.contact_information_item
     - paragraphs.paragraphs_type.group_view
+    - paragraphs.paragraphs_type.hero
     - paragraphs.paragraphs_type.highlight_bullet_point_item
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_cards
@@ -38,6 +39,7 @@ settings:
       legislation_link: legislation_link
       contact_information_item: contact_information_item
       group_view: group_view
+      hero: hero
     target_bundles_drag_drop:
       container:
         weight: -31
@@ -108,7 +110,13 @@ settings:
       group_view:
         enabled: true
         weight: 32
+      hero:
+        enabled: true
+        weight: 35
       view:
         weight: 42
+        enabled: false
+      list_of_links:
+        weight: 49
         enabled: false
 field_type: entity_reference_revisions

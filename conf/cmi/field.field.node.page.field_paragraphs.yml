@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.page
+    - paragraphs.paragraphs_type.hero
     - paragraphs.paragraphs_type.highlight_bullet_point_item
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_cards
@@ -34,6 +35,7 @@ settings:
       legislation_cards: legislation_cards
       legislation_attachment: legislation_attachment
       legislation_link: legislation_link
+      hero: hero
     target_bundles_drag_drop:
       container:
         weight: -43
@@ -98,4 +100,19 @@ settings:
       legislation_link:
         enabled: true
         weight: -23
+      contact_information:
+        weight: 29
+        enabled: false
+      contact_information_item:
+        weight: 30
+        enabled: false
+      group_view:
+        weight: 34
+        enabled: false
+      hero:
+        enabled: true
+        weight: 35
+      list_of_links:
+        weight: 49
+        enabled: false
 field_type: entity_reference_revisions
