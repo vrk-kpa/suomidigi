@@ -7,9 +7,14 @@ label: 'Group member'
 weight: -3
 is_admin: null
 permissions:
+  - 'create blog_post content'
   - 'create content translations'
+  - 'delete blog_post revisions'
   - 'delete content translations'
+  - 'delete own blog_post content'
   - 'edit content translations'
+  - 'edit own blog_post content'
+  - 'translate blog_post node'
   - 'translate group-group_node-article group_content'
   - 'translate group-group_node-core_content group_content'
   - 'translate group-group_node-landing_page group_content'
