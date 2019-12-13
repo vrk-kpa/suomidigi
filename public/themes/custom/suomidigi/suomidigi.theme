@@ -98,7 +98,7 @@ function suomidigi_preprocess_region(&$variables) {
  */
 function suomidigi_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
-    $suggestions[] = 'page__'. $node->bundle();
+    $suggestions[] = 'page__' . $node->bundle();
   }
 }
 
