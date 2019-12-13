@@ -50,7 +50,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 3
+          items_per_page: 6
           offset: 0
       style:
         type: default
@@ -180,13 +180,13 @@ display:
       arguments: {  }
       display_extenders: {  }
       title: Youtube
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
       tags:
-        - 'config:core.entity_view_display.social_media_post.facebook.default'
-        - 'config:core.entity_view_display.social_media_post.instagram.default'
+        - 'config:core.entity_view_display.social_media_post.twitter.default'
   social_media_facebook:
     display_plugin: block
     id: social_media_facebook
@@ -257,8 +257,7 @@ display:
       contexts:
         - 'languages:language_interface'
       tags:
-        - 'config:core.entity_view_display.social_media_post.facebook.default'
-        - 'config:core.entity_view_display.social_media_post.instagram.default'
+        - 'config:core.entity_view_display.social_media_post.twitter.default'
   social_media_instagram:
     display_plugin: block
     id: social_media_instagram
@@ -328,8 +327,7 @@ display:
       contexts:
         - 'languages:language_interface'
       tags:
-        - 'config:core.entity_view_display.social_media_post.facebook.default'
-        - 'config:core.entity_view_display.social_media_post.instagram.default'
+        - 'config:core.entity_view_display.social_media_post.twitter.default'
   social_media_twitter:
     display_plugin: block
     id: social_media_twitter
@@ -393,8 +391,7 @@ display:
       contexts:
         - 'languages:language_interface'
       tags:
-        - 'config:core.entity_view_display.social_media_post.facebook.default'
-        - 'config:core.entity_view_display.social_media_post.instagram.default'
+        - 'config:core.entity_view_display.social_media_post.twitter.default'
   social_media_youtube:
     display_plugin: block
     id: social_media_youtube
@@ -409,5 +406,4 @@ display:
       contexts:
         - 'languages:language_interface'
       tags:
-        - 'config:core.entity_view_display.social_media_post.facebook.default'
-        - 'config:core.entity_view_display.social_media_post.instagram.default'
+        - 'config:core.entity_view_display.social_media_post.twitter.default'
