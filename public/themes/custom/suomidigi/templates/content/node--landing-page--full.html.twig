@@ -17,19 +17,21 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  {% if content.field_slogan|render %}
-    <h2 class="landing-page__slogan">
-      {{ content.field_slogan }}
-    </h2>
-  {% endif %}
-  {% if content.field_ingress|render %}
-    <div class="landing-page__ingress">
-      {{ content.field_ingress }}
-    </div>
+  {% if content.field_front_page != true %}
+    {% if content.field_slogan|render %}
+      <h2 class="landing-page__slogan">
+        {{ content.field_slogan }}
+      </h2>
+    {% endif %}
+    {% if content.field_ingress|render %}
+      <div class="landing-page__ingress">
+        {{ content.field_ingress }}
+      </div>
+    {% endif %}
   {% endif %}
   <div class="landing-page__content">
     {% if content.field_paragraphs|render %}
-      {{ content.field_paragraphs }}
+      {{ content|without('field_front_page', 'field_hero', 'field_ingress', 'field_slogan') }}
     {% endif %}
   </div>
 </article>

@@ -1,0 +1,41 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set media = content.field_hero_background_image.0 %}
+  {% set title = content.field_hero_title.0 %}
+  {% set link = content.field_hero_link.0['#url'] %}
+  {% set text = content.field_hero_link.0['#title'] %}
+  {% set description = content.field_hero_description.0 %}
+  {% set link_classes = [
+    'paragraph__link',
+    'link--cta',
+    'link--prominent',
+  ] %}
+  {% set classes = classes|merge(['paragraph--hero']) %}
+
+  <div{{attributes.addClass(classes)}}>
+    {% block content %}
+      <div class="paragraph__media">
+        {{ media }}
+      </div>
+
+      <div class="paragraph__content">
+        {% if title|render %}
+          <h1 class="paragraph__title">
+            {{ title }}
+          </h1>
+        {% endif %}
+
+        {% if description|render %}
+          <p class="paragraph__description">
+            {{ description }}
+          </p>
+        {% endif %}
+
+        {% if link and text %}
+          <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
+        {% endif %}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

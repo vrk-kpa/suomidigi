@@ -62,7 +62,7 @@ source:
       selector: 'wp:postmeta[child::wp:meta_key="_social_image_id"]/child::wp:meta_value'
     -
       name: author
-      label: 'Author'
+      label: Author
       selector: 'wp:postmeta[child::wp:meta_key="_sdmeta_author_name"]/child::wp:meta_value'
     -
       name: author_image

@@ -1,0 +1,18 @@
+{% extends "block.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override for tabs.
+ */
+#}
+{% block content %}
+  {% if content %}
+    {% embed "@suomidigi/misc/container.twig" with {container_element: 'block--system-messages'} %}
+      {% block container_content %}
+        <nav class="tabs" role="navigation" aria-label="{{ 'Tabs'|t }}">
+          {{ content }}
+        </nav>
+      {% endblock container_content %}
+    {% endembed %}
+  {% endif %}
+{% endblock %}

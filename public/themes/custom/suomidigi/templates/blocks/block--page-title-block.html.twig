@@ -25,26 +25,28 @@
  * @see template_preprocess_block()
  */
 #}
-{% embed "@suomidigi/misc/container.twig" with {container_element: 'title'} %}
-  {% block container_content %}
-    {{ title_prefix }}
-    {% if label %}
-      <h2{{ title_attributes }}>{{ label }}</h2>
-    {% endif %}
-    {{ title_suffix }}
-    {% block content %}
-      {% if content.field_liftup_image|render %}
-        <div class="theme-term__header">
-          <div class="theme-term__image">
-            {{ content.field_liftup_image|render }}
-          </div>
-          <div class="theme-term__title">
-            {{ content }}
-          </div>
-        </div>
-      {% else %}
-        {{ content }}
+{% if hide_block != true %}
+  {% embed "@suomidigi/misc/container.twig" with {container_element: 'title'} %}
+    {% block container_content %}
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes }}>{{ label }}</h2>
       {% endif %}
-    {% endblock %}
-  {% endblock container_content %}
-{% endembed %}
+      {{ title_suffix }}
+      {% block content %}
+        {% if content.field_liftup_image|render %}
+          <div class="theme-term__header">
+            <div class="theme-term__image">
+              {{ content.field_liftup_image|render }}
+            </div>
+            <div class="theme-term__title">
+              {{ content }}
+            </div>
+          </div>
+        {% else %}
+          {{ content }}
+        {% endif %}
+      {% endblock %}
+    {% endblock container_content %}
+  {% endembed %}
+{% endif %}

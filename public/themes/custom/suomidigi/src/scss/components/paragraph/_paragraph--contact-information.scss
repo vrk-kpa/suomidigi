@@ -20,10 +20,13 @@
 
       @include breakpoint(670px) {
         flex-flow: row;
-        margin: 0 -$gutter;
+        flex-wrap: wrap;
+        margin: 0 -#{$gutter};
 
         > .field__item {
-          margin: 0 $gutter;
+          flex-basis: 0;
+          flex-grow: 1;
+          margin: 0 $gutter $gutter * 2 $gutter;
         }
       }
     }
