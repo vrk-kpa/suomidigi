@@ -100,6 +100,7 @@ final class TwitterImporter {
       [
         'screen_name' => $screenName,
         'count' => 20,
+        'tweet_mode' => 'extended',
       ]
     );
 
@@ -180,7 +181,7 @@ final class TwitterImporter {
         'feed_id' => $feed_id,
         'tweet_id' => $post->id,
         'full_name' => $this->fullName,
-        'text' => $post->text,
+        'text' => $post->full_text,
         'author_screen_name' => $post->user->screen_name,
         'created' => strtotime($post->created_at),
         'link' => [
