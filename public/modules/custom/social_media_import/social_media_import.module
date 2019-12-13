@@ -80,17 +80,16 @@ function social_media_import_cron() {
  */
 function social_media_import_save_file($filename, $path) {
   // TODO: Fix the SSL problem with file_get_contents()
-  // $name = basename($filename);
-  // $name = (
-  // $path == 'public://facebook/' &&
-  // substr($filename, 0, 44) === "https://external.xx.fbcdn.net/safe_image.php"
-  // ) ? 'fbsi_' . mt_rand(0, 100000) . '.jpg' : $name;
-  // $data = getSSLPage($filename);
-  // $uri = $path . strtok($name, '?');
-  // file_prepare_directory($path, FILE_CREATE_DIRECTORY);
-  // $file = file_save_data($data, $uri, FILE_EXISTS_RENAME);
-  // return ($file) ? $file->id() : $file;.
-  return FALSE;
+  $name = basename($filename);
+  $name = (
+    $path == 'public://facebook/' &&
+    substr($filename, 0, 44) === "https://external.xx.fbcdn.net/safe_image.php"
+  ) ? 'fbsi_' . mt_rand(0, 100000) . '.jpg' : $name;
+  $data = file_get_contents($filename);
+  $uri = $path . strtok($name, '?');
+  file_prepare_directory($path, FILE_CREATE_DIRECTORY);
+  $file = file_save_data($data, $uri, FILE_EXISTS_RENAME);
+  return ($file) ? $file->id() : $file;
 }
 
 /**

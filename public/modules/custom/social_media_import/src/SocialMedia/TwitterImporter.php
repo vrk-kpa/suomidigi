@@ -191,9 +191,12 @@ final class TwitterImporter {
         ],
       ];
       // Separate handler for media.
+      /*
       if ($media) {
-        $entity['image'] = social_media_import_save_file($post->entities->media[0]->media_url_https, 'public://twitter/');
-      }
+      $entity['image'] = social_media_import_save_file(
+      $post->entities->media[0]->media_url_https, 'public://twitter/'
+      );
+      } */
       SocialMediaPost::create($entity)->save();
       $this->counter++;
     }
