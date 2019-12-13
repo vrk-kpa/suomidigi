@@ -1,0 +1,115 @@
+.views--social-media-twitter {
+    .views-row-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint($for-tablet-portrait-up) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .views__row {
+            margin-bottom: $gutter * 2.25;
+            background-color: $white;
+            
+            @include breakpoint($for-tablet-portrait-up) {
+                width: 31.5%; 
+            }   
+        }
+    }
+}
+
+.tweet {
+    height: 100%;
+    padding: $gutter;
+    padding-right: $gutter * 1.5;
+    padding-bottom: $gutter * 1.5;
+    @include font-size(14px);
+    @include line-height(14px, 18px);
+
+    &__link {
+        text-decoration: none;
+        color: $black;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+
+            .tweet__content {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    &__header {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &__author-icon {
+        align-items: center;
+        background-color: $blue-light;
+        border-radius: 100%;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        width: 51px;
+        height: 51px;
+        @include font-size(10px);
+        @include line-height(10px, 13px);
+        @include font-weight($semibold);
+        margin-right: $gutter / 1.25;
+    }
+
+    &__author {
+        color: $black;
+
+        h3 {
+            @include font-size(18px);
+            @include line-height(18px, 23px);
+            @include font-weight($semibold);
+            margin-top: $gutter / 5;
+            margin-bottom: $gutter / 5;
+        }
+        h4 {
+            @include font-size(14px);
+            @include line-height(14px, 18px);
+            @include font-weight($regular);
+            margin: 0;
+        }
+    }
+
+    .twitter-icon {
+        text-align: right;
+        flex-grow: 1;
+        padding-top: $gutter / 4;
+
+        .icon {
+            width: $gutter * 1.5;
+            height: $gutter * 1.5;
+        }
+    }
+
+    &__content {
+        margin-bottom: $gutter;
+        margin-top: $gutter * 1.5;
+        padding-left: $gutter / 1.5;
+        flex-grow: 1;
+    }
+
+    &__date {
+        text-align: right;
+        color: $gray-medium;
+        text-decoration: none;
+        @include font-weight($semibold);
+        
+    }
+
+}
