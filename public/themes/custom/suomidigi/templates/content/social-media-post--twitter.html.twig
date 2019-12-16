@@ -6,6 +6,7 @@
   {{ content.full_name }}
 {% endset %}
 
+
 <article class="tweet">
   <a href="{{ content.link[0]['#url'] }}" class="tweet__link" target="_blank">
     <div class="tweet-wrapper">
@@ -15,7 +16,7 @@
         </div>
         <div class="tweet__author">
           <h3>{{ name }}</h3>
-          <h4>@suomidigi</h4>
+          <h4>@{{ content.author_screen_name[0] }}</h4>
         </div>
         <div class="twitter-icon">
             <svg id="Logo_FIXED" data-name="Logo — FIXED" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
