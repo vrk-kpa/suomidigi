@@ -1,9 +1,9 @@
-uuid: 0301a09e-5caf-4d5c-99ae-22e4e84b1cb3
+uuid: b1492ffc-315d-47ea-8c21-c9efda2063b3
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.teaser_prominent_primary
     - field.field.node.blog_post.field_blog
     - field.field.node.blog_post.field_comments
     - field.field.node.blog_post.field_displayed_author
@@ -19,24 +19,31 @@ dependencies:
     - smart_trim
     - user
 _core:
-  default_config_hash: 4NcL2hSQZBpJbYtNuh5jC6kyQTcAc1m5bQpTegEWEso
-id: node.blog_post.teaser
+  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
+id: node.blog_post.teaser_prominent_primary
 targetEntityType: node
 bundle: blog_post
-mode: teaser
+mode: teaser_prominent_primary
 content:
   field_displayed_author:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings:
       link: false
     third_party_settings: {  }
-  field_ingress:
-    type: smart_trim
+  field_header_image:
+    type: entity_reference_entity_view
     weight: 1
+    label: hidden
+    settings:
+      view_mode: blog_teaser_header
+      link: false
+    third_party_settings: {  }
     region: content
+  field_ingress:
+    weight: 2
     label: hidden
     settings:
       trim_length: 200
@@ -52,6 +59,8 @@ content:
         trim_zero: false
       summary_handler: full
     third_party_settings: {  }
+    type: smart_trim
+    region: content
   published_at:
     type: timestamp
     weight: 0
@@ -66,7 +75,6 @@ hidden:
   field_blog: true
   field_comments: true
   field_displayed_update_time: true
-  field_header_image: true
   field_paragraphs: true
   field_reading_time: true
   field_tags: true

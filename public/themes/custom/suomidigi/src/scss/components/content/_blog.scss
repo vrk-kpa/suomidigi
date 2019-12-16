@@ -41,16 +41,6 @@
   }
 }
 
-.blog__author-item {
-  &:not(:last-child) {
-    margin-right: $gutter * 0.25;
-
-    &::after {
-      content: ',';
-    }
-  }
-}
-
 .blog__type {
   font-weight: 600;
   line-height: 100%;

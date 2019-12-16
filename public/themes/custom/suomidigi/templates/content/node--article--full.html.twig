@@ -17,7 +17,7 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="article__header">    
+  <div class="article__header">
     <div class="article__type">
       {{ content.field_article_type }}
     </div>
@@ -33,7 +33,7 @@
     {% endif %}
     <div class="article__data">
       {% if content.field_displayed_author|render %}
-        <span class="article__data-item article__author">
+        <span class="article__data-item article__author author__list">
           {{ content.field_displayed_author }}
         </span>
       {% endif %}
@@ -57,7 +57,7 @@
       {{ content.field_header_image }}
     </div>
   </div>
-  <div class="article__content"> 
+  <div class="article__content">
     {% if content.field_paragraphs|render %}
       <div class="article__contents">
           {{ content.field_paragraphs }}
@@ -65,7 +65,7 @@
     {% endif %}
 
     {% if content.field_displayed_author_footer|render %}
-      <div class="article__author--prominent author">
+      <div class="article__author--prominent author author--prominent">
         {{ content.field_displayed_author_footer }}
       </div>
     {% endif %}

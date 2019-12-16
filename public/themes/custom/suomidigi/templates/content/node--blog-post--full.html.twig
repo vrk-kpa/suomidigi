@@ -23,7 +23,7 @@
         {{ content.field_blog_type }}
       </div>
       {% if content.field_displayed_author|render %}
-        <span class="blog__data-item blog__author">
+        <span class="blog__data-item blog__author author__list">
           {{ content.field_displayed_author }}
         </span>
       {% endif %}
@@ -60,7 +60,7 @@
     {% endif %}
 
     {% if content.field_displayed_author_footer|render %}
-      <div class="blog__author--prominent author">
+      <div class="blog__author--prominent author author--prominent">
         {{ content.field_displayed_author_footer }}
       </div>
     {% endif %}

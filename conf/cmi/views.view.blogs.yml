@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.teaser_prominent_primary
     - node.type.blog_post
   module:
     - node
@@ -52,8 +53,8 @@ display:
       pager:
         type: infinite_scroll
         options:
-          items_per_page: 10
-          offset: 0
+          items_per_page: 9
+          offset: 1
           id: 0
           total_pages: null
           tags:
@@ -226,12 +227,48 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      css_class: ''
+      defaults:
+        css_class: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  blogs_attachment:
+    display_plugin: attachment
+    id: blogs_attachment
+    display_title: Attachment
+    position: 2
+    display_options:
+      display_extenders: {  }
+      pager:
+        type: some
+        options:
+          items_per_page: 1
+          offset: 0
+      displays:
+        blogs: blogs
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser_prominent_primary
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
