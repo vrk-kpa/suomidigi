@@ -9,4 +9,10 @@
   max-width: $container-desktop;
   padding-left: $gutter;
   padding-right: $gutter;
+  transition: padding 150ms linear;
+
+  @include breakpoint(1200px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

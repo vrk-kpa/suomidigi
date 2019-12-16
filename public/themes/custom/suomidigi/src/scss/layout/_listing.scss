@@ -1,5 +1,9 @@
 .listing {
-  margin-bottom: $gutter * 2;
+  margin: 0 -#{$gutter} $gutter * 2 -#{$gutter};
+
+  @include breakpoint($for-mobile-landscape-up) {
+    margin: 0 0 $gutter * 2;
+  }
 }
 
 .listing__item {
@@ -7,5 +11,29 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.listing--grid {
+  display: flex;
+  flex-flow: column;
+  margin: $gutter -#{$gutter};
+
+  @include breakpoint($for-mobile-landscape-up) {
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin: $gutter / 3 0 $gutter;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      margin: $gutter / 3 $gutter $gutter $gutter;
+      width: calc(100% / 2 - #{$gutter * 2});
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      width: calc(100% / 3 - #{$gutter * 2});
+    }
   }
 }
