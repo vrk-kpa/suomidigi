@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a group.
+ */
+#}
+<div{{ attributes.addClass('group--teaser') }}>
+  {% if content.field_group_image|render %}
+    {{ content.field_group_image }}
+  {% endif %}
+  <div class="group__content">
+    <h2{{ title_attributes }}>
+      {{ label }}
+    </h2>
+    {% if content.field_group_short_description|render %}
+      <div class="group__description">
+        {{ content.field_group_short_description }}
+      </div>
+    {% endif %}
+
+    {% set link_text = ' ' ~ label %}
+    {% set link_text = 'View group'|t ~ link_text %}
+    <a href="{{ group_url }}" title="{{ label }}">
+      {% include "@suomidigi/misc/link.twig" with {
+        link_class: 'group__link',
+        link_text: link_text
+      } %}
+    </a>
+  </div>
+</div>

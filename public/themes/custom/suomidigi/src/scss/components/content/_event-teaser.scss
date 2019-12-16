@@ -103,4 +103,12 @@
       text-transform: uppercase;
     }
   }
+
+  .listing--grid__item & {
+    background-color: $white;
+    flex-flow: column;
+    height: 100%;
+    margin: 0;
+  }
+
 }

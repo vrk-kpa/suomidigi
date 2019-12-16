@@ -203,5 +203,17 @@
       padding-top: $gutter;
       text-decoration: none;
     }
+
+    .listing--grid__item & {
+      background-color: $white;
+      flex-flow: column;
+      height: 100%;
+      margin: 0;
+
+      .group__image {
+        min-height: 0;
+        width: 100%;
+      }
+    }
   }
 }
