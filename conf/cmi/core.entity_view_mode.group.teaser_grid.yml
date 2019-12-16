@@ -1,0 +1,10 @@
+uuid: 6c91d75e-d347-4716-a4a5-24f4c6564487
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.teaser_grid
+label: 'Teaser - Grid'
+targetEntityType: group
+cache: true

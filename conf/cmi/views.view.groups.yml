@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.group.teaser
+    - core.entity_view_mode.group.teaser_grid
     - group.type.group
   module:
     - group
@@ -58,7 +58,7 @@ display:
         type: 'entity:group'
         options:
           relationship: none
-          view_mode: teaser
+          view_mode: teaser_grid
       fields:
         label:
           table: groups_field_data
@@ -167,11 +167,43 @@ display:
   groups:
     display_plugin: block
     id: groups
-    display_title: 'Groups list'
+    display_title: 'Groups | list'
     position: 1
     display_options:
       display_extenders: {  }
       display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.permissions
+      tags: {  }
+  groups_grid:
+    display_plugin: block
+    id: groups_grid
+    display_title: 'Groups | grid'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+        pager: false
+      row:
+        type: 'entity:group'
+        options:
+          relationship: none
+          view_mode: teaser_grid
+      pager:
+        type: some
+        options:
+          items_per_page: 3
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
