@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
 
-    @include breakpoint($for-tablet-portrait-up) {
+    @include breakpoint($for-mobile-landscape-up) {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -13,9 +13,13 @@
       background-color: $white;
       margin-bottom: $gutter * 2.25;
       
-      @include breakpoint($for-tablet-portrait-up) {
-        width: 31.5%; 
-      }   
+      @include breakpoint($for-mobile-landscape-up) {
+        width: 48%;
+
+        @include breakpoint($for-desktop-up) {
+          width: 31.5%; 
+        }  
+      }
     } 
   }
 }
@@ -52,11 +56,6 @@
     flex-wrap: nowrap;
   }
 
-  &__author-icon, 
-  &__author {
-    margin-top: $gutter;
-  }
-
   &__author-icon {
     align-items: center;
     background-color: $blue-light;
@@ -70,6 +69,7 @@
     @include font-weight($semibold);
     justify-content: center;
     margin-right: $gutter / 1.25;
+    margin-top: $gutter;
   }
 
   &__author {
@@ -80,13 +80,12 @@
       @include line-height(18px, 23px);
       @include font-weight($semibold);
       margin-bottom: $gutter / 7;
-      margin-top: $gutter / 2;
+      margin-top: $gutter * 1.5;
     }
     h4 {
       @include font-size(14px);
       @include line-height(14px, 18px);
       @include font-weight($regular);
-      margin: 0;
     }
   }
 
