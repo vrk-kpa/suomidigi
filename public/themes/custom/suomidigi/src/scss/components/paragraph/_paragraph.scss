@@ -1,5 +1,5 @@
 .paragraph {
-  margin: calc(#{$gutter} * 2) 0;
+  margin: $gutter * 2 0;
 
   &:first-child {
     margin-top: 0;

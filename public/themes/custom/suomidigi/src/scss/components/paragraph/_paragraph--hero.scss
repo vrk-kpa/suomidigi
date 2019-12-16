@@ -98,7 +98,7 @@
       @include font-size(18px);
       @include line-height(18px, 26px);
       margin: 0 auto $gutter auto;
-      max-width: 50%;
+      max-width: 570px;
     }
 
     @include breakpoint($for-tablet-landscape-up) {

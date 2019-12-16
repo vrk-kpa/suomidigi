@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ */
+#}
+{% set link = content.field_p_link.0['#url'] %}
+{% set text = content.field_p_link.0['#title'] %}
+{% set link_classes = [
+  'link--cta',
+] %}
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    'paragraph--' ~ liftup_style,
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% if content.field_p_title|render %}
+      <h2 class="paragraph__title">{{ content.field_p_title}}</h2>
+    {% endif %}
+    <div class="paragraph__content-wrapper">
+      {% block content %}
+        {{ content|without('field_p_title', 'field_p_liftup_style', 'field_p_link') }}
+      {% endblock %}
+    </div>
+    {% if link and text %}
+      <div class="paragraph__link">
+        <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
+      </div>
+    {% endif %}
+  </div>
+{% endblock paragraph %}

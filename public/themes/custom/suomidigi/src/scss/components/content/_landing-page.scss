@@ -18,7 +18,6 @@
   }
 
   &__content {
-    @include border('top');
     margin-top: $gutter;
     padding-top: $gutter * 2;
   }

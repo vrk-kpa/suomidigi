@@ -205,7 +205,28 @@ function suomidigi_preprocess_paragraph(&$variables) {
   $paragraph = $variables['paragraph'];
 
   switch ($paragraph->getType()) {
+    case 'liftup_entity_reference':
+      if ($paragraph->hasField('field_p_liftup_style')) {
+        $variables['liftup_style'] = $paragraph->field_p_liftup_style->value;
+      }
+      break;
+
     case 'liftup_entity_reference_item':
+      // Check if parent paragraph is 3 columns.
+      if ($parent = $paragraph->getParentEntity()) {
+        if (
+          $parent->hasField('field_p_liftup_style') &&
+          $parent->get('field_p_liftup_style')->value == '3col'
+        ) {
+          // Set the first item full width.
+          $first_target = $parent->get('field_p_content_unlimited')->first()->getValue()['target_id'];
+          if ($paragraph->id() == $first_target) {
+            $variables['is_full_width'] = TRUE;
+            continue;
+          }
+        }
+      }
+
       if ($paragraph->hasField('field_p_full_width')) {
         $fullWidthValue = (int) $paragraph->get('field_p_full_width')->getString();
         $fullWidth = $fullWidthValue === 1 ? TRUE : FALSE;
