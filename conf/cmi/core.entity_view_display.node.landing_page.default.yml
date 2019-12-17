@@ -17,6 +17,15 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
+  field_hero:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
   field_hero_checkbox:
     type: boolean
     weight: 3
@@ -27,15 +36,6 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-  field_hero:
-    type: entity_reference_revisions_entity_view
-    weight: 0
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
   field_ingress:
     weight: 1
     label: hidden

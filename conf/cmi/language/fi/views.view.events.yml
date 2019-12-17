@@ -10,7 +10,7 @@ display:
     display_options:
       title: 'Menneet tapahtumat'
   upcoming_events:
-    display_title: "Tulevat tapahtumat | Lista"
+    display_title: 'Tulevat tapahtumat | Lista'
   past_events_grid:
     display_title: 'Menneet tapahtumat | Ruudukko'
   upcoming_events_grid:

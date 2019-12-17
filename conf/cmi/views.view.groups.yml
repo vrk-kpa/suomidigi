@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.group.teaser
     - core.entity_view_mode.group.teaser_grid
     - group.type.group
   module:
@@ -172,6 +173,17 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:group'
+        options:
+          relationship: none
+          view_mode: teaser
     cache_metadata:
       max-age: -1
       contexts:

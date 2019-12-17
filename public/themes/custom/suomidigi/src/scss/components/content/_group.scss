@@ -205,6 +205,7 @@
     }
 
     .listing--grid__item & {
+      align-items: unset;
       height: 100%;
       margin: 0;
 
@@ -235,6 +236,9 @@
       }
 
       .group__description {
+        @include font-size(18px);
+        @include line-height(18px, 26px);
+        @include font-weight($regular);
         flex-grow: 1;
         height: auto;
       }
