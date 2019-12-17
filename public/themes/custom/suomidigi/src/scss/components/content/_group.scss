@@ -203,5 +203,41 @@
       padding-top: $gutter;
       text-decoration: none;
     }
+
+    .listing--grid__item & {
+      height: 100%;
+      margin: 0;
+
+      .group__image {
+        display: inherit;
+        margin: -20px -20px 0 -20px;
+        min-height: 195px;
+        order: unset;
+        width: auto;
+      }
+
+      .group__content {
+        display: flex;
+        flex-flow: column;
+        order: unset;
+        padding: 20px;
+
+        h2 {
+          margin-bottom: $gutter;
+          margin-top: $gutter;
+        }
+
+        a {
+          display: flex;
+          flex-direction: column-reverse;
+          margin-top: $gutter;
+        }
+      }
+
+      .group__description {
+        flex-grow: 1;
+        height: auto;
+      }
+    }
   }
 }

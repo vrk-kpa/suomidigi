@@ -1,0 +1,106 @@
+uuid: 9a881c86-b73e-4c2c-95f6-beb9b6893d6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.hero
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_hero
+field_name: field_hero
+entity_type: node
+bundle: landing_page
+label: Hero
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      hero: hero
+    target_bundles_drag_drop:
+      attachment:
+        weight: 26
+        enabled: false
+      banner_cta:
+        weight: 27
+        enabled: false
+      contact_information:
+        weight: 28
+        enabled: false
+      contact_information_item:
+        weight: 29
+        enabled: false
+      container:
+        weight: 30
+        enabled: false
+      container_title:
+        weight: 31
+        enabled: false
+      feed:
+        weight: 32
+        enabled: false
+      group_view:
+        weight: 33
+        enabled: false
+      highlight_bullet_point:
+        weight: 34
+        enabled: false
+      hero:
+        enabled: true
+        weight: 35
+      highlight_bullet_point_item:
+        weight: 35
+        enabled: false
+      highlight_cta:
+        weight: 36
+        enabled: false
+      highlight_text_box:
+        weight: 37
+        enabled: false
+      legislation_attachment:
+        weight: 38
+        enabled: false
+      legislation_cards:
+        weight: 39
+        enabled: false
+      legislation_link:
+        weight: 40
+        enabled: false
+      liftup_box:
+        weight: 41
+        enabled: false
+      liftup_box_item:
+        weight: 42
+        enabled: false
+      liftup_entity_reference:
+        weight: 43
+        enabled: false
+      liftup_entity_reference_item:
+        weight: 44
+        enabled: false
+      liftup_prominent:
+        weight: 45
+        enabled: false
+      link:
+        weight: 46
+        enabled: false
+      list_of_links:
+        weight: 47
+        enabled: false
+      media:
+        weight: 48
+        enabled: false
+      text:
+        weight: 49
+        enabled: false
+      view:
+        weight: 50
+        enabled: false
+field_type: entity_reference_revisions

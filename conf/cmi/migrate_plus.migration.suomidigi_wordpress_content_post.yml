@@ -60,6 +60,14 @@ source:
       name: header_image
       label: 'Header image'
       selector: 'wp:postmeta[child::wp:meta_key="_social_image_id"]/child::wp:meta_value'
+    -
+      name: author
+      label: Author
+      selector: 'wp:postmeta[child::wp:meta_key="_sdmeta_author_name"]/child::wp:meta_value'
+    -
+      name: author_image
+      label: 'Author image'
+      selector: 'wp:postmeta[child::wp:meta_key="_sdmeta_author_avatar"]/child::wp:meta_value'
   ids:
     post_id:
       type: integer
@@ -85,8 +93,12 @@ process:
         target_revision_id: '1'
   field_ingress:
     -
-      plugin: get
-      source: excerpt
+      plugin: concat
+      source:
+        - author
+        - author_image
+        - excerpt
+      delimiter: "\n\n"
   created:
     -
       plugin: callback

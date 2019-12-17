@@ -1,6 +1,23 @@
 .title__container {
-  margin: 0;
   padding: 0;
+
+  .content__wrapper & {
+    margin: 0;
+  }
+
+  .page-node-type-landing-page & {
+    margin-top: $gutter;
+    padding: 0 $gutter;
+    transition: padding 150ms linear;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-top: $gutter * 3;
+    }
+
+    @include breakpoint(1200px) {
+      padding: 0;
+    }
+  }
 
   h1 {
     color: $blue;

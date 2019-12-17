@@ -1,0 +1,129 @@
+.paragraph.paragraph--hero {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 240px;
+  justify-content: center;
+  position: relative;
+
+  @include breakpoint($for-tablet-landscape-up) {
+    height: 334px;
+  }
+
+  @include breakpoint($for-desktop-up) {
+    height: 400px;
+  }
+
+  &.paragraph {
+    margin: 0;
+  }
+
+  .paragraph__media {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:after {
+      background-color: rgba(42, 110, 187, 0.9);
+      bottom: 0;
+      content: "";
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    img,
+    video {
+      @supports(object-fit: cover) {
+        object-fit: cover;
+        object-position: center top;
+        width: 100%;
+      }
+    }
+
+    img {
+      height: 240px;
+
+      @include breakpoint($for-tablet-landscape-up) {
+        height: 334px;
+      }
+
+      @include breakpoint($for-desktop-up) {
+        height: 400px;
+      }
+    }
+  }
+
+  .paragraph__content {
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .paragraph__title {
+    @include font-size(22px);
+    @include line-height(22px, 30px);
+    @include font-weight($bold);
+    color: $white;
+    margin-bottom: $gutter;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      @include font-size(29px);
+      @include line-height(29px, 40px);
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      @include font-size(40px);
+      @include line-height(40px, 50px);
+      margin-bottom: $gutter * 2;
+    }
+  }
+
+  .paragraph__description {
+    @include font-size(16px);
+    @include line-height(16px, 22px);
+    @include font-weight($regular);
+    color: $white;
+    margin-bottom: $gutter;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      @include font-size(18px);
+      @include line-height(18px, 26px);
+      margin: 0 auto $gutter auto;
+      max-width: 570px;
+    }
+
+    @include breakpoint($for-tablet-landscape-up) {
+      @include font-size(22px);
+      @include line-height(22px, 30px);
+      margin: 0 auto $gutter * 2 auto;
+    }
+  }
+
+  .paragraph__hero-link {
+    @include font-size(16px);
+    @include line-height(16px, 20px);
+    @include font-weight($semibold);
+    border: 1px solid $white;
+    border-radius: 3px;
+    color: $white;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 18px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      color: $blue;
+    }
+  }
+}

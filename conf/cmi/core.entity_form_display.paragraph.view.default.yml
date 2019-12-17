@@ -3,17 +3,45 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.view.field_p_description
+    - field.field.paragraph.view.field_p_link
+    - field.field.paragraph.view.field_p_title
     - field.field.paragraph.view.field_p_view
     - paragraphs.paragraphs_type.view
   module:
+    - link
     - viewsreference
 id: paragraph.view.default
 targetEntityType: paragraph
 bundle: view
 mode: default
 content:
-  field_p_view:
+  field_p_description:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_p_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_p_title:
     weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_p_view:
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: viewsreference_select

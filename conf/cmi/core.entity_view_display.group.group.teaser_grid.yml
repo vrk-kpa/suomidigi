@@ -1,0 +1,61 @@
+uuid: 35e3060b-7fb9-4681-891e-4b0eb7642e54
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.teaser_grid
+    - field.field.group.group.field_community_reference
+    - field.field.group.group.field_community_reference_desc
+    - field.field.group.group.field_community_reference_title
+    - field.field.group.group.field_group_image
+    - field.field.group.group.field_group_lists
+    - field.field.group.group.field_group_short_description
+    - field.field.group.group.field_paragraphs
+    - group.type.group
+    - image.style.2_1_half_content
+  module:
+    - svg_image
+id: group.group.teaser_grid
+targetEntityType: group
+bundle: group
+mode: teaser_grid
+content:
+  field_group_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: 2_1_half_content
+      image_link: ''
+      svg_render_as_image: '1'
+      svg_attributes:
+        width: ''
+        height: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_group_short_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  label:
+    label: hidden
+    type: string
+    weight: 1
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  field_community_reference: true
+  field_community_reference_desc: true
+  field_community_reference_title: true
+  field_group_lists: true
+  field_paragraphs: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true

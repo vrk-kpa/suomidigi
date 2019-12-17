@@ -4,7 +4,7 @@
   {% set full_width = content.field_p_full_width['0']['#markup'] %}
   {% set content = content.field_p_entity_reference %}
 
-  {% if full_width is same as(1) %}
+  {% if full_width is same as(1) or is_full_width == true %}
     {% set classes = classes|merge(['paragraph--full-width']) %}
   {% endif %}
 

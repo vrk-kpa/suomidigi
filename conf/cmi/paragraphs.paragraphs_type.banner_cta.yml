@@ -5,5 +5,5 @@ dependencies: {  }
 id: banner_cta
 label: 'Banner - CTA'
 icon_uuid: null
-description: 'Use this type when you to create a banner with a call-to-action link.'
+description: 'Use this type when you want to create a banner with a call-to-action link.'
 behavior_plugins: {  }
