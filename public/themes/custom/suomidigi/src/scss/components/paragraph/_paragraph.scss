@@ -13,7 +13,7 @@
     margin-bottom: 0;
   }
 
-  .paragraph__title {
+  > .paragraph__title {
     @include font-size(28px);
     @include line-height(28px, 36px);
     @include font-weight($semibold);
@@ -21,18 +21,18 @@
     margin-bottom: $gutter * 2;
   }
 
-  .paragraph__description {
+  > .paragraph__description {
     @include font-size(18px);
     @include line-height(18px, 26px);
     @include font-weight($regular);
     margin-bottom: $gutter * 2;
 
     @include breakpoint($for-tablet-portrait-up) {
-      max-width: 50%;
+      max-width: 570px;
     }
   }
 
-  .paragraph__link {
+  > .paragraph__link {
     margin-top: $gutter * 3;
     text-align: center;
     width: 100%;

@@ -5,7 +5,6 @@ display:
         options:
           views_infinite_scroll:
             button_text: 'Näytä lisää'
-      title: 'Tulossa olevat tapahtumat'
   past_events:
     display_title: 'Menneet tapahtumat | Lista'
     display_options:

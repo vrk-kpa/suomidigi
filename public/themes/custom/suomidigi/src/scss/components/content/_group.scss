@@ -205,14 +205,38 @@
     }
 
     .listing--grid__item & {
-      background-color: $white;
-      flex-flow: column;
       height: 100%;
       margin: 0;
 
       .group__image {
-        min-height: 0;
-        width: 100%;
+        display: inherit;
+        margin: -20px -20px 0 -20px;
+        min-height: 195px;
+        order: unset;
+        width: auto;
+      }
+
+      .group__content {
+        display: flex;
+        flex-flow: column;
+        order: unset;
+        padding: 20px;
+
+        h2 {
+          margin-bottom: $gutter;
+          margin-top: $gutter;
+        }
+
+        a {
+          display: flex;
+          flex-direction: column-reverse;
+          margin-top: $gutter;
+        }
+      }
+
+      .group__description {
+        flex-grow: 1;
+        height: auto;
       }
     }
   }
