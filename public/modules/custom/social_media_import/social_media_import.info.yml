@@ -2,6 +2,6 @@ name: 'Social Media Import'
 type: module
 description: 'Import social media from desired services and accounts.'
 core: 8.x
-package: 'Drula'
+package: 'Druid'
 dependencies:
   - entity

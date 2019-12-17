@@ -172,8 +172,11 @@ final class TwitterImporter {
       ->getStorage('social_media_post')
       ->loadByProperties(['tweet_id' => $post->id]);
 
-    $media = (isset($post->entities->media[0])) ? TRUE : FALSE;
+    // $media = (isset($post->entities->media[0])) ? TRUE : FALSE;
     $url = 'https://twitter.com/' . $post->user->screen_name . '/status/' . $post->id;
+
+    $text = $this->addTweetEntityLinks($post);
+    $profile_image = (isset($post->user->profile_image_url)) ? $post->user->profile_image_url : NULL;
 
     if (!$entity_exists) {
       $entity = [
@@ -181,7 +184,7 @@ final class TwitterImporter {
         'feed_id' => $feed_id,
         'tweet_id' => $post->id,
         'full_name' => $this->fullName,
-        'text' => $post->full_text,
+        'text' => $text,
         'author_screen_name' => $post->user->screen_name,
         'created' => strtotime($post->created_at),
         'link' => [
@@ -189,6 +192,7 @@ final class TwitterImporter {
           'title' => $url,
           'options' => ['target' => '_blank'],
         ],
+        'profile_image' => $profile_image,
       ];
       // Separate handler for media.
       /*
@@ -256,6 +260,79 @@ final class TwitterImporter {
         '@counter' => $this->counter,
       ]
     );
+  }
+
+  /**
+   * Convert strings utf8 compatible.
+   *
+   * @param string $original
+   *   Original text.
+   * @param string $replacement
+   *   Replacement text.
+   * @param int $position
+   *   Position of the text.
+   * @param int $length
+   *   Length.
+   *
+   * @return string
+   *   Return converted text.
+   */
+  private function utf8SubstrReplace($original, $replacement, $position, $length) {
+    $startString = mb_substr($original, 0, $position, "UTF-8");
+    $endString = mb_substr($original, $position + $length, mb_strlen($original), "UTF-8");
+    $out = $startString . $replacement . $endString;
+    return $out;
+  }
+
+  /**
+   * Convert hashtags, urls and users to links.
+   *
+   * @param object $tweet
+   *   Tweet object.
+   *
+   * @return string
+   *   Returns converted string.
+   */
+  private function addTweetEntityLinks($tweet) {
+    $return = mb_substr($tweet->full_text, $tweet->display_text_range[0], $tweet->display_text_range[1]);
+    $entities = [];
+
+    if (is_array($tweet->entities->urls)) {
+      foreach ($tweet->entities->urls as $e) {
+        $temp["start"] = $e->indices[0];
+        $temp["end"] = $e->indices[1];
+        $temp["replacement"] = " <a href='" . $e->expanded_url . "' target='_blank'>" . $e->display_url . "</a>";
+        $entities[] = $temp;
+      }
+    }
+
+    if (is_array($tweet->entities->user_mentions)) {
+      foreach ($tweet->entities->user_mentions as $e) {
+        $temp["start"] = $e->indices[0];
+        $temp["end"] = $e->indices[1];
+        $temp["replacement"] = " <a href='https://twitter.com/" . $e->screen_name . "' target='_blank'>@" . $e->screen_name . "</a>";
+        $entities[] = $temp;
+      }
+    }
+
+    if (is_array($tweet->entities->hashtags)) {
+      foreach ($tweet->entities->hashtags as $e) {
+        $temp["start"] = $e->indices[0];
+        $temp["end"] = $e->indices[1];
+        $temp["replacement"] = " <a href='https://twitter.com/hashtag/" . $e->text . "?src=hash' target='_blank'>#" . $e->text . "</a>";
+        $entities[] = $temp;
+      }
+    }
+
+    usort($entities, function ($a, $b) {
+      return($b["start"] - $a["start"]);
+    });
+
+    foreach ($entities as $item) {
+      $return = $this->utf8SubstrReplace($return, $item["replacement"], $item["start"], $item["end"] - $item["start"]);
+    }
+
+    return($return);
   }
 
 }

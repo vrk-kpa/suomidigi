@@ -1,49 +1,9 @@
-.views--social-media-twitter {
-  .views-row-wrapper {
-    display: flex;
-    flex-direction: column;
-
-    @include breakpoint($for-mobile-landscape-up) {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .views__row {
-      background-color: $white;
-      margin-bottom: $gutter * 2.25;
-      
-      @include breakpoint($for-mobile-landscape-up) {
-        width: 48%;
-
-        @include breakpoint($for-desktop-up) {
-          width: 31.5%; 
-        }  
-      }
-    } 
-  }
-}
-
 .tweet {
-  height: 100%;
   @include font-size(14px);
   @include line-height(14px, 18px);
-  padding-bottom: $gutter * 1.25;
-  padding-left: $gutter * 1.25;
-  
-  &__link {
-    color: $black;
-    text-decoration: none;
-    
-    &:hover,
-    &:focus {
-      text-decoration: none;
-
-      .tweet__content {
-        text-decoration: underline;
-      }
-    }
-  }
+  background-color: $white;
+  height: 100%;
+  padding: $gutter;
 
   &-wrapper {
     display: flex;
@@ -51,53 +11,42 @@
     height: 100%;
   }
 
+  &__link {
+    text-decoration: none;
+  }
+
   &__header {
+    align-items: center;
     display: flex;
     flex-wrap: nowrap;
   }
 
   &__author-icon {
-    align-items: center;
-    background-color: $blue-light;
-    border-radius: 100%;
-    color: $white;
-    display: flex;
-    height: 51px;
-    width: 51px;
-    @include font-size(10px);
-    @include line-height(10px, 13px);
-    @include font-weight($semibold);
-    justify-content: center;
-    margin-right: $gutter / 1.25;
-    margin-top: $gutter;
+    img {
+      border: 1px solid $blue;
+      border-radius: 100%;
+      height: 50px;
+      padding: 3px;
+      width: 50px;
+    }
   }
 
   &__author {
     color: $black;
+    margin-left: 10px;
 
     h3 {
       @include font-size(18px);
       @include line-height(18px, 23px);
       @include font-weight($semibold);
-      margin-bottom: $gutter / 7;
-      margin-top: $gutter * 1.5;
+      margin: 0;
     }
+
     h4 {
       @include font-size(14px);
       @include line-height(14px, 18px);
       @include font-weight($regular);
-    }
-  }
-
-  .twitter-icon {
-    flex-grow: 1;
-    text-align: right;
-    padding-right: $gutter / 1.2;
-    padding-top: $gutter;
-    
-    svg {
-      width: $gutter * 2.5;
-      height: $gutter * 2.5;
+      margin: 0;
     }
   }
 
@@ -116,8 +65,18 @@
 
   &__date {
     color: $gray-medium;
-    @include font-weight($semibold);   
+    @include font-weight($semibold);
     text-align: right;
     text-decoration: none;
+  }
+
+  .twitter-icon {
+    color: #1DA1F2;
+    margin-left: auto;
+
+    svg {
+      height: 25px;
+      width: 25px;
+    }
   }
 }

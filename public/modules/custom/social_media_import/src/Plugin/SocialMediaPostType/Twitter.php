@@ -51,6 +51,12 @@ class Twitter extends PluginBase implements SocialMediaPostTypeInterface {
       ->setReadOnly(TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['profile_image'] = BundleFieldDefinition::create('string')
+      ->setLabel(t('Profile image'))
+      ->setRequired(FALSE)
+      ->setReadOnly(TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['link'] = BundleFieldDefinition::create('link')
       ->setLabel(t('Link'))
       ->setRequired(TRUE)

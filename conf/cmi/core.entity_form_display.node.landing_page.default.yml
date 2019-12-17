@@ -26,13 +26,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_hero_checkbox:
-    weight: 1
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_hero:
     type: paragraphs
     weight: 2
@@ -50,6 +43,13 @@ content:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
     third_party_settings: {  }
+    region: content
+  field_hero_checkbox:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_ingress:
     weight: 16

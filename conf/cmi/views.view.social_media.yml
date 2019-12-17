@@ -252,6 +252,7 @@ display:
         options:
           items_per_page: 1
           offset: 0
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -322,6 +323,7 @@ display:
         options:
           items_per_page: 6
           offset: 0
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -337,7 +339,7 @@ display:
       display_extenders: {  }
       display_description: ''
       block_hide_empty: true
-      title: Twitter
+      title: ''
       defaults:
         title: false
         filters: false
@@ -401,6 +403,7 @@ display:
       display_extenders: {  }
       display_description: ''
       block_hide_empty: true
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
