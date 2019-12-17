@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.field_front_page
-field_name: field_front_page
+id: node.field_hero_checkbox
+field_name: field_hero_checkbox
 entity_type: node
 type: boolean
 settings: {  }

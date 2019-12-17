@@ -293,7 +293,7 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
   ) {
     $form['field_hero']['#states'] = [
       'visible' => [
-        ':input[name="field_front_page[value]"]' => ['checked' => TRUE],
+        ':input[name="field_hero_checkbox[value]"]' => ['checked' => TRUE],
       ],
     ];
     $user = User::load(\Drupal::currentUser()->id());
@@ -304,7 +304,7 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
 
     if (!$user->hasRole('editor_in_chief')) {
       $form['field_hero']['#access'] = FALSE;
-      $form['field_front_page']['#access'] = FALSE;
+      $form['field_hero_checkbox']['#access'] = FALSE;
     }
   }
 
@@ -320,8 +320,8 @@ function suopa_editorial_node_access(NodeInterface $node, $op, AccountInterface 
   if ($op == 'delete') {
     if (
       $node->bundle() == 'landing_page' &&
-      $node->hasField('field_front_page') &&
-      $node->get('field_front_page')->value == 1
+      $node->hasField('field_hero_checkbox') &&
+      $node->get('field_hero_checkbox')->value == 1
     ) {
       return AccessResult::forbidden();
     }

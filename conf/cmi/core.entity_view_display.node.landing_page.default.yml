@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.landing_page.field_front_page
+    - field.field.node.landing_page.field_hero_checkbox
     - field.field.node.landing_page.field_hero
     - field.field.node.landing_page.field_ingress
     - field.field.node.landing_page.field_paragraphs
@@ -17,7 +17,7 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
-  field_front_page:
+  field_hero_checkbox:
     type: boolean
     weight: 3
     region: content

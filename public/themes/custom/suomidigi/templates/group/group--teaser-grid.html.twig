@@ -5,10 +5,10 @@
  */
 #}
 <div{{ attributes.addClass('group--teaser') }}>
-  {% if content.field_group_image|render %}
-    {{ content.field_group_image }}
-  {% endif %}
   <div class="group__content">
+    {% if content.field_group_image|render %}
+      {{ content.field_group_image }}
+    {% endif %}
     <h2{{ title_attributes }}>
       {{ label }}
     </h2>

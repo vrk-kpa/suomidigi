@@ -83,9 +83,9 @@ function suomidigi_preprocess_region(&$variables) {
     if (
       $node->getType() == 'landing_page' &&
       $node->hasField('field_hero') &&
-      $node->hasField('field_front_page')
+      $node->hasField('field_hero_checkbox')
     ) {
-      if (boolval($node->get('field_front_page')->getString())) {
+      if (boolval($node->get('field_hero_checkbox')->getString())) {
         $variables['#cache']['contexts'][] = 'node';
         $variables['hero'] = $node->get('field_hero')->view();
       }
@@ -315,9 +315,9 @@ function suomidigi_preprocess_block(&$variables) {
       if (
         $node->getType() == 'landing_page' &&
         $node->hasField('field_hero') &&
-        $node->hasField('field_front_page')
+        $node->hasField('field_hero_checkbox')
       ) {
-        if (boolval($node->get('field_front_page')->getString())) {
+        if (boolval($node->get('field_hero_checkbox')->getString())) {
           $variables['hide_block'] = TRUE;
         }
       }
