@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.node.teaser_grid
     - core.entity_view_mode.node.teaser_prominent_primary
     - node.type.blog_post
   module:
@@ -230,6 +231,16 @@ display:
       css_class: ''
       defaults:
         css_class: false
+        style: false
+        row: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser_grid
     cache_metadata:
       max-age: -1
       contexts:

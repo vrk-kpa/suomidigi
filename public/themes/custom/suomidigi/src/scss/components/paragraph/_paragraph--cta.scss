@@ -1,38 +1,38 @@
-.paragraph--highlight-cta {
+.paragraph.paragraph--highlight-cta {
   @include border();
-  text-decoration: none;
   color: inherit;
   display: block;
   padding: calc(#{$gutter} * 0.5) $gutter;
+  text-decoration: none;
 
   &:hover,
   &:focus {
+    text-decoration: none;
+
     .paragraph__title {
       text-decoration: underline;
     }
-
-    text-decoration: none;
   }
 
   .paragraph__title {
     @include font-size(16px);
+    display: inline-block;
     font-weight: 600;
     margin-bottom: 0;
-    display: inline-block;
   }
 
   .paragraph__title-icon {
-    width: 1.125rem;
-    height: 1.125rem;
     display: inline-block;
+    height: 1.125rem;
     margin-left: $gutter * 0.5;
+    width: 1.125rem;
 
     .icon {
       color: $orange-dark;
-      width: 100%;
-      height: 100%;
       display: inline-block;
+      height: 100%;
       vertical-align: text-bottom;
+      width: 100%;
     }
   }
 
