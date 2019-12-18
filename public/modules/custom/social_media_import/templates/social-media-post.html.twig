@@ -1,0 +1,60 @@
+{%
+  set classes = [
+    'teaser',
+    'teaser--social-media',
+  ]
+%}
+
+{%
+  set link_classes = [
+    'teaser__link',
+    'teaser--social-media__link',
+  ]
+%}
+
+{%
+  set top_classes = [
+    'teaser__top',
+    'teaser__top--has-social-media',
+  ]
+%}
+
+{%
+  set image_classes = [
+    'teaser__image',
+    'teaser--social-media__image',
+  ]
+%}
+
+{%
+  set title_classes = [
+    'teaser__title',
+    'teaser--social-media__title',
+  ]
+%}
+
+{%
+  set content_classes = [
+    'teaser__content',
+    'teaser--social-media__content',
+  ]
+%}
+
+{% set text %}
+  {{ content.text }}
+{% endset %}
+
+{% set name %}
+  {{ content.full_name }}
+{% endset %}
+
+<article{{ attributes.addClass(classes) }}>
+  <a href="{{ content.link[0]['#url'] }}" {{ create_attribute({'class': link_classes}) }}>
+    <div {{ create_attribute({'class': image_classes}) }}>{{ content.image }}</div>
+    <div{{ content_attributes.addClass(content_classes) }}>
+      {{ name }}
+      {{ text|striptags('<div>')|raw }}
+      {{ content|without('full_name', 'created', 'image', 'text', 'link')}}
+    </div>
+  </a>
+</article>

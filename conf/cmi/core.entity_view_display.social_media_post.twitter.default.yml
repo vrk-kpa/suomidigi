@@ -1,0 +1,90 @@
+uuid: f08d9c59-6999-4fa8-98ce-0d2eaee5d0b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - social_media_import
+    - svg_image
+    - text
+id: social_media_post.twitter.default
+targetEntityType: social_media_post
+bundle: twitter
+mode: default
+content:
+  author_screen_name:
+    type: string
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  created:
+    type: timestamp
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      date_format: date
+      custom_date_format: ''
+      timezone: ''
+    third_party_settings: {  }
+  full_name:
+    type: string
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  image:
+    type: image
+    weight: 6
+    label: hidden
+    settings:
+      image_style: full_width_wide
+      svg_attributes:
+        width: ''
+        height: ''
+      svg_render_as_image: true
+      image_link: ''
+    region: content
+    third_party_settings: {  }
+  link:
+    type: link
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  profile_image:
+    type: string
+    weight: 7
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  text:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  tweet_id:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

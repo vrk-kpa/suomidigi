@@ -1,0 +1,24 @@
+services:
+  plugin.manager.social_media_post_type:
+    class: Drupal\social_media_import\SocialMedia\SocialMediaPostTypePluginManager
+    parent: default_plugin_manager
+
+  social_media_import.social_media.routes:
+    class: Drupal\social_media_import\SocialMedia\Routing\SocialMediaRoutes
+    arguments: ['@plugin.manager.social_media_post_type', '@entity_type.manager']
+
+  social_media_import.social_media.twitter_importer:
+    class: Drupal\social_media_import\SocialMedia\TwitterImporter
+    arguments: ['@config.factory', '@state']
+
+  social_media_import.social_media.facebook_importer:
+    class: Drupal\social_media_import\SocialMedia\FacebookImporter
+    arguments: ['@config.factory', '@state']
+
+  social_media_import.social_media.instagram_importer:
+    class: Drupal\social_media_import\SocialMedia\InstagramImporter
+    arguments: ['@config.factory', '@state']
+
+  social_media_import.social_media.youtube_importer:
+    class: Drupal\social_media_import\SocialMedia\YoutubeImporter
+    arguments: ['@config.factory', '@state']

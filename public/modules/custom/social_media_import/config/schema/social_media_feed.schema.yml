@@ -1,0 +1,102 @@
+social_media_import.twitter_api_settings:
+  type: config_object
+  label: Twitter API Settings
+  mapping:
+    consumer_key:
+      type: string
+      label: Twitter Consumer Key
+    consumer_secret:
+      type: string
+      label: Twitter Consumer Secret
+
+social_media_import.twitter_feed.*:
+  type: config_entity
+  label: 'Twitter feed'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    screen_name:
+      type: string
+      label: 'Screen name'
+
+social_media_import.facebook_api_settings:
+  type: config_object
+  label: Facebook API Settings
+  mapping:
+    app_id:
+      type: string
+      label: Facebook Consumer Key
+    app_secret:
+      type: string
+      label: Facebook Consumer Secret
+
+social_media_import.facebook_feed.*:
+  type: config_entity
+  label: 'Facebook feed'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    page_name:
+      type: string
+      label: 'Page name'
+
+social_media_import.instagram_api_settings:
+  type: config_object
+  label: Instagram API Settings
+  mapping:
+    client_id:
+      type: string
+      label: Instagram Client ID
+    client_secret:
+      type: string
+      label: Instagram Client Secret
+    auth_token:
+      type: string
+      label: Instagram Authentication Token
+    redirect_uri:
+      type: string
+      label: Instagram Redirect URL
+
+social_media_import.instagram_feed.*:
+  type: config_entity
+  label: 'Instagram feed'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    user_id:
+      type: string
+      label: 'User ID'
+
+social_media_import.youtube_api_settings:
+  type: config_object
+  label: Youtube API Settings
+  mapping:
+    google_api_key:
+      type: string
+      label: Google Api Key
+
+social_media_import.youtube_feed.*:
+  type: config_entity
+  label: 'Youtube feed'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    channel_name:
+      type: string
+      label: 'Channel name'

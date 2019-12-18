@@ -1,0 +1,100 @@
+entity.social_media_post:
+  path: 'admin/structure/social_media_post'
+  defaults:
+    _controller: '\Drupal\social_media_import\SocialMedia\SocialMediaSettings::buildSocialMediaTypesTable'
+    _title: 'Social media post types'
+  requirements:
+    _permission: 'administer social media settings'
+
+entity.social_media_post.import:
+  path: 'admin/structure/social_media_post/clear-and-import'
+  defaults:
+    _controller: '\Drupal\social_media_import\SocialMedia\SocialMediaImporter::importSocialMediaPosts'
+    _title: 'Clear and Import Social Media posts'
+  requirements:
+    _permission: 'administer social media settings'
+
+route_callbacks:
+  - 'social_media_import.social_media.routes:getRoutes'
+
+social_media_feed.api_settings.twitter:
+  path: '/admin/structure/social_media_post/twitter/api_settings'
+  defaults:
+    _form: '\Drupal\social_media_import\SocialMedia\Form\TwitterApiKeyForm'
+    _title: 'Twitter API settings'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.api_settings.facebook:
+  path: '/admin/structure/social_media_post/facebook/api_settings'
+  defaults:
+    _form: '\Drupal\social_media_import\SocialMedia\Form\FacebookApiKeyForm'
+    _title: 'Facebook API settings'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.api_settings.instagram:
+  path: '/admin/structure/social_media_post/instagram/api_settings'
+  defaults:
+    _form: '\Drupal\social_media_import\SocialMedia\Form\InstagramApiKeyForm'
+    _title: 'Instagram API settings'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.api_settings.youtube:
+  path: '/admin/structure/social_media_post/youtube/api_settings'
+  defaults:
+    _form: '\Drupal\social_media_import\SocialMedia\Form\YoutubeApiKeyForm'
+    _title: 'Youtube API settings'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.twitter:
+  path: '/admin/structure/social_media_post/twitter'
+  defaults:
+    _title: 'Twitter Feed'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.facebook:
+  path: '/admin/structure/social_media_post/facebook'
+  defaults:
+    _title: 'Facebook Feed'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.instagram:
+  path: '/admin/structure/social_media_post/instagram'
+  defaults:
+    _title: 'Instagram Feed'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.youtube:
+  path: '/admin/structure/social_media_post/youtube'
+  defaults:
+    _title: 'Youtube Feed'
+  requirements:
+    _permission: 'administer social media settings'
+
+entity.social_media_post.canonical:
+  path: '/social_media_post/{social_media_post}'
+  defaults:
+    _entity_view: 'social_media_post'
+    _title: 'Social media post'
+  requirements:
+    _permission: 'view social media posts'
+
+entity.social_media_post.delete_form:
+  path: '/social_media_post/{social_media_post}/delete'
+  defaults:
+    _entity_form: 'social_media_post.delete'
+    _title: 'Delete social media post'
+  requirements:
+    _permission: 'administer social media settings'
+
+social_media_feed.api_settings.instagram.authorize_url:
+  path: '/admin/structure/social_media_post/instagram/api_settings'
+
+social_media_feed.api_settings.facebook.authorize_url:
+  path: '/admin/structure/social_media_post/facebook/api_settings'

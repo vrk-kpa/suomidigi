@@ -1,0 +1,2 @@
+social_media_post.add_feed:
+  deriver: \Drupal\social_media_import\Plugin\Derivative\SocialMediaLocalAction

@@ -1,0 +1,32 @@
+<article class="tweet">
+  <div class="tweet-wrapper">
+    <a href="{{ content.link[0]['#url'] }}" class="tweet__link" target="_blank">
+      <div class="tweet__header">
+        <div class="tweet__author-icon">
+          <img src="{{ content.profile_image[0] }}" alt="@{{ content.author_screen_name[0] }}"/>
+        </div>
+        <div class="tweet__author">
+          <h3>{{ content.full_name }}</h3>
+          <h4>@{{ content.author_screen_name[0] }}</h4>
+        </div>
+        <div class="twitter-icon">
+          {% if icons_path %}
+            <svg class="icon icon--twitter">
+              <title>{{ 'Twitter'|t }}</title>
+              <use xlink:href="{{ icons_path|trim }}#twitter-logo" />
+            </svg>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+
+    <div class="tweet__content">
+      {{ content.text[0]['#text']|raw }}
+    </div>
+
+    <div class="tweet__date">
+      {{ content.created }}
+    </div>
+
+  </div>
+</article>

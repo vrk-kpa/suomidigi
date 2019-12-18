@@ -1,0 +1,37 @@
+social_media_post.field_ui:
+  deriver: \Drupal\social_media_import\Plugin\Derivative\SocialMediaLocalTask
+
+social_media_feed.api_settings.twitter:
+  route_name: social_media_feed.api_settings.twitter
+  title: 'API settings'
+  base_route: entity.social_media_post.settings.twitter
+  weight: 2
+
+social_media_feed.api_settings.facebook:
+  route_name: social_media_feed.api_settings.facebook
+  title: 'API settings'
+  base_route: entity.social_media_post.settings.facebook
+  weight: 2
+
+social_media_feed.api_settings.instagram:
+  route_name: social_media_feed.api_settings.instagram
+  title: 'API settings'
+  base_route: entity.social_media_post.settings.instagram
+  weight: 2
+
+social_media_feed.api_settings.youtube:
+  route_name: social_media_feed.api_settings.youtube
+  title: 'API settings'
+  base_route: entity.social_media_post.settings.youtube
+  weight: 2
+
+social_media_post.view:
+  route_name: entity.social_media_post.canonical
+  base_route: entity.social_media_post.canonical
+  title: View
+
+social_media_post.delete_confirm:
+  route_name: entity.social_media_post.delete_form
+  base_route: entity.social_media_post.canonical
+  title: Delete
+  weight: 10

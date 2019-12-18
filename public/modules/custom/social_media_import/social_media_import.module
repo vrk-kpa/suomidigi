@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * @file
+ * Contains social_media_import.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function social_media_import_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the social_media_import module.
+    case 'help.page.social_media_import':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Import social media from desired services and accounts.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function social_media_import_cron() {
+  // Default interval for cron.
+  $interval = 3600;
+  $request_time = \Drupal::time()->getRequestTime();
+
+  // Check if we need to run the cron yet.
+  $next_execution = \Drupal::state()->get('social_media_import.next_execution');
+  $next_execution = !empty($next_execution) ? $next_execution : 0;
+
+  // Is it time to execute?
+  if ($request_time >= $next_execution) {
+
+    $social_media_post_types = [
+      'TwitterFeed' => 'twitter',
+      'YoutubeFeed' => 'youtube',
+      'InstagramFeed' => 'instagram',
+    ];
+
+    foreach ($social_media_post_types as $class => $type) {
+      $service = \Drupal::service("social_media_import.social_media.{$type}_importer");
+      $type_feeds = \Drupal::entityTypeManager()
+        ->getStorage("social_media_feed_{$type}")
+        ->getQuery()
+        ->execute();
+
+      $class = "\\Drupal\\social_media_import\\Entity\\" . $class;
+
+      if (!empty($type_feeds)) {
+        foreach ($type_feeds as $feed_name) {
+          $config = \Drupal::config("social_media_import.{$type}_feed." . $feed_name)->getRawData();
+          $service->setClient();
+          $service->refresh(new $class($config, "social_media_feed_{$type}"));
+        }
+      }
+    }
+
+    \Drupal::state()
+      ->set('social_media_import.next_execution', $request_time + $interval);
+  }
+}
+
+/**
+ * Save external file.
+ *
+ * @param string $filename
+ *   Filename to be saved.
+ * @param string $path
+ *   Path to file.
+ *
+ * @return string|false
+ *   A file id, or FALSE on error.
+ */
+function social_media_import_save_file($filename, $path) {
+  // TODO: Fix the SSL problem with file_get_contents()
+  $name = basename($filename);
+  $name = (
+    $path == 'public://facebook/' &&
+    substr($filename, 0, 44) === "https://external.xx.fbcdn.net/safe_image.php"
+  ) ? 'fbsi_' . mt_rand(0, 100000) . '.jpg' : $name;
+  $data = file_get_contents($filename);
+  $uri = $path . strtok($name, '?');
+  file_prepare_directory($path, FILE_CREATE_DIRECTORY);
+  $file = file_save_data($data, $uri, FILE_EXISTS_RENAME);
+  return ($file) ? $file->id() : $file;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function social_media_import_theme() {
+  $theme = [];
+  $theme['social_media_post'] = [
+    'render element' => 'elements',
+    'file' => 'social_media_post.page.inc',
+    'template' => 'social-media-post',
+  ];
+  $theme['social_media_post_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'social_media_post.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ *
+ * @inheritdoc.
+ */
+function social_media_import_theme_suggestions_social_media_post(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#social_media_post'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'social_media_post__' . $sanitized_view_mode;
+  $suggestions[] = 'social_media_post__' . $entity->bundle();
+  $suggestions[] = 'social_media_post__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'social_media_post__' . $entity->id();
+  $suggestions[] = 'social_media_post__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
