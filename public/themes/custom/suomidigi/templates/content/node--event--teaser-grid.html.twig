@@ -1,0 +1,65 @@
+{#
+/**
+ * @file
+ * Theme override to display an event.
+ */
+#}
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  'event-teaser',
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  <a href="{{ url }}" class="event-teaser__link">
+    <div class="event-teaser__header">
+      {% if content.field_event_date_and_time|render %}
+        <div class="event-teaser__date">
+          {% if icons_path %}
+            <svg class="icon">
+              <title>{{ text }}</title>
+              <use xlink:href="{{ icons_path|trim }}#calendar"/>
+            </svg>
+          {% endif %}
+          <div class="event-teaser__date--date">
+            {% if content.field_event_date_and_time[0]['start_date'] is not empty %}
+              {{ content.field_event_date_and_time[0]['start_date'] }}
+            {% else %}
+              {{ content.field_event_date_and_time[0]['#text'] }}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+      {% if content.field_venue_name|render %}
+        <div class="event-teaser__venue-name">
+          {% if icons_path %}
+            <svg class="icon">
+              <title>{{ text }}</title>
+              <use xlink:href="{{ icons_path|trim }}#map-location"/>
+            </svg>
+          {% endif %}
+          <div class="event-teaser__venue-name--wrapper">
+            {{ content.field_venue_name }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="event-teaser__content">
+      {% if label %}
+        <h2 class="event-teaser__title">{{ label }}</h2>
+      {% endif %}
+
+      {% if content.field_event_description|render %}
+        <div class="event-teaser__description">
+          {{ content.field_event_description }}
+        </div>
+      {% endif %}
+    </div>
+  </a>
+</article>

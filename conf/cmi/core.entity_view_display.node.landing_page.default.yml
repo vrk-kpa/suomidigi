@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.field_hero_checkbox
+    - field.field.node.landing_page.field_hero
     - field.field.node.landing_page.field_ingress
     - field.field.node.landing_page.field_paragraphs
     - field.field.node.landing_page.field_slogan
@@ -15,6 +17,25 @@ targetEntityType: node
 bundle: landing_page
 mode: default
 content:
+  field_hero:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_hero_checkbox:
+    type: boolean
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_ingress:
     weight: 1
     label: hidden
@@ -31,15 +52,9 @@ content:
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
     region: content
-  field_slogan:
-    weight: 0
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
 hidden:
+  field_slogan: true
   langcode: true
   links: true
   published_at: true
+  search_api_excerpt: true

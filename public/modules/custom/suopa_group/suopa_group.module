@@ -99,26 +99,28 @@ function suopa_group_entity_create(EntityInterface $entity) {
  * Implements hook_ENTITY_TYPE_presave().
  */
 function suopa_group_user_presave(EntityInterface $user) {
-  $group_membership_service = \Drupal::service('group.membership_loader');
-  $groups = $group_membership_service->loadByUser($user);
+  if (!empty($user->id())) {
+    $group_membership_service = \Drupal::service('group.membership_loader');
+    $groups = $group_membership_service->loadByUser($user);
 
-  // Check if user belongs to any of the groups. If any groups are found, add
-  // "Group member" role for the user.
-  if (empty(count($groups))) {
-    if ($user->hasRole('group_member')) {
-      $user->removeRole('group_member');
-      $user->removeRole('group_administrator');
+    // Check if user belongs to any of the groups. If any groups are found, add
+    // "Group member" role for the user.
+    if (empty(count($groups))) {
+      if ($user->hasRole('group_member')) {
+        $user->removeRole('group_member');
+        $user->removeRole('group_administrator');
+      }
     }
-  }
-  else {
-    $user->addRole('group_member');
-    foreach ($groups as $group) {
-      $user_roles = $group->getGroup()->getMember($user)->getRoles();
-      if (
-        !empty($user_roles) &&
-        array_key_exists('group-administrator', $user_roles)
-      ) {
-        $user->addRole('group_administrator');
+    else {
+      $user->addRole('group_member');
+      foreach ($groups as $group) {
+        $user_roles = $group->getGroup()->getMember($user)->getRoles();
+        if (
+          !empty($user_roles) &&
+          array_key_exists('group-administrator', $user_roles)
+        ) {
+          $user->addRole('group_administrator');
+        }
       }
     }
   }

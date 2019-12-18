@@ -1,6 +1,6 @@
-.paragraph--highlight-bullet-point {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
+.paragraph.paragraph--highlight-bullet-point {
   background-color: $white;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
   padding: $gutter * 1.5;
 
   .paragraph__title {
@@ -15,24 +15,24 @@
 
   .paragraph-list__item {
     @include font-size(15px);
-    position: relative;
-    padding-left: $gutter * 1.5;
-    margin-bottom: $gutter * 0.75;
     list-style: none;
+    margin-bottom: $gutter * 0.75;
+    padding-left: $gutter * 1.5;
+    position: relative;
 
     &:last-child {
       margin-bottom: 0;
     }
 
     &:before {
-      content: '';
-      width: $gutter * 0.75;
-      height: $gutter * 0.75;
-      border-radius: 100%;
       background-color: $blue-light;
+      border-radius: 100%;
+      content: '';
+      height: $gutter * 0.75;
+      left: 0;
       position: absolute;
       top: $gutter * 0.5;
-      left: 0;
+      width: $gutter * 0.75;
     }
   }
 }

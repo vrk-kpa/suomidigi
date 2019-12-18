@@ -1,0 +1,27 @@
+uuid: 1f4ecd4c-cd21-4921-8368-303e10ce728a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_p_liftup_style
+field_name: field_p_liftup_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 2col
+      label: '2 Column'
+    -
+      value: 3col
+      label: '1+3 Column'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

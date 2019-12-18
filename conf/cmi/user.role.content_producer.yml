@@ -85,6 +85,8 @@ permissions:
   - 'set page published on date'
   - 'translate article node'
   - 'translate attachment media'
+  - 'translate blog_post node'
+  - 'translate community node'
   - 'translate core_content node'
   - 'translate event node'
   - 'translate group group'

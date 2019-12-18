@@ -1,22 +1,100 @@
 .paragraph--liftup-entity-reference {
-  @include breakpoint($for-tablet-portrait-up) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .paragraph__content-wrapper {
+    @include breakpoint($for-tablet-portrait-up) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &.paragraph--3col {
+    .paragraph__title {
+      @include font-size(28px);
+      @include line-height(28px, 36px);
+      @include font-weight($semibold);
+      color: $blue;
+    }
+
+    .paragraph__content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -#{$gutter};
+    }
+
+    .paragraph--liftup-entity-reference-item {
+      margin: $gutter;
+
+      .paragraph--full-width {
+        flex: 1 1 100%;
+      }
+
+      &:not(.paragraph--full-width) {
+        flex: 1 1 100%;
+
+        @include breakpoint($for-tablet-portrait-up) {
+          flex: 1 1 30%;
+        }
+
+        .article-teaser__image,
+        .article-teaser__lead {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &.paragraph--2col {
+    .paragraph__content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -#{$gutter};
+    }
+
+    .paragraph--liftup-entity-reference-item {
+      margin: $gutter;
+
+      .paragraph--full-width {
+        flex: 1 1 100%;
+      }
+
+      &:not(.paragraph--full-width) {
+        flex: 1 1 100%;
+
+        @include breakpoint($for-tablet-portrait-up) {
+          flex: 1 1 45%;
+        }
+      }
+    }
+  }
+
+  .paragraph__link {
+    text-align: center;
+    width: 100%;
+
+    > a {
+      @include font-size(16px);
+      @include line-height(16px, 20px);
+      @include font-weight($semibold);
+      border: 1px solid $blue;
+      border-radius: 3px;
+      color: $blue;
+      display: inline-block;
+      margin: $gutter auto;
+      padding: 10px 18px;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        background-color: white;
+        color: $blue;
+      }
+    }
   }
 }
 
 .paragraph--liftup-entity-reference-item {
-  @include breakpoint($for-tablet-portrait-up) {
-    width: calc(100% / 2 - calc(#{$gutter} * 0.5));
-  }
-
-  .paragraph--liftup-entity-reference & {
-    @include breakpoint($for-tablet-portrait-up) {
-      margin: 0 0 $gutter;
-    }
-  }
-
   &.paragraph--full-width {
     width: 100%;
   }

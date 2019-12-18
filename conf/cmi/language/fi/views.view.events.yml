@@ -5,10 +5,14 @@ display:
         options:
           views_infinite_scroll:
             button_text: 'Näytä lisää'
-      title: 'Tulossa olevat tapahtumat'
   past_events:
-    display_title: 'Menneet tapahtumat'
+    display_title: 'Menneet tapahtumat | Lista'
     display_options:
       title: 'Menneet tapahtumat'
   upcoming_events:
-    display_title: 'Tulossa olevat tapahtumat'
+    display_title: 'Tulevat tapahtumat | Lista'
+  past_events_grid:
+    display_title: 'Menneet tapahtumat | Ruudukko'
+  upcoming_events_grid:
+    display_title: 'Tulevat tapahtumat | Ruudukko'
+label: Tapahtumat
