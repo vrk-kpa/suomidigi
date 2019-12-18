@@ -1,31 +1,31 @@
-uuid: bda5ec7e-f750-48d7-abc4-caf9389e8bb7
+uuid: 4742e17c-4ddd-4713-a3a8-1df5b65c0424
 langcode: en
 status: true
 dependencies:
   module:
     - language
     - node
-id: blog_post
-label: 'Blog post'
+id: blog_post_sv
+label: 'Blog post - SV'
 type: 'canonical_entities:node'
-pattern: 'blogit/[node:title]'
+pattern: 'bloggar/[node:title]'
 selection_criteria:
-  7a90f1a4-21b0-4e15-b26e-7aa9809c253b:
+  5f1c9fc5-2133-492f-bf12-7fe5edbd7d91:
     id: node_type
     bundles:
       blog_post: blog_post
     negate: false
     context_mapping:
       node: node
-    uuid: 7a90f1a4-21b0-4e15-b26e-7aa9809c253b
-  b87cf92a-4301-4222-9781-f476c81d235c:
+    uuid: 5f1c9fc5-2133-492f-bf12-7fe5edbd7d91
+  5ead9d1f-9f5e-43c7-b3b5-f726456769a7:
     id: language
     langcodes:
-      fi: fi
+      sv: sv
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: b87cf92a-4301-4222-9781-f476c81d235c
+    uuid: 5ead9d1f-9f5e-43c7-b3b5-f726456769a7
 selection_logic: and
 weight: -10
 relationships:

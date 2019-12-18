@@ -1,31 +1,31 @@
-uuid: bda5ec7e-f750-48d7-abc4-caf9389e8bb7
+uuid: c046aceb-6776-4d63-b411-b61efbcf4d8a
 langcode: en
 status: true
 dependencies:
   module:
     - language
     - node
-id: blog_post
-label: 'Blog post'
+id: community_fi
+label: 'Community - FI'
 type: 'canonical_entities:node'
-pattern: 'blogit/[node:title]'
+pattern: 'verkostot/[node:title]'
 selection_criteria:
-  7a90f1a4-21b0-4e15-b26e-7aa9809c253b:
+  8fa745f7-23e4-44f0-9d2a-08beb0fed63a:
     id: node_type
     bundles:
-      blog_post: blog_post
+      community: community
     negate: false
     context_mapping:
       node: node
-    uuid: 7a90f1a4-21b0-4e15-b26e-7aa9809c253b
-  b87cf92a-4301-4222-9781-f476c81d235c:
+    uuid: 8fa745f7-23e4-44f0-9d2a-08beb0fed63a
+  9e0d4a9c-d836-48a8-8616-fb46e16f086b:
     id: language
     langcodes:
       fi: fi
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: b87cf92a-4301-4222-9781-f476c81d235c
+    uuid: 9e0d4a9c-d836-48a8-8616-fb46e16f086b
 selection_logic: and
 weight: -10
 relationships:
