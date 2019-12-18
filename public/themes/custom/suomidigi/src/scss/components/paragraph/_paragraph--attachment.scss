@@ -1,18 +1,39 @@
-.paragraph.paragraph__attachment {
-  margin: 0 -$gutter;
+.paragraph__attachment {
+  border-top: 1px solid rgba(165, 172, 176, 0.3);
+  margin: $gutter * 2 -10px;
+  padding-top: $gutter;
 
   .paragraph__title {
     @include font-size(14px);
     @include line-height(14px, 18px);
     @include font-weight($semibold);
     color: $blue;
-    margin: 0 $gutter;
-    padding-bottom: $gutter;
+    margin-bottom: $gutter * 1.75;
     text-transform: uppercase;
   }
 
   .paragraph__content {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 -10px;
+
+    .attachment-teaser {
+      flex: 1 1 40%;
+      margin: 10px;
+    }
+
+    .attachment-teaser__image {
+      .group__content & {
+        display: none;
+      }
+    }
+
+    .attachment-teaser__title {
+      .group__content & {
+        @include font-size(18px);
+        @include line-height(18px, 22px);
+        @include font-weight($semibold);
+      }
+    }
   }
 }
