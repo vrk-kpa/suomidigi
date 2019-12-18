@@ -540,15 +540,21 @@ function suomidigi_preprocess_views_view(&$variables) {
     $variables['searchResultCount'] = $view->total_rows;
   }
 
-  // Set classes for blogs view.
-  if (
-    $view->id() == 'blogs' &&
-    $view->getDisplay()->isPagerEnabled() &&
-    !empty($variables['rows'])
-  ) {
-    $pager = $view->getPager();
-    if ($pager && $pager instanceof InfiniteScroll) {
-      $variables['rows']['#theme_wrappers']['container']['#attributes']['class'][] = 'listing--grid';
+  // Set classes for blogs and articles view.
+  $view_ids = [
+    'blogs',
+    'articles',
+  ];
+
+  if (in_array($view->id(), $view_ids)) {
+    if (
+      $view->getDisplay()->isPagerEnabled() &&
+      !empty($variables['rows'])
+    ) {
+      $pager = $view->getPager();
+      if ($pager && $pager instanceof InfiniteScroll) {
+        $variables['rows']['#theme_wrappers']['container']['#attributes']['class'][] = 'listing--grid';
+      }
     }
   }
 }

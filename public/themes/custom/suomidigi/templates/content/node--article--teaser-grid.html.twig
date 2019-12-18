@@ -9,8 +9,6 @@
     'node',
     'node--type-' ~ node.bundle|clean_class,
     'article-teaser',
-    'article-prominent',
-    'article-prominent--primary',
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
@@ -20,26 +18,19 @@
 
 <article{{attributes.addClass(classes)}}>
   <a href="{{ url }}" class="article-teaser__link">
-    <div class="article-teaser__image">
-      {{ content.field_header_image }}
-    </div>
+    {% if content.field_header_image|render %}
+      <div class="article-teaser__image">
+        {{ content.field_header_image }}
+      </div>
+    {% endif %}
     <div class="article-teaser__content">
       <h3 class="article-teaser__label">
         {{ label }}
       </h3>
-
       {% if content.field_ingress|render %}
         <p class="article-teaser__lead">
           {{ content.field_ingress['0']['#markup'] }}
         </p>
-      {% endif %}
-
-      {% if content.field_displayed_author|render %}
-        <div class="article-teaser__footer">
-          <div class="article-teaser__author author__list">
-            {{ content.field_displayed_author }}
-          </div>
-        </div>
       {% endif %}
     </div>
   </a>
