@@ -86,7 +86,6 @@ function suomidigi_preprocess_region(&$variables) {
       $node->hasField('field_hero_checkbox')
     ) {
       if (boolval($node->get('field_hero_checkbox')->getString())) {
-        $variables['#cache']['contexts'][] = 'node';
         $variables['hero'] = $node->get('field_hero')->view();
       }
     }
