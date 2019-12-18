@@ -1,0 +1,15 @@
+uuid: b11bf48e-e1e7-4d0e-8034-dc0a3ea7cc00
+langcode: en
+status: true
+dependencies: {  }
+id: node__event
+label: 'Content: Event'
+tags:
+  description: '[node:field_event_description]'
+  og_description: '[node:field_event_description]'
+  og_site_name: '[site:name]'
+  og_image: '[node:field_event_image:2_1_hd:url]'
+  og_url: '[current-page:url:absolute]'
+  og_see_also: '[node:field_event_link]'
+  og_type: Event
+  og_title: '[node:title]'

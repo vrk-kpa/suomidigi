@@ -70,9 +70,9 @@ settings:
     who_s_new: 0
     who_s_online: 0
   enabled_settings:
-    pager: 0
-    argument: 0
-    limit: 0
     offset: 0
+    argument: 0
+    pager: 0
     title: 0
+    limit: 0
 field_type: viewsreference
