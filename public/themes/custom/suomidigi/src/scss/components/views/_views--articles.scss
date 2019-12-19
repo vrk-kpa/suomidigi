@@ -1,0 +1,68 @@
+.section--content .views--articles {
+  margin-top: -#{$gutter};
+
+  .views-exposed-form {
+    margin: 0;
+    padding: 0 0 30px;
+
+    .form-item-thid {
+      label {
+        @include font-size(22px);
+        @include line-height(22px, 28px);
+        @include font-weight($semibold);
+        color: $blue;
+        margin-bottom: $gutter;
+      }
+
+      select {
+        @include font-size(18px);
+        @include line-height(18px, 23px);
+        @include font-weight($regular);
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: $white url("../../icons/svg/chevron-down.svg") no-repeat 98% 50%;
+        background-size: 20px 20px;
+        border: 1px solid $gray-medium;
+        border-radius: 3px;
+        color: $blue;
+        display: block;
+        height: 52px;
+        margin: 0;
+        max-width: 470px;
+        padding: 14px 20px 14px 22px;
+        width: 100%;
+
+      }
+    }
+    .form-actions {
+      margin: 0;
+    }
+  }
+
+  .thene__description-wrapper {
+    background-color: $white;
+    border-top: 5px solid $blue;
+    margin-bottom: $gutter * 2;
+    padding: $gutter * 2;
+    width: 100%;
+
+    .views-field-name {
+      @include font-size(22px);
+      @include line-height(22px, 28px);
+      @include font-weight($semibold);
+      margin-bottom: $gutter;
+
+      a {
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+
+    .views-field-field-theme-description {
+      @include font-size(18px);
+      @include line-height(18px, 27px);
+      @include font-weight($regular);
+      max-width: 670px;
+    }
+  }
+}

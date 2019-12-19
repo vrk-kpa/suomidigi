@@ -7,6 +7,8 @@ dependencies:
     - field.field.taxonomy_term.theme.field_before_content_paragraphs
     - field.field.taxonomy_term.theme.field_liftup_image
     - field.field.taxonomy_term.theme.field_paragraphs
+    - field.field.taxonomy_term.theme.field_theme_description
+    - field.field.taxonomy_term.theme.field_theme_published
     - taxonomy.vocabulary.theme
   module:
     - entity_reference_revisions
@@ -17,16 +19,24 @@ mode: before_content
 content:
   field_before_content_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 0
+    weight: 1
     region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+  field_theme_description:
+    type: basic_string
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   description: true
   field_liftup_image: true
   field_paragraphs: true
+  field_theme_published: true
   langcode: true
   search_api_excerpt: true
