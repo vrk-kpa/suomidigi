@@ -25,25 +25,16 @@
       {% endif %}
     </div>
     <div class="article-teaser__content">
-      {% if node.isPublished() and published_at is not empty %}
-        <div class="article-teaser__data">
-          {{ published_at|date('j.n.Y') }}
-        </div>
-      {% endif %}
       <div class="article-teaser__label-container">
         <h3 class="article-teaser__label">
           {{ label }}
         </h3>
-        {% if content.field_ingress|render and is_full_width %}
+        {% if content.field_ingress|render %}
           <div class="article-teaser__lead">
             {{ content.field_ingress }}
           </div>
         {% endif %}
       </div>
-{# TODO: Fix artictle-teaser templates when the FINAL design has been decided. #}
-{# <div class="article-teaser__type">#}
-{#  {{ content.field_article_type }}#}
-{# </div>#}
     </div>
   </a>
 </article>

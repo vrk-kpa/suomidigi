@@ -26,14 +26,18 @@ settings:
     block: block
     default: 0
     page: 0
+    attachment: 0
     entity_browser: 0
     feed: 0
     entity_reference: 0
     embed: 0
   preselect_views:
+    articles: articles
+    blogs: blogs
     communities: communities
     events: events
     groups: groups
+    social_media: social_media
     theme_tag_lists: theme_tag_lists
     approval_node_queue: 0
     block_content: 0
@@ -68,9 +72,9 @@ settings:
     who_s_new: 0
     who_s_online: 0
   enabled_settings:
-    pager: 0
-    argument: 0
-    limit: 0
     offset: 0
+    argument: 0
+    pager: 0
     title: 0
+    limit: 0
 field_type: viewsreference

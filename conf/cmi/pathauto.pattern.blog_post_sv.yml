@@ -1,0 +1,33 @@
+uuid: 4742e17c-4ddd-4713-a3a8-1df5b65c0424
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: blog_post_sv
+label: 'Blog post - SV'
+type: 'canonical_entities:node'
+pattern: 'bloggar/[node:title]'
+selection_criteria:
+  5f1c9fc5-2133-492f-bf12-7fe5edbd7d91:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 5f1c9fc5-2133-492f-bf12-7fe5edbd7d91
+  5ead9d1f-9f5e-43c7-b3b5-f726456769a7:
+    id: language
+    langcodes:
+      sv: sv
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 5ead9d1f-9f5e-43c7-b3b5-f726456769a7
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Kieli

@@ -25,6 +25,14 @@ targetEntityType: node
 bundle: blog_post
 mode: teaser
 content:
+  field_displayed_author:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
   field_header_image:
     type: entity_reference_entity_view
     weight: 1
@@ -40,7 +48,7 @@ content:
     region: content
     label: hidden
     settings:
-      trim_length: 300
+      trim_length: 200
       trim_type: chars
       trim_suffix: ...
       wrap_class: trimmed
@@ -66,7 +74,6 @@ content:
 hidden:
   field_blog: true
   field_comments: true
-  field_displayed_author: true
   field_displayed_update_time: true
   field_paragraphs: true
   field_reading_time: true

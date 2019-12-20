@@ -1,0 +1,23 @@
+uuid: e5dc8deb-d3eb-4161-b2a2-e77ee2061428
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_link
+    - paragraphs.paragraphs_type.view
+  module:
+    - link
+id: paragraph.view.field_p_link
+field_name: field_p_link
+entity_type: paragraph
+bundle: view
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

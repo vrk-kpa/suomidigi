@@ -1,0 +1,9 @@
+uuid: 26875971-19be-450b-879a-cff0b2d06a21
+langcode: en
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+icon_uuid: null
+description: 'Use this type when you want to create a a hero element on top of the page.'
+behavior_plugins: {  }

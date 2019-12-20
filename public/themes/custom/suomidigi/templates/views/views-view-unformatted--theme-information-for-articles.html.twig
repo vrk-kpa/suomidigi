@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ */
+#}
+{% for row in rows %}
+  {%
+    set row_classes = [
+    'thene__description-wrapper',
+  ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{ row.content }}
+  </div>
+{% endfor %}

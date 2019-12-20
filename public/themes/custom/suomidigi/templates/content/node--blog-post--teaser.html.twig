@@ -41,13 +41,23 @@
           </span>
         {% endif %}
       </div>
+
       <h3 class="blog-teaser__label">
         {{ label }}
       </h3>
+
       {% if content.field_ingress|render %}
         <p class="blog-teaser__lead">
           {{ content.field_ingress['0']['#markup'] }}
         </p>
+      {% endif %}
+
+      {% if content.field_displayed_author|render %}
+        <div class="blog-teaser__footer">
+          <div class="blog-teaser__author author__list">
+            {{ content.field_displayed_author }}
+          </div>
+        </div>
       {% endif %}
     </div>
   </a>

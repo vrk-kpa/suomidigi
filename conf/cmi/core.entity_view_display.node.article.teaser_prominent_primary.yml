@@ -25,38 +25,22 @@ targetEntityType: node
 bundle: article
 mode: teaser_prominent_primary
 content:
-  field_article_type:
-    type: entity_reference_label
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
-  field_displayed_author:
-    type: entity_reference_label
-    weight: 2
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_header_image:
     type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
-      view_mode: article_teaser_header_prominent
+      view_mode: blog_teaser_header
       link: false
     third_party_settings: {  }
   field_ingress:
     type: smart_trim
-    weight: 5
+    weight: 1
     region: content
     label: hidden
     settings:
-      trim_length: 250
+      trim_length: 300
       trim_type: chars
       trim_suffix: ...
       wrap_class: trimmed
@@ -69,34 +53,17 @@ content:
         trim_zero: false
       summary_handler: full
     third_party_settings: {  }
-  field_reading_time:
-    type: number_decimal
-    weight: 4
-    region: content
-    label: hidden
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 0
-      prefix_suffix: false
-    third_party_settings: {  }
-  published_at:
-    type: timestamp
-    weight: 3
-    region: content
-    label: hidden
-    settings:
-      date_format: date
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
 hidden:
+  field_article_type: true
   field_comments: true
+  field_displayed_author: true
   field_displayed_update_time: true
   field_paragraphs: true
+  field_reading_time: true
   field_tags: true
   field_theme: true
   langcode: true
   links: true
+  published_at: true
   rate_vote_widget: true
   search_api_excerpt: true

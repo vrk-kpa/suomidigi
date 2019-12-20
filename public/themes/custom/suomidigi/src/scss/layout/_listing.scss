@@ -1,5 +1,9 @@
 .listing {
-  margin-bottom: $gutter * 2;
+  margin: 0 -#{$gutter} $gutter * 2 -#{$gutter};
+
+  @include breakpoint($for-mobile-landscape-up) {
+    margin: 0 0 $gutter * 2;
+  }
 }
 
 .listing__item {
@@ -7,5 +11,24 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.listing--grid {
+  margin: $gutter -#{$gutter};
+
+  @include breakpoint($for-tablet-portrait-up) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex: 1 1 100%;
+    margin: $gutter;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      flex: 1 1 30%;
+    }
   }
 }

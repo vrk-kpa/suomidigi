@@ -1,0 +1,6 @@
+label: Ryhmät
+display:
+  groups:
+    display_title: 'Ryhmät | Lista'
+  groups_grid:
+    display_title: 'Ryhmät | Ruudukko'

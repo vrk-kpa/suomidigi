@@ -1,0 +1,19 @@
+uuid: 7b98301e-6dd0-4976-b556-328941cdb5e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_theme_description
+field_name: field_theme_description
+entity_type: taxonomy_term
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -39,7 +39,7 @@
 
 {% if label_hidden %}
   {% for item in items %}
-    <span class="article__author-item">{{ item.content }}</span>
+    <span class="author-item">{{ item.content }}</span>
   {% endfor %}
 {% else %}
   <div class="author__label">
@@ -50,11 +50,11 @@
     {% endtrans %}
   </div>
   {% if multiple %}
-    <div class="article__author-items">
+    <div class="author-items">
   {% endif %}
-  {% for item in items %}
-    {{ item.content }}
-  {% endfor %}
+    {% for item in items %}
+      <span class="author-item">{{ item.content }}</span>
+    {% endfor %}
   {% if multiple %}
     </div>
   {% endif %}

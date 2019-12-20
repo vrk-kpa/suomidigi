@@ -64,7 +64,16 @@ filters:
     weight: 0
     settings:
       image_style_1200_width: '0'
+      image_style_16_9_full_content: '0'
+      image_style_16_9_half_content: '0'
+      image_style_16_9_hd: '0'
+      image_style_2_1_full_content: '0'
+      image_style_2_1_half_content: '0'
+      image_style_2_1_hd: '0'
       image_style_600_width: '0'
+      image_style_6_5_full_content: '0'
+      image_style_6_5_full_hd: '0'
+      image_style_6_5_half_content: '0'
       image_style_900_width: '0'
       image_style_article_full_header_image_large: '0'
       image_style_article_full_header_image_medium: '0'

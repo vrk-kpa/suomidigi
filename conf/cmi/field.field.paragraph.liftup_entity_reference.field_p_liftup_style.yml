@@ -1,0 +1,23 @@
+uuid: ef2bbd18-b112-4ea4-a9c9-26d4b053f3db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_liftup_style
+    - paragraphs.paragraphs_type.liftup_entity_reference
+  module:
+    - options
+id: paragraph.liftup_entity_reference.field_p_liftup_style
+field_name: field_p_liftup_style
+entity_type: paragraph
+bundle: liftup_entity_reference
+label: 'Liftup style'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 2col
+default_value_callback: ''
+settings: {  }
+field_type: list_string
