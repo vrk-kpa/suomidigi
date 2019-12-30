@@ -1,8 +1,6 @@
 .shortcuts {
-
   &--footer {
     background-color: $blue-light;
-    margin-bottom: $gutter * 4;
     width: 100%;
 
     h2 {
@@ -69,6 +67,11 @@
 
     @include breakpoint($for-tablet-portrait-up) {
       padding: $gutter * 2 $gutter 40px;
+    }
+
+    @include breakpoint(1200px) {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
