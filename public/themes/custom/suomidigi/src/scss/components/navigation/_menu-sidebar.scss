@@ -62,13 +62,13 @@ nav.menu--sidebar {
       > a {
         background: $white;
         border-left: 5px solid transparent;
-        color: $blue-light;
         padding-left: $gutter;
         text-transform: none;
 
         &.is-active {
           @include font-weight($semibold);
           border-color: $blue-light;
+          color: $blue-light;
         }
       }
 
@@ -87,7 +87,6 @@ nav.menu--sidebar {
       > a {
         background-color: $gray-lighter;
         border-left: 10px solid $gray-medium;
-        color: $blue-light;
         padding-left: $gutter;
         text-transform: none;
 
@@ -95,6 +94,7 @@ nav.menu--sidebar {
           @include font-weight($semibold);
           background-color: $white;
           border-color: $blue-light;
+          color: $blue-light;
         }
       }
 
@@ -113,7 +113,6 @@ nav.menu--sidebar {
       > a {
         background: $white;
         border-left: 15px solid $gray-medium;
-        color: $blue-light;
         padding-left: $gutter;
         text-transform: none;
 
@@ -121,6 +120,7 @@ nav.menu--sidebar {
           @include font-weight($semibold);
           background-color: $white;
           border-color: $blue-light;
+          color: $blue-light;
         }
       }
 
