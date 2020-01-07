@@ -112,8 +112,7 @@ class DreamBrokerOembedController extends ControllerBase {
    */
   private function getIdFromInput() {
     $matches = [];
-    preg_match('/(?:channel\/([a-z0-9]{8}))\/(?:iframe\/([a-z0-9]{8}))/', $this->dreamBrokerUrl, $matches);
-
+    preg_match('/(?:channel\/([a-z0-9]{8}))\/([a-z0-9]{8})/', $this->dreamBrokerUrl, $matches);
     if ($matches && !empty($matches[1]) && !empty($matches[2])) {
       return [$matches[1], $matches[2]];
     }
