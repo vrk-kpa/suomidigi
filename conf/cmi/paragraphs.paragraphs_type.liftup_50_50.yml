@@ -1,0 +1,9 @@
+uuid: c8779809-3309-45a2-a7a7-499df0882138
+langcode: en
+status: true
+dependencies: {  }
+id: liftup_50_50
+label: 'Liftup 50/50'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }
