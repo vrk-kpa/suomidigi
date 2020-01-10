@@ -12,8 +12,7 @@
   }
 
   h3 {
-    @include font-size(18px);
-    @include line-height(18px, 23px);
+    @include font-size(18px, 23px);
     @include font-weight($semibold);
     color: $black;
   }
@@ -41,8 +40,7 @@
   }
 
   &__title {
-    @include font-size(22px);
-    @include line-height(22px, 28px);
+    @include font-size(22px, 28px);
     @include font-weight($semibold);
     color: $blue;
     margin-bottom: $gutter;
@@ -54,8 +52,7 @@
 
   &__description,
   &__description p {
-    @include font-size(18px);
-    @include line-height(18px, 26px);
+    @include font-size(18px, 26px);
     @include font-weight($regular);
     margin-bottom: 0.5rem;
   }
@@ -75,8 +72,7 @@
     }
 
     &--date {
-      @include font-size(16px);
-      @include line-height(16px, 20px);
+      @include font-size(16px, 20px);
       @include font-weight($semibold);
       color: $black;
     }
@@ -96,8 +92,7 @@
     }
 
     &--wrapper {
-      @include font-size(16px);
-      @include line-height(16px, 20px);
+      @include font-size(16px, 20px);
       @include font-weight($semibold);
       display: flex;
       flex-wrap: wrap;

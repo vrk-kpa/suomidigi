@@ -54,33 +54,29 @@
   }
 
   &__label {
-    @include font-size(20px);
+    @include font-size(20px, 20px);
     font-weight: 600;
-    line-height: 100%;
     margin-bottom: 0;
   }
 
   &__lead {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
+    @include font-size(14px, 18px);
     color: $gray-darker;
     margin-bottom: $gutter;
     word-break: break-word;
   }
 
   &__type {
-    @include font-size(14px);
+    @include font-size(14px, 14px);
     color: $gray-darker;
     display: block;
     font-weight: 600;
-    line-height: 100%;
   }
 
   &__label-type {
-    @include font-size(12px);
+    @include font-size(12px, 12px);
     color: $gray-darker;
     display: none;
-    line-height: 100%;
     margin-top: $gutter * 0.35;
   }
 

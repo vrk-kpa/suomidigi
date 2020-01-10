@@ -8,8 +8,7 @@
   }
 
   h3 {
-    @include font-size(18px);
-    @include line-height(18px, 23px);
+    @include font-size(18px, 23px);
     @include font-weight($semibold);
     color: $black;
   }
@@ -58,9 +57,8 @@
     }
 
     .page-title {
-      @include font-size(26px);
+      @include font-size(26px, 33px);
       @include font-weight($bold);
-      @include line-height(26px, 33px);
       color: $blue-medium;
     }
   }
@@ -75,8 +73,7 @@
 
   &__description,
   &__description p {
-    @include font-size(20px);
-    @include line-height(20px, 26px);
+    @include font-size(20px, 26px);
   }
 
   &__registration {
@@ -100,8 +97,7 @@
     }
 
     &--date {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
+      @include font-size(18px, 23px);
       @include font-weight($semibold);
       color: $black;
     }
@@ -130,8 +126,7 @@
   }
 
   &__address {
-    @include font-size(18px);
-    @include line-height(18px, 26px);
+    @include font-size(18px, 26px);
     @include font-weight($regular);
     color: $black;
     flex-basis: 100%;
@@ -152,42 +147,36 @@
   }
 
   &__free-text {
-    @include font-size(16px);
-    @include line-height(16px, 20px);
+    @include font-size(16px, 20px);
     @include font-weight($regular);
     color: $black;
     margin-bottom: $gutter;
 
     h2 {
-      @include font-size(22px);
-      @include line-height(22px, 20px);
+      @include font-size(22px, 20px);
       @include font-weight($semibold);
     }
   }
 
   &__venue-description,
   &__venue-description p {
-    @include font-size(14px);
-    @include line-height(14px, 20px);
+    @include font-size(14px, 20px);
     @include font-weight($regular);
     margin-bottom: $gutter * 2;
 
     .field__label {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
+      @include font-size(18px, 23px);
       @include font-weight($semibold);
       margin-bottom: $gutter;
     }
   }
 
   &__contact-info {
-    @include font-size(14px);
-    @include line-height(14px, 20px);
+    @include font-size(14px, 20px);
     @include font-weight($regular);
 
     .field__label {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
+      @include font-size(18px, 23px);
       @include font-weight($semibold);
       margin-bottom: $gutter;
     }
@@ -198,15 +187,13 @@
       margin-bottom: $gutter;
 
       .name {
-        @include font-size(14px);
-        @include line-height(14px, 20px);
+        @include font-size(14px, 20px);
         @include font-weight($semibold);
       }
 
       .email,
       .phone-number {
-        @include font-size(14px);
-        @include line-height(14px, 20px);
+        @include font-size(14px, 20px);
         @include font-weight($regular);
       }
     }
@@ -214,15 +201,13 @@
 
   &__organiser {
     &--name {
-      @include font-size(16px);
-      @include line-height(16px, 24px);
+      @include font-size(16px, 24px);
       @include font-weight($semibold);
       margin-bottom: $gutter;
     }
 
     &--description {
-      @include font-size(14px);
-      @include line-height(14px, 20px);
+      @include font-size(14px, 20px);
       @include font-weight($regular);
       margin-bottom: $gutter;
     }
@@ -259,8 +244,7 @@
     }
 
     &--text {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       @include font-weight($semibold);
       text-decoration: none;
     }

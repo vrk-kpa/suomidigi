@@ -46,8 +46,7 @@
   }
 
   &__domain {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
+    @include font-size(14px, 18px);
     @include font-weight($semibold);
     color: $black;
     margin-bottom: 0;
@@ -56,16 +55,14 @@
 
   &__title {
     color: $blue-medium;
-    @include font-size(22px);
-    @include line-height(22px, 28px);
+    @include font-size(22px, 28px);
     @include font-weight($semibold);
     margin-bottom: $gutter;
   }
 
   &__content,
   &__content p {
-    @include font-size(18px);
-    @include line-height(18px, 26px);
+    @include font-size(18px, 26px);
     color: $black;
   }
 
@@ -90,8 +87,7 @@
 
   &__cta {
     display: flex;
-    @include font-size(18px);
-    @include line-height(18px, 26px);
+    @include font-size(18px, 26px);
     @include font-weight($semibold);
     margin-top: $gutter;
     transition: all 150ms linear;
@@ -110,15 +106,13 @@
     @include border();
 
     &-title {
-      @include font-size(22px);
-      @include line-height(22px, 28px);
+      @include font-size(22px, 28px);
       @include font-weight($semibold);
       color: $blue;
     }
 
     &-description {
-      @include font-size(18px);
-      @include line-height(18px, 26px);
+      @include font-size(18px, 26px);
       @include font-weight($regular);
       color: $black;
       margin-bottom: 25px;

@@ -118,8 +118,7 @@
 }
 
 .search-form__button {
-  @include font-size(14px);
-  @include line-height(14px, 18px);
+  @include font-size(14px, 18px);
   background-color: $blue-light;
   border: 1px solid $blue-light;
   border-radius: 3px;

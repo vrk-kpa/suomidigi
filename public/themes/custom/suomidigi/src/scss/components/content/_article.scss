@@ -3,8 +3,7 @@
 }
 
 .article__type {
-  @include font-size(14px);
-  @include line-height(14px, 18px);
+  @include font-size(14px, 18px);
   @include font-weight($semibold);
   margin-bottom: $gutter;
   width: 100%;
@@ -19,8 +18,7 @@
 
 .article__title {
   h1 {
-    @include font-size(26px);
-    @include line-height(26px, 33px);
+    @include font-size(26px, 33px);
     @include font-weight($bold);
     color: $blue-medium;
     margin-bottom: $gutter;
@@ -28,8 +26,7 @@
 }
 
 .article__lead {
-  @include font-size(20px);
-  @include line-height(20px, 26px);
+  @include font-size(20px, 26px);
   @include font-weight($regular);
   margin-bottom: $gutter;
 
@@ -39,8 +36,7 @@
 }
 
 .article__data {
-  @include font-size(14px);
-  @include line-height(14px, 18px);
+  @include font-size(14px, 18px);
   color: $black;
   display: flex;
   flex-wrap: wrap;

@@ -1,6 +1,5 @@
 .tweet {
-  @include font-size(14px);
-  @include line-height(14px, 18px);
+  @include font-size(14px, 18px);
   background-color: $white;
   height: 100%;
   padding: $gutter;
@@ -36,15 +35,13 @@
     margin-left: 10px;
 
     h3 {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
+      @include font-size(18px, 23px);
       @include font-weight($semibold);
       margin: 0;
     }
 
     h4 {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       @include font-weight($regular);
       margin: 0;
     }

@@ -1,19 +1,8 @@
-@mixin font-size($font-size, $desired-mobile-size: '') {
-  @media screen and (max-width: $for-tablet-portrait-up) {
-    @if $desired-mobile-size != '' {
-      font-size: ($desired-mobile-size / $base-font-size) * 1rem;
-    }
-  }
+@mixin font-size($font-size, $line-height: '') {
   font-size: ($font-size / $base-font-size) * 1rem;
-}
-
-@mixin line-height($font-size, $line-height, $mobile-font-size: '', $mobile-line-height: '') {
-  @media screen and (max-width: $for-tablet-portrait-up) {
-    @if $mobile-font-size != '' and $mobile-line-height != '' {
-      line-height: ($mobile-line-height / $mobile-font-size) * $mobile-font-size;
-    }
+  @if $line-height != '' {
+    line-height: ($line-height / $font-size) * $font-size;
   }
-  line-height: ($line-height / $font-size) * $font-size;
 }
 
 @mixin font-weight($font-weight) {
@@ -54,8 +43,7 @@
     }
   }
   @else if $type == 'submit' {
-    @include font-size(14px);
-    @include line-height(14px, 14px);
+    @include font-size(14px, 14px);
     @include font-weight($semibold);
     background-color: $blue-light;
     border: 2px solid $blue-light;

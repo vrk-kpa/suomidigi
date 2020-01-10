@@ -62,8 +62,7 @@
   }
 
   .fieldset-legend {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
+    @include font-size(14px, 18px);
     display: inline-block;
     font-weight: normal;
   }
@@ -76,22 +75,20 @@
       margin: 0;
 
       label {
-        @include font-size(16px);
-        @include line-height(16px, 19px);
+        @include font-size(16px, 19px);
         font-weight: normal;
       }
     }
   }
 
   .form-item {
+    @include font-size(16px, 24px);
     display: block;
-    line-height: 24px;
     margin: 0 0 6px;
     padding: 0;
 
     label:not(.visually-hidden) {
-      @include font-size(16px);
-      @include line-height(14px, 24px);
+      @include font-size(16px, 24px);
       color: #333333;
       display: inline-block;
       font-weight: normal;
@@ -102,8 +99,7 @@
     }
 
     .description {
-      @include font-size(13px);
-      @include line-height(13px, 20px);
+      @include font-size(13px, 20px);
     }
 
     select,

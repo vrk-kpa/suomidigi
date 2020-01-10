@@ -2,16 +2,14 @@
   padding-bottom: $gutter * 2;
 
   &__slogan {
-    @include font-size(20px);
-    @include line-height(20px, 26px);
+    @include font-size(20px, 26px);
     @include font-weight($regular);
     color: $black;
   }
 
   &__ingress {
     color: $black;
-    @include font-size(20px);
-    @include line-height(20px, 26px);
+    @include font-size(20px, 26px);
     @include font-weight($regular);
     margin-bottom: $gutter * 2;
     max-width: 650px;

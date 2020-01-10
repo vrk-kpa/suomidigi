@@ -23,8 +23,7 @@ nav.menu--sidebar {
 
     > span,
     > a {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       color: $blue;
       display: block;
       padding: 0.75rem 0;
