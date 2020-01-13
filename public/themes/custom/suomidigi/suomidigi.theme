@@ -267,10 +267,15 @@ function suomidigi_preprocess_paragraph(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_page_title(&$variables) {
-  // Modify title classes for Theme taxonomy terms.
+  // Replace taxonomy term page title to correspond taxonomy term plural
+  // name, if one exists. Otherwise use taxonomy term name.
   $term = Drupal::request()->attributes->get('taxonomy_term');
-  if (!empty($term) && $term->bundle() == 'theme') {
-    $variables['page_title_alternative'] = TRUE;
+  if (!empty($term) && $term->hasField('field_plural_name')) {
+    $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+    if (!empty($translated_title)) {
+      $variables['title'] = Markup::create($translated_title);
+    }
   }
 
   // Modify title classes for Legislation collection page nodes.
@@ -290,27 +295,42 @@ function suomidigi_preprocess_block(&$variables) {
 
   if ($variables['plugin_id'] == 'page_title_block') {
     $term = Drupal::request()->attributes->get('taxonomy_term');
-    if (!empty($term) && $term->bundle() == 'theme') {
-      if ($term->hasField('field_liftup_image') && !$term->get('field_liftup_image')->isEmpty()) {
-        $media_id = $term->get('field_liftup_image')->first()->getValue()['target_id'];
-        $media = Media::load($media_id);
-        $build = Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
-        $variables['content']['field_liftup_image'] = $build;
+    if (!empty($term)) {
+      if ($term->bundle() == 'theme') {
+        if ($term->hasField('field_liftup_image') && !$term->get('field_liftup_image')->isEmpty()) {
+          $media_id = $term->get('field_liftup_image')->first()->getValue()['target_id'];
+          $media = Media::load($media_id);
+          $build = Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
+          $variables['content']['field_liftup_image'] = $build;
+        }
+      }
+
+      // Replace taxonomy term page title to correspond taxonomy term plural
+      // name, if one exists. Otherwise use taxonomy term name.
+      if ($term->hasField('field_plural_name')) {
+        $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+        if (!empty($translated_title)) {
+          $variables['content']['#title'] = Markup::create($translated_title);
+        }
+      }
+
+      // Hide block from following taxonomies.
+      if ($term->bundle() == 'author') {
+        $variables['hide_block'] = TRUE;
       }
     }
 
-    // Replace taxonomy term page title to correspond taxonomy term plural
-    // name, if one exists. Otherwise use taxonomy term name.
-    if (!empty($term) && $term->hasField('field_plural_name')) {
-      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
-
-      if (!empty($translated_title)) {
-        $variables['content']['#title'] = Markup::create($translated_title);
-      }
-    }
-
-    // Hide block if current node is front page.
+    // Hide block from following content types.
     if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      if (
+        $node->getType() == 'article' ||
+        $node->getType() == 'event'
+      ) {
+        $variables['hide_block'] = TRUE;
+      }
+
+      // Hide block if current node is front page.
       if (
         $node->getType() == 'landing_page' &&
         $node->hasField('field_hero') &&

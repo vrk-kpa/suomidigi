@@ -165,7 +165,7 @@
     align-items: center;
     display: flex;
     flex-flow: column;
-    margin-bottom: $gutter * 2;
+    margin-bottom: $gutter;
 
     @include breakpoint($for-mobile-landscape-up) {
       flex-flow: row;
