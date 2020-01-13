@@ -1,0 +1,23 @@
+uuid: 77348146-0e8a-45a7-ba10-09cfd57eb0d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_link
+    - paragraphs.paragraphs_type.liftup_50_50
+  module:
+    - link
+id: paragraph.liftup_50_50.field_p_link
+field_name: field_p_link
+entity_type: paragraph
+bundle: liftup_50_50
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

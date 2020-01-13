@@ -1,0 +1,30 @@
+uuid: 7697b7c4-6f14-4657-a605-ca9813a19d2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_media
+    - media.type.image
+    - media.type.video
+    - paragraphs.paragraphs_type.liftup_50_50
+id: paragraph.liftup_50_50.field_p_media
+field_name: field_p_media
+entity_type: paragraph
+bundle: liftup_50_50
+label: Media
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

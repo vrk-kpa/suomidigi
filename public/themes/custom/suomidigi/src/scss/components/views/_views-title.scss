@@ -1,6 +1,5 @@
 .views__title {
-  @include font-size(22px);
-  @include line-height(22px, 28px);
+  @include font-size(22px, 28px);
   @include font-weight($semibold);
   color: $blue;
   margin: $gutter * 2 0

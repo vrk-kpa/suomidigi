@@ -3,8 +3,7 @@
   padding-top: $gutter * 2;
 
   .paragraph__title {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
+    @include font-size(14px, 18px);
     @include font-weight($semibold);
     color: $blue;
     margin-bottom: $gutter * 1.75;

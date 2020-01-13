@@ -15,8 +15,7 @@
   justify-content: center;
 
   p {
-    @include font-size(14px);
-    @include line-height(14px, 16px);
+    @include font-size(14px, 16px);
     color: white;
     margin-bottom: 0;
     max-width: 200px;
@@ -61,8 +60,7 @@
 
       > span,
       > a {
-        @include font-size(14px);
-        @include line-height(14px, 17px);
+        @include font-size(14px, 17px);
         color: $black;
         display: block;
         padding: 0.75rem 1rem;
@@ -86,8 +84,7 @@
       &--lvl-0 {
         > span,
         > a {
-          @include font-size(18px);
-          @include line-height(18px, 18px);
+          @include font-size(18px, 18px);
           font-weight: bold;
           padding: 0.75rem 1rem;
         }

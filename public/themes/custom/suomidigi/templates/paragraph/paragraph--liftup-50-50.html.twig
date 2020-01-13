@@ -1,0 +1,58 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+  {% set reverse = content.field_p_reverse['0']['#markup'] %}
+
+  {% if reverse is same as(1) %}
+    {% set classes = classes|merge(['paragraph--reverse']) %}
+  {% endif %}
+
+  <div{{attributes.addClass(classes)}}>
+    {% block content %}
+      <div class="paragraph__content-wrapper">
+        <div class="paragraph__title-wrapper">
+          {% if content.field_p_link.0['#url'] %}
+            {% set link = content.field_p_link.0['#url'] %}
+            {% set text = content.field_p_title.0 %}
+            {% set external = item.is_external %}
+
+            <a class="link--secondary" href="{{ link }}" {% if external == true %} target="_blank" {% endif %}>
+              {% if icons_path %}
+                <div class="link__icon-left">
+                  <svg class="icon">
+                    <title>{{ text }}</title>
+                    <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
+                  </svg>
+                </div>
+              {% endif %}
+              <h2 class="paragraph__title link__text">{{ text }}</h2>
+              {% if icons_path and external != true %}
+                <span class="link__icon-right">
+                  <svg class="icon">
+                    <title>{{ text }}</title>
+                    <use xlink:href="{{ icons_path|trim }}#link-external"/>
+                  </svg>
+                </span>
+              {% endif %}
+            </a>
+          {% else %}
+            <h2 class="paragraph__title">{{ content.field_p_title.0 }}</h2>
+          {% endif %}
+        </div>
+        <div class="paragraph__content">
+          {{ content|without(
+            'field_p_title',
+            'field_p_reverse',
+            'field_p_link',
+            'field_p_media'
+          ) }}
+        </div>
+      </div>
+      <div class="paragraph__media">
+        {% if content.field_p_media|render %}
+          {{ content.field_p_media|render }}
+        {% endif %}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

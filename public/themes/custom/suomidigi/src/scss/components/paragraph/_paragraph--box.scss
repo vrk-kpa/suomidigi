@@ -14,14 +14,12 @@
       max-width: 164px;
 
       .paragraph__title {
-        @include font-size(14px);
-        @include line-height(16px, 14px);
+        @include font-size(14px, 16px);
         margin-bottom: $gutter / 2;
       }
 
       .paragraph__content {
-        @include font-size(12px);
-        @include line-height(16px, 12px);
+        @include font-size(12px, 16px);
         display: inline-block;
       }
     }
@@ -104,8 +102,7 @@
   }
 
   .paragraph__title {
-    @include font-size(14px);
-    @include line-height(14px, 14px);
+    @include font-size(14px, 14px);
     font-weight: 600;
   }
 

@@ -47,8 +47,7 @@
   }
 
   &__description {
-    @include font-size(22px);
-    @include line-height(22px, 30px);
+    @include font-size(22px, 30px);
     @include font-weight($regular);
     margin-bottom: $gutter * 2;
   }

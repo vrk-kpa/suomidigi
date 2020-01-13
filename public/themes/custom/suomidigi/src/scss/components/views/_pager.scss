@@ -14,8 +14,7 @@
     }
 
     .button {
-      @include font-size(16px);
-      @include line-height(16px, 20px);
+      @include font-size(16px, 20px);
       @include font-weight($semibold);
       background-color: $blue;
       border: 2px solid $blue;
