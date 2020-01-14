@@ -18,6 +18,7 @@ regions:
   before_content: Before content
   content: Content
   after_content: After content
+  before_footer: Before footer
   footer: Footer
 
 # Define Libraries

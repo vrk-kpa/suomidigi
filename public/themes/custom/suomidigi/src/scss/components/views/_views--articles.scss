@@ -7,14 +7,14 @@
 
     .form-item-thid {
       label {
-        @include font-size(2222px, 28px);
+        @include font-size(22px, 28px);
         @include font-weight($semibold);
         color: $blue;
         margin-bottom: $gutter;
       }
 
       select {
-        @include font-size(1818px, 23px);
+        @include font-size(18px, 23px);
         @include font-weight($regular);
         -moz-appearance: none;
         -webkit-appearance: none;

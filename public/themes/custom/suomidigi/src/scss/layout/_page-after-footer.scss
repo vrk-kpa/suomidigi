@@ -1,0 +1,78 @@
+.page-after-footer {
+  background-color: $blue;
+
+  &__container {
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
+
+  .link--footer {
+    align-items: center;
+    display: flex;
+    margin: 0 $gutter;
+
+    &-wrapper {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -#{$gutter};
+
+      @include breakpoint($for-tablet-portrait-up) {
+        flex-wrap: nowrap;
+        justify-content: unset;
+      }
+    }
+
+    &.link--pushed {
+      margin-left: auto;
+      min-width: 150px;
+    }
+
+    a {
+      @include font-size(14px, 18px);
+      @include font-weight($semibold);
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+
+  .icon {
+    color: $white;
+
+    &--dvv {
+      margin-left: -10px;
+      margin-right: $gutter / 1.5;
+      max-height: 40px;
+      max-width: 40px;
+    }
+
+    &--twitter {
+      margin-right: $gutter / 1.5;
+      max-height: 30px;
+      max-width: 30px;
+    }
+
+    &--slack {
+      margin-left: -19px;
+      max-height: 60px;
+      max-width: 60px;
+    }
+  }
+}
+
+.content--footer {
+  width: 100%;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    margin-right: $gutter * 2;
+    max-width: 370px;
+  }
+
+  h1 {
+    @include font-size(32px, 40px);
+    @include font-weight($bold);
+    color: $blue;
+    margin-bottom: $gutter;
+  }
+}

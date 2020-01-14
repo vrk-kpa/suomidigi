@@ -130,13 +130,67 @@
     {% endblock %}
   </div>
 
-  <footer class="page-footer" id="footer" role="contentinfo">
-    <div class="page-footer__container l-footer {% if has_sidebar_first %}l-footer--small{% endif %}">
-      {% if page.footer %}
-        {{ page.footer }}
+  <div class="page-before-footer" id="before-footer" role="contentinfo">
+    <div class="page-before-footer__container l-footer {% if has_sidebar_first %}l-before-footer--small{% endif %}">
+      {% if page.before_footer %}
+        {{ page.before_footer }}
       {% endif %}
     </div>
-  </footer>
+  </div>
+
+  {% if page.footer %}
+    <footer class="page-footer" id="footer" role="contentinfo">
+      {% set footer_container_class = 'l-footer page-footer' %}
+      {% if has_sidebar_first %}
+        {% set footer_container_class = 'l-footer--small ' ~ footer_container_class %}
+      {% endif %}
+        {% embed "@suomidigi/misc/container.twig" with {container_element: footer_container_class} %}
+          {% block container_content %}
+            {{ page.footer }}
+          {% endblock container_content %}
+        {% endembed %}
+    </footer>
+  {% endif %}
+
+  <div class="page-after-footer" id="after-footer" role="contentinfo">
+    {% set footer_container_class = 'l-footer page-after-footer' %}
+    {% if has_sidebar_first %}
+      {% set footer_container_class = 'l-after-footer--small ' ~ footer_container_class %}
+    {% endif %}
+    {% embed "@suomidigi/misc/container.twig" with {container_element: footer_container_class} %}
+      {% block container_content %}
+        <div class="link--footer-wrapper">
+          <div class="link--footer">
+            {% if icons_path %}
+              <svg aria-labelledby="open-dvvfi" class="icon icon--dvv">
+                <title id="open-dvvfi">{{ 'DVV.fi'|t }}</title>
+                <use xlink:href="{{ icons_path|trim }}#dvvfi"/>
+              </svg>
+            {% endif %}
+            {{ link('dvv.fi', 'https://dvv.fi') }}
+          </div>
+          <div class="link--footer link--pushed">
+            {% if icons_path %}
+              <svg aria-labelledby="open-suomidigi" class="icon icon--twitter">
+                <title id="open-suomidigi">{{ 'Suomidigi twitter'|t }}</title>
+                <use xlink:href="{{ icons_path|trim }}#twitter-logo"/>
+              </svg>
+            {% endif %}
+            {{ link('Suomidigi', 'https://twitter.com/suomidigi') }}
+          </div>
+          <div class="link--footer">
+            {% if icons_path %}
+              <svg aria-labelledby="open-suomidigi-developers" class="icon icon--slack">
+                <title id="open-suomidigi-developers">{{ 'Open Suomidigi developers'|t }}</title>
+                <use xlink:href="{{ icons_path|trim }}#slack"/>
+              </svg>
+            {% endif %}
+            {{ link('Suomidigi developers'|t, 'https://suomidigi-kehittajat.slack.com') }}
+          </div>
+        </div>
+      {% endblock container_content %}
+    {% endembed %}
+  </div>
 </div>
 
 {% if page.mobile_navigation %}
