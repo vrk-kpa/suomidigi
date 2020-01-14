@@ -23,17 +23,24 @@
     color: $blue;
 
     &.page-title--alternative {
-      @include font-size(32px, 24px);
-      @include line-height(32px, 32px, 24px, 24px);
-      font-weight: normal;
+      @include font-size(24px, 24px);
+      @include font-weight($regular);
       text-transform: uppercase;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        @include font-size(32px, 32px);
+      }
     }
 
     &.page-title--secondary {
-      @include font-size(32px, 24px);
-      @include line-height(32px, 32px, 24px, 24px);
-      font-weight: bold;
+      @include font-size(24px, 24px);
+      @include font-weight($semibold);
       letter-spacing: -0.02rem;
+      text-transform: uppercase;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        @include font-size(32px, 32px);
+      }
     }
 
     .page-before_content--user & {

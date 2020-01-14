@@ -2,16 +2,14 @@
   padding-bottom: $gutter * 2;
 
   &__ingress {
-    @include font-size(14px);
-    @include line-height(14px, 20px);
+    @include font-size(14px, 20px);
     color: $black;
     margin-bottom: $gutter * 2;
     text-align: center;
   }
 
   &__toggle-button {
-    @include font-size(18px);
-    @include line-height(18px, 18px);
+    @include font-size(18px, 18px);
     background: transparent;
     border: 0 none;
     color: $legislation-blue;
@@ -27,8 +25,7 @@
   }
 
   &__label {
-    @include font-size(18px);
-    @include line-height(18px, 18px);
+    @include font-size(18px, 18px);
     color: $black;
     font-weight: bold;
     margin-bottom: $gutter;
@@ -101,8 +98,7 @@
     }
 
     &__label {
-      @include font-size(22px);
-      @include line-height(22px, 24px);
+      @include font-size(22px, 24px);
       color: $black;
       font-weight: 800;
       margin: 0;
@@ -122,7 +118,7 @@
 
 
     &__lead {
-      @include line-height(14px, 22px);
+      @include font-size(14px, 22px);
       color: $black;
       margin: 0;
     }

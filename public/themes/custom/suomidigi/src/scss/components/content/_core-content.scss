@@ -1,9 +1,8 @@
 .core-content {
 
   &__published {
-    @include font-size(14px);
+    @include font-size(14px, 14px);
     color: $gray-darker;
-    line-height: 100%;
   }
 
   .article__header.is-empty {

@@ -1,0 +1,23 @@
+uuid: fe63dce2-b7a1-4148-910f-2c8ed3d4ca46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_reverse
+    - paragraphs.paragraphs_type.liftup_50_50
+id: paragraph.liftup_50_50.field_p_reverse
+field_name: field_p_reverse
+entity_type: paragraph
+bundle: liftup_50_50
+label: Reverse
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

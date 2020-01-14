@@ -23,8 +23,7 @@ nav.menu--sidebar {
 
     > span,
     > a {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       color: $blue;
       display: block;
       padding: 0.75rem 0;
@@ -60,19 +59,89 @@ nav.menu--sidebar {
     &--lvl-1 {
       > span,
       > a {
+        background: $white;
         border-left: 5px solid transparent;
-        color: $blue-light;
         padding-left: $gutter;
         text-transform: none;
+
+        &.is-active {
+          @include font-weight($semibold);
+          border-color: $blue-light;
+          color: $blue-light;
+        }
+      }
+
+      &.menu-item--active-trail {
+        > span,
+        > a {
+          @include font-weight($semibold);
+          background-color: $white;
+          border-left: 5px solid $blue-light;
+        }
+      }
+    }
+
+    &--lvl-2 {
+      > span,
+      > a {
+        background-color: $gray-lighter;
+        border-left: 10px solid $gray-medium;
+        padding-left: $gutter;
+        text-transform: none;
+
+        &.is-active {
+          @include font-weight($semibold);
+          background-color: $white;
+          border-color: $blue-light;
+          color: $blue-light;
+        }
       }
 
       &.menu-item--active-trail {
         > span,
         > a {
           background-color: $white;
-          border-left: 5px solid $blue-light;
+          border-color: $blue-light;
+          @include font-weight($semibold);
         }
       }
+    }
+
+    &--lvl-3 {
+      > span,
+      > a {
+        background: $white;
+        border-left: 15px solid $gray-medium;
+        padding-left: $gutter;
+        text-transform: none;
+
+        &.is-active {
+          @include font-weight($semibold);
+          background-color: $white;
+          border-color: $blue-light;
+          color: $blue-light;
+        }
+      }
+
+      &.menu-item--active-trail {
+        > span,
+        > a {
+          background-color: $white;
+          border-color: $blue-light;
+          @include font-weight($semibold);
+        }
+      }
+    }
+  }
+
+  // Handle active trail.
+  .menu-item--active-trail {
+    ul {
+      display: none;
+    }
+
+    > ul {
+      display: block;
     }
   }
 }

@@ -4,14 +4,12 @@
   }
 
   .paragraph__text {
-    @include font-size(14px);
-    @include line-height(14px, 22px);
-    margin-top: $gutter * .5;
+    @include font-size(14px, 22px);
     color: $gray-darker;
+    margin-top: $gutter * .5;
 
     @include breakpoint($for-tablet-portrait-up) {
-      @include font-size(15px);
-      @include line-height(15px, 22px);
+      @include font-size(15px, 22px);
     }
   }
 }

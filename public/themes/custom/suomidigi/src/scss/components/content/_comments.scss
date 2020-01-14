@@ -22,35 +22,35 @@
   }
 
   &__meta {
-    display: flex;
     align-items: center;
+    display: flex;
   }
 
   &__avatar {
     align-content: center;
     display: flex;
-    margin-right: $gutter;
     justify-content: center;
+    margin-right: $gutter;
 
     img {
       border-radius: 2px;
-      min-width: $gutter * 3;
-      min-height: $gutter * 3;
       max-width: $gutter * 3;
+      min-height: $gutter * 3;
+      min-width: $gutter * 3;
     }
 
     &--letter {
       @include font-size(24px);
+      @include font-weight($bold);
       align-items: center;
       background-color: $blue-medium;
       border-radius: 2px;
       color: $white;
       display: flex;
-      font-weight: bold;
       height: $gutter * 3;
       justify-content: center;
-      text-transform: uppercase;
       text-decoration: none;
+      text-transform: uppercase;
       width: $gutter * 3;
 
       .community__link:hover & {

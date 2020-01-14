@@ -54,28 +54,25 @@
   }
 
   .paragraph__title {
-    @include font-size(18px);
-    @include line-height(18px, 20px);
+    @include font-size(18px, 20px);
     color: $white;
     font-weight: bold;
 
     @include breakpoint($for-mobile-portrait-up) {
-      @include font-size(20px);
-      @include line-height(20px, 25px);
+      @include font-size(20px, 25px);
       display: block;
       max-width: 490px;
     }
   }
 
   .paragraph__description {
-    @include font-size(14px);
-    @include line-height(14px, 14px);
+    @include font-size(14px, 14px);
 
     color: $white;
 
     font-weight: 600;
     @include breakpoint($for-mobile-portrait-up) {
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
     }
 
     &-icon {
@@ -138,8 +135,7 @@
     }
 
     .paragraph__title {
-      @include font-size(16px);
-      @include line-height(16px, 20px);
+      @include font-size(16px, 20px);
       color: $blue-medium;
       font-weight: 600;
       margin-bottom: $gutter;
@@ -155,11 +151,11 @@
 
     .paragraph__description {
       @include font-size(14px);
+      @include font-weight($bold);
       background-color: $blue-light;
       border: 2px solid $blue-light;
       color: $white;
       display: inline-block;
-      font-weight: bold;
       padding: $gutter / 2 $gutter;
       text-align: center;
       text-transform: uppercase;

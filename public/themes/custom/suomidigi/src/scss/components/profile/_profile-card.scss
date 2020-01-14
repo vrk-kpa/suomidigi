@@ -69,8 +69,7 @@
   }
 
   &__name {
-    @include font-size(22px);
-    @include line-height(22px, 28px);
+    @include font-size(22px, 28px);
     color: $blue;
     font-weight: 600;
     letter-spacing: 0;
@@ -82,8 +81,7 @@
   }
 
   &__profession {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
+    @include font-size(14px, 18px);
     font-weight: 600;
     letter-spacing: 0;
 
@@ -93,8 +91,7 @@
   }
 
   &__description {
-    @include font-size(16px);
-    @include line-height(16px, 24px);
+    @include font-size(16px, 24px);
     letter-spacing: 0;
     margin-bottom: $gutter;
   }
@@ -165,8 +162,7 @@
     }
 
     .profile-card__name {
-      @include font-size(18px);
-      @include line-height(18px, 26px);
+      @include font-size(18px, 26px);
       @include font-weight($semibold);
       color: $blue-light;
       margin: 0;

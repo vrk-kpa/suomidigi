@@ -10,6 +10,7 @@ dependencies:
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_cards
     - paragraphs.paragraphs_type.legislation_link
+    - paragraphs.paragraphs_type.liftup_50_50
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
   module:
@@ -34,6 +35,7 @@ settings:
       highlight_bullet_point_item: highlight_bullet_point_item
       legislation_cards: legislation_cards
       legislation_attachment: legislation_attachment
+      liftup_50_50: liftup_50_50
       legislation_link: legislation_link
       hero: hero
     target_bundles_drag_drop:
@@ -94,6 +96,9 @@ settings:
       feed:
         weight: 26
         enabled: false
+      liftup_50_50:
+        enabled: true
+        weight: 28
       legislation_link:
         enabled: true
         weight: 28

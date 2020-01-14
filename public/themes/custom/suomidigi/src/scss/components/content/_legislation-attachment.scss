@@ -5,8 +5,8 @@
   padding: $gutter / 2;
 
   &__wrapper {
-    display: flex;
     align-items: center;
+    display: flex;
   }
 
   &__link,
@@ -15,14 +15,13 @@
   }
 
   &__icon {
+    height: $gutter * 2;
     margin-right: $gutter;
     width: $gutter * 2;
-    height: $gutter * 2;
   }
 
   &__title {
-    @include font-size(18px);
-    @include line-height(18px, 18px);
+    @include font-size(18px, 18px);
     color: $black;
     font-weight: 600;
     margin-bottom: $gutter / 4;
@@ -33,23 +32,21 @@
   }
 
   &__file-type {
-    @include font-size(12px);
-    @include line-height(14px, 12px);
+    @include font-size(14px, 12px);
     color: $gray-dark;
     font-weight: 600;
-    text-transform: uppercase;
     margin-bottom: 0;
+    text-transform: uppercase;
   }
 
   &__file-size {
     color: $gray-dark;
-    text-transform: uppercase;
     margin-bottom: 0;
+    text-transform: uppercase;
   }
 
   &__cta {
-    @include font-size(12px);
-    @include line-height(12px, 12px);
+    @include font-size(12px, 12px);
     background-color: $white;
     border: 1px solid $legislation-blue;
     color: $legislation-blue;

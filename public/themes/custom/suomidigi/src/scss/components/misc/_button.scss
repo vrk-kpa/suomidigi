@@ -13,8 +13,7 @@
 
     a {
       @include button;
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       background-color: $white;
       border: 1px solid $blue;
       box-shadow: 0 3px 6px #00000029;

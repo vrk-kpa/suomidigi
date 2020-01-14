@@ -5,8 +5,7 @@
     padding: calc(#{$gutter} * 0.5) $gutter;
 
     .paragraph__title {
-      @include font-size(20px);
-      @include line-height(20px, 26px);
+      @include font-size(20px, 26px);
       color: $blue;
       display: inline-block;
       font-weight: 600;
@@ -14,8 +13,7 @@
       margin: 0;
 
       @include breakpoint($for-tablet-landscape-up) {
-        @include font-size(22px);
-        @include line-height(22px, 28px);
+        @include font-size(22px, 28px);
       }
     }
 

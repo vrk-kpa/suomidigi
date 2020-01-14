@@ -15,8 +15,7 @@
   }
 
   &--text {
-    @include font-size(32px);
-    @include line-height(32px, 40px);
+    @include font-size(32px, 40px);
     color: $blue;
     font-family: $default-font-family;
     font-weight: bold;

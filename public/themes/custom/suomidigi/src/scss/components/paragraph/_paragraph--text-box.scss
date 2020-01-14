@@ -10,8 +10,7 @@
   .paragraph__content {
     li,
     p {
-      @include font-size(14px);
-      @include line-height(14px, 22px);
+      @include font-size(14px, 22px);
     }
 
     li {
