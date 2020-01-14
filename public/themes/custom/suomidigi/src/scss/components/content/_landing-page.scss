@@ -14,9 +14,18 @@
     margin-bottom: $gutter * 2;
     max-width: 650px;
   }
+}
 
-  &__content {
-    margin-top: $gutter;
-    padding-top: $gutter * 2;
+.page-main--landing-page {
+  .has-sidebar & {
+    @include breakpoint(max-width $for-tablet-portrait-up) {
+      .title__container {
+        padding: 0;
+      }
+
+      .container {
+        padding: 0;
+      }
+    }
   }
 }

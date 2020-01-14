@@ -30,6 +30,7 @@
         "drupal/core": "8.7.11",
         "drupal/daterange_compact": "1.x-dev",
         "drupal/dropzonejs": "^2.0-alpha4",
+        "drupal/easy_breadcrumb": "^1.12",
         "drupal/email_registration": "^1.0",
         "drupal/entity_browser": "^2.1",
         "drupal/entity_reference_views_select": "^1.3",
@@ -152,9 +153,6 @@
             },
             "drupal/paragraphs": {
                 "https://www.drupal.org/project/paragraphs/issues/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
-            },
-            "drupal/select2": {
-                "https://www.drupal.org/project/select2/issues/3096293": "https://www.drupal.org/files/issues/2019-11-22/3096293-select2-edit-form-widget-breaks-on-paragraphs.patch"
             },
             "drupal/svg_image": {
                 "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"

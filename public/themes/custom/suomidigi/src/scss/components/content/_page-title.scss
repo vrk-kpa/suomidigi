@@ -3,8 +3,11 @@
 
   .content__wrapper & {
     margin: 0;
-  }
 
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-top: 10px;
+    }
+  }
   .page-node-type-landing-page & {
     margin-top: $gutter;
     padding: 0 $gutter;
@@ -17,6 +20,10 @@
     @include breakpoint(1200px) {
       padding: 0;
     }
+  }
+
+  .page-node-type-landing-page.has-sidebar & {
+    margin-top: 10px;
   }
 
   h1 {

@@ -17,17 +17,11 @@
   @include breakpoint($for-tablet-portrait-up) {
     margin-right: $gutter * 2;
     min-width: 190px;
-    padding: $gutter * 2 0 0;
+    padding: 0;
   }
 
   @include breakpoint($for-tablet-landscape-up) {
     min-width: 270px;
-  }
-}
-
-.page-main:not(.page-main--landing-page) {
-  @include breakpoint($for-tablet-portrait-up) {
-    padding-top: $gutter * 2;
   }
 }
 

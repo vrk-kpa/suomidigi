@@ -79,11 +79,11 @@
     {% endif %}
 
     {% if page.breadcrumb %}
-      <div class="page-breadcrumb" id="breadcrumb">
-        <section class="section section--breadcrumb">
+      {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
+        {% block container_content %}
           {{ page.breadcrumb }}
-        </section>
-      </div>
+        {% endblock container_content %}
+      {% endembed %}
     {% endif %}
 
     {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
