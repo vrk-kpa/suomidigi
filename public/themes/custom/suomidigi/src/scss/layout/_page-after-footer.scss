@@ -30,8 +30,7 @@
     }
 
     a {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       @include font-weight($semibold);
       color: $white;
       text-decoration: underline;
@@ -71,8 +70,7 @@
   }
 
   h1 {
-    @include font-size(32px);
-    @include line-height(32px, 40px);
+    @include font-size(32px, 40px);
     @include font-weight($bold);
     color: $blue;
     margin-bottom: $gutter;

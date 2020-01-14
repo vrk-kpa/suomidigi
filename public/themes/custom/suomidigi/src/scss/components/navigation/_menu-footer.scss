@@ -17,8 +17,7 @@
 }
 
 .menu-footer__link {
-  @include font-size(16px);
-  @include line-height(16px, 26px);
+  @include font-size(16px, 26px);
   @include font-weight($semibold);
   color: $blue-light;
   text-decoration: none;

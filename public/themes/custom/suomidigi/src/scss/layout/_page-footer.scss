@@ -14,8 +14,7 @@
 }
 
 .content--footer {
-  @include font-size(16px);
-  @include line-height(16px, 26px);
+  @include font-size(16px, 26px);
   @include font-weight($regular);
   width: 100%;
 
@@ -25,8 +24,7 @@
   }
 
   h1 {
-    @include font-size(32px);
-    @include line-height(32px, 40px);
+    @include font-size(32px, 40px);
     @include font-weight($bold);
     color: $blue;
     margin-bottom: $gutter;
