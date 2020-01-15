@@ -9,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
+use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
@@ -585,15 +586,30 @@ function suomidigi_preprocess_views_view(&$variables) {
  * {@inheritDoc}
  */
 function suomidigi_views_pre_render(ViewExecutable &$view) {
-  if ($view->id() === "taxonomy_term") {
-    $term = Term::load((int) $view->args[0]);
+  if ($view->id() === 'taxonomy_term') {
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+      $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+      $term = Term::load($term_id);
 
-    if ($term->bundle() === "tags") {
       // Sort view listing according to published time
       // if node is sticky on top of lists -> is not going to stick.
-      usort($view->result, function ($a, $b) {
-        return $b->node_field_data_published_at - $a->node_field_data_published_at;
-      });
+      if ($term->bundle() === 'tags') {
+        usort($view->result, function ($a, $b) {
+          return $b->node_field_data_published_at - $a->node_field_data_published_at;
+        });
+      }
+
+      // Empty the current view results if there are view paragraphs
+      // added to the current page.
+      if ($term->bundle() === 'theme' && $term->hasField('field_paragraphs')) {
+        $p = $term->field_paragraphs->first()->getValue();
+        if (is_array($p)) {
+          $paragraph = Paragraph::load($p['target_id']);
+          if ($paragraph->bundle() === 'view') {
+            $view->result = [];
+          }
+        }
+      }
     }
   }
 }
