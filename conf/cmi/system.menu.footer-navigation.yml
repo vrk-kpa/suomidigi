@@ -1,7 +1,12 @@
 uuid: eb533fb1-daae-4f69-897b-c39d6a0aecc9
 langcode: und
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_trail_by_path
+third_party_settings:
+  menu_trail_by_path:
+    trail_source: ''
 id: footer-navigation
 label: 'Footer Navigation'
 description: 'Site information links'

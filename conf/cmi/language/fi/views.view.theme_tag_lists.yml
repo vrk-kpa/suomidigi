@@ -1,0 +1,23 @@
+label: 'Teeman listaus: Sisällöt'
+description: 'Listaa sisältöjä Teema-termin perusteella'
+display:
+  theme_tag_articles_grid:
+    display_title: 'Artikkelit | Ruudukko'
+  theme_tag_articles_list:
+    display_title: 'Artikkelit | Lista'
+  theme_tag_blogs_grid:
+    display_title: 'Blogikirjoitukset | Ruudukko'
+  theme_tag_blogs_list:
+    display_title: 'Blogikirjoitukset | Lista'
+  theme_tag_communities_grid:
+    display_title: 'Verkostot | Ruudukko'
+  theme_tag_communities_list:
+    display_title: 'Verkostot | List'
+  theme_tag_core_content_grid:
+    display_title: 'Menetelmät, työkalut ja palvelut | Ruudukko'
+  theme_tag_core_content_list:
+    display_title: 'Menetelmät, työkalut ja palvelut | Lista'
+  theme_tag_events_grid:
+    display_title: 'Tapahtumat | Ruudukko'
+  theme_tag_events_list:
+    display_title: 'Tapahtumat | Lista'

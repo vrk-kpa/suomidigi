@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.event.field_event_registration
     - field.field.node.event.field_organiser_description
     - field.field.node.event.field_organiser_link
+    - field.field.node.event.field_theme
     - field.field.node.event.field_venue_address
     - field.field.node.event.field_venue_description
     - field.field.node.event.field_venue_name
@@ -28,6 +29,7 @@ dependencies:
     - path
     - publication_date
     - scheduler
+    - select2
     - suopa_events
     - text
     - timepicker
@@ -39,7 +41,7 @@ third_party_settings:
         - field_venue_address
         - field_venue_description
       parent_name: ''
-      weight: 14
+      weight: 15
       format_type: details
       format_settings:
         description: ''
@@ -58,7 +60,7 @@ third_party_settings:
         - field_event_image
         - field_event_free_text
       parent_name: ''
-      weight: 13
+      weight: 14
       format_type: details
       format_settings:
         id: ''
@@ -75,7 +77,7 @@ third_party_settings:
         - field_organiser_link
         - field_event_org_contact_info
       parent_name: ''
-      weight: 15
+      weight: 16
       format_type: details
       format_settings:
         id: ''
@@ -92,12 +94,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_approved:
-    weight: 16
+    weight: 17
     settings:
       display_label: true
     third_party_settings: {  }
@@ -188,6 +190,15 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_theme:
+    weight: 2
+    settings:
+      width: 400px
+      match_operator: CONTAINS
+      autocomplete: false
+    third_party_settings: {  }
+    type: select2_entity_reference
+    region: content
   field_venue_address:
     weight: 18
     settings: {  }
@@ -219,7 +230,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -227,18 +238,18 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 7
     region: content
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   published_at:
     type: publication_date_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -246,14 +257,14 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 13
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     region: content
     third_party_settings: {  }
   title:
@@ -265,13 +276,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   translation:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 2
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -280,12 +291,12 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }

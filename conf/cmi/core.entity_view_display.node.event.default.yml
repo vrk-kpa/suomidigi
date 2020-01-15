@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.event.field_event_registration
     - field.field.node.event.field_organiser_description
     - field.field.node.event.field_organiser_link
+    - field.field.node.event.field_theme
     - field.field.node.event.field_venue_address
     - field.field.node.event.field_venue_description
     - field.field.node.event.field_venue_name
@@ -120,6 +121,14 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_theme:
+    weight: 14
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_venue_address:
     weight: 7
