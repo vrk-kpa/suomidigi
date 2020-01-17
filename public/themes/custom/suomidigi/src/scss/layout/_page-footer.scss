@@ -1,14 +1,32 @@
 .page-footer {
-  margin-bottom: $gutter * 2;
-  margin-top: $gutter * 2;
+  padding-bottom: 25px;
+  padding-top: 25px;
+
+  &__container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      flex-wrap: nowrap;
+    }
+  }
 }
 
 .content--footer {
-  align-items: center;
-  display: flex;
-  flex-flow: column wrap;
-  padding-left: $gutter;
-  padding-right: $gutter;
-  text-align: center;
+  @include font-size(16px, 26px);
+  @include font-weight($regular);
   width: 100%;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    margin-right: $gutter * 2;
+    max-width: 370px;
+  }
+
+  h1 {
+    @include font-size(32px, 40px);
+    @include font-weight($bold);
+    color: $blue;
+    margin-bottom: $gutter;
+  }
 }

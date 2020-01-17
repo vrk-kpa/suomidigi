@@ -39,6 +39,7 @@ settings:
     groups: groups
     social_media: social_media
     theme_tag_lists: theme_tag_lists
+    theme_taxonomy_groups: theme_taxonomy_groups
     approval_node_queue: 0
     block_content: 0
     comment: 0
@@ -65,6 +66,7 @@ settings:
     suopa_shortcuts: 0
     taxonomy_term: 0
     taxonomy_term_before_content: 0
+    theme_information_for_articles: 0
     theme_tag_about_article_liftup: 0
     user_admin_people: 0
     watchdog: 0
@@ -72,9 +74,9 @@ settings:
     who_s_new: 0
     who_s_online: 0
   enabled_settings:
-    offset: 0
-    argument: 0
     pager: 0
-    title: 0
+    argument: 0
     limit: 0
+    offset: 0
+    title: 0
 field_type: viewsreference

@@ -9,8 +9,7 @@
 
   &.paragraph--3col {
     .paragraph__title {
-      @include font-size(28px);
-      @include line-height(28px, 36px);
+      @include font-size(28px, 36px);
       @include font-weight($semibold);
       color: $blue;
     }
@@ -74,8 +73,7 @@
     width: 100%;
 
     > a {
-      @include font-size(16px);
-      @include line-height(16px, 20px);
+      @include font-size(16px, 20px);
       @include font-weight($semibold);
       border: 1px solid $blue;
       border-radius: 3px;

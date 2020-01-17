@@ -46,8 +46,7 @@
     }
 
     .logged-out {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       color: $blue-light;
       font-weight: 600;
       letter-spacing: 0;
@@ -100,8 +99,7 @@
         }
 
         .menu-item {
-          @include font-size(14px);
-          @include line-height(14px, 18px);
+          @include font-size(14px, 18px);
           font-weight: 600;
 
           a {
@@ -121,8 +119,7 @@
     }
 
     &__button {
-      @include font-size(14px);
-      @include line-height(14px, 18px);
+      @include font-size(14px, 18px);
       background-color: $white;
       border: 0 none;
       color: $blue-light;

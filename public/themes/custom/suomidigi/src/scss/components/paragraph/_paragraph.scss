@@ -1,10 +1,6 @@
 .paragraph {
   margin: $gutter * 2 0;
 
-  &:first-child {
-    margin-top: 0;
-  }
-
   &:last-child {
     margin-bottom: 0;
   }
@@ -14,16 +10,14 @@
   }
 
   > .paragraph__title {
-    @include font-size(28px);
-    @include line-height(28px, 36px);
+    @include font-size(28px, 36px);
     @include font-weight($semibold);
     color: $blue;
     margin-bottom: $gutter * 2;
   }
 
   > .paragraph__description {
-    @include font-size(18px);
-    @include line-height(18px, 26px);
+    @include font-size(18px, 26px);
     @include font-weight($regular);
     margin-bottom: $gutter * 2;
 
@@ -38,8 +32,7 @@
     width: 100%;
 
     > a {
-      @include font-size(16px);
-      @include line-height(16px, 20px);
+      @include font-size(16px, 20px);
       @include font-weight($semibold);
       border: 1px solid $blue;
       border-radius: 3px;

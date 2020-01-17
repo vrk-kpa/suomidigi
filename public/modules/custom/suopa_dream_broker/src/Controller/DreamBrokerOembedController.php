@@ -85,15 +85,16 @@ class DreamBrokerOembedController extends ControllerBase {
       return new JsonResponse($this->getResults());
     }
 
-    return new JsonResponse(FALSE);
+    return new JsonResponse([]);
   }
 
   /**
    * A helper function for returning results.
    */
   private function getResults() {
+    $url = 'https://dreambroker.com/channel/' . $this->channelId . '/iframe/' . $this->videoId;
     return [
-      'html' => '<iframe width="480" height="270" src="' . $this->dreamBrokerUrl . '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen</iframe>',
+      'html' => '<iframe width="480" height="270" src="' . $url . '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen</iframe>',
       'height' => 270,
       'type' => 'video',
       'thumbnail_width' => 480,
@@ -112,7 +113,7 @@ class DreamBrokerOembedController extends ControllerBase {
    */
   private function getIdFromInput() {
     $matches = [];
-    preg_match('/(?:channel\/([a-z0-9]{8}))\/(?:iframe\/([a-z0-9]{8}))/', $this->dreamBrokerUrl, $matches);
+    preg_match('/(?:channel\/([a-z0-9]{8}))\/([a-z0-9]{8})/', $this->dreamBrokerUrl, $matches);
 
     if ($matches && !empty($matches[1]) && !empty($matches[2])) {
       return [$matches[1], $matches[2]];

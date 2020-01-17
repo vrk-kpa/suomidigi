@@ -24,11 +24,18 @@
   }
 
   &__item {
+    display: flex;
     flex: 1 1 100%;
     margin: $gutter;
 
     @include breakpoint($for-tablet-portrait-up) {
       flex: 1 1 30%;
+    }
+
+    &--col-2 {
+      @include breakpoint($for-tablet-portrait-up) {
+        flex: 1 1 45%;
+      }
     }
   }
 }

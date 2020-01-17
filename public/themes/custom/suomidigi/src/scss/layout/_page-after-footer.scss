@@ -1,0 +1,99 @@
+.page-after-footer {
+  background-color: $blue;
+
+  &__container {
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
+
+  .link--footer {
+    align-items: center;
+    display: flex;
+    margin: 0 $gutter;
+    padding-top: $gutter;
+
+    @include breakpoint(620px) {
+      padding-top: 0;
+    }
+
+    &-wrapper {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -#{$gutter};
+
+      @include breakpoint($for-tablet-portrait-up) {
+        flex-wrap: nowrap;
+        justify-content: unset;
+      }
+    }
+
+    &.dvv {
+      padding: 0;
+      width: 100%;
+
+      @include breakpoint(620px) {
+        width: auto;
+      }
+    }
+
+    &.link--pushed {
+      min-width: 110px;
+      padding-top: $gutter;
+
+      @include breakpoint(620px) {
+        margin-left: auto;
+        min-width: 150px;
+        padding-top: 0;
+      }
+    }
+
+    a {
+      @include font-size(14px, 18px);
+      @include font-weight($semibold);
+      color: $white;
+      text-decoration: underline;
+    }
+
+    img {
+      height: 60px;
+
+      @include breakpoint(620px) {
+        height: 70px;
+      }
+    }
+  }
+
+  .icon {
+    color: $white;
+
+    &--twitter {
+      margin-right: $gutter / 1.5;
+      max-height: 30px;
+      max-width: 30px;
+    }
+
+    &--slack {
+      margin-left: -19px;
+      max-height: 60px;
+      max-width: 60px;
+    }
+  }
+}
+
+.content--footer {
+  width: 100%;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    margin-right: $gutter * 2;
+    max-width: 370px;
+  }
+
+  h1 {
+    @include font-size(32px, 40px);
+    @include font-weight($bold);
+    color: $blue;
+    margin-bottom: $gutter;
+  }
+}

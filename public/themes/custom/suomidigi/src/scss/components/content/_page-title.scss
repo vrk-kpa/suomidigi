@@ -3,8 +3,11 @@
 
   .content__wrapper & {
     margin: 0;
-  }
 
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-top: 10px;
+    }
+  }
   .page-node-type-landing-page & {
     margin-top: $gutter;
     padding: 0 $gutter;
@@ -19,21 +22,32 @@
     }
   }
 
+  .page-node-type-landing-page.has-sidebar & {
+    margin-top: 10px;
+  }
+
   h1 {
     color: $blue;
 
     &.page-title--alternative {
-      @include font-size(32px, 24px);
-      @include line-height(32px, 32px, 24px, 24px);
-      font-weight: normal;
+      @include font-size(24px, 24px);
+      @include font-weight($regular);
       text-transform: uppercase;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        @include font-size(32px, 32px);
+      }
     }
 
     &.page-title--secondary {
-      @include font-size(32px, 24px);
-      @include line-height(32px, 32px, 24px, 24px);
-      font-weight: bold;
+      @include font-size(24px, 24px);
+      @include font-weight($semibold);
       letter-spacing: -0.02rem;
+      text-transform: uppercase;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        @include font-size(32px, 32px);
+      }
     }
 
     .page-before_content--user & {

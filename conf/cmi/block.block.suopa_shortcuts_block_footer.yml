@@ -10,7 +10,7 @@ dependencies:
     - suomidigi
 id: suopa_shortcuts_block_footer
 theme: suomidigi
-region: footer
+region: before_footer
 weight: -13
 provider: null
 plugin: 'views_block:suopa_shortcuts-block'

@@ -9,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\media\Entity\Media;
+use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
@@ -267,10 +268,15 @@ function suomidigi_preprocess_paragraph(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function suomidigi_preprocess_page_title(&$variables) {
-  // Modify title classes for Theme taxonomy terms.
+  // Replace taxonomy term page title to correspond taxonomy term plural
+  // name, if one exists. Otherwise use taxonomy term name.
   $term = Drupal::request()->attributes->get('taxonomy_term');
-  if (!empty($term) && $term->bundle() == 'theme') {
-    $variables['page_title_alternative'] = TRUE;
+  if (!empty($term) && $term->hasField('field_plural_name')) {
+    $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+    if (!empty($translated_title)) {
+      $variables['title'] = Markup::create($translated_title);
+    }
   }
 
   // Modify title classes for Legislation collection page nodes.
@@ -290,27 +296,42 @@ function suomidigi_preprocess_block(&$variables) {
 
   if ($variables['plugin_id'] == 'page_title_block') {
     $term = Drupal::request()->attributes->get('taxonomy_term');
-    if (!empty($term) && $term->bundle() == 'theme') {
-      if ($term->hasField('field_liftup_image') && !$term->get('field_liftup_image')->isEmpty()) {
-        $media_id = $term->get('field_liftup_image')->first()->getValue()['target_id'];
-        $media = Media::load($media_id);
-        $build = Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
-        $variables['content']['field_liftup_image'] = $build;
+    if (!empty($term)) {
+      if ($term->bundle() == 'theme') {
+        if ($term->hasField('field_liftup_image') && !$term->get('field_liftup_image')->isEmpty()) {
+          $media_id = $term->get('field_liftup_image')->first()->getValue()['target_id'];
+          $media = Media::load($media_id);
+          $build = Drupal::entityTypeManager()->getViewBuilder('media')->view($media, 'theme_teaser_liftup');
+          $variables['content']['field_liftup_image'] = $build;
+        }
+      }
+
+      // Replace taxonomy term page title to correspond taxonomy term plural
+      // name, if one exists. Otherwise use taxonomy term name.
+      if ($term->hasField('field_plural_name')) {
+        $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
+
+        if (!empty($translated_title)) {
+          $variables['content']['#title'] = Markup::create($translated_title);
+        }
+      }
+
+      // Hide block from following taxonomies.
+      if ($term->bundle() == 'author') {
+        $variables['hide_block'] = TRUE;
       }
     }
 
-    // Replace taxonomy term page title to correspond taxonomy term plural
-    // name, if one exists. Otherwise use taxonomy term name.
-    if (!empty($term) && $term->hasField('field_plural_name')) {
-      $translated_title = Drupal::service('entity.repository')->getTranslationFromContext($term)->field_plural_name->value;
-
-      if (!empty($translated_title)) {
-        $variables['content']['#title'] = Markup::create($translated_title);
-      }
-    }
-
-    // Hide block if current node is front page.
+    // Hide block from following content types.
     if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      if (
+        $node->getType() == 'article' ||
+        $node->getType() == 'event'
+      ) {
+        $variables['hide_block'] = TRUE;
+      }
+
+      // Hide block if current node is front page.
       if (
         $node->getType() == 'landing_page' &&
         $node->hasField('field_hero') &&
@@ -565,15 +586,30 @@ function suomidigi_preprocess_views_view(&$variables) {
  * {@inheritDoc}
  */
 function suomidigi_views_pre_render(ViewExecutable &$view) {
-  if ($view->id() === "taxonomy_term") {
-    $term = Term::load((int) $view->args[0]);
+  if ($view->id() === 'taxonomy_term') {
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+      $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+      $term = Term::load($term_id);
 
-    if ($term->bundle() === "tags") {
       // Sort view listing according to published time
       // if node is sticky on top of lists -> is not going to stick.
-      usort($view->result, function ($a, $b) {
-        return $b->node_field_data_published_at - $a->node_field_data_published_at;
-      });
+      if ($term->bundle() === 'tags') {
+        usort($view->result, function ($a, $b) {
+          return $b->node_field_data_published_at - $a->node_field_data_published_at;
+        });
+      }
+
+      // Empty the current view results if there are view paragraphs
+      // added to the current page.
+      if ($term->bundle() === 'theme' && $term->hasField('field_paragraphs')) {
+        $p = $term->field_paragraphs->first()->getValue();
+        if (is_array($p)) {
+          $paragraph = Paragraph::load($p['target_id']);
+          if ($paragraph->bundle() === 'view') {
+            $view->result = [];
+          }
+        }
+      }
     }
   }
 }

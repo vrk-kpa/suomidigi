@@ -1,6 +1,5 @@
 .link {
-  @include font-size(18px);
-  @include line-height(18px, 23px);
+  @include font-size(18px, 23px);
   @include font-weight($semibold);
   color: $blue-light;
   font-weight: 600;
@@ -80,8 +79,7 @@
     }
 
     .link__text {
-      @include font-size(18px);
-      @include line-height(18px, 23px);
+      @include font-size(18px, 23px);
       @include font-weight($semibold);
       padding-right: $gutter / 4;
     }
@@ -89,8 +87,7 @@
 
   &--cta {
     display: flex;
-    @include font-size(18px);
-    @include line-height(18px, 26px);
+    @include font-size(18px, 26px);
     @include font-weight($semibold);
     margin-top: $gutter;
     transition: all 150ms linear;

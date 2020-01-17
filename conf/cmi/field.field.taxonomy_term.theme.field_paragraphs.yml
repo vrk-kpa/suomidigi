@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.taxonomy_term.field_paragraphs
     - paragraphs.paragraphs_type.banner_cta
+    - paragraphs.paragraphs_type.view
     - taxonomy.vocabulary.theme
   module:
     - entity_reference_revisions
@@ -24,6 +25,7 @@ settings:
     negate: 0
     target_bundles:
       banner_cta: banner_cta
+      view: view
     target_bundles_drag_drop:
       container:
         weight: -41
@@ -83,6 +85,27 @@ settings:
         weight: -23
         enabled: false
       view:
+        enabled: true
         weight: -22
+      contact_information:
+        weight: 30
+        enabled: false
+      contact_information_item:
+        weight: 31
+        enabled: false
+      feed:
+        weight: 34
+        enabled: false
+      group_view:
+        weight: 35
+        enabled: false
+      hero:
+        weight: 36
+        enabled: false
+      liftup_50_50:
+        weight: 44
+        enabled: false
+      list_of_links:
+        weight: 51
         enabled: false
 field_type: entity_reference_revisions

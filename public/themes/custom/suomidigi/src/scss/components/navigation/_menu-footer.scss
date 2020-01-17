@@ -1,28 +1,30 @@
 .menu-footer {
-  padding: 0;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
   list-style: none;
+  margin: 0 -$gutter;
+  padding: 0;
+  width: 100%;
+}
+
+.menu--footer-navigation {
+  width: 100%;
 }
 
 .menu-footer__item {
-  &:not(:last-child) {
-    margin-right: $gutter;
-    padding-right: $gutter;
-    border-right: 2px solid $gray-dark;
-  }
+  margin: $gutter / 3 $gutter;
 }
 
 .menu-footer__link {
+  @include font-size(16px, 26px);
+  @include font-weight($semibold);
+  color: $blue-light;
   text-decoration: none;
-  font-weight: 600;
 
   &:hover,
   &:focus {
-    text-decoration: none;
     border-bottom: 1px solid $black;
+    text-decoration: none;
   }
 }

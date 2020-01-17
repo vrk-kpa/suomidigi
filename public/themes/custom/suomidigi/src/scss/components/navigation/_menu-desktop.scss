@@ -7,6 +7,7 @@ nav.menu--desktop {
 
   @include breakpoint($for-tablet-portrait-up) {
     display: block;
+    overflow-x: hidden;
   }
 
   .menu {
@@ -18,7 +19,7 @@ nav.menu--desktop {
   }
 
   .menu-item {
-    @include line-height(18px, 23px);
+    @include font-size(18px, 23px);
     margin: 0 $gutter * 1.4;
     padding: 0;
     text-align: center;

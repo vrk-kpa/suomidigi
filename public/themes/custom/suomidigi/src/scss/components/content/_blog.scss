@@ -42,8 +42,8 @@
 }
 
 .blog__type {
-  font-weight: 600;
-  line-height: 100%;
+  @include font-size(16px, 16px);
+  @include font-weight($semibold);
   margin-bottom: 0.25rem;
   width: 100%;
 

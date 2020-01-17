@@ -15,8 +15,7 @@
   justify-content: center;
 
   p {
-    @include font-size(14px);
-    @include line-height(14px, 16px);
+    @include font-size(14px, 16px);
     color: white;
     margin-bottom: 0;
     max-width: 200px;
@@ -61,8 +60,7 @@
 
       > span,
       > a {
-        @include font-size(14px);
-        @include line-height(14px, 17px);
+        @include font-size(14px, 17px);
         color: $black;
         display: block;
         padding: 0.75rem 1rem;
@@ -86,8 +84,7 @@
       &--lvl-0 {
         > span,
         > a {
-          @include font-size(18px);
-          @include line-height(18px, 18px);
+          @include font-size(18px, 18px);
           font-weight: bold;
           padding: 0.75rem 1rem;
         }
@@ -96,7 +93,80 @@
       &--lvl-1 {
         > span,
         > a {
-          text-transform: uppercase;
+          background: $white;
+          border-left: 5px solid transparent;
+          padding-left: $gutter;
+          text-transform: none;
+
+          &.is-active {
+            @include font-weight($semibold);
+            border-color: $blue-light;
+            color: $blue-light;
+          }
+        }
+
+        &.menu-item--active-trail {
+          > span,
+          > a {
+            @include font-weight($semibold);
+            background-color: $white;
+            border-left: 5px solid $blue-light;
+            color: $blue-light;
+          }
+        }
+      }
+
+      &--lvl-2 {
+        > span,
+        > a {
+          background-color: $gray-lighter;
+          border-left: 10px solid $gray-medium;
+          padding-left: $gutter;
+          text-transform: none;
+
+          &.is-active {
+            @include font-weight($semibold);
+            background-color: $white;
+            border-color: $blue-light;
+            color: $blue-light;
+          }
+        }
+
+        &.menu-item--active-trail {
+          > span,
+          > a {
+            @include font-weight($semibold);
+            background-color: $white;
+            border-color: $blue-light;
+            color: $blue-light;
+          }
+        }
+      }
+
+      &--lvl-3 {
+        > span,
+        > a {
+          background: $white;
+          border-left: 15px solid $gray-medium;
+          padding-left: $gutter;
+          text-transform: none;
+
+          &.is-active {
+            @include font-weight($semibold);
+            background-color: $white;
+            border-color: $blue-light;
+            color: $blue-light;
+          }
+        }
+
+        &.menu-item--active-trail {
+          > span,
+          > a {
+            @include font-weight($semibold);
+            background-color: $white;
+            border-color: $blue-light;
+            color: $blue-light;
+          }
         }
       }
     }

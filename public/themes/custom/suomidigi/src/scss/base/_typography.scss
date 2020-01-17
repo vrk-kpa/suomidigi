@@ -46,11 +46,13 @@
 
 // ########## General ########## //
 body {
-  @include font-size($font-size-body, $font-size-mobile-body);
-  @include line-height($font-size-body, $font-line-height-body, $font-size-mobile-body, $font-line-height-body);
+  @include font-size($font-size-mobile-body, $font-line-height-mobile-body);
   color: $black;
   font-family: $default-font-family;
   font-weight: 200;
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-body, $font-line-height-body);
+  }
 }
 
 a {
@@ -91,51 +93,72 @@ h6 {
 }
 
 h1 {
-  @include font-size($font-size-heading-1, $font-size-mobile-heading-1);
-  @include line-height($font-size-heading-1, $font-line-height-heading-1, $font-size-mobile-heading-1, $font-line-height-mobile-heading-1);
+  @include font-size($font-size-mobile-heading-1, $font-line-height-mobile-heading-1);
   margin-bottom: 2rem;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-heading-1, $font-line-height-heading-1);
+  }
 }
 
 h2 {
-  @include font-size($font-size-heading-2, $font-size-mobile-heading-2);
-  @include line-height($font-size-heading-2, $font-line-height-heading-2, $font-size-mobile-heading-2, $font-line-height-mobile-heading-2);
+  @include font-size($font-size-mobile-heading-2, $font-line-height-mobile-heading-2);
   margin-bottom: 1.25rem;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-heading-2, $font-line-height-heading-2);
+  }
 }
 
 h3 {
-  @include font-size($font-size-heading-3, $font-size-mobile-heading-3);
-  @include line-height($font-size-heading-3, $font-line-height-heading-3, $font-size-mobile-heading-3, $font-line-height-mobile-heading-3);
+  @include font-size($font-size-mobile-heading-3, $font-line-height-mobile-heading-3);
   @include font-weight($semibold);
   margin-bottom: 1rem;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-heading-3, $font-line-height-heading-3);
+  }
 }
 
 h4 {
-  @include font-size($font-size-heading-4, $font-size-mobile-heading-4);
-  @include line-height($font-size-heading-4, $font-line-height-heading-4, $font-size-mobile-heading-4, $font-line-height-mobile-heading-4);
+  @include font-size($font-size-mobile-heading-4, $font-line-height-mobile-heading-4);
   @include font-weight($semibold);
   margin-bottom: .75rem;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-heading-4, $font-line-height-heading-4);
+  }
 }
 
 h5 {
-  @include font-size($font-size-heading-5, $font-size-mobile-heading-5);
-  @include line-height($font-size-heading-5, $font-line-height-heading-5, $font-size-mobile-heading-5, $font-line-height-mobile-heading-5);
+  @include font-size($font-size-mobile-heading-5, $font-line-height-mobile-heading-5);
   @include font-weight($semibold);
   margin-bottom: .5rem;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-heading-5, $font-line-height-heading-5);
+  }
 }
 
 h6 {
-  @include font-size($font-size-heading-6, $font-size-mobile-heading-6);
-  @include line-height($font-size-heading-6, $font-line-height-heading-6, $font-size-mobile-heading-6, $font-line-height-mobile-heading-6);
+  @include font-size($font-size-mobile-heading-6, $font-line-height-mobile-heading-6);
   @include font-weight($semibold);
   margin-bottom: .25rem;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-heading-6, $font-line-height-heading-6);
+  }
 }
 
 p {
-  @include font-size($font-size-body, $font-size-mobile-body);
-  @include line-height($font-size-body, $font-line-height-body, $font-size-mobile-body, $font-line-height-body);
+  @include font-size($font-size-mobile-body, $font-line-height-body);
   @include font-weight($regular);
   margin-bottom: 1rem;
   margin-top: 0;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    @include font-size($font-size-body, $font-line-height-body);
+  }
 }
 
 p,

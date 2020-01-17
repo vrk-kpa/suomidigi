@@ -4,8 +4,7 @@
   padding-top: $gutter;
 
   .paragraph__title {
-    @include font-size(14px);
-    @include line-height(14px, 18px);
+    @include font-size(14px, 18px);
     @include font-weight($semibold);
     color: $blue;
     margin-bottom: $gutter * 1.75;
@@ -30,8 +29,7 @@
 
     .attachment-teaser__title {
       .group__content & {
-        @include font-size(18px);
-        @include line-height(18px, 22px);
+        @include font-size(18px, 22px);
         @include font-weight($semibold);
       }
     }

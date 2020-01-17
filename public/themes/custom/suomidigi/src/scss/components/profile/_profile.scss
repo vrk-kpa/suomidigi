@@ -11,8 +11,7 @@
   }
 
   h2 {
-    @include font-size(22px);
-    @include line-height(22px, 28px);
+    @include font-size(22px, 28px);
     @include border('bottom');
     color: $blue;
     font-weight: 600;

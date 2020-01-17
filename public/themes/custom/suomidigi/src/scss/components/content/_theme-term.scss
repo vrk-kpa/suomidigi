@@ -1,12 +1,4 @@
 .theme-term {
-  &__header {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin: $gutter auto $gutter * 2 auto;
-    width: auto;
-  }
-
   &__title {
     .page-title--alternative {
       margin: 0;
@@ -38,17 +30,8 @@
     }
   }
 
-  &__list {
-
-  }
-
-  &__list-item {
-    margin-bottom: $gutter * 2;
-  }
-
   &__description {
-    @include font-size(22px);
-    @include line-height(22px, 30px);
+    @include font-size(22px, 30px);
     @include font-weight($regular);
     margin-bottom: $gutter * 2;
   }
