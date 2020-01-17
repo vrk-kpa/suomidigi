@@ -95,7 +95,7 @@
   position: relative;
 
   @include breakpoint($for-mobile-landscape-up) {
-    padding: $gutter * 2 $gutter;
+    padding: 30px 20px;
   }
 
   .article-prominent--primary & {
