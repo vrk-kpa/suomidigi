@@ -10,6 +10,11 @@
     align-items: center;
     display: flex;
     margin: 0 $gutter;
+    padding-top: $gutter;
+
+    @include breakpoint(620px) {
+      padding-top: 0;
+    }
 
     &-wrapper {
       align-items: center;
@@ -24,9 +29,24 @@
       }
     }
 
+    &.dvv {
+      padding: 0;
+      width: 100%;
+
+      @include breakpoint(620px) {
+        width: auto;
+      }
+    }
+
     &.link--pushed {
-      margin-left: auto;
-      min-width: 150px;
+      min-width: 110px;
+      padding-top: $gutter;
+
+      @include breakpoint(620px) {
+        margin-left: auto;
+        min-width: 150px;
+        padding-top: 0;
+      }
     }
 
     a {
@@ -35,17 +55,18 @@
       color: $white;
       text-decoration: underline;
     }
+
+    img {
+      height: 60px;
+
+      @include breakpoint(620px) {
+        height: 70px;
+      }
+    }
   }
 
   .icon {
     color: $white;
-
-    &--dvv {
-      margin-left: -10px;
-      margin-right: $gutter / 1.5;
-      max-height: 40px;
-      max-width: 40px;
-    }
 
     &--twitter {
       margin-right: $gutter / 1.5;
