@@ -2,6 +2,10 @@
   background-color: $white;
   height: 100%;
 
+  .listing--grid__item & {
+    width: 100%;
+  }
+
   .paragraph--full-width & {
     @include border('bottom');
 

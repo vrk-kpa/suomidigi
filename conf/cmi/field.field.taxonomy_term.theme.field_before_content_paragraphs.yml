@@ -4,6 +4,18 @@ status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.field_before_content_paragraphs
+    - paragraphs.paragraphs_type.banner_cta
+    - paragraphs.paragraphs_type.contact_information
+    - paragraphs.paragraphs_type.contact_information_item
+    - paragraphs.paragraphs_type.feed
+    - paragraphs.paragraphs_type.group_view
+    - paragraphs.paragraphs_type.hero
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+    - paragraphs.paragraphs_type.legislation_attachment
+    - paragraphs.paragraphs_type.legislation_cards
+    - paragraphs.paragraphs_type.legislation_link
+    - paragraphs.paragraphs_type.liftup_box_item
+    - paragraphs.paragraphs_type.liftup_entity_reference_item
     - paragraphs.paragraphs_type.view
     - taxonomy.vocabulary.theme
   module:
@@ -21,68 +33,101 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
+    negate: 1
     target_bundles:
+      banner_cta: banner_cta
+      liftup_box_item: liftup_box_item
+      liftup_entity_reference_item: liftup_entity_reference_item
+      highlight_bullet_point_item: highlight_bullet_point_item
+      legislation_cards: legislation_cards
+      legislation_link: legislation_link
+      legislation_attachment: legislation_attachment
+      contact_information: contact_information
+      contact_information_item: contact_information_item
+      feed: feed
+      group_view: group_view
+      hero: hero
       view: view
     target_bundles_drag_drop:
-      attachment:
-        weight: 21
-        enabled: false
-      banner_cta:
-        weight: 22
-        enabled: false
       container:
-        weight: 23
+        weight: -55
         enabled: false
       container_title:
-        weight: 24
-        enabled: false
-      highlight_bullet_point:
-        weight: 25
-        enabled: false
-      highlight_bullet_point_item:
-        weight: 26
-        enabled: false
-      highlight_cta:
-        weight: 27
-        enabled: false
-      highlight_text_box:
-        weight: 28
-        enabled: false
-      legislation_attachment:
-        weight: 29
-        enabled: false
-      legislation_cards:
-        weight: 30
-        enabled: false
-      legislation_link:
-        weight: 31
-        enabled: false
-      liftup_box:
-        weight: 32
-        enabled: false
-      liftup_box_item:
-        weight: 33
-        enabled: false
-      liftup_entity_reference:
-        weight: 34
-        enabled: false
-      liftup_entity_reference_item:
-        weight: 35
-        enabled: false
-      liftup_prominent:
-        weight: 36
-        enabled: false
-      link:
-        weight: 37
-        enabled: false
-      media:
-        weight: 38
+        weight: -54
         enabled: false
       text:
-        weight: 39
+        weight: -53
         enabled: false
+      media:
+        weight: -52
+        enabled: false
+      attachment:
+        weight: -51
+        enabled: false
+      banner_cta:
+        enabled: true
+        weight: -50
+      link:
+        weight: -49
+        enabled: false
+      liftup_box:
+        weight: -48
+        enabled: false
+      liftup_box_item:
+        enabled: true
+        weight: -47
+      liftup_prominent:
+        weight: -46
+        enabled: false
+      liftup_entity_reference:
+        weight: -45
+        enabled: false
+      liftup_entity_reference_item:
+        enabled: true
+        weight: -44
+      list_of_links:
+        weight: -43
+        enabled: false
+      liftup_50_50:
+        weight: -42
+        enabled: false
+      highlight_bullet_point:
+        weight: -41
+        enabled: false
+      highlight_bullet_point_item:
+        enabled: true
+        weight: -40
+      highlight_cta:
+        weight: -39
+        enabled: false
+      highlight_text_box:
+        weight: -38
+        enabled: false
+      legislation_cards:
+        enabled: true
+        weight: -37
+      legislation_link:
+        enabled: true
+        weight: -36
+      legislation_attachment:
+        enabled: true
+        weight: -35
+      contact_information:
+        enabled: true
+        weight: -34
+      contact_information_item:
+        enabled: true
+        weight: -33
+      feed:
+        enabled: true
+        weight: -32
+      group_view:
+        enabled: true
+        weight: -31
+      hero:
+        enabled: true
+        weight: -30
       view:
         enabled: true
-        weight: 40
+        weight: -29
 field_type: entity_reference_revisions

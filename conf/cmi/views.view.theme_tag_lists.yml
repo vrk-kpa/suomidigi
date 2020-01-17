@@ -5,23 +5,22 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.article
+    - node.type.blog_post
     - node.type.community
     - node.type.core_content
+    - node.type.event
     - taxonomy.vocabulary.article_type
-    - taxonomy.vocabulary.core_content_type
     - taxonomy.vocabulary.theme
   content:
     - 'taxonomy_term:article_type:23488bb5-eea2-4865-b83f-573c2d5f2872'
-    - 'taxonomy_term:article_type:4d993fe6-3591-4195-8e78-435603afa24f'
-    - 'taxonomy_term:core_content_type:f2acb67b-7ee8-4e66-b581-45044f9c07e7'
   module:
     - node
     - taxonomy
     - user
 id: theme_tag_lists
-label: 'Theme tag: Articles, Core content and Communities'
+label: 'Theme taxonomy: Content'
 module: views
-description: ''
+description: 'Lists content based on theme taxonomy term'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -61,13 +60,14 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 4
+          items_per_page: 6
           offset: 0
       style:
         type: default
       row:
         type: 'entity:node'
         options:
+          relationship: none
           view_mode: teaser
       fields:
         title:
@@ -331,6 +331,7 @@ display:
           reduce_duplicates: false
           plugin_id: taxonomy_index_tid
       display_extenders: {  }
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -341,10 +342,10 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  theme_tag_articles:
+  theme_tag_articles_grid:
     display_plugin: block
-    id: theme_tag_articles
-    display_title: Articles
+    id: theme_tag_articles_grid
+    display_title: 'Articles | Grid'
     position: 1
     display_options:
       display_extenders: {  }
@@ -352,6 +353,8 @@ display:
       title: ''
       defaults:
         title: false
+        pager: true
+        use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -362,10 +365,33 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  theme_tag_blogs:
+  theme_tag_articles_list:
     display_plugin: block
-    id: theme_tag_blogs
-    display_title: Blogs
+    id: theme_tag_articles_list
+    display_title: 'Articles | List'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: ''
+      defaults:
+        title: false
+        pager: true
+        use_ajax: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  theme_tag_blogs_grid:
+    display_plugin: block
+    id: theme_tag_blogs_grid
+    display_title: 'Blog posts | Grid'
     position: 1
     display_options:
       display_extenders: {  }
@@ -391,8 +417,39 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            article: article
+            blog_post: blog_post
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
@@ -436,16 +493,54 @@ display:
           entity_type: node
           entity_field: langcode
           plugin_id: language
-        field_article_type_target_id:
-          id: field_article_type_target_id
-          table: node__field_article_type
-          field: field_article_type_target_id
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  theme_tag_blogs_list:
+    display_plugin: block
+    id: theme_tag_blogs_list
+    display_title: 'Blog posts | List'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: ''
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
+          operator: in
           value:
-            13: 13
+            blog_post: blog_post
           group: 1
           exposed: false
           expose:
@@ -473,13 +568,49 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: article_type
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -490,14 +621,13 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  theme_tag_communities:
+  theme_tag_communities_grid:
     display_plugin: block
-    id: theme_tag_communities
-    display_title: Communities
+    id: theme_tag_communities_grid
+    display_title: 'Communities | Grid'
     position: 1
     display_options:
       display_extenders: {  }
@@ -612,10 +742,128 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  theme_tag_tools:
+  theme_tag_communities_list:
     display_plugin: block
-    id: theme_tag_tools
-    display_title: Tools
+    id: theme_tag_communities_list
+    display_title: 'Communities | List'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: ''
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            community: community
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  theme_tag_core_content_grid:
+    display_plugin: block
+    id: theme_tag_core_content_grid
+    display_title: 'Methods, Tools and Services | Grid'
     position: 1
     display_options:
       display_extenders: {  }
@@ -717,16 +965,54 @@ display:
           entity_type: node
           entity_field: langcode
           plugin_id: language
-        field_core_content_type_target_id:
-          id: field_core_content_type_target_id
-          table: node__field_core_content_type
-          field: field_core_content_type_target_id
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  theme_tag_core_content_list:
+    display_plugin: block
+    id: theme_tag_core_content_list
+    display_title: 'Methods, Tools and Services | List'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: ''
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
+          operator: in
           value:
-            35: 35
+            core_content: core_content
           group: 1
           exposed: false
           expose:
@@ -754,13 +1040,49 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: core_content_type
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -771,7 +1093,242 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  theme_tag_events_grid:
+    display_plugin: block
+    id: theme_tag_events_grid
+    display_title: 'Events | Grid'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: ''
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            event: event
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  theme_tag_events_list:
+    display_plugin: block
+    id: theme_tag_events_list
+    display_title: 'Events | List'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: ''
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            event: event
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
