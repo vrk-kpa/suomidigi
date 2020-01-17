@@ -8,8 +8,13 @@
 
 .article-teaser__link {
   display: flex;
+  flex-flow: column;
   height: 100%;
   text-decoration: none;
+
+  @include breakpoint($for-mobile-landscape-up) {
+    flex-flow: row;
+  }
 
   &:hover,
   &:focus {
@@ -40,16 +45,17 @@
 }
 
 .article-teaser__image {
+  order: 2;
   padding: 0;
 
-  @include breakpoint($for-tablet-portrait-up) {
-    order: 2;
-  }
-
   img {
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 0 5px 0;
     display: block;
     width: 100%;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      border-radius: 0 5px 5px 0;
+    }
   }
 
   .article-prominent--primary & {
@@ -84,11 +90,12 @@
 }
 
 .article-teaser__content {
-  padding: $gutter * 2 $gutter;
+  order: 1;
+  padding: 25px;
   position: relative;
 
-  @include breakpoint($for-tablet-portrait-up) {
-    order: 1;
+  @include breakpoint($for-mobile-landscape-up) {
+    padding: $gutter * 2 $gutter;
   }
 
   .article-prominent--primary & {

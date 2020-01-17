@@ -26,6 +26,12 @@
       }
     }
   }
+
+  .paragraph__content {
+    > .paragraph {
+      margin: 0;
+    }
+  }
 }
 
 .paragraph__link-icon {
