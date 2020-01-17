@@ -1,6 +1,9 @@
 .paragraph--banner-cta  {
   &.paragraph {
     margin-bottom: $gutter * 2;
+    > .paragraph__link {
+      display: block;
+    }
   }
 
   .paragraph__link {
