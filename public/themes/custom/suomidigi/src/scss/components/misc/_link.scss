@@ -89,7 +89,6 @@
     display: flex;
     @include font-size(18px, 26px);
     @include font-weight($semibold);
-    margin-top: $gutter;
     transition: all 150ms linear;
 
     &-icon-left {

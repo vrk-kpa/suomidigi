@@ -1,19 +1,18 @@
 .paragraph--container-title {
   .paragraph__header {
-    background-color: $gray-lighter;
     margin: 0 -#{$gutter} $gutter;
     padding: calc(#{$gutter} * 0.5) $gutter;
 
     .paragraph__title {
-      @include font-size(20px, 26px);
-      color: $blue;
+      @include font-size(24px, 30px);
+      @include font-weight($semibold);
+      color: $black;
       display: inline-block;
-      font-weight: 600;
       letter-spacing: 0;
       margin: 0;
 
       @include breakpoint($for-tablet-landscape-up) {
-        @include font-size(22px, 28px);
+        @include font-size(28px, 36px);
       }
     }
 
@@ -25,6 +24,12 @@
       &:focus {
         text-decoration: underline;
       }
+    }
+  }
+
+  .paragraph__content {
+    > .paragraph {
+      margin: 0;
     }
   }
 }
