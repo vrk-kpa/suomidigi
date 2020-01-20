@@ -15,26 +15,12 @@
             {% set link = content.field_p_link.0['#url'] %}
             {% set text = content.field_p_title.0 %}
             {% set external = item.is_external %}
-
-            <a class="link--secondary" href="{{ link }}" {% if external == true %} target="_blank" {% endif %}>
-              {% if icons_path %}
-                <div class="link__icon-left">
-                  <svg class="icon">
-                    <title>{{ text }}</title>
-                    <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
-                  </svg>
-                </div>
-              {% endif %}
-              <h2 class="paragraph__title link__text">{{ text }}</h2>
-              {% if icons_path and external != true %}
-                <span class="link__icon-right">
-                  <svg class="icon">
-                    <title>{{ text }}</title>
-                    <use xlink:href="{{ icons_path|trim }}#link-external"/>
-                  </svg>
-                </span>
-              {% endif %}
-            </a>
+            {% include "@suomidigi/misc/link.twig" with {
+              link_class: 'paragraph__title',
+              link_url: link,
+              link_text: text,
+              external: external
+            } %}
           {% else %}
             <h2 class="paragraph__title">{{ content.field_p_title.0 }}</h2>
           {% endif %}

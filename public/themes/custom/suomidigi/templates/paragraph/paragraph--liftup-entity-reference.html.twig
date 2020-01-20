@@ -6,9 +6,6 @@
 #}
 {% set link = content.field_p_link.0['#url'] %}
 {% set text = content.field_p_link.0['#title'] %}
-{% set link_classes = [
-  'link--cta',
-] %}
 
 {%
   set classes = [
@@ -29,13 +26,10 @@
     </div>
     {% if link and text %}
       <div class="paragraph__link">
-        {% if icons_path %}
-          <svg class="icon">
-            <title>{{ title }}</title>
-            <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
-          </svg>
-        {% endif %}
-        <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
+        {% include "@suomidigi/misc/link.twig" with {
+          link_url: link,
+          link_text: text
+        } %}
       </div>
     {% endif %}
   </div>
