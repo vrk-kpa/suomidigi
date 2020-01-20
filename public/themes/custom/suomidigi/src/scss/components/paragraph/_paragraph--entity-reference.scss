@@ -9,9 +9,9 @@
 
   &.paragraph--3col {
     .paragraph__title {
-      @include font-size(28px, 36px);
+      @include font-size(28px, 34px);
       @include font-weight($semibold);
-      color: $blue;
+      color: $black;
     }
 
     .paragraph__content-wrapper {
