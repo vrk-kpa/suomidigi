@@ -36,6 +36,12 @@
     ] %}
     {% if link and text %}
       <div class="paragraph__link">
+        {% if icons_path %}
+          <svg class="icon">
+            <title>{{ title }}</title>
+            <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
+          </svg>
+        {% endif %}
         <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
       </div>
     {% endif %}
