@@ -3,6 +3,7 @@
 }
 
 .is-hidden--desktop {
+
   @include breakpoint($for-tablet-portrait-up) {
     display: none !important;
     visibility: hidden !important;
