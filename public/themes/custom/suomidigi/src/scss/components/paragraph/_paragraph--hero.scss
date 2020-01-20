@@ -5,7 +5,7 @@
   display: flex;
   min-height: 430px;
 
-  @include breakpoint($for-desktop-up) {
+  @include breakpoint($for-tablet-portrait-up) {
     height: auto;
     min-height: 340px;
   }
@@ -30,7 +30,7 @@
     padding: 20px 20px 40px;
     z-index: 2;
 
-    @include breakpoint($for-tablet-landscape-up) {
+    @include breakpoint($for-tablet-portrait-up) {
       margin: $gutter * 4 $gutter $gutter * 2;
       max-width: 730px;
     }
