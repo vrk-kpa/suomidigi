@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
+use Drupal\image\Entity\ImageStyle;
 use Drupal\media\Entity\Media;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Term;
@@ -260,6 +261,16 @@ function suomidigi_preprocess_paragraph(&$variables) {
         $variables['legislation_colour'] = $paragraph->get('field_legislation_colour')->value;
       }
 
+      break;
+
+    case 'hero':
+      if ($paragraph->hasField('field_hero_background_image')) {
+        $media_id = $paragraph->get('field_hero_background_image')->first()->target_id;
+        if (!empty($media_id)) {
+          $media = Media::load($media_id);
+          $variables['hero_background_image'] = ImageStyle::load('7_2_full_content')->buildUrl($media->field_media_image->entity->getFileUri());
+        }
+      }
       break;
   }
 }
