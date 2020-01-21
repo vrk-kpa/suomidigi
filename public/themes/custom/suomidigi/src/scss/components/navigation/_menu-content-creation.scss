@@ -113,7 +113,7 @@
       text-decoration: none;
 
       a {
-        border-left: 5px solid transparent;
+        border-left: $gutter / 3 solid transparent;
         padding: $gutter / 1.5 $gutter;
         text-decoration: none;
         width: 100%;
@@ -123,7 +123,7 @@
       a:focus,
       a:hover {
         background-color: $gray-light;
-        border-left: 5px solid $blue-light;
+        border-left: $gutter / 3 solid $blue-light;
         color: $blue-light;
       }
     }

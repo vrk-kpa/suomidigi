@@ -23,7 +23,7 @@
 
   .paragraph__content {
     background-color: $white;
-    border-radius: 5px;
+    border-radius: $gutter / 3;
     box-shadow: 2px 2px 30px #3636364D;
     margin: $gutter * 2 $gutter $gutter * 4;
     max-width: 650px;

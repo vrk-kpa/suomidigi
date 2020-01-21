@@ -58,7 +58,7 @@
   @include font-size(20px, 26px);
   @include font-weight($regular);
   background: $purple linear-gradient(180deg, $purple 0%, $purple--secondary 100%) 0% 0% no-repeat padding-box;
-  border-radius: 5px;
+  border-radius: $gutter / 3;
   color: $white;
   display: inline-block;
   letter-spacing: 0;
