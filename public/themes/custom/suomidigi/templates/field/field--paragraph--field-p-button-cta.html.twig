@@ -7,10 +7,7 @@
 {% for item in items %}
   {% set link = item.content['#url'] %}
   {% set text = item.content['#title'] %}
-  {% set external = item.is_external %}
-  {% include "@suomidigi/misc/link.twig" with {
-    link_url: link,
-    link_text: text,
-    external: external
-  } %}
+  <a href="{{ link }}" class="button--cta" {% if external %} target="_blank" {% endif %} title="{{ text }}">
+    {{ text }}
+  </a>
 {% endfor %}

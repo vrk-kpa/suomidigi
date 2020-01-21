@@ -7,6 +7,16 @@
     {% set classes = classes|merge(['paragraph--reverse']) %}
   {% endif %}
 
+  {% set separate = content.field_p_separate['0']['#markup'] %}
+
+  {% if separate is same as(1) %}
+    {% set classes = classes|merge(['paragraph--divide']) %}
+  {% endif %}
+
+  {% if not content.field_p_media|render %}
+    {% set classes = classes|merge(['paragraph--full-width']) %}
+  {% endif %}
+
   <div{{attributes.addClass(classes)}}>
     {% block content %}
       <div class="paragraph__content-wrapper">
@@ -15,26 +25,12 @@
             {% set link = content.field_p_link.0['#url'] %}
             {% set text = content.field_p_title.0 %}
             {% set external = item.is_external %}
-
-            <a class="link--secondary" href="{{ link }}" {% if external == true %} target="_blank" {% endif %}>
-              {% if icons_path %}
-                <div class="link__icon-left">
-                  <svg class="icon">
-                    <title>{{ text }}</title>
-                    <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
-                  </svg>
-                </div>
-              {% endif %}
-              <h2 class="paragraph__title link__text">{{ text }}</h2>
-              {% if icons_path and external != true %}
-                <span class="link__icon-right">
-                  <svg class="icon">
-                    <title>{{ text }}</title>
-                    <use xlink:href="{{ icons_path|trim }}#link-external"/>
-                  </svg>
-                </span>
-              {% endif %}
-            </a>
+            {% include "@suomidigi/misc/link.twig" with {
+              link_class: 'paragraph__title',
+              link_url: link,
+              link_text: text,
+              external: external
+            } %}
           {% else %}
             <h2 class="paragraph__title">{{ content.field_p_title.0 }}</h2>
           {% endif %}
@@ -44,15 +40,16 @@
             'field_p_title',
             'field_p_reverse',
             'field_p_link',
+            'field_p_separate',
             'field_p_media'
           ) }}
         </div>
       </div>
-      <div class="paragraph__media">
-        {% if content.field_p_media|render %}
+      {% if content.field_p_media|render %}
+        <div class="paragraph__media">
           {{ content.field_p_media|render }}
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
     {% endblock %}
   </div>
 {% endblock paragraph %}

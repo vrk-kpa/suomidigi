@@ -53,3 +53,23 @@
     }
   }
 }
+
+.button--cta {
+  @include font-size(20px, 26px);
+  @include font-weight($regular);
+  background: $purple linear-gradient(180deg, $purple 0%, $purple--secondary 100%) 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  color: $white;
+  display: inline-block;
+  letter-spacing: 0;
+  padding: $gutter $gutter * 2;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px $purple--secondary;
+
+  &:hover,
+  &:active {
+    background: $purple;
+    color: $white;
+    text-decoration: none;
+  }
+}

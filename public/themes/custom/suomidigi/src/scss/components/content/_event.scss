@@ -78,10 +78,6 @@
 
   &__registration {
     margin-top: $gutter;
-
-    .button {
-      @include button('submit');
-    }
   }
 
   &__date {

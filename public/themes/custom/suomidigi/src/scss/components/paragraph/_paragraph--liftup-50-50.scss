@@ -1,12 +1,13 @@
 .paragraph--liftup-50-50 {
   align-items: center;
   background-color: $white;
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
   display: flex;
   flex-direction: column;
-
-  &.paragraph {
-    margin: 0 -#{$gutter};
-  }
+  height: 100%;
+  margin: $gutter;
 
   @include breakpoint($for-tablet-portrait-up) {
     flex-direction: row;
@@ -16,6 +17,79 @@
     .paragraph__media {
       @include breakpoint($for-tablet-portrait-up) {
         order: 2;
+        img {
+          border-radius: 0 $gutter / 3 $gutter / 3 0;
+        }
+        .media-image__creator {
+          border-radius: 0 $gutter / 3 0 0;
+        }
+      }
+    }
+  }
+
+  &.paragraph--divide {
+    background-color: transparent;
+    border-left: 0 none;
+    box-shadow: none;
+
+    .paragraph__media {
+      margin-bottom: $gutter * 1.6;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-bottom: 0;
+        width: 40%;
+
+        .media-image__creator {
+          border-radius: 0 4px 0 0;
+        }
+      }
+
+      img {
+        border-radius: $gutter / 3;
+      }
+    }
+
+    .paragraph__content-wrapper {
+      border-left: $gutter / 3 solid $cyan;
+      border-radius: $gutter / 3;
+      box-shadow: 2px 2px 10px #00000033;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        background-color: $white;
+        margin-left: $gutter * 2;
+        width: 60%;
+      }
+    }
+
+    &.paragraph--reverse {
+      .paragraph__content-wrapper {
+        @include breakpoint($for-tablet-portrait-up) {
+          margin-left: 0;
+          margin-right: $gutter * 2;
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  &.paragraph--full-width {
+    @include breakpoint($for-tablet-portrait-up) {
+      .paragraph__content-wrapper {
+        padding: $gutter * 2 $gutter;
+        width: 100%;
+      }
+
+      .field--name-field-p-content {
+        display: flex;
+
+        .field__item {
+          flex-basis: 40%;
+
+          &:first-of-type {
+            flex-basis: 60%;
+            margin-right: $gutter * 2;
+          }
+        }
       }
     }
   }
@@ -26,10 +100,20 @@
     min-height: 100%;
     order: 1;
 
+    img {
+      border-radius: 0 $gutter / 3 0 0;
+      width: 100%;
+    }
+
+    .media-image__creator {
+      border-radius: 0 $gutter / 3 0 0;
+    }
+
     @include breakpoint($for-tablet-portrait-up) {
       width: 50%;
 
       img {
+        border-radius: 0;
         object-fit: cover;
         width: 100%;
       }
@@ -39,6 +123,7 @@
       }
 
       .media-image__creator {
+        border-radius: 0;
         height: auto;
       }
     }
@@ -46,35 +131,33 @@
 
   .paragraph__content-wrapper {
     order: 2;
-    padding: $gutter * 2;
+    padding: $gutter;
 
     @include breakpoint($for-tablet-portrait-up) {
+      padding: $gutter * 2;
       width: 50%;
     }
   }
 
-  .paragraph__title-wrapper {
-    .link__icon-left {
-      .icon {
-        height: 35px;
-        margin-left: -11px;
-        width: 35px;
-      }
+  .paragraph__content {
+    .paragraph {
+      margin: 0 0 $gutter * 3;
+      padding: 0;
     }
 
-    .link__icon-right {
-      .icon {
-        height: 22px;
-        left: 7px;
-        top: 7px;
-        width: 22px;
-      }
+    .paragraph--text * {
+      @include font-size(18px, 27px);
+      @include font-weight($regular);
+      color: $black;
+      letter-spacing: 0;
     }
   }
 
   .paragraph__title {
     @include font-size(28px, 34px);
     @include font-weight($semibold);
+    letter-spacing: 0;
+    margin-bottom: 20px;
   }
 
   .paragraph.paragraph--list-of-links {
@@ -83,15 +166,23 @@
     .paragraph__title {
       @include font-size(22px, 28px);
       @include font-weight($semibold);
+      color: $black;
+      margin-bottom: $gutter * 2;
       text-transform: none;
+    }
+
+    .paragraph-list {
+      @include font-size(18px, 23px);
+      @include font-weight($regular);
+      letter-spacing: 0;
+
+      .link--cta {
+        margin-bottom: $gutter;
+      }
     }
   }
 
-  a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  .button--cta {
+    margin-bottom: $gutter;
   }
 }

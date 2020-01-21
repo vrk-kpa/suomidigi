@@ -1,0 +1,23 @@
+uuid: 68a1a26d-2e1a-416f-919f-da1649b788c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_button_cta
+    - paragraphs.paragraphs_type.liftup_50_50
+  module:
+    - link
+id: paragraph.liftup_50_50.field_p_button_cta
+field_name: field_p_button_cta
+entity_type: paragraph
+bundle: liftup_50_50
+label: 'Button CTA'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

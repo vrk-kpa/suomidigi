@@ -46,11 +46,10 @@
 
   {% set link_text = ' ' ~ node.label %}
   {% set link_text = 'Join the community'|t ~ link_text %}
-  <a class="community__cta-wrapper" href="{{ content.field_community_link.0['#url'] }}" target="_blank" title="{{ node.label }}">
-    {% include "@suomidigi/misc/link.twig" with {
-      link_class: 'community__cta',
-      link_text: link_text,
-      external: 1
-    } %}
-  </a>
+  {% include "@suomidigi/misc/link.twig" with {
+    link_class: 'community__cta',
+    link_url: content.field_community_link.0['#url'],
+    link_text: link_text,
+    external: 1
+  } %}
 </article>
