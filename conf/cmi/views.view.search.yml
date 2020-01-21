@@ -76,9 +76,16 @@ display:
         type: search_api
         options:
           view_modes:
+            'entity:group':
+              group: teaser
             'entity:node':
               article: teaser
+              blog_post: teaser
+              community: teaser
               core_content: teaser
+              event: teaser
+              landing_page: teaser
+              page: teaser
       fields:
         body:
           table: search_api_index_content_search_index
