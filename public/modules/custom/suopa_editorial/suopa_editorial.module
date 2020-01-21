@@ -364,3 +364,20 @@ function suopa_editorial_theme() {
     ],
   ];
 }
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ *
+ * Show Button CTA link based on Separate media and text fields value on
+ * Liftup 50/50 paragraph.
+ */
+function suopa_editorial_field_widget_paragraphs_form_alter(&$element, &$form_state, $context) {
+  if ($element['#paragraph_type'] == 'liftup_50_50') {
+    $name = 'input[name="field_paragraphs[' . $element['#delta'] . '][subform][field_p_separate][value]';
+    $element['subform']['field_p_button_cta']['widget'][0]['#states'] = [
+      'visible' => [
+        $name => ['checked' => TRUE],
+      ],
+    ];
+  }
+}
