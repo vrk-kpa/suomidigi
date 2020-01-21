@@ -1,0 +1,23 @@
+uuid: 2e9b908f-ac21-4db1-a44f-f186392124f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_separate
+    - paragraphs.paragraphs_type.liftup_50_50
+id: paragraph.liftup_50_50.field_p_separate
+field_name: field_p_separate
+entity_type: paragraph
+bundle: liftup_50_50
+label: 'Divide image and text'
+description: 'Select if you want to use different theme on Liftup 50/50. The image and text area will be separated with a gap when this checkbox is selected.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

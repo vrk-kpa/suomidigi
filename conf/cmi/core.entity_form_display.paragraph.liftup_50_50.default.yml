@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.liftup_50_50.field_p_link
     - field.field.paragraph.liftup_50_50.field_p_media
     - field.field.paragraph.liftup_50_50.field_p_reverse
+    - field.field.paragraph.liftup_50_50.field_p_separate
     - field.field.paragraph.liftup_50_50.field_p_title
     - paragraphs.paragraphs_type.liftup_50_50
   module:
@@ -63,6 +64,13 @@ content:
     region: content
   field_p_reverse:
     weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_p_separate:
+    weight: 6
     settings:
       display_label: true
     third_party_settings: {  }
