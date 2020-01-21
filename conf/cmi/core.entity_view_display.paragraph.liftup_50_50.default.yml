@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.liftup_50_50.field_p_button_cta
     - field.field.paragraph.liftup_50_50.field_p_content
     - field.field.paragraph.liftup_50_50.field_p_link
     - field.field.paragraph.liftup_50_50.field_p_media
@@ -18,6 +19,18 @@ targetEntityType: paragraph
 bundle: liftup_50_50
 mode: default
 content:
+  field_p_button_cta:
+    weight: 7
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link_separate
+    region: content
   field_p_content:
     weight: 3
     label: hidden
@@ -62,9 +75,9 @@ content:
     weight: 6
     label: hidden
     settings:
-      format: default
-      format_custom_false: ''
+      format: boolean
       format_custom_true: ''
+      format_custom_false: ''
     third_party_settings: {  }
     type: boolean
     region: content

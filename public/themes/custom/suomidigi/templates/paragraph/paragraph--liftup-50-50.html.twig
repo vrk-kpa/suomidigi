@@ -7,6 +7,12 @@
     {% set classes = classes|merge(['paragraph--reverse']) %}
   {% endif %}
 
+  {% set separate = content.field_p_separate['0']['#markup'] %}
+
+  {% if separate is same as(1) %}
+    {% set classes = classes|merge(['paragraph--divide']) %}
+  {% endif %}
+
   <div{{attributes.addClass(classes)}}>
     {% block content %}
       <div class="paragraph__content-wrapper">
@@ -30,6 +36,7 @@
             'field_p_title',
             'field_p_reverse',
             'field_p_link',
+            'field_p_separate',
             'field_p_media'
           ) }}
         </div>

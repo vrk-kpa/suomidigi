@@ -75,7 +75,7 @@
     }
 
     &.button {
-      background: transparent linear-gradient(180deg, #9D5DB4 0%, #86499C 100%) 0% 0% no-repeat padding-box;
+      background: transparent linear-gradient(180deg, $purple 0%, $purple--secondary 100%) 0% 0% no-repeat padding-box;
       border: 2px solid transparent;
       border-radius: 5px;
       display: inline-block;
@@ -97,7 +97,7 @@
         @include font-weight($semibold);
         color: $white;
         letter-spacing: 0;
-        text-shadow: 1px 1px 1px #86499C;
+        text-shadow: 1px 1px 1px $purple--secondary;
       }
 
       .link--cta-icon-left .icon,
