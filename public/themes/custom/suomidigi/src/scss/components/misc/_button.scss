@@ -72,4 +72,20 @@
     color: $white;
     text-decoration: none;
   }
+
+  &-extended {
+    padding: $gutter $gutter * 6;
+  }
+
+  &-alternative {
+    background: $blue-light linear-gradient(180deg, $blue-light 0%, $blue-light--secondary 100%) 0% 0% no-repeat padding-box;
+    text-shadow: 1px 1px 1px $blue-light--secondary;
+
+    &:hover,
+    &:active {
+      background: $blue-light;
+      color: $white;
+      text-decoration: none;
+    }
+  }
 }
