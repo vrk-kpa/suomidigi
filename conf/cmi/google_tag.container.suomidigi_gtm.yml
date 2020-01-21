@@ -10,7 +10,7 @@ dependencies:
 id: suomidigi_gtm
 label: 'Suomidigi GTM'
 weight: 0
-container_id: GTM-N45M2KB
+container_id: GTM-M37QPBD
 data_layer: dataLayer
 include_classes: false
 whitelist_classes: "google\nnonGooglePixels\nnonGoogleScripts\nnonGoogleIframes"
@@ -25,6 +25,16 @@ role_list: {  }
 status_toggle: 'exclude listed'
 status_list: "403\n404"
 conditions:
+  group_type:
+    id: group_type
+    group_types: {  }
+    negate: 0
+    context_mapping:
+      group: '@group.group_route_context:group'
+  route:
+    id: route
+    routes: ''
+    negate: 0
   'entity_bundle:group':
     id: 'entity_bundle:group'
     bundles: {  }
@@ -43,16 +53,6 @@ conditions:
     negate: false
     context_mapping:
       webform_submission: '@webform.webform_submission_route_context:webform_submission'
-  group_type:
-    id: group_type
-    group_types: {  }
-    negate: 0
-    context_mapping:
-      group: '@group.group_route_context:group'
-  route:
-    id: route
-    routes: ''
-    negate: 0
   webform:
     id: webform
     webforms: {  }
