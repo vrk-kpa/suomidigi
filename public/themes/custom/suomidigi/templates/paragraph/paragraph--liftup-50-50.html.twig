@@ -13,6 +13,10 @@
     {% set classes = classes|merge(['paragraph--divide']) %}
   {% endif %}
 
+  {% if not content.field_p_media|render %}
+    {% set classes = classes|merge(['paragraph--full-width']) %}
+  {% endif %}
+
   <div{{attributes.addClass(classes)}}>
     {% block content %}
       <div class="paragraph__content-wrapper">
@@ -41,11 +45,11 @@
           ) }}
         </div>
       </div>
-      <div class="paragraph__media">
-        {% if content.field_p_media|render %}
+      {% if content.field_p_media|render %}
+        <div class="paragraph__media">
           {{ content.field_p_media|render }}
-        {% endif %}
-      </div>
+        </div>
+      {% endif %}
     {% endblock %}
   </div>
 {% endblock paragraph %}

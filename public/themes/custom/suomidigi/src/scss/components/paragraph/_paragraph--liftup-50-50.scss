@@ -68,6 +68,28 @@
     }
   }
 
+  &.paragraph--full-width {
+    @include breakpoint($for-tablet-portrait-up) {
+      .paragraph__content-wrapper {
+        padding: $gutter * 2 $gutter;
+        width: 100%;
+      }
+
+      .field--name-field-p-content {
+        display: flex;
+
+        .field__item {
+          flex-basis: 40%;
+
+          &:first-of-type {
+            flex-basis: 60%;
+            margin-right: $gutter * 2;
+          }
+        }
+      }
+    }
+  }
+
   .paragraph__media {
     align-self: stretch;
     line-height: 0;
