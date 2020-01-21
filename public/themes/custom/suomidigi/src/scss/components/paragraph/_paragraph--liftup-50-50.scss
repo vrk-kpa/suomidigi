@@ -38,6 +38,10 @@
       @include breakpoint($for-tablet-portrait-up) {
         margin-bottom: 0;
         width: 40%;
+
+        .media-image__creator {
+          border-radius: 0 4px 0 0;
+        }
       }
 
       img {
@@ -176,5 +180,9 @@
         margin-bottom: $gutter;
       }
     }
+  }
+
+  .button--cta {
+    margin-bottom: $gutter;
   }
 }
