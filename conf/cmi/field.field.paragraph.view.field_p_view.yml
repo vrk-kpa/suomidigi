@@ -28,8 +28,8 @@ settings:
     page: 0
     attachment: 0
     entity_browser: 0
-    feed: 0
     entity_reference: 0
+    feed: 0
     embed: 0
   preselect_views:
     articles: articles
@@ -37,9 +37,10 @@ settings:
     communities: communities
     events: events
     groups: groups
+    liftups: liftups
+    liftups_groups: liftups_groups
     social_media: social_media
     theme_tag_lists: theme_tag_lists
-    theme_taxonomy_groups: theme_taxonomy_groups
     approval_node_queue: 0
     block_content: 0
     comment: 0
@@ -48,7 +49,6 @@ settings:
     content_recent: 0
     entity_reference_browser: 0
     files: 0
-    frontpage: 0
     group_content: 0
     group_members: 0
     group_members_list: 0

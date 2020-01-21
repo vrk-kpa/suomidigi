@@ -5,7 +5,7 @@ dependencies:
   module:
     - social_media_import
 id: social_media
-label: 'Social Media'
+label: 'Liftups: Social Media'
 module: views
 description: ''
 tag: ''

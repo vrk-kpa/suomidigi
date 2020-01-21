@@ -12,7 +12,7 @@ dependencies:
     - user
     - views_infinite_scroll
 id: events
-label: Events
+label: 'Content: Events'
 module: views
 description: ''
 tag: ''

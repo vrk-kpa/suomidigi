@@ -12,10 +12,4 @@ display:
               more_options:
                 rewrite:
                   filter_rewrite_values: '- Kaikki -|Kaikki'
-  articles:
-    display_title: 'Artikkelit | Palstat'
-    display_options:
-      filters:
-        field_theme_target_id:
-          expose:
-            label: 'Rajaa teeman mukaan'
+label: 'Sisältösivu: Artikkelit'

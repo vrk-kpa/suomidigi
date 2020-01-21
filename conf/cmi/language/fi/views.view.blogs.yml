@@ -5,3 +5,6 @@ display:
         options:
           views_infinite_scroll:
             button_text: 'Näytä lisää'
+  grid:
+    display_title: Ruudukko
+label: 'Sisältösivu: Blogikirjoitukset'
