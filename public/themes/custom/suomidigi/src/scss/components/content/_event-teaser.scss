@@ -5,6 +5,7 @@
   box-shadow: 2px 2px 10px #00000033;
   margin-bottom: $gutter * 3;
   padding: $gutter * 1.4;
+  width: 100%;
 
   h3 {
     @include font-size(18px, 23px);
