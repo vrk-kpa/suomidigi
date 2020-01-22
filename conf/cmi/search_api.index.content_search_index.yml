@@ -2,15 +2,22 @@ uuid: 892f1752-f2a3-4ce7-9817-b505127314ef
 langcode: en
 status: true
 dependencies:
-  config:
-    - field.storage.node.field_article_type
-    - field.storage.node.field_core_content_type
-    - field.storage.node.field_ingress
-    - search_api.server.content_search_server
   module:
+    - group
+    - paragraphs
     - taxonomy
     - node
     - search_api
+  config:
+    - field.storage.group.field_paragraphs
+    - field.storage.paragraph.field_p_content
+    - field.storage.paragraph.field_text
+    - field.storage.group.field_group_short_description
+    - field.storage.node.field_article_type
+    - field.storage.node.field_core_content_type
+    - field.storage.node.field_ingress
+    - field.storage.node.field_paragraphs
+    - search_api.server.content_search_server
 id: content_search_index
 name: 'Content Search Index'
 description: ''
@@ -38,6 +45,14 @@ field_settings:
       module:
         - taxonomy
         - taxonomy
+  field_group_short_description:
+    label: 'Short description'
+    datasource_id: 'entity:group'
+    property_path: field_group_short_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.group.field_group_short_description
   field_ingress:
     label: Ingress
     datasource_id: 'entity:node'
@@ -46,6 +61,62 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_ingress
+  label:
+    label: Otsikko
+    datasource_id: 'entity:group'
+    property_path: label
+    type: text
+    dependencies:
+      module:
+        - group
+  processed:
+    label: 'Paragraphs » Paragraph » Sisältö » Paragraph » Teksti » Läpikäyty teksti'
+    datasource_id: 'entity:group'
+    property_path: 'field_paragraphs:entity:field_p_content:entity:field_text:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.group.field_paragraphs
+        - field.storage.paragraph.field_p_content
+        - field.storage.paragraph.field_text
+      module:
+        - paragraphs
+        - paragraphs
+  processed_1:
+    label: 'Paragraphs » Paragraph » Content » Paragraph » Text » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_p_content:entity:field_text:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_p_content
+        - field.storage.paragraph.field_text
+      module:
+        - paragraphs
+        - paragraphs
+  processed_2:
+    label: 'Paragraphs » Paragraph » Teksti » Läpikäyty teksti'
+    datasource_id: 'entity:group'
+    property_path: 'field_paragraphs:entity:field_text:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.group.field_paragraphs
+        - field.storage.paragraph.field_text
+      module:
+        - paragraphs
+  processed_text:
+    label: 'Paragraphs » Paragraph » Text » Processed text'
+    datasource_id: 'entity:node'
+    property_path: 'field_paragraphs:entity:field_text:processed'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_paragraphs
+        - field.storage.paragraph.field_text
+      module:
+        - paragraphs
   status:
     label: Published
     datasource_id: 'entity:node'
@@ -63,12 +134,24 @@ field_settings:
       module:
         - node
 datasource_settings:
+  'entity:group':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
   'entity:node':
     bundles:
       default: false
       selected:
         - article
+        - blog_post
+        - community
         - core_content
+        - event
+        - landing_page
+        - page
     languages:
       default: true
       selected: {  }
@@ -80,7 +163,13 @@ processor_settings:
     fields:
       - field_article_type_name
       - field_core_content_type_name
+      - field_group_short_description
       - field_ingress
+      - label
+      - processed
+      - processed_1
+      - processed_2
+      - processed_text
       - title
     ignorable: '[''¿¡!?,.:;]'
     ignorable_classes:
@@ -99,7 +188,13 @@ processor_settings:
     fields:
       - field_article_type_name
       - field_core_content_type_name
+      - field_group_short_description
       - field_ingress
+      - label
+      - processed
+      - processed_1
+      - processed_2
+      - processed_text
       - title
     weights:
       preprocess_index: -20
