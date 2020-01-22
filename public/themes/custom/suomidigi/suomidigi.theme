@@ -576,7 +576,7 @@ function suomidigi_preprocess_views_view(&$variables) {
   $view_ids = [
     'blogs',
     'articles',
-    'profile_own_content'
+    'profile_own_content',
   ];
 
   if (in_array($view->id(), $view_ids)) {
@@ -600,6 +600,7 @@ function suomidigi_preprocess_views_view(&$variables) {
       case 'blog_posts':
         $variables['pager']['#options']['button_text'] = t('Show more blog posts');
         break;
+
       case 'events':
         $variables['pager']['#options']['button_text'] = t('Show more events');
         break;

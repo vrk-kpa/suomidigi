@@ -28,6 +28,7 @@
     }
   }
 
+  .paragraph--3col .paragraph:not(.paragraph--full-width) &,
   .listing--grid__item & {
     flex-flow: column;
   }
@@ -64,6 +65,7 @@
     }
   }
 
+  .paragraph--3col .paragraph:not(.paragraph--full-width) &,
   .listing--grid__item & {
     order: 1;
   }
@@ -112,6 +114,7 @@
     padding: 20px 30px;
   }
 
+  .paragraph--3col .paragraph:not(.paragraph--full-width) &,
   .listing--grid__item & {
     height: 100%;
   }
