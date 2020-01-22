@@ -2,22 +2,22 @@ uuid: 892f1752-f2a3-4ce7-9817-b505127314ef
 langcode: en
 status: true
 dependencies:
-  module:
-    - group
-    - paragraphs
-    - taxonomy
-    - node
-    - search_api
   config:
+    - field.storage.node.field_article_type
+    - field.storage.node.field_core_content_type
+    - field.storage.group.field_group_short_description
+    - field.storage.node.field_ingress
     - field.storage.group.field_paragraphs
     - field.storage.paragraph.field_p_content
     - field.storage.paragraph.field_text
-    - field.storage.group.field_group_short_description
-    - field.storage.node.field_article_type
-    - field.storage.node.field_core_content_type
-    - field.storage.node.field_ingress
     - field.storage.node.field_paragraphs
     - search_api.server.content_search_server
+  module:
+    - taxonomy
+    - group
+    - paragraphs
+    - node
+    - search_api
 id: content_search_index
 name: 'Content Search Index'
 description: ''
@@ -69,6 +69,13 @@ field_settings:
     dependencies:
       module:
         - group
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
   processed:
     label: 'Paragraphs » Paragraph » Sisältö » Paragraph » Teksti » Läpikäyty teksti'
     datasource_id: 'entity:group'
@@ -122,6 +129,8 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: status
     type: boolean
+    indexed_locked: true
+    type_locked: true
     dependencies:
       module:
         - node
@@ -130,6 +139,16 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
+    dependencies:
+      module:
+        - node
+  uid:
+    label: null
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
     dependencies:
       module:
         - node
@@ -158,6 +177,9 @@ datasource_settings:
 processor_settings:
   add_url: {  }
   aggregated_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
   ignore_character:
     all_fields: true
     fields:
