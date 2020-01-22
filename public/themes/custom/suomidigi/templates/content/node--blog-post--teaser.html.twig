@@ -48,7 +48,7 @@
 
       {% if content.field_ingress|render %}
         <p class="blog-teaser__lead">
-          {{ content.field_ingress['0']['#markup'] }}
+          {{ content.field_ingress[0]['#text'] }}
         </p>
       {% endif %}
 
