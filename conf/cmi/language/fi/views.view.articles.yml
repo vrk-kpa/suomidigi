@@ -12,4 +12,11 @@ display:
               more_options:
                 rewrite:
                   filter_rewrite_values: '- Kaikki -|Kaikki'
+  articles_grid:
+    display_title: 'Artikkelit | Ruudukko'
+    display_options:
+      filters:
+        field_theme_target_id:
+          expose:
+            label: 'Rajaa teeman mukaan'
 label: 'Sisältösivu: Artikkelit'

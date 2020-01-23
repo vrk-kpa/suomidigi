@@ -1,0 +1,30 @@
+uuid: 32678c1c-d76d-4b96-b623-f40797c04eac
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.8_5_full_content
+    - image.style.8_5_full_hd
+    - image.style.8_5_half_content
+  theme:
+    - suomidigi
+id: '8_5'
+label: '8:5'
+image_style_mappings:
+  -
+    breakpoint_id: suomidigi.for_desktop_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 8_5_full_hd
+  -
+    breakpoint_id: suomidigi.for_tablet_landscape_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 8_5_full_content
+  -
+    breakpoint_id: suomidigi.for_tablet_portrait_up
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 8_5_half_content
+breakpoint_group: suomidigi
+fallback_image_style: 8_5_full_content

@@ -576,6 +576,7 @@ function suomidigi_preprocess_views_view(&$variables) {
   $view_ids = [
     'blogs',
     'articles',
+    'profile_own_content',
   ];
 
   if (in_array($view->id(), $view_ids)) {
@@ -586,7 +587,29 @@ function suomidigi_preprocess_views_view(&$variables) {
       $pager = $view->getPager();
       if ($pager && $pager instanceof InfiniteScroll) {
         $variables['rows']['#theme_wrappers']['container']['#attributes']['class'][] = 'listing--grid';
+
+        if ($view->id() == 'blogs') {
+          $variables['pager']['#options']['button_text'] = t(
+            'Show more blog posts'
+          );
+        }
       }
+    }
+  }
+
+  // Set wrapper class for group content view.
+  if ($view->id() == 'group_content') {
+    $variables['rows']['#theme_wrappers']['container']['#attributes']['class'][] = 'listing--list';
+
+    // Change pager button text per display.
+    switch ($view->current_display) {
+      case 'blog_posts':
+        $variables['pager']['#options']['button_text'] = t('Show more blog posts');
+        break;
+
+      case 'events':
+        $variables['pager']['#options']['button_text'] = t('Show more events');
+        break;
     }
   }
 }
