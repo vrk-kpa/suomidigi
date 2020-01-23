@@ -60,7 +60,7 @@ nav.menu--sidebar {
       > span,
       > a {
         background: $white;
-        border-left: 5px solid transparent;
+        border-left: $gutter / 3 solid transparent;
         padding-left: $gutter;
         text-transform: none;
 
@@ -76,7 +76,7 @@ nav.menu--sidebar {
         > a {
           @include font-weight($semibold);
           background-color: $white;
-          border-left: 5px solid $blue-light;
+          border-left: $gutter / 3 solid $blue-light;
         }
       }
     }

@@ -86,7 +86,11 @@
             <div class="event__link">
               {% set link = content.field_event_link.0['#url'] %}
               {% set title = "Link to event's own page"|t %}
-              <a href="{{ link }}" class="link link--external" aria-label="{{ title }}">{{ title }}</a>
+              {% include "@suomidigi/misc/link.twig" with {
+                link_url: link,
+                link_text: title,
+                external: 1
+              } %}
             </div>
           {% endif %}
         </div>
@@ -95,10 +99,14 @@
       {% if content.field_event_registration|render %}
         <div class="event__header--primary">
           <div class="event__registration">
-            <h3>{{ 'Sign up'|t }}</h3>
             {% set link = content.field_event_registration.0['#url'] %}
-            {% set title = 'To registration'|t %}
-            <a href="{{ link }}" class="button" aria-label="{{ title }}">{{ title }}</a>
+            {% set title = 'Sign up for the event'|t %}
+            {% include "@suomidigi/misc/link.twig" with {
+              link_class: 'button',
+              link_url: link,
+              link_text: title,
+              external: 1
+            } %}
           </div>
         </div>
       {% endif %}
@@ -160,7 +168,11 @@
             <div class="event__link">
               {% set link = content.field_organiser_link.0['#url'] %}
               {% set title = "Link to the event organiser page"|t %}
-              <a href="{{ link }}" class="link link--external" aria-label="{{ title }}">{{ title }}</a>
+              {% include "@suomidigi/misc/link.twig" with {
+                link_url: link,
+                link_text: title,
+                external: 1
+              } %}
             </div>
           {% endif %}
         </div>

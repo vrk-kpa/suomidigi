@@ -1,6 +1,6 @@
-label: Ryhmät
+label: 'Sisältösivu: Ryhmät'
 display:
   groups:
-    display_title: 'Ryhmät | Lista'
+    display_title: Lista
   groups_grid:
-    display_title: 'Ryhmät | Ruudukko'
+    display_title: Ruudukko

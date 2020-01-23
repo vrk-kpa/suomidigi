@@ -8,23 +8,9 @@
   {% set link = item.content['#url'] %}
   {% set text = item.content['#title'] %}
   {% set external = item.is_external %}
-  <a class="link--secondary" href="{{ link }}" {% if external == true %} target="_blank" {% endif %}>
-    {% if icons_path %}
-      <div class="link__icon-left">
-        <svg class="icon">
-          <title>{{ text }}</title>
-          <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
-        </svg>
-      </div>
-    {% endif %}
-    <span class="link__text">{{ text }}</span>
-    {% if icons_path and external == true %}
-      <span class="link__icon-right">
-        <svg class="icon">
-          <title>{{ text }}</title>
-          <use xlink:href="{{ icons_path|trim }}#link-external"/>
-        </svg>
-      </span>
-    {% endif %}
-  </a>
+  {% include "@suomidigi/misc/link.twig" with {
+    link_url: link,
+    link_text: text,
+    external: external
+  } %}
 {% endfor %}

@@ -9,7 +9,7 @@ dependencies:
     - node
     - user
 id: communities
-label: Communities
+label: 'Content: Communities'
 module: views
 description: 'Displays all content of community content type'
 tag: ''
@@ -161,7 +161,7 @@ display:
   block_1:
     display_plugin: block
     id: block_1
-    display_title: 'Communities list'
+    display_title: List
     position: 1
     display_options:
       display_extenders: {  }

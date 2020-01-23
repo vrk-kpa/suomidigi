@@ -1,36 +1,39 @@
-uuid: 85ead3e8-f9f3-4071-9da8-2d987a66a10e
+uuid: 9507b6f9-668d-428a-abfb-230052dec9b3
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.blog_teaser_header
+    - core.entity_view_mode.media.8_5
     - field.field.media.image.field_creator
     - field.field.media.image.field_media_image
-    - image.style.2_1_half_content
     - media.type.image
+    - responsive_image.styles.8_5
   module:
-    - svg_image
-id: media.image.blog_teaser_header
+    - responsive_image
+id: media.image.8_5
 targetEntityType: media
 bundle: image
-mode: blog_teaser_header
+mode: '8_5'
 content:
-  field_media_image:
+  field_creator:
     weight: 0
     label: hidden
     settings:
-      image_style: 2_1_half_content
-      image_link: ''
-      svg_render_as_image: '1'
-      svg_attributes:
-        width: ''
-        height: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: image
+    type: string
+    region: content
+  field_media_image:
+    weight: 1
+    label: hidden
+    settings:
+      responsive_image_style: '8_5'
+      image_link: ''
+    third_party_settings: {  }
+    type: responsive_image
     region: content
 hidden:
   created: true
-  field_creator: true
   langcode: true
   name: true
   search_api_excerpt: true

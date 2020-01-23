@@ -1,12 +1,24 @@
 .article-teaser {
+  background-color: $white;
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
   height: 100%;
 }
 
 .article-teaser__link {
-  background-color: $white;
-  display: block;
+  display: flex;
+  flex-flow: column;
   height: 100%;
   text-decoration: none;
+
+  @include breakpoint($for-mobile-landscape-up) {
+    flex-flow: row;
+
+    .listing--grid__item & {
+      flex-flow: column;
+    }
+  }
 
   &:hover,
   &:focus {
@@ -18,8 +30,6 @@
   }
 
   .article-prominent--primary & {
-    background-color: $white;
-    display: flex;
     flex-flow: column;
     height: 100%;
     min-height: 190px;
@@ -38,10 +48,21 @@
 }
 
 .article-teaser__image {
+  order: 2;
   padding: 0;
+
+  .listing--grid__item & {
+    order: 1;
+  }
+
   img {
+    border-radius: 0 0 5px 0;
     display: block;
     width: 100%;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      border-radius: 0 5px 5px 0;
+    }
   }
 
   .article-prominent--primary & {
@@ -53,6 +74,7 @@
 
     @include breakpoint($for-tablet-portrait-up) {
       min-width: 50%;
+      order: 2;
       width: 50%;
 
       .group__list & {
@@ -75,13 +97,18 @@
 }
 
 .article-teaser__content {
-  padding: $gutter;
+  order: 1;
+  padding: 25px;
   position: relative;
+  width: 100%;
+
+  @include breakpoint($for-mobile-landscape-up) {
+    padding: 30px 20px;
+  }
 
   .article-prominent--primary & {
     display: flex;
     flex-flow: column;
-    padding: $gutter * 1.3 $gutter * 2;
   }
 }
 
@@ -124,12 +151,10 @@
 .article-teaser__label-container {
   @include font-size(20px, 24px);
   color: $blue-medium;
-  margin: $gutter * 0.5 0;
   overflow-wrap: break-word;
 
   @include breakpoint($for-tablet-portrait-up) {
     @include font-size(22px, 28px);
-    margin: $gutter * 0.5 0 $gutter;
   }
 
   @include breakpoint($for-desktop-up) {
@@ -138,13 +163,11 @@
 }
 
 .article-teaser__label {
+  @include font-size(22px, 28px);
   @include font-weight($semibold);
-  color: $blue;
+  color: $blue-light;
 
   .listing--grid & {
-    @include font-size(22px, 28px);
-    @include font-weight($semibold);
-
     &:hover {
       color: $black;
     }
@@ -205,22 +228,6 @@
       object-fit: cover;
       object-position: center center;
       width: 100%;
-    }
-  }
-
-  @include breakpoint($for-tablet-portrait-up) {
-    .article-teaser__link {
-      display: flex;
-    }
-
-    .article-teaser__content {
-      padding: $gutter * 2;
-    }
-
-    .article-teaser__label {
-      @include font-size(22px, 28px);
-      @include font-weight($semibold);
-      color: $blue;
     }
   }
 }

@@ -13,6 +13,9 @@
 %}
 
 {% block paragraph %}
+  {% set link = content.field_p_link.0['#url'] %}
+  {% set text = content.field_p_link.0['#title'] %}
+
   <div{{ attributes.addClass(classes) }}>
     {% if content.field_p_title|render %}
       <h2 class="paragraph__title">
@@ -22,6 +25,13 @@
     {% if content.field_p_description|render %}
       <div class="paragraph__description">
         {{ content.field_p_description }}
+        {% if link and text %}
+          <div class="button-wrapper">
+            <a href="{{ link }}" class="button--cta button--cta-alternative" title="{{ text }}">
+              {{ text }}
+            </a>
+          </div>
+        {% endif %}
       </div>
     {% endif %}
 
@@ -29,14 +39,12 @@
       {{ content|without('field_p_title','field_p_link', 'field_p_description') }}
     {% endblock %}
 
-    {% set link = content.field_p_link.0['#url'] %}
-    {% set text = content.field_p_link.0['#title'] %}
-    {% set link_classes = [
-      'link--cta',
-    ] %}
-    {% if link and text %}
+    {% if not content.field_p_description|render and link and text %}
       <div class="paragraph__link">
-        <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
+        {% include "@suomidigi/misc/link.twig" with {
+          link_url: link,
+          link_text: text
+        } %}
       </div>
     {% endif %}
   </div>

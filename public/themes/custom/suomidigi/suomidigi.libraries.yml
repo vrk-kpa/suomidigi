@@ -14,6 +14,10 @@ svgxuse:
   js:
     dist/js/svgxuse.min.js: {}
 
+parallax-background:
+  js:
+    dist/js/parallaxBackground.min.js: {}
+
 # Moby.js Fixed for D8.
 # Original: https://github.com/joshsanger/moby.js
 moby:
@@ -39,3 +43,4 @@ global-scripting:
     - suomidigi/search-toggle
     - suomidigi/language-switcher
     - suomidigi/svgxuse
+    - suomidigi/parallax-background
