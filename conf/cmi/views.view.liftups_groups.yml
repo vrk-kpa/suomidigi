@@ -1,20 +1,21 @@
-uuid: 692482ad-39bc-4248-8043-883899a9708a
+uuid: 90ec9f54-cb8c-48ca-8525-945ed01fca78
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
-    - node.type.community
+    - core.entity_view_mode.group.teaser
+    - core.entity_view_mode.group.teaser_grid
+    - group.type.group
   module:
-    - node
+    - group
     - user
-id: communities
-label: 'Content: Communities'
+id: liftups_groups
+label: 'Liftups: Groups'
 module: views
-description: 'Displays all content of community content type'
+description: ''
 tag: ''
-base_table: node_field_data
-base_field: nid
+base_table: groups_field_data
+base_field: id
 core: 8.x
 display:
   default:
@@ -49,42 +50,57 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: none
+        type: some
         options:
-          items_per_page: null
+          items_per_page: 3
           offset: 0
       style:
         type: default
       row:
-        type: 'entity:node'
+        type: 'entity:group'
         options:
-          view_mode: teaser
+          relationship: none
+          view_mode: teaser_grid
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
+        label:
+          table: groups_field_data
+          field: label
+          id: label
+          entity_type: null
+          entity_field: label
           plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
+          label: ''
           exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -94,9 +110,12 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -108,31 +127,20 @@ display:
           separator: ', '
           field_api_classes: false
       filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
         type:
           id: type
-          table: node_field_data
+          table: groups_field_data
           field: type
           value:
-            community: community
-          entity_type: node
+            group: group
+          entity_type: group
           entity_field: type
           plugin_id: bundle
       sorts:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        label:
+          id: label
+          table: groups_field_data
+          field: label
           relationship: none
           group_type: group
           admin_label: ''
@@ -140,8 +148,8 @@ display:
           exposed: false
           expose:
             label: ''
-          entity_type: node
-          entity_field: title
+          entity_type: group
+          entity_field: label
           plugin_id: standard
       title: ''
       header: {  }
@@ -150,27 +158,69 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  block_1:
+  groups_grid:
     display_plugin: block
-    id: block_1
-    display_title: List
+    id: groups_grid
+    display_title: 'Groups | grid'
     position: 1
     display_options:
       display_extenders: {  }
       display_description: ''
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+        pager: false
+      row:
+        type: 'entity:group'
+        options:
+          relationship: none
+          view_mode: teaser_grid
+      pager:
+        type: some
+        options:
+          items_per_page: 3
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  groups_list:
+    display_plugin: block
+    id: groups_list
+    display_title: 'Groups | list'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:group'
+        options:
+          relationship: none
+          view_mode: teaser
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
         - user.permissions
       tags: {  }

@@ -10,7 +10,7 @@ dependencies:
     - group
     - user
 id: groups
-label: Groups
+label: 'Content: Groups'
 module: views
 description: ''
 tag: ''

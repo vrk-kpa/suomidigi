@@ -1,0 +1,22 @@
+label: 'Nostot: Sisältö'
+display:
+  articles_grid:
+    display_title: "Artikkelit |\_Ruudukko"
+  articles_list:
+    display_title: "Artikkelit |\_Lista"
+  blog_posts_grid:
+    display_title: "Blogikirjoitukset |\_Ruudukko"
+  blog_posts_list:
+    display_title: "Blogikirjoitukset |\_Lista"
+  communities_grid:
+    display_title: "Verkostot |\_Ruudukko"
+  communities_list:
+    display_title: "Verkostot |\_Lista"
+  past_events:
+    display_title: 'Menneet tapahtumat | Lista'
+  past_events_grid:
+    display_title: 'Menneet tapahtumat | Ruudukko'
+  upcoming_events:
+    display_title: 'Tulevat tapahtumat | Lista'
+  upcoming_events_grid:
+    display_title: "Tulevat tapahtumat |\_Ruudukko"
