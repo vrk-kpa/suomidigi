@@ -89,7 +89,6 @@ module:
   roleassign: 0
   route_condition: 0
   scheduler: 0
-  search: 0
   search_api: 0
   search_api_autocomplete: 0
   search_api_db: 0
