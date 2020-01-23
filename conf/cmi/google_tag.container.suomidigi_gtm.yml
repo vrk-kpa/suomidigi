@@ -1,0 +1,60 @@
+uuid: 286778ae-f9d6-46c5-9eaa-eeb2e1694257
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+    - route_condition
+    - webform
+id: suomidigi_gtm
+label: 'Suomidigi GTM'
+weight: 0
+container_id: GTM-M37QPBD
+data_layer: dataLayer
+include_classes: false
+whitelist_classes: "google\nnonGooglePixels\nnonGoogleScripts\nnonGoogleIframes"
+blacklist_classes: "customScripts\ncustomPixels"
+include_environment: false
+environment_id: ''
+environment_token: ''
+path_toggle: 'exclude listed'
+path_list: "/admin*\n/batch*\n/node/add*\n/node/*/edit\n/node/*/delete\n/user/*/edit*\n/user/*/cancel*"
+role_toggle: 'exclude listed'
+role_list: {  }
+status_toggle: 'exclude listed'
+status_list: "403\n404"
+conditions:
+  group_type:
+    id: group_type
+    group_types: {  }
+    negate: 0
+    context_mapping:
+      group: '@group.group_route_context:group'
+  route:
+    id: route
+    routes: ''
+    negate: 0
+  'entity_bundle:group':
+    id: 'entity_bundle:group'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  'entity_bundle:webform_submission':
+    id: 'entity_bundle:webform_submission'
+    bundles: {  }
+    negate: false
+    context_mapping:
+      webform_submission: '@webform.webform_submission_route_context:webform_submission'
+  webform:
+    id: webform
+    webforms: {  }
+    negate: false
+    context_mapping: {  }
