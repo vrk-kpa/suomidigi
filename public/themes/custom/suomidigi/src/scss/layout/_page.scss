@@ -49,7 +49,11 @@
 
 .page-main {
   background-image: url(../../images/art.png);
-  background-position-x: 50%;
+  background-position-x: 0;
   background-position-y: 5px;
   background-repeat: repeat-y;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    background-position-x: 50%;
+  }
 }
