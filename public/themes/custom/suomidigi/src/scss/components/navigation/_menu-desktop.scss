@@ -8,6 +8,11 @@ nav.menu--desktop {
   @include breakpoint($for-tablet-portrait-up) {
     display: block;
     overflow-x: hidden;
+
+    .is-hidden--desktop {
+      display: none;
+      visibility: hidden;
+    }
   }
 
   .menu {
