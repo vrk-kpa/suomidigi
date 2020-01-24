@@ -92,6 +92,32 @@ function suomidigi_preprocess_region(&$variables) {
       }
     }
   }
+  if ($group = \Drupal::routeMatch()->getParameter('group')) {
+    $fields = [
+      'field_group_short_description',
+      'field_group_image',
+      'label',
+      'field_group_link_cta',
+    ];
+
+    foreach ($fields as $field) {
+      if ($group->hasField($field)) {
+        if ($field == 'field_group_image') {
+          $file_uri = $group->field_group_image->entity->getFileUri();
+          if (!empty($file_uri)) {
+            $group_hero['background_image'] = ImageStyle::load('7_2_full_hd')->buildUrl($file_uri);
+          }
+        }
+        else {
+          $group_hero[$field] = $group->get($field)->view();
+        }
+      }
+    }
+
+    if (!empty($group_hero)) {
+      $variables['group_hero'] = $group_hero;
+    }
+  }
 }
 
 /**
@@ -597,8 +623,13 @@ function suomidigi_preprocess_views_view(&$variables) {
     }
   }
 
-  // Set wrapper class for group content view.
-  if ($view->id() == 'group_content') {
+  // Set wrapper classes for selected views.
+  $view_ids = [
+    'group_content',
+    'groups',
+  ];
+
+  if (in_array($view->id(), $view_ids)) {
     $variables['rows']['#theme_wrappers']['container']['#attributes']['class'][] = 'listing--list';
 
     // Change pager button text per display.

@@ -49,19 +49,6 @@
   {{ title_suffix }}
 
   <div class="group">
-    <div class="group__header">
-      <div class="group__info-wrapper">
-        <h1 class="group__title">{{ label }}</h1>
-        {% if content.field_group_short_description|render %}
-          <div class="group__description">
-            {{ content.field_group_short_description }}
-          </div>
-        {% endif %}
-      </div>
-      {% if content.field_group_image|render %}
-        {{ content.field_group_image }}
-      {% endif %}
-    </div>
     <div class="group__content-wrapper">
       <div class="group__content">
         {% if content.field_paragraphs|render %}

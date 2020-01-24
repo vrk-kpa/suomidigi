@@ -71,27 +71,18 @@
     {% endif %}
 
     <div class="has-background">
-      {% if page.messages %}
-        <div class="page-messages" id="messages">
-          <div class="container page-messages__container">
-            {{ page.messages }}
-          </div>
-        </div>
-      {% endif %}
-
-      {% if page.breadcrumb %}
-        {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
-          {% block container_content %}
-            {{ page.breadcrumb }}
-          {% endblock container_content %}
-        {% endembed %}
-      {% endif %}
-
       {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
 
       {% block content_wrapper %}
         <div class="content__wrapper container">
           {% if has_sidebar_first %}
+            {% if page.breadcrumb %}
+              {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
+                {% block container_content %}
+                  {{ page.breadcrumb }}
+                {% endblock container_content %}
+              {% endembed %}
+            {% endif %}
             <aside class="sidebar sidebar--first" id="sidebar-first" role="complementary">
               {{ page.sidebar_first }}
             </aside>
@@ -107,6 +98,22 @@
                 </section>
               </div>
               {% endblock %}
+            {% endif %}
+
+            {% if not has_sidebar_first and page.breadcrumb %}
+              {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
+                {% block container_content %}
+                  {{ page.breadcrumb }}
+                {% endblock container_content %}
+              {% endembed %}
+            {% endif %}
+
+            {% if page.messages %}
+              <div class="page-messages" id="messages">
+                <div class="container page-messages__container">
+                  {{ page.messages }}
+                </div>
+              </div>
             {% endif %}
 
             {% block content %}

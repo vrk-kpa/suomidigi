@@ -133,18 +133,9 @@
   &--mini {
     align-items: center;
     display: flex;
-    flex-basis: calc(50% - 20px);
     flex-flow: column;
     justify-items: center;
-    margin: 10px;
-
-    @include breakpoint($for-mobile-landscape-up) {
-      flex-basis: calc(33% - 20px);
-    }
-
-    @include breakpoint($for-tablet-portrait-up) {
-      flex-basis: calc(20% - 20px);
-    }
+    margin: 10px $gutter;
 
     .profile-card__picture {
       height: calc(70px + (#{$gutter} * 2));
