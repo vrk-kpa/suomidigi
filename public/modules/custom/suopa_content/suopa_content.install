@@ -115,4 +115,14 @@ function suopa_content_update_8007() {
     'fi',
     'Näytä lisää tapahtumia'
   );
+  suopa_content_add_translation(
+    "Show more groups",
+    'fi',
+    'Näytä lisää ryhmiä'
+  );
+  suopa_content_add_translation(
+    "Show more communities",
+    'fi',
+    'Näytä lisää verkostoja'
+  );
 }
