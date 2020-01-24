@@ -20,11 +20,10 @@
     box-shadow: 2px 2px 10px #00000029;
     display: flex;
     flex-flow: column;
-    margin: 0 -#{$gutter};
+    margin: 0;
 
     @include breakpoint($for-tablet-portrait-up) {
       flex-flow: row;
-      margin: 0;
     }
   }
 
@@ -147,13 +146,8 @@
   }
 
   &__after-content {
-    margin: 0 -#{$gutter};
+    margin: 0;
     padding: $gutter * 2 0;
-
-    @include breakpoint($for-tablet-portrait-up) {
-      margin: 0;
-      padding: $gutter * 2 0;
-    }
   }
 
   // TODO: Refactor these styles.
@@ -207,6 +201,7 @@
     margin: $gutter * 2 $gutter $gutter * 4;
     max-width: 650px;
     padding: 20px 20px 40px;
+    width: unset;
     z-index: 2;
 
     @include breakpoint($for-tablet-portrait-up) {
