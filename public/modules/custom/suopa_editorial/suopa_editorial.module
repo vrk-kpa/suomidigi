@@ -278,6 +278,22 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
     $form['field_displayed_author']['#suffix'] = t('Complete the author information.') . ' ' . render($link) . '.';
   }
 
+  // Hide menu selection from node basic page.
+  if (
+    $form_id == 'node_page_edit_form' ||
+    $form_id == 'node_page_form'
+  ) {
+    $user = User::load(\Drupal::currentUser()->id());
+
+    if ($user->id() == 1) {
+      return $form;
+    }
+
+    if (!$user->hasRole('editor_in_chief')) {
+      $form['menu']['#access'] = FALSE;
+    }
+  }
+
   // Hide hero paragraph from non EiC users.
   if (
     $form_id == 'node_landing_page_edit_form' ||
