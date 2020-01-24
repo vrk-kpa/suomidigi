@@ -68,6 +68,7 @@
 
 .group-teaser__content {
   background-color: $white;
+  border-radius: 0 0 5px 0;
   color: $black;
   display: flex;
   flex-flow: column;
@@ -77,6 +78,8 @@
 
   .listing--list__item & {
     @include breakpoint($for-tablet-portrait-up) {
+      border-radius: 0 5px 5px 0;
+      height: unset;
       min-height: 100%;
       padding-left: 25px;
     }
