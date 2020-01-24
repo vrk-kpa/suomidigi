@@ -40,7 +40,7 @@ content:
     settings:
       trim_length: 260
       trim_type: chars
-      trim_suffix: ''
+      trim_suffix: ...
       wrap_class: trimmed
       more_text: More
       more_class: more-link
