@@ -283,7 +283,15 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
     $form_id == 'node_page_edit_form' ||
     $form_id == 'node_page_form'
   ) {
-    $form['menu']['#access'] = FALSE;
+    $user = User::load(\Drupal::currentUser()->id());
+
+    if ($user->id() == 1) {
+      return $form;
+    }
+
+    if (!$user->hasRole('editor_in_chief')) {
+      $form['menu']['#access'] = FALSE;
+    }
   }
 
   // Hide hero paragraph from non EiC users.

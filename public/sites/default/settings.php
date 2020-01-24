@@ -71,6 +71,8 @@ if (getenv('AMAZEEIO_VARNISH_HOSTS') && getenv('AMAZEEIO_VARNISH_SECRET')) {
 $settings['trusted_host_patterns'] = array(
   '^beta\.suomidigi\.cloud\.vrk\.fi$',
   '^prod\.suomidigi\.cloud\.vrk\.fi$',
+  '^suomidigi\.fi$',
+  '^www\.suomidigi\.fi$',
   '^' . str_replace('.', '\.', getenv('AMAZEEIO_SITE_URL')) . '$',
 );
 

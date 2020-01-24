@@ -6,6 +6,7 @@ dependencies:
     - system.menu.main
   module:
     - menu_block_current_language
+    - node
     - system
   theme:
     - suomidigi
@@ -35,3 +36,17 @@ visibility:
     pages: "<front>\r\n/blogit\r\n/blogit/*\r\n/bloggar\r\n/blogs\r\n/yhteisot-ja-tapahtumat\r\n/ryhmat-ja-verkostot\r\n/lainsaadanto\r\n/tapahtumat\r\n/tapahtumat/*\r\n"
     negate: true
     context_mapping: {  }
+  node_type:
+    id: node_type
+    bundles:
+      article: article
+      blog_post: blog_post
+      community: community
+      core_content: core_content
+      event: event
+      legislation_collection_page: legislation_collection_page
+      page: page
+      webform: webform
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
