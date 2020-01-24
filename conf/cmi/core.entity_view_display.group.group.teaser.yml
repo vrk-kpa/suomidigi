@@ -14,6 +14,7 @@ dependencies:
     - group.type.group
     - image.style.6_5_half_content
   module:
+    - smart_trim
     - svg_image
 id: group.group.teaser
 targetEntityType: group
@@ -36,9 +37,21 @@ content:
   field_group_short_description:
     weight: 2
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 260
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      wrap_output: false
+      more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
+      summary_handler: full
     third_party_settings: {  }
-    type: basic_string
+    type: smart_trim
     region: content
   label:
     label: hidden
