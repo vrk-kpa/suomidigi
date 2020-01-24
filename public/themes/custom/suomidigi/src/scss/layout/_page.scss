@@ -6,7 +6,7 @@
 
 .content__wrapper {
   display: block;
-  margin-top: $gutter;
+  padding-top: $gutter;
 
   @include breakpoint($for-tablet-portrait-up) {
     display: flex;
@@ -47,7 +47,7 @@
   }
 }
 
-.page-main {
+.has-background {
   background-image: url(../../images/art.png);
   background-position-x: 0;
   background-position-y: 5px;
