@@ -1,0 +1,25 @@
+.tools__container {
+  padding-bottom: 10px;
+  position: relative;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    padding-bottom: 20px;
+  }
+
+  .local-tasks {
+    justify-content: center;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      justify-content: unset;
+    }
+  }
+
+  .path-user & {
+    @include breakpoint($for-tablet-portrait-up) {
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 10px;
+    }
+  }
+}

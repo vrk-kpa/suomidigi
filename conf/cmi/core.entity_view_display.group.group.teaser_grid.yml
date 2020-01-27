@@ -67,6 +67,7 @@ hidden:
   field_community_reference: true
   field_community_reference_desc: true
   field_community_reference_title: true
+  field_group_link_cta: true
   field_group_lists: true
   field_paragraphs: true
   langcode: true

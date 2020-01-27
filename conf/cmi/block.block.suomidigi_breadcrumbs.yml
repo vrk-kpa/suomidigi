@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - node
     - system
   theme:
     - suomidigi
@@ -21,17 +20,8 @@ settings:
   provider: system
   label_display: '0'
 visibility:
-  node_type:
-    id: node_type
-    bundles:
-      article: article
-      blog_post: blog_post
-      community: community
-      core_content: core_content
-      event: event
-      legislation_collection_page: legislation_collection_page
-      page: page
-      webform: webform
+  request_path:
+    id: request_path
+    pages: ''
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
+    context_mapping: {  }
