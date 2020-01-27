@@ -1,19 +1,4 @@
 .group {
-
-  &__header {
-    align-items: center;
-    background-color: $blue-light;
-    color: $white;
-    display: flex;
-    flex-flow: column;
-    margin: -#{$gutter} -#{$gutter} 0 -#{$gutter};
-
-    @include breakpoint($for-tablet-portrait-up) {
-      flex-flow: row;
-      margin: 0;
-    }
-  }
-
   &__info-wrapper {
     order: 1;
     padding: $gutter * 2 $gutter;
@@ -29,63 +14,42 @@
     }
   }
 
-  &__title {
-    @include font-size(26px, 33px);
-    @include font-weight($bold);
-  }
-
-  &__description {
-    @include font-size(20px, 28px);
-    @include font-weight($regular);
-    min-height: 50px;
-  }
-
-  &__image {
-    align-self: stretch;
-    line-height: 0;
-    min-height: 100%;
-    order: 2;
-    width: 100%;
-
-    @include breakpoint($for-tablet-portrait-up) {
-      width: 570px;
-    }
-
-    img {
-      min-height: 100%;
-      object-fit: cover;
-      width: 100%;
-    }
-  }
-
   &__content-wrapper {
     background-color: $white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #00000029;
     display: flex;
     flex-flow: column;
-    margin: 0 -#{$gutter};
-    padding: $gutter * 2 $gutter $gutter * 3 $gutter;
+    margin: 0;
 
     @include breakpoint($for-tablet-portrait-up) {
       flex-flow: row;
-      margin: 0;
-      padding: $gutter * 2 $gutter;
-    }
-
-    @include breakpoint($for-tablet-landscape-up) {
-      padding: $gutter * 2 100px;
     }
   }
 
   &__content {
-    @include font-size(18px, 26px);
+    @include font-size(18px, 27px);
     @include font-weight($regular);
+    border-radius: 0 0 5px 5px;
     color: $black;
+    order: 2;
+    padding: 40px 30px 30px;
     width: 100%;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      border-radius: 0 5px 5px 0;
+    }
+
+    h1 {
+      @include font-size(28px, 34px);
+      @include font-weight($semibold);
+      color: $black;
+    }
 
     h2 {
       @include font-size(22px, 28px);
       @include font-weight($semibold);
-      color: $blue;
+      color: $black;
     }
 
     p {
@@ -102,39 +66,97 @@
         color: $black;
       }
     }
+
+    .paragraph.paragraph--list-of-links {
+      .paragraph__title {
+        @include font-size(22px, 28px);
+        @include font-weight($semibold);
+        color: $black;
+        text-transform: none;
+      }
+    }
   }
 
-  &__sidebar {
+  &__updated {
     @include border('top');
     padding-top: $gutter * 2;
 
+    .label {
+      @include font-weight($semibold);
+    }
+  }
+
+  &__sidebar {
+    order: 1;
+
     @include breakpoint($for-tablet-portrait-up) {
-      border: 0 none;
-      margin-left: $gutter * 2;
+      background-color: #F0FAFF;
+      border-radius: 5px 0 0 5px;
       padding: 0;
+
       > div {
-        width: 270px;
+        width: 350px;
       }
     }
 
-    > .community {
-      @include border();
-      padding: $gutter;
+    .community__teaser-title {
+      @include font-size(22px, 28px);
+      @include font-weight($semibold);
+      color: $black;
+      margin: 0;
+      padding: 40px 20px 20px;
+    }
+
+    .community__teaser-description {
+      @include font-size(18px, 26px);
+      @include font-weight($regular);
+      margin: 0;
+      padding: 0 20px 20px;
+    }
+
+    .community__teaser {
+      background-color: #E2F2FD;
+      border: 0 none;
+
+      .community {
+        background: transparent;
+        padding: 20px;
+
+        &__domain {
+          @include font-size(16px, 20px);
+          @include font-weight($regular);
+          color: $black;
+          margin-bottom: 0;
+          text-transform: none;
+        }
+
+        &__title {
+          @include font-size(22px, 28px);
+          @include font-weight($semibold);
+          color: $black;
+          margin-bottom: $gutter;
+        }
+
+        &__content,
+        &__content p {
+          @include font-size(18px, 26px);
+          border: 0 none;
+          color: $black;
+          margin: 0;
+          padding: 0;
+        }
+
+        &__cta {
+          @include font-size(18px, 26px);
+          @include font-weight($regular);
+        }
+      }
     }
   }
 
   &__after-content {
-    margin: 0 -#{$gutter};
-    padding: $gutter * 2 $gutter $gutter * 3 $gutter;
-
-    @include breakpoint($for-tablet-portrait-up) {
-      margin: 0;
-      padding: $gutter * 2 $gutter;
-    }
-
-    @include breakpoint($for-tablet-landscape-up) {
-      padding: $gutter * 2 100px;
-    }
+    margin: 0;
+    padding: $gutter * 2 0;
   }
 
   // TODO: Refactor these styles.
@@ -152,6 +174,100 @@
 
       @include breakpoint($for-tablet-portrait-up) {
         width: calc(50% - (#{$gutter} * 2));
+      }
+    }
+  }
+}
+
+.page-before_content--group .title__container {
+  display: none;
+  visibility: hidden;
+}
+
+.group__hero {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  min-height: 430px;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    height: auto;
+    min-height: 340px;
+  }
+
+  .group__hero-wrapper {
+    margin: 0 auto;
+    max-width: $container-desktop;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .group__content {
+    background-color: $white;
+    border-radius: $gutter / 3;
+    box-shadow: 2px 2px 30px #3636364D;
+    margin: $gutter * 2 $gutter $gutter * 4;
+    max-width: 650px;
+    padding: 20px 20px 40px;
+    width: unset;
+    z-index: 2;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin: $gutter * 4 $gutter $gutter * 2;
+      max-width: 730px;
+    }
+
+    @include breakpoint(1200px) {
+      margin: $gutter * 4 0 $gutter * 2;
+    }
+  }
+
+  .group__title {
+    @include font-size(40px, 50px);
+    @include font-weight($semibold);
+    color: $blue;
+    letter-spacing: 0;
+    margin-bottom: $gutter;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .group__description {
+    @include font-size(22px, 30px);
+    @include font-weight($regular);
+    color: $black;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-bottom: $gutter * 2;
+    }
+  }
+
+  .group__link {
+    align-items: center;
+    display: flex;
+
+    .icon {
+      color: $purple;
+      margin-left: -7px;
+      max-height: 20px;
+      max-width: 20px;
+    }
+
+    > a {
+      @include font-size(18px, 23px);
+      @include font-weight($regular);
+      color: $blue-light;
+      display: inline-block;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: $black;
       }
     }
   }

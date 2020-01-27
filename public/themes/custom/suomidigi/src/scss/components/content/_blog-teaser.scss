@@ -51,7 +51,11 @@
 
   .listing--list__item & {
     order: 1;
-    width: 350px;
+    width: 100%;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      width: 350px;
+    }
 
     > div {
       height: 100%;
