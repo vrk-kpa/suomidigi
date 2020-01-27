@@ -11,16 +11,16 @@
   padding: 0;
 
   .local-task {
-    margin: $gutter / 3;
+    margin: 0;
 
     a {
       @include button;
       @include font-size(14px, 18px);
-
       background-color: $white;
       border: 1px solid $blue;
       box-shadow: 0 3px 6px #00000029;
       color: $blue;
+      margin: $gutter / 3 $gutter / 3 $gutter * 1.4;
 
       &.is-active {
         background-color: $blue;

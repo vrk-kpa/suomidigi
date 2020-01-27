@@ -1,10 +1,5 @@
 .tools__container {
-  padding-bottom: 10px;
   position: relative;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    padding-bottom: 20px;
-  }
 
   .local-tasks {
     justify-content: center;

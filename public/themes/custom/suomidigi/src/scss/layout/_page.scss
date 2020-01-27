@@ -6,7 +6,6 @@
 
 .content__wrapper {
   display: block;
-  padding-top: $gutter;
 
   @include breakpoint($for-tablet-portrait-up) {
     display: flex;

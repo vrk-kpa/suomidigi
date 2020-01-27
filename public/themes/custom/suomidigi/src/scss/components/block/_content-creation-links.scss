@@ -1,11 +1,16 @@
 .block-group-operations,
 .block-content-creation-links-block {
+  bottom: 10px;
   margin: $gutter * 1.86 $gutter 0 $gutter;
   padding: $gutter / 3;
   position: absolute;
   right: 0;
-  top: 0;
   z-index: 1;
+
+  .path-user & {
+    bottom: unset;
+    top: 0;
+  }
 
   @include breakpoint($for-tablet-portrait-up) {
     margin: $gutter $gutter 0 $gutter;

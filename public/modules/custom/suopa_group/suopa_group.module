@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\group\Entity\Group;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
@@ -171,6 +172,35 @@ function suopa_group_preprocess_entity_add_list(&$variables) {
           $bundle['add_link']->setUrl($url);
         }
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Remove obsolete local task links from prying eyes.
+ */
+function suopa_editorial_preprocess_menu_local_task(&$variables) {
+  $url = $variables['element']['#link']['url'];
+  if (
+    $url->getRouteName() !== 'entity.group.content_translation_overview' &&
+    $url->getRouteName() !== 'entity.group.canonical'
+  ) {
+    return;
+  }
+
+  $user = \Drupal::currentUser();
+  if ($user->id() === 1) {
+    return;
+  }
+
+  $guid = $url->getRouteParameters()['group'];
+
+  if (!empty($guid)) {
+    $group = Group::load($guid);
+    if ($group && !$group->getMember($user)) {
+      unset($variables['link']);
     }
   }
 }
