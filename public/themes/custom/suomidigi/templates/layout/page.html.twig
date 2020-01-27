@@ -74,15 +74,17 @@
       {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
 
       {% block content_wrapper %}
+
+        {% if has_sidebar_first and page.breadcrumb %}
+          {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
+            {% block container_content %}
+              {{ page.breadcrumb }}
+            {% endblock container_content %}
+          {% endembed %}
+        {% endif %}
+
         <div class="content__wrapper container">
           {% if has_sidebar_first %}
-            {% if page.breadcrumb %}
-              {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
-                {% block container_content %}
-                  {{ page.breadcrumb }}
-                {% endblock container_content %}
-              {% endembed %}
-            {% endif %}
             <aside class="sidebar sidebar--first" id="sidebar-first" role="complementary">
               {{ page.sidebar_first }}
             </aside>
