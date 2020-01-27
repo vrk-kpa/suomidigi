@@ -860,4 +860,5 @@ function suomidigi_preprocess_comment__field_comments(&$variables) {
  */
 function suomidigi_preprocess_group(&$variables) {
   $variables['group_url'] = $variables['group']->toUrl()->toString();
+  $variables['group_changed'] = $variables['group']->changed->value;
 }

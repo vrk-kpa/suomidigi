@@ -77,6 +77,15 @@
     }
   }
 
+  &__updated {
+    @include border('top');
+    padding-top: $gutter * 2;
+
+    .label {
+      @include font-weight($semibold);
+    }
+  }
+
   &__sidebar {
     order: 1;
 

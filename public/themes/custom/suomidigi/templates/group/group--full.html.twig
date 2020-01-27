@@ -54,6 +54,9 @@
         {% if content.field_paragraphs|render %}
           {{ content.field_paragraphs }}
         {% endif %}
+        {% if group_changed is not empty %}
+          <div class="group__updated"><span class="label">{{ 'Updated'|t }}:</span> {{ group_changed|date('j.n.Y') }}</div>
+        {% endif %}
       </div>
 
       {% if
