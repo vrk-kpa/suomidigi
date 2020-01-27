@@ -27,6 +27,7 @@
         "drupal/cdn": "^3.2",
         "drupal/ckwordcount": "^1.0",
         "drupal/comments_order": "^1.0",
+        "drupal/context": "^4.0@beta",
         "drupal/core": "8.7.11",
         "drupal/daterange_compact": "1.x-dev",
         "drupal/dropzonejs": "^2.0-alpha4",
@@ -139,6 +140,9 @@
             },
             "drupal/field_group": {
                 "Add title to horizontal tabs on field groups.": "patches/field_group_horizontal_tabs_title.patch"
+            },
+            "drupal/menu_trail_by_path": {
+                "https://www.drupal.org/project/menu_trail_by_path/issues/2914746": "https://www.drupal.org/files/issues/2020-01-10/menu_trail_by_path-fatal_error_on_menu_active_trail_service_override-2914746-18.patch"
             },
             "drupal/group": {
                 "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
