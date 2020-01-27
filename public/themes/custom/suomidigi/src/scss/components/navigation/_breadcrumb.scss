@@ -2,7 +2,7 @@
   @include font-size(14px, 20px);
   color: $gray-darker;
   margin: 0;
-  padding: $gutter / 1.25 0 $gutter * 1.4;
+  padding: $gutter / 1.25 0 0;
 
   a {
     color: $blue-light;

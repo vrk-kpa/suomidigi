@@ -92,6 +92,14 @@
 
           <main class="page-main" id="main" role="main">
             <a id="main-content" tabindex="-1"></a>
+            {% if not has_sidebar_first and page.breadcrumb %}
+              {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
+                {% block container_content %}
+                  {{ page.breadcrumb }}
+                {% endblock container_content %}
+              {% endembed %}
+            {% endif %}
+
             {% if page.before_content %}
               {% block before_content %}
               <div class="page-before_content page-before_content--{{ before_content_element }}" id="before_content">
@@ -100,14 +108,6 @@
                 </section>
               </div>
               {% endblock %}
-            {% endif %}
-
-            {% if not has_sidebar_first and page.breadcrumb %}
-              {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
-                {% block container_content %}
-                  {{ page.breadcrumb }}
-                {% endblock container_content %}
-              {% endembed %}
             {% endif %}
 
             {% if page.messages %}

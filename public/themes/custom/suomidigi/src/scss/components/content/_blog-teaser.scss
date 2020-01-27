@@ -111,6 +111,10 @@
       min-height: 100%;
       object-fit: cover;
       width: 100%;
+
+      .listing__item & {
+        border-radius: 0 5px 5px 0;
+      }
     }
   }
 }
