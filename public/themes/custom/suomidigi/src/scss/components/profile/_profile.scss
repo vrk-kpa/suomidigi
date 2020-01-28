@@ -1,14 +1,13 @@
 .profile {
+  &__my-bookmarks,
+  &__own-content {
+    margin-bottom: $gutter * 2;
+    margin-top: $gutter;
+    width: 100%;
 
-}
-
-.profile__own-content {
-  margin-top: $gutter;
-  width: 100%;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    margin-top: 0;
-  }
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-top: 0;
+    }
 
   h2 {
     @include font-size(22px, 28px);
@@ -21,7 +20,8 @@
   }
 }
 
-.views--profile-own-content {
+.views--profile-own-content,
+.views--profile-my-bookmarks {
   .views-row-wrapper {
     display: flex;
     flex-direction: column;
