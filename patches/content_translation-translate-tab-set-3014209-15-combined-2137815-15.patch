@@ -1,0 +1,148 @@
+diff --git a/core/modules/content_translation/content_translation.module b/core/modules/content_translation/content_translation.module
+index 9518815640..1366a7848a 100644
+--- a/core/modules/content_translation/content_translation.module
++++ b/core/modules/content_translation/content_translation.module
+@@ -372,9 +372,17 @@ function content_translation_menu_links_discovered_alter(array &$links) {
+  */
+ function content_translation_translate_access(EntityInterface $entity) {
+   $account = \Drupal::currentUser();
++  $bundle_permission = NULL;
++  if ($account->hasPermission('translate any entity')) {
++    $bundle_permission = 'translate any entity';
++  }
++  elseif ($permission_granularity = $entity->getEntityType()->getPermissionGranularity()) {
++    $bundle_permission = $permission_granularity == 'bundle' ? "translate {$entity->bundle()} {$entity->getEntityTypeId()}" : "translate {$entity->getEntityTypeId()}";
++  }
+   $condition = $entity instanceof ContentEntityInterface && $entity->access('view') &&
+     !$entity->getUntranslated()->language()->isLocked() && \Drupal::languageManager()->isMultilingual() && $entity->isTranslatable() &&
+-    ($account->hasPermission('create content translations') || $account->hasPermission('update content translations') || $account->hasPermission('delete content translations'));
++    ($account->hasPermission('create content translations') || $account->hasPermission('update content translations') || $account->hasPermission('delete content translations')) &&
++    !is_null($bundle_permission) && $account->hasPermission($bundle_permission);
+   return AccessResult::allowedIf($condition)->cachePerPermissions()->addCacheableDependency($entity);
+ }
+ 
+diff --git a/core/modules/content_translation/src/Access/ContentTranslationManageAccessCheck.php b/core/modules/content_translation/src/Access/ContentTranslationManageAccessCheck.php
+index 424b802a16..2a919dd572 100644
+--- a/core/modules/content_translation/src/Access/ContentTranslationManageAccessCheck.php
++++ b/core/modules/content_translation/src/Access/ContentTranslationManageAccessCheck.php
+@@ -94,10 +94,6 @@ public function access(Route $route, RouteMatchInterface $route_match, AccountIn
+         }
+       }
+ 
+-      if ($account->hasPermission('translate any entity')) {
+-        return AccessResult::allowed()->cachePerPermissions();
+-      }
+-
+       switch ($operation) {
+         case 'create':
+           /* @var \Drupal\content_translation\ContentTranslationHandlerInterface $handler */
+diff --git a/core/modules/content_translation/src/Access/ContentTranslationOverviewAccess.php b/core/modules/content_translation/src/Access/ContentTranslationOverviewAccess.php
+index 6ae3b32a87..fdbecb3350 100644
+--- a/core/modules/content_translation/src/Access/ContentTranslationOverviewAccess.php
++++ b/core/modules/content_translation/src/Access/ContentTranslationOverviewAccess.php
+@@ -65,20 +65,7 @@ public function access(RouteMatchInterface $route_match, AccountInterface $accou
+       if ($access->isAllowed()) {
+         return $access;
+       }
+-
+-      // Check "translate any entity" permission.
+-      if ($account->hasPermission('translate any entity')) {
+-        return AccessResult::allowed()->cachePerPermissions()->inheritCacheability($access);
+-      }
+-
+-      // Check per entity permission.
+-      $permission = "translate {$entity_type_id}";
+-      if ($definition->getPermissionGranularity() == 'bundle') {
+-        $permission = "translate {$bundle} {$entity_type_id}";
+-      }
+-      return AccessResult::allowedIfHasPermission($account, $permission)->inheritCacheability($access);
+     }
+-
+     // No opinion.
+     return AccessResult::neutral();
+   }
+diff --git a/core/modules/content_translation/src/ContentTranslationHandler.php b/core/modules/content_translation/src/ContentTranslationHandler.php
+index 7e9e980a1a..ffcb0b05cd 100644
+--- a/core/modules/content_translation/src/ContentTranslationHandler.php
++++ b/core/modules/content_translation/src/ContentTranslationHandler.php
+@@ -289,13 +289,16 @@ public function getTranslationAccess(EntityInterface $entity, $op) {
+     // @todo Move this logic into a translation access control handler checking also
+     //   the translation language and the given account.
+     $entity_type = $entity->getEntityType();
+-    $translate_permission = TRUE;
+-    // If no permission granularity is defined this entity type does not need an
+-    // explicit translate permission.
+-    if (!$this->currentUser->hasPermission('translate any entity') && $permission_granularity = $entity_type->getPermissionGranularity()) {
+-      $translate_permission = $this->currentUser->hasPermission($permission_granularity == 'bundle' ? "translate {$entity->bundle()} {$entity->getEntityTypeId()}" : "translate {$entity->getEntityTypeId()}");
++    $bundle_permission = FALSE;
++    // Check "translate any entity" permission.
++    if ($this->currentUser->hasPermission('translate any entity')) {
++      $bundle_permission = TRUE;
+     }
+-    return AccessResult::allowedIf($translate_permission && $this->currentUser->hasPermission("$op content translations"))->cachePerPermissions();
++    elseif ($permission_granularity = $entity_type->getPermissionGranularity()) {
++      // Check bundle translation permission.
++      $bundle_permission = $this->currentUser->hasPermission($permission_granularity == 'bundle' ? "translate {$entity->bundle()} {$entity->getEntityTypeId()}" : "translate {$entity->getEntityTypeId()}");
++    }
++    return AccessResult::allowedIf($bundle_permission && $this->currentUser->hasPermission("$op content translations"))->cachePerPermissions();
+   }
+ 
+   /**
+diff --git a/core/modules/content_translation/tests/src/Functional/ContentTranslationContextualLinksTest.php b/core/modules/content_translation/tests/src/Functional/ContentTranslationContextualLinksTest.php
+index b85c3aad5d..3dc73d76c2 100644
+--- a/core/modules/content_translation/tests/src/Functional/ContentTranslationContextualLinksTest.php
++++ b/core/modules/content_translation/tests/src/Functional/ContentTranslationContextualLinksTest.php
+@@ -92,6 +92,7 @@ protected function setUp() {
+       'administer nodes',
+       "edit any $this->bundle content",
+       'translate any entity',
++      'create content translations',
+     ];
+     $this->translator = $this->drupalCreateUser($permissions);
+   }
+diff --git a/core/modules/content_translation/tests/src/Functional/ContentTranslationOperationsTest.php b/core/modules/content_translation/tests/src/Functional/ContentTranslationOperationsTest.php
+index fc0f788a6a..085f618e81 100644
+--- a/core/modules/content_translation/tests/src/Functional/ContentTranslationOperationsTest.php
++++ b/core/modules/content_translation/tests/src/Functional/ContentTranslationOperationsTest.php
+@@ -53,7 +53,7 @@ protected function setUp() {
+     \Drupal::service('router.builder')->rebuild();
+ 
+     $this->baseUser1 = $this->drupalCreateUser(['access content overview']);
+-    $this->baseUser2 = $this->drupalCreateUser(['access content overview', 'create content translations', 'update content translations', 'delete content translations']);
++    $this->baseUser2 = $this->drupalCreateUser(['access content overview', 'create content translations', 'update content translations', 'delete content translations', 'translate any entity']);
+   }
+ 
+   /**
+@@ -127,7 +127,7 @@ public function testOperationTranslateLink() {
+    */
+   public function testContentTranslationOverviewAccess() {
+     $access_control_handler = \Drupal::entityManager()->getAccessControlHandler('node');
+-    $user = $this->createUser(['create content translations', 'access content']);
++    $user = $this->createUser(['translate any entity', 'create content translations', 'access content']);
+     $this->drupalLogin($user);
+ 
+     $node = $this->drupalCreateNode(['status' => FALSE, 'type' => 'article']);
+diff --git a/core/modules/content_translation/tests/src/FunctionalJavascript/ContentTranslationContextualLinksTest.php b/core/modules/content_translation/tests/src/FunctionalJavascript/ContentTranslationContextualLinksTest.php
+index 156b10d97f..4721f46956 100644
+--- a/core/modules/content_translation/tests/src/FunctionalJavascript/ContentTranslationContextualLinksTest.php
++++ b/core/modules/content_translation/tests/src/FunctionalJavascript/ContentTranslationContextualLinksTest.php
+@@ -52,6 +52,7 @@ protected function setUp() {
+       'administer nodes',
+       'edit any page content',
+       'translate any entity',
++      'create content translations',
+     ];
+     $this->translator = $this->drupalCreateUser($permissions);
+   }
+diff --git a/core/modules/node/tests/src/Functional/NodeAccessLanguageFallbackTest.php b/core/modules/node/tests/src/Functional/NodeAccessLanguageFallbackTest.php
+index 4beacc3423..36779bc9e0 100644
+--- a/core/modules/node/tests/src/Functional/NodeAccessLanguageFallbackTest.php
++++ b/core/modules/node/tests/src/Functional/NodeAccessLanguageFallbackTest.php
+@@ -62,6 +62,7 @@ public function testNodeAccessLanguageFallback() {
+       'bypass node access',
+       'administer nodes',
+       'translate any entity',
++      'create content translations',
+       'administer content translation',
+     ]);
+     $this->drupalLogin($admin);
