@@ -11,7 +11,7 @@ id: group.group.field_group_link_cta
 field_name: field_group_link_cta
 entity_type: group
 bundle: group
-label: 'Link'
+label: Link
 description: ''
 required: false
 translatable: true

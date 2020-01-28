@@ -9,5 +9,6 @@ display:
         area_text_custom:
           content: 'Inga kommentarer tillgängliga.'
   block_1:
+    display_title: Block
     display_options:
       block_description: 'Senaste kommentarer'

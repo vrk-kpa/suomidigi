@@ -379,7 +379,8 @@ function suomidigi_preprocess_block(&$variables) {
     if ($node = \Drupal::routeMatch()->getParameter('node')) {
       if (
         $node->getType() == 'article' ||
-        $node->getType() == 'event'
+        $node->getType() == 'event' ||
+        $node->getType() == 'page'
       ) {
         $variables['hide_block'] = TRUE;
       }

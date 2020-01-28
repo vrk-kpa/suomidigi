@@ -34,6 +34,14 @@
       </div>
     {% endif %}
 
+    {% if page.tools %}
+      {% embed "@suomidigi/misc/container.twig" with {container_element: 'tools'} %}
+        {% block container_content %}
+          {{ page.tools }}
+        {% endblock container_content %}
+      {% endembed %}
+    {% endif %}
+
     {% if has_sidebar_first %}
       {% if page.breadcrumb %}
         {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}

@@ -10,7 +10,7 @@ dependencies:
 id: contentcreationlinksblock
 theme: suomidigi
 region: after_content
-weight: -13
+weight: -9
 provider: null
 plugin: content_creation_links_block
 settings:

@@ -44,6 +44,14 @@
         {% endembed %}
       {% endif %}
 
+      {% if page.tools %}
+        {% embed "@suomidigi/misc/container.twig" with {container_element: 'tools'} %}
+          {% block container_content %}
+            {{ page.tools }}
+          {% endblock container_content %}
+        {% endembed %}
+      {% endif %}
+
       {% block content %}
         <div class="container">
           <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
