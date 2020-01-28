@@ -50,9 +50,10 @@ nav.menu--sidebar {
       > span,
       > a {
         @include border('bottom');
+        @include font-weight($semibold);
         color: $blue;
-        font-weight: bold;
         letter-spacing: 0;
+        padding-left: 20px;
       }
     }
 

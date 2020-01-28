@@ -1,12 +1,86 @@
+.page-type--blog_post {
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px #00000029;
+  margin-bottom: $gutter * 4;
+  margin-top: $gutter * 2;
+
+  .section--content {
+    margin: 0 auto;
+    max-width: $content-area;
+    padding: $gutter * 2;
+  }
+
+  .has-background & {
+    background-color: transparent;
+    border: 0 none;
+    box-shadow: none;
+
+    .section--content {
+      margin: 0;
+      padding: 0;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        padding: 0 $gutter * 2 0 0;
+      }
+    }
+
+    .blog__author--prominent,
+    .comments__container {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-left: -160px;
+        margin-right: 190px;
+      }
+    }
+
+    .blog__author--prominent {
+      .content__border {
+        @include breakpoint($for-tablet-portrait-up) {
+          margin-left: -120px;
+          margin-right: -120px;
+        }
+      }
+    }
+
+    .content__border {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-left: -280px;
+        margin-right: 70px;
+
+      }
+    }
+  }
+}
+
 .blog {
   padding-bottom: $gutter * 2;
 }
 
+.blog__title {
+  h1 {
+    @include font-size(40px, 50px);
+    @include font-weight($semibold);
+    color: $blue-medium;
+    margin-bottom: $gutter * 2;
+  }
+}
+
+.blog__lead {
+  @include font-size(22px, 30px);
+  @include font-weight($regular);
+  margin-bottom: $gutter;
+
+  @include breakpoint($for-tablet-landscape-up) {
+    margin-bottom: $gutter * 2;
+  }
+}
+
 .blog__data {
-  color: $gray-darker;
+  @include font-size(18px, 27px);
+  @include font-weight($regular);
+  color: $black;
   display: flex;
   flex-wrap: wrap;
-  font-size: 0.875rem;
 }
 
 .blog__data-item {
@@ -33,6 +107,8 @@
 }
 
 .blog__author {
+  @include font-weight($semibold);
+  color: $blue-light;
   display: flex;
   flex-wrap: wrap;
 
@@ -70,12 +146,7 @@
   }
 }
 
-.blog__lead {
-  font-weight: 600;
-  margin-bottom: $gutter;
-
-  @include breakpoint($for-tablet-landscape-up) {
-    font-size: 1.125rem;
-    margin-bottom: $gutter * 1.5;
-  }
+.blog__social-sharing {
+  margin-top: $gutter / 2;
+  padding-top: $gutter * 1.7;
 }

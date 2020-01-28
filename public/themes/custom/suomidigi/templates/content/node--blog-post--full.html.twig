@@ -18,6 +18,11 @@
 
 <article{{ attributes.addClass(classes) }}>
   <div class="blog__header">
+    <div class="blog__title">
+      <h1>
+        {{ label }}
+      </h1>
+    </div>
     <div class="blog__data">
       <div class="blog__data-item blog__type">
         {{ content.field_blog_type }}
@@ -46,24 +51,27 @@
     <div class="blog__image">
       {{ content.field_header_image }}
     </div>
-  </div>
-  <div class="blog__content">
     {% if content.field_ingress|render %}
       <div class="blog__lead">
         {{ content.field_ingress }}
       </div>
     {% endif %}
+  </div>
+  <div class="blog__content">
     {% if content.field_paragraphs|render %}
       <div class="blog__contents">
           {{ content.field_paragraphs }}
       </div>
     {% endif %}
-
+    <div class="blog__social-sharing">
+      {{ drupal_block('suopa_content_social_sharing_block') }}
+    </div>
     {% if content.field_displayed_author_footer|render %}
       <div class="blog__author--prominent author author--prominent">
         {{ content.field_displayed_author_footer }}
       </div>
     {% endif %}
+    <div class="content__border"></div>
   </div>
 
   {% if content.field_comments|render %}
@@ -71,5 +79,4 @@
       {{ content.field_comments }}
     </div>
   {% endif %}
-
 </article>

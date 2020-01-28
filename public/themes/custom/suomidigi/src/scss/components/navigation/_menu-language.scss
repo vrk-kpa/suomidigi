@@ -108,7 +108,7 @@
           }
 
           &.is-active {
-            font-weight: bold;
+            @include font-weight($semibold);
           }
         }
 

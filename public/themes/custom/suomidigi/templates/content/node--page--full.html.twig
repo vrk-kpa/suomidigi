@@ -23,9 +23,21 @@
         {{ label }}
       </h1>
     </div>
+    {% if content.field_header_image|render %}
+      <div class="basic-page__image">
+        {{ content.field_header_image }}
+      </div>
+    {% endif %}
     {% if content.field_ingress|render %}
       <div class="basic-page__lead">
         {{ content.field_ingress }}
+      </div>
+    {% endif %}
+  </div>
+  <div class="basic-page__content">
+    {% if content.field_paragraphs|render %}
+      <div class="basic-page__contents">
+          {{ content.field_paragraphs }}
       </div>
     {% endif %}
     {% if content.field_displayed_author|render or content.field_displayed_update_time|render %}
@@ -40,18 +52,6 @@
             <span class="basic-page__modified-text">{{ 'Updated on'|trans }}</span> <span class="basic-page__modified-date">{{ content.field_displayed_update_time }}</span>
           </span>
         {% endif %}
-      </div>
-    {% endif %}
-    {% if content.field_header_image|render %}
-      <div class="basic-page__image">
-        {{ content.field_header_image }}
-      </div>
-    {% endif %}
-  </div>
-  <div class="basic-page__content">
-    {% if content.field_paragraphs|render %}
-      <div class="basic-page__contents">
-          {{ content.field_paragraphs }}
       </div>
     {% endif %}
   </div>

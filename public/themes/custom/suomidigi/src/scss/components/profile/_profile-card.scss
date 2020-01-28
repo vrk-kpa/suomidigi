@@ -19,6 +19,11 @@
     padding: $gutter * 2;
     width: calc(210px + (#{$gutter} * 2 * 2));
 
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-left: -#{$gutter * 2}
+    }
+
+    .blog__author--prominent &,
     .article__author--prominent & {
       height: calc(170px + (#{$gutter} * 2 * 2));
       min-width: calc(170px + (#{$gutter} * 2 * 2));
@@ -60,6 +65,7 @@
         margin-bottom: $gutter;
         padding-bottom: $gutter * 1.35;
 
+        .blog__author--prominent &,
         .article__author--prominent & {
           border-bottom: 0 none;
           padding-bottom: 0;
@@ -126,7 +132,8 @@
     }
   }
 
-  .article__author--prominent & {
+  .article__author--prominent,
+  .blog__author--prominent & {
     border-bottom: 0 none;
   }
 

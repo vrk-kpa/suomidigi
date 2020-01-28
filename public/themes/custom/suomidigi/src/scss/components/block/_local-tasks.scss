@@ -6,7 +6,11 @@
   }
 
   .local-tasks {
-    margin: 0 -5px;
+    margin: 10px -5px;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      margin: 0 -5px;
+    }
   }
 
   @include breakpoint($for-tablet-portrait-up) {
