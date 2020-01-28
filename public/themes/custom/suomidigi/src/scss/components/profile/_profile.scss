@@ -9,14 +9,15 @@
       margin-top: 0;
     }
 
-  h2 {
-    @include font-size(22px, 28px);
-    @include border('bottom');
-    color: $blue;
-    font-weight: 600;
-    letter-spacing: 0;
-    padding-bottom: 10px;
-    width: 100%;
+    h2 {
+      @include font-size(22px, 28px);
+      @include border('bottom');
+      color: $blue;
+      font-weight: 600;
+      letter-spacing: 0;
+      padding-bottom: 10px;
+      width: 100%;
+    }
   }
 }
 
@@ -42,3 +43,4 @@
     }
   }
 }
+

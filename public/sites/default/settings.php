@@ -53,18 +53,18 @@ if (getenv('AMAZEEIO_SOLR_HOST') && getenv('AMAZEEIO_SOLR_PORT')) {
   $config['search_api.server.solr']['name'] = 'AmazeeIO Solr - Environment: ' . getenv('AMAZEEIO_SITE_ENVIRONMENT');
 }
 
-### amazee.io Varnish & Reverse proxy settings
-if (getenv('AMAZEEIO_VARNISH_HOSTS') && getenv('AMAZEEIO_VARNISH_SECRET')) {
-  $varnish_hosts = explode(',', getenv('AMAZEEIO_VARNISH_HOSTS'));
-  array_walk($varnish_hosts, function(&$value, $key) { $value .= ':6082'; });
-
-  $settings['reverse_proxy'] = TRUE;
-  $settings['reverse_proxy_addresses'] = array_merge(explode(',', getenv('AMAZEEIO_VARNISH_HOSTS')), array('127.0.0.1'));
-
-  $config['varnish.settings']['varnish_control_terminal'] = implode($varnish_hosts, " ");
-  $config['varnish.settings']['varnish_control_key'] = getenv('AMAZEEIO_VARNISH_SECRET');
-  $config['varnish.settings']['varnish_version'] = 4;
-}
+//### amazee.io Varnish & Reverse proxy settings
+//if (getenv('AMAZEEIO_VARNISH_HOSTS') && getenv('AMAZEEIO_VARNISH_SECRET')) {
+//  $varnish_hosts = explode(',', getenv('AMAZEEIO_VARNISH_HOSTS'));
+//  array_walk($varnish_hosts, function(&$value, $key) { $value .= ':6082'; });
+//
+//  $settings['reverse_proxy'] = TRUE;
+//  $settings['reverse_proxy_addresses'] = array_merge(explode(',', getenv('AMAZEEIO_VARNISH_HOSTS')), array('127.0.0.1'));
+//
+//  $config['varnish.settings']['varnish_control_terminal'] = implode($varnish_hosts, " ");
+//  $config['varnish.settings']['varnish_control_key'] = getenv('AMAZEEIO_VARNISH_SECRET');
+//  $config['varnish.settings']['varnish_version'] = 4;
+//}
 
 ### Trusted Host Patterns, see https://www.drupal.org/node/2410395 for more information.
 ### If your site runs on multiple domains, you need to add these domains here

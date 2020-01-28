@@ -16,7 +16,6 @@
   ]
 %}
 
-{{ flag_link }}
 <article{{ attributes.addClass(classes) }}>
   <div class="article__header">
     <div class="article__type">
@@ -53,6 +52,7 @@
           <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
         </span>
       {% endif %}
+      {{ flag_link }}
     </div>
     <div class="article__image">
       {{ content.field_header_image }}
@@ -71,7 +71,7 @@
       </div>
     {% endif %}
   </div>
-
+  {{ flag_link }}
   {% if content.field_comments|render %}
     <div class="comments comments__container">
       {{ content.field_comments }}
@@ -80,5 +80,4 @@
   <div class="article__social-sharing">
     {{ drupal_block('suopa_content_social_sharing_block') }}
   </div>
-
 </article>
