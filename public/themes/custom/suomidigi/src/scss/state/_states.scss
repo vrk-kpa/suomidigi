@@ -1,14 +1,3 @@
 .is-hidden {
   display: none;
 }
-
-
-#block-menu-desktop {
-  .is-hidden--desktop {
-
-    @include breakpoint($for-tablet-portrait-up) {
-      display: none;
-      visibility: hidden;
-    }
-  }
-}
