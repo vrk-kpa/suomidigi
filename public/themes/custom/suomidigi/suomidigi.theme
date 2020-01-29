@@ -56,6 +56,11 @@ function suomidigi_preprocess_page(&$variables) {
   // Set entities as variables for templates.
   $variables['webform'] = Drupal::routeMatch()->getParameters()->get('webform');
 
+  // Set taxonomy term as variable for template.
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+    $variables['taxonomy_term'] = TRUE;
+  }
+
   // Set section area based on entity type.
   $entities = [
     'article',
@@ -408,6 +413,13 @@ function suomidigi_theme_suggestions_block_alter(array &$suggestions, array $var
   if (isset($variables['elements']['content']['#block_content'])) {
     $suggestions[] = 'block__' . $variables['elements']['content']['#block_content']->bundle();
   }
+
+  if (
+    isset($variables['elements']['#configuration']['context_id']) &&
+    $variables['elements']['#configuration']['context_id'] == 'sidebar'
+  ) {
+    $suggestions[] = 'block__menu_sidebar';
+  }
 }
 
 /**
@@ -539,6 +551,9 @@ function suomidigi_theme_suggestions_menu_alter(&$suggestions, $variables) {
         $suggestions[] = 'menu__' . $variables['attributes']['block_id'];
         break;
     }
+  }
+  elseif ($variables['menu_name'] == 'main') {
+    $suggestions[] = 'menu__sidebar';
   }
 }
 

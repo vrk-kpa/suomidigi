@@ -210,7 +210,7 @@ display:
           entity_type: taxonomy_term
           entity_field: weight
           plugin_id: standard
-      title: Shortcuts
+      title: Theme
       header: {  }
       footer: {  }
       empty: {  }

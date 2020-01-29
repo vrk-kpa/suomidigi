@@ -79,7 +79,7 @@
   &__time {
     @include font-size(18px, 27px);
     @include font-weight($regular);
-    color: $gray-darker;
+    color: $gray-dark;
     margin: 0 $gutter 0 0;
 
     em {

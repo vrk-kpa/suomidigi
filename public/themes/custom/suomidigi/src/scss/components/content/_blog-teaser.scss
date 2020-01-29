@@ -140,7 +140,7 @@
 .blog-teaser__date {
   @include font-size(16px, 20px);
   @include font-weight($semibold);
-  color: $gray-darker;
+  color: $gray-dark;
   letter-spacing: 0;
   margin-bottom: 10px;
 }

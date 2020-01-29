@@ -204,7 +204,7 @@ blockquote {
   @include font-size(24px, 36px);
   @include font-weight($regular);
   border-left: 5px solid $purple;
-  color: $gray-darker;
+  color: $gray-dark;
   letter-spacing: 0;
   margin: $gutter * 3;
   padding-left: 25px;

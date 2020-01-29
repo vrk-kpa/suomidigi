@@ -6,7 +6,7 @@
   h1 {
     @include font-size(40px, 50px);
     @include font-weight($semibold);
-    color: $blue-medium;
+    color: $blue;
     margin-bottom: $gutter * 2;
   }
 }
@@ -40,7 +40,7 @@
 
   &:not(:first-child):not(:last-child) {
     &:after {
-      background: $gray-darker;
+      background: $gray-dark;
       border-radius: 50%;
       content: '';
       height: 4px;

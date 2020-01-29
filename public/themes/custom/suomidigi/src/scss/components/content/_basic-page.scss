@@ -7,14 +7,14 @@
 }
 
 .basic-page__header {
-  padding-top: $gutter;
+  padding-top: $gutter / 1.5;
 }
 
 .basic-page__title {
   h1 {
     @include font-size(40px, 50px);
     @include font-weight($semibold);
-    color: $blue-medium;
+    color: $blue;
     margin-bottom: $gutter * 2;
   }
 }
@@ -29,32 +29,11 @@
   @include font-size(18px, 27px);
   @include font-weight($regular);
   color: $black;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: $gutter * 2;
-
-  a {
-    text-decoration: none;
-  }
-
-  &-item {
-    display: flex;
-    position: relative;
-
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
-  }
-}
-
-.basic-page__author {
-  @include font-weight($semibold);
-  color: $blue-light;
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: $gutter * 2;
 }
 
 .basic-page__modified-text {
+  @include font-weight($semibold);
   margin-right: 0.25rem;
 }
 

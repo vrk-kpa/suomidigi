@@ -70,7 +70,7 @@
 
     .legislation-card__breadcrumb {
       @include font-size(12px, 12px);
-      color: $gray-darker;
+      color: $gray-dark;
       margin-bottom: $gutter / 2;
 
       .divider {

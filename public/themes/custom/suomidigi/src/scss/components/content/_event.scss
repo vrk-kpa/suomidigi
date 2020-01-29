@@ -55,7 +55,7 @@
     .page-title {
       @include font-size(26px, 33px);
       @include font-weight($bold);
-      color: $blue-medium;
+      color: $blue;
     }
   }
 

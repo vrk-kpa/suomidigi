@@ -1,13 +1,13 @@
 .page-announcement {
-  background: $blue-medium;
-  border-bottom: 2px solid $blue-medium;
-  border-top: 2px solid $blue-medium;
+  background: $blue;
+  border-bottom: 2px solid $blue;
+  border-top: 2px solid $blue;
   color: $white;
   padding: $gutter / 2;
 
   @include breakpoint($for-tablet-portrait-up) {
     background: $white;
-    border-top: 1px solid $blue-medium;
+    border-top: 1px solid $blue;
     color: $black;
   }
 
@@ -44,7 +44,7 @@
     color: $white;
 
     @include breakpoint($for-tablet-portrait-up) {
-      color: $blue-medium;
+      color: $blue;
     }
   }
 }

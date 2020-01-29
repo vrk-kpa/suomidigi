@@ -115,14 +115,14 @@
       width: 100%;
 
       &::placeholder {
-        color: $gray-darker;
+        color: $gray-dark;
       }
 
       &:focus {
         border-color: transparent;
         box-shadow: none;
         color: $black;
-        outline: $gray-darker auto 5px;
+        outline: $gray-dark auto 5px;
       }
 
       &[disabled],
