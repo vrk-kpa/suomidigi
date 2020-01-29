@@ -325,29 +325,30 @@ function suopa_content_node_view(&$build, $entity, $display, $view_mode) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function suopa_content_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
-  if ($form['#id'] !== 'views-exposed-form-profile-own-content-block-1') {
-    return;
+function suopa_content_form_views_exposed_form_alter(&$form, &$form_state, $form_id)
+{
+  if ($form['#id'] == ('views-exposed-form-profile-own-content-block-1') or
+    $form['#id'] == ('views-exposed-form-profile-my-bookmarks-block-1')) {
+
+    // Prepare the views exposed filters for conversion to links.
+    $index = 0;
+    $items = [];
+
+    foreach ($form['type']['#options'] as $tid => $term_name) {
+      $items[$index]['#markup'] = ($tid == 'All')
+        ? '<div class="button button--secondary"><a href="" class="is-active" id="' . $tid . '">' . $term_name . '</a></div>'
+        : '<div class="button button--secondary"><a href="" id="' . $tid . '">' . $term_name . '</a></div>';
+      $index++;
+    }
+
+    $form['links'] = [
+      '#theme' => 'suopa_content_buttons',
+      '#items' => $items,
+      '#attributes' => ['class' => ['buttons', 'buttons--horizontal']],
+    ];
+
+    $form['#attached']['library'][] = 'suopa_content/exposed-filters';
   }
-
-  // Prepare the views exposed filters for conversion to links.
-  $index = 0;
-  $items = [];
-
-  foreach ($form['type']['#options'] as $tid => $term_name) {
-    $items[$index]['#markup'] = ($tid == 'All')
-      ? '<div class="button button--secondary"><a href="" class="is-active" id="' . $tid . '">' . $term_name . '</a></div>'
-      : '<div class="button button--secondary"><a href="" id="' . $tid . '">' . $term_name . '</a></div>';
-    $index++;
-  }
-
-  $form['links'] = [
-    '#theme' => 'suopa_content_buttons',
-    '#items' => $items,
-    '#attributes' => ['class' => ['buttons', 'buttons--horizontal']],
-  ];
-
-  $form['#attached']['library'][] = 'suopa_content/exposed-filters';
 }
 
 /**
