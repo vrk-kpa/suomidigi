@@ -9,6 +9,7 @@
   'page-content',
   node ? 'page-content--node',
   node.getType() ? 'page-type--' ~ node.getType(),
+  taxonomy_term ? 'page-type--taxonomy-term',
   webform ? 'page-content--webform',
   not node.isPublished() ? 'page-content--unpublished',
 ]
