@@ -8,11 +8,8 @@ id: content_bookmark
 label: 'Content bookmark'
 bundles:
   - article
-  - community
-  - core_content
+  - blog_post
   - event
-  - legislation_card
-  - legislation_collection_page
 entity_type: node
 global: false
 weight: 0
@@ -28,9 +25,6 @@ link_type: ajax_link
 flagTypeConfig:
   show_in_links:
     full: full
-    teaser: teaser
-    teaser_prominent: teaser_prominent
-    teaser_prominent_primary: teaser_prominent_primary
   show_as_field: true
   show_on_form: false
   show_contextual_link: false
