@@ -10,7 +10,7 @@
     <span class="author-item">{{ item.content }}</span>
   {% endfor %}
 {% else %}
-  <div class="author__label content__border">
+  <div class="author__label">
     {% trans %}
       Author
     {% plural items|length %}
@@ -20,9 +20,9 @@
   {% if multiple %}
     <div class="author-items">
   {% endif %}
-    {% for item in items %}
-      <span class="author-item">{{ item.content }}</span>
-    {% endfor %}
+  {% for item in items %}
+    <span class="author-item">{{ item.content }}</span>
+  {% endfor %}
   {% if multiple %}
     </div>
   {% endif %}
