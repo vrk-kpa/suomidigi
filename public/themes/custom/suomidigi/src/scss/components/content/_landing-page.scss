@@ -16,9 +16,15 @@
   }
 }
 
-.page-main--landing-page {
-  .has-sidebar & {
-    @include breakpoint(max-width $for-tablet-portrait-up) {
+.title__container {
+  body.has-sidebar & {
+    padding: 0;
+  }
+}
+
+@include breakpoint(max-width $for-tablet-portrait-up) {
+  .sticky-main > .content__wrapper {
+    .page-main--landing-page {
       .title__container {
         padding: 0;
       }

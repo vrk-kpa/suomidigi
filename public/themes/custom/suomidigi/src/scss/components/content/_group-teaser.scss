@@ -1,0 +1,129 @@
+.group-teaser {
+  background-color: $white;
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
+  height: 100%;
+
+  .listing--list__item & {
+    margin-bottom: $gutter;
+  }
+}
+
+.group-teaser__link {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    .group-teaser__label,
+    .link--cta-text,
+    .link--cta .icon {
+      color: $black;
+    }
+  }
+}
+
+.group-teaser__image {
+  order: 1;
+  padding: 0;
+  width: 100%;
+
+  .listing--list__item & {
+    @include breakpoint($for-tablet-portrait-up) {
+      width: 270px;
+    }
+  }
+
+  img {
+    border-radius: 0 5px 0 0;
+    min-height: 100%;
+    object-fit: cover;
+    width: 100%;
+
+    .listing--list__item & {
+      border-radius: 0 5px 0 0;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .group__image {
+    width: 100%;
+
+    .listing--list__item & {
+      @include breakpoint($for-tablet-portrait-up) {
+        height: 100%;
+        width: 270px;
+      }
+    }
+  }
+}
+
+.group-teaser__content {
+  background-color: $white;
+  border-radius: 0 0 5px 0;
+  color: $black;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  order: 2;
+  padding: $gutter;
+
+  .listing--list__item & {
+    @include breakpoint($for-tablet-portrait-up) {
+      border-radius: 0 5px 5px 0;
+      height: unset;
+      min-height: 100%;
+      padding-left: 25px;
+    }
+  }
+
+  h2 {
+    @include font-size(22px, 28px);
+    @include font-weight($semibold);
+    color: $blue-light;
+    margin-bottom: 10px;
+  }
+
+  .group-teaser__description {
+    @include font-size(18px, 26px);
+    @include font-weight($regular);
+    color: $black;
+  }
+
+  .group__link {
+    @include font-size(18px, 26px);
+    @include font-weight($regular);
+    margin-top: auto;
+    padding-top: $gutter;
+    text-decoration: none;
+
+    .link--cta-icon-left .icon {
+      margin-top: 3px;
+    }
+
+    .listing--list__item & {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-top: auto;
+      }
+    }
+  }
+}
+
+.group-teaser__wrapper {
+  .listing--list__item & {
+    display: flex;
+    flex-flow: column;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      flex-flow: row;
+    }
+  }
+}

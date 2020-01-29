@@ -12,28 +12,34 @@
   ] %}
   {% set classes = classes|merge(['paragraph--hero']) %}
 
-  <div{{attributes.addClass(classes)}}>
+  <div{{attributes.addClass(classes)}} style="background-image: url({{ hero_background_image }})">
     {% block content %}
-      <div class="paragraph__media">
-        {{ media }}
-      </div>
+      <div class="paragraph__content-wrapper">
+        <div class="paragraph__content">
+          {% if title|render %}
+            <h1 class="paragraph__title">
+              {{ title }}
+            </h1>
+          {% endif %}
 
-      <div class="paragraph__content">
-        {% if title|render %}
-          <h1 class="paragraph__title">
-            {{ title }}
-          </h1>
-        {% endif %}
+          {% if description|render %}
+            <p class="paragraph__description">
+              {{ description }}
+            </p>
+          {% endif %}
 
-        {% if description|render %}
-          <p class="paragraph__description">
-            {{ description }}
-          </p>
-        {% endif %}
-
-        {% if link and text %}
-          <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
-        {% endif %}
+          {% if link and text %}
+            <div class="paragraph__link">
+              {% if icons_path %}
+                <svg class="icon">
+                  <title>{{ title }}</title>
+                  <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
+                </svg>
+              {% endif %}
+              <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
+            </div>
+          {% endif %}
+        </div>
       </div>
     {% endblock %}
   </div>

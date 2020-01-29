@@ -1,27 +1,16 @@
 .event-teaser {
   background-color: $white;
-  margin-bottom: $gutter;
-  margin-left: -#{$gutter};
-  margin-right: -#{$gutter};
-  padding: $gutter;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
+  margin-bottom: $gutter * 3;
+  padding: $gutter * 1.4;
+  width: 100%;
 
   h3 {
     @include font-size(18px, 23px);
     @include font-weight($semibold);
     color: $black;
-  }
-
-  &__header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
   }
 
   &__link {
@@ -39,10 +28,60 @@
     }
   }
 
+  &__header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: $gutter;
+  }
+
+  &__date {
+    align-items: center;
+    display: flex;
+    margin-bottom: 8px;
+    margin-right: $gutter;
+
+    .icon {
+      color: $gray-dark;
+      height: 20px;
+      margin: 0 10px 0 0;
+      min-width: 20px;
+      width: 20px;
+    }
+
+    &--date {
+      @include font-size(16px, 20px);
+      @include font-weight($regular);
+      color: $black;
+      letter-spacing: 0;
+    }
+  }
+
+  &__venue-name {
+    align-items: center;
+    display: flex;
+
+    .icon {
+      color: $gray-dark;
+      height: 20px;
+      margin: 0 10px 0 0;
+      min-width: 20px;
+      width: 20px;
+    }
+
+    &--wrapper {
+      @include font-size(16px, 20px);
+      @include font-weight($regular);
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
   &__title {
     @include font-size(22px, 28px);
     @include font-weight($semibold);
-    color: $blue;
+    color: $blue-light;
+    letter-spacing: 0;
     margin-bottom: $gutter;
   }
 
@@ -52,53 +91,13 @@
 
   &__description,
   &__description p {
-    @include font-size(18px, 26px);
+    @include font-size(18px, 27px);
     @include font-weight($regular);
+    color: $black;
     margin-bottom: 0.5rem;
   }
 
-  &__date {
-    align-items: center;
-    display: flex;
-    margin-bottom: 10px;
-    margin-right: $gutter;
 
-    .icon {
-      color: $blue-light;
-      height: 20px;
-      margin: 0 10px 0 0;
-      min-width: 20px;
-      width: 20px;
-    }
-
-    &--date {
-      @include font-size(16px, 20px);
-      @include font-weight($semibold);
-      color: $black;
-    }
-  }
-
-  &__venue-name {
-    align-items: center;
-    display: flex;
-    margin-bottom: 10px;
-
-    .icon {
-      color: $blue-light;
-      height: 20px;
-      margin: 0 10px 0 0;
-      min-width: 20px;
-      width: 20px;
-    }
-
-    &--wrapper {
-      @include font-size(16px, 20px);
-      @include font-weight($semibold);
-      display: flex;
-      flex-wrap: wrap;
-      text-transform: uppercase;
-    }
-  }
 
   .listing--grid__item & {
     background-color: $white;

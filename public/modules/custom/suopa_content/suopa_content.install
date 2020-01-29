@@ -100,3 +100,29 @@ function suopa_content_update_8006() {
     'Tutustu ryhmään'
   );
 }
+
+/**
+ * Create translations for views pager button texts.
+ */
+function suopa_content_update_8007() {
+  suopa_content_add_translation(
+    "Show more blog posts",
+    'fi',
+    'Näytä lisää blogikirjoituksia'
+  );
+  suopa_content_add_translation(
+    "Show more events",
+    'fi',
+    'Näytä lisää tapahtumia'
+  );
+  suopa_content_add_translation(
+    "Show more groups",
+    'fi',
+    'Näytä lisää ryhmiä'
+  );
+  suopa_content_add_translation(
+    "Show more communities",
+    'fi',
+    'Näytä lisää verkostoja'
+  );
+}

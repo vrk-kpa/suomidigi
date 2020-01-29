@@ -12,7 +12,7 @@ dependencies:
     - user
     - views_infinite_scroll
 id: blogs
-label: Blogs
+label: 'Content: Blog posts'
 module: views
 description: ''
 tag: ''
@@ -221,35 +221,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  blogs:
-    display_plugin: block
-    id: blogs
-    display_title: Block
-    position: 1
-    display_options:
-      display_extenders: {  }
-      css_class: ''
-      defaults:
-        css_class: false
-        style: false
-        row: false
-      style:
-        type: default
-        options: {  }
-      row:
-        type: 'entity:node'
-        options:
-          relationship: none
-          view_mode: teaser_grid
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
   blogs_attachment:
     display_plugin: attachment
     id: blogs_attachment
@@ -263,7 +234,7 @@ display:
           items_per_page: 1
           offset: 0
       displays:
-        blogs: blogs
+        grid: grid
       row:
         type: 'entity:node'
         options:
@@ -280,6 +251,36 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  grid:
+    display_plugin: block
+    id: grid
+    display_title: Grid
+    position: 1
+    display_options:
+      display_extenders: {  }
+      css_class: ''
+      defaults:
+        css_class: false
+        style: false
+        row: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser_grid
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

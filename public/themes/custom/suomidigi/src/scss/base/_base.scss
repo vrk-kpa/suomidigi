@@ -10,6 +10,10 @@ html {
   box-sizing: inherit;
 }
 
+.dialog-off-canvas-main-canvas {
+  border-top: 4px solid $cyan;
+}
+
 body {
   background-color: $gray-lighter;
   height: 100%;

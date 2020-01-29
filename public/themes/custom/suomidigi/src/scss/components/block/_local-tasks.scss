@@ -1,13 +1,19 @@
 .block-local-tasks-block {
+  padding-left: $gutter;
+
   .block--system-messages__container {
     padding: 0;
   }
 
   .local-tasks {
-    margin-top: 0;
+    margin: 0 -5px;
   }
 
   @include breakpoint($for-tablet-portrait-up) {
     margin-left: auto;
+  }
+
+  @include breakpoint(1200px) {
+    padding-left: 0;
   }
 }

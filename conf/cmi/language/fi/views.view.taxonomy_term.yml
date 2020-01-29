@@ -1,3 +1,4 @@
+label: Luokittelutermi
 display:
   default:
     display_title: Isäntä
@@ -24,4 +25,3 @@ display:
             title: Kaikki
   feed_1:
     display_title: Syöte
-label: Luokittelutermi

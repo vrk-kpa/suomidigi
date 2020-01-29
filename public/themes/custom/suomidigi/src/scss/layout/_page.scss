@@ -6,10 +6,10 @@
 
 .content__wrapper {
   display: block;
-  margin-top: $gutter;
 
   @include breakpoint($for-tablet-portrait-up) {
     display: flex;
+    position: relative;
   }
 }
 
@@ -44,5 +44,16 @@
       margin-top: 38px;
       padding: 0 $gutter $gutter / 4 $gutter;
     }
+  }
+}
+
+.has-background {
+  background-image: url(../../images/art.png);
+  background-position-x: 0;
+  background-position-y: 5px;
+  background-repeat: repeat-y;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    background-position-x: 50%;
   }
 }

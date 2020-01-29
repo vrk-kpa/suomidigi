@@ -1,0 +1,6 @@
+label: 'Sisältösivu: Verkostot'
+display:
+  communities_grid:
+    display_title: Ruudukko
+  communities_list:
+    display_title: Lista

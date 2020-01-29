@@ -1,5 +1,5 @@
 .title__container {
-  padding: 0;
+  padding: 0 0 $gutter;
 
   .content__wrapper & {
     margin: 0;
@@ -8,17 +8,18 @@
       margin-top: 10px;
     }
   }
+
   .page-node-type-landing-page & {
-    margin-top: $gutter;
-    padding: 0 $gutter;
+    padding: $gutter $gutter;
     transition: padding 150ms linear;
 
     @include breakpoint($for-tablet-portrait-up) {
-      margin-top: $gutter * 3;
+      padding-top: $gutter * 3;
     }
 
     @include breakpoint(1200px) {
-      padding: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 

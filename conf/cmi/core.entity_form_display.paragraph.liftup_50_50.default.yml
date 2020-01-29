@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
+    - field.field.paragraph.liftup_50_50.field_p_button_cta
     - field.field.paragraph.liftup_50_50.field_p_content
     - field.field.paragraph.liftup_50_50.field_p_link
     - field.field.paragraph.liftup_50_50.field_p_media
     - field.field.paragraph.liftup_50_50.field_p_reverse
+    - field.field.paragraph.liftup_50_50.field_p_separate
     - field.field.paragraph.liftup_50_50.field_p_title
     - paragraphs.paragraphs_type.liftup_50_50
   module:
@@ -19,6 +21,14 @@ targetEntityType: paragraph
 bundle: liftup_50_50
 mode: default
 content:
+  field_p_button_cta:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_p_content:
     weight: 3
     settings:
@@ -63,6 +73,13 @@ content:
     region: content
   field_p_reverse:
     weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_p_separate:
+    weight: 6
     settings:
       display_label: true
     third_party_settings: {  }

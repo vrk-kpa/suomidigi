@@ -12,6 +12,7 @@ regions:
   navigation: Navigation
   announcement: Announcement
   messages: Messages
+  tools: Tools
   breadcrumb: Breadcrumb
   sidebar_first: First sidebar
   sidebar_second: Second sidebar

@@ -283,7 +283,15 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
     $form_id == 'node_page_edit_form' ||
     $form_id == 'node_page_form'
   ) {
-    $form['menu']['#access'] = FALSE;
+    $user = User::load(\Drupal::currentUser()->id());
+
+    if ($user->id() == 1) {
+      return $form;
+    }
+
+    if (!$user->hasRole('editor_in_chief')) {
+      $form['menu']['#access'] = FALSE;
+    }
   }
 
   // Hide hero paragraph from non EiC users.
@@ -335,6 +343,15 @@ function suopa_editorial_node_access(NodeInterface $node, $op, AccountInterface 
 function suopa_editorial_group_operations_alter(&$operations, $group, &$build) {
   $links = [];
 
+  if (!$group->getMember(\Drupal::currentUser())) {
+    $url = new Url('entity.group.join', ['group' => $group->id()]);
+    $join = Link::fromTextAndUrl(t('Join group'), $url);
+    $build['#content'] = $join->toRenderable();
+    $build['#theme'] = 'content_creation_links_block';
+    $build['#join'] = TRUE;
+    return;
+  }
+
   foreach ($operations as $link) {
     $links[] = Link::fromTextAndUrl($link['title'], $link['url']);
   }
@@ -359,8 +376,26 @@ function suopa_editorial_theme() {
       'variables' => [
         'content' => NULL,
         'label' => NULL,
+        'join' => FALSE,
       ],
       'render element' => 'children',
     ],
   ];
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ *
+ * Show Button CTA link based on Separate media and text fields value on
+ * Liftup 50/50 paragraph.
+ */
+function suopa_editorial_field_widget_paragraphs_form_alter(&$element, &$form_state, $context) {
+  if ($element['#paragraph_type'] == 'liftup_50_50') {
+    $name = 'input[name="field_paragraphs[' . $element['#delta'] . '][subform][field_p_separate][value]';
+    $element['subform']['field_p_button_cta']['widget'][0]['#states'] = [
+      'visible' => [
+        $name => ['checked' => TRUE],
+      ],
+    ];
+  }
 }
