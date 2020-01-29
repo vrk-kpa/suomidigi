@@ -9,7 +9,7 @@
   h2 {
     @include font-size(26px, 33px);
     @include font-weight($semibold);
-    color: $blue-medium;
+    color: $blue;
     margin-bottom: $gutter / 2;
     margin-top: $gutter;
   }

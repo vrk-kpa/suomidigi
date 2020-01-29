@@ -82,11 +82,13 @@
 .sidebar--first {
   @include breakpoint($for-tablet-portrait-up) {
     margin-right: $gutter * 2;
+    max-width: 270px;
     min-width: 270px;
     padding: 35px 0 0 0;
   }
 
   @include breakpoint($for-tablet-landscape-up) {
+    max-width: 350px;
     min-width: 350px;
   }
 }

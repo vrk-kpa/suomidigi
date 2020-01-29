@@ -76,7 +76,7 @@
 
   &__lead {
     @include font-size(14px, 18px);
-    color: $gray-darker;
+    color: $gray-dark;
     margin-bottom: $gutter;
     word-break: break-word;
   }
@@ -84,7 +84,7 @@
   &__type {
     @include font-size(16px, 20px);
     @include font-weight($semibold);
-    color: $gray-darker;
+    color: $gray-dark;
     display: block;
   }
 

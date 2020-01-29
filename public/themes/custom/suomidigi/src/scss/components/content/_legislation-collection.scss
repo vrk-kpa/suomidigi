@@ -1,11 +1,12 @@
 .legislation-collection {
   padding-bottom: $gutter * 2;
+  padding-top: $gutter / 2;
 
   &__title {
     h1 {
       @include font-size(40px, 50px);
       @include font-weight($semibold);
-      color: $blue-medium;
+      color: $blue;
       margin-bottom: $gutter * 2;
     }
   }
@@ -44,7 +45,7 @@
   }
 
   &__item {
-    background-color: $gray-lighter;
+    background-color: $gray-light;
     margin-bottom: $gutter * 2;
     margin-left: -#{$gutter};
     margin-right: -#{$gutter};

@@ -141,7 +141,7 @@
 
   &:not(:last-child) {
     &:after {
-      background: $gray-darker;
+      background: $gray-dark;
       border-radius: 50%;
       content: '';
       height: 4px;
@@ -156,7 +156,7 @@
 
 .article-teaser__label-container {
   @include font-size(20px, 24px);
-  color: $blue-medium;
+  color: $blue;
   overflow-wrap: break-word;
 
   @include breakpoint($for-tablet-portrait-up) {
