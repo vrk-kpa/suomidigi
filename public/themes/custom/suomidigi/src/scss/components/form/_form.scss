@@ -6,10 +6,6 @@
 
   &:not(.user-login-form) {
     margin-bottom: $gutter * 1.5;
-
-    .form-wrapper {
-      margin-bottom: $gutter * 2;
-    }
   }
 
   &.user-login-form {
@@ -33,19 +29,15 @@
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-      margin-left: -#{$gutter};
-      margin-right: -#{$gutter};
-
+      margin: 0 -#{$gutter};
 
       @include breakpoint($for-tablet-portrait-up) {
         flex-direction: row;
-        margin-left: -#{$gutter * 1.5};
-        margin-right: -#{$gutter * 1.5};
 
         > .form-item {
-          margin-left: $gutter / 2;
-          margin-right: $gutter / 2;
-          width: calc(100% / 2 - #{$gutter});
+          margin-left: $gutter;
+          margin-right: $gutter;
+          width: calc(100% / 2 - #{$gutter * 2});
 
           &.is-full-width {
             width: 100%;
@@ -110,22 +102,27 @@
     input[type="url"],
     input[type="email"],
     .select2-container--default .select2-selection--single {
-      @include font-size(16px);
-      background: white;
+      @include font-size(18px, 27px);
+      @include font-weight($regular);
+      background: $white;
       border: 1px solid $gray;
-      border-radius: 3px;
-      color: $gray-darkest;
+      border-radius: 5px;
       height: auto;
-      padding: 10px;
+      letter-spacing: 0;
+      padding: $gutter;
       transition-duration: 0.2s;
       transition-property: all;
       width: 100%;
+
+      &::placeholder {
+        color: $gray-darker;
+      }
 
       &:focus {
         border-color: transparent;
         box-shadow: none;
         color: $black;
-        outline: $gray-dark auto 5px;
+        outline: $gray-darker auto 5px;
       }
 
       &[disabled],

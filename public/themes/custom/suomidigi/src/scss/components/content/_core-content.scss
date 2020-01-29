@@ -6,7 +6,6 @@
   }
 
   .article__header.is-empty {
-    @include border('bottom');
     margin-bottom: $gutter * 0.75;
     padding-bottom: $gutter * 0.75;
   }

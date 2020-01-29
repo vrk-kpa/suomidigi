@@ -47,10 +47,10 @@
 
   &__cta {
     @include font-size(12px, 12px);
+    @include font-weight($semibold);
     background-color: $white;
     border: 1px solid $legislation-blue;
     color: $legislation-blue;
-    font-weight: bold;
     margin-left: auto;
     padding: $gutter * 0.75 $gutter;
     text-align: center;

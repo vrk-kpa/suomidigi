@@ -58,8 +58,8 @@
 
   .paragraph__title {
     @include font-size(18px, 20px);
+    @include font-weight($semibold);
     color: $white;
-    font-weight: bold;
 
     @include breakpoint($for-mobile-portrait-up) {
       @include font-size(20px, 25px);

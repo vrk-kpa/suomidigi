@@ -9,9 +9,9 @@ dependencies:
 id: group_content
 label: 'Group content'
 type: 'canonical_entities:group_content'
-pattern: '[group_content:group:url]/[group_content:node:title]'
+pattern: '[group_content:group:alias]/[group_content:node:title]'
 selection_criteria:
-  10c897e2-9cb4-42d5-a161-85394d015e99:
+  63003bb6-13d0-491d-ab93-07d85bde70b2:
     id: 'entity_bundle:group_content'
     bundles:
       group-group_node-blog_post: group-group_node-blog_post
@@ -20,8 +20,8 @@ selection_criteria:
     negate: false
     context_mapping:
       group_content: group_content
-    uuid: 10c897e2-9cb4-42d5-a161-85394d015e99
-  494e6db1-5931-4bf4-8c70-e460bc04d59e:
+    uuid: 63003bb6-13d0-491d-ab93-07d85bde70b2
+  12c13de7-6b99-45a6-943b-322ac7a9a3bd:
     id: language
     langcodes:
       fi: fi
@@ -30,7 +30,7 @@ selection_criteria:
     negate: false
     context_mapping:
       language: 'group_content:langcode:language'
-    uuid: 494e6db1-5931-4bf4-8c70-e460bc04d59e
+    uuid: 12c13de7-6b99-45a6-943b-322ac7a9a3bd
 selection_logic: and
 weight: -10
 relationships:

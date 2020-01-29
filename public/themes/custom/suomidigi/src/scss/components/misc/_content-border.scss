@@ -1,0 +1,18 @@
+.content__border {
+  border-bottom: 1px solid $gray-medium;
+  margin: 0;
+  padding: 0 0 20px;
+
+  @include breakpoint(1016px) {
+    margin-left: -120px;
+    margin-right: -120px;
+    padding-bottom: 20px;
+    padding-left: 120px;
+  }
+}
+
+.content__divider {
+  flex-basis: 100%;
+  height: 0;
+  margin: 0;
+}

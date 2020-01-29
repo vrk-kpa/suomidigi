@@ -3,6 +3,64 @@
 //
 // This file includes styles for a page layout.
 //
+.page-type--article,
+.page-type--page,
+.page-type--legislation_collection_page,
+.page-type--core_content,
+.page-type--blog_post,
+.page-type--webform {
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px #00000029;
+  margin-bottom: $gutter * 4;
+  margin-top: $gutter * 2;
+
+  .section--content {
+    margin: 0 auto;
+    max-width: $content-area;
+    padding: $gutter * 2;
+  }
+
+  .has-background & {
+    background-color: transparent;
+    border: 0 none;
+    box-shadow: none;
+
+    .section--content {
+      margin: 0;
+      padding: 0;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        padding: 0 $gutter * 2 0 0;
+      }
+    }
+
+    .blog__author--prominent,
+    .article__author--prominent,
+    .comments__container {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-left: -160px;
+        margin-right: 190px;
+      }
+    }
+
+    .blog__author--prominent,
+    .article__author--prominent,
+    .content__border {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-left: -120px;
+        margin-right: -120px;
+      }
+    }
+
+    .content__border {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-left: -280px;
+        margin-right: 70px;
+      }
+    }
+  }
+}
 
 .content__wrapper {
   display: block;
@@ -11,17 +69,25 @@
     display: flex;
     position: relative;
   }
+
+  &.has-background {
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #00000029;
+    margin-bottom: $gutter * 4;
+    margin-top: $gutter * 1.4;
+  }
 }
 
 .sidebar--first {
   @include breakpoint($for-tablet-portrait-up) {
     margin-right: $gutter * 2;
-    min-width: 190px;
-    padding: 0;
+    min-width: 270px;
+    padding: 35px 0 0 0;
   }
 
   @include breakpoint($for-tablet-landscape-up) {
-    min-width: 270px;
+    min-width: 350px;
   }
 }
 
@@ -47,7 +113,7 @@
   }
 }
 
-.has-background {
+.has-parallax {
   background-image: url(../../images/art.png);
   background-position-x: 0;
   background-position-y: 5px;

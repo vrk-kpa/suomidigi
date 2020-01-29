@@ -1,7 +1,7 @@
 form.form--public {
-  padding: $gutter;
+  background-color: $gray-light;
   margin: 0 -$gutter;
-  background-color: $gray-lighter;
+  padding: $gutter;
 
   .form-item label {
     @include font-size(16px);
@@ -16,8 +16,8 @@ form.form--public {
     min-height: 50px;
 
     .select2-selection__arrow {
-      top: 11px;
       right: 11px;
+      top: 11px;
     }
   }
 }
