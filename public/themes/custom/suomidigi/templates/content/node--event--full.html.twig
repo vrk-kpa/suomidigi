@@ -16,10 +16,6 @@
   ]
 %}
 
-<div class="event__back--top">
-  {{ drupal_block('suopa_back_to_events') }}
-</div>
-
 <article{{ attributes.addClass(classes) }}>
   <div class="event__image">
     {{ content.field_event_image|render }}
@@ -85,7 +81,7 @@
           {% if content.field_event_link|render %}
             <div class="event__link">
               {% set link = content.field_event_link.0['#url'] %}
-              {% set title = "Link to event's own page"|t %}
+              {% set title = "Learn more about the event"|t %}
               {% include "@suomidigi/misc/link.twig" with {
                 link_url: link,
                 link_text: title,
@@ -167,7 +163,7 @@
           {% if content.field_organiser_link|render %}
             <div class="event__link">
               {% set link = content.field_organiser_link.0['#url'] %}
-              {% set title = "Link to the event organiser page"|t %}
+              {% set title = "Learn more about the event organiser"|t %}
               {% include "@suomidigi/misc/link.twig" with {
                 link_url: link,
                 link_text: title,
@@ -180,7 +176,3 @@
     </div>
   </div>
 </article>
-
-<div class="event__back--bottom">
-  {{ drupal_block('suopa_back_to_events') }}
-</div>
