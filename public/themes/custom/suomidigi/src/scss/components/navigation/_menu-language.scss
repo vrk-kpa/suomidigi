@@ -10,10 +10,6 @@
     &__wrapper {
       line-height: 0;
       position: relative;
-
-      &:not(.is-active) .language-switch__dropdown {
-        display: none;
-      }
     }
 
     &__button {
@@ -69,6 +65,10 @@
       position: absolute;
       top: 45px;
       z-index: 1000;
+
+      &:not(.is-active) {
+        display: none;
+      }
 
       .language-links {
         padding-bottom: 10px;

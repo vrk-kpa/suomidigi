@@ -4,12 +4,12 @@
   Drupal.behaviors.languageSwitcher = {
     attach: function attach(context) {
       var languageSwitchToggleButton = $('.language-switch__button', context);
-      var languageSwitchWrapper = $('.language-switch__wrapper', context);
+      var languageSwitchWrapper = $('.language-switch__dropdown', context);
 
       var outsideClickListener = function outsideClickListener(event) {
         var target = $(event.target);
 
-        if (!target.closest('.language-switch__wrapper').length && $('.language-switch__wrapper').is(':visible')) {
+        if (!target.closest('.language-switch__dropdown').length && $('.language-switch__dropdown').is(':visible')) {
           handleInteraction(event);
           removeClickListener();
         }
@@ -20,12 +20,13 @@
       };
 
       function handleInteraction(e) {
-        e.preventDefault();
+        e.stopImmediatePropagation();
 
         if (languageSwitchWrapper.hasClass('is-active')) {
           languageSwitchWrapper.removeClass('is-active').attr('aria-hidden', 'true');
           languageSwitchToggleButton.attr('aria-expanded', 'false');
-        } else {
+        }
+        else {
           languageSwitchWrapper.addClass('is-active').attr('aria-hidden', 'false');
           languageSwitchToggleButton.attr('aria-expanded', 'true');
           document.addEventListener('click', outsideClickListener);
@@ -33,7 +34,7 @@
       }
 
       languageSwitchToggleButton.on({
-        'click touch': function touchstartclick(e) {
+        'click': function touchstartclick(e) {
           handleInteraction(e);
         },
         keydown: function keydown(e) {
