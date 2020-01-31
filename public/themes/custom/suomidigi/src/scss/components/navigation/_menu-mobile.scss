@@ -4,29 +4,10 @@
 // This file includes everything related to the main menu styles and mmenu overrides.
 //
 .page-header__mobile {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 80px;
-  justify-content: center;
-
-  p {
-    @include font-size(14px, 16px);
-    color: white;
-    margin-bottom: 0;
-    max-width: 200px;
-    padding-top: 1rem;
-    text-align: center;
-  }
-
-  .logo--text {
-    @include font-size(22px);
-    color: $white;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
+  pointer-events: none;
+  touch-action: none;
 }
 
 .moby-overlay.dark {

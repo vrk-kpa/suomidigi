@@ -68,7 +68,7 @@
     transform: translateY(0);
     visibility: visible;
     width: 100%;
-    z-index: 100;
+    z-index: 2000;
 
     @include breakpoint($for-tablet-portrait-up) {
       height: auto;

@@ -122,7 +122,7 @@
         border-color: transparent;
         box-shadow: none;
         color: $black;
-        outline: $gray-dark auto 5px;
+        outline: $cyan auto 3px;
       }
 
       &[disabled],
@@ -164,7 +164,7 @@
         }
 
         &:focus + label::before {
-          outline: $gray-dark auto 5px;
+          outline: $cyan auto 3px;
         }
       }
 
@@ -215,7 +215,7 @@
         }
 
         &:focus + label::before {
-          outline: $gray-dark auto 5px;
+          outline: $cyan auto 3px;
         }
       }
 

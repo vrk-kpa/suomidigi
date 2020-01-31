@@ -15,6 +15,14 @@
 ]
 %}
 
+{% set before_content_classes = [
+  'page-before_content ',
+  node.getType() ? 'page-before_content--' ~ node.getType(),
+  taxonomy_term ? 'page-before_content--taxonomy-term',
+  webform ? 'page-before_content--webform',
+]
+%}
+
 {%
   set section_variables = { section_element: 'content' }
 %}
@@ -109,11 +117,11 @@
             <a id="main-content" tabindex="-1"></a>
             {% if page.before_content %}
               {% block before_content %}
-              <div class="page-before_content page-before_content--{{ before_content_element }}" id="before_content">
-                <section class="section section--before-content">
-                  {{ page.before_content }}
-                </section>
-              </div>
+                <div {{ create_attribute({'class': before_content_classes} ).addClass('page-before_content--' ~ before_content_element) }} id="before_content">
+                  <section class="section section--before-content">
+                    {{ page.before_content }}
+                  </section>
+                </div>
               {% endblock %}
             {% endif %}
 
