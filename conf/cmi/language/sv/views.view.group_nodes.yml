@@ -25,6 +25,7 @@ display:
         type:
           label: Innehållstyp
         status:
+          label: Status
           settings:
             format_custom_true: Publicerad
             format_custom_false: 'Ej publicerad'

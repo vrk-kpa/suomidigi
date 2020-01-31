@@ -390,6 +390,11 @@ function suomidigi_preprocess_block(&$variables) {
         }
       }
     }
+
+    // Hide title from user profile page.
+    if (\Drupal::routeMatch()->getRouteName() == 'entity.user.canonical') {
+      $variables['hide_block'] = TRUE;
+    }
   }
 }
 
@@ -482,7 +487,7 @@ function suomidigi_preprocess_menu(&$variables) {
       $variables['#attached']['library'][] = 'suomidigi/account-menu';
     }
     else {
-      $icons['user.logout'] = 'login';
+      $icons['user.logout'] = 'user';
     }
 
     foreach ($variables['items'] as $key => $item) {
@@ -500,6 +505,9 @@ function suomidigi_preprocess_menu(&$variables) {
         $last_name = $user->field_last_name->value;
       }
     }
+
+    // Set user image for the template.
+    $variables = _suomidigi_set_profile_variables($variables, $user);
 
     $variables['user_name'] = (isset($first_name) && isset($last_name))
       ? $first_name . ' ' . $last_name

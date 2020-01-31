@@ -25,8 +25,9 @@
 
   h1 {
     @include font-size(32px, 40px);
-    @include font-weight($bold);
-    color: $blue;
+    @include font-weight($semibold);
+    color: $blue-light;
+    letter-spacing: -0.5px;
     margin-bottom: $gutter;
   }
 }

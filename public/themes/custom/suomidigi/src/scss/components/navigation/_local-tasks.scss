@@ -22,6 +22,12 @@
       color: $blue;
       margin: 10px 5px;
 
+      &:hover {
+        background-color: $blue-light;
+        border-color: $blue-light--secondary;
+        color: $white;
+      }
+
       &.is-active {
         background-color: $blue;
         box-shadow: 0 0 0 transparent;
