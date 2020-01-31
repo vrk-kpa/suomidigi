@@ -30,6 +30,11 @@
         padding-left: $gutter * 2;
       }
     }
+
+    &.has-border {
+      @include border('top');
+      padding-top: $gutter * 3;
+    }
   }
 
   &__content {
@@ -123,13 +128,12 @@
   }
 
   &__divider {
-    @include border('bottom');
     display: flex;
     justify-content: left;
     margin: $gutter * 3 -#{$gutter};
 
     @include breakpoint($for-tablet-portrait-up) {
-      margin: $gutter * 3 0;
+      margin: $gutter * 3 0 0;
     }
 
     .block-suopa-content-social-sharing-block {

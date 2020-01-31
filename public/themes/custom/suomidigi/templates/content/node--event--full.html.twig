@@ -112,7 +112,17 @@
       {{ drupal_block('suopa_content_social_sharing_block') }}
     </div>
 
-    <div class="event__footer">
+    {% if
+      content.field_event_free_text|render or
+      content.field_venue_description|render or
+      content.field_event_org_contact_info|render or
+      content.field_event_organiser|render or
+      content.field_organiser_description|render or
+      content.field_organiser_link|render
+    %}
+      {% set footer_class = 'has-border' %}
+    {% endif %}
+    <div class="event__footer {{ footer_class }}">
       {% if content.field_event_free_text|render %}
         <div class="event__footer--primary">
           <div class="event__free-text">
