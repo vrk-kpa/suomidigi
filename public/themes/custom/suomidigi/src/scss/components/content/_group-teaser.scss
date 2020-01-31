@@ -25,6 +25,10 @@
     .link--cta .icon {
       color: $black;
     }
+
+    .group-teaser__label {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -71,8 +75,8 @@
   border-radius: 0 0 5px 0;
   color: $black;
   display: flex;
+  flex: 1 1 auto;
   flex-flow: column;
-  height: 100%;
   order: 2;
   padding: $gutter;
 

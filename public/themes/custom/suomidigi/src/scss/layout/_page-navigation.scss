@@ -16,10 +16,6 @@
 
   @include breakpoint($for-tablet-portrait-up) {
     background-color: $blue-light;
-    background-image: url('../../images/header_background_illustration.svg');
-    background-position: center -220px;
-    background-repeat: repeat no-repeat;
-    background-size: 1440px 435px;
   }
 
   &__container {

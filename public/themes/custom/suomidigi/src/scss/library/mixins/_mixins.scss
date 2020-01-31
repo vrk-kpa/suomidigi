@@ -87,3 +87,8 @@
     border-right: 1px solid $color;
   }
 }
+
+@mixin icon-colors($fallback: $black) {
+  fill: $fallback;
+  @content;
+}

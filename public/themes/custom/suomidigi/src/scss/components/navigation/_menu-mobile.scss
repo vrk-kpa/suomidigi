@@ -5,13 +5,9 @@
 //
 .page-header__mobile {
   align-items: center;
-  background-image: url("../../images/header_background_illustration.svg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 134px;
+  height: 80px;
   justify-content: center;
 
   p {
@@ -33,20 +29,33 @@
   }
 }
 
-.moby-body-fixed {
-  .moby-overlay {
-    &.dark {
-      background: rgba(0, 0, 0, 0.6);
-    }
+.moby-overlay.dark {
+  &.dark {
+    background: transparent;
+    display: none;
   }
+}
 
-  .moby.left-side {
-    width: 85%;
+.moby-body-fixed {
+  .moby.right-side {
+    background-color: transparent;
+    width: 100%;
+
+    &.moby-active {
+      z-index: 2000;
+    }
   }
 
   .moby-menu {
     @include border('bottom');
+    background-color: $white;
+    height: 100%;
     padding-bottom: $gutter;
+
+    > div {
+      background-color: $white;
+      padding-bottom: $gutter;
+    }
 
     .menu {
       list-style: none;
@@ -56,23 +65,25 @@
 
     .menu-item {
       margin: 0;
-      padding: 0;
+      padding: 0 0 0 5px;
 
       > span,
       > a {
-        @include font-size(14px, 17px);
-        color: $black;
+        @include font-size(18px, 23px);
+        @include font-weight($regular);
+        color: $blue-light;
         display: block;
+        letter-spacing: 0;
         padding: 0.75rem 1rem;
         text-decoration: none;
 
         &:hover,
         &:focus {
-          text-decoration: underline $blue;
+          text-decoration: underline $black;
         }
 
         &.is-active {
-          background-color: $gray-light;
+          color: $black;
 
           &:hover,
           &:focus {
@@ -86,7 +97,16 @@
         > a {
           @include font-size(18px, 18px);
           @include font-weight($semibold);
-          padding: 0.75rem 1rem;
+          padding: $gutter;
+        }
+
+        &.menu-item--active-trail {
+          > span,
+          > a {
+            border-left: 5px solid $cyan;
+            color: $black;
+            margin-left: -5px;
+          }
         }
       }
 
@@ -94,14 +114,12 @@
         > span,
         > a {
           background: $white;
-          border-left: $gutter / 3 solid transparent;
           padding-left: $gutter;
           text-transform: none;
 
           &.is-active {
             @include font-weight($semibold);
-            border-color: $blue-light;
-            color: $blue-light;
+            color: $black;
           }
         }
 
@@ -110,8 +128,7 @@
           > a {
             @include font-weight($semibold);
             background-color: $white;
-            border-left: $gutter / 3 solid $blue-light;
-            color: $blue-light;
+            color: $black;
           }
         }
       }
@@ -119,16 +136,13 @@
       &--lvl-2 {
         > span,
         > a {
-          background-color: $gray-light;
-          border-left: 10px solid $gray-medium;
           padding-left: $gutter;
           text-transform: none;
 
           &.is-active {
             @include font-weight($semibold);
             background-color: $white;
-            border-color: $blue-light;
-            color: $blue-light;
+            color: $black;
           }
         }
 
@@ -137,8 +151,7 @@
           > a {
             @include font-weight($semibold);
             background-color: $white;
-            border-color: $blue-light;
-            color: $blue-light;
+            color: $black;
           }
         }
       }
@@ -147,15 +160,13 @@
         > span,
         > a {
           background: $white;
-          border-left: 15px solid $gray-medium;
           padding-left: $gutter;
           text-transform: none;
 
           &.is-active {
             @include font-weight($semibold);
             background-color: $white;
-            border-color: $blue-light;
-            color: $blue-light;
+            color: $black;
           }
         }
 
@@ -164,8 +175,113 @@
           > a {
             @include font-weight($semibold);
             background-color: $white;
-            border-color: $blue-light;
-            color: $blue-light;
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+
+  .moby .menu--account {
+    background-color: $white;
+    border-bottom: 2px solid $gray-light;
+    border-top: 2px solid $gray-light;
+    display: flex;
+    flex-flow: column;
+    padding: $gutter;
+
+    .menu--account__button {
+      @include font-size(16px, 27px);
+      @include font-weight($regular);
+      letter-spacing: 0;
+      width: 100%;
+
+      .icon__wrapper {
+        align-items: center;
+        display: flex;
+      }
+
+      &[aria-expanded=true] {
+        .icon--chevron {
+          transform: rotate(180deg);
+        }
+
+        .icon {
+          color: $black;
+          margin-left: auto;
+        }
+      }
+    }
+
+    .menu--account__dropdown {
+      > .menu-item {
+        > a.is-active {
+          background-color: transparent;
+          padding: 0;
+        }
+      }
+
+      &.logged-out {
+        a {
+          align-items: center;
+          display: flex;
+          padding: 0;
+        }
+      }
+
+      &.logged-in {
+        @include font-size(14px, 27px);
+        @include font-weight($regular);
+        background: #fff;
+        border-radius: 0;
+        box-shadow: unset;
+        list-style: none;
+        margin: 0 0 0 -15px;
+        padding: 10px 0;
+        position: static;
+        right: unset;
+        top: unset;
+        width: 100%;
+        z-index: 1000;
+
+        .menu-item .icon {
+          height: 25px;
+          width: 25px;
+        }
+
+        .menu-item:first-of-type .icon__wrapper {
+          margin: 0 13px 0 -3px;
+        }
+      }
+
+      .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .icon__wrapper {
+        display: flex;
+        margin-right: $gutter / 1.5;
+
+        .icon {
+          height: 35px;
+          width: 35px;
+
+          @include icon-colors($gray) {
+            --circle-color: #A5ACB0;
+            --pw-color: #9D5DB4;
+          };
+
+          &--user {
+            margin-right: $gutter / 1.5;
+          }
+
+          &--chevron {
+            color: $blue;
+            height: $gutter;
+            margin-left: $gutter / 3;
+            width: $gutter;
           }
         }
       }
@@ -174,8 +290,13 @@
 }
 
 .moby-expand {
+  .moby.moby-active & {
+    width: 100px;
+  }
+
   svg {
     height: 1.3rem;
+    margin-left: 30px;
   }
 }
 
@@ -183,5 +304,16 @@
   .moby,
   .moby-overlay {
     display: none;
+  }
+}
+
+.toolbar-vertical {
+  .moby.right-side {
+    margin-top: 39px;
+  }
+  &.moby-body-fixed {
+    .moby.right-side {
+      margin-top: 39px;
+    }
   }
 }

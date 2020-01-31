@@ -33,10 +33,7 @@
       }
 
       languageSwitchToggleButton.on({
-        touchstart: function touchstart(e) {
-          handleInteraction(e);
-        },
-        click: function click(e) {
+        'click touch': function touchstartclick(e) {
           handleInteraction(e);
         },
         keydown: function keydown(e) {

@@ -36,7 +36,8 @@
   <div {{ attributes.addClass('language-switch__wrapper') }}>
     <button class="language-switch__button" aria-expanded="false" aria-controls="language-switch-dropdown" aria-haspopup="menu" aria-label="{{ 'Select language'|t }}">
       {% if current_language %}
-        {{ current_language|upper }}
+        {% set current_link = links[current_language] %}
+        <span class="language-link is-active">{{ current_link.text }} <span class="language-link--abbreviation">({{ current_language|upper }})</span></span>
       {% endif %}
       <span class="icon__wrapper" aria-hidden="true">
         {% if icons_path %}

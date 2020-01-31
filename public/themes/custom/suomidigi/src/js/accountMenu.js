@@ -31,10 +31,7 @@
       }
 
       accountMenuToggleButton.on({
-        touchstart: function(e) {
-          handleInteraction(e);
-        },
-        click: function(e) {
+        'click touch': function(e) {
           handleInteraction(e);
         },
         keydown: function (e) {
