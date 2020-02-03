@@ -14,8 +14,10 @@ dependencies:
     - field.field.node.article.field_reading_time
     - field.field.node.article.field_tags
     - field.field.node.article.field_theme
+    - image.style.2_1_half_content
     - node.type.article
   module:
+    - media
     - smart_trim
     - user
 _core:
@@ -34,13 +36,13 @@ content:
       link: false
     third_party_settings: {  }
   field_header_image:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     weight: 1
     region: content
     label: hidden
     settings:
-      view_mode: article_teaser_header
-      link: false
+      image_style: 2_1_half_content
+      image_link: ''
     third_party_settings: {  }
   field_ingress:
     type: smart_trim
