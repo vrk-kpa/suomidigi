@@ -296,10 +296,15 @@ function suomidigi_preprocess_paragraph(&$variables) {
 
     case 'hero':
       if ($paragraph->hasField('field_hero_background_image')) {
+        $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
         $media_id = $paragraph->get('field_hero_background_image')->first()->target_id;
         if (!empty($media_id)) {
           $media = Media::load($media_id);
           $variables['hero_background_image'] = ImageStyle::load('7_2_full_hd')->buildUrl($media->field_media_image->entity->getFileUri());
+
+          if ($variables['is_front']) {
+            $variables['hero_background_image'] = $media->field_media_image->entity->getFileUri();
+          }
         }
       }
       break;
