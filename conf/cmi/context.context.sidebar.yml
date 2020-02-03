@@ -16,7 +16,6 @@ conditions:
     id: 'entity_bundle:node'
     bundles:
       core_content: core_content
-      event: event
       page: page
       webform: webform
     negate: 0
