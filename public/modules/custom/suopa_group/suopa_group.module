@@ -6,9 +6,11 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\group\Entity\Group;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_help().
@@ -121,6 +123,71 @@ function suopa_group_user_presave(EntityInterface $user) {
           array_key_exists('group-administrator', $user_roles)
         ) {
           $user->addRole('group_administrator');
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function suopa_group_form_group_content_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id != 'group_content_group-group_membership_edit_form') {
+    return;
+  }
+
+  foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+      $form['actions'][$action]['#submit'][] = 'suopa_group_group_user_form_submit';
+    }
+  }
+}
+
+/**
+ * Form submit handler for group membership form.
+ *
+ * @param array $form
+ *   Form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function suopa_group_group_user_form_submit(array $form, FormStateInterface $form_state) {
+  if (
+    $form_state->hasValue('entity_id') &&
+    $form_state->hasValue('group_roles')
+  ) {
+    $user_id = $form_state->getValue('entity_id');
+    $group_roles = $form_state->getValue('group_roles');
+
+    // Check if user should have global roles.
+    if (!empty($user_id) && !empty($group_roles)) {
+      foreach ($user_id as $user) {
+        if (isset($user['target_id'])) {
+          $user = User::load($user['target_id']);
+          $save = FALSE;
+
+          foreach ($group_roles as $role) {
+            if (
+              array_key_exists('target_id', $role) &&
+              $role['target_id'] == 'group-administrator' &&
+              !in_array('group_administrator', $user->getRoles())
+            ) {
+              $save = TRUE;
+            }
+            if (
+              array_key_exists('target_id', $role) &&
+              $role['target_id'] == 'group-content_producer' &&
+              !in_array('group_member', $user->getRoles())
+            ) {
+              $save = TRUE;
+            }
+          }
+          if ($save) {
+            $user->save();
+          }
         }
       }
     }
