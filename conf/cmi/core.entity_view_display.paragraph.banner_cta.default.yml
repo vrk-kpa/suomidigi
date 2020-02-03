@@ -7,24 +7,15 @@ dependencies:
     - field.field.paragraph.banner_cta.field_banner_link
     - field.field.paragraph.banner_cta.field_banner_text_align
     - field.field.paragraph.banner_cta.field_banner_title
+    - field.field.paragraph.banner_cta.field_p_description
     - paragraphs.paragraphs_type.banner_cta
   module:
     - link
-    - options
 id: paragraph.banner_cta.default
 targetEntityType: paragraph
 bundle: banner_cta
 mode: default
 content:
-  field_banner_background_image:
-    type: entity_reference_entity_view
-    weight: 0
-    label: hidden
-    settings:
-      view_mode: block_cta_banner
-      link: false
-    third_party_settings: {  }
-    region: content
   field_banner_link:
     weight: 2
     label: hidden
@@ -37,19 +28,22 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_banner_text_align:
-    weight: 3
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_key
-    region: content
   field_banner_title:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-hidden: {  }
+  field_p_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  field_banner_background_image: true
+  field_banner_text_align: true
+  search_api_excerpt: true
