@@ -116,6 +116,7 @@ function suopa_group_user_presave(EntityInterface $user) {
     }
     else {
       $user->addRole('group_member');
+      $user->removeRole('group_administrator');
       foreach ($groups as $group) {
         $user_roles = $group->getGroup()->getMember($user)->getRoles();
         if (
@@ -159,33 +160,15 @@ function suopa_group_group_user_form_submit(array $form, FormStateInterface $for
     $form_state->hasValue('entity_id') &&
     $form_state->hasValue('group_roles')
   ) {
-    $user_id = $form_state->getValue('entity_id');
-    $group_roles = $form_state->getValue('group_roles');
+    $users = $form_state->getValue('entity_id');
 
-    // Check if user should have global roles.
-    if (!empty($user_id) && !empty($group_roles)) {
-      foreach ($user_id as $user) {
+    // Trigger user save to add or remove global roles.
+    if (!empty($users)) {
+      foreach ($users as $user) {
         if (isset($user['target_id'])) {
           $user = User::load($user['target_id']);
-          $save = FALSE;
 
-          foreach ($group_roles as $role) {
-            if (
-              array_key_exists('target_id', $role) &&
-              $role['target_id'] == 'group-administrator' &&
-              !in_array('group_administrator', $user->getRoles())
-            ) {
-              $save = TRUE;
-            }
-            if (
-              array_key_exists('target_id', $role) &&
-              $role['target_id'] == 'group-content_producer' &&
-              !in_array('group_member', $user->getRoles())
-            ) {
-              $save = TRUE;
-            }
-          }
-          if ($save) {
+          if ($user instanceof User) {
             $user->save();
           }
         }
