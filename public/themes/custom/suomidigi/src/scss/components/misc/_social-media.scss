@@ -1,10 +1,4 @@
 .block-suopa-content-social-sharing-block {
-  margin: 0 auto;
-
-  @include breakpoint($for-mobile-landscape-up) {
-    margin: 0 0 0 auto;
-  }
-
   // Contextual link.
   .contextual {
     right: 7px;

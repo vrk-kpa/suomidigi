@@ -9,4 +9,16 @@
     margin-bottom: $gutter * 0.75;
     padding-bottom: $gutter * 0.75;
   }
+
+  .article__data {
+    @include breakpoint($for-mobile-landscape-up) {
+      align-items: center;
+      margin-bottom: 20px;
+
+      .flag-wrapper.flag--top {
+        margin-left: auto;
+        margin-top: -1px;
+      }
+    }
+  }
 }

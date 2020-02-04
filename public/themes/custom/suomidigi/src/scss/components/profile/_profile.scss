@@ -20,27 +20,3 @@
     }
   }
 }
-
-.views--profile-own-content,
-.views--profile-my-bookmarks {
-  .views-row-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-    @include breakpoint($for-tablet-portrait-up) {
-      flex-direction: row;
-      margin: 0 -#{$gutter / 2};
-    }
-  }
-
-  .views__row {
-    margin-bottom: $gutter;
-
-    @include breakpoint($for-tablet-portrait-up) {
-      margin: 0 $gutter / 2 $gutter;
-      width: calc(50% - #{$gutter});
-    }
-  }
-}
-
