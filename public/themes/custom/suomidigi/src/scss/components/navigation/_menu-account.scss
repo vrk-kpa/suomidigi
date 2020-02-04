@@ -5,138 +5,198 @@
     display: flex;
     flex: 2 2 120px;
     justify-content: flex-end;
-    margin-right: $gutter * 2;
+    margin-right: 10px;
+    min-width: 140px;
+  }
 
-    .menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .icon__wrapper {
+    display: flex;
+    margin-right: $gutter / 1.5;
+
+    .icon {
+      height: 35px;
+      width: 35px;
+
+      @include icon-colors($gray) {
+        --circle-color: #A5ACB0;
+        --pw-color: #9D5DB4;
+      };
+
+      &--user {
+        margin-right: $gutter / 1.5;
+      }
+
+      &--chevron {
+        color: $blue;
+        height: $gutter;
+        margin-left: $gutter / 3;
+        width: $gutter;
+      }
     }
+  }
 
-    .icon__wrapper {
-      margin-right: $gutter / 1.5;
+  .menu-item {
+    a {
+      align-items: center;
+      color: $black;
+      display: flex;
+      text-decoration: none;
 
-      .icon {
-        height: 23px;
-        width: 23px;
+      &:hover {
+        text-decoration: underline;
 
-        &--user {
-          margin-right: $gutter / 1.5;
-        }
-
-        &--chevron {
-          color: $blue;
-          height: $gutter;
-          margin-left: $gutter / 3;
-          width: $gutter;
+        .icon {
+          --circle-color: #282828;
+          --pw-color: #282828;
         }
       }
     }
+  }
 
-    .menu-item {
-      a {
-        align-items: center;
-        display: flex;
-        text-decoration: none;
+  &__avatar {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
 
-        &:hover {
+    img {
+      border-radius: 100%;
+      max-height: 35px;
+      max-width: 35px;
+      min-height: 35px;
+      min-width: 35px;
+    }
+
+    &--letter {
+      @include font-size(20px);
+      @include font-weight($bold);
+      align-items: center;
+      background-color: $white;
+      border: 1px solid $blue-light;
+      border-radius: 100%;
+      color: $blue-light;
+      display: flex;
+      height: 35px;
+      justify-content: center;
+      line-height: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+      width: 35px;
+    }
+  }
+
+  .logged-out {
+    @include font-size(14px, 27px);
+    @include font-weight($regular);
+    color: $blue-light;
+    letter-spacing: 0;
+  }
+
+  &__dropdown {
+    &.logged-in {
+      background: $white;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 2px 2px 10px #00000029;
+      list-style: none;
+      margin: 0;
+      padding: $gutter / 1.5 0;
+      position: absolute;
+      right: 0;
+      top: 45px;
+      width: 200px;
+      z-index: 1000;
+
+      &:after,
+      &:before {
+        border: solid transparent;
+        bottom: 100%;
+        content: " ";
+        height: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 20px;
+        width: 0;
+      }
+
+      &:before {
+        border-bottom-color: $gray-light;
+        border-width: 8px;
+        margin-right: -8px;
+      }
+
+      &:after {
+        border-bottom-color: $white;
+        border-width: 7px;
+        margin-right: -7px;
+      }
+
+      &:not(.is-active) {
+        display: none;
+      }
+
+      .icon {
+        height: 17px;
+        width: 17px;
+      }
+
+      .menu-item {
+        @include font-size(14px, 27px);
+        @include font-weight($regular);
+
+        &:first-of-type {
+          .icon__wrapper {
+            margin: 0 11px 0 -4px;
+
+            .icon {
+              height: 20px;
+              width: 20px;
+            }
+          }
+        }
+
+        a {
+          border-left: $gutter / 3 solid transparent;
+          padding: $gutter / 1.5 $gutter;
+        }
+
+        &--active-trail a,
+        a:focus,
+        a:hover {
+          border-left: $gutter / 3 solid $cyan;
           color: $blue-light;
         }
       }
     }
+  }
 
-    .logged-out {
-      @include font-size(14px, 18px);
-      color: $blue-light;
-      font-weight: 600;
-      letter-spacing: 0;
+  &__button {
+    @include font-size(14px, 17px);
+    @include font-weight($regular);
+    background-color: $white;
+    border: 0 none;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+
+    .icon__wrapper {
+      align-items: center;
+      display: flex;
     }
 
-    &__dropdown {
-      &.logged-in {
-        background: $white;
-        box-shadow: 0 3px 6px #00000029;
-        list-style: none;
-        margin: 0;
-        padding: $gutter / 1.5 0;
-        position: absolute;
-        right: 0;
-        top: 45px;
-        width: 200px;
-        z-index: 1000;
-
-        &:after,
-        &:before {
-          border: solid transparent;
-          bottom: 100%;
-          content: " ";
-          height: 0;
-          pointer-events: none;
-          position: absolute;
-          right: 20px;
-          width: 0;
-        }
-
-        &:before {
-          border-bottom-color: $gray-light;
-          border-width: 8px;
-          margin-right: -8px;
-        }
-
-        &:after {
-          border-bottom-color: $white;
-          border-width: 7px;
-          margin-right: -7px;
-        }
-
-        &:not(.is-active) {
-          display: none;
-        }
-
-        .icon {
-          height: $gutter;
-          width: $gutter;
-        }
-
-        .menu-item {
-          @include font-size(14px, 18px);
-          font-weight: 600;
-
-          a {
-            border-left: $gutter / 3 solid transparent;
-            padding: $gutter / 1.5 $gutter;
-          }
-
-          &--active-trail a,
-          a:focus,
-          a:hover {
-            background-color: $gray-light;
-            border-left: $gutter / 3 solid $blue-light;
-            color: $blue-light;
-          }
-        }
-      }
-    }
-
-    &__button {
-      @include font-size(14px, 18px);
-      background-color: $white;
-      border: 0 none;
-      color: $blue-light;
-      font-weight: 600;
-      letter-spacing: 0;
-      margin: 0;
-      padding: 0;
-
-      .icon__wrapper {
-        align-items: center;
-        display: flex;
+    &[aria-expanded=true] {
+      .icon--chevron {
+        transform: rotate(180deg);
       }
 
-      &[aria-expanded=true] {
-        .icon--chevron {
-          transform: rotate(180deg);
-        }
+      .icon {
+        color: $black;
       }
     }
   }

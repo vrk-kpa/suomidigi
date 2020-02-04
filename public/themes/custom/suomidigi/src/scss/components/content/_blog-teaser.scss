@@ -25,6 +25,7 @@
 
     .blog-teaser__label {
       color: $black;
+      text-decoration: underline;
     }
   }
 
@@ -133,14 +134,14 @@
 
   .paragraph--3col .paragraph:not(.paragraph--full-width) &,
   .listing--grid__item & {
-    height: 100%;
+    flex: 1 1 auto;
   }
 }
 
 .blog-teaser__date {
   @include font-size(16px, 20px);
   @include font-weight($semibold);
-  color: $gray-darker;
+  color: $gray-dark;
   letter-spacing: 0;
   margin-bottom: 10px;
 }

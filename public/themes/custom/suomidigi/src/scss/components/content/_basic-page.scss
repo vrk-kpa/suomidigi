@@ -1,63 +1,47 @@
 .basic-page {
-  padding-bottom: $gutter * 2;
+  padding: $gutter 0 $gutter * 2;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    padding: 0 0 $gutter * 2;
+  }
+}
+
+.basic-page__header {
+  padding-top: $gutter / 1.5;
 }
 
 .basic-page__title {
   h1 {
-    color: $blue-medium;
-    @include font-size(26px, 33px);
-    @include font-weight($bold);
-    margin-bottom: $gutter;
-  }
-}
-
-.basic-page__lead {
-  @include font-size(20px, 26px);
-  @include font-weight($regular);
-  margin-bottom: $gutter;
-
-  @include breakpoint($for-tablet-landscape-up) {
+    @include font-size(40px, 50px);
+    @include font-weight($semibold);
+    color: $blue;
     margin-bottom: $gutter * 2;
   }
 }
 
-.basic-page__data {
-  @include font-size(14px, 18px);
-  color: $black;
-  display: flex;
-  flex-wrap: wrap;
+.basic-page__lead {
+  @include font-size(22px, 30px);
+  @include font-weight($regular);
   margin-bottom: $gutter * 2;
-
-  a {
-    text-decoration: none;
-  }
-
-  &-item {
-    display: flex;
-    position: relative;
-
-    &:not(:last-child) {
-      margin-right: 1rem;
-    }
-  }
 }
 
-.basic-page__author {
-  @include font-weight($semibold);
-  color: $blue-light;
-  display: flex;
-  flex-wrap: wrap;
+.basic-page__data {
+  @include font-size(18px, 27px);
+  @include font-weight($regular);
+  color: $black;
+  margin-top: $gutter * 2;
 }
 
 .basic-page__modified-text {
+  @include font-weight($semibold);
   margin-right: 0.25rem;
 }
 
 .basic-page__image {
-  margin: calc(#{$gutter} * 0.5) -#{$gutter} #{$gutter};
+  margin: $gutter -#{$gutter} $gutter * 2 ;
 
   @include breakpoint($for-tablet-landscape-up) {
-    margin: #{$gutter} 0 calc(#{$gutter} * 2);
+    margin: $gutter 0 $gutter * 2;
   }
 
   img {

@@ -126,3 +126,19 @@ function suopa_content_update_8007() {
     'Näytä lisää verkostoja'
   );
 }
+
+/**
+ * Create translations for event texts.
+ */
+function suopa_content_update_8008() {
+  suopa_content_add_translation(
+    "Learn more about the event",
+    'fi',
+    'Lisätietoja tapahtumasta'
+  );
+  suopa_content_add_translation(
+    "Learn more about the event",
+    'fi',
+    'Lisätietoja tapahtuman järjestäjästä'
+  );
+}

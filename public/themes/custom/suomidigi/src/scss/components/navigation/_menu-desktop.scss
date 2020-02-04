@@ -19,12 +19,13 @@ nav.menu--desktop {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin: 0 -#{$gutter * 1.4};
+    margin: 0 -#{$gutter * 1.6};
     padding: 0;
   }
 
   .menu-item {
     @include font-size(18px, 23px);
+    @include font-weight($regular);
     margin: 0 $gutter * 1.4;
     padding: 0;
     text-align: center;
@@ -42,14 +43,14 @@ nav.menu--desktop {
       &:hover,
       &:focus,
       &.is-active {
-        border-bottom: 5px solid $blue-light;
+        border-bottom: 5px solid $white;
       }
     }
 
     &.menu-item--active-trail {
       > span,
       > a {
-        border-bottom: 5px solid $blue-light;
+        border-bottom: 5px solid $white;
       }
     }
   }

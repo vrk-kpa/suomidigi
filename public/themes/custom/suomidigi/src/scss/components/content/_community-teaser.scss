@@ -25,6 +25,10 @@
     .link--cta .icon {
       color: $black;
     }
+
+    .community-teaser__title {
+      text-decoration: underline;
+    }
   }
 
   .community__link {
@@ -54,11 +58,10 @@
   &--letter {
     @include font-size(24px);
     align-items: center;
-    background-color: $blue-medium;
+    background-color: $blue;
     border-radius: 50%;
     color: $white;
     display: flex;
-    font-weight: bold;
     height: $gutter * 2;
     justify-content: center;
     text-decoration: none;

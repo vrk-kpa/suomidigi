@@ -11,7 +11,6 @@
   &__title {
     @include font-size(18px, 18px);
     color: $legislation-blue;
-    font-weight: bold;
     padding: 0 0 $gutter;
 
     &--icon {
@@ -46,7 +45,7 @@
 
     &__title {
       @include font-size(18px, 18px);
-      font-weight: bold;
+      @include font-weight($semibold);
       padding-bottom: $gutter / 2;
     }
   }
@@ -71,7 +70,7 @@
 
     .legislation-card__breadcrumb {
       @include font-size(12px, 12px);
-      color: $gray-darkest;
+      color: $gray-dark;
       margin-bottom: $gutter / 2;
 
       .divider {

@@ -212,6 +212,7 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+      exclude_attachments: false
   create_an_event_entity_on_submit:
     id: event_from_webform
     label: 'Create an event entity on submit'
@@ -220,3 +221,4 @@ handlers:
     conditions: {  }
     weight: -50
     settings: {  }
+variants: {  }

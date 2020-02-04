@@ -1,6 +1,6 @@
 uuid: 83f9d3a2-9f50-4a1c-8431-1c3b4239c6d0
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - ctools
@@ -23,8 +23,6 @@ visibility:
     id: 'entity_bundle:node'
     bundles:
       core_content: core_content
-      legislation_card: legislation_card
-      legislation_collection_page: legislation_collection_page
       webform: webform
     negate: false
     context_mapping:

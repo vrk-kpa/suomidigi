@@ -18,10 +18,15 @@
 
 <article{{attributes.addClass(classes)}}>
   <div class="article__header {% if node.field_header_image.isEmpty() %}is-empty{% endif %}">
+    <div class="article__title">
+      <h1>
+        {{ label }}
+      </h1>
+    </div>
     <div class="article__data">
-      <div class="article__data-item article__type">
-        {{ content.field_core_content_type }}
-      </div>
+{#      <div class="article__data-item article__type">#}
+{#        {{ content.field_core_content_type }}#}
+{#      </div>#}
       {% if content.field_displayed_author|render %}
         <span class="article__data-item article__author">
           {{ content.field_displayed_author }}
@@ -50,29 +55,20 @@
         {{ content.field_header_image }}
       </div>
     {% endif %}
-  </div>
-  <div class="article__content">
     {% if content.field_ingress|render %}
       <div class="article__lead">
         {{ content.field_ingress }}
       </div>
     {% endif %}
+  </div>
+  <div class="article__content">
     {% if content.field_paragraphs|render %}
       <div class="article__contents">
         {{ content.field_paragraphs }}
       </div>
     {% endif %}
-    {% if content.field_displayed_author_footer|render %}
-      <div class="article__author--prominent">
-        {{ content.field_displayed_author_footer }}
-      </div>
-    {% endif %}
-  </div>
-
-  {% if content.field_comments|render %}
-    <div class="comments comments__container">
-      {{ content.field_comments }}
+    <div class="article__social-sharing">
+      {{ drupal_block('suopa_content_social_sharing_block') }}
     </div>
-  {% endif %}
-
+  </div>
 </article>

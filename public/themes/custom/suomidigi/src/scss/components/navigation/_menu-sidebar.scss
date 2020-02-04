@@ -23,21 +23,23 @@ nav.menu--sidebar {
 
     > span,
     > a {
-      @include font-size(14px, 18px);
-      color: $blue;
+      @include font-size(16px, 27px);
+      @include font-weight($regular);
+      border-bottom: 1px solid $gray-light;
+      color: $blue-light;
       display: block;
-      padding: 0.75rem 0;
+      letter-spacing: 0;
+      padding: $gutter 0;
       text-decoration: none;
-      text-transform: uppercase;
       width: 100%;
 
       &:hover,
       &:focus {
-        text-decoration: underline $blue;
+        color: $black;
       }
 
       &.is-active {
-        background-color: $gray-lighter;
+        background-color: $cyan-ultra-light;
 
         &:hover,
         &:focus {
@@ -46,37 +48,60 @@ nav.menu--sidebar {
       }
     }
 
+    .is-active + .menu--is-lvl-2 {
+      border-left: $gutter / 3 solid $gray;
+      margin-left: -5px;
+    }
+
     &--lvl-0 {
       > span,
       > a {
-        @include border('bottom');
-        color: $blue;
-        font-weight: bold;
+        @include font-size(22px, 27px);
+        @include font-weight($regular);
+        color: $blue-light;
         letter-spacing: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      &:not(.menu-item--active-trail) {
+        display: none;
+        visibility: hidden;
       }
     }
 
     &--lvl-1 {
       > span,
       > a {
-        background: $white;
+        @include font-size(18px, 27px);
+        @include font-weight($regular);
         border-left: $gutter / 3 solid transparent;
+        color: $blue-light;
+        letter-spacing: 0;
         padding-left: $gutter;
+        padding-right: 20px;
         text-transform: none;
 
         &.is-active {
           @include font-weight($semibold);
-          border-color: $blue-light;
-          color: $blue-light;
+          background-color: $cyan-ultra-light;
+          border-left-color: $cyan;
+          margin-left: -5px;
+          padding-left: $gutter;
         }
       }
 
       &.menu-item--active-trail {
+        border-left: $gutter / 3 solid $cyan;
+
         > span,
         > a {
           @include font-weight($semibold);
-          background-color: $white;
-          border-left: $gutter / 3 solid $blue-light;
+          padding-left: $gutter / 1.5;
+
+          &.is-active {
+            padding-left: $gutter;
+          }
         }
       }
     }
@@ -84,24 +109,22 @@ nav.menu--sidebar {
     &--lvl-2 {
       > span,
       > a {
-        background-color: $gray-lighter;
-        border-left: 10px solid $gray-medium;
-        padding-left: $gutter;
-        text-transform: none;
+        @include font-size(16px, 27px);
+        @include font-weight($regular);
+        color: $blue-light;
+        padding-left: 30px;
+        padding-right: 20px;
 
         &.is-active {
           @include font-weight($semibold);
-          background-color: $white;
-          border-color: $blue-light;
-          color: $blue-light;
         }
       }
 
       &.menu-item--active-trail {
+        background-color: $cyan-ultra-light;
+
         > span,
         > a {
-          background-color: $white;
-          border-color: $blue-light;
           @include font-weight($semibold);
         }
       }
@@ -110,24 +133,20 @@ nav.menu--sidebar {
     &--lvl-3 {
       > span,
       > a {
-        background: $white;
-        border-left: 15px solid $gray-medium;
-        padding-left: $gutter;
-        text-transform: none;
+        @include font-size(16px, 27px);
+        @include font-weight($regular);
+        color: $blue-light;
+        padding-left: $gutter * 3;
 
         &.is-active {
           @include font-weight($semibold);
-          background-color: $white;
-          border-color: $blue-light;
-          color: $blue-light;
+          background-color: $cyan-ultra-light;
         }
       }
 
       &.menu-item--active-trail {
         > span,
         > a {
-          background-color: $white;
-          border-color: $blue-light;
           @include font-weight($semibold);
         }
       }

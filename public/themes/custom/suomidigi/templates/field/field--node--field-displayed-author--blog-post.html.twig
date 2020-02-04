@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ */
+#}
+
+{% if label_hidden %}
+  {% for item in items %}
+    <span class="author-item">{{ item.content }}</span>
+  {% endfor %}
+{% else %}
+  <div class="author__label">
+    {% trans %}
+      Author
+    {% plural items|length %}
+      Authors
+    {% endtrans %}
+  </div>
+  {% if multiple %}
+    <div class="author-items">
+  {% endif %}
+  {% for item in items %}
+    <span class="author-item">{{ item.content }}</span>
+  {% endfor %}
+  {% if multiple %}
+    </div>
+  {% endif %}
+{% endif %}

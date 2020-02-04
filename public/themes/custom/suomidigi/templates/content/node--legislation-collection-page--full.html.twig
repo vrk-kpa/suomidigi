@@ -17,6 +17,11 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
+  <div class="legislation-collection__title">
+    <h1>
+      {{ label }}
+    </h1>
+  </div>
   {% if content.field_ingress|render %}
     <div class="legislation-collection__ingress">
       {{ content.field_ingress }}

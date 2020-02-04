@@ -8,6 +8,7 @@
 {% set page_content_classes = [
   'page-content',
   node ? 'page-content--node',
+  node.getType() ? 'page-type--' ~ node.getType(),
   not node.isPublished() ? 'page-content--unpublished',
 ]
 %}

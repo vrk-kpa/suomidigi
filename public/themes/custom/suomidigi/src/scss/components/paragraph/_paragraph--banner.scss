@@ -58,8 +58,8 @@
 
   .paragraph__title {
     @include font-size(18px, 20px);
+    @include font-weight($semibold);
     color: $white;
-    font-weight: bold;
 
     @include breakpoint($for-mobile-portrait-up) {
       @include font-size(20px, 25px);
@@ -101,14 +101,14 @@
 
 .paragraph__link {
   &.no-background-image {
-    background-color: $blue-dark;
+    background-color: $blue;
   }
 
   &.text-align--left {
     text-align: left;
 
     &.no-background-image {
-      background-color: $gray-lighter;
+      background-color: $gray-light;
     }
 
     .paragraph__inner {
@@ -139,7 +139,7 @@
 
     .paragraph__title {
       @include font-size(16px, 20px);
-      color: $blue-medium;
+      color: $blue;
       font-weight: 600;
       margin-bottom: $gutter;
       padding: 0 $gutter;

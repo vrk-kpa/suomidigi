@@ -25,10 +25,15 @@
       .icon {
         color: $black;
       }
+
+      .event-teaser__title {
+        text-decoration: underline;
+      }
     }
   }
 
   &__header {
+    align-items: flex-start;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

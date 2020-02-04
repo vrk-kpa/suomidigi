@@ -1,7 +1,7 @@
 .paragraph--container-title {
   .paragraph__header {
     margin: 0 -#{$gutter} $gutter;
-    padding: calc(#{$gutter} * 0.5) $gutter;
+    padding: 0 $gutter;
 
     .paragraph__title {
       @include font-size(24px, 30px);

@@ -16,6 +16,13 @@
 
 {% embed "@suomidigi/layout/page.html.twig" with {before_content_element: 'landing-page'} %}
   {% block content_wrapper %}
+    {% if page.tools %}
+      {% embed "@suomidigi/misc/container.twig" with {container_element: 'tools'} %}
+        {% block container_content %}
+          {{ page.tools }}
+        {% endblock container_content %}
+      {% endembed %}
+    {% endif %}
     {% if page.before_content %}
       {% block before_content %}
         <div class="page-before_content page-before_content--{{ before_content_element }}" id="before_content">
@@ -32,14 +39,6 @@
           {{ page.messages }}
         </div>
       </div>
-    {% endif %}
-
-    {% if page.tools %}
-      {% embed "@suomidigi/misc/container.twig" with {container_element: 'tools'} %}
-        {% block container_content %}
-          {{ page.tools }}
-        {% endblock container_content %}
-      {% endembed %}
     {% endif %}
 
     {% if has_sidebar_first %}

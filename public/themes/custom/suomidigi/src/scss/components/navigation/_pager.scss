@@ -17,34 +17,34 @@
 .pager__items {
   display: flex;
   justify-content: center;
-  padding: 0 $gutter;
-  margin: $gutter 0;
   list-style: none;
+  margin: $gutter 0;
+  padding: 0 $gutter;
 }
 
 .pager__item {
-  display: flex;
-  justify-content: center;
   align-items: center;
   border: 1px solid $gray-medium;
   border-right: 0;
+  display: flex;
+  justify-content: center;
 
   &:last-child {
     border-right: 1px solid $gray-medium;
   }
 
   a {
-    padding: $gutter * .25;
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 38px;
     min-width: 38px;
+    padding: $gutter * .25;
     text-decoration: none;
 
     &:hover,
     &:focus {
-      background-color: $blue-lightest;
+      background-color: $white;
     }
   }
 
@@ -52,8 +52,8 @@
     border: 1px solid $blue-light;
 
     a {
-      color: $white;
       background-color: $blue-light;
+      color: $white;
       pointer-events: none;
     }
   }
@@ -71,9 +71,9 @@
   }
 
   .icon {
-    width: $gutter * 1.25;
-    height: $gutter * 1.25;
     fill: $blue-light;
+    height: $gutter * 1.25;
+    width: $gutter * 1.25;
   }
 }
 
