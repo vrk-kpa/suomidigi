@@ -326,8 +326,10 @@ function suopa_content_node_view(&$build, $entity, $display, $view_mode) {
  * Implements hook_form_FORM_ID_alter().
  */
 function suopa_content_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
-  if ($form['#id'] == ('views-exposed-form-profile-own-content-block-1')
-    or $form['#id'] == ('views-exposed-form-profile-my-bookmarks-block-1')) {
+  if (
+    $form['#id'] == 'views-exposed-form-profile-own-content-block-1' ||
+    $form['#id'] == 'views-exposed-form-profile-my-bookmarks-block-1'
+  ) {
 
     // Prepare the views exposed filters for conversion to links.
     $index = 0;
