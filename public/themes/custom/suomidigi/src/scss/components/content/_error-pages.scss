@@ -33,6 +33,15 @@
           margin-bottom: 50px;
         }
       }
+
+      .paragraph {
+        margin-bottom: $gutter * 2;
+
+        &.paragraph--list-of-links {
+          border: 0 none;
+          padding-top: 0;
+        }
+      }
     }
 
     .error__image {
