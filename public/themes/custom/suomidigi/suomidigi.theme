@@ -132,6 +132,15 @@ function suomidigi_theme_suggestions_page_alter(array &$suggestions, array $vari
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $suggestions[] = 'page__' . $node->bundle();
   }
+
+  $request = \Drupal::request();
+
+  if ($exception = $request->attributes->get('exception')) {
+    $status_code = $exception->getStatusCode();
+    if (in_array($status_code, array(401, 403, 404))) {
+      $suggestions[] = 'page__' . $status_code;
+    }
+  }
 }
 
 /**

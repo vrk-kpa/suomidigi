@@ -1,0 +1,66 @@
+.page--error {
+  &.has-parallax {
+    background-color: $white;
+  }
+
+  main.page-main {
+    display: flex;
+    flex-flow: column;
+
+    @include breakpoint($for-tablet-portrait-up) {
+      align-items: center;
+      flex-flow: row;
+      padding: 100px 0;
+    }
+
+    .basic-page__data {
+      display: none;
+    }
+
+    .page-content {
+      background-color: #fff;
+      border-radius: 0;
+      box-shadow: unset;
+      flex-basis: 50%;
+      margin: 0;
+
+      .section--content {
+        margin: 0;
+        max-width: 100%;
+        padding: 0;
+
+        @include breakpoint($for-tablet-portrait-up) {
+          margin-bottom: 50px;
+        }
+      }
+    }
+
+    .error__image {
+      flex-basis: 50%;
+      height: 100%;
+      max-height: 540px;
+      max-width: 540px;
+      width: 100%;
+    }
+
+    h1 {
+      @include font-size(62px, 78px);
+      @include font-weight($semibold);
+      color: $blue;
+      margin-bottom: $gutter * 2;
+    }
+
+    p {
+      @include font-size(22px, 30px);
+      @include font-weight($regular);
+      color: $black;
+      letter-spacing: 0;
+    }
+
+    strong {
+      @include font-size(22px, 30px);
+      @include font-weight($semibold);
+      color: #282828;
+    }
+  }
+}
