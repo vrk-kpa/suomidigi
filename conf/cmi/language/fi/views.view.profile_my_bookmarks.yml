@@ -15,5 +15,5 @@ display:
       empty:
         area:
           content:
-            value: "<p>Et ole vielä tallentanut suosikkeja. Voit tallentaa haluamiasi sisältöjä tähän klikkaamalla valitsemasi sisällön, esimerkiksi blogikirjoituksen, oikeassa ylänurkassa olevaa sydän-painiketta.</p>\r\n"
+            value: "<p>Et ole vielä tallentanut suosikkeja.<br />\r\nVoit tallentaa haluamiasi sisältöjä tähän klikkaamalla valitsemasi sisällön, esimerkiksi blogikirjoituksen, oikeassa ylänurkassa olevaa sydän-painiketta.</p>\r\n"
             format: full_html
