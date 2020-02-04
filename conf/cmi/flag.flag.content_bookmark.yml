@@ -9,6 +9,7 @@ label: 'Content bookmark'
 bundles:
   - article
   - blog_post
+  - core_content
   - event
 entity_type: node
 global: false

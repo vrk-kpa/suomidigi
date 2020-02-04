@@ -10,7 +10,7 @@ dependencies:
 id: suopasocialsharingblock
 theme: suomidigi
 region: after_content
-weight: -10
+weight: -8
 provider: null
 plugin: suopa_content_social_sharing_block
 settings:

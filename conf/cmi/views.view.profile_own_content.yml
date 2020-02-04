@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.blog_post
     - node.type.event
   module:
     - better_exposed_filters
@@ -154,7 +153,6 @@ display:
           admin_label: ''
           operator: in
           value:
-            blog_post: blog_post
             event: event
           group: 1
           exposed: false
@@ -195,7 +193,6 @@ display:
           admin_label: ''
           operator: in
           value:
-            blog_post: blog_post
             event: event
           group: 1
           exposed: true
@@ -216,6 +213,9 @@ display:
               editor_in_chief: '0'
               administrator: '0'
               webform_administrator: '0'
+              groups_administrator: '0'
+              group_administrator: '0'
+              group_member: '0'
             reduce: true
           is_grouped: false
           group_info:
@@ -339,7 +339,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "No custom content yet.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/blog_post\" class=\"link\">Create a blog post</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/event\" class=\"link\">Create an event</a>\r\n</div>"
+            value: "No custom content yet.\r\n\r\n<!--<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/blog_post\" class=\"link\">Create a blog post</a>\r\n</div>-->\r\n<div class=\"link__wrapper\">\r\n<a href=\"/en/node/add/event\" class=\"link\">Create an event</a>\r\n</div>"
             format: full_html
           plugin_id: text
       relationships:
