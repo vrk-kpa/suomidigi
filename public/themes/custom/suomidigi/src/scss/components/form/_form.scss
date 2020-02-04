@@ -16,12 +16,12 @@
 
   .container {
     border-bottom: 1px solid $gray;
-    margin-bottom: $gutter * 1.5;
+    margin-bottom: $gutter * 2;
     padding-bottom: $gutter;
 
     &--full {
       &.is-centered {
-        margin: 0 auto 10px auto;
+        margin: 0 auto $gutter * 2 auto;
       }
     }
 
@@ -29,12 +29,13 @@
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-      margin: 0 -#{$gutter};
+      margin: 0 -#{$gutter} $gutter * 1.5 -#{$gutter};
 
       @include breakpoint($for-tablet-portrait-up) {
         flex-direction: row;
 
         > .form-item {
+          margin-bottom: $gutter * 2;
           margin-left: $gutter;
           margin-right: $gutter;
           width: calc(100% / 2 - #{$gutter * 2});
@@ -175,6 +176,10 @@
       }
     }
 
+    .form-textarea-wrapper textarea {
+      height: 120px;
+    }
+
     input[type="search"] {
       @include font-size(18px, 27px);
       @include font-weight($regular);
@@ -200,7 +205,7 @@
     &.form-type-radio {
       cursor: pointer;
       display: inline;
-      margin-bottom: 0;
+      margin-bottom: $gutter * 2;
       margin-right: $gutter * 1.5;
 
       input[type="radio"] {
@@ -253,6 +258,12 @@
     }
 
     &.form-type-checkbox {
+      margin-bottom: $gutter;
+
+      &:last-of-type {
+        margin-bottom: $gutter * 10;
+      }
+
       input[type="checkbox"] {
         opacity: 0;
 
@@ -303,11 +314,13 @@
     }
 
     &.form-type-textarea {
-      margin-bottom: $gutter;
+      margin-bottom: $gutter * 2;
     }
   }
 
   .form__group {
+    margin-bottom: $gutter * 2;
+
     h3 {
       @include font-size(20px);
     }
