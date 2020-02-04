@@ -1,11 +1,13 @@
 .paragraph.paragraph--highlight-bullet-point {
   background-color: $white;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px #00000029;
   padding: $gutter * 1.5;
 
   .paragraph__title {
-    @include font-size(18px);
-    font-weight: 600;
+    @include font-size(20px, 27px);
+    @include font-weight($semibold);
+    margin-bottom: $gutter;
   }
 
   .paragraph-list {
@@ -14,7 +16,8 @@
   }
 
   .paragraph-list__item {
-    @include font-size(15px);
+    @include font-size(18px, 27px);
+    @include font-weight($regular);
     list-style: none;
     margin-bottom: $gutter * 0.75;
     padding-left: $gutter * 1.5;
@@ -28,11 +31,11 @@
       background-color: $blue-light;
       border-radius: 100%;
       content: '';
-      height: $gutter * 0.75;
+      height: 12px;
       left: 0;
       position: absolute;
-      top: $gutter * 0.5;
-      width: $gutter * 0.75;
+      top: 8px;
+      width: 12px;
     }
   }
 }
