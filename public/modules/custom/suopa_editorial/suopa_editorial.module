@@ -59,6 +59,10 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
     $form['field_displayed_author']['#group'] = 'revision_information';
   }
 
+  if (isset($form['field_hide_updated_date'])) {
+    $form['field_hide_updated_date']['#group'] = 'revision_information';
+  }
+
   // Attach timepicker styles.
   $form['#attached']['library'][] = 'suopa_editorial/suopa-timepicker';
 }
@@ -302,6 +306,10 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
 
     if (!$user->hasRole('editor_in_chief')) {
       $form['menu']['#access'] = FALSE;
+
+      if (isset($form['field_hide_updated_date'])) {
+        $form['field_hide_updated_date']['#access'] = FALSE;
+      }
     }
   }
 

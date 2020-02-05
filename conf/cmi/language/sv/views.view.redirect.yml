@@ -26,6 +26,7 @@ display:
           action_title: 'Med urval'
         redirect_source__path:
           label: Från
+          separator: ', '
         created:
           label: Skapad
       filters:
