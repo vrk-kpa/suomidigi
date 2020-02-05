@@ -40,6 +40,7 @@ hidden:
   field_reading_time: true
   field_tags: true
   field_theme: true
+  flag_content_bookmark: true
   langcode: true
   published_at: true
   rate_vote_widget: true

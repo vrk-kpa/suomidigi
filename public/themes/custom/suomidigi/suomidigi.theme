@@ -234,6 +234,22 @@ function suomidigi_preprocess_node(&$variables) {
     $variables['community_domain_label'] = $domain->label();
     $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
   }
+
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('flag')) {
+    $flag_link = [
+      '#lazy_builder' => [
+        'flag.link_builder:build',
+        [
+          $node->getEntityTypeId(),
+          $node->id(),
+          'content_bookmark',
+        ],
+      ],
+      '#create_placeholder' => TRUE,
+    ];
+    $variables['flag_link'] = render($flag_link);
+  }
 }
 
 /**
@@ -646,6 +662,7 @@ function suomidigi_preprocess_views_view(&$variables) {
     'blogs',
     'articles',
     'profile_own_content',
+    'profile_my_bookmarks',
   ];
 
   if (in_array($view->id(), $view_ids)) {

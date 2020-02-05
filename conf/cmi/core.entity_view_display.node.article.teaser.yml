@@ -71,6 +71,7 @@ hidden:
   field_reading_time: true
   field_tags: true
   field_theme: true
+  flag_content_bookmark: true
   langcode: true
   links: true
   published_at: true

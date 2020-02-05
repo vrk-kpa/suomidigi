@@ -28,6 +28,13 @@ class UserPageRouteSubscriber extends RouteSubscriberBase {
         'Drupal\suopa_content\EventSubscriber\UserPageRouteSubscriber::userTitle'
       );
     }
+
+    if ($route = $collection->get('flag.action_link_unflag')) {
+      $route->setDefault(
+        '_controller',
+        'Drupal\suopa_content\EventSubscriber\SuopaContentActionLinkController::unflag'
+      );
+    }
   }
 
   /**

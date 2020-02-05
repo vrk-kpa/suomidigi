@@ -6,22 +6,38 @@
    */
   Drupal.behaviors.exposedfilter_buttons = {
     attach: function(context, settings) {
-      let view = $('#views-exposed-form-profile-own-content-block-1');
+      let ownContent = $('#views-exposed-form-profile-own-content-block-1');
 
-      view.find('.button a').on('click', function(e) {
+      ownContent.find('.button a').on('click', function(e) {
         e.preventDefault();
 
         let id = $(e.target).attr('id');
-        let filter = view.find('select[name="type"]');
+        let filter = ownContent.find('select[name="type"]');
 
         filter.val(id);
 
         $('.button a').removeClass('is-active');
         $(e.target).addClass('is-active');
 
-        view.find('select[name="type"]').trigger('change');
-        view.find('input.form-submit').trigger('click');
+        ownContent.find('select[name="type"]').trigger('change');
+        ownContent.find('input.form-submit').trigger('click');
+      });
 
+      let myBookmarks = $('#views-exposed-form-profile-my-bookmarks-block-1');
+
+      myBookmarks.find('.button a').on('click', function(e) {
+        e.preventDefault();
+
+        let id = $(e.target).attr('id');
+        let filter = myBookmarks.find('select[name="type"]');
+
+        filter.val(id);
+
+        $('.button a').removeClass('is-active');
+        $(e.target).addClass('is-active');
+
+        myBookmarks.find('select[name="type"]').trigger('change');
+        myBookmarks.find('input.form-submit').trigger('click');
       });
     }
   };
@@ -31,10 +47,20 @@
       settings.extraData !== undefined &&
       settings.extraData.view_name === 'profile_own_content'
     ) {
-      let view = $('#views-exposed-form-profile-own-content-block-1');
-      let filterId = view.find('select[name="type"]').find(":selected").val();
-      view.find('.button a').removeClass('is-active');
-      view.find('.button').find('#' + filterId).addClass('is-active');
+      let ownContent = $('#views-exposed-form-profile-own-content-block-1');
+      let filterId = ownContent.find('select[name="type"]').find(":selected").val();
+      ownContent.find('.button a').removeClass('is-active');
+      ownContent.find('.button').find('#' + filterId).addClass('is-active');
+    }
+
+    if (
+      settings.extraData !== undefined &&
+      settings.extraData.view_name === 'profile_my_bookmarks'
+    ) {
+      let myBookmarks = $('#views-exposed-form-profile-my-bookmarks-block-1');
+      let filterId = myBookmarks.find('select[name="type"]').find(":selected").val();
+      myBookmarks.find('.button a').removeClass('is-active');
+      myBookmarks.find('.button').find('#' + filterId).addClass('is-active');
     }
   });
 

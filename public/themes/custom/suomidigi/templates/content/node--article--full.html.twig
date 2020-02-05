@@ -35,6 +35,7 @@
         </span>
         <div class="content__divider"></div>
       {% endif %}
+      <div class="article__data--bottom">
       {% if node.isPublished() and published_at is not empty %}
         <span class="article__data-item article__published">
           {{ published_at|date('j.n.Y - H:i') }}
@@ -50,6 +51,10 @@
           <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
         </span>
       {% endif %}
+      </div>
+      <div class="flag-wrapper flag--top">
+        {{ flag_link }}
+      </div>
     </div>
     <div class="article__image">
       {{ content.field_header_image }}
@@ -68,6 +73,9 @@
     {% endif %}
     <div class="article__social-sharing">
       {{ drupal_block('suopa_content_social_sharing_block') }}
+      <div class="flag-wrapper flag--bottom">
+        {{ flag_link }}
+      </div>
     </div>
     {% if content.field_displayed_author_footer|render %}
       <div class="article__author--prominent author author--prominent">
@@ -76,7 +84,6 @@
     {% endif %}
     <div class="content__border"></div>
   </div>
-
   {% if content.field_comments|render %}
     <div class="comments comments__container">
       {{ content.field_comments }}

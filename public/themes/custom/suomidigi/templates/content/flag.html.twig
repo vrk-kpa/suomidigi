@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Default theme implementation for flag links.
+ */
+#}
+{% spaceless %}
+  {# Attach the flag CSS library.#}
+  {{ attach_library('flag/flag.link') }}
+
+  {# Depending on the flag action, set the appropriate action class. #}
+  {% if action == 'unflag' %}
+    {% set action_class = 'action-unflag' %}
+  {% else %}
+    {% set action_class = 'action-flag' %}
+  {% endif %}
+
+  {# Set the remaining Flag CSS classes. #}
+  {% set container_attributes = container_attributes.addClass(action_class) %}
+
+  {# Set nofollow to prevent search bots from crawling anonymous flag links #}
+  {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
+
+  <div{{ container_attributes }}>
+    <a{{ attributes.addClass('flag__link') }}>
+      {% if icons_path %}
+        <div class="flag__icon">
+          <svg class="icon">
+            <title>{{ text }}</title>
+            <use xlink:href="{{ icons_path|trim }}#heart"/>
+          </svg>
+        </div>
+      {% endif %}
+      <div class="flag__label">
+        {{ title }}
+      </div>
+    </a>
+  </div>
+{% endspaceless %}

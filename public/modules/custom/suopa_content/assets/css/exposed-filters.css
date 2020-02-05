@@ -1,3 +1,4 @@
-#views-exposed-form-profile-own-content-block-1 .js-form-type-select {
+#views-exposed-form-profile-own-content-block-1 .js-form-type-select,
+#views-exposed-form-profile-my-bookmarks-block-1 .js-form-type-select {
   display: none;
 }
