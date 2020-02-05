@@ -9,7 +9,7 @@ id: paragraph.liftup_50_50.field_p_title
 field_name: field_p_title
 entity_type: paragraph
 bundle: liftup_50_50
-label: TItle
+label: Title
 description: ''
 required: false
 translatable: true

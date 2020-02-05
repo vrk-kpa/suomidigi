@@ -39,6 +39,7 @@ settings:
     groups: groups
     liftups: liftups
     liftups_groups: liftups_groups
+    news: news
     social_media: social_media
     theme_tag_lists: theme_tag_lists
     approval_node_queue: 0

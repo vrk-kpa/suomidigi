@@ -1,24 +1,20 @@
-uuid: 0dd00925-16e1-4013-95d0-a220c1da3e37
+uuid: 90355e1b-d88c-47d4-8fbe-e38672f0455a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_header_image
     - media.type.image
-    - node.type.article
-  content:
-    - 'media:image:5694163d-8bdd-4b35-97c4-16fa82e224a9'
-id: node.article.field_header_image
+    - node.type.news_item
+id: node.news_item.field_header_image
 field_name: field_header_image
 entity_type: node
-bundle: article
+bundle: news_item
 label: 'Header image'
 description: ''
-required: true
+required: false
 translatable: false
-default_value:
-  -
-    target_uuid: 5694163d-8bdd-4b35-97c4-16fa82e224a9
+default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:media'

@@ -170,6 +170,7 @@ datasource_settings:
         - core_content
         - event
         - landing_page
+        - news_item
         - page
     languages:
       default: true
