@@ -20,14 +20,9 @@
   ]
 %}
 <section{{ attributes.addClass(classes) }}>
-  {% if not comment_form %}
-    <h3{{ title_attributes.addClass(title_classes) }}>{{ 'Comments'|t }}</h3>
-  {% endif %}
-
-  {{ comments }}
+  <h3{{ title_attributes.addClass(title_classes) }}>{{ 'Comments'|t }}</h3>
 
   {% if comment_form %}
-    <h3 class="title comment-form__title">{{ 'Add new comment'|t }}</h3>
     {{ comment_form }}
   {% elseif not comments %}
     {% set login_path = path('user.login') %}
@@ -37,4 +32,5 @@
     {% endtrans %}
   {% endif %}
 
+  {{ comments }}
 </section>

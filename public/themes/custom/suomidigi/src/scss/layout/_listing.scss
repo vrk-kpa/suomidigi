@@ -1,6 +1,10 @@
 .listing {
   margin: 0 -#{$gutter} $gutter * 2 -#{$gutter};
 
+  .page-type--taxonomy-term & {
+    margin: 0 0 $gutter * 2 0;
+  }
+
   @include breakpoint($for-mobile-landscape-up) {
     margin: 0 0 $gutter * 2;
   }

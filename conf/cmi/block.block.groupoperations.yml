@@ -8,8 +8,8 @@ dependencies:
     - suomidigi
 id: groupoperations
 theme: suomidigi
-region: before_content
-weight: 0
+region: tools
+weight: -12
 provider: null
 plugin: group_operations
 settings:

@@ -8,15 +8,23 @@
 {% set page_content_classes = [
   'page-content',
   node ? 'page-content--node',
+  node.getType() ? 'page-type--' ~ node.getType(),
+  taxonomy_term ? 'page-type--taxonomy-term',
   webform ? 'page-content--webform',
   not node.isPublished() ? 'page-content--unpublished',
 ]
 %}
 
+{% set before_content_classes = [
+  'page-before_content ',
+  node.getType() ? 'page-before_content--' ~ node.getType(),
+  taxonomy_term ? 'page-before_content--taxonomy-term',
+  webform ? 'page-before_content--webform',
+]
+%}
+
 {%
-  set section_variables = has_background
-    ? { section_element: 'content', section_modifier: 'colored' }
-    : { section_element: 'content' }
+  set section_variables = { section_element: 'content' }
 %}
 
 <div class="page-wrapper" id="page">
@@ -70,66 +78,75 @@
       </div>
     {% endif %}
 
-    {% if page.messages %}
-      <div class="page-messages" id="messages">
-        <div class="container page-messages__container">
-          {{ page.messages }}
-        </div>
-      </div>
-    {% endif %}
+    <div class="has-parallax">
+      {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
 
-    {% if page.breadcrumb %}
-      {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
-        {% block container_content %}
-          {{ page.breadcrumb }}
-        {% endblock container_content %}
-      {% endembed %}
-    {% endif %}
-
-    {% set has_sidebar_first = page.sidebar_first|render|striptags|trim is not empty %}
-
-    {% block content_wrapper %}
-      <div class="content__wrapper container">
-        {% if has_sidebar_first %}
-          <aside class="sidebar sidebar--first" id="sidebar-first" role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
+      {% block content_wrapper %}
+        {% if page.breadcrumb %}
+          {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
+            {% block container_content %}
+              {{ page.breadcrumb }}
+            {% endblock container_content %}
+          {% endembed %}
         {% endif %}
 
-        <main class="page-main" id="main" role="main">
-          <a id="main-content" tabindex="-1"></a>
-          {% if page.before_content %}
-            {% block before_content %}
-            <div class="page-before_content page-before_content--{{ before_content_element }}" id="before_content">
-              <section class="section section--before-content">
-                {{ page.before_content }}
-              </section>
+        {% if page.messages %}
+          <div class="page-messages" id="messages">
+            <div class="container page-messages__container">
+              {{ page.messages }}
             </div>
+          </div>
+        {% endif %}
+
+        {% if page.tools %}
+          {% embed "@suomidigi/misc/container.twig" with {container_element: 'tools'} %}
+            {% block container_content %}
+              {{ page.tools }}
+            {% endblock container_content %}
+          {% endembed %}
+        {% endif %}
+
+        <div class="content__wrapper container {% if has_sidebar_first %}has-background{% endif %}">
+          {% if has_sidebar_first %}
+            <aside class="sidebar sidebar--first" id="sidebar-first" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          {% endif %}
+
+          <main class="page-main" id="main" role="main">
+            <a id="main-content" tabindex="-1"></a>
+            {% if page.before_content %}
+              {% block before_content %}
+                <div {{ create_attribute({'class': before_content_classes} ).addClass('page-before_content--' ~ before_content_element) }} id="before_content">
+                  <section class="section section--before-content">
+                    {{ page.before_content }}
+                  </section>
+                </div>
+              {% endblock %}
+            {% endif %}
+
+            {% block content %}
+              <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
+                {% embed "@suomidigi/misc/section.twig" with section_variables %}
+                  {% block section_content %}
+                    {{ page.content }}
+                  {% endblock section_content %}
+                {% endembed %}
+              </div>
             {% endblock %}
-          {% endif %}
 
-          {% block content %}
-            <div id="content" {{ create_attribute({'class': page_content_classes} ) }}>
-              {% embed "@suomidigi/misc/section.twig" with section_variables %}
-                {% block section_content %}
-                  {{ page.content }}
-                {% endblock section_content %}
-              {% endembed %}
-            </div>
-          {% endblock %}
-
-          {% if page.after_content %}
-            <div class="page-after_content" id="after_content">
-              <section class="section section--after-content">
-                {{ page.after_content }}
-              </section>
-            </div>
-          {% endif %}
-        </main>
-      </div>
-    {% endblock %}
+            {% if page.after_content %}
+              <div class="page-after_content" id="after_content">
+                <section class="section section--after-content">
+                  {{ page.after_content }}
+                </section>
+              </div>
+            {% endif %}
+          </main>
+        </div>
+      {% endblock %}
+    </div>
   </div>
-
   <div class="page-before-footer" id="before-footer" role="contentinfo">
     <div class="page-before-footer__container l-footer {% if has_sidebar_first %}l-before-footer--small{% endif %}">
       {% if page.before_footer %}

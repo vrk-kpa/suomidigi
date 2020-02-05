@@ -7,7 +7,7 @@
 #}
 {% block content %}
   {% if content %}
-    {% embed "@suomidigi/misc/container.twig" with {container_element: 'block--system-messages'} %}
+    {% embed "@suomidigi/misc/container.twig" with {container_element: 'block--local-tasks'} %}
       {% block container_content %}
         <nav class="tabs" role="navigation" aria-label="{{ 'Tabs'|t }}">
           {{ content }}

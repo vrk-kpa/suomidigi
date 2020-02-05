@@ -1,6 +1,6 @@
 uuid: da8851f3-22f6-4e78-9b85-fd14ec826931
-langcode: fi
-status: true
+langcode: en
+status: false
 dependencies:
   config:
     - views.view.rate
@@ -12,7 +12,7 @@ dependencies:
 id: views_block__rate_block_1
 theme: suomidigi
 region: after_content
-weight: -10
+weight: -11
 provider: null
 plugin: 'views_block:rate-block_1'
 settings:

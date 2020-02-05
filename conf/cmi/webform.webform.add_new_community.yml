@@ -211,6 +211,7 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
+      exclude_attachments: false
   create_a_community_entity_on_submit:
     id: community_from_webform
     label: 'Create a community entity on submit'
@@ -219,3 +220,4 @@ handlers:
     conditions: {  }
     weight: -50
     settings: {  }
+variants: {  }

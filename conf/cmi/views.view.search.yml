@@ -76,9 +76,16 @@ display:
         type: search_api
         options:
           view_modes:
+            'entity:group':
+              group: teaser
             'entity:node':
               article: teaser
+              blog_post: teaser
+              community: teaser
               core_content: teaser
+              event: teaser
+              landing_page: teaser
+              page: teaser
       fields:
         body:
           table: search_api_index_content_search_index
@@ -180,6 +187,9 @@ display:
               editor_in_chief: '0'
               administrator: '0'
               webform_administrator: '0'
+              groups_administrator: '0'
+              group_administrator: '0'
+              group_member: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -198,13 +208,7 @@ display:
               3: {  }
           parse_mode: terms
           min_length: null
-          fields:
-            - field_article_type_name
-            - field_blog_tags
-            - field_core_content_type_name
-            - field_displayed_author
-            - field_ingress
-            - title
+          fields: {  }
           plugin_id: search_api_fulltext
         status:
           id: status

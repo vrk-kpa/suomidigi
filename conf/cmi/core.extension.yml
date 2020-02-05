@@ -17,6 +17,8 @@ module:
   config: 0
   config_translation: 0
   contact: 0
+  context: 0
+  context_ui: 0
   contextual: 0
   crop: 0
   ctools: 0
@@ -43,7 +45,7 @@ module:
   focal_point: 0
   formtips: 0
   gnode: 0
-  google_analytics: 0
+  google_tag: 0
   group: 0
   help: 0
   history: 0
@@ -62,6 +64,7 @@ module:
   media_library: 0
   menu_block: 0
   menu_block_current_language: 0
+  menu_link_attributes: 0
   menu_trail_by_path: 0
   menu_ui: 0
   metatag: 0
@@ -89,7 +92,6 @@ module:
   roleassign: 0
   route_condition: 0
   scheduler: 0
-  search: 0
   search_api: 0
   search_api_autocomplete: 0
   search_api_db: 0

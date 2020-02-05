@@ -15,11 +15,11 @@
   }
 
   &--text {
+    @include font-weight($semibold);
     @include font-size(32px, 40px);
-    color: $blue;
+    color: $blue-light;
     font-family: $default-font-family;
-    font-weight: bold;
-    letter-spacing: 0;
+    letter-spacing: -0.5px;
     text-align: left;
   }
 

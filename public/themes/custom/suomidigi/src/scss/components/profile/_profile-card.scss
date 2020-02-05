@@ -1,10 +1,27 @@
 .profile-card {
   align-items: center;
   background-color: $white;
-  border-bottom: 8px solid $blue-light;
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
   display: flex;
   flex-direction: column;
-  margin: 0 0 $gutter;
+  margin: $gutter * 2 0 $gutter;
+
+  .author-item &,
+  &.vocabulary-author {
+    background-color: $white;
+    border-left: 0 none;
+    border-radius: 0;
+    box-shadow: unset;
+    margin: 0 0 $gutter;
+
+    .profile-card__picture {
+      @include breakpoint($for-tablet-portrait-up) {
+        margin-left: -#{$gutter * 2}
+      }
+    }
+  }
 
   @include breakpoint($for-tablet-portrait-up) {
     flex-direction: row;
@@ -19,6 +36,11 @@
     padding: $gutter * 2;
     width: calc(210px + (#{$gutter} * 2 * 2));
 
+    @include breakpoint($for-tablet-portrait-up) {
+      margin-left: $gutter * 4;
+    }
+
+    .blog__author--prominent &,
     .article__author--prominent & {
       height: calc(170px + (#{$gutter} * 2 * 2));
       min-width: calc(170px + (#{$gutter} * 2 * 2));
@@ -60,6 +82,7 @@
         margin-bottom: $gutter;
         padding-bottom: $gutter * 1.35;
 
+        .blog__author--prominent &,
         .article__author--prominent & {
           border-bottom: 0 none;
           padding-bottom: 0;
@@ -69,31 +92,46 @@
   }
 
   &__name {
-    @include font-size(22px, 28px);
-    color: $blue;
-    font-weight: 600;
+    @include font-size(28px, 34px);
+    @include font-weight($semibold);
     letter-spacing: 0;
     margin-bottom: $gutter / 2;
 
     > div {
       display: inline;
     }
+
+    .author-item & {
+      @include font-size(22px, 28px);
+      color: $blue-light;
+    }
   }
 
   &__profession {
-    @include font-size(14px, 18px);
-    font-weight: 600;
+    @include font-size(18px, 24px);
+    @include font-weight($semibold);
     letter-spacing: 0;
 
     > div {
       display: inline;
     }
+
+    .author-item & {
+      @include font-size(18px, 27px);
+      @include font-weight($regular);
+      color: $black;
+    }
   }
 
   &__description {
-    @include font-size(16px, 24px);
+    @include font-size(18px, 26px);
+    @include font-weight($regular);
     letter-spacing: 0;
     margin-bottom: $gutter;
+
+    .author-item & {
+      color: $gray-dark;
+    }
   }
 
   &__some {
@@ -126,28 +164,21 @@
     }
   }
 
-  .article__author--prominent & {
+  .article__author--prominent,
+  .blog__author--prominent & {
     border-bottom: 0 none;
   }
 
   &--mini {
     align-items: center;
     display: flex;
-    flex-basis: calc(50% - 20px);
     flex-flow: column;
     justify-items: center;
-    margin: 10px;
-
-    @include breakpoint($for-mobile-landscape-up) {
-      flex-basis: calc(33% - 20px);
-    }
-
-    @include breakpoint($for-tablet-portrait-up) {
-      flex-basis: calc(20% - 20px);
-    }
+    margin: 10px $gutter;
 
     .profile-card__picture {
       height: calc(70px + (#{$gutter} * 2));
+      margin: 0;
       min-width: calc(70px + (#{$gutter} * 2));
       padding: $gutter;
       width: calc(70px + (#{$gutter} * 2));

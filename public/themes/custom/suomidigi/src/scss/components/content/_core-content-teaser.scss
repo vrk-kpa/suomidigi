@@ -1,5 +1,8 @@
 .core-content-teaser {
   background-color: $white;
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
   height: 100%;
 
   .listing--grid__item & {
@@ -8,10 +11,6 @@
 
   .paragraph--full-width & {
     @include border('bottom');
-
-    .core-content-teaser__link {
-      box-shadow: none;
-    }
 
     .core-content-teaser__label-type {
       display: block;
@@ -27,13 +26,28 @@
   }
 
   &__link {
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
     color: $black;
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: calc(#{$gutter} * 1.25) $gutter;
+    padding: $gutter * 1.4;
     text-decoration: none;
+
+    &:hover,
+    &:active {
+      color: $black;
+      text-decoration: none;
+
+      .core-content-teaser__published,
+      .core-content-teaser__type,
+      .core-content-teaser__label {
+        color: $black;
+      }
+
+      .core-content-teaser__label {
+        text-decoration: underline;
+      }
+    }
   }
 
   &__header {
@@ -49,7 +63,7 @@
   &__image {
     line-height: 0;
     margin-right: $gutter;
-    width: $gutter * 3;
+    width: 50px;
 
     svg {
       height: 100%;
@@ -58,30 +72,34 @@
   }
 
   &__label {
-    @include font-size(20px, 20px);
-    font-weight: 600;
+    @include font-size(22px, 28px);
+    @include font-weight($semibold);
+    color: $blue-light;
     margin-bottom: 0;
   }
 
   &__lead {
     @include font-size(14px, 18px);
-    color: $gray-darker;
+    color: $gray-dark;
     margin-bottom: $gutter;
     word-break: break-word;
   }
 
   &__type {
-    @include font-size(14px, 14px);
-    color: $gray-darker;
+    @include font-size(16px, 20px);
+    @include font-weight($semibold);
+    color: $gray-dark;
     display: block;
-    font-weight: 600;
+  }
+
+  &__published {
+    @include font-size(16px, 20px);
+    @include font-weight($regular);
+    color: $black;
   }
 
   &__label-type {
-    @include font-size(12px, 12px);
-    color: $gray-darker;
     display: none;
-    margin-top: $gutter * 0.35;
   }
 
   &__data {

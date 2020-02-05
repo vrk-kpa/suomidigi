@@ -2,11 +2,10 @@
 
   &__published {
     @include font-size(14px, 14px);
-    color: $gray-darker;
+    color: $gray-dark;
   }
 
   .article__header.is-empty {
-    @include border('bottom');
     margin-bottom: $gutter * 0.75;
     padding-bottom: $gutter * 0.75;
   }

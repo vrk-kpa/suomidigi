@@ -39,7 +39,8 @@
 
   .thene__description-wrapper {
     background-color: $white;
-    border-top: 5px solid $blue;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #00000029;
     margin-bottom: $gutter * 2;
     padding: $gutter * 2;
     width: 100%;
@@ -48,9 +49,9 @@
       @include font-size(22px, 28px);
       @include font-weight($semibold);
       margin-bottom: $gutter;
-
+      max-width: 600px;
       a {
-        color: $blue;
+        color: $black;
         text-decoration: none;
       }
     }
@@ -58,7 +59,7 @@
     .views-field-field-theme-description {
       @include font-size(18px, 27px);
       @include font-weight($regular);
-      max-width: 670px;
+      max-width: 600px;
     }
   }
 }
