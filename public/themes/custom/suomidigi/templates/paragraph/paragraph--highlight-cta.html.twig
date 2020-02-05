@@ -8,17 +8,17 @@
 
   <a href="{{ link }}" {% if link_target is same as(1) %} target="_blank" {% endif %} {{ attributes.addClass(classes) }} aria-labelledby="highlight-textbox-title">
     {% block content %}
-      <span class="paragraph__title" title="highlight-textbox-title">
+      <div class="paragraph__title" title="highlight-textbox-title">
         {{ title }}
-        <span aria-hidden="true" class="paragraph__title-icon">
+        <div aria-hidden="true" class="paragraph__title-icon">
           {% if icons_path %}
             <svg class="icon">
               <title>{{ title }}</title>
-              <use xlink:href="{{ icons_path|trim }}#arrow_orange"/>
+              <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
             </svg>
           {% endif %}
-        </span>
-      </span>
+        </div>
+      </div>
       {% if description|render %}
         <p class="paragraph__content">
           {{ description }}

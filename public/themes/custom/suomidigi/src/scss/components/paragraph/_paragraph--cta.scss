@@ -1,8 +1,10 @@
 .paragraph.paragraph--highlight-cta {
-  @include border();
-  color: inherit;
+  background-color: $white;
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
   display: block;
-  padding: calc(#{$gutter} * 0.5) $gutter;
+  padding: $gutter * 1.4 $gutter;
   text-decoration: none;
 
   &:hover,
@@ -10,33 +12,41 @@
     text-decoration: none;
 
     .paragraph__title {
+      color: $black;
       text-decoration: underline;
+    }
+
+    .paragraph__title-icon .icon {
+      color: $black;
     }
   }
 
   .paragraph__title {
-    @include font-size(16px);
-    display: inline-block;
-    font-weight: 600;
-    margin-bottom: 0;
+    @include font-size(18px, 27px);
+    @include font-weight($semibold);
+    align-items: center;
+    color: $blue-light;
+    display: inline-flex;
+    margin-bottom: $gutter;
   }
 
   .paragraph__title-icon {
     display: inline-block;
-    height: 1.125rem;
-    margin-left: $gutter * 0.5;
-    width: 1.125rem;
+    position: relative;
 
     .icon {
-      color: $orange-dark;
-      display: inline-block;
-      height: 100%;
-      vertical-align: text-bottom;
-      width: 100%;
+      color: $purple;
+      height: 24px;
+      position: absolute;
+      right: -23px;
+      top: -11px;
+      width: 18px;
     }
   }
 
   .paragraph__content {
-    @include font-size(15px);
+    @include font-size(18px, 26px);
+    @include font-weight($regular);
+    color: $black;
   }
 }

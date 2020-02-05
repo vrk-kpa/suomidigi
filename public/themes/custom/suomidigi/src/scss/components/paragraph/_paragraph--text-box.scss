@@ -1,5 +1,5 @@
 .paragraph.paragraph--highlight-text-box {
-  padding: calc(#{$gutter} * 1.5) $gutter;
+  padding: $gutter * 1.4;
 
   .paragraph__title {
     @include font-size(20px, 27px);

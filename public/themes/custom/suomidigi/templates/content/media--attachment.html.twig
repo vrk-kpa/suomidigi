@@ -24,19 +24,19 @@
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix.contextual_links }}
   <a href="{{ file_url(file_url) }}" class="attachment-teaser__link">
-    {% block image %}
-      {% if content.field_liftup_image|render %}
-        <div class="attachment-teaser__image">
-          {{ content.field_liftup_image|render }}
-        </div>
-      {% endif %}
-    {% endblock %}
-
     {% block content %}
       <div class="attachment-teaser__content">
-        <h2 class="attachment-teaser__title">
-          {{ name }}
-        </h2>
+        <div class="attachment-teaser__title-wrapper">
+          <h2 class="attachment-teaser__title">{{ 'Download'|t }} {{ name }}</h2>
+          <div class="attachment-teaser__icon">
+            {% if icons_path %}
+              <svg class="icon">
+                <title>{{ 'Search'|t }}</title>
+                <use xlink:href="{{ icons_path|trim }}#download_item" />
+              </svg>
+            {% endif %}
+          </div>
+        </div>
         {% if file_extension|render %}
           <p class="attachment-teaser__file-type">
             {% if file_size|render %}
