@@ -11,11 +11,12 @@ html {
 }
 
 .dialog-off-canvas-main-canvas {
+  background-color: $page-background;
   border-top: 4px solid $cyan;
 }
 
 body {
-  background-color: $page-background;
+  background-color: $blue;
   height: 100%;
   margin: 0;
   padding: 0;
