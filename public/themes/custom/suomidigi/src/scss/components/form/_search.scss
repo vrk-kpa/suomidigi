@@ -93,7 +93,7 @@
   transition-property: all;
   width: 100%;
 
-  @include breakpoint($for-tablet-portrait-up) {
+  @include breakpoint($for-tablet-landscape-up) {
     min-width: 250px;
   }
 

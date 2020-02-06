@@ -51,7 +51,7 @@
 
 .article__author {
   @include font-weight($semibold);
-  color: $blue-light;
+  color: $gray-dark;
   display: flex;
   flex-wrap: wrap;
 

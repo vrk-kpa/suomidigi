@@ -60,23 +60,6 @@ function suomidigi_preprocess_page(&$variables) {
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
     $variables['taxonomy_term'] = TRUE;
   }
-
-  // Set section area based on entity type.
-  $entities = [
-    'article',
-    'core_content',
-    'webform',
-    'blog_post',
-    'page',
-    'news_item',
-  ];
-
-  if (
-    isset($variables['node']) &&
-    in_array($variables['node']->getType(), $entities)
-  ) {
-    $variables['has_background'] = TRUE;
-  }
 }
 
 /**
@@ -132,6 +115,10 @@ function suomidigi_preprocess_region(&$variables) {
 function suomidigi_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $suggestions[] = 'page__' . $node->bundle();
+  }
+
+  if ($taxonomy_term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
+    $suggestions[] = 'page__taxonomy__term__' . $taxonomy_term->bundle();
   }
 
   $request = \Drupal::request();
@@ -829,7 +816,7 @@ function suomidigi_preprocess_image(&$variables) {
     isset($variables['alt']) &&
     $variables['alt'] === '""'
   ) {
-    $variables['attributes']['alt'] = ' ';
+    $variables['attributes']['alt'] = '';
   }
 }
 

@@ -16,6 +16,7 @@ conditions:
     id: 'entity_bundle:node'
     bundles:
       core_content: core_content
+      legislation_collection_page: legislation_collection_page
       news_item: news_item
       page: page
       webform: webform

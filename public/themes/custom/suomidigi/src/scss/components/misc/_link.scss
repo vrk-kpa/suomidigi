@@ -47,6 +47,10 @@
         color: $black;
         transition: all 150ms linear;
       }
+
+      .link--cta-text {
+        text-decoration: underline;
+      }
     }
 
     &-icon-left {
@@ -88,6 +92,7 @@
 
         .link--cta-text {
           color: $purple;
+          text-decoration: none;
           text-shadow: none;
         }
       }

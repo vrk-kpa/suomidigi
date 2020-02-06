@@ -9,24 +9,24 @@ dependencies:
 id: group_fi
 label: 'Group - FI'
 type: 'canonical_entities:group'
-pattern: 'ryhmat-ja-verkostot/[group:title]'
+pattern: 'ryhmat/[group:title]'
 selection_criteria:
-  21c7a742-4041-44bc-aa93-2ac5936748e1:
+  ed837670-3047-4dad-b3a3-bebf3fb3ef0e:
     id: 'entity_bundle:group'
     bundles:
       group: group
     negate: false
     context_mapping:
       group: group
-    uuid: 21c7a742-4041-44bc-aa93-2ac5936748e1
-  73441bba-8278-481f-be10-c83badf2c2cc:
+    uuid: ed837670-3047-4dad-b3a3-bebf3fb3ef0e
+  dec1c8a2-b64e-43df-b3f4-5e63b65996fd:
     id: language
     langcodes:
       fi: fi
     negate: false
     context_mapping:
       language: 'group:langcode:language'
-    uuid: 73441bba-8278-481f-be10-c83badf2c2cc
+    uuid: dec1c8a2-b64e-43df-b3f4-5e63b65996fd
 selection_logic: and
 weight: -10
 relationships:
