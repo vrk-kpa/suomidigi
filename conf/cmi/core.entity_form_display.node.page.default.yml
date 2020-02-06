@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.page.field_displayed_author
     - field.field.node.page.field_displayed_update_time
     - field.field.node.page.field_header_image
+    - field.field.node.page.field_hide_updated_date
     - field.field.node.page.field_ingress
     - field.field.node.page.field_paragraphs
     - field.field.node.page.field_tags
@@ -68,6 +69,13 @@ content:
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_hide_updated_date:
+    weight: 21
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_ingress:
     weight: 4

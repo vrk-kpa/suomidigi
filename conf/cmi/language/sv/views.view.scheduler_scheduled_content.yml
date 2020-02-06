@@ -18,6 +18,8 @@ display:
       fields:
         title:
           label: Titel
+        type:
+          separator: ', '
         name:
           label: Författare
         status:

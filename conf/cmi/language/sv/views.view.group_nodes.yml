@@ -22,15 +22,19 @@ display:
       fields:
         title:
           label: Titel
+          separator: ', '
         type:
           label: Innehållstyp
+          separator: ', '
         status:
           label: Status
           settings:
             format_custom_true: Publicerad
             format_custom_false: 'Ej publicerad'
+          separator: ', '
         changed:
           label: Uppdaterad
+          separator: ', '
         delete_node:
           text: 'Radera nod'
         dropbutton:
