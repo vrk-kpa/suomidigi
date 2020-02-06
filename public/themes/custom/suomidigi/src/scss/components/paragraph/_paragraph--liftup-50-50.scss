@@ -76,7 +76,7 @@
   &.paragraph--full-width {
     @include breakpoint($for-tablet-portrait-up) {
       .paragraph__content-wrapper {
-        padding: $gutter * 2 $gutter;
+        padding: $gutter * 2;
         width: 100%;
       }
 

@@ -3,10 +3,14 @@
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
-      <h3 class="paragraph__title">{{ content.field_p_title }}</h3>
-      <div class="paragraph-list">
-        {{ content|without('field_p_title') }}
-      </div>
+      {% if content.field_p_title|render %}
+        <h3 class="paragraph__title">{{ content.field_p_title }}</h3>
+      {% endif %}
+      {% if content|without('field_p_title')|render %}
+        <div class="paragraph-list">
+          {{ content|without('field_p_title') }}
+        </div>
+      {% endif %}
     {% endblock %}
   </div>
 {% endblock paragraph %}

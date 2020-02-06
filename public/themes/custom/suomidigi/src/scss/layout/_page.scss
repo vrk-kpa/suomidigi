@@ -150,3 +150,9 @@
     background-position-x: 50%;
   }
 }
+
+.page-type--taxonomy-term--theme {
+  .vocabulary-theme > .content {
+    margin-bottom: 60px;
+  }
+}

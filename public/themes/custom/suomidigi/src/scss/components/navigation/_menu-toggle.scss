@@ -36,14 +36,14 @@
       position: absolute;
       right: 18px;
       top: 18px;
-      z-index: 2001;
+      z-index: 2002;
     }
 
     .moby-body-fixed.toolbar-vertical &,
     .moby-body-fixed.toolbar-vertical.toolbar-tray-open &,
     .moby-body-fixed.toolbar-fixed &,
     .moby-body-fixed.toolbar-fixed.toolbar-horizontal & {
-      top: 57px;
+      top: 55px;
     }
   }
 }
