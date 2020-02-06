@@ -5,59 +5,15 @@
 {% set link = content.field_banner_link.0['#url'] %}
 {% set text = content.field_banner_link.0['#title'] %}
 {% set link_classes = [
-  'paragraph__link',
-  'text-align--' ~ text_align|clean_class
+  'paragraph--banner-cta',
 ] %}
 
 {% block content %}
-  {% set image = "" %}
-
-  {% if content.field_banner_background_image|render %}
-    {% for key, val in content.field_banner_background_image %}
-      {% if val.entity %}
-        {% set media = val.entity %}
-        {% set image = drupal_image(media.fields.field_media_image.entity.uri.value, 'cta_banner_background') %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-
-  {% if image is empty or text_align is same as('left') %}
-    {% set link_classes = link_classes|merge(['no-background-image']) %}
-  {% endif %}
-
   <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">
-    <div class="paragraph__background">
-      {% if text_align is not same as('left') %}
-        {{ image }}
-      {% endif %}
-      <div class="paragraph__inner">
-        {% if text_align is same as('normal') %}
-          <svg height="54px" version="1.1" viewbox="0 0 28 54" width="28px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-            <g fill-rule="evenodd" fill="none" id="v8-(+lainsäädäntö)" stroke-width="1" stroke="none">
-              <g fill="#FFFFFF" id="Desktop-koti-artikkelit" transform="translate(-720.000000, -1867.000000)">
-                <g id="banner" transform="translate(496.000000, 1826.000000)">
-                  <g id="Group-4" transform="translate(224.000000, 41.000000)">
-                    <path d="M9.1,36.3371758 C8.84073944,34.4697313 8.90555361,32.7579329 9.29444444,31.2017291 C9.68333528,29.6455254 10.2536999,28.2190267 11.0055556,26.9221902 C11.7574112,25.6253537 12.6129582,24.4193139 13.5722222,23.3040346 C14.5314863,22.1887552 15.4388846,21.0994289 16.2944444,20.0360231 C17.1500043,18.9726172 17.8629601,17.9221954 18.4333333,16.8847262 C19.0037066,15.8472571 19.2888889,14.7319944 19.2888889,13.5389049 C19.2888889,11.6714604 18.7314871,10.1671527 17.6166667,9.0259366 C16.5018463,7.88472052 14.9592691,7.31412104 12.9888889,7.31412104 C11.3814734,7.31412104 9.92963611,7.6772298 8.63333333,8.40345821 C7.33703056,9.12968663 6.11852422,10.1152676 4.97777778,11.3602305 L0,6.76945245 C1.71111967,4.79826104 3.7462845,3.17723978 6.10555556,1.90634006 C8.46482661,0.635440331 11.1222074,0 14.0777778,0 C16.1000101,0 17.9666581,0.272331571 19.6777778,0.817002882 C21.3888974,1.36167419 22.8536976,2.1786689 24.0722222,3.26801153 C25.2907468,4.35735415 26.2499965,5.70604383 26.95,7.31412104 C27.6500035,8.92219824 28,10.7896147 28,12.9164265 C28,14.5763772 27.7018548,16.0677167 27.1055556,17.3904899 C26.5092563,18.7132631 25.7703748,19.9711756 24.8888889,21.1642651 C24.007403,22.3573547 23.0611162,23.4985536 22.05,24.5878963 C21.0388838,25.6772389 20.1314855,26.8184378 19.3277778,28.0115274 C18.5240701,29.2046169 17.8759284,30.4754976 17.3833333,31.8242075 C16.8907383,33.1729174 16.7481471,34.6772251 16.9555556,36.3371758 L9.1,36.3371758 Z M13.0666667,54 C11.4073991,54 10.0333388,53.4294005 8.94444444,52.2881844 C7.85555011,51.1469684 7.31111111,49.6945333 7.31111111,47.9308357 C7.31111111,46.1671382 7.85555011,44.7147031 8.94444444,43.573487 C10.0333388,42.432271 11.4073991,41.8616715 13.0666667,41.8616715 C14.7259342,41.8616715 16.1129574,42.432271 17.2277778,43.573487 C18.3425982,44.7147031 18.9,46.1671382 18.9,47.9308357 C18.9,49.6945333 18.3425982,51.1469684 17.2277778,52.2881844 C16.1129574,53.4294005 14.7259342,54 13.0666667,54 Z" id="?-copy"></path>
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
-        {% endif %}
-        <div class="paragraph__inner--container">
-          <span class="paragraph__title">{{ content.field_banner_title|render }}</span>
-          <span class="paragraph__description">{{ text }}
-              <span aria-hidden="true" class="paragraph__description-icon">
-                {% if icons_path %}
-                  <svg class="icon">
-                    <title>{{ text }}</title>
-                    <use xlink:href="{{ icons_path|trim }}#arrow_orange"/>
-                  </svg>
-                {% endif %}
-              </span>
-            </span>
-        </div>
-      </div>
+    <div class="paragraph__content-wrapper">
+      <div class="paragraph__title">{{ content.field_banner_title|render }}</div>
+      <div class="paragraph__description">{{ content.field_p_description|render }}</div>
     </div>
+    <div class="paragraph__button">{{ text }}</div>
   </a>
 {% endblock %}

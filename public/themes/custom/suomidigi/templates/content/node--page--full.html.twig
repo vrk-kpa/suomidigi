@@ -40,9 +40,13 @@
           {{ content.field_paragraphs }}
       </div>
     {% endif %}
-    <div class="basic-page__data">
-      <span class="basic-page__modified-text">{{ 'Updated'|trans }}:</span>
-      <span class="basic-page__modified-date">{{ node.getChangedTime()|date('j.n.Y') }}</span>
-    </div>
+
+    {% set hide_updated = content.field_hide_updated_date[0]['#markup'] %}
+    {% if hide_updated is same as(0) or hide_updated is empty %}
+      <div class="basic-page__data">
+        <span class="basic-page__modified-text">{{ 'Updated'|trans }}:</span>
+        <span class="basic-page__modified-date">{{ node.getChangedTime()|date('j.n.Y') }}</span>
+      </div>
+    {% endif %}
   </div>
 </article>

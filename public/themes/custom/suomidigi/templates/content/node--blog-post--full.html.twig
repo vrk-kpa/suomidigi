@@ -31,22 +31,28 @@
         <span class="blog__data-item blog__author author__list">
           {{ content.field_displayed_author }}
         </span>
+        <div class="content__divider"></div>
       {% endif %}
-      {% if node.isPublished() and published_at is not empty %}
-        <span class="blog__data-item blog__published">
+      <div class="blog__data--bottom">
+        {% if node.isPublished() and published_at is not empty %}
+          <span class="blog__data-item blog__published">
           {{ published_at|date('j.n.Y - H:i') }}
         </span>
-      {% endif %}
-      {% if content.field_displayed_update_time|render %}
-        <span class="blog__data-item blog__modified">
+        {% endif %}
+        {% if content.field_displayed_update_time|render %}
+          <span class="blog__data-item blog__modified">
           <span class="blog__modified-text">{{ 'Updated on'|trans }}</span> <span class="blog__modified-date">{{ content.field_displayed_update_time }}</span>
         </span>
-      {% endif %}
-      {% if content.field_reading_time|render %}
-        <span class="blog__data-item blog__reading">
+        {% endif %}
+        {% if content.field_reading_time|render %}
+          <span class="blog__data-item blog__reading">
           <span class="blog__reading-time">{{ content.field_reading_time }}</span> <span class="blog__reading-text">{{ 'min read'|trans }}</span>
         </span>
-      {% endif %}
+        {% endif %}
+      </div>
+      <div class="flag-wrapper flag--top">
+        {{ flag_link }}
+      </div>
     </div>
     <div class="blog__image">
       {{ content.field_header_image }}
@@ -65,6 +71,9 @@
     {% endif %}
     <div class="blog__social-sharing">
       {{ drupal_block('suopa_content_social_sharing_block') }}
+      <div class="flag-wrapper flag--bottom">
+        {{ flag_link }}
+      </div>
     </div>
     {% if content.field_displayed_author_footer|render %}
       <div class="blog__author--prominent author author--prominent">

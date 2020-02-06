@@ -10,6 +10,7 @@
 .page-type--blog_post,
 .page-type--webform,
 .page-type--taxonomy-term,
+.page-type--news_item,
 .page-content--node-add {
   background-color: $white;
   border-radius: 5px;
@@ -147,5 +148,11 @@
 
   @include breakpoint($for-tablet-portrait-up) {
     background-position-x: 50%;
+  }
+}
+
+.page-type--taxonomy-term--theme {
+  .vocabulary-theme > .content {
+    margin-bottom: 60px;
   }
 }

@@ -1,0 +1,6 @@
+flag_short: 'Tallenna suosikkeihin'
+flag_long: 'Lisää tämä sivu suosikkeihin'
+flag_message: 'Lisätty suosikiksi'
+unflag_short: 'Poista suosikeista'
+unflag_long: 'Poista tämä sivu suosikeista'
+unflag_message: 'Poistettu suosikeista'

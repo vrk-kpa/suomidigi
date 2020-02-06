@@ -24,7 +24,7 @@
     text-decoration: none;
 
     .blog-teaser__label {
-      color: $black;
+      color: $blue-light;
       text-decoration: underline;
     }
   }
@@ -154,7 +154,8 @@
 
   .listing--list & {
     &:hover {
-      color: $black;
+      color: $blue-light;
+      text-decoration: underline;
     }
   }
 }
@@ -174,7 +175,7 @@
 .blog-teaser__author {
   @include font-size(16px, 20px);
   @include font-weight($semibold);
-  color: $blue-light;
+  color: $gray-dark;
 
   .author__item {
     &:hover,

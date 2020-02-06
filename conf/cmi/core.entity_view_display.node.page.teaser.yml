@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.page.field_displayed_author
     - field.field.node.page.field_displayed_update_time
     - field.field.node.page.field_header_image
+    - field.field.node.page.field_hide_updated_date
     - field.field.node.page.field_ingress
     - field.field.node.page.field_paragraphs
     - field.field.node.page.field_tags
@@ -52,6 +53,7 @@ content:
 hidden:
   field_displayed_author: true
   field_displayed_update_time: true
+  field_hide_updated_date: true
   field_paragraphs: true
   field_tags: true
   langcode: true

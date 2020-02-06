@@ -60,22 +60,6 @@ function suomidigi_preprocess_page(&$variables) {
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
     $variables['taxonomy_term'] = TRUE;
   }
-
-  // Set section area based on entity type.
-  $entities = [
-    'article',
-    'core_content',
-    'webform',
-    'blog_post',
-    'page',
-  ];
-
-  if (
-    isset($variables['node']) &&
-    in_array($variables['node']->getType(), $entities)
-  ) {
-    $variables['has_background'] = TRUE;
-  }
 }
 
 /**
@@ -132,6 +116,19 @@ function suomidigi_theme_suggestions_page_alter(array &$suggestions, array $vari
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $suggestions[] = 'page__' . $node->bundle();
   }
+
+  if ($taxonomy_term = \Drupal::routeMatch()->getParameter('taxonomy_term')) {
+    $suggestions[] = 'page__taxonomy__term__' . $taxonomy_term->bundle();
+  }
+
+  $request = \Drupal::request();
+
+  if ($exception = $request->attributes->get('exception')) {
+    $status_code = $exception->getStatusCode();
+    if (in_array($status_code, [401, 403, 404])) {
+      $suggestions[] = 'page__' . $status_code;
+    }
+  }
 }
 
 /**
@@ -151,6 +148,7 @@ function suomidigi_preprocess_node(&$variables) {
     $node->getType() === 'article' ||
     $node->getType() === 'blog_post' ||
     $node->getType() === 'page' ||
+    $node->getType() === 'news_item' ||
     $node->getType() === 'legislation_collection_page'
   ) {
     if ($node->hasField('field_header_image')) {
@@ -224,6 +222,22 @@ function suomidigi_preprocess_node(&$variables) {
 
     $variables['community_domain_label'] = $domain->label();
     $variables['community_domain_domain'] = $domain->field_community_domain_domain->value;
+  }
+
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('flag')) {
+    $flag_link = [
+      '#lazy_builder' => [
+        'flag.link_builder:build',
+        [
+          $node->getEntityTypeId(),
+          $node->id(),
+          'content_bookmark',
+        ],
+      ],
+      '#create_placeholder' => TRUE,
+    ];
+    $variables['flag_link'] = render($flag_link);
   }
 }
 
@@ -379,7 +393,8 @@ function suomidigi_preprocess_block(&$variables) {
         $node->getType() == 'webform' ||
         $node->getType() == 'legislation_collection_page' ||
         $node->getType() == 'blog_post' ||
-        $node->getType() == 'core_content'
+        $node->getType() == 'core_content' ||
+        $node->getType() == 'news_item'
       ) {
         $variables['hide_block'] = TRUE;
       }
@@ -637,6 +652,7 @@ function suomidigi_preprocess_views_view(&$variables) {
     'blogs',
     'articles',
     'profile_own_content',
+    'profile_my_bookmarks',
   ];
 
   if (in_array($view->id(), $view_ids)) {
@@ -800,7 +816,7 @@ function suomidigi_preprocess_image(&$variables) {
     isset($variables['alt']) &&
     $variables['alt'] === '""'
   ) {
-    $variables['attributes']['alt'] = ' ';
+    $variables['attributes']['alt'] = '';
   }
 }
 

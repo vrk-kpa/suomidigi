@@ -4,7 +4,7 @@ mail: suomidigi@vrk.fi
 slogan: 'Suomidigi promotes and supports public administration in digitalisation'
 page:
   403: ''
-  404: ''
+  404: /node/2
   front: /node/7
 admin_compact_mode: false
 weight_select_max: 100

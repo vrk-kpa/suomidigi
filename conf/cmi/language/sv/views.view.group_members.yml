@@ -22,12 +22,16 @@ display:
       fields:
         name:
           label: Användare
+          separator: ', '
         group_roles:
           label: Roller
+          separator: ', '
         changed:
           label: Uppdaterad
+          separator: ', '
         created:
           label: Medlem
+          separator: ', '
         dropbutton:
           label: Funktioner
       arguments:

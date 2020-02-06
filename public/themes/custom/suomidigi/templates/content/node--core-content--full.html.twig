@@ -24,31 +24,32 @@
       </h1>
     </div>
     <div class="article__data">
-{#      <div class="article__data-item article__type">#}
-{#        {{ content.field_core_content_type }}#}
-{#      </div>#}
       {% if content.field_displayed_author|render %}
-        <span class="article__data-item article__author">
+        <span class="article__data-item article__author author__list">
           {{ content.field_displayed_author }}
         </span>
+        <div class="content__divider"></div>
       {% endif %}
-      {% if node.isPublished() and published_at is not empty %}
-        <span class="article__data-item article__published">
+      <div class="article__data--bottom">
+        {% if node.isPublished() and published_at is not empty %}
+          <span class="article__data-item article__published">
           {{ published_at|date('j.n.Y - H:i') }}
         </span>
-      {% endif %}
-      {% if content.field_displayed_update_time|render %}
-        <span class="article__data-item article__modified">
-          <span class="article__modified-text">{{ 'Updated on'|trans }}</span>
-          <span class="article__modified-date">{{ content.field_displayed_update_time }}</span>
+        {% endif %}
+        {% if content.field_displayed_update_time|render %}
+          <span class="article__data-item article__modified">
+          <span class="article__modified-text">{{ 'Updated on'|trans }}</span> <span class="article__modified-date">{{ content.field_displayed_update_time }}</span>
         </span>
-      {% endif %}
-      {% if content.field_reading_time|render %}
-        <span class="article__data-item article__reading">
-          <span class="article__reading-time">{{ content.field_reading_time }}</span>
-          <span class="article__reading-text">{{ 'min read'|trans }}</span>
+        {% endif %}
+        {% if content.field_reading_time|render %}
+          <span class="article__data-item article__reading">
+          <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
         </span>
-      {% endif %}
+        {% endif %}
+      </div>
+      <div class="flag-wrapper flag--top">
+        {{ flag_link }}
+      </div>
     </div>
     {% if content.field_header_image|render %}
       <div class="article__image">
@@ -69,6 +70,9 @@
     {% endif %}
     <div class="article__social-sharing">
       {{ drupal_block('suopa_content_social_sharing_block') }}
+      <div class="flag-wrapper flag--bottom">
+        {{ flag_link }}
+      </div>
     </div>
   </div>
 </article>

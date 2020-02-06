@@ -1,0 +1,15 @@
+uuid: 04da120d-2a22-43ce-a7b3-5cddedc052d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.content_bookmark
+  module:
+    - flag
+id: flag_action.content_bookmark_flag
+label: Bookmark
+type: node
+plugin: 'flag_action:content_bookmark_flag'
+configuration:
+  flag_id: content_bookmark
+  flag_action: flag

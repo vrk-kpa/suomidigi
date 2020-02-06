@@ -1,0 +1,32 @@
+uuid: 63ae9f60-5683-4013-b789-ebbcc39caba3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.profile_my_bookmarks
+  module:
+    - route_condition
+    - views
+  theme:
+    - suomidigi
+id: views_block__profile_my_bookmarks_block_1
+theme: suomidigi
+region: after_content
+weight: -12
+provider: null
+plugin: 'views_block:profile_my_bookmarks-block_1'
+settings:
+  id: 'views_block:profile_my_bookmarks-block_1'
+  label: 'My bookmarks'
+  provider: views
+  label_display: visible
+  views_label: 'My bookmarks'
+  items_per_page: none
+  context_mapping:
+    uid: '@user.current_user_context:current_user'
+visibility:
+  route:
+    id: route
+    routes: entity.user.canonical
+    negate: false
+    context_mapping: {  }
