@@ -12,4 +12,8 @@
       @include font-size(15px, 22px);
     }
   }
+
+  .media--type-video {
+    margin-bottom: $gutter;
+  }
 }

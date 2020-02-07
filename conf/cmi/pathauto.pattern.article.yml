@@ -7,16 +7,16 @@ dependencies:
 id: article
 label: Article
 type: 'canonical_entities:node'
-pattern: '[node:article_type_pattern:path]'
+pattern: 'kehittamisesimerkit/[node:title]'
 selection_criteria:
-  b3e858e3-34b1-49fe-a4a2-9e99d071d8ad:
+  f3d1a653-5aae-4be7-af60-b30520c0b253:
     id: node_type
     bundles:
       article: article
     negate: false
     context_mapping:
       node: node
-    uuid: b3e858e3-34b1-49fe-a4a2-9e99d071d8ad
+    uuid: f3d1a653-5aae-4be7-af60-b30520c0b253
 selection_logic: and
 weight: -10
 relationships: {  }

@@ -18,9 +18,9 @@
 <article{{attributes.addClass(classes)}}>
   <a href="{{ url }}" class="news-teaser__link">
     {% if node.isPublished() and published_at is not empty %}
-      <span class="news-teaser__published">
+      <div class="news-teaser__published">
         {{ published_at|date('j.n.Y') }}
-      </span>
+      </div>
     {% endif %}
     <div class="news-teaser__content">
       <h3 class="news-teaser__label">
