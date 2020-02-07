@@ -20,8 +20,8 @@
 
   &__title {
     @include font-size(18px, 18px);
+    @include font-weight($semibold);
     color: $black;
-    font-weight: 600;
     margin-bottom: $gutter / 4;
 
     .legislation-attachment__link:hover & {
@@ -30,9 +30,9 @@
   }
 
   &__destination {
-    @include font-size(10px, 10px);
+    @include font-size(12px, 12px);
+    @include font-weight($regular);
     color: $gray-dark;
-    font-weight: 600;
     margin-bottom: 0;
     text-transform: uppercase;
   }
@@ -41,16 +41,16 @@
     @include font-size(12px, 12px);
     @include font-weight($semibold);
     background-color: $white;
-    border: 1px solid $legislation-blue;
-    color: $legislation-blue;
+    border: 1px solid $blue-light;
+    color: $blue-light;
     margin-left: auto;
     padding: $gutter * 0.75 $gutter;
     text-align: center;
     text-transform: uppercase;
 
     .legislation-link__link:hover & {
-      background-color: $legislation-blue;
-      border-color: $legislation-blue;
+      background-color: $blue-light;
+      border-color: $blue-light;
       color: $white;
       text-decoration: none;
     }

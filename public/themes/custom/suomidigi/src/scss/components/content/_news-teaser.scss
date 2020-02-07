@@ -41,8 +41,7 @@
   @include font-size(18px, 27px);
   @include font-weight($regular);
   color: $black;
-  margin-right: 10px;
-  min-width: 75px;
+  min-width: 100px;
   text-decoration: none;
 }
 

@@ -10,6 +10,7 @@
 
   &__title {
     @include font-size(18px, 18px);
+    @include font-weight($semibold);
     color: $legislation-blue;
     padding: 0 0 $gutter;
 

@@ -26,7 +26,7 @@
     @include font-weight($semibold);
     background: transparent;
     border: 0 none;
-    color: $legislation-blue;
+    color: $blue;
     display: block;
     margin-bottom: $gutter;
     margin-left: auto;
@@ -45,10 +45,11 @@
   }
 
   &__item {
-    background-color: $gray-light;
+    background-color: #fafafa;
+    border: 1px solid $gray-light;
+    border-radius: 5px;
+    display: block;
     margin-bottom: $gutter * 2;
-    margin-left: -#{$gutter};
-    margin-right: -#{$gutter};
     padding: $gutter;
   }
 
