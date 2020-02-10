@@ -46,6 +46,7 @@
       align-items: center;
       color: $black;
       display: flex;
+      hyphens: auto;
       text-decoration: none;
 
       &:hover {
