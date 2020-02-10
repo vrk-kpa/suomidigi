@@ -48,7 +48,7 @@ content:
     weight: 104
     label: hidden
     settings:
-      trim_length: 80
+      trim_length: 160
       url_only: false
       url_plain: false
       rel: ''
