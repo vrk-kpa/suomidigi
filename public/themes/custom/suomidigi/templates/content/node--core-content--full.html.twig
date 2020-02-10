@@ -19,7 +19,7 @@
 <article{{attributes.addClass(classes)}}>
   <div class="article__header {% if node.field_header_image.isEmpty() %}is-empty{% endif %}">
     <div class="article__title">
-      <h1>
+      <h1 lang="fi">
         {{ label }}
       </h1>
     </div>
@@ -43,8 +43,10 @@
         {% endif %}
         {% if content.field_reading_time|render %}
           <span class="article__data-item article__reading">
-          <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
-        </span>
+            {% trans %}
+              {{ content.field_reading_time[0]['#markup'] }} min read
+            {% endtrans %}
+          </span>
         {% endif %}
       </div>
       <div class="flag-wrapper flag--top">

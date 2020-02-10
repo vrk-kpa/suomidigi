@@ -48,7 +48,9 @@
       {% endif %}
       {% if content.field_reading_time|render %}
         <span class="article__data-item article__reading">
-          <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
+          {% trans %}
+            {{ content.field_reading_time[0]['#markup'] }} min read
+          {% endtrans %}
         </span>
       {% endif %}
       </div>
