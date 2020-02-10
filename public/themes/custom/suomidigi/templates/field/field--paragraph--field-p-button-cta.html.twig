@@ -7,7 +7,5 @@
 {% for item in items %}
   {% set link = item.content['#url'] %}
   {% set text = item.content['#title'] %}
-  <a href="{{ link }}" class="button--cta" {% if external %} target="_blank" {% endif %} title="{{ text }}">
-    {{ text }}
-  </a>
+  <a href="{{ link }}" class="button--cta" {% if external %}target="_blank"{% endif %}>{{ text }}</a>
 {% endfor %}

@@ -1,6 +1,6 @@
 uuid: 02695470-ed90-48bb-b217-a7d0c9dddb61
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.suopa_shortcuts

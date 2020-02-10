@@ -4,3 +4,9 @@ display:
     display_title: Ruudukko
   communities_list:
     display_title: Lista
+  default:
+    display_options:
+      pager:
+        options:
+          views_infinite_scroll:
+            button_text: 'Näytä lisää verkostoja'
