@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.legislation_card.field_attachments
+    - field.field.node.legislation_card.field_displayed_update_time
     - field.field.node.legislation_card.field_ingress
     - field.field.node.legislation_card.field_legislation_content
     - field.field.node.legislation_card.field_legislation_materials
     - field.field.node.legislation_card.field_legislation_section
     - node.type.legislation_card
   module:
+    - datetime
     - hide_revision_field
     - paragraphs
     - path
@@ -17,6 +19,7 @@ dependencies:
     - scheduler
     - select2
     - text
+    - timepicker
 id: node.legislation_card.default
 targetEntityType: node
 bundle: legislation_card
@@ -39,6 +42,17 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
+  field_displayed_update_time:
+    weight: 19
+    settings: {  }
+    third_party_settings:
+      timepicker:
+        enabled: '1'
+        type: timepicker_jonthornton
+        js_options:
+          value: ''
+    type: datetime_default
     region: content
   field_ingress:
     weight: 15

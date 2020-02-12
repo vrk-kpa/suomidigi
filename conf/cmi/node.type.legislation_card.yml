@@ -7,8 +7,9 @@ dependencies:
     - scheduler
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:38bc0174-1807-40e7-8e3c-24d37f4d197a'
   scheduler:
     expand_fieldset: when_required
     fields_display_mode: vertical_tab

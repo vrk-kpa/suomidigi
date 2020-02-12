@@ -1,0 +1,21 @@
+uuid: 9a4640a0-9549-4edd-a37c-3a2f6590d06e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_displayed_update_time
+    - node.type.legislation_card
+  module:
+    - datetime
+id: node.legislation_card.field_displayed_update_time
+field_name: field_displayed_update_time
+entity_type: node
+bundle: legislation_card
+label: 'Displayed update time'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

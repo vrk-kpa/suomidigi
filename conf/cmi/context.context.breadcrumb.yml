@@ -16,7 +16,6 @@ conditions:
     id: node_type
     bundles:
       landing_page: landing_page
-      legislation_card: legislation_card
     negate: 1
     uuid: 688d613c-c110-4da9-ab75-6420df2074fc
     context_mapping:

@@ -9,14 +9,15 @@ label: 'Landing page'
 type: 'canonical_entities:node'
 pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
-  49311f31-f02a-4c37-b09d-d4f9aec8624b:
+  9db76026-a318-4b5f-992a-a0d95da3dd69:
     id: node_type
     bundles:
       landing_page: landing_page
+      legislation_collection_page: legislation_collection_page
     negate: false
     context_mapping:
       node: node
-    uuid: 49311f31-f02a-4c37-b09d-d4f9aec8624b
+    uuid: 9db76026-a318-4b5f-992a-a0d95da3dd69
 selection_logic: and
-weight: 3
+weight: 7
 relationships: {  }
