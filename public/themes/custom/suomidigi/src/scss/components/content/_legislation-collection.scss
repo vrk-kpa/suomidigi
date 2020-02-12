@@ -38,19 +38,14 @@
   }
 
   &__label {
-    @include font-size(18px, 18px);
+    @include font-size(22px, 28px);
     @include font-weight($semibold);
     color: $black;
-    margin-bottom: $gutter;
+    margin-bottom: $gutter * 1.4;
   }
 
   &__item {
-    background-color: #fafafa;
-    border: 1px solid $gray-light;
-    border-radius: 5px;
-    display: block;
     margin-bottom: $gutter * 2;
-    padding: $gutter;
   }
 
   &--teaser {

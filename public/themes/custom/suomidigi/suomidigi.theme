@@ -339,12 +339,6 @@ function suomidigi_preprocess_page_title(&$variables) {
       $variables['title'] = Markup::create($translated_title);
     }
   }
-
-  // Modify title classes for Legislation collection page nodes.
-  $node = Drupal::request()->attributes->get('node');
-  if (!empty($node) && $node->bundle() == 'legislation_collection_page') {
-    $variables['page_title_secondary'] = TRUE;
-  }
 }
 
 /**

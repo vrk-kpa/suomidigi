@@ -5,6 +5,39 @@
  * Contains suopa_editorial.module.
  */
 
+const ALLOWED_FORMS_PUBLISHING_INFORMATION = [
+  'node_article_edit_form',
+  'node_article_form',
+  'node_blog_post_edit_form',
+  'node_blog_post_form',
+  'node_core_content_edit_form',
+  'node_core_content_form',
+  'node_legislation_card_edit_form',
+  'node_legislation_card_form',
+  'node_news_item_edit_form',
+  'node_news_item_form',
+  'node_page_edit_form',
+  'node_page_form',
+];
+
+const ALLOWED_FORMS_DRAG_N_DROP = [
+  'node_article_edit_form',
+  'node_article_form',
+  'node_blog_post_edit_form',
+  'node_blog_post_form',
+  'node_core_content_edit_form',
+  'node_core_content_form',
+  'node_landing_page_edit_form',
+  'node_landing_page_form',
+  'node_legislation_card_edit_form',
+  'node_legislation_card_form',
+  'node_news_item_edit_form',
+  'node_news_item_form',
+  'node_page_edit_form',
+  'node_page_form',
+  'taxonomy_term_theme_form',
+];
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
@@ -34,20 +67,7 @@ function suopa_editorial_form_alter(&$form, $form_state) {
  * {@inheritDoc}
  */
 function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
-  $allowedIds = [
-    'node_article_edit_form',
-    'node_article_form',
-    'node_core_content_edit_form',
-    'node_core_content_form',
-    'node_blog_post_edit_form',
-    'node_blog_post_form',
-    'node_page_edit_form',
-    'node_page_form',
-    'node_news_item_edit_form',
-    'node_news_item_form',
-  ];
-
-  if (!in_array($form['#form_id'], $allowedIds)) {
+  if (!in_array($form['#form_id'], ALLOWED_FORMS_PUBLISHING_INFORMATION)) {
     return;
   }
 
@@ -76,22 +96,7 @@ function suopa_editorial_modify_article_publishing_info(&$form, $form_state) {
  * {@inheritDoc}
  */
 function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
-  $allowedIds = [
-    'node_article_edit_form',
-    'node_article_form',
-    'node_core_content_edit_form',
-    'node_core_content_form',
-    'node_blog_post_edit_form',
-    'node_blog_post_form',
-    'node_landing_page_edit_form',
-    'node_landing_page_form',
-    'node_page_edit_form',
-    'node_page_form',
-    'node_news_item_edit_form',
-    'node_news_item_form',
-  ];
-
-  if (!in_array($form['#form_id'], $allowedIds)) {
+  if (!in_array($form['#form_id'], ALLOWED_FORMS_DRAG_N_DROP)) {
     return;
   }
 
@@ -104,23 +109,7 @@ function suopa_editorial_enable_drag_and_drop(&$form, $form_state) {
  * {@inheritDoc}
  */
 function suopa_editorial_disable_sibling_checkbox(&$form, $form_state) {
-  $allowedIds = [
-    'node_article_edit_form',
-    'node_article_form',
-    'node_core_content_edit_form',
-    'node_core_content_form',
-    'node_blog_post_edit_form',
-    'node_blog_post_form',
-    'node_landing_page_edit_form',
-    'node_landing_page_form',
-    'taxonomy_term_theme_form',
-    'node_page_edit_form',
-    'node_page_form',
-    'node_news_item_edit_form',
-    'node_news_item_form',
-  ];
-
-  if (!in_array($form['#form_id'], $allowedIds)) {
+  if (!in_array($form['#form_id'], ALLOWED_FORMS_DRAG_N_DROP)) {
     return;
   }
 
