@@ -3,36 +3,14 @@ langcode: en
 status: true
 dependencies:
   module:
-    - ctools
     - group
-    - language
 id: group_content
 label: 'Group content'
 type: 'canonical_entities:group_content'
-pattern: '[group_content:group:alias]/[group_content:node:title]'
-selection_criteria:
-  63003bb6-13d0-491d-ab93-07d85bde70b2:
-    id: 'entity_bundle:group_content'
-    bundles:
-      group-group_node-blog_post: group-group_node-blog_post
-      group-group_node-event: group-group_node-event
-      group-group_node-page: group-group_node-page
-    negate: false
-    context_mapping:
-      group_content: group_content
-    uuid: 63003bb6-13d0-491d-ab93-07d85bde70b2
-  12c13de7-6b99-45a6-943b-322ac7a9a3bd:
-    id: language
-    langcodes:
-      fi: fi
-      sv: sv
-      en: en
-    negate: false
-    context_mapping:
-      language: 'group_content:langcode:language'
-    uuid: 12c13de7-6b99-45a6-943b-322ac7a9a3bd
+pattern: 'group/[group_content:group:id]/[group_content:pretty-path-key]/[group_content:id]'
+selection_criteria: {  }
 selection_logic: and
-weight: -10
+weight: 7
 relationships:
   'group_content:langcode:language':
-    label: Kieli
+    label: Language

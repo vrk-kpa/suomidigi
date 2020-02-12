@@ -647,7 +647,7 @@ display:
       relationships:
         gc__user:
           id: gc__user
-          table: group_content_field_data
+          table: group_content__entity_id
           field: gc__user
           relationship: none
           group_type: group

@@ -27,7 +27,7 @@ selection_criteria:
       language: 'node:langcode:language'
     uuid: 5ead9d1f-9f5e-43c7-b3b5-f726456769a7
 selection_logic: and
-weight: -10
+weight: -7
 relationships:
   'node:langcode:language':
     label: Kieli
