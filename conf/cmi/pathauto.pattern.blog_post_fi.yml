@@ -5,7 +5,7 @@ dependencies:
   module:
     - language
     - node
-id: blog_post
+id: blog_post_fi
 label: 'Blog post'
 type: 'canonical_entities:node'
 pattern: 'blogit/[node:title]'
@@ -27,7 +27,7 @@ selection_criteria:
       language: 'node:langcode:language'
     uuid: b87cf92a-4301-4222-9781-f476c81d235c
 selection_logic: and
-weight: -10
+weight: -9
 relationships:
   'node:langcode:language':
     label: Kieli

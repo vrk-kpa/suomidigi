@@ -19,5 +19,5 @@ selection_criteria:
       taxonomy_term: taxonomy_term
     uuid: 41f72425-3433-466f-a745-474e3725fb28
 selection_logic: and
-weight: -6
+weight: 4
 relationships: {  }

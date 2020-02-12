@@ -1,0 +1,24 @@
+uuid: e7d057dd-01b7-429d-8787-8ef2053ed731
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: group_content_path
+label: 'Group content path (Basic page, Event and Blog post)'
+type: 'canonical_entities:node'
+pattern: '[node:group_content_pattern:path]'
+selection_criteria:
+  8d8421d1-1580-42ce-a3b0-1eb9d3ae1efe:
+    id: node_type
+    bundles:
+      blog_post: blog_post
+      event: event
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 8d8421d1-1580-42ce-a3b0-1eb9d3ae1efe
+selection_logic: and
+weight: -11
+relationships: {  }
