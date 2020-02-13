@@ -1,22 +1,22 @@
-uuid: 84b6d511-2633-412e-9638-8b5c325216ad
+uuid: b7b01c19-639c-4c0d-9511-176cc29a9552
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: page
-label: 'Basic page'
+id: legislation_card
+label: 'Legislation card'
 type: 'canonical_entities:node'
 pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
-  8abb33e5-ecb0-4965-b25c-1ac773fff1ce:
+  9763bf64-7a9b-44f5-9371-602e06eb7d56:
     id: node_type
     bundles:
-      page: page
+      legislation_card: legislation_card
     negate: false
     context_mapping:
       node: node
-    uuid: 8abb33e5-ecb0-4965-b25c-1ac773fff1ce
+    uuid: 9763bf64-7a9b-44f5-9371-602e06eb7d56
 selection_logic: and
-weight: -4
+weight: 8
 relationships: {  }
