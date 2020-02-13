@@ -5,6 +5,7 @@
  * Contains suopa_tokens.module.
  */
 
+use Drupal\group\Entity\GroupContent;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Render\Markup;
 
@@ -23,6 +24,12 @@ function suopa_tokens_token_info() {
   $info['tokens']['node']['core_content_type_pattern'] = [
     'name' => t('Pattern for core content subtype'),
     'description' => t('Use the pattern defined in the selected "Core content type" taxonomy term.'),
+    'type' => 'pattern_path',
+  ];
+
+  $info['tokens']['node']['group_content_pattern'] = [
+    'name' => t('Pattern for group content actual node'),
+    'description' => t('Use the pattern based on whether the node belongs to group or not.'),
     'type' => 'pattern_path',
   ];
 
@@ -69,6 +76,49 @@ function suopa_tokens_tokens($type, $tokens, array $data = [], array $options = 
 
           $token = Drupal::token();
           $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']], $options));
+          break;
+
+        case 'group_content_pattern:path':
+          // Generate URL aliases for group page and group blog posts.
+          $pattern = FALSE;
+          $node = $data['entity'];
+          $node_type = $node->getType();
+          $lang_code = Drupal::service('language_manager')->getCurrentLanguage()->getId();
+
+          switch ($node_type) {
+            case 'page':
+              $pattern = \Drupal::configFactory()->getEditable('pathauto.pattern.page')->get('pattern');
+              break;
+
+            case 'blog_post':
+              $pattern = \Drupal::configFactory()->getEditable('pathauto.pattern.blog_post_' . $lang_code)->get('pattern');
+              break;
+          }
+
+          // If there are multiple groups, return the first one in the list.
+          if (!empty($groups = GroupContent::loadByEntity($node))) {
+            $group_pattern = \Drupal::configFactory()->getEditable('pathauto.pattern.group_' . $lang_code)->get('pattern');
+            $pattern_prefix = $pattern;
+            $group_content = reset($groups);
+            $group_prefix = $group_content->getGroup()->label();
+            $group_prefix = \Drupal::service('pathauto.alias_cleaner')->cleanString($group_prefix);
+
+            $pattern = $group_prefix . '/[node:title]';
+
+            if ($node_type == 'blog_post') {
+              $pattern = str_replace('/[node:title]', '/' . $group_prefix . '/[node:title]', $pattern_prefix);
+            }
+
+            if ($node_type == 'page') {
+              $pattern = str_replace('/[group:title]', '/' . $group_prefix . '/[node:title]', $group_pattern);
+            }
+          }
+
+          if ($pattern) {
+            $token = Drupal::token();
+            $return[$original] = Markup::create($token->replace($pattern, ['node' => $data['entity']], $options));
+          }
+
           break;
       }
     }

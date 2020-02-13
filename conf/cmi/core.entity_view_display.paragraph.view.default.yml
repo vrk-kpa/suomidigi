@@ -27,7 +27,7 @@ content:
     weight: 3
     label: above
     settings:
-      trim_length: 80
+      trim_length: 160
       url_only: false
       url_plain: false
       rel: ''
