@@ -1,11 +1,9 @@
 <?php
 /**
  * @file
- * amazee.io Drupal 8 all environment configuration file.
+ * Drupal 8 all environment configuration file.
  *
  * This file should contain all settings.php configurations that are needed by all environments.
- *
- * It contains some defaults that the amazee.io team suggests, please edit them as required.
  */
 // Defines where the sync folder of your configuration lives. In this case it's inside
 // the Drupal root, which is protected by amazee.io nginx configs, so it cannot be read
@@ -17,7 +15,7 @@ $config_directories[CONFIG_SYNC_DIRECTORY] = '../conf/cmi';
 $settings['file_public_path'] = 'sites/default/files';
 
 // Private files path
-$settings['file_private_path'] = realpath(getenv('AMAZEEIO_WEBROOT') .'/../files_private');
+$settings['file_private_path'] = realpath(__DIR__ . '../../../files_private');
 
 // Disable CND by default
 $config['cdn.settings'] = [
