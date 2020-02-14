@@ -66,17 +66,33 @@
   padding: 0 0 $gutter * 2;
 }
 
-.legislation-card__attachments {
-  padding: 0 0 $gutter * 2;
-}
-
+.legislation-card__attachments,
 .legislation-card__support-attachments {
   padding: 0 0 $gutter * 2;
 
-  .legislation-card__title {
-    @include font-size(18px, 18px);
+  .label__container {
+    align-items: center;
+    display: flex;
+  }
+
+  .icon {
+    color: $cyan;
+    max-height: $gutter * 3;
+    width: $gutter * 3;
+  }
+
+  .legislation-card__label {
+    @include font-size(22px, 28px);
     @include font-weight($semibold);
-    padding-bottom: $gutter / 2;
+    margin-left: $gutter;
+  }
+
+  .legislation-card__indent {
+    margin-left: $gutter * 4;
+
+    .paragraph.paragraph--list-of-links {
+      border: 0 none;
+    }
   }
 }
 

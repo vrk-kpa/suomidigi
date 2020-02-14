@@ -1,54 +1,11 @@
-{#
-/**
- * @file
- * Theme override to display a media item.
- *
- * Available variables:
- * - name: Name of the media.
- * - content: Media content.
- *
- * @see template_preprocess_media()
- *
- * @ingroup themeable
- */
-#}
-{%
-  set classes = [
-    'legislation-attachment',
-  ]
-%}
+{% extends "paragraph.html.twig" %}
 
-<article{{ attributes.addClass(classes) }}>
-  {{ title_suffix.contextual_links }}
-  <a class="legislation-attachment__link legislation-attachment__wrapper" href="{{ file_url(file_url) }}">
-    {% if icons_path %}
-      <div class="legislation-attachment__icon">
-        <svg aria-labelledby="legislation-attachment__icon" {% if legislation_colour is not empty %}style="color:{{ legislation_colour }};" {% endif %} class="icon legislation-attachment__icon">
-          <title id="legislation-attachment__icon">{{ 'Download icon'|t }}</title>
-          <use xlink:href="{{ icons_path|trim }}#download_item" />
-        </svg>
-      </div>
-    {% endif %}
-
-    <div class="legislation-attachment__content">
-      <h2 class="legislation-attachment__title">
-        {{ content.field_p_title }}
-      </h2>
-
-      {% if file_extension|render %}
-        <p class="legislation-attachment__file-type">
-          {{ file_extension }}
-          {% if file_size|render %}
-            <span class="legislation-attachment__file-size">
-                {{ file_size }}
-              </span>
-          {% endif %}
-        </p>
-      {% endif %}
-    </div>
-
-    <button class="legislation-attachment__cta">
-      {{ 'Download'|t }}
-    </button>
-  </a>
-</article>
+{% block paragraph %}
+  <div {{attributes.addClass(classes)}}>
+    {% include "@suomidigi/misc/link.twig" with {
+      link_url: file_url(file_url),
+      link_text: content.field_p_title|render|striptags|trim,
+      external: 1
+    } %}
+  </div>
+{% endblock paragraph %}

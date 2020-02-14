@@ -4,12 +4,11 @@
  * Theme override for a field.
  */
 #}
-
 <div{{ attributes }}>
   <div class="label__container">
     {% if icons_path %}
       <svg class="icon">
-        <use xlink:href="{{ icons_path|trim }}#legal-scale" />
+        <use xlink:href="{{ icons_path|trim }}#legal-hammer" />
       </svg>
     {% endif %}
     <div{{ title_attributes.addClass('legislation-card__label') }}>{{ label }}</div>

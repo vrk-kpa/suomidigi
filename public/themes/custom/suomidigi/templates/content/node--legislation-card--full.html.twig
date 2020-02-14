@@ -47,14 +47,14 @@
       <span class="legislation-card__modified-text">{{ 'Updated'|trans }}:</span>
       <span class="legislation-card__modified-date">{{ node.getChangedTime()|date('j.n.Y') }}</span>
     </div>
-    {% if content.field_attachments|render %}
-      <div class="legislation-card__attachments">
-        {{ content.field_attachments }}
-      </div>
-    {% endif %}
     {% if content.field_legislation_materials|render %}
       <div class="legislation-card__support-attachments">
         {{ content.field_legislation_materials }}
+      </div>
+    {% endif %}
+    {% if content.field_attachments|render %}
+      <div class="legislation-card__attachments">
+        {{ content.field_attachments }}
       </div>
     {% endif %}
   </div>
