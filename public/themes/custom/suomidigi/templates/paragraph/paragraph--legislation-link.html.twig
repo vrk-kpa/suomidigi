@@ -5,7 +5,7 @@
     {% include "@suomidigi/misc/link.twig" with {
       link_url: content.field_p_link_required.0['#url'],
       link_text: content.field_p_link_required.0['#title'],
-      external: content.field_p_link_target.0['#markup'],
+      external: content.field_p_link_required.0['#url'].external ? 1 : 0,
     } %}
   </div>
 {% endblock paragraph %}
