@@ -27,6 +27,9 @@
 // Use druidfi/omen for env extractor.
 extract((new Druidfi\Omen\DrupalEnvDetector(__DIR__))->getConfiguration());
 
+// Private files path
+$settings['file_private_path'] = realpath(__DIR__ . '/../../../files_private');
+
 ### amazee.io Varnish & Reverse proxy settings
 if (getenv('AMAZEEIO_VARNISH_HOSTS') && getenv('AMAZEEIO_VARNISH_SECRET')) {
   $varnish_hosts = explode(',', getenv('AMAZEEIO_VARNISH_HOSTS'));
@@ -49,3 +52,17 @@ $settings['trusted_host_patterns'] = array(
   '^www\.suomidigi\.fi$',
   '^' . str_replace('.', '\.', getenv('AMAZEEIO_SITE_URL')) . '$',
 );
+
+// Set environment indicator.
+switch (getenv('HTTP_HOST')) {
+  case 'suomidigi.docker.sh':
+    $settings['simple_environment_indicator'] = '#0F0F0F';
+    break;
+  case 'dev.suomidigi.fi':
+  case 'testi.suomidigi.fi':
+    $settings['simple_environment_indicator'] = '#2a6ebb';
+    break;
+  default:
+    $settings['simple_environment_indicator'] = '#bb2a2a';
+    break;
+}
