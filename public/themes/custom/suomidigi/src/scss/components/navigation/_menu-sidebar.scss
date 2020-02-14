@@ -137,7 +137,7 @@ nav.menu--sidebar {
         @include font-size(16px, 27px);
         @include font-weight($regular);
         color: $blue-light;
-        padding-left: $gutter * 3;
+        padding: 0 $gutter / 1.5 0 $gutter * 3;
 
         &.is-active {
           @include font-weight($semibold);

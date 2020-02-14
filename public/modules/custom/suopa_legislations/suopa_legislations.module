@@ -7,6 +7,7 @@
 
 use Drupal\block\Entity\Block;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\Cache;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\TypedData\TranslationStatusInterface;
@@ -141,11 +142,38 @@ function suopa_legislations_preprocess_node(&$variables) {
 function suopa_legislations_get_related_legislation_cards(Term $collection, $langcode) {
   $cards = [];
 
-  $ids = Drupal::entityQuery('node')
-    ->condition('type', 'legislation_card')
-    ->condition('status', 1)
-    ->condition('field_legislation_section', $collection->id())
-    ->execute();
+  $cached = \Drupal::cache()->get('cache_tag_id__' . $collection->id());
+  if ($cached) {
+    $ids = $cached->data;
+  }
+  else {
+    $query = Drupal::database()->select('node', 'n');
+    $query->join('node_field_data', 'nfd', 'n.nid = nfd.nid');
+    $query->join('taxonomy_index', 'ti', 'n.nid = ti.nid');
+    $query->join('node__field_legislation_section', 'nfls', 'n.nid = nfls.entity_id');
+    $ids = $query
+      ->fields('n', ['nid'])
+      ->condition('n.type', 'legislation_card')
+      ->condition('nfd.status', 1)
+      ->condition('nfls.field_legislation_section_target_id', $collection->id())
+      ->condition('ti.tid', $collection->id(), 'IN')
+      ->distinct(TRUE)
+      ->orderBy('ti.weight', 'ASC')
+      ->execute()
+      ->fetchCol();
+
+    $cache_tags = ['term:' . $collection->id()];
+    foreach ($ids as $id) {
+      $cache_tags[] = 'node:' . $id;
+    }
+
+    \Drupal::cache()->set(
+      'cache_tag_id__' . $collection->id(),
+      $ids,
+      Cache::PERMANENT,
+      $cache_tags
+    );
+  }
 
   $entity_type = 'node';
   $view_mode = 'expanding_panels';
