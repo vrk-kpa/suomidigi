@@ -1,0 +1,44 @@
+.summary {
+  &-wrapper {
+    border-radius: $gutter / 3;
+    border-top: $gutter / 3 solid $cyan;
+    box-shadow: 2px 2px 6px #00000029;
+    display: flex;
+    flex-flow: row;
+    margin-top: $gutter * 3;
+    padding: $gutter * 2 $gutter;
+
+    @include breakpoint($for-mobile-landscape-up) {
+      padding: $gutter * 2.4;
+    }
+  }
+
+  &__icon {
+    color: $cyan;
+    margin-right: 20px;
+
+    .icon {
+      height: 42px;
+      width: 42px;
+    }
+  }
+
+  &__lead {
+    @include font-size(17px, 27px);
+    @include font-weight($regular);
+    color: $black;
+    margin-bottom: $gutter / 3;
+  }
+
+  &__label {
+    @include font-size(22px, 28px);
+    @include font-weight($semibold);
+    color: $black;
+  }
+
+  &__button {
+    @include font-size(16px, 26px);
+    @include font-weight($semibold);
+    margin-top: $gutter * 3;
+  }
+}
