@@ -1,23 +1,22 @@
 <a href="{{ link_url }}" class="link--cta {{ link_class }}" {% if external %} target="_blank" {% endif %} title="{{ link_text }}">
-  {% if icons_path and not exclude_chevron %}
-    <div class="link--cta-icon-left">
+  {% if icons_path and external %}
+    <span class="link--cta-icon-left is-external">
+      <svg class="icon">
+        <title>{{ text }}</title>
+        <use xlink:href="{{ icons_path|trim }}#link-external"/>
+      </svg>
+    </span>
+  {% elseif icons_path and not exclude_chevron %}
+    <span class="link--cta-icon-left">
       <svg class="icon">
         <title>{{ text }}</title>
         <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
       </svg>
-    </div>
+    </span>
   {% endif %}
   <div class="link--cta-content-right">
     <span class="link--cta-text">
       {{ link_text }}
     </span>
-    {% if icons_path and external %}
-      <span class="link--cta-icon-right">
-        <svg class="icon">
-          <title>{{ text }}</title>
-          <use xlink:href="{{ icons_path|trim }}#link-external"/>
-        </svg>
-      </span>
-    {% endif %}
   </div>
 </a>

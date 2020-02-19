@@ -5273,6 +5273,81 @@
             }
         },
         {
+            "name": "drupal/nodeorder",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/nodeorder.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/nodeorder-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "c1e716af7bbba07380cb6a0d3320640a7873a35a"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1525285980",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "davps",
+                    "homepage": "https://www.drupal.org/user/3487675"
+                },
+                {
+                    "name": "dieuwe",
+                    "homepage": "https://www.drupal.org/user/1536006"
+                },
+                {
+                    "name": "jgraham",
+                    "homepage": "https://www.drupal.org/user/146055"
+                },
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                },
+                {
+                    "name": "jrockowitz",
+                    "homepage": "https://www.drupal.org/user/371407"
+                },
+                {
+                    "name": "marcp",
+                    "homepage": "https://www.drupal.org/user/20885"
+                },
+                {
+                    "name": "pvanderspek",
+                    "homepage": "https://www.drupal.org/user/172908"
+                },
+                {
+                    "name": "valthebald",
+                    "homepage": "https://www.drupal.org/user/239562"
+                }
+            ],
+            "description": "Allows the ordering of nodes within taxonomy terms.",
+            "homepage": "https://www.drupal.org/project/nodeorder",
+            "support": {
+                "source": "https://git.drupalcode.org/project/nodeorder"
+            }
+        },
+        {
             "name": "drupal/notification",
             "version": "1.0.0",
             "source": {
@@ -15103,6 +15178,7 @@
         "drupal/context": 10,
         "drupal/daterange_compact": 20,
         "drupal/flag": 10,
+        "drupal/nodeorder": 10,
         "drupal/roleassign": 20,
         "drupal/scheduler": 20,
         "drupal/swiftmailer": 10

@@ -6,13 +6,14 @@ dependencies:
     - field.storage.node.field_attachments
     - node.type.legislation_card
     - paragraphs.paragraphs_type.legislation_attachment
+    - paragraphs.paragraphs_type.list_of_links
   module:
     - entity_reference_revisions
 id: node.legislation_card.field_attachments
 field_name: field_attachments
 entity_type: node
 bundle: legislation_card
-label: Attachments
+label: 'More information about the subject'
 description: ''
 required: false
 translatable: true
@@ -24,16 +25,17 @@ settings:
     negate: 0
     target_bundles:
       legislation_attachment: legislation_attachment
+      list_of_links: list_of_links
     target_bundles_drag_drop:
       attachment:
         weight: 16
         enabled: false
-      legislation_attachment:
-        enabled: true
-        weight: 17
       container:
         weight: 17
         enabled: false
+      legislation_attachment:
+        enabled: true
+        weight: 17
       container_title:
         weight: 18
         enabled: false
@@ -61,22 +63,49 @@ settings:
       liftup_entity_reference_item:
         weight: 26
         enabled: false
-      liftup_prominent:
-        weight: 27
-        enabled: false
       legislation_cards:
         weight: 27
         enabled: false
-      legislation_link:
-        weight: 28
+      liftup_prominent:
+        weight: 27
         enabled: false
       link:
         weight: 28
         enabled: false
+      legislation_link:
+        weight: 28
+        enabled: false
+      banner_cta:
+        weight: 29
+        enabled: false
       media:
         weight: 29
         enabled: false
+      contact_information:
+        weight: 30
+        enabled: false
       text:
         weight: 30
+        enabled: false
+      contact_information_item:
+        weight: 31
+        enabled: false
+      feed:
+        weight: 34
+        enabled: false
+      group_view:
+        weight: 35
+        enabled: false
+      hero:
+        weight: 36
+        enabled: false
+      liftup_50_50:
+        weight: 44
+        enabled: false
+      list_of_links:
+        enabled: true
+        weight: 51
+      view:
+        weight: 54
         enabled: false
 field_type: entity_reference_revisions
