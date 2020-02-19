@@ -117,7 +117,8 @@
         "platform": {
             "php": "7.1"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "discard-changes": true
     },
     "extra": {
         "installer-paths": {
