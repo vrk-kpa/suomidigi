@@ -20,7 +20,7 @@ use Drupal\Core\Entity\Query\QueryFactory;
  *
  * @Block(
  *   id = "next_previous_block",
- *   admin_label = @Translation("Next Previous link"),
+ *   admin_label = @Translation("Legislation Next/Previous link"),
  *   category = @Translation("Blocks")
  * )
  */
@@ -223,11 +223,8 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
 
           if ($direction === 'prev') {
             if ($key === 0) {
-              $cached_nid = $this->cacheBackend->get('cache_tag_id__legislation_collection');
+              $nid = $this->legislationService->getLegislationCollectionTerm($current_nid);
               $index = TRUE;
-              if ($cached_nid) {
-                $nid = $cached_nid->data;
-              }
             }
             else {
               $nid = $nids[$key - 1];
