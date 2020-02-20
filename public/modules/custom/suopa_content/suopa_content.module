@@ -153,12 +153,11 @@ function suopa_content_block_access(Block $block, $operation, AccountInterface $
     if (
       $block->getPluginId() === 'content_creation_links_block' ||
       $block->getPluginId() === 'views_block:profile_own_content-block_1' ||
-      $block->getPluginId() === 'views_block:profile_my_bookmarks-block_1'
+      $block->getPluginId() === 'views_block:profile_my_bookmarks-block_1' ||
+      $block->getPluginId() === 'views_block:profile_own_groups-block_1'
     ) {
       if (!empty($viewed_user = \Drupal::routeMatch()->getParameter('user'))) {
-        $user = \Drupal::currentUser();
-
-        return ($user->id() === $viewed_user->id())
+        return ($account->id() === $viewed_user->id())
           ? AccessResult::neutral()->addCacheableDependency($viewed_user->id())
           : AccessResult::forbidden()->addCacheableDependency($viewed_user->id());
       }
@@ -265,6 +264,34 @@ function suopa_content_views_post_execute(ViewExecutable $view) {
       if (!empty($result->nid)) {
         _suopa_content_exclude_previous_entities('views', $term_id, $result->nid);
       }
+    }
+  }
+
+  // Hide profile page views if current user is not route context user.
+  if (
+    $view->id() == 'profile_own_content' ||
+    $view->id() == 'profile_my_bookmarks'
+  ) {
+    $user_from_route = \Drupal::routeMatch()->getParameter('user')->id();
+    $user = \Drupal::currentUser()->id();
+
+    if ($user_from_route != $user) {
+      $view->build_info['fail'] = TRUE;
+    }
+  }
+
+  // Hide profile page views if no results are found or change the view title
+  // based on who is browsing the page.
+  if ($view->id() == 'profile_own_groups') {
+    $user_from_route = \Drupal::routeMatch()->getParameter('user')->id();
+    $user = \Drupal::currentUser()->id();
+
+    if ($user_from_route != $user) {
+      $view->setTitle(t('Groups which user belongs to'));
+    }
+
+    if (count($view->result) == 0) {
+      $view->build_info['fail'] = TRUE;
     }
   }
 }

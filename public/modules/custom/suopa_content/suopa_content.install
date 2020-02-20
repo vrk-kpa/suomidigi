@@ -157,4 +157,9 @@ function suopa_content_update_8009() {
     'fi',
     'Siirry lakisivulle'
   );
+  suopa_content_add_translation(
+    'Groups which user belongs to',
+    'fi',
+    'Ryhmät joihin käyttäjä kuuluu'
+  );
 }
