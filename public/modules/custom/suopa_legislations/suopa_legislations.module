@@ -7,7 +7,6 @@
 
 use Drupal\block\Entity\Block;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Cache\Cache;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\Core\TypedData\TranslationStatusInterface;
@@ -25,19 +24,6 @@ function suopa_legislations_preprocess_paragraph(&$variables) {
     // Get selected terms (legislation sections) from the paragraph.
     $terms = $paragraph->get('field_legislation_section')->referencedEntities();
     $langcode = Drupal::languageManager()->getCurrentLanguage()->getId();
-
-    // Cache the current nid for later use in legislation collections.
-    if (FALSE === \Drupal::cache()->get('cache_tag_id__legislation_collection')) {
-      $node = \Drupal::routeMatch()->getParameter('node');
-      if ($node instanceof NodeInterface) {
-        \Drupal::cache()->set(
-          'cache_tag_id__legislation_collection',
-          $node->id(),
-          Cache::PERMANENT,
-          ['node:' . $node->id()]
-        );
-      }
-    }
 
     foreach ($terms as $term) {
       // Fetch all potential legislation card collections from the selected
@@ -137,6 +123,12 @@ function suopa_legislations_theme() {
         'direction' => NULL,
         'url' => NULL,
         'display_text' => NULL,
+      ],
+    ],
+    'suopa_legislations_summary' => [
+      'variables' => [
+        'label' => NULL,
+        'url' => NULL,
       ],
     ],
   ];

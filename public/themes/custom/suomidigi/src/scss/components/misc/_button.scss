@@ -57,7 +57,7 @@
 .button--cta {
   @include font-size(20px, 26px);
   @include font-weight($regular);
-  background: $purple linear-gradient(180deg, $purple 0%, $purple--secondary 100%) 0% 0% no-repeat padding-box;
+  background: $purple linear-gradient(180deg, $purple 0%, $purple--secondary 100%) 0 0 no-repeat padding-box;
   border-radius: $gutter / 3;
   color: $white;
   display: inline-block;
@@ -78,12 +78,27 @@
   }
 
   &-alternative {
-    background: $blue-light linear-gradient(180deg, $blue-light 0%, $blue-light--secondary 100%) 0% 0% no-repeat padding-box;
+    background: $blue-light linear-gradient(180deg, $blue-light 0%, $blue-light--secondary 100%) 0 0 no-repeat padding-box;
     text-shadow: 1px 1px 1px $blue-light--secondary;
 
     &:hover,
     &:active {
       background: $blue-light;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
+  &.button--cta-legislation {
+    background: $white;
+    border: 2px solid $blue-light;
+    border-radius: 5px;
+    color: $blue-light;
+    text-shadow: unset;
+
+    &:hover,
+    &:active {
+      background: $blue-light linear-gradient(180deg, $blue-light 0%, $blue-light--secondary 100%) 0 0 no-repeat padding-box;
       color: $white;
       text-decoration: none;
     }
@@ -151,9 +166,5 @@
     .icon--prev {
       color: $purple;
     }
-  }
-
-  .button__label-wrapper {
-
   }
 }

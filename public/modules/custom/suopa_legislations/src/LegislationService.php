@@ -96,6 +96,67 @@ class LegislationService {
   }
 
   /**
+   * Retrieve the summary page based on current node id.
+   *
+   * @param int $current_nid
+   *   Node id for the current page.
+   *
+   * @return int|bool
+   *   Returns node id or False.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   *   Thrown if the entity type doesn't exist.
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   *   Thrown if the storage handler couldn't be loaded.
+   */
+  public function getLegislationCollectionTerm($current_nid) {
+    // Return the legislation collection page nid from cache if it is available.
+    $cid = 'cache_tag_' . $current_nid . '__legislation_collection_page';
+    if ($cached = \Drupal::cache()->get($cid)) {
+      return $cached->data;
+    }
+
+    // Get the taxonomy term id associated with current nid.
+    $query = \Drupal::database()->select('taxonomy_index', 'ti');
+    $tid = $query
+      ->fields('ti', ['tid'])
+      ->condition('ti.nid', $current_nid)
+      ->execute()
+      ->fetchField();
+
+    // Load all parents for the current taxonomy term. Conduct a search
+    // with all the parent terms to find a correct legislation collection page
+    // for the current taxonomy tree.
+    if (!empty($tid)) {
+      $parents = \Drupal::entityTypeManager()
+        ->getStorage('taxonomy_term')
+        ->loadAllParents($tid);
+
+      $query = \Drupal::database()->select('paragraph__field_legislation_section', 'section');
+      $query->join('node__field_legis_cpage_paragraphs', 'node', 'section.entity_id = node.field_legis_cpage_paragraphs_target_id');
+      $nid = $query
+        ->fields('node', ['entity_id'])
+        ->condition('section.field_legislation_section_target_id', array_keys($parents), 'IN')
+        ->distinct(TRUE)
+        ->execute()
+        ->fetchField();
+
+      // Cache node id before returning it.
+      if (!empty($nid)) {
+        \Drupal::cache()->set(
+          $cid,
+          $nid,
+          Cache::PERMANENT,
+          ['node:' . $current_nid, 'node:' . $nid]
+        );
+
+        return $nid;
+      }
+    }
+    return FALSE;
+  }
+
+  /**
    * Retrieve cached data if available.
    *
    * @param bool $cache_term
