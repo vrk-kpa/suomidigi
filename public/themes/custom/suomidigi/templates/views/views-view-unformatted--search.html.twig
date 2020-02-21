@@ -18,16 +18,15 @@
 {% if title %}
   <h3>{{ title }}</h3>
 {% endif %}
-<div class="listing {% if rows|length is even %}listing--even{% else %}listing--odd{% endif %}">
-  {% for row in rows %}
-    {%
-      set row_classes = [
-        default_row_class,
-        "listing__item",
-      ]
-    %}
-    <div{{row.attributes.addClass(row_classes)}}>
-      {{ row.content }}
-    </div>
-  {% endfor %}
-</div>
+{% for row in rows %}
+  {%
+    set row_classes = [
+    default_row_class ? 'views__row',
+    'listing--grid__item'
+  ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    {{ row.content }}
+  </div>
+{% endfor %}
+
