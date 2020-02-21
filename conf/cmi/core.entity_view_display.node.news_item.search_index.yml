@@ -1,0 +1,50 @@
+uuid: 436b41e4-bc57-44de-8948-30c9d6540d6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.news_item.field_displayed_update_time
+    - field.field.node.news_item.field_header_image
+    - field.field.node.news_item.field_ingress
+    - field.field.node.news_item.field_paragraphs
+    - field.field.node.news_item.field_tags
+    - field.field.node.news_item.field_theme
+    - node.type.news_item
+  module:
+    - smart_trim
+    - user
+id: node.news_item.search_index
+targetEntityType: node
+bundle: news_item
+mode: search_index
+content:
+  field_ingress:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+      summary_handler: full
+    third_party_settings: {  }
+    type: smart_trim
+    region: content
+hidden:
+  field_displayed_update_time: true
+  field_header_image: true
+  field_paragraphs: true
+  field_tags: true
+  field_theme: true
+  langcode: true
+  links: true
+  published_at: true
+  search_api_excerpt: true
