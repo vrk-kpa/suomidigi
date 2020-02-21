@@ -93,7 +93,7 @@
         "drupal/viewsreference": "^2.0",
         "drupal/webform": "^5.2",
         "drupal/wordpress_migrate": "^3.0",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "^10.2",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
         "google/apiclient": "^2.0",
@@ -115,7 +115,7 @@
     },
     "config": {
         "platform": {
-            "php": "7.1"
+            "php": "7.1.12"
         },
         "sort-packages": true,
         "discard-changes": true
