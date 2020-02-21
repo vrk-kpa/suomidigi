@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8648584f5f605448b5ac19811e758c32",
+    "content-hash": "4cbc0060df17060a1ab9b74bbdc9624a",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -943,26 +943,26 @@
         },
         {
             "name": "consolidation/robo",
-            "version": "1.4.11",
+            "version": "1.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/Robo.git",
-                "reference": "5fa1d901776a628167a325baa9db95d8edf13a80"
+                "reference": "eb45606f498b3426b9a98b7c85e300666a968e51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/Robo/zipball/5fa1d901776a628167a325baa9db95d8edf13a80",
-                "reference": "5fa1d901776a628167a325baa9db95d8edf13a80",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/eb45606f498b3426b9a98b7c85e300666a968e51",
+                "reference": "eb45606f498b3426b9a98b7c85e300666a968e51",
                 "shasum": ""
             },
             "require": {
-                "consolidation/annotated-command": "^2.11.0",
-                "consolidation/config": "^1.2",
-                "consolidation/log": "~1",
-                "consolidation/output-formatters": "^3.1.13",
-                "consolidation/self-update": "^1",
-                "grasmash/yaml-expander": "^1.3",
-                "league/container": "^2.2",
+                "consolidation/annotated-command": "^2.11.0|^4.1",
+                "consolidation/config": "^1.2.1",
+                "consolidation/log": "^1.1.1|^2",
+                "consolidation/output-formatters": "^3.1.13|^4.1",
+                "consolidation/self-update": "^1.1.5",
+                "grasmash/yaml-expander": "^1.4",
+                "league/container": "^2.4.1",
                 "php": ">=5.5.0",
                 "symfony/console": "^2.8|^3|^4",
                 "symfony/event-dispatcher": "^2.5|^3|^4",
@@ -974,20 +974,13 @@
                 "codegyre/robo": "< 1.0"
             },
             "require-dev": {
-                "codeception/aspect-mock": "^1|^2.1.1",
-                "codeception/base": "^2.3.7",
-                "codeception/verify": "^0.3.2",
                 "g1a/composer-test-scenarios": "^3",
-                "goaop/framework": "~2.1.2",
-                "goaop/parser-reflection": "^1.1.0",
                 "natxet/cssmin": "3.0.4",
-                "nikic/php-parser": "^3.1.5",
-                "patchwork/jsqueeze": "~2",
+                "patchwork/jsqueeze": "^2",
                 "pear/archive_tar": "^1.4.4",
                 "php-coveralls/php-coveralls": "^1",
-                "phpunit/php-code-coverage": "~2|~4",
-                "sebastian/comparator": "^1.2.4",
-                "squizlabs/php_codesniffer": "^2.8"
+                "phpunit/phpunit": "^5.7.27",
+                "squizlabs/php_codesniffer": "^3"
             },
             "suggest": {
                 "henrikbjorn/lurker": "For monitoring filesystem changes in taskWatch",
@@ -1015,8 +1008,11 @@
                         "require": {
                             "symfony/console": "^2.8"
                         },
+                        "require-dev": {
+                            "phpunit/phpunit": "^4.8.36"
+                        },
                         "remove": [
-                            "goaop/framework"
+                            "php-coveralls/php-coveralls"
                         ],
                         "config": {
                             "platform": {
@@ -1029,7 +1025,7 @@
                     }
                 },
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -1048,7 +1044,7 @@
                 }
             ],
             "description": "Modern task runner",
-            "time": "2019-10-29T15:50:02+00:00"
+            "time": "2020-02-18T17:31:26+00:00"
         },
         {
             "name": "consolidation/self-update",
@@ -2121,16 +2117,16 @@
         },
         {
             "name": "druidfi/omen",
-            "version": "0.1.3",
+            "version": "0.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/druidfi/omen.git",
-                "reference": "30629a781b1bf442958daf1efd7637a9c6abbd09"
+                "reference": "e6eac7287e7080cbe502c1efe752fabddf165e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/druidfi/omen/zipball/30629a781b1bf442958daf1efd7637a9c6abbd09",
-                "reference": "30629a781b1bf442958daf1efd7637a9c6abbd09",
+                "url": "https://api.github.com/repos/druidfi/omen/zipball/e6eac7287e7080cbe502c1efe752fabddf165e8f",
+                "reference": "e6eac7287e7080cbe502c1efe752fabddf165e8f",
                 "shasum": ""
             },
             "require": {
@@ -2156,7 +2152,7 @@
                     "email": "info@druid.fi"
                 }
             ],
-            "time": "2020-02-14T10:54:27+00:00"
+            "time": "2020-02-18T10:57:32+00:00"
         },
         {
             "name": "drupal-composer/drupal-scaffold",
@@ -4245,7 +4241,8 @@
                     "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch",
                     "Group content Path automated pattern and tokens for actual node": "https://www.drupal.org/files/issues/group-content-entity-tokens-2916907-7.patch",
                     "https://www.drupal.org/project/group/issues/3101314": "https://www.drupal.org/files/issues/2019-12-16/reword_delete_to_remove_on_group_member_removal-3101314-2.patch",
-                    "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2019-12-23/group-support_string_entity_ids-2797793-188.patch"
+                    "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2019-12-23/group-support_string_entity_ids-2797793-188.patch",
+                    "https://www.drupal.org/project/group/issues/2980034": "https://www.drupal.org/files/issues/2018-08-28/joined_user_redirection-2980034-9.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4329,17 +4326,17 @@
         },
         {
             "name": "drupal/high_contrast",
-            "version": "1.0.0-beta1",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/high_contrast.git",
-                "reference": "8.x-1.0-beta1"
+                "reference": "8.x-1.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/high_contrast-8.x-1.0-beta1.zip",
-                "reference": "8.x-1.0-beta1",
-                "shasum": "f80c6b48d758b321744118a0181c12d07e68fa85"
+                "url": "https://ftp.drupal.org/files/projects/high_contrast-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "a7913e31f123ad0aa9ba074d58d24822acd55aa8"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4350,8 +4347,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta1",
-                    "datestamp": "1505229245",
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1582225047",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -5983,10 +5980,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/roleassign.git",
-                "reference": "440eba77696c7229ff255baeead352620b414ffd"
+                "reference": "9818c44c4445f37ca4a54d48ac7e347add17bc10"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
@@ -5994,8 +5991,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha2+6-dev",
-                    "datestamp": "1524488584",
+                    "version": "8.x-1.0-alpha2+12-dev",
+                    "datestamp": "1582202845",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -6004,7 +6001,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
@@ -6012,12 +6009,13 @@
                     "homepage": "https://www.drupal.org/user/82964"
                 }
             ],
-            "description": "Allows site administrators to further delegate the task of managing user's roles.",
-            "homepage": "https://www.drupal.org/project/roleassign",
+            "description": "Allows site administrators to further delegate the task of managing user''s roles.",
+            "homepage": "http://drupal.org/project/roleassign",
             "support": {
-                "source": "https://git.drupalcode.org/project/roleassign"
+                "source": "https://git.drupalcode.org/project/roleassign",
+                "issues": "https://www.drupal.org/project/issues/roleassign"
             },
-            "time": "2018-04-23T12:58:24+00:00"
+            "time": "2020-02-20T12:46:46+00:00"
         },
         {
             "name": "drupal/route_condition",
@@ -6336,20 +6334,20 @@
         },
         {
             "name": "drupal/simplei",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simplei.git",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simplei-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "6018fd38647a253cff15b3e34e3c2520d1242f2d"
+                "url": "https://ftp.drupal.org/files/projects/simplei-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "6f4af74a3215a0f7c989eb24f1620c5ea3ba79e4"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
@@ -6357,8 +6355,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1535995980",
+                    "version": "8.x-1.2",
+                    "datestamp": "1581970320",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

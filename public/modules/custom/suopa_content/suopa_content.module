@@ -162,6 +162,14 @@ function suopa_content_block_access(Block $block, $operation, AccountInterface $
           : AccessResult::forbidden()->addCacheableDependency($viewed_user->id());
       }
     }
+
+    // Hide group operations from "join group" page.
+    if (
+      $block->getPluginId() === 'group_operations' &&
+      \Drupal::routeMatch()->getRouteName() === 'entity.group.join'
+    ) {
+      return AccessResult::forbidden();
+    }
   }
 }
 
