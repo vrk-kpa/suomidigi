@@ -169,6 +169,7 @@ permissions:
   - 'edit terms in tags'
   - 'edit terms in theme'
   - 'generate preview links'
+  - 'order nodes within categories'
   - 'revert all community revisions'
   - 'revert all revisions'
   - 'revert article revisions'
