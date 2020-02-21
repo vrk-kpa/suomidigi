@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override to display a node in search index display mode.
+#}
+{%
+  set classes = [
+  'node',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'search-result'
+]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+  <a href="{{ url }}" rel="bookmark">
+    {% if label and not page %}
+      <h2{{ title_attributes }}>
+        {{ label }}
+      </h2>
+    {% endif %}
+    <div{{ content_attributes.addClass('node__content') }}>
+      {{ content }}
+    </div>
+  </a>
+</article>
