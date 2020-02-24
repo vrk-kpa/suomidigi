@@ -34,7 +34,7 @@ content:
     weight: 3
     region: content
     settings:
-      include_locked: true
+      include_locked: false
     third_party_settings: {  }
   status:
     type: boolean_checkbox
