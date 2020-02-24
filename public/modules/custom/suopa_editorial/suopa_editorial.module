@@ -382,6 +382,7 @@ function suopa_editorial_group_operations_alter(&$operations, $group, &$build) {
 
   if (!$group->getMember(\Drupal::currentUser())) {
     $url = new Url('entity.group.join', ['group' => $group->id()]);
+    $url->setOption('query', ['destination' => '/group/' . $group->id() . '/nodes']);
     $join = Link::fromTextAndUrl(t('Join group'), $url);
     $build['#content'] = $join->toRenderable();
     $build['#theme'] = 'content_creation_links_block';

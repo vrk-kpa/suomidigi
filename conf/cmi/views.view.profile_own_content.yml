@@ -325,7 +325,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Profile - Own content'
+      title: 'My content'
       header: {  }
       footer: {  }
       empty:

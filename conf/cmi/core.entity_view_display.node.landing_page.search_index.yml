@@ -1,0 +1,48 @@
+uuid: 25bc4c11-71bd-4744-8548-c1fec3cf36f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.landing_page.field_hero
+    - field.field.node.landing_page.field_hero_checkbox
+    - field.field.node.landing_page.field_ingress
+    - field.field.node.landing_page.field_paragraphs
+    - field.field.node.landing_page.field_slogan
+    - node.type.landing_page
+  module:
+    - smart_trim
+    - user
+id: node.landing_page.search_index
+targetEntityType: node
+bundle: landing_page
+mode: search_index
+content:
+  field_ingress:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+      summary_handler: full
+    third_party_settings: {  }
+    type: smart_trim
+    region: content
+hidden:
+  field_hero: true
+  field_hero_checkbox: true
+  field_paragraphs: true
+  field_slogan: true
+  langcode: true
+  links: true
+  published_at: true
+  search_api_excerpt: true

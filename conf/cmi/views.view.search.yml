@@ -77,15 +77,18 @@ display:
         options:
           view_modes:
             'entity:group':
-              group: teaser
+              group: search_index
             'entity:node':
-              article: teaser
-              blog_post: teaser
-              community: teaser
-              core_content: teaser
-              event: teaser
-              landing_page: teaser
-              page: teaser
+              article: search_index
+              blog_post: search_index
+              community: search_index
+              core_content: search_index
+              event: search_index
+              landing_page: search_index
+              legislation_card: search_index
+              legislation_collection_page: search_index
+              news_item: search_index
+              page: search_index
       fields:
         body:
           table: search_api_index_content_search_index
@@ -308,6 +311,7 @@ display:
         operator: AND
         groups:
           1: AND
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,0 +1,62 @@
+uuid: a8ceb64c-9e50-4f4b-86b1-e43d5096235b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.search_index
+    - field.field.group.group.field_community_reference
+    - field.field.group.group.field_community_reference_desc
+    - field.field.group.group.field_community_reference_title
+    - field.field.group.group.field_group_image
+    - field.field.group.group.field_group_link_cta
+    - field.field.group.group.field_group_lists
+    - field.field.group.group.field_group_short_description
+    - field.field.group.group.field_paragraphs
+    - group.type.group
+  module:
+    - smart_trim
+id: group.group.search_index
+targetEntityType: group
+bundle: group
+mode: search_index
+content:
+  field_group_short_description:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+      summary_handler: full
+    third_party_settings: {  }
+    type: smart_trim
+    region: content
+  label:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  field_community_reference: true
+  field_community_reference_desc: true
+  field_community_reference_title: true
+  field_group_image: true
+  field_group_link_cta: true
+  field_group_lists: true
+  field_paragraphs: true
+  langcode: true
+  search_api_excerpt: true
+  uid: true
