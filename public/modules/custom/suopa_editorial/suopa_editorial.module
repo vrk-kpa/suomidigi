@@ -57,6 +57,7 @@ function suopa_editorial_form_alter(&$form, $form_state) {
   suopa_editorial_enable_drag_and_drop($form, $form_state);
   suopa_editorial_disable_sibling_checkbox($form, $form_state);
   suopa_editorial_modify_taxonomy_term_forms($form, $form_state);
+  suopa_editorial_hide_author_selection_for_specific_roles($form, $form_state);
 }
 
 /**
@@ -321,6 +322,34 @@ function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_s
     if (!$user->hasRole('editor_in_chief')) {
       $form['field_hero']['#access'] = FALSE;
       $form['field_hero_checkbox']['#access'] = FALSE;
+    }
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * {@inheritdoc}
+ */
+function suopa_editorial_hide_author_selection_for_specific_roles(&$form, $form_state) {
+  $currentUser = \Drupal::currentUser();
+
+  // Add author taxonomy term automatically if user is not an editor in chief
+  // or administrator.
+  if (
+    !in_array('editor_in_chief', $currentUser->getRoles()) &&
+    !in_array('administrator', $currentUser->getRoles()) &&
+    in_array('field_displayed_author', $form)
+  ) {
+    $user = User::load($currentUser->id());
+    $author_service = \Drupal::service('suopa_editorial.apply_author');
+    $author_id = $author_service->getAuthorReference($user);
+
+    if ($author_id) {
+      $form['field_displayed_author']['#access'] = FALSE;
+      $form['field_displayed_author']['widget']['#default_value'][] = $author_id;
     }
   }
 

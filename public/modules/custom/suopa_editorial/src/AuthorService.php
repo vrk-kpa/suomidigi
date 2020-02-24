@@ -47,9 +47,58 @@ class AuthorService {
   public function createOrUpdateReference(User $account) {
     if ($account->id()) {
       $this->account = $account;
-      $this->generateFullName();
-      $this->applyReference();
+      $this->fullName = $this->generateFullName();
+
+      if ($this->fullName) {
+        $this->applyReference();
+      }
     }
+  }
+
+  /**
+   * Link existing account and author term if available.
+   *
+   * Do not use for manual author -> account reference.
+   * Use ::createOrUpdateReference instead.
+   *
+   * {@inheritDoc}
+   */
+  public function createOrUpdateExistingAccountReference(User $account) {
+    if ($account->id()) {
+      $this->account = $account;
+      $this->fullName = $this->generateFullName();
+
+      if ($this->fullName) {
+        $this->retrieveAuthor();
+        $this->handleReference();
+      }
+    }
+  }
+
+  /**
+   * Retrieve author reference based on user account.
+   *
+   * @param \Drupal\user\Entity\User $account
+   *   User account.
+   *
+   * @return bool|int
+   *   Returns author id or false.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   *   Thrown if the entity type doesn't exist.
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   *   Thrown if the storage handler couldn't be loaded.
+   */
+  public function getAuthorReference(User $account) {
+    if ($account->id()) {
+      $this->account = $account;
+      $this->retrieveAuthorByReference();
+      if ($this->author) {
+        return $this->author->id();
+      }
+    }
+
+    return FALSE;
   }
 
   /**
@@ -58,12 +107,23 @@ class AuthorService {
   private function generateFullName() {
     if ($this->account->hasField('field_first_name')) {
       $first_name = ucfirst($this->account->field_first_name->value);
+      if (!empty($first_name)) {
+        $full_name = $first_name;
+      }
     }
     if ($this->account->hasField('field_last_name')) {
       $last_name = ucfirst($this->account->field_last_name->value);
+      if (!empty($last_name)) {
+        if (!empty($full_name)) {
+          $full_name .= ' ' . $last_name;
+        }
+        else {
+          $full_name = $last_name;
+        }
+      }
     }
 
-    $this->fullName = $first_name . ' ' . $last_name;
+    return (!empty($full_name)) ? $full_name : FALSE;
   }
 
   /**
@@ -73,7 +133,7 @@ class AuthorService {
     $this->retrieveAuthor();
 
     if ($this->author) {
-      $this->handleReference();
+      $this->handleReference(TRUE);
     }
     else {
       $this->createNewReference(TRUE);
@@ -89,6 +149,9 @@ class AuthorService {
    *   Thrown if the storage handler couldn't be loaded.
    */
   private function retrieveAuthor() {
+    $this->author = FALSE;
+    $this->authorAccountId = FALSE;
+
     $author = \Drupal::entityTypeManager()
       ->getStorage('taxonomy_term')
       ->loadByProperties([
@@ -107,18 +170,41 @@ class AuthorService {
   }
 
   /**
-   * Handles the reference between account and author taxonomy term.
+   * Get the author by user account reference.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   *   Thrown if the entity type doesn't exist.
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   *   Thrown if the storage handler couldn't be loaded.
    */
-  private function handleReference() {
+  private function retrieveAuthorByReference() {
+    $author = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadByProperties([
+        'field_reference_to_user_profile' => $this->account->id(),
+      ]);
+
+    // Account is found from the author taxonomy.
+    if (is_array($author) && !empty($author)) {
+      $this->author = reset($author);
+    }
+  }
+
+  /**
+   * Handles the reference between account and author taxonomy term.
+   *
+   * {@inheritDoc}
+   */
+  private function handleReference($newUser = FALSE) {
     // Link account to author term.
-    if (!$this->authorAccountId && $this->author) {
+    if (($this->authorAccountId || $newUser) && $this->author) {
       $this->author->field_reference_to_user_profile->target_id = $this->account->id();
       $this->author->save();
       $this->logMessage(
-        'New author - account reference: @author_term was linked to %account_id.',
+        'Author - account reference: %author_term was linked to %account_id.',
         [
-          '%author_term' => 'author ' . $this->author->id() . ': ' . $this->author->name->value,
-          '%account_id' => 'account ' . $this->account->id() . ': ' . $this->fullName,
+          '%author_term' => '(Author:' . $this->author->id() . ' | ' . $this->author->name->value . ')',
+          '%account_id' => '(UID:' . $this->account->id() . ' | ' . $this->fullName . ')',
         ]
       );
     }
@@ -148,11 +234,11 @@ class AuthorService {
 
     if ($newAuthor) {
       $this->logMessage(
-        'New author - account reference: @old_author_term was found from the author taxonomy. New reference between %author_term and %account_id was created.',
+        'New author - account reference: %old_author_term was found from the author taxonomy. New reference between %author_term and %account_id was created.',
         [
-          '%old_author_term' => 'author ' . $this->authorAccountId,
-          '%author_term' => 'author ' . $this->author->id() . ': ' . $this->author->name->value,
-          '%account_id' => 'account ' . $this->account->id() . ': ' . $this->fullName,
+          '%old_author_term' => '(Author: ' . $this->authorAccountId . ')',
+          '%author_term' => '(Author:' . $this->author->id() . ' | ' . $this->author->name->value . ')',
+          '%account_id' => '(UID:' . $this->account->id() . ' | ' . $this->fullName . ')',
         ]
       );
     }
@@ -160,8 +246,8 @@ class AuthorService {
       $this->logMessage(
         'New author - account reference: %author_term and %account_id was created.',
         [
-          '%author_term' => 'author ' . $this->author->id() . ': ' . $this->author->name->value,
-          '%account_id' => 'account ' . $this->account->id() . ': ' . $this->fullName,
+          '%author_term' => '(Author:' . $this->author->id() . ' | ' . $this->author->name->value . ')',
+          '%account_id' => '(UID:' . $this->account->id() . ' | ' . $this->fullName . ')',
         ]
       );
     }
