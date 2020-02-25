@@ -7,7 +7,7 @@ display:
         type:
           label: Sisältötyyppi
         field_approved:
-          label: Hyväksytty
+          label: 'Valmis julkaistavaksi'
         status:
           label: Julkaistu
         created:
