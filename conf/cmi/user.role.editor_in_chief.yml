@@ -32,6 +32,7 @@ permissions:
   - 'administer community entities'
   - 'administer menu'
   - 'administer nodes'
+  - 'administer redirect settings'
   - 'administer redirects'
   - 'administer taxonomy'
   - 'administer url aliases'
