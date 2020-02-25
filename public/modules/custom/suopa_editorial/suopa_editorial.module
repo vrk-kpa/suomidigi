@@ -350,7 +350,7 @@ function suopa_editorial_hide_author_selection_for_specific_roles(&$form, $form_
   if (
     !in_array('editor_in_chief', $currentUser->getRoles()) &&
     !in_array('administrator', $currentUser->getRoles()) &&
-    in_array('field_displayed_author', $form)
+    array_key_exists('field_displayed_author', $form)
   ) {
     $user = User::load($currentUser->id());
     $author_service = \Drupal::service('suopa_editorial.apply_author');
@@ -358,7 +358,9 @@ function suopa_editorial_hide_author_selection_for_specific_roles(&$form, $form_
 
     if ($author_id) {
       $form['field_displayed_author']['#disabled'] = TRUE;
-      $form['field_displayed_author']['widget']['#default_value'][] = $author_id;
+      if (!in_array($author_id, $form['field_displayed_author']['widget']['#default_value'])) {
+        $form['field_displayed_author']['widget']['#default_value'][] = $author_id;
+      }
 
       if (!in_array('content_producer', $currentUser->getRoles())) {
         $form['revision_information']['#access'] = FALSE;
