@@ -22,6 +22,8 @@ COPY patches /app/patches
 
 # Create symlink for drupal public files
 RUN ln -s /app/files/public /app/public/sites/default/files
+# Create symlink for private files (TEMP solution so you don't need different settings.php for Amazee and AWS)
+RUN ln -s /app/files/private /app/files_private
 
 # Copy built theme files from the theme-builder container.
 COPY --from=theme-builder /usr/src/app/dist /app/public/themes/custom/suomidigi/dist
