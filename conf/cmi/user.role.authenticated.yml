@@ -29,3 +29,4 @@ permissions:
   - 'view media'
   - 'view own unpublished content'
   - 'view published community entities'
+  - 'view the administration theme'

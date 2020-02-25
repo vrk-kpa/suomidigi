@@ -49,6 +49,7 @@ content:
     region: content
 hidden:
   field_approved: true
+  field_displayed_author: true
   field_event_date_and_time: true
   field_event_free_text: true
   field_event_image: true
