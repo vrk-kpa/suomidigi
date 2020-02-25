@@ -20,6 +20,9 @@ COPY conf /app/conf
 COPY public /app/public
 COPY patches /app/patches
 
+# Create symlink for drupal public files
+RUN ln -s /app/files/public /app/public/sites/default/files
+
 # Copy built theme files from the theme-builder container.
 COPY --from=theme-builder /usr/src/app/dist /app/public/themes/custom/suomidigi/dist
 COPY --from=theme-builder /usr/src/app/icons/svg /app/public/themes/custom/suomidigi/icons/svg
