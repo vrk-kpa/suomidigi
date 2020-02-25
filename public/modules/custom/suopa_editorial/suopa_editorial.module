@@ -269,14 +269,22 @@ function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
  * {@inheritdoc}
  */
 function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $currentUser = \Drupal::currentUser();
+
   if (isset($form['field_approved'])) {
     $form['field_approved']['#group'] = 'footer';
     $form['field_approved']['#weight'] = 0;
+
+    if (
+      in_array('editor_in_chief', $currentUser->getRoles()) ||
+      in_array('content_producer', $currentUser->getRoles())
+    ) {
+      $form['field_approved']['widget']['value']['#default_value'] = TRUE;
+      $form['field_approved']['#access'] = FALSE;
+    }
   }
 
   if (isset($form['field_displayed_author'])) {
-    $currentUser = \Drupal::currentUser();
-
     if (
       in_array('editor_in_chief', $currentUser->getRoles()) ||
       in_array('administrator', $currentUser->getRoles())
