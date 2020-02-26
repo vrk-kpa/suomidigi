@@ -44,13 +44,13 @@ class AuthorService {
    * @param \Drupal\user\Entity\User $account
    *   User account.
    */
-  public function createOrUpdateReference(User $account) {
+  public function createReference(User $account) {
     if ($account->id()) {
       $this->account = $account;
       $this->fullName = $this->generateFullName();
 
       if ($this->fullName) {
-        $this->applyReference();
+        $this->createNewReference(TRUE);
       }
     }
   }
@@ -59,7 +59,7 @@ class AuthorService {
    * Link existing account and author term if available.
    *
    * Do not use for manual author -> account reference.
-   * Use ::createOrUpdateReference instead.
+   * Use ::createReference instead.
    *
    * {@inheritDoc}
    */
@@ -124,20 +124,6 @@ class AuthorService {
     }
 
     return (!empty($full_name)) ? $full_name : FALSE;
-  }
-
-  /**
-   * Apply existing reference to author term or create a new one.
-   */
-  private function applyReference() {
-    $this->retrieveAuthor();
-
-    if ($this->author) {
-      $this->handleReference(TRUE);
-    }
-    else {
-      $this->createNewReference(TRUE);
-    }
   }
 
   /**
