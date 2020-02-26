@@ -93,6 +93,7 @@
         "drupal/viewsreference": "^2.0",
         "drupal/webform": "^5.2",
         "drupal/wordpress_migrate": "^3.0",
+        "drupal/workflows_field": "^1.0",
         "drush/drush": "^10.2",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
