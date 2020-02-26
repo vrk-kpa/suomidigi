@@ -469,5 +469,5 @@ function suopa_editorial_field_widget_paragraphs_form_alter(&$element, &$form_st
  */
 function suopa_editorial_user_insert($account) {
   $author_service = \Drupal::service('suopa_editorial.apply_author');
-  $author_service->createOrUpdateReference($account);
+  $author_service->createReference($account);
 }
