@@ -2,22 +2,22 @@ uuid: 892f1752-f2a3-4ce7-9817-b505127314ef
 langcode: en
 status: true
 dependencies:
-  config:
-    - field.storage.node.field_article_type
-    - field.storage.node.field_core_content_type
-    - field.storage.group.field_group_short_description
-    - field.storage.node.field_ingress
-    - field.storage.group.field_paragraphs
-    - field.storage.paragraph.field_p_content
-    - field.storage.paragraph.field_text
-    - field.storage.node.field_paragraphs
-    - search_api.server.content_search_server
   module:
-    - taxonomy
     - group
     - paragraphs
     - node
+    - taxonomy
     - search_api
+  config:
+    - field.storage.group.field_paragraphs
+    - field.storage.paragraph.field_p_content
+    - field.storage.paragraph.field_text
+    - field.storage.group.field_group_short_description
+    - field.storage.node.field_article_type
+    - field.storage.node.field_core_content_type
+    - field.storage.node.field_ingress
+    - field.storage.node.field_paragraphs
+    - search_api.server.content_search_server
 id: content_search_index
 name: 'Content Search Index'
 description: ''
@@ -66,6 +66,7 @@ field_settings:
     datasource_id: 'entity:group'
     property_path: label
     type: text
+    boost: !!float 2
     dependencies:
       module:
         - group
@@ -139,11 +140,12 @@ field_settings:
     datasource_id: 'entity:node'
     property_path: title
     type: text
+    boost: !!float 2
     dependencies:
       module:
         - node
   uid:
-    label: null
+    label: uid
     datasource_id: 'entity:node'
     property_path: uid
     type: integer
@@ -162,16 +164,9 @@ datasource_settings:
       selected: {  }
   'entity:node':
     bundles:
-      default: false
+      default: true
       selected:
-        - article
-        - blog_post
-        - community
-        - core_content
-        - event
-        - landing_page
-        - news_item
-        - page
+        - webform
     languages:
       default: true
       selected: {  }

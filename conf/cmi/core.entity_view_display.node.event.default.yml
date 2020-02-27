@@ -153,6 +153,11 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  flag_content_bookmark:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   links:
     weight: 1
     region: content

@@ -142,3 +142,29 @@ function suopa_content_update_8008() {
     'Lisätietoja tapahtuman järjestäjästä'
   );
 }
+
+/**
+ * Create translations for legislation card summary block.
+ */
+function suopa_content_update_8009() {
+  suopa_content_add_translation(
+    'This is part of',
+    'fi',
+    'Tämä on osa'
+  );
+  suopa_content_add_translation(
+    'Go to section',
+    'fi',
+    'Siirry osioon'
+  );
+  suopa_content_add_translation(
+    'Groups which user belongs to',
+    'fi',
+    'Ryhmät joihin käyttäjä kuuluu'
+  );
+  suopa_content_add_translation(
+    'You have successfully joined this group',
+    'fi',
+    'Olet onnistuneesti liittynyt tähän ryhmään'
+  );
+}

@@ -33,6 +33,7 @@
     @include font-size(18px, 23px);
     @include font-weight($regular);
     display: flex;
+    margin-bottom: 10px;
     text-decoration: none;
     transition: all 150ms linear;
 
@@ -54,9 +55,18 @@
     }
 
     &-icon-left {
+      &.is-external .icon {
+        margin-left: 0;
+        margin-right: 4px;
+        margin-top: 4px;
+        max-height: 16px;
+        max-width: 16px;
+      }
+
       .icon {
         color: $purple;
-        margin-left: -7px;
+        margin-left: -5px;
+        margin-right: 5px;
         margin-top: 2px;
         max-height: 20px;
         max-width: 20px;

@@ -1,8 +1,7 @@
 .legislation-attachment {
   background-color: $white;
   display: block;
-  margin-bottom: $gutter / 2;
-  padding: $gutter / 2;
+  padding: $gutter 0;
 
   &__wrapper {
     align-items: center;

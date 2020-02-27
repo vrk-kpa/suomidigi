@@ -15,11 +15,15 @@
 }
 
 .pager__items {
-  display: flex;
+  background-color: $white;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
+  display: inline-flex;
   justify-content: center;
   list-style: none;
-  margin: $gutter 0;
-  padding: 0 $gutter;
+  margin: $gutter 0 $gutter;
+  padding: $gutter;
+  width: auto;
 }
 
 .pager__item {
@@ -28,10 +32,6 @@
   border-right: 0;
   display: flex;
   justify-content: center;
-
-  &:last-child {
-    border-right: 1px solid $gray-medium;
-  }
 
   a {
     align-items: center;
@@ -50,6 +50,7 @@
 
   &.is-active {
     border: 1px solid $blue-light;
+    border-radius: 3px;
 
     a {
       background-color: $blue-light;

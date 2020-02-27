@@ -1,116 +1,165 @@
 .legislation-card {
-  background-color: $legislation-blue-light;
-  border: 1px solid $legislation-gray;
-  padding: $gutter;
+  padding: $gutter 0 $gutter * 2;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    padding: 0 0 $gutter * 2;
+  }
 
   > .contextual {
     right: -20px;
     top: 12px;
   }
+}
 
-  &__title {
-    @include font-size(18px, 18px);
+.legislation-card__header {
+  padding: 0;
+}
+
+.legislation-card__title {
+  @include font-size(40px, 50px);
+  @include font-weight($semibold);
+  color: $blue;
+}
+
+.legislation-card__lead-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  margin: $gutter 0 $gutter * 2;
+}
+
+.legislation-card__section {
+  display: none;
+
+  @include breakpoint($for-mobile-landscape-up) {
+    align-items: center;
+    color: $cyan;
+    display: flex;
+    padding: 20px;
+
+    .icon {
+      height: 66px;
+      width: 66px;
+    }
+  }
+}
+
+.legislation-card__lead {
+  @include font-size(22px, 30px);
+  @include font-weight($regular);
+  padding: 0;
+}
+
+.legislation-card__content {
+  @include font-size(18px, 27px);
+  @include font-weight($regular);
+  padding: 0 0 $gutter * 2;
+
+  p {
+    @include font-size(18px, 27px);
+  }
+}
+
+.legislation-card__data {
+  border-bottom: 1px solid $gray-medium;
+  margin: 0 0 $gutter * 2;
+  padding: 0 0 $gutter * 2;
+}
+
+.legislation-card__attachments,
+.legislation-card__support-attachments {
+  padding: 0 0 $gutter * 2;
+
+  .label__container {
+    align-items: center;
+    display: flex;
+  }
+
+  .icon {
+    color: $cyan;
+    max-height: $gutter * 3;
+    width: $gutter * 3;
+  }
+
+  .legislation-card__label {
+    @include font-size(22px, 28px);
     @include font-weight($semibold);
-    color: $legislation-blue;
-    padding: 0 0 $gutter;
+    margin-left: $gutter;
+  }
+
+  .legislation-card__indent {
+    margin-left: $gutter * 4;
+
+    .paragraph.paragraph--list-of-links {
+      border: 0 none;
+      padding: 0;
+    }
+  }
+}
+
+.legislation-card__link {
+  margin-bottom: $gutter;
+}
+
+.legislation-card--teaser {
+  background-color: $white;
+  border-bottom: 0 none;
+  margin-bottom: 0;
+  transition: all 50ms cubic-bezier(0.28, 0.84, 0.42, 1) 0s;
+
+  &:last-of-type {
+    border-bottom: 1px solid $legislation-gray;
+  }
+
+  .legislation-card__header {
+    &.is-active {
+      .legislation-card__title--icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .legislation-card__breadcrumb {
+    @include font-size(12px, 12px);
+    color: $gray-dark;
+    margin-bottom: $gutter / 2;
+
+    .divider {
+      @include font-size(15px, 15px);
+      color: $black;
+      font-weight: 600;
+    }
+  }
+
+  .legislation-card__title {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
 
     &--icon {
-      fill: $legislation-blue;
+      height: 20px;
+      margin-left: auto;
+      width: 20px;
     }
   }
 
-  &__ingress {
-    @include font-size(18px, 18px);
-    padding: 0 0 $gutter;
+  .legislation-card__content-wrapper {
+    max-height: 0;
+    overflow: hidden;
   }
 
-  &__content {
-    @include font-size(18px, 18px);
-    padding: 0 0 $gutter * 2;
+  &.is-open {
+    background-color: $legislation-blue-light;
+    border-bottom: 1px solid $legislation-gray;
+    margin-bottom: $gutter / 2;
 
-    p {
-      @include font-size(18px, 18px);
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  &__attachments {
-    padding: 0 0 $gutter * 2;
-  }
-
-  &__support-attachments {
-    padding: 0 0 $gutter * 2;
-
-    &__title {
-      @include font-size(18px, 18px);
-      @include font-weight($semibold);
-      padding-bottom: $gutter / 2;
-    }
-  }
-
-  &--teaser {
-    background-color: $white;
-    border-bottom: 0 none;
-    margin-bottom: 0;
-    transition: all 50ms cubic-bezier(0.28, 0.84, 0.42, 1) 0s;
-
-    &:last-of-type {
-      border-bottom: 1px solid $legislation-gray;
-    }
-
-    .legislation-card__header {
-      &.is-active {
-        .legislation-card__title--icon {
-          transform: rotate(180deg);
-        }
-      }
-    }
-
-    .legislation-card__breadcrumb {
-      @include font-size(12px, 12px);
-      color: $gray-dark;
-      margin-bottom: $gutter / 2;
-
-      .divider {
-        @include font-size(15px, 15px);
-        color: $black;
-        font-weight: 600;
-      }
+    .legislation-card__content-wrapper {
+      max-height: 100%;
     }
 
     .legislation-card__title {
-      align-items: center;
-      cursor: pointer;
-      display: flex;
-      padding: 0;
-
-      &--icon {
-        height: 20px;
-        margin-left: auto;
-        width: 20px;
-      }
-    }
-
-    .legislation-card__content-wrapper {
-      max-height: 0;
-      overflow: hidden;
-    }
-
-    &.is-open {
-      background-color: $legislation-blue-light;
-      border-bottom: 1px solid $legislation-gray;
-      margin-bottom: $gutter / 2;
-
-      .legislation-card__content-wrapper {
-        max-height: 100%;
-      }
-
-      .legislation-card__title {
-        padding: 0 0 $gutter;
-      }
+      padding: 0 0 $gutter;
     }
   }
 }

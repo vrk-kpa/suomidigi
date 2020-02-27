@@ -339,12 +339,6 @@ function suomidigi_preprocess_page_title(&$variables) {
       $variables['title'] = Markup::create($translated_title);
     }
   }
-
-  // Modify title classes for Legislation collection page nodes.
-  $node = Drupal::request()->attributes->get('node');
-  if (!empty($node) && $node->bundle() == 'legislation_collection_page') {
-    $variables['page_title_secondary'] = TRUE;
-  }
 }
 
 /**
@@ -394,7 +388,8 @@ function suomidigi_preprocess_block(&$variables) {
         $node->getType() == 'legislation_collection_page' ||
         $node->getType() == 'blog_post' ||
         $node->getType() == 'core_content' ||
-        $node->getType() == 'news_item'
+        $node->getType() == 'news_item' ||
+        $node->getType() == 'community'
       ) {
         $variables['hide_block'] = TRUE;
       }

@@ -18,6 +18,7 @@
         "composer/installers": "^1.2",
         "cosenary/instagram": "v2.3",
         "cweagans/composer-patches": "^1.6.5",
+        "druidfi/omen": "^0.1.2",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^1.0",
@@ -56,6 +57,7 @@
         "drupal/menu_trail_by_path": "^1.1",
         "drupal/metatag": "^1.10",
         "drupal/migrate_tools": "^4.4",
+        "drupal/nodeorder": "^1.0@beta",
         "drupal/optional_end_date": "^1.0",
         "drupal/paragraphs": "^1.10",
         "drupal/pathauto": "^1.0",
@@ -91,7 +93,7 @@
         "drupal/viewsreference": "^2.0",
         "drupal/webform": "^5.2",
         "drupal/wordpress_migrate": "^3.0",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "^10.2",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
         "google/apiclient": "^2.0",
@@ -113,9 +115,10 @@
     },
     "config": {
         "platform": {
-            "php": "7.1"
+            "php": "7.1.12"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "discard-changes": true
     },
     "extra": {
         "installer-paths": {
@@ -154,7 +157,8 @@
                 "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch",
                 "Group content Path automated pattern and tokens for actual node": "https://www.drupal.org/files/issues/group-content-entity-tokens-2916907-7.patch",
                 "https://www.drupal.org/project/group/issues/3101314": "https://www.drupal.org/files/issues/2019-12-16/reword_delete_to_remove_on_group_member_removal-3101314-2.patch",
-                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2019-12-23/group-support_string_entity_ids-2797793-188.patch"
+                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2019-12-23/group-support_string_entity_ids-2797793-188.patch",
+                "https://www.drupal.org/project/group/issues/2980034": "https://www.drupal.org/files/issues/2018-08-28/joined_user_redirection-2980034-9.patch"
             },
             "drupal/hide_revision_field": {
                 "https://www.drupal.org/project/hide_revision_field/issues/3032473": "https://www.drupal.org/files/issues/2019-05-10/hide_revision_field-3032473-8.patch",

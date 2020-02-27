@@ -1,0 +1,62 @@
+uuid: c2667a5b-e757-427e-937b-93802b889e72
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.article.field_article_type
+    - field.field.node.article.field_comments
+    - field.field.node.article.field_displayed_author
+    - field.field.node.article.field_displayed_update_time
+    - field.field.node.article.field_header_image
+    - field.field.node.article.field_ingress
+    - field.field.node.article.field_paragraphs
+    - field.field.node.article.field_reading_time
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_theme
+    - node.type.article
+  module:
+    - smart_trim
+    - user
+_core:
+  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
+id: node.article.search_index
+targetEntityType: node
+bundle: article
+mode: search_index
+content:
+  field_ingress:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+      summary_handler: full
+    third_party_settings: {  }
+    type: smart_trim
+    region: content
+hidden:
+  field_article_type: true
+  field_comments: true
+  field_displayed_author: true
+  field_displayed_update_time: true
+  field_header_image: true
+  field_paragraphs: true
+  field_reading_time: true
+  field_tags: true
+  field_theme: true
+  flag_content_bookmark: true
+  langcode: true
+  links: true
+  published_at: true
+  rate_vote_widget: true
+  search_api_excerpt: true

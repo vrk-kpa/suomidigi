@@ -6,28 +6,28 @@ dependencies:
     - language
     - node
 id: blog_post_fi
-label: 'Blog post'
+label: 'Blog post - FI'
 type: 'canonical_entities:node'
 pattern: 'blogit/[node:title]'
 selection_criteria:
-  7a90f1a4-21b0-4e15-b26e-7aa9809c253b:
+  02ff1f89-fa55-4407-8b56-e5f9c832e8df:
     id: node_type
     bundles:
       blog_post: blog_post
     negate: false
     context_mapping:
       node: node
-    uuid: 7a90f1a4-21b0-4e15-b26e-7aa9809c253b
-  b87cf92a-4301-4222-9781-f476c81d235c:
+    uuid: 02ff1f89-fa55-4407-8b56-e5f9c832e8df
+  e315fea2-cc96-4833-9da5-18afd4c0ab43:
     id: language
     langcodes:
       fi: fi
     negate: false
     context_mapping:
       language: 'node:langcode:language'
-    uuid: b87cf92a-4301-4222-9781-f476c81d235c
+    uuid: e315fea2-cc96-4833-9da5-18afd4c0ab43
 selection_logic: and
-weight: -9
+weight: -3
 relationships:
   'node:langcode:language':
     label: Kieli

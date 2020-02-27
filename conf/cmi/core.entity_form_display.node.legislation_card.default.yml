@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.legislation_card.field_attachments
+    - field.field.node.legislation_card.field_displayed_update_time
     - field.field.node.legislation_card.field_ingress
     - field.field.node.legislation_card.field_legislation_content
     - field.field.node.legislation_card.field_legislation_materials
     - field.field.node.legislation_card.field_legislation_section
     - node.type.legislation_card
   module:
+    - datetime
     - hide_revision_field
     - paragraphs
     - path
@@ -17,6 +19,7 @@ dependencies:
     - scheduler
     - select2
     - text
+    - timepicker
 id: node.legislation_card.default
 targetEntityType: node
 bundle: legislation_card
@@ -29,16 +32,34 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_attachments:
-    type: entity_reference_paragraphs
-    weight: 17
+    type: paragraphs
+    weight: 18
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: _none
+      default_paragraph_type: list_of_links
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
     third_party_settings: {  }
+  field_displayed_update_time:
+    weight: 19
+    settings: {  }
+    third_party_settings:
+      timepicker:
+        enabled: '1'
+        type: timepicker_jonthornton
+        js_options:
+          value: ''
+    type: datetime_default
     region: content
   field_ingress:
     weight: 15
@@ -57,15 +78,22 @@ content:
     type: text_textarea
     region: content
   field_legislation_materials:
-    type: entity_reference_paragraphs
-    weight: 18
+    type: paragraphs
+    weight: 17
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: legislation_attachment
+      default_paragraph_type: list_of_links
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
     third_party_settings: {  }
     region: content
   field_legislation_section:

@@ -31,6 +31,7 @@ function suopa_legislations_preprocess_paragraph(&$variables) {
       $cardCollectionTerms = Drupal::entityTypeManager()
         ->getStorage('taxonomy_term')
         ->getChildren($term);
+
       foreach ($cardCollectionTerms as $collectionTerm) {
         $cards = suopa_legislations_get_related_legislation_cards($collectionTerm, $langcode);
         if (!count($cards)) {
@@ -52,71 +53,10 @@ function suopa_legislations_preprocess_paragraph(&$variables) {
           'cards' => [
             '#theme' => 'suopa_legislations_collection',
             '#collection' => $cards,
-            '#attached' => [
-              'library' => [
-                'suopa_legislations/expanding-panel',
-              ],
-            ],
           ],
         ];
 
         $variables['legislation_collections'][] = $renderedLegislationCollection;
-      }
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function suopa_legislations_preprocess_node(&$variables) {
-  $node = $variables['node'];
-  if ($node->getType() !== 'legislation_card') {
-    return;
-  }
-
-  // Attach SuoPa Legislation expanding panels library to legislation card.
-  if ($variables['view_mode'] == 'teaser') {
-    $variables['#attached'] = [
-      'library' => [
-        'suopa_legislations/expanding-panel',
-      ],
-    ];
-
-    // Get label for legislation card and render it as a breadcrumb.
-    // Label is built from legislation section term parents.
-    if ($node->hasField('field_legislation_section')) {
-      $current_language = Drupal::languageManager()->getCurrentLanguage()->getId();
-      $section = $node->get('field_legislation_section')->target_id;
-
-      if (!empty($section)) {
-        $ancestors = array_reverse(
-          Drupal::service('entity_type.manager')
-            ->getStorage("taxonomy_term")
-            ->loadAllParents($section)
-        );
-
-        $list = [];
-        foreach ($ancestors as $term) {
-          if ($term->hasTranslation($current_language)) {
-            $term = $term->getTranslation($current_language);
-          }
-
-          $label = $term->label();
-
-          // Use legislation term liftup title if it exists.
-          if (
-            $term->hasField('field_legislation_liftup_title') &&
-            !empty($term->field_legislation_liftup_title->value)
-          ) {
-            $label = $term->field_legislation_liftup_title->value;
-          }
-          $list[$term->id()] = $label;
-        }
-
-        if (!empty($list)) {
-          $variables['legislation_card_breadcrumb'] = $list;
-        }
       }
     }
   }
@@ -141,22 +81,21 @@ function suopa_legislations_preprocess_node(&$variables) {
 function suopa_legislations_get_related_legislation_cards(Term $collection, $langcode) {
   $cards = [];
 
-  $ids = Drupal::entityQuery('node')
-    ->condition('type', 'legislation_card')
-    ->condition('status', 1)
-    ->condition('field_legislation_section', $collection->id())
-    ->execute();
+  $legislation_cards = \Drupal::service('suopa_legislations.legislation');
+  $ids = $legislation_cards->getRelatedLegislationCards($collection->id());
 
-  $entity_type = 'node';
-  $view_mode = 'expanding_panels';
+  if ($ids) {
+    $entity_type = 'node';
+    $view_mode = 'teaser';
 
-  $nodeStorage = Drupal::entityTypeManager()->getStorage($entity_type);
-  $nodeRendered = Drupal::entityTypeManager()->getViewBuilder($entity_type);
+    $nodeStorage = Drupal::entityTypeManager()->getStorage($entity_type);
+    $nodeRendered = Drupal::entityTypeManager()->getViewBuilder($entity_type);
 
-  foreach ($ids as $id) {
-    $node = $nodeStorage->load($id);
-    if ($node->hasTranslation($langcode)) {
-      $cards[] = $nodeRendered->view($node, $view_mode, $langcode);
+    foreach ($ids as $id) {
+      $node = $nodeStorage->load($id);
+      if ($node->hasTranslation($langcode)) {
+        $cards[] = $nodeRendered->view($node, $view_mode, $langcode);
+      }
     }
   }
 
@@ -176,6 +115,20 @@ function suopa_legislations_theme() {
     'suopa_legislations_collection_label' => [
       'variables' => [
         'collection_label' => NULL,
+      ],
+    ],
+    'suopa_legislations_prev_next' => [
+      'variables' => [
+        'label' => NULL,
+        'direction' => NULL,
+        'url' => NULL,
+        'display_text' => NULL,
+      ],
+    ],
+    'suopa_legislations_summary' => [
+      'variables' => [
+        'label' => NULL,
+        'url' => NULL,
       ],
     ],
   ];

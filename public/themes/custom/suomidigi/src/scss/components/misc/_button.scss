@@ -57,7 +57,7 @@
 .button--cta {
   @include font-size(20px, 26px);
   @include font-weight($regular);
-  background: $purple linear-gradient(180deg, $purple 0%, $purple--secondary 100%) 0% 0% no-repeat padding-box;
+  background: $purple linear-gradient(180deg, $purple 0%, $purple--secondary 100%) 0 0 no-repeat padding-box;
   border-radius: $gutter / 3;
   color: $white;
   display: inline-block;
@@ -78,7 +78,7 @@
   }
 
   &-alternative {
-    background: $blue-light linear-gradient(180deg, $blue-light 0%, $blue-light--secondary 100%) 0% 0% no-repeat padding-box;
+    background: $blue-light linear-gradient(180deg, $blue-light 0%, $blue-light--secondary 100%) 0 0 no-repeat padding-box;
     text-shadow: 1px 1px 1px $blue-light--secondary;
 
     &:hover,
@@ -86,6 +86,71 @@
       background: $blue-light;
       color: $white;
       text-decoration: none;
+    }
+  }
+
+  &.button--cta-legislation {
+    background: $white;
+    border: 2px solid $blue-light;
+    border-radius: 5px;
+    color: $blue-light;
+    text-shadow: unset;
+
+    &:hover,
+    &:active {
+      background: $blue-light linear-gradient(180deg, $blue-light 0%, $blue-light--secondary 100%) 0 0 no-repeat padding-box;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+.button--navigation {
+  background: $purple linear-gradient(180deg, #9D5DB4 0%, #86499C 100%) 0 0 no-repeat padding-box;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px #00000029;
+  display: flex;
+  flex-flow: row;
+  margin-bottom: $gutter;
+  padding: $gutter * 2;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    background: $purple;
+    color: $white;
+    text-decoration: underline;
+  }
+
+  .button__label {
+    @include font-size(16px, 20px);
+    @include font-weight($semibold);
+    color: $white;
+    margin-bottom: 5px;
+  }
+
+  .button__description {
+    @include font-size(16px, 20px);
+    @include font-weight($regular);
+    color: $white;
+  }
+
+  .button__icon {
+    align-items: center;
+    display: flex;
+    padding: 0 25px 0 0;
+
+    .icon {
+      max-height: 24px;
+      width: 24px;
+    }
+
+    .icon--next {
+      color: $white;
+      transform: rotate(180deg);
+    }
+    .icon--prev {
+      color: $white;
     }
   }
 }

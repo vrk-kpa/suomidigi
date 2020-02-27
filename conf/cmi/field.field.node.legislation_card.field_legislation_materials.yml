@@ -7,13 +7,14 @@ dependencies:
     - node.type.legislation_card
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_link
+    - paragraphs.paragraphs_type.list_of_links
   module:
     - entity_reference_revisions
 id: node.legislation_card.field_legislation_materials
 field_name: field_legislation_materials
 entity_type: node
 bundle: legislation_card
-label: 'More about the subject'
+label: 'Acts and regulations'
 description: ''
 required: false
 translatable: true
@@ -26,6 +27,7 @@ settings:
     target_bundles:
       legislation_link: legislation_link
       legislation_attachment: legislation_attachment
+      list_of_links: list_of_links
     target_bundles_drag_drop:
       legislation_link:
         enabled: true
@@ -60,11 +62,20 @@ settings:
       liftup_box_item:
         weight: 28
         enabled: false
+      banner_cta:
+        weight: 29
+        enabled: false
       liftup_entity_reference:
         weight: 29
         enabled: false
+      contact_information:
+        weight: 30
+        enabled: false
       liftup_entity_reference_item:
         weight: 30
+        enabled: false
+      contact_information_item:
+        weight: 31
         enabled: false
       liftup_prominent:
         weight: 31
@@ -75,7 +86,28 @@ settings:
       media:
         weight: 33
         enabled: false
+      feed:
+        weight: 34
+        enabled: false
       text:
         weight: 34
+        enabled: false
+      group_view:
+        weight: 35
+        enabled: false
+      hero:
+        weight: 36
+        enabled: false
+      legislation_cards:
+        weight: 42
+        enabled: false
+      liftup_50_50:
+        weight: 44
+        enabled: false
+      list_of_links:
+        enabled: true
+        weight: 51
+      view:
+        weight: 54
         enabled: false
 field_type: entity_reference_revisions
