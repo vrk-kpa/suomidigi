@@ -42,6 +42,7 @@ const ALLOWED_FORMS_DRAG_N_DROP = [
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
@@ -357,12 +358,22 @@ function suopa_editorial_hide_author_selection_for_specific_roles(&$form, $form_
     $author_id = $author_service->getAuthorReference($user);
 
     if ($author_id) {
+      $author = Term::load($author_id);
+      if ($author) {
+        $form['meta']['author']['#markup'] = $author->label();
+      }
       $form['field_displayed_author']['#disabled'] = TRUE;
+
       if (!in_array($author_id, $form['field_displayed_author']['widget']['#default_value'])) {
         $form['field_displayed_author']['widget']['#default_value'][] = $author_id;
       }
 
-      if (!in_array('content_producer', $currentUser->getRoles())) {
+      // If authenticated user with no roles is viewing add/edit page,
+      // hide revision information and advanced tabs.
+      if (
+        in_array('authenticated', $currentUser->getRoles()) &&
+        count($currentUser->getRoles()) == 1
+      ) {
         $form['revision_information']['#access'] = FALSE;
       }
     }

@@ -187,6 +187,18 @@ function suopa_content_field_widget_form_alter(&$element, FormStateInterface $fo
     $element['#allowed_formats'] = $formats[$field_name];
     $element['#after_build'][] = '_remove_text_format_box';
   }
+
+  // Convert field header image media entity browser to media image adder for
+  // authenticated users.
+  if ($field_name == 'field_header_image') {
+    $currentUser = \Drupal::currentUser();
+    if (
+      in_array('authenticated', $currentUser->getRoles()) &&
+      count($currentUser->getRoles()) == 1
+    ) {
+      $element['entity_browser']['#entity_browser'] = 'media_image_adder';
+    }
+  }
 }
 
 /**
