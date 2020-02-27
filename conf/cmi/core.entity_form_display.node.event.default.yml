@@ -21,8 +21,10 @@ dependencies:
     - field.field.node.event.field_venue_name
     - image.style.thumbnail
     - node.type.event
+    - workflows.workflow.copn
   module:
     - address
+    - content_moderation
     - datetime_range
     - field_group
     - focal_point
@@ -99,15 +101,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_approved:
-    weight: 17
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_displayed_author:
-    weight: 24
+    weight: 17
     settings:
       width: 100%
       autocomplete: true
@@ -238,6 +233,12 @@ content:
     settings:
       include_locked: false
     third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 18
+    settings: {  }
+    region: content
+    third_party_settings: {  }
   path:
     type: path
     weight: 9
@@ -311,4 +312,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_approved: true
   revision_log: true

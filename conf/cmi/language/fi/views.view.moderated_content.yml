@@ -1,0 +1,54 @@
+label: 'Moderoitu sisältö'
+description: 'Etsi ja moderoi sisältöä'
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+          expose:
+            items_per_page_label: 'Tuloksia sivulla'
+            items_per_page_options_all_label: '- Kaikki -'
+      fields:
+        title:
+          label: Otsikko
+        type:
+          label: Sisältötyyppi
+        name:
+          label: Tekijä
+        moderation_state:
+          label: Tila
+        changed:
+          label: Päivitetty
+        operations:
+          label: Toimenpiteet
+      title: 'Moderoitu sisältö'
+      filters:
+        title:
+          expose:
+            label: Otsikko
+        type:
+          expose:
+            label: Sisältötyyppi
+        moderation_state:
+          expose:
+            label: Julkaisutila
+        langcode:
+          expose:
+            label: Kieli
+  moderated_content:
+    display_title: 'Moderoitu sisältö'
+    display_options:
+      menu:
+        title: 'Moderoitu sisältö'

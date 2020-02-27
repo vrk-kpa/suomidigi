@@ -19,6 +19,11 @@ targetEntityType: node
 bundle: community
 mode: teaser_grid
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_approved:
     weight: 101
     label: hidden

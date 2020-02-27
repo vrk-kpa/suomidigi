@@ -28,6 +28,11 @@ targetEntityType: node
 bundle: event
 mode: search_index
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_event_description:
     weight: 0
     label: hidden
