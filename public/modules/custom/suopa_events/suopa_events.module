@@ -67,7 +67,6 @@ function suopa_events_form_node_form_alter(&$form, &$form_state, $form_id) {
       $form['field_venue_description']['#access'] = FALSE;
       $form['field_event_org_contact_info']['#access'] = FALSE;
       $form['field_event_free_text']['#access'] = FALSE;
-      $form['field_approved']['#access'] = FALSE;
     }
   }
 }

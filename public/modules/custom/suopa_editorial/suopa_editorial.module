@@ -271,17 +271,9 @@ function suopa_editorial_modify_taxonomy_term_forms(&$form, $form_state) {
 function suopa_editorial_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $currentUser = \Drupal::currentUser();
 
-  if (isset($form['field_approved'])) {
-    $form['field_approved']['#group'] = 'footer';
-    $form['field_approved']['#weight'] = 0;
-
-    if (
-      in_array('editor_in_chief', $currentUser->getRoles()) ||
-      in_array('content_producer', $currentUser->getRoles())
-    ) {
-      $form['field_approved']['widget']['value']['#default_value'] = TRUE;
-      $form['field_approved']['#access'] = FALSE;
-    }
+  // Change the label for moderation state "review".
+  if (isset($form['moderation_state'])) {
+    $form['moderation_state']['widget'][0]['state']['#options']['review'] = t('Submit for publication');
   }
 
   if (isset($form['field_displayed_author'])) {

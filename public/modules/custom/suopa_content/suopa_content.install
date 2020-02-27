@@ -167,4 +167,19 @@ function suopa_content_update_8009() {
     'fi',
     'Olet onnistuneesti liittynyt tähän ryhmään'
   );
+  suopa_content_add_translation(
+    'Change to',
+    'fi',
+    'Muuta tila'
+  );
+  suopa_content_add_translation(
+    'Set as current revision',
+    'fi',
+    'Aseta nykyiseksi versioksi'
+  );
+  suopa_content_add_translation(
+    'Submit for publication',
+    'fi',
+    'Lähetä julkaistavaksi'
+  );
 }

@@ -5,7 +5,6 @@
  * Contains suopa_group.module.
  */
 
-use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -263,7 +262,7 @@ function suopa_editorial_preprocess_menu_local_task(&$variables) {
   $route_match = \Drupal::routeMatch();
   $forbidden_routes = [
     'entity.node.canonical',
-    'entity.node.version_history'
+    'entity.node.version_history',
   ];
 
   // Check if user has permissions to see translation links and hide if not.
