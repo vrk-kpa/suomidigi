@@ -3,6 +3,8 @@
   padding-top: $gutter / 2;
 
   &__title {
+    padding-top: $gutter;
+
     h1 {
       @include font-size(40px, 50px);
       @include font-weight($semibold);

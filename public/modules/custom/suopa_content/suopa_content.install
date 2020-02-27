@@ -157,4 +157,14 @@ function suopa_content_update_8009() {
     'fi',
     'Siirry osioon'
   );
+  suopa_content_add_translation(
+    'Groups which user belongs to',
+    'fi',
+    'Ryhmät joihin käyttäjä kuuluu'
+  );
+  suopa_content_add_translation(
+    'You have successfully joined this group',
+    'fi',
+    'Olet onnistuneesti liittynyt tähän ryhmään'
+  );
 }
