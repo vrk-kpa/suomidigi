@@ -153,8 +153,8 @@ function suopa_content_update_8009() {
     'Tämä on osa'
   );
   suopa_content_add_translation(
-    'Go to legislation summary page',
+    'Go to section',
     'fi',
-    'Siirry lakisivulle'
+    'Siirry osioon'
   );
 }

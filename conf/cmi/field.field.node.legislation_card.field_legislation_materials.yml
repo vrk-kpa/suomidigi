@@ -14,7 +14,7 @@ id: node.legislation_card.field_legislation_materials
 field_name: field_legislation_materials
 entity_type: node
 bundle: legislation_card
-label: Legislation
+label: 'Acts and regulations'
 description: ''
 required: false
 translatable: true
