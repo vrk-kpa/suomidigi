@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.event.field_approved
+    - field.field.node.event.field_displayed_author
     - field.field.node.event.field_event_date_and_time
     - field.field.node.event.field_event_description
     - field.field.node.event.field_event_free_text
@@ -49,7 +50,7 @@ content:
     type: text_default
     region: content
   field_event_free_text:
-    weight: 13
+    weight: 14
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -104,14 +105,14 @@ content:
     type: link
     region: content
   field_organiser_description:
-    weight: 11
+    weight: 12
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_organiser_link:
-    weight: 12
+    weight: 13
     label: hidden
     settings:
       trim_length: 160
@@ -123,7 +124,7 @@ content:
     type: link
     region: content
   field_theme:
-    weight: 14
+    weight: 15
     label: hidden
     settings:
       link: true
@@ -154,7 +155,7 @@ content:
     type: string
     region: content
   flag_content_bookmark:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -165,6 +166,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_approved: true
+  field_displayed_author: true
   langcode: true
   published_at: true
   search_api_excerpt: true
