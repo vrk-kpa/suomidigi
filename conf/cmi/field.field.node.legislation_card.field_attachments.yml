@@ -13,7 +13,7 @@ id: node.legislation_card.field_attachments
 field_name: field_attachments
 entity_type: node
 bundle: legislation_card
-label: 'More information about the subject'
+label: 'Additional material'
 description: ''
 required: false
 translatable: true
