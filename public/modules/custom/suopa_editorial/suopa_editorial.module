@@ -277,7 +277,7 @@ function suopa_editorial_field_widget_form_container_alter(&$element, &$form_sta
       ];
 
       foreach ($types as $paragraph_type => $paragraph) {
-        if (strpos($paragraph_type, 'add_more_button') !== false) {
+        if (strpos($paragraph_type, 'add_more_button') !== FALSE) {
           if (!in_array($paragraph_type, $allowed_types)) {
             unset($types[$paragraph_type]);
           }
