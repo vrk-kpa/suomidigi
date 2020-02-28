@@ -210,6 +210,81 @@ function suopa_editorial_field_widget_form_alter(&$element, &$form_state, $conte
       'timeFormat' => 'H:i:s',
     ];
   }
+
+  // Remove text format box from selected fields.
+  $field_name = $context['items']->getFieldDefinition()->getName();
+  $formats = [
+    'comment_body' => ['plain_text'],
+    'field_text' => [],
+  ];
+
+  if (array_key_exists($field_name, $formats)) {
+    if (!empty($formats[$field_name])) {
+      $element['#allowed_formats'] = $formats[$field_name];
+    }
+    $element['#after_build'][] = '_remove_text_format_box';
+  }
+
+  // Handle field alterations for authenticated user.
+  $currentUser = \Drupal::currentUser();
+  if (
+    in_array('authenticated', $currentUser->getRoles()) &&
+    count($currentUser->getRoles()) == 1
+  ) {
+    // Convert field header image media entity browser to media image adder for
+    // authenticated users.
+    if (
+      $field_name == 'field_header_image' ||
+      $field_name == 'field_p_media'
+    ) {
+      $element['entity_browser']['#entity_browser'] = 'media_image_adder';
+    }
+  }
+}
+
+/**
+ * After build callback for widget form alter.
+ */
+function _remove_text_format_box($form_element, FormStateInterface $form_state) {
+  // Remove help, guidelines and wrappers.
+  unset($form_element['format']['help']);
+  unset($form_element['format']['guidelines']);
+  unset($form_element['format']['#type']);
+  unset($form_element['format']['#theme_wrappers']);
+
+  return $form_element;
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function suopa_editorial_field_widget_form_container_alter(&$element, &$form_state, $context) {
+  $currentUser = \Drupal::currentUser();
+  if (
+    in_array('authenticated', $currentUser->getRoles()) &&
+    count($currentUser->getRoles()) == 1
+  ) {
+    // Show only text and image paragraphs for the authenticated user.
+    if (
+      $element['widget']['#field_name'] == 'field_paragraphs' &&
+      isset($element['widget']['add_more']['operations']['#links'])
+    ) {
+      // Allowed paragraph types.
+      $types = &$element['widget']['add_more']['operations']['#links'];
+      $allowed_types = [
+        'add_more_button_media',
+        'add_more_button_text',
+      ];
+
+      foreach ($types as $paragraph_type => $paragraph) {
+        if (strpos($paragraph_type, 'add_more_button') !== false) {
+          if (!in_array($paragraph_type, $allowed_types)) {
+            unset($types[$paragraph_type]);
+          }
+        }
+      }
+    }
+  }
 }
 
 /**
