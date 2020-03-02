@@ -16,7 +16,6 @@ description: 'An approval queue for all nodes that need approval before publishi
 tag: ''
 base_table: node_field_data
 base_field: nid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -127,36 +126,26 @@ display:
           clear_on_exposed: false
           action_title: Action
           selected_actions:
-            comment_delete_action: 0
-            node_unpromote_action: 0
-            node_unpublish_action: node_unpublish_action
-            node_publish_action: node_publish_action
-            node_unpublish_by_keyword_action: 0
-            node_assign_owner_action: 0
-            node_promote_action: 0
-            node_save_action: 0
-            node_make_sticky_action: 0
-            node_make_unsticky_action: 0
-            suopa_editorial_approve_and_publish_action: suopa_editorial_approve_and_publish_action
-            suopa_editorial_disapprove_action: suopa_editorial_disapprove_action
-            suopa_editorial_approve_action: suopa_editorial_approve_action
-            views_bulk_operations_delete_entity: 0
-            pathauto_update_alias: 0
-            'entity:save_action:node': 0
-            'entity:unpublish_action:node': 0
-            'entity:publish_action:node': 0
-            'entity:delete_action:node': 0
-          preconfiguration:
-            node_unpublish_action:
-              label_override: ''
-            node_publish_action:
-              label_override: ''
-            suopa_editorial_approve_and_publish_action:
-              label_override: ''
-            suopa_editorial_disapprove_action:
-              label_override: ''
-            suopa_editorial_approve_action:
-              label_override: ''
+            -
+              action_id: node_unpublish_action
+              preconfiguration:
+                label_override: ''
+            -
+              action_id: node_publish_action
+              preconfiguration:
+                label_override: ''
+            -
+              action_id: suopa_editorial_approve_and_publish_action
+              preconfiguration:
+                label_override: ''
+            -
+              action_id: suopa_editorial_disapprove_action
+              preconfiguration:
+                label_override: ''
+            -
+              action_id: suopa_editorial_approve_action
+              preconfiguration:
+                label_override: ''
           plugin_id: views_bulk_operations_bulk_form
         title:
           id: title
@@ -544,6 +533,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -580,6 +571,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -630,7 +623,6 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_approved'
-        - extensions
   page_1:
     display_plugin: page
     id: page_1
@@ -658,4 +650,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_approved'
-        - extensions

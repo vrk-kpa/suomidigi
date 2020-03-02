@@ -16,7 +16,6 @@ description: ''
 tag: ''
 base_table: node_field_data
 base_field: nid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -519,6 +518,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         title:
           id: title
@@ -549,6 +550,8 @@ display:
               administrator: '0'
               webform_administrator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -602,6 +605,8 @@ display:
               administrator: '0'
               webform_administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -648,6 +653,8 @@ display:
               administrator: '0'
               webform_administrator: '0'
             reduce: true
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -745,7 +752,7 @@ display:
   entity_browser_1:
     display_plugin: entity_browser
     id: entity_browser_1
-    display_title: 'Entity browser'
+    display_title: ''
     position: 1
     display_options:
       display_extenders: {  }
