@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
+    - field.field.media.attachment.field_liftup_image
     - field.field.media.attachment.field_media_file
     - media.type.attachment
 id: media.attachment.media_library

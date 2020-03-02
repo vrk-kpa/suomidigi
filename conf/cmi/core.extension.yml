@@ -82,6 +82,7 @@ module:
   page_cache: 0
   paragraph_translation_migration: 0
   path: 0
+  path_alias: 0
   preview_link: 0
   quickedit: 0
   rate: 0

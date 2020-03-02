@@ -39,6 +39,9 @@ display:
             label: 'Median tyyppi'
           group_info:
             label: 'Median tyyppi'
+        langcode:
+          expose:
+            label: Kieli
       sorts:
         created:
           expose:
@@ -50,8 +53,15 @@ display:
   page:
     display_title: Sivu
     display_options:
-      menu:
-        title: Media
+      fields:
+        media_bulk_form:
+          action_title: Toiminto
+        name:
+          separator: ', '
+        edit_media:
+          text: Edit
+        delete_media:
+          text: Delete
   widget:
     display_title: Widgetti
     display_options:
