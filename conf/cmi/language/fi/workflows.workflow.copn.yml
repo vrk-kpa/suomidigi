@@ -1,0 +1,16 @@
+label: 'Sisällön moderoinnin työnkulku'
+type_settings:
+  states:
+    draft:
+      label: Luonnos
+    published:
+      label: Julkaistu
+    review:
+      label: 'Odottaa julkaisua'
+  transitions:
+    create_new_draft:
+      label: 'Luo uusi luonnos'
+    publish:
+      label: Julkaise
+    ready_for_review:
+      label: 'Valmiina tarkistettavaksi'

@@ -9,7 +9,9 @@ dependencies:
     - field.field.node.community.field_community_link
     - field.field.node.community.field_theme
     - node.type.community
+    - workflows.workflow.copn
   module:
+    - content_moderation
     - hide_revision_field
     - link
     - path
@@ -28,15 +30,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_approved:
-    weight: 15
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_community_description:
-    weight: 17
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -44,7 +39,7 @@ content:
     type: text_textarea
     region: content
   field_community_domain:
-    weight: 16
+    weight: 15
     settings:
       width: 400px
       match_operator: CONTAINS
@@ -53,7 +48,7 @@ content:
     type: select2_entity_reference
     region: content
   field_community_link:
-    weight: 18
+    weight: 17
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -75,6 +70,12 @@ content:
     region: content
     settings:
       include_locked: false
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 18
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path
@@ -161,4 +162,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_approved: true

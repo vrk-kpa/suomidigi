@@ -174,35 +174,6 @@ function suopa_content_block_access(Block $block, $operation, AccountInterface $
 }
 
 /**
- * Implements hook_field_widget_form_alter().
- */
-function suopa_content_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
-  $formats = [
-    'comment_body' => ['plain_text'],
-  ];
-
-  $field_name = $context['items']->getFieldDefinition()->getName();
-
-  if (array_key_exists($field_name, $formats)) {
-    $element['#allowed_formats'] = $formats[$field_name];
-    $element['#after_build'][] = '_remove_text_format_box';
-  }
-}
-
-/**
- * After build callback for widget form alter.
- */
-function _remove_text_format_box($form_element, FormStateInterface $form_state) {
-  // Remove help, guidelines and wrappers.
-  unset($form_element['format']['help']);
-  unset($form_element['format']['guidelines']);
-  unset($form_element['format']['#type']);
-  unset($form_element['format']['#theme_wrappers']);
-
-  return $form_element;
-}
-
-/**
  * This function stores/returns nids for the given category.
  *
  * Static storage of our excluded nids.

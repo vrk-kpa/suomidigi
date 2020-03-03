@@ -45,6 +45,7 @@ content:
     type: smart_trim
     region: content
 hidden:
+  field_approved: true
   field_blog: true
   field_comments: true
   field_displayed_author: true

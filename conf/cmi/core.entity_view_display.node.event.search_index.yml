@@ -28,6 +28,11 @@ targetEntityType: node
 bundle: event
 mode: search_index
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_event_description:
     weight: 0
     label: hidden
@@ -49,6 +54,7 @@ content:
     region: content
 hidden:
   field_approved: true
+  field_displayed_author: true
   field_event_date_and_time: true
   field_event_free_text: true
   field_event_image: true
