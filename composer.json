@@ -93,6 +93,7 @@
         "drupal/viewsreference": "^2.0",
         "drupal/webform": "^5.2",
         "drupal/wordpress_migrate": "^3.0",
+        "drupal/workflows_field": "^1.0",
         "drush/drush": "^10.2",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
@@ -142,7 +143,8 @@
                 "https://www.drupal.org/project/drupal/issues/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch",
                 "https://www.drupal.org/project/drupal/issues/3070745": "https://www.drupal.org/files/issues/2019-11-04/3070745-4.patch",
                 "https://www.drupal.org/project/drupal/issues/2866386#comment-13158418": "https://www.drupal.org/files/issues/2019-06-18/2866386-20.patch",
-                "https://www.drupal.org/project/drupal/issues/3014209": "patches/content_translation-translate-tab-set-3014209-15-combined-2137815-15.patch"
+                "https://www.drupal.org/project/drupal/issues/3014209": "patches/content_translation-translate-tab-set-3014209-15-combined-2137815-15.patch",
+                "https://www.drupal.org/project/drupal/issues/2872162": "https://www.drupal.org/files/issues/2018-06-04/2872162-field-widget-hook-10.patch"
             },
             "drupal/field_group": {
                 "Add title to horizontal tabs on field groups.": "patches/field_group_horizontal_tabs_title.patch"

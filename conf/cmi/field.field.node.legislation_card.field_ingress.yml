@@ -9,7 +9,7 @@ id: node.legislation_card.field_ingress
 field_name: field_ingress
 entity_type: node
 bundle: legislation_card
-label: Ingress
+label: Lead
 description: 'Long name of the legislation card'
 required: false
 translatable: true

@@ -7,6 +7,7 @@ label: 'Group administrator'
 weight: -4
 is_admin: null
 permissions:
+  - 'access content overview'
   - 'access entity_reference_browser entity browser pages'
   - 'access media overview'
   - 'access media_attachment_browser entity browser pages'
@@ -62,8 +63,10 @@ permissions:
   - 'translate video media'
   - 'update content translations'
   - 'update media'
+  - 'use copn transition publish'
   - 'use text format full_html'
   - 'use text format restricted_html'
+  - 'view any unpublished content'
   - 'view blog_post revisions'
   - 'view own unpublished media'
   - 'view the administration theme'
