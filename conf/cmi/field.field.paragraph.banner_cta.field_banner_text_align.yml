@@ -13,7 +13,7 @@ entity_type: paragraph
 bundle: banner_cta
 label: 'Text align'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
