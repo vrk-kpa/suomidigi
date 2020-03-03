@@ -1,15 +1,20 @@
 .block-group-operations,
 .block-content-creation-links-block {
-  bottom: 10px;
-  margin: $gutter * 1.86 $gutter 0 $gutter;
-  padding: $gutter / 3;
-  position: absolute;
-  right: 0;
-  z-index: 1;
+  margin: 0;
+  padding: $gutter 0;
 
   .path-user & {
     bottom: unset;
     top: 0;
+  }
+
+  @include breakpoint($for-mobile-landscape-up) {
+    bottom: 10px;
+    margin: $gutter * 1.86 $gutter 0 $gutter;
+    padding: $gutter / 3;
+    position: absolute;
+    right: 0;
+    z-index: 1;
   }
 
   @include breakpoint($for-tablet-portrait-up) {
@@ -22,20 +27,16 @@
 }
 
 .block-group-operations {
-  .dropbutton-wrapper {
-    .js & {
-      //display: inline-block;
-      //position: absolute;
-      //right: 0;
-      //top: -10px;
-      //width: 130px;
-    }
-  }
-
   .dropbutton-widget {
     .js & {
       background-color: transparent;
       border: 0 none;
+    }
+  }
+
+  .dropbutton-single {
+    .menu--content-creation__button {
+      margin-bottom: -17px;
     }
   }
 }
