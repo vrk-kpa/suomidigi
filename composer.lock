@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2efdabfdd4f7339d1d253ba54f7c01fc",
+    "content-hash": "5025a4f603d1a15cd377455e4f00f9a8",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -6540,74 +6540,6 @@
             }
         },
         {
-            "name": "drupal/social_auth_facebook",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/social_auth_facebook.git",
-                "reference": "8.x-2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/social_auth_facebook-8.x-2.0.zip",
-                "reference": "8.x-2.0",
-                "shasum": "755976c488bf585d29536adbc0a86427f5a3d6e7"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/social_auth": "^2.0",
-                "league/oauth2-facebook": "^2.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-2.0",
-                    "datestamp": "1577376483",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Getulio Valentin Sánchez (gvso)",
-                    "homepage": "https://www.drupal.org/user/3509455",
-                    "email": "valentin2507@gmail.com"
-                },
-                {
-                    "name": "Utkarsh Dixit (denutkarsh)",
-                    "homepage": "https://www.drupal.org/user/3510098",
-                    "email": "downloadplaza97@gmail.com"
-                },
-                {
-                    "name": "Himanshu Dixit (himanshu-dixit)",
-                    "homepage": "https://www.drupal.org/user/3101285",
-                    "email": "hudixt@gmail.com"
-                },
-                {
-                    "name": "himanshu-dixit",
-                    "homepage": "https://www.drupal.org/user/3513954"
-                }
-            ],
-            "description": "Social Auth integration for Facebook.",
-            "homepage": "https://www.drupal.org/project/social_auth_facebook",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/social_auth_facebook",
-                "issues": "https://www.drupal.org/project/issues/social_auth_facebook"
-            }
-        },
-        {
             "name": "drupal/social_auth_google",
             "version": "2.0.0",
             "source": {
@@ -8807,57 +8739,6 @@
                 "single sign on"
             ],
             "time": "2018-11-22T18:33:57+00:00"
-        },
-        {
-            "name": "league/oauth2-facebook",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/oauth2-facebook.git",
-                "reference": "bcbcd540fb66ae16b4f82671c8ae7752b6a89556"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-facebook/zipball/bcbcd540fb66ae16b4f82671c8ae7752b6a89556",
-                "reference": "bcbcd540fb66ae16b4f82671c8ae7752b6a89556",
-                "shasum": ""
-            },
-            "require": {
-                "league/oauth2-client": "^2.0",
-                "php": "^5.6 || ^7.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "League\\OAuth2\\Client\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sammy Kaye Powers",
-                    "email": "me@sammyk.me",
-                    "homepage": "http://www.sammyk.me"
-                }
-            ],
-            "description": "Facebook OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
-            "keywords": [
-                "Authentication",
-                "authorization",
-                "client",
-                "facebook",
-                "oauth",
-                "oauth2"
-            ],
-            "time": "2017-07-22T01:25:00+00:00"
         },
         {
             "name": "league/oauth2-google",
