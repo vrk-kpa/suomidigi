@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a33316301d59f5f7206ea529860d60e",
+    "content-hash": "4d517a442c0ea8a51a5125d4b7abe4be",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -3000,7 +3000,11 @@
                     "https://www.drupal.org/project/drupal/issues/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch",
                     "https://www.drupal.org/project/drupal/issues/3070745": "https://www.drupal.org/files/issues/2019-11-04/3070745-4.patch",
                     "https://www.drupal.org/project/drupal/issues/3014209": "https://www.drupal.org/files/issues/2019-11-07/content_translation-translate-tab-set-3014209-15-combined-2137815-15.patch",
-                    "https://www.drupal.org/project/drupal/issues/2872162": "https://www.drupal.org/files/issues/2018-06-04/2872162-field-widget-hook-10.patch"
+                    "https://www.drupal.org/project/drupal/issues/2872162": "https://www.drupal.org/files/issues/2018-06-04/2872162-field-widget-hook-10.patch",
+                    "https://www.drupal.org/project/drupal/issues/3020387": "https://www.drupal.org/files/issues/2019-01-18/3020387-7.patch",
+                    "https://www.drupal.org/project/drupal/issues/3045648": "https://www.drupal.org/files/issues/2019-04-23/3045648-17-do-not-test.patch",
+                    "https://www.drupal.org/project/drupal/issues/2946750": "https://www.drupal.org/files/issues/2019-03-22/2946750-19.patch",
+                    "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch"
                 }
             },
             "autoload": {
@@ -5928,6 +5932,61 @@
             "homepage": "https://www.drupal.org/project/redirect",
             "support": {
                 "source": "https://git.drupalcode.org/project/redirect"
+            }
+        },
+        {
+            "name": "drupal/remove_entity_untranslatable_field_validation",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/remove_entity_untranslatable_field_validation.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/remove_entity_untranslatable_field_validation-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "d065ab7317c5e66bc5b372a11b289065098fbdaf"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "conflict": {
+                "drupal/drupal": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1581695776",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Orlando Thöny",
+                    "homepage": "https://www.drupal.org/user/3558789",
+                    "email": "orlando.thoeny@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Removes Entity Untranslatable Field Validation.",
+            "homepage": "https://drupal.org/project/remove_entity_untranslatable_field_validation",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/remove_entity_untranslatable_field_validation"
             }
         },
         {
