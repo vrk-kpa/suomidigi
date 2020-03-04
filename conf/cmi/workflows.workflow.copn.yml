@@ -50,6 +50,7 @@ type_settings:
       from:
         - draft
         - published
+        - review
       to: review
       weight: -2
   entity_types:
