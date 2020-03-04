@@ -2,8 +2,6 @@ uuid: ecb5b071-5d94-4e79-a7d9-a5e415009626
 langcode: und
 status: true
 dependencies:
-  config:
-    - core.entity_view_mode.media.media_library
   module:
     - entity_browser
     - media
@@ -17,7 +15,6 @@ description: ''
 tag: ''
 base_table: media_field_data
 base_field: mid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -210,6 +207,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Published
@@ -261,6 +260,8 @@ display:
               publisher: '0'
               administrator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -304,6 +305,8 @@ display:
               publisher: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -342,6 +345,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

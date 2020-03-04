@@ -28,7 +28,7 @@ content-creation-links:
     assets/js/content-creation-links.js: {}
   dependencies:
     - core/jquery
-    -
+
 force-select-on-moderation:
   js:
     assets/js/force-select-on-moderation.js: {}

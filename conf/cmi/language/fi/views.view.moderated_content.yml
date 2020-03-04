@@ -1,6 +1,9 @@
-label: 'Moderoitu sisältö'
-description: 'Etsi ja moderoi sisältöä'
 display:
+  moderated_content:
+    display_options:
+      menu:
+        title: 'Moderoitu sisältö'
+    display_title: 'Moderoitu sisältö'
   default:
     display_options:
       exposed_form:
@@ -20,35 +23,35 @@ display:
           expose:
             items_per_page_label: 'Tuloksia sivulla'
             items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
       fields:
         title:
           label: Otsikko
+          separator: ', '
         type:
           label: Sisältötyyppi
+          separator: ', '
         name:
           label: Tekijä
+          separator: ', '
         moderation_state:
-          label: Tila
+          label: Julkaisutila
+          separator: ', '
         changed:
           label: Päivitetty
+          separator: ', '
         operations:
           label: Toimenpiteet
-      title: 'Moderoitu sisältö'
       filters:
         title:
           expose:
             label: Otsikko
-        type:
-          expose:
-            label: Sisältötyyppi
         moderation_state:
           expose:
             label: Julkaisutila
-        langcode:
-          expose:
-            label: Kieli
-  moderated_content:
-    display_title: 'Moderoitu sisältö'
-    display_options:
-      menu:
-        title: 'Moderoitu sisältö'
+      title: 'Moderoitu sisältö'
+      empty:
+        area_text_custom:
+          content: 'Moderoitavaa sisältöä ei löytynyt. Tällä sivulla listataan vain "Luonnos" tai "Odottaa julkaisua" tilassa olevat sisällöt.'
+label: 'Moderoitu sisältö'
+description: 'Etsi ja moderoi sisältöä'
