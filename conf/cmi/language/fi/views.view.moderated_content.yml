@@ -2,8 +2,8 @@ display:
   moderated_content:
     display_options:
       menu:
-        title: 'Moderoitu sisältö'
-    display_title: 'Moderoitu sisältö'
+        title: 'Moderoitava sisältö'
+    display_title: 'Moderoitava sisältö'
   default:
     display_options:
       exposed_form:
@@ -49,9 +49,12 @@ display:
         moderation_state:
           expose:
             label: Julkaisutila
-      title: 'Moderoitu sisältö'
+        moderation_state_1:
+          expose:
+            label: Julkaisutila
+      title: 'Moderoitava sisältö'
       empty:
         area_text_custom:
           content: 'Moderoitavaa sisältöä ei löytynyt. Tällä sivulla listataan vain "Luonnos" tai "Odottaa julkaisua" tilassa olevat sisällöt.'
-label: 'Moderoitu sisältö'
+label: 'Moderoitava sisältö'
 description: 'Etsi ja moderoi sisältöä'
