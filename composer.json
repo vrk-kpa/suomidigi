@@ -102,6 +102,8 @@
         "nesbot/carbon": "1.9.*",
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4",
+        "trentrichardson/jquery-timepicker-addon": "^1.6",
+        "fgelinas/timepicker": "^0.3.3",
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
     "require-dev": {
@@ -197,14 +199,44 @@
         {
             "type": "package",
             "package": {
-              "name": "enyo/dropzone",
-              "version": "5.5.0",
-              "type": "drupal-library",
-              "source": {
-                "url": "https://github.com/enyo/dropzone",
-                "type": "git",
-                "reference": "origin/master"
-              }
+                "name": "enyo/dropzone",
+                "version": "5.5.0",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/enyo/dropzone",
+                    "type": "git",
+                    "reference": "origin/master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "trentrichardson/jquery-timepicker-addon",
+                "version": "1.6",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "jquery-timepicker-addon"
+                },
+                "dist": {
+                    "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fgelinas/timepicker",
+                "version": "0.3.3",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "jquery-ui-timepicker"
+                },
+                "dist": {
+                    "url": "https://fgelinas.com/code/timepicker/releases/jquery-ui-timepicker-0.3.3.zip",
+                    "type": "zip"
+                }
             }
         },
         {
