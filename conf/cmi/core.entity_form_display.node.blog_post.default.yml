@@ -120,6 +120,7 @@ content:
   field_tags:
     weight: 2
     settings:
+      width: 400px
       autocomplete: true
       match_operator: STARTS_WITH
       match_limit: 10
