@@ -137,9 +137,9 @@ content:
   field_tags:
     weight: 3
     settings:
-      width: 400px
       autocomplete: true
-      match_operator: CONTAINS
+      match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -158,6 +158,12 @@ content:
     region: content
     settings:
       include_locked: false
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path

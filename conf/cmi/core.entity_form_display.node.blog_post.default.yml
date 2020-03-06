@@ -120,9 +120,9 @@ content:
   field_tags:
     weight: 2
     settings:
-      width: 400px
-      match_operator: CONTAINS
-      autocomplete: false
+      autocomplete: true
+      match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content

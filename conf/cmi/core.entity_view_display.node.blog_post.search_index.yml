@@ -25,6 +25,11 @@ targetEntityType: node
 bundle: blog_post
 mode: search_index
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_ingress:
     weight: 0
     label: hidden
