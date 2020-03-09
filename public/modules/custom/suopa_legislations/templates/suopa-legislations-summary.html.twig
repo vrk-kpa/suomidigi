@@ -1,0 +1,15 @@
+<div class="summary-wrapper">
+  <div class="summary__icon">
+    {% if icons_path %}
+      <svg class="icon icon--hox">
+        <title>{{ name }}</title>
+        <use xlink:href="{{ icons_path|trim }}#hox" />
+      </svg>
+    {% endif %}
+  </div>
+  <div class="summary__content">
+    <div class="summary__lead">{{ 'This is part of'|t }}:</div>
+    <div class="summary__label">{{ label }}</div>
+    <a href="{{ url }}" class="summary__button button--cta button--cta-legislation">{{ 'Go to section'|t }}</a>
+  </div>
+</div>

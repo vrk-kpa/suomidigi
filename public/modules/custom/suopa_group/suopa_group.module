@@ -6,8 +6,11 @@
  */
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\group\Entity\Group;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_help().
@@ -96,6 +99,32 @@ function suopa_group_entity_create(EntityInterface $entity) {
 }
 
 /**
+ * Implements hook_entity_operation().
+ */
+function suopa_group_entity_operation_alter(array &$operations, EntityInterface $entity) {
+  if ($entity->getEntityTypeId() !== 'node') {
+    return;
+  }
+
+  // Check if user has permissions to see translation operation links and
+  // hide if user does not have a permission.
+  $user = \Drupal::currentUser();
+  if (
+    (
+      !$user->hasPermission('edit any ' . $entity->getType() . ' content') &&
+      $user->id() !== $entity->getOwnerId()
+    ) ||
+    !in_array('editor_in_chief', $user->getRoles()) ||
+    !in_array('administrator', $user->getRoles()) ||
+    $user->id() !== 1
+  ) {
+    if (isset($operations['translate'])) {
+      unset($operations['translate']);
+    }
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_presave().
  */
 function suopa_group_user_presave(EntityInterface $user) {
@@ -113,6 +142,7 @@ function suopa_group_user_presave(EntityInterface $user) {
     }
     else {
       $user->addRole('group_member');
+      $user->removeRole('group_administrator');
       foreach ($groups as $group) {
         $user_roles = $group->getGroup()->getMember($user)->getRoles();
         if (
@@ -120,6 +150,53 @@ function suopa_group_user_presave(EntityInterface $user) {
           array_key_exists('group-administrator', $user_roles)
         ) {
           $user->addRole('group_administrator');
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function suopa_group_form_group_content_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id != 'group_content_group-group_membership_edit_form') {
+    return;
+  }
+
+  foreach (array_keys($form['actions']) as $action) {
+    if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+      $form['actions'][$action]['#submit'][] = 'suopa_group_group_user_form_submit';
+    }
+  }
+}
+
+/**
+ * Form submit handler for group membership form.
+ *
+ * @param array $form
+ *   Form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state.
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function suopa_group_group_user_form_submit(array $form, FormStateInterface $form_state) {
+  if (
+    $form_state->hasValue('entity_id') &&
+    $form_state->hasValue('group_roles')
+  ) {
+    $users = $form_state->getValue('entity_id');
+
+    // Trigger user save to add or remove global roles.
+    if (!empty($users)) {
+      foreach ($users as $user) {
+        if (isset($user['target_id'])) {
+          $user = User::load($user['target_id']);
+
+          if ($user instanceof User) {
+            $user->save();
+          }
         }
       }
     }
@@ -171,6 +248,59 @@ function suopa_group_preprocess_entity_add_list(&$variables) {
           $bundle['add_link']->setUrl($url);
         }
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Remove obsolete local task links from prying eyes.
+ */
+function suopa_editorial_preprocess_menu_local_task(&$variables) {
+  $user = \Drupal::currentUser();
+  $route_match = \Drupal::routeMatch();
+  $forbidden_routes = [
+    'entity.node.canonical',
+    'entity.node.version_history',
+  ];
+
+  // Check if user has permissions to see translation links and hide if not.
+  if (in_array($route_match->getRouteName(), $forbidden_routes)) {
+    $node = $route_match->getParameter('node');
+
+    if ($variables['link']['#url']->getRouteName() == 'entity.node.content_translation_overview') {
+      if ((
+        !$user->hasPermission('edit any ' . $node->getType() . ' content') &&
+        $user->id() !== $node->getOwnerId()) ||
+        !in_array('editor_in_chief', $user->getRoles()) ||
+        !in_array('administrator', $user->getRoles()) ||
+        $user->id() !== 1
+      ) {
+        unset($variables['link']);
+      }
+    }
+  }
+
+  $url = $variables['element']['#link']['url'];
+  if (
+    $url->getRouteName() !== 'entity.group.content_translation_overview' &&
+    $url->getRouteName() !== 'entity.group.canonical'
+  ) {
+    return;
+  }
+
+  $user = \Drupal::currentUser();
+  if ($user->id() === 1) {
+    return;
+  }
+
+  $guid = $url->getRouteParameters()['group'];
+
+  if (!empty($guid)) {
+    $group = Group::load($guid);
+    if ($group && !$group->getMember($user)) {
+      unset($variables['link']);
     }
   }
 }

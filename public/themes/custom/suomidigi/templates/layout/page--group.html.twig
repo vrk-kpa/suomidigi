@@ -7,31 +7,49 @@
 
 {% set page_content_classes = [
   'page-content',
-  'page--landing-page',
+  'page--group',
   'container',
   node ? 'page-content--node',
   not node.isPublished() ? 'page-content--unpublished',
 ]
 %}
 
-{% embed "@suomidigi/layout/page.html.twig" with {before_content_element: 'landing-page'} %}
+{% embed "@suomidigi/layout/page.html.twig" with {before_content_element: 'group'} %}
   {% block content_wrapper %}
-    {% if has_sidebar_first %}
-      <div class="content__wrapper container">
-      <aside class="sidebar sidebar--first" id="sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
+    {% if page.before_content %}
+      {% block before_content %}
+        <div class="page-before_content page-before_content--{{ before_content_element }}" id="before_content">
+          <section class="section section--before-content">
+            {{ page.before_content }}
+          </section>
+        </div>
+      {% endblock %}
     {% endif %}
-    <main class="page-main page-main--landing-page" id="main" role="main">
+
+    {% if page.messages %}
+      <div class="page-messages" id="messages">
+        <div class="container page-messages__container">
+          {{ page.messages }}
+        </div>
+      </div>
+    {% endif %}
+
+    <main class="page-main page-main--group" id="main" role="main">
       <a id="main-content" tabindex="-1"></a>
-      {% if page.before_content %}
-        {% block before_content %}
-          <div class="page-before_content page-before_content--{{ before_content_element }}" id="before_content">
-            <section class="section section--before-content">
-              {{ page.before_content }}
-            </section>
-          </div>
-        {% endblock %}
+      {% if page.breadcrumb %}
+        {% embed "@suomidigi/misc/container.twig" with {container_element: 'breadcrumb'} %}
+          {% block container_content %}
+            {{ page.breadcrumb }}
+          {% endblock container_content %}
+        {% endembed %}
+      {% endif %}
+
+      {% if page.tools %}
+        {% embed "@suomidigi/misc/container.twig" with {container_element: 'tools'} %}
+          {% block container_content %}
+            {{ page.tools }}
+          {% endblock container_content %}
+        {% endembed %}
       {% endif %}
 
       {% block content %}
@@ -54,8 +72,5 @@
         </div>
       {% endif %}
     </main>
-    {% if has_sidebar_first %}
-      </div>
-    {% endif %}
   {% endblock %}
 {% endembed %}

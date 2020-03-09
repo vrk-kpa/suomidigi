@@ -33,21 +33,23 @@
       {% endif %}
     </div>
 
-    <span class="comment__author">
-      {% if first_name is not empty and last_name is not empty %}
-        {{ first_name }} {{ last_name }}
-      {% else %}
-        {{ avatar_abbreviation }}
-      {% endif %}
-    </span>
-    <span class="comment__time">
-      {% if comment_created %}
-        {{ comment_created }}
-      {% endif %}
-      {% if comment_changed %}
-        <em>({{ 'Updated'|t }}: {{ comment_changed }})</em>
-      {% endif %}
-    </span>
+    <div class="comment__author-wrapper">
+      <span class="comment__author">
+        {% if first_name is not empty and last_name is not empty %}
+          {{ first_name }} {{ last_name }}
+        {% else %}
+          {{ avatar_abbreviation }}
+        {% endif %}
+      </span>
+      <span class="comment__time">
+        {% if comment_created %}
+          {{ comment_created }}
+        {% endif %}
+        {% if comment_changed %}
+          <em>({{ 'Updated'|t }}: {{ comment_changed }})</em>
+        {% endif %}
+      </span>
+    </div>
     <span class="comment__permalink">{{ permalink }}</span>
     {#
       Indicate the semantic relationship between parent and child comments

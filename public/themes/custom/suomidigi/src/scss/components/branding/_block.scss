@@ -1,3 +1,7 @@
 .block-system-branding-block {
   margin: 0;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    flex: 2 2 250px;
+  }
 }

@@ -1,0 +1,23 @@
+diff --git a/src/ActionLink/ActionLinkTypeBase.php b/src/ActionLink/ActionLinkTypeBase.php
+index cb73f7e..7933fe3 100644
+--- a/src/ActionLink/ActionLinkTypeBase.php
++++ b/src/ActionLink/ActionLinkTypeBase.php
+@@ -3,6 +3,7 @@
+ namespace Drupal\flag\ActionLink;
+ 
+ use Drupal\Component\Plugin\PluginBase;
++use Drupal\Component\Utility\Html;
+ use Drupal\Component\Utility\NestedArray;
+ use Drupal\Core\Link;
+ use Drupal\Core\Routing\RedirectDestinationTrait;
+@@ -116,8 +117,8 @@ abstract class ActionLinkTypeBase extends PluginBase implements ActionLinkTypePl
+         '#container_attributes' => new Attribute([
+           'class' => [
+             'flag',
+-            'flag-' . $flag->id(),
+-            'js-flag-' . $flag->id() . '-' . $entity->id(),
++            'flag-' . Html::cleanCssIdentifier($flag->id()),
++            'js-flag-' . Html::cleanCssIdentifier($flag->id()) . '-' . $entity->id(),
+           ],
+         ]),
+       ];

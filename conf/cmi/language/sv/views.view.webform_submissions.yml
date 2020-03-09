@@ -19,12 +19,17 @@ display:
             items_per_page_options_all_label: '- Alla -'
             offset_label: Kompensera
       fields:
+        sid:
+          separator: ', '
         in_draft:
           label: Utkast
+          separator: ', '
         created:
           label: Skapad
+          separator: ', '
         remote_addr:
           label: IP-adress
+          separator: ', '
         view_webform_submission:
           label: Funktioner
           text: visa
@@ -40,18 +45,26 @@ display:
       fields:
         webform_submission_bulk_form:
           action_title: Åtgärd
+        sid:
+          separator: ', '
         in_draft:
           label: Utkast
+          separator: ', '
         sticky:
           label: Klistrad
+          separator: ', '
         locked:
           label: Låst
+          separator: ', '
         created:
           label: Skapad
+          separator: ', '
         completed:
           label: Slutförd
+          separator: ', '
         remote_addr:
           label: IP-adress
+          separator: ', '
         operations:
           label: Funktioner
       filters:
@@ -66,18 +79,26 @@ display:
       fields:
         webform_submission_bulk_form:
           action_title: Åtgärd
+        sid:
+          separator: ', '
         in_draft:
           label: Utkast
+          separator: ', '
         sticky:
           label: Klistrad
+          separator: ', '
         locked:
           label: Låst
+          separator: ', '
         created:
           label: Skapad
+          separator: ', '
         completed:
           label: Slutförd
+          separator: ', '
         remote_addr:
           label: IP-adress
+          separator: ', '
         view_webform_submission:
           label: Funktioner
           text: visa
@@ -94,18 +115,26 @@ display:
   embed_review:
     display_options:
       fields:
+        sid:
+          separator: ', '
         in_draft:
           label: Utkast
+          separator: ', '
         sticky:
           label: Klistrad
+          separator: ', '
         locked:
           label: Låst
+          separator: ', '
         created:
           label: Skapad
+          separator: ', '
         completed:
           label: Slutförd
+          separator: ', '
         remote_addr:
           label: IP-adress
+          separator: ', '
         view_webform_submission:
           label: Funktioner
           text: visa

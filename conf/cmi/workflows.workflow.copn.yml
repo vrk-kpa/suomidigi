@@ -1,0 +1,61 @@
+uuid: 604ebaeb-f994-416a-ad84-84e4b8212279
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.blog_post
+    - node.type.community
+    - node.type.event
+  module:
+    - content_moderation
+id: copn
+label: 'Content moderation workflow'
+type: content_moderation
+type_settings:
+  states:
+    draft:
+      label: Draft
+      published: false
+      default_revision: false
+      weight: -2
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 0
+    review:
+      published: false
+      default_revision: false
+      label: Review
+      weight: -1
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: -3
+      from:
+        - draft
+        - published
+        - review
+    publish:
+      label: Publish
+      to: published
+      weight: -1
+      from:
+        - draft
+        - published
+        - review
+    ready_for_review:
+      label: 'Ready for review'
+      from:
+        - draft
+        - published
+        - review
+      to: review
+      weight: -2
+  entity_types:
+    node:
+      - blog_post
+      - community
+      - event
+  default_moderation_state: draft

@@ -24,7 +24,8 @@
     text-decoration: none;
 
     .blog-teaser__label {
-      color: $black;
+      color: $blue-light;
+      text-decoration: underline;
     }
   }
 
@@ -43,18 +44,31 @@
   padding: 0;
   width: 100%;
 
+  > div {
+    height: 100%;
+  }
+
   img {
     border-radius: 0 5px 0 0;
     display: block;
+    height: 100%;
     width: 100%;
+
+    .paragraph--full-width & {
+      border-radius: 0 0 5px 0;
+
+      @include breakpoint($for-tablet-portrait-up) {
+        border-radius: 0 5px 5px 0;
+      }
+    }
   }
 
   .listing--list__item & {
     order: 1;
-    width: 350px;
+    width: 100%;
 
-    > div {
-      height: 100%;
+    @include breakpoint($for-tablet-portrait-up) {
+      width: 350px;
     }
 
     img {
@@ -98,6 +112,10 @@
       min-height: 100%;
       object-fit: cover;
       width: 100%;
+
+      .listing__item & {
+        border-radius: 0 5px 5px 0;
+      }
     }
   }
 }
@@ -116,14 +134,14 @@
 
   .paragraph--3col .paragraph:not(.paragraph--full-width) &,
   .listing--grid__item & {
-    height: 100%;
+    flex: 1 1 auto;
   }
 }
 
 .blog-teaser__date {
   @include font-size(16px, 20px);
   @include font-weight($semibold);
-  color: $gray-darker;
+  color: $gray-dark;
   letter-spacing: 0;
   margin-bottom: 10px;
 }
@@ -136,7 +154,8 @@
 
   .listing--list & {
     &:hover {
-      color: $black;
+      color: $blue-light;
+      text-decoration: underline;
     }
   }
 }
@@ -156,7 +175,7 @@
 .blog-teaser__author {
   @include font-size(16px, 20px);
   @include font-weight($semibold);
-  color: $blue-light;
+  color: $gray-dark;
 
   .author__item {
     &:hover,

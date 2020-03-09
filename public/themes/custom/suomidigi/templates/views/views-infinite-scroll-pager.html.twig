@@ -7,7 +7,7 @@
 {% if items.next %}
 <ul{{ attributes.addClass('pager') }}>
   <li class="pager__item is-infinite">
-    <a class="button" href="{{ items.next.href }}" title="{{ options.button_text }}" rel="next">{{ options.button_text }}</a>
+    <a class="button" href="{{ items.next.href }}" rel="next">{{ options.button_text }}</a>
   </li>
 </ul>
 {% endif %}

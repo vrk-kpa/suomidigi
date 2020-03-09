@@ -15,4 +15,6 @@ display:
       empty:
         area:
           content:
-            value: "Ei vielä omia sisältöjä.\r\n\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/blog_post\" class=\"link\">Luo blogikirjoitus</a>\r\n</div>\r\n<div class=\"link__wrapper\">\r\n<a href=\"/node/add/event\" class=\"link\">Luo tapahtuma</a>\r\n</div>"
+            value: "<p>Ei vielä omia sisältöjä.</p>\r\n<div class=\"link__wrapper\"><a class=\"link\" href=\"/node/add/blog_post\">Luo blogikirjoitus</a></div>\r\n\r\n<div class=\"link__wrapper\"><a class=\"link\" href=\"/node/add/event\">Luo tapahtuma</a></div>\r\n"
+            format: full_html
+      title: 'Omat sisällöt'

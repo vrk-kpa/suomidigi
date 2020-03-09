@@ -1,0 +1,137 @@
+.community-teaser {
+  background-color: $white;
+  border-left: $gutter / 3 solid $cyan;
+  border-radius: $gutter / 3;
+  box-shadow: 2px 2px 10px #00000033;
+
+  > .contextual {
+    right: -20px;
+    top: 12px;
+  }
+}
+
+.community-teaser__link {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    .community-teaser__title,
+    .link--cta-text,
+    .link--cta .icon {
+      color: $black;
+    }
+
+    .community-teaser__title {
+      color: $blue-light;
+      text-decoration: underline;
+    }
+  }
+
+  .community__link {
+    margin-top: auto;
+    padding: $gutter 0;
+    text-decoration: none;
+  }
+}
+
+.community-teaser__header {
+  align-items: center;
+  display: flex;
+  margin-bottom: $gutter;
+}
+
+.community-teaser__icon {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  margin-right: $gutter / 1.5;
+
+  img {
+    height: $gutter * 2;
+    width: $gutter * 2;
+  }
+
+  &--letter {
+    @include font-size(24px);
+    align-items: center;
+    background-color: $blue;
+    border-radius: 50%;
+    color: $white;
+    display: flex;
+    height: $gutter * 2;
+    justify-content: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: $gutter * 2;
+
+    .community__link:hover & {
+      text-decoration: none;
+    }
+  }
+}
+
+.community-teaser__domain {
+  @include font-size(14px, 18px);
+  @include font-weight($semibold);
+  color: $black;
+  margin-bottom: 0;
+}
+
+.community-teaser__title {
+  @include font-size(22px, 28px);
+  @include font-weight($semibold);
+  color: $black;
+  margin-bottom: $gutter;
+}
+
+.community-teaser__content,
+.community-teaser__content p {
+  @include font-size(18px, 26px);
+  color: $black;
+}
+
+.community-teaser__content {
+  padding-bottom: $gutter;
+
+  .listing--grid__item & {
+    border-bottom: 0 none;
+  }
+}
+
+.community-teaser__cta-wrapper {
+  color: $blue-light;
+  fill: $blue-light;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $black;
+    text-decoration: none;
+  }
+
+  .listing--grid__item & {
+    border-top: 1px solid $gray-medium;
+    margin-top: auto;
+  }
+}
+
+.community-teaser__cta {
+  @include font-size(18px, 26px);
+  @include font-weight($semibold);
+  display: flex;
+  margin-top: $gutter;
+  transition: all 150ms linear;
+
+  &-text {
+    padding-right: $gutter / 4;
+  }
+}
+
+.views--communities.views--communities-grid {
+  padding-top: 0;
+}

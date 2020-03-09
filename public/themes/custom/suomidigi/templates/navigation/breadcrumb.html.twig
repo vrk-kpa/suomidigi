@@ -24,7 +24,7 @@
       {% if item.url %}
         <a href="{{ item.url }}">{{ item.text }}</a>
       {% else %}
-        <span {{ loop.last ? 'aria-current="page"' }}>{{ item.text }}</span>
+        <span {{ loop.last ? 'aria-current="page"' }}>{{ item.text|striptags }}</span>
       {% endif %}
     {% endfor %}
   </nav>

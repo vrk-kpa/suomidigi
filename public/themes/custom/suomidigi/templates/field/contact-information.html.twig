@@ -3,9 +3,9 @@
     <div class="name">{{ name }}</div>
   {% endif %}
   {% if email %}
-    <div class="email">{{ email }}</div>
+    <div class="email"><label>{{ 'Email'|t }}:</label>{{ email }}</div>
   {% endif %}
   {% if phone_number %}
-    <div class="phone-number">{{ phone_number }}</div>
+    <div class="phone-number"><label>{{ 'Phone number'|t }}:</label>{{ phone_number }}</div>
   {% endif %}
 </div>

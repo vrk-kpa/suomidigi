@@ -1,0 +1,60 @@
+display:
+  moderated_content:
+    display_options:
+      menu:
+        title: 'Moderoitava sisältö'
+    display_title: 'Moderoitava sisältö'
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      pager:
+        options:
+          tags:
+            previous: '‹ Edellinen'
+            next: 'Seuraava ›'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+          expose:
+            items_per_page_label: 'Tuloksia sivulla'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
+      fields:
+        title:
+          label: Otsikko
+          separator: ', '
+        type:
+          label: Sisältötyyppi
+          separator: ', '
+        name:
+          label: Tekijä
+          separator: ', '
+        moderation_state:
+          label: Julkaisutila
+          separator: ', '
+        changed:
+          label: Päivitetty
+          separator: ', '
+        operations:
+          label: Toimenpiteet
+      filters:
+        title:
+          expose:
+            label: Otsikko
+        moderation_state:
+          expose:
+            label: Julkaisutila
+        moderation_state_1:
+          expose:
+            label: Julkaisutila
+      title: 'Moderoitava sisältö'
+      empty:
+        area_text_custom:
+          content: 'Moderoitavaa sisältöä ei löytynyt. Tällä sivulla listataan vain "Luonnos" tai "Odottaa julkaisua" tilassa olevat sisällöt.'
+label: 'Moderoitava sisältö'
+description: 'Etsi ja moderoi sisältöä'

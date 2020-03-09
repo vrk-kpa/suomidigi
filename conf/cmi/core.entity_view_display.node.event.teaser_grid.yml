@@ -28,6 +28,11 @@ targetEntityType: node
 bundle: event
 mode: teaser_grid
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_event_date_and_time:
     weight: 0
     label: hidden
@@ -65,6 +70,11 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  flag_content_bookmark:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 3
     region: content
@@ -72,6 +82,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_approved: true
+  field_displayed_author: true
   field_event_free_text: true
   field_event_image: true
   field_event_link: true
@@ -80,6 +91,7 @@ hidden:
   field_event_registration: true
   field_organiser_description: true
   field_organiser_link: true
+  field_theme: true
   field_venue_address: true
   field_venue_description: true
   langcode: true

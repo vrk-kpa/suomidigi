@@ -9,7 +9,7 @@ id: node.landing_page.field_ingress
 field_name: field_ingress
 entity_type: node
 bundle: landing_page
-label: Ingress
+label: Lead
 description: ''
 required: false
 translatable: true

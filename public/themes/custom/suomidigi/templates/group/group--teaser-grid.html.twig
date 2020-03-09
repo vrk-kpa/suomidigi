@@ -4,26 +4,41 @@
  * Default theme implementation to display a group.
  */
 #}
-<div{{ attributes.addClass('group--teaser') }}>
-  <div class="group__content">
-    {% if content.field_group_image|render %}
-      {{ content.field_group_image }}
-    {% endif %}
-    <h2{{ title_attributes }}>
-      {{ label }}
-    </h2>
-    {% if content.field_group_short_description|render %}
-      <div class="group__description">
-        {{ content.field_group_short_description }}
-      </div>
-    {% endif %}
+<div{{ attributes.addClass('group-teaser') }}>
+  {{ title_suffix.contextual_links }}
+  {% set link_text = ' ' ~ label %}
+  {% set link_text = 'View group'|t ~ link_text %}
+  <a href="{{ group_url }}" class="group-teaser__link" {% if external %} target="_blank" {% endif %} title="{{ link_text }}">
+    <div class="group-teaser__image">
+      {% if content.field_group_image|render %}
+        {{ content.field_group_image }}
+      {% endif %}
+    </div>
+    <div class="group-teaser__content">
+      <h2{{ title_attributes.addClass('group-teaser__label') }}>
+        {{ label }}
+      </h2>
+      {% if content.field_group_short_description|render %}
+        <div class="group-teaser__description">
+          {{ content.field_group_short_description }}
+        </div>
+      {% endif %}
 
-    {% set link_text = ' ' ~ label %}
-    {% set link_text = 'View group'|t ~ link_text %}
-    {% include "@suomidigi/misc/link.twig" with {
-      link_class: 'group__link',
-      link_url: group_url,
-      link_text: link_text,
-    } %}
-  </div>
+      <span class="group__link link--cta">
+        {% if icons_path and not exclude_chevron %}
+          <div class="link--cta-icon-left">
+            <svg class="icon">
+              <title>{{ text }}</title>
+              <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
+            </svg>
+          </div>
+        {% endif %}
+        <div class="link--cta-content-right">
+          <span class="link--cta-text">
+            {{ link_text }}
+          </span>
+        </div>
+      </span>
+    </div>
+  </a>
 </div>

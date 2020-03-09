@@ -28,7 +28,7 @@ selection_criteria:
       language: 'group:langcode:language'
     uuid: 92abbf7a-94aa-4770-95a8-0aec6337ea00
 selection_logic: and
-weight: -10
+weight: -8
 relationships:
   'group:langcode:language':
     label: Language

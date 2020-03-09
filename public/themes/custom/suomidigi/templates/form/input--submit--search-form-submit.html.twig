@@ -11,5 +11,12 @@
  */
 #}
 <button{{attributes}}>
-  {{ 'Search'|t }}
+  {% if icons_path %}
+    <svg class="icon">
+      <title>{{ 'Search'|t }}</title>
+      <use xlink:href="{{ icons_path|trim }}#search" />
+    </svg>
+  {% else %}
+    {{ 'Search'|t }}
+  {% endif %}
 </button>

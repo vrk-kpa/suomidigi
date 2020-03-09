@@ -1,20 +1,35 @@
 .legislation-collection {
   padding-bottom: $gutter * 2;
+  padding-top: $gutter / 2;
+
+  &__title {
+    padding-top: $gutter;
+
+    h1 {
+      @include font-size(40px, 50px);
+      @include font-weight($semibold);
+      color: $blue;
+      margin-bottom: $gutter * 2;
+    }
+  }
 
   &__ingress {
-    @include font-size(14px, 20px);
-    color: $black;
-    margin-bottom: $gutter * 2;
-    text-align: center;
+    @include font-size(22px, 30px);
+    @include font-weight($regular);
+    margin-bottom: $gutter;
+
+    @include breakpoint($for-tablet-landscape-up) {
+      margin-bottom: $gutter * 2;
+    }
   }
 
   &__toggle-button {
     @include font-size(18px, 18px);
+    @include font-weight($semibold);
     background: transparent;
     border: 0 none;
-    color: $legislation-blue;
+    color: $blue;
     display: block;
-    font-weight: bold;
     margin-bottom: $gutter;
     margin-left: auto;
     padding: 0;
@@ -25,18 +40,14 @@
   }
 
   &__label {
-    @include font-size(18px, 18px);
+    @include font-size(22px, 28px);
+    @include font-weight($semibold);
     color: $black;
-    font-weight: bold;
-    margin-bottom: $gutter;
+    margin-bottom: $gutter * 1.4;
   }
 
   &__item {
-    background-color: $gray-lighter;
     margin-bottom: $gutter * 2;
-    margin-left: -#{$gutter};
-    margin-right: -#{$gutter};
-    padding: $gutter;
   }
 
   &--teaser {
@@ -57,6 +68,7 @@
 
         .blog-teaser__label {
           color: $black;
+          text-decoration: underline;
         }
       }
 

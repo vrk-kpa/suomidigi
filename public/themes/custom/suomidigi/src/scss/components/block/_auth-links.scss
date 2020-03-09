@@ -2,9 +2,9 @@
   @include border('top');
   display: flex;
   flex-direction: column;
-  margin: $gutter * 2 0 $gutter;
+  margin: $gutter * 0;
   min-width: 280px;
-  padding: $gutter * 2 ($gutter / 2);
+  padding: $gutter * 2 0;
 
   .auth-links-description {
     @include font-size(16px);
@@ -44,7 +44,7 @@
     color: $white;
     display: block;
     margin: 0 0 $gutter;
-    max-width: 300px;
+    max-width: 400px;
     padding: 15px 10px 15px 50px;
     position: relative;
     text-align: center;

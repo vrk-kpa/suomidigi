@@ -6,14 +6,25 @@
 
 .page-header {
   background-color: $white;
+  border-bottom: 2px solid $gray-light;
+  border-top: 5px solid $cyan;
   display: flex;
   height: 80px;
   justify-content: space-between;
   left: 0;
-  top: 0;
+  margin-bottom: -5px;
+  position: relative;
+  top: -5px;
   transition: all 0.5s;
   width: 100%;
-  z-index: 100;
+  z-index: 2001;
+
+  @include breakpoint($for-tablet-portrait-up) {
+    border: 0 none;
+    margin: 0;
+    position: static;
+    top: 0;
+  }
 
   &__container {
     align-items: center;

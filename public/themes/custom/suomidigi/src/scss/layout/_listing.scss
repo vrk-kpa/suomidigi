@@ -1,6 +1,10 @@
 .listing {
   margin: 0 -#{$gutter} $gutter * 2 -#{$gutter};
 
+  .page-type--taxonomy-term & {
+    margin: 0 0 $gutter * 2 0;
+  }
+
   @include breakpoint($for-mobile-landscape-up) {
     margin: 0 0 $gutter * 2;
   }
@@ -35,6 +39,18 @@
     &--col-2 {
       @include breakpoint($for-tablet-portrait-up) {
         flex: 1 1 45%;
+      }
+    }
+  }
+
+  .profile__my-groups &,
+  .profile__my-bookmarks &,
+  .profile__own-content & {
+    justify-content: flex-start;
+
+    @include breakpoint(900px) {
+      &__item {
+        max-width: 31%;
       }
     }
   }

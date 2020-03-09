@@ -176,7 +176,7 @@ final class TwitterImporter {
     $url = 'https://twitter.com/' . $post->user->screen_name . '/status/' . $post->id;
 
     $text = $this->addTweetEntityLinks($post);
-    $profile_image = (isset($post->user->profile_image_url)) ? $post->user->profile_image_url : NULL;
+    $profile_image = $post->user->profile_image_url_https ?? '';
 
     if (!$entity_exists) {
       $entity = [

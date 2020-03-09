@@ -18,6 +18,11 @@
 
 <article{{ attributes.addClass(classes) }}>
   <div class="blog__header">
+    <div class="blog__title">
+      <h1>
+        {{ label }}
+      </h1>
+    </div>
     <div class="blog__data">
       <div class="blog__data-item blog__type">
         {{ content.field_blog_type }}
@@ -26,44 +31,58 @@
         <span class="blog__data-item blog__author author__list">
           {{ content.field_displayed_author }}
         </span>
+        <div class="content__divider"></div>
       {% endif %}
-      {% if node.isPublished() and published_at is not empty %}
-        <span class="blog__data-item blog__published">
+      <div class="blog__data--bottom">
+        {% if node.isPublished() and published_at is not empty %}
+          <span class="blog__data-item blog__published">
           {{ published_at|date('j.n.Y - H:i') }}
         </span>
-      {% endif %}
-      {% if content.field_displayed_update_time|render %}
-        <span class="blog__data-item blog__modified">
+        {% endif %}
+        {% if content.field_displayed_update_time|render %}
+          <span class="blog__data-item blog__modified">
           <span class="blog__modified-text">{{ 'Updated on'|trans }}</span> <span class="blog__modified-date">{{ content.field_displayed_update_time }}</span>
         </span>
-      {% endif %}
-      {% if content.field_reading_time|render %}
-        <span class="blog__data-item blog__reading">
-          <span class="blog__reading-time">{{ content.field_reading_time }}</span> <span class="blog__reading-text">{{ 'min read'|trans }}</span>
+        {% endif %}
+        {% if content.field_reading_time|render %}
+          <span class="blog__data-item blog__reading">
+            {% trans %}
+              {{ content.field_reading_time[0]['#markup'] }} min read
+            {% endtrans %}
         </span>
-      {% endif %}
+        {% endif %}
+      </div>
+      <div class="flag-wrapper flag--top">
+        {{ flag_link }}
+      </div>
     </div>
     <div class="blog__image">
       {{ content.field_header_image }}
     </div>
-  </div>
-  <div class="blog__content">
     {% if content.field_ingress|render %}
       <div class="blog__lead">
         {{ content.field_ingress }}
       </div>
     {% endif %}
+  </div>
+  <div class="blog__content">
     {% if content.field_paragraphs|render %}
       <div class="blog__contents">
           {{ content.field_paragraphs }}
       </div>
     {% endif %}
-
+    <div class="blog__social-sharing">
+      {{ drupal_block('suopa_content_social_sharing_block') }}
+      <div class="flag-wrapper flag--bottom">
+        {{ flag_link }}
+      </div>
+    </div>
     {% if content.field_displayed_author_footer|render %}
       <div class="blog__author--prominent author author--prominent">
         {{ content.field_displayed_author_footer }}
       </div>
     {% endif %}
+    <div class="content__border"></div>
   </div>
 
   {% if content.field_comments|render %}
@@ -71,5 +90,4 @@
       {{ content.field_comments }}
     </div>
   {% endif %}
-
 </article>

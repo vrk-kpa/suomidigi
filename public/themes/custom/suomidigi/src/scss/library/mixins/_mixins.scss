@@ -13,7 +13,7 @@
   @if $type == '' {
     @include font-size(14px);
     background-color: transparent;
-    border: 1px solid $gray-darker;
+    border: 1px solid $gray-dark;
     box-shadow: 0 8px 6px -6px rgba($black, 0.15);
     color: $black;
     display: flex;
@@ -86,4 +86,9 @@
   @else if($side == 'right') {
     border-right: 1px solid $color;
   }
+}
+
+@mixin icon-colors($fallback: $black) {
+  fill: $fallback;
+  @content;
 }

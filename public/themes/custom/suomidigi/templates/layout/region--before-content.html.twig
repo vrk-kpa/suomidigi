@@ -16,6 +16,41 @@
   {{ hero }}
 {% endif %}
 
+{% if group_hero %}
+  <div class="group__hero" style="background-image: url({{ group_hero.background_image }})">
+    <div class="group__hero-wrapper">
+      <div class="group__content">
+        {% if group_hero.label|render %}
+          <h1 class="group__title">
+            {{ group_hero.label[0]['#context']['value'] }}
+          </h1>
+        {% endif %}
+
+        {% if group_hero.field_group_short_description|render %}
+          <p class="group__description">
+            {{ group_hero.field_group_short_description[0]['#context']['value'] }}
+          </p>
+        {% endif %}
+
+        {% set link = group_hero.field_group_link_cta[0]['#url'] %}
+        {% set text = group_hero.field_group_link_cta[0]['#title'] %}
+
+        {% if link and text %}
+          <div class="group__link">
+            {% if icons_path %}
+              <svg class="icon">
+                <title>{{ title }}</title>
+                <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
+              </svg>
+            {% endif %}
+            <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
 {% if content %}
   {{ content }}
 {% endif %}

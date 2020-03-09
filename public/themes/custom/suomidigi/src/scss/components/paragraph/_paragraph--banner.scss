@@ -1,192 +1,63 @@
 .paragraph--banner-cta  {
-  &.paragraph {
-    margin-bottom: $gutter * 2;
-    > .paragraph__link {
-      display: block;
-    }
-  }
+  align-items: center;
+  background-color: $blue-light;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  padding: $gutter;
+  text-decoration: none;
+  width: 100%;
 
-  .paragraph__link {
-    display: block;
-    text-decoration: none;
-
-    &:hover {
-      .icon {
-        color: $white;
-      }
-    }
-  }
-
-  .paragraph__background {
-    height: 0;
-    overflow: hidden;
-    padding-bottom: calc(112 / 375 * 100%);
-    position: relative;
-
-    @include breakpoint($for-mobile-landscape-up) {
-      padding-bottom: calc(136 / 704 * 100%);
-    }
-
-    img {
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-  }
-
-  .paragraph__inner {
+  @include breakpoint($for-mobile-landscape-up) {
     align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 4;
+    flex-flow: row;
+  }
 
-    &--container {
-      margin-left: $gutter;
-
-      @include breakpoint($for-mobile-portrait-up) {
-        margin-left: $gutter * 2;
-      }
+  &:hover {
+    &,
+    .paragraph__title,
+    .paragraph__description,
+    .paragraph__button {
+      text-decoration: none;
     }
+
+    .paragraph__button {
+      background-color: $white;
+      color: $blue;
+    }
+  }
+
+  .paragraph__content-wrapper {
+    width: 70%;
   }
 
   .paragraph__title {
-    @include font-size(18px, 20px);
+    @include font-size(22px, 28px);
+    @include font-weight($semibold);
     color: $white;
-    font-weight: bold;
-
-    @include breakpoint($for-mobile-portrait-up) {
-      @include font-size(20px, 25px);
-      display: block;
-      max-width: 490px;
-    }
+    margin-bottom: $gutter;
   }
 
   .paragraph__description {
-    @include font-size(14px, 14px);
-
+    @include font-size(18px, 27px);
+    @include font-weight($regular);
     color: $white;
-
-    font-weight: 600;
-    @include breakpoint($for-mobile-portrait-up) {
-      @include font-size(14px, 18px);
-    }
-
-    &-icon {
-      display: inline-block;
-      height: 1.125rem;
-      margin-left: $gutter * 0.5;
-      width: 1.125rem;
-
-      .icon {
-        color: $orange-dark;
-        display: inline-block;
-        height: 100%;
-        vertical-align: text-bottom;
-        width: 100%;
-
-        .paragraph__link:hover & {
-          color: $white;
-        }
-      }
-    }
-  }
-}
-
-.paragraph__link {
-  &.no-background-image {
-    background-color: $blue-dark;
   }
 
-  &.text-align--left {
-    text-align: left;
+  .paragraph__button {
+    @include font-size(16px, 26px);
+    @include font-weight($semibold);
+    border: 3px solid $white;
+    border-radius: 5px;
+    color: $white;
+    display: block;
+    margin-top: $gutter;
+    padding: 10px 30px;
+    text-align: center;
 
-    &.no-background-image {
-      background-color: $gray-lighter;
+    @include breakpoint($for-mobile-landscape-up) {
+      margin-top: 0;
     }
 
-    .paragraph__inner {
-      @include breakpoint($for-mobile-landscape-up) {
-        position: static;
-      }
-    }
-
-    .paragraph__inner--container {
-      margin-left: 0;
-      text-align: center;
-
-      @include breakpoint($for-mobile-landscape-up) {
-        align-items: center;
-        display: flex;
-        width: 100%;
-      }
-    }
-
-    .paragraph__background {
-      padding-bottom: calc(122 / 375 * 100%);
-
-      @include breakpoint($for-mobile-landscape-up) {
-        height: auto;
-        padding: $gutter 0;
-      }
-    }
-
-    .paragraph__title {
-      @include font-size(16px, 20px);
-      color: $blue-medium;
-      font-weight: 600;
-      margin-bottom: $gutter;
-      padding: 0 $gutter;
-      text-align: center;
-
-      @include breakpoint($for-mobile-landscape-up) {
-        margin: 0 $gutter 0 $gutter * 2;
-        padding: 0;
-        text-align: left;
-      }
-    }
-
-    .paragraph__description {
-      @include font-size(14px);
-      @include font-weight($bold);
-      background-color: $blue-light;
-      border: 2px solid $blue-light;
-      color: $white;
-      display: inline-block;
-      padding: $gutter / 2 $gutter;
-      text-align: center;
-      text-transform: uppercase;
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-
-      @include breakpoint($for-mobile-landscape-up) {
-        @include font-size(12px);
-        margin: 0 $gutter 0 auto;
-      }
-
-      &-icon {
-        display: none;
-      }
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      .paragraph__description {
-        background-color: $white;
-        color: $blue-light;
-        cursor: pointer;
-        outline: none;
-      }
-    }
-  }
-
-  &.text-align--right {
-    text-align: right;
   }
 }

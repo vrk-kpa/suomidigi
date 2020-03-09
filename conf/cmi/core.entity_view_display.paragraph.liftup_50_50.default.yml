@@ -10,10 +10,12 @@ dependencies:
     - field.field.paragraph.liftup_50_50.field_p_reverse
     - field.field.paragraph.liftup_50_50.field_p_separate
     - field.field.paragraph.liftup_50_50.field_p_title
+    - image.style.1_1_half_content
     - paragraphs.paragraphs_type.liftup_50_50
   module:
     - entity_reference_revisions
     - link
+    - media
 id: paragraph.liftup_50_50.default
 targetEntityType: paragraph
 bundle: liftup_50_50
@@ -23,7 +25,7 @@ content:
     weight: 7
     label: hidden
     settings:
-      trim_length: 80
+      trim_length: 160
       url_only: false
       url_plain: false
       rel: ''
@@ -44,7 +46,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      trim_length: 80
+      trim_length: 160
       url_only: false
       url_plain: false
       rel: ''
@@ -56,10 +58,10 @@ content:
     weight: 2
     label: hidden
     settings:
-      view_mode: media_paragraph
-      link: false
+      image_style: 1_1_half_content
+      image_link: ''
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: media_thumbnail
     region: content
   field_p_reverse:
     weight: 4

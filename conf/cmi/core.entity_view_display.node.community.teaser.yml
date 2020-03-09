@@ -19,6 +19,11 @@ targetEntityType: node
 bundle: community
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_community_description:
     type: text_default
     weight: 1
@@ -41,7 +46,7 @@ content:
     region: content
     label: hidden
     settings:
-      trim_length: 80
+      trim_length: 160
       url_only: false
       url_plain: false
       rel: ''

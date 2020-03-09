@@ -18,25 +18,24 @@
 
 <article{{ attributes.addClass(classes) }}>
   <div class="article__header">
-    <div class="article__type">
-      {{ content.field_article_type }}
-    </div>
+    {% if content.field_article_type|render %}
+      <div class="article__type">
+        {{ content.field_article_type }}
+      </div>
+    {% endif %}
     <div class="article__title">
       <h1>
         {{ label }}
       </h1>
     </div>
-    {% if content.field_ingress|render %}
-      <div class="article__lead">
-        {{ content.field_ingress }}
-      </div>
-    {% endif %}
     <div class="article__data">
       {% if content.field_displayed_author|render %}
         <span class="article__data-item article__author author__list">
           {{ content.field_displayed_author }}
         </span>
+        <div class="content__divider"></div>
       {% endif %}
+      <div class="article__data--bottom">
       {% if node.isPublished() and published_at is not empty %}
         <span class="article__data-item article__published">
           {{ published_at|date('j.n.Y - H:i') }}
@@ -49,13 +48,24 @@
       {% endif %}
       {% if content.field_reading_time|render %}
         <span class="article__data-item article__reading">
-          <span class="article__reading-time">{{ content.field_reading_time }}</span> <span class="article__reading-text">{{ 'min read'|trans }}</span>
+          {% trans %}
+            {{ content.field_reading_time[0]['#markup'] }} min read
+          {% endtrans %}
         </span>
       {% endif %}
+      </div>
+      <div class="flag-wrapper flag--top">
+        {{ flag_link }}
+      </div>
     </div>
     <div class="article__image">
       {{ content.field_header_image }}
     </div>
+    {% if content.field_ingress|render %}
+      <div class="article__lead">
+        {{ content.field_ingress }}
+      </div>
+    {% endif %}
   </div>
   <div class="article__content">
     {% if content.field_paragraphs|render %}
@@ -63,21 +73,22 @@
           {{ content.field_paragraphs }}
       </div>
     {% endif %}
-
+    <div class="article__social-sharing">
+      {{ drupal_block('suopa_content_social_sharing_block') }}
+      <div class="flag-wrapper flag--bottom">
+        {{ flag_link }}
+      </div>
+    </div>
     {% if content.field_displayed_author_footer|render %}
       <div class="article__author--prominent author author--prominent">
         {{ content.field_displayed_author_footer }}
       </div>
     {% endif %}
+    <div class="content__border"></div>
   </div>
-
   {% if content.field_comments|render %}
     <div class="comments comments__container">
       {{ content.field_comments }}
     </div>
   {% endif %}
-  <div class="article__social-sharing">
-    {{ drupal_block('suopa_content_social_sharing_block') }}
-  </div>
-
 </article>

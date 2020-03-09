@@ -1,0 +1,3 @@
+services:
+  suopa_editorial.apply_author:
+    class: Drupal\suopa_editorial\AuthorService

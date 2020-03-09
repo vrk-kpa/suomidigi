@@ -115,4 +115,71 @@ function suopa_content_update_8007() {
     'fi',
     'Näytä lisää tapahtumia'
   );
+  suopa_content_add_translation(
+    "Show more groups",
+    'fi',
+    'Näytä lisää ryhmiä'
+  );
+  suopa_content_add_translation(
+    "Show more communities",
+    'fi',
+    'Näytä lisää verkostoja'
+  );
+}
+
+/**
+ * Create translations for event texts.
+ */
+function suopa_content_update_8008() {
+  suopa_content_add_translation(
+    "Learn more about the event",
+    'fi',
+    'Lisätietoja tapahtumasta'
+  );
+  suopa_content_add_translation(
+    "Learn more about the event",
+    'fi',
+    'Lisätietoja tapahtuman järjestäjästä'
+  );
+}
+
+/**
+ * Create translations for legislation card summary block.
+ */
+function suopa_content_update_8009() {
+  suopa_content_add_translation(
+    'This is part of',
+    'fi',
+    'Tämä on osa'
+  );
+  suopa_content_add_translation(
+    'Go to section',
+    'fi',
+    'Siirry osioon'
+  );
+  suopa_content_add_translation(
+    'Groups which user belongs to',
+    'fi',
+    'Ryhmät joihin käyttäjä kuuluu'
+  );
+  suopa_content_add_translation(
+    'You have successfully joined this group',
+    'fi',
+    'Olet onnistuneesti liittynyt tähän ryhmään'
+  );
+  suopa_content_add_translation(
+    'Change to',
+    'fi',
+    'Muuta tila'
+  );
+  suopa_content_add_translation(
+    'Set as current revision',
+    'fi',
+    'Aseta nykyiseksi versioksi'
+  );
+  suopa_content_add_translation(
+    'Submit for publication',
+    'fi',
+    'Lähetä julkaistavaksi'
+  );
 }

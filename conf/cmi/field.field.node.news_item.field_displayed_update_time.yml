@@ -1,0 +1,21 @@
+uuid: a11343f0-342a-4fd5-a275-a8bb25a9350f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_displayed_update_time
+    - node.type.news_item
+  module:
+    - datetime
+id: node.news_item.field_displayed_update_time
+field_name: field_displayed_update_time
+entity_type: node
+bundle: news_item
+label: 'Displayed update time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

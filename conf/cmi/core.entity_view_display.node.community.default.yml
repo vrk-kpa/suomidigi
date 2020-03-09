@@ -18,6 +18,11 @@ targetEntityType: node
 bundle: community
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_approved:
     weight: 101
     label: hidden
@@ -47,7 +52,7 @@ content:
     weight: 104
     label: hidden
     settings:
-      trim_length: 80
+      trim_length: 160
       url_only: false
       url_plain: false
       rel: ''

@@ -1,12 +1,8 @@
 .breadcrumb {
-  @include font-size(15px, 23px);
-  color: $gray-darker;
-  margin: $gutter 0;
-  padding: 0;
-
-  @include breakpoint($for-tablet-portrait-up) {
-    @include font-size(16px, 23px);
-  }
+  @include font-size(14px, 20px);
+  color: $gray-dark;
+  margin: 0;
+  padding: $gutter / 1.25 0 0;
 
   a {
     color: $blue-light;
@@ -20,10 +16,10 @@
   }
 
   .icon {
-    height: 16px;
+    height: 12px;
     margin: 0 3px 2px 4px;
     vertical-align: middle;
-    width: 16px;
+    width: 12px;
   }
 
   svg {

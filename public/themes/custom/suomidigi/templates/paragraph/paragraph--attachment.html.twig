@@ -4,9 +4,9 @@
   {% set title = content.field_p_title.0 %}
   {% block content %}
     <div class="paragraph__attachment">
-      <span class="paragraph__title">
+      <div class="paragraph__title">
         {{ title }}
-      </span>
+      </div>
       <div class="paragraph__content">
         {{ content|without('field_p_title') }}
       </div>

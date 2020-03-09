@@ -5,11 +5,15 @@
 
   .paragraph__text {
     @include font-size(14px, 22px);
-    color: $gray-darker;
+    color: $gray-dark;
     margin-top: $gutter * .5;
 
     @include breakpoint($for-tablet-portrait-up) {
       @include font-size(15px, 22px);
     }
+  }
+
+  .media--type-video {
+    margin-bottom: $gutter;
   }
 }

@@ -18,5 +18,7 @@ display:
             items_per_page_label: 'Inlägg per sida'
             items_per_page_options_all_label: '- Alla -'
             offset_label: Kompensera
+  block_1:
+    display_title: Block
   page_1:
     display_title: Sida

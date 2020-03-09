@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.legislation_card.field_attachments
+    - field.field.node.legislation_card.field_displayed_update_time
     - field.field.node.legislation_card.field_ingress
     - field.field.node.legislation_card.field_legislation_content
     - field.field.node.legislation_card.field_legislation_materials
@@ -46,7 +47,7 @@ content:
     type: entity_reference_revisions_entity_view
     weight: 4
     region: content
-    label: hidden
+    label: above
     settings:
       view_mode: default
       link: ''
@@ -57,6 +58,8 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_displayed_update_time: true
   field_legislation_section: true
   langcode: true
   published_at: true
+  search_api_excerpt: true
