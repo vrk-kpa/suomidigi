@@ -52,7 +52,7 @@ class SocialAuthSubscriber implements EventSubscriberInterface {
     $social_auth_user = $event->getSocialAuthUser();
 
     // Set user first and last name if available.
-    if ($name = $this->splitName($social_auth_user->getName())) {
+    if (!(empty($name = $this->splitName($social_auth_user->getName())))) {
       $user->set('field_first_name', $name['first_name']);
       $user->set('field_last_name', $name['last_name']);
       $user->save();
@@ -61,11 +61,13 @@ class SocialAuthSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * Splits single name string into salutation, first, last, suffix
+   * Splits single name string into salutation, first, last, suffix.
    *
    * @param string $name
+   *   Full name.
    *
    * @return array
+   *   Returns an array consisting first and last name.
    */
   private function splitName($name) {
     $results = [];
@@ -74,7 +76,7 @@ class SocialAuthSubscriber implements EventSubscriberInterface {
     $size = count($r);
 
     // Check first for salutation.
-    if (mb_strpos($r[0], '.') === false) {
+    if (mb_strpos($r[0], '.') === FALSE) {
       $results['salutation'] = '';
       $results['first_name'] = $r[0];
     }
@@ -84,7 +86,7 @@ class SocialAuthSubscriber implements EventSubscriberInterface {
     }
 
     // Check last for period, assume suffix if so.
-    if (mb_strpos($r[$size - 1], '.') === false) {
+    if (mb_strpos($r[$size - 1], '.') === FALSE) {
       $results['suffix'] = '';
     }
     else {
@@ -97,7 +99,7 @@ class SocialAuthSubscriber implements EventSubscriberInterface {
 
     $last = '';
     for ($i = $start; $i <= $end; $i++) {
-      $last .= ' '.$r[$i];
+      $last .= ' ' . $r[$i];
     }
     $results['last_name'] = trim($last);
 
