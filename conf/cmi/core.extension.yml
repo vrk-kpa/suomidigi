@@ -124,6 +124,7 @@ module:
   suopa_legislations: 0
   suopa_media_embed: 0
   suopa_tokens: 0
+  suopa_user: 0
   svg_image: 0
   swiftmailer: 0
   system: 0
