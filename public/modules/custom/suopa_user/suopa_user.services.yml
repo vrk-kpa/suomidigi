@@ -1,0 +1,7 @@
+services:
+  suopa_user.event_subscriber:
+    class: Drupal\suopa_user\EventSubscriber\SocialAuthSubscriber
+    arguments:
+      - '@messenger'
+    tags:
+      - { name: 'event_subscriber' }

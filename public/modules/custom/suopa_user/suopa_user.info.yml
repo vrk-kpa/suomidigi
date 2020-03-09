@@ -1,0 +1,7 @@
+name: 'SuoPa - User'
+type: module
+description: 'User related functionalities for Suomidigi.fi'
+core: 8.x
+package: 'SuoPa'
+dependencies:
+  - social_auth
