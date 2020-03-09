@@ -2,7 +2,7 @@
 
 namespace Drupal\suopa_user\EventSubscriber;
 
-use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\suopa_editorial\AuthorService;
 use Drupal\social_auth\Event\UserEvent;
 use Drupal\social_auth\Event\SocialAuthEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -13,20 +13,20 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class SocialAuthSubscriber implements EventSubscriberInterface {
 
   /**
-   * The messenger service.
+   * The author service.
    *
-   * @var \Drupal\Core\Messenger\MessengerInterface
+   * @var \Drupal\suopa_editorial\AuthorService
    */
-  private $messenger;
+  private $authorService;
 
   /**
    * SocialAuthSubscriber constructor.
    *
-   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
-   *   The messenger service.
+   * @param \Drupal\suopa_editorial\AuthorService $author_service
+   *   The author service.
    */
-  public function __construct(MessengerInterface $messenger) {
-    $this->messenger = $messenger;
+  public function __construct(AuthorService $author_service) {
+    $this->authorService = $author_service;
   }
 
   /**
@@ -38,8 +38,6 @@ class SocialAuthSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     $events[SocialAuthEvents::USER_CREATED] = ['onUserCreated'];
-    $events[SocialAuthEvents::USER_LOGIN] = ['onUserLogin'];
-
     return $events;
   }
 
@@ -50,66 +48,60 @@ class SocialAuthSubscriber implements EventSubscriberInterface {
    *   The Social Auth user event object.
    */
   public function onUserCreated(UserEvent $event) {
-
-    /*
-     * @var Drupal\user\UserInterface $user
-     */
     $user = $event->getUser();
     $social_auth_user = $event->getSocialAuthUser();
 
-    // Set user first name if available.
-    if ($social_auth_user->getFirstName()) {
-      $user->set('field_first_name', $social_auth_user->getFirstName());
-    }
-
-    // Set user last name if available.
-    if ($social_auth_user->getLastName()) {
-      $user->set('field_last_name', $social_auth_user->getLastName());
+    // Set user first and last name if available.
+    if ($name = $this->splitName($social_auth_user->getName())) {
+      $user->set('field_first_name', $name['first_name']);
+      $user->set('field_last_name', $name['last_name']);
+      $user->save();
+      $this->authorService->createReference($user);
     }
   }
 
   /**
-   * Alters the user real name.
+   * Splits single name string into salutation, first, last, suffix
    *
-   * @param \Drupal\social_auth\Event\UserEvent $event
-   *   The Social Auth user event object.
+   * @param string $name
+   *
+   * @return array
    */
-  public function onUserLogin(UserEvent $event) {
+  private function splitName($name) {
+    $results = [];
 
-    /*
-     * @var Drupal\user\UserInterface $user
-     */
-    $user = $event->getUser();
-    $social_auth_user = $event->getSocialAuthUser();
-    $setUserAuthorReference = FALSE;
+    $r = explode(' ', $name);
+    $size = count($r);
 
-    // Set user first name if available.
-    if (
-      $user->hasField('field_first_name') &&
-      empty($user->field_first_name->value)
-    ) {
-      if ($social_auth_user->getFirstName()) {
-        $user->set('field_first_name', $social_auth_user->getFirstName());
-        $setUserAuthorReference = TRUE;
-      }
+    // Check first for salutation.
+    if (mb_strpos($r[0], '.') === false) {
+      $results['salutation'] = '';
+      $results['first_name'] = $r[0];
+    }
+    else {
+      $results['salutation'] = $r[0];
+      $results['first_name'] = $r[1];
     }
 
-    // Set user first name if available.
-    if (
-      $user->hasField('field_last_name') &&
-      empty($user->field_last_name->value)
-    ) {
-      if ($social_auth_user->getLastName()) {
-        $user->set('field_last_name', $social_auth_user->getLastName());
-        $setUserAuthorReference = TRUE;
-      }
+    // Check last for period, assume suffix if so.
+    if (mb_strpos($r[$size - 1], '.') === false) {
+      $results['suffix'] = '';
+    }
+    else {
+      $results['suffix'] = $r[$size - 1];
     }
 
-    // Set user - author reference if needed.
-    if ($setUserAuthorReference) {
-      $author_service = \Drupal::service('suopa_editorial.apply_author');
-      $author_service->createReference($user);
+    // Combine remains into last.
+    $start = ($results['salutation']) ? 2 : 1;
+    $end = ($results['suffix']) ? $size - 2 : $size - 1;
+
+    $last = '';
+    for ($i = $start; $i <= $end; $i++) {
+      $last .= ' '.$r[$i];
     }
+    $results['last_name'] = trim($last);
+
+    return $results;
   }
 
 }

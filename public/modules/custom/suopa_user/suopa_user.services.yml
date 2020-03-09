@@ -2,6 +2,6 @@ services:
   suopa_user.event_subscriber:
     class: Drupal\suopa_user\EventSubscriber\SocialAuthSubscriber
     arguments:
-      - '@messenger'
+      - '@suopa_editorial.apply_author'
     tags:
       - { name: 'event_subscriber' }
