@@ -174,35 +174,6 @@ function suopa_content_block_access(Block $block, $operation, AccountInterface $
 }
 
 /**
- * Implements hook_field_widget_form_alter().
- */
-function suopa_content_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
-  $formats = [
-    'comment_body' => ['plain_text'],
-  ];
-
-  $field_name = $context['items']->getFieldDefinition()->getName();
-
-  if (array_key_exists($field_name, $formats)) {
-    $element['#allowed_formats'] = $formats[$field_name];
-    $element['#after_build'][] = '_remove_text_format_box';
-  }
-}
-
-/**
- * After build callback for widget form alter.
- */
-function _remove_text_format_box($form_element, FormStateInterface $form_state) {
-  // Remove help, guidelines and wrappers.
-  unset($form_element['format']['help']);
-  unset($form_element['format']['guidelines']);
-  unset($form_element['format']['#type']);
-  unset($form_element['format']['#theme_wrappers']);
-
-  return $form_element;
-}
-
-/**
  * This function stores/returns nids for the given category.
  *
  * Static storage of our excluded nids.
@@ -247,6 +218,20 @@ function suopa_content_views_data_alter(&$data) {
     'help' => t('Excludes nodes that have already been loaded/viewed in the current page.'),
     'filter' => ['id' => 'views_exclude_previous'],
   ];
+
+  // Override taxonomy term field reference to user profile argument handler.
+  if (isset($data['taxonomy_term__field_reference_to_user_profile'])) {
+    $field_term = $data['taxonomy_term__field_reference_to_user_profile']['field_reference_to_user_profile_target_id'];
+    $field_term['argument']['id'] = 'views_author_term_argument';
+
+    $data['taxonomy_term__field_reference_to_user_profile']['field_reference_to_user_profile_target_id'] = [
+      'group' => $field_term['group'],
+      'title' => t('Filter content with Author term reference'),
+      'title short' => t('Author term reference'),
+      'help' => t('This filter will look for author term reference and then filter the content withe this reference.'),
+      'argument' => $field_term['argument'],
+    ];
+  }
 }
 
 /**
@@ -280,26 +265,36 @@ function suopa_content_views_post_execute(ViewExecutable $view) {
     $view->id() == 'profile_own_content' ||
     $view->id() == 'profile_my_bookmarks'
   ) {
-    $user_from_route = \Drupal::routeMatch()->getParameter('user')->id();
-    $user = \Drupal::currentUser()->id();
+    $route = \Drupal::routeMatch();
+    if ($route->getRouteName() == 'entity.user.canonical') {
+      $user_from_route = $route->getParameter('user');
+      if ($user_from_route) {
+        $user = \Drupal::currentUser()->id();
 
-    if ($user_from_route != $user) {
-      $view->build_info['fail'] = TRUE;
+        if ($user_from_route->id() != $user) {
+          $view->build_info['fail'] = TRUE;
+        }
+      }
     }
   }
 
   // Hide profile page views if no results are found or change the view title
   // based on who is browsing the page.
   if ($view->id() == 'profile_own_groups') {
-    $user_from_route = \Drupal::routeMatch()->getParameter('user')->id();
-    $user = \Drupal::currentUser()->id();
+    $route = \Drupal::routeMatch();
+    if ($route->getRouteName() == 'entity.user.canonical') {
+      $user_from_route = $route->getParameter('user');
+      if ($user_from_route) {
+        $user = \Drupal::currentUser()->id();
 
-    if ($user_from_route != $user) {
-      $view->setTitle(t('Groups which user belongs to'));
-    }
+        if ($user_from_route->id() != $user) {
+          $view->setTitle(t('Groups which user belongs to'));
+        }
 
-    if (count($view->result) == 0) {
-      $view->build_info['fail'] = TRUE;
+        if (count($view->result) == 0) {
+          $view->build_info['fail'] = TRUE;
+        }
+      }
     }
   }
 }

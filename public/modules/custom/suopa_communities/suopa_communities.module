@@ -5,7 +5,6 @@
  * Contains suopa_communities.module.
  */
 
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -22,32 +21,4 @@ function suopa_communities_help($route_name, RouteMatchInterface $route_match) {
 
     default:
   }
-}
-
-/**
- * Implements hook_entity_type_alter().
- *
- * @inheritdoc
- */
-function suopa_communities_entity_type_alter(array &$entity_types) {
-  $entity = $entity_types['node'];
-  if ($entity) {
-    $entity->addConstraint('ApprovalConstraint');
-  }
-}
-
-/**
- * Implements hook_form_BASE_FORM_ID_alter().
- *
- * {@inheritdoc}
- */
-function suopa_communities_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (!isset($form['field_approved'])) {
-    return;
-  }
-
-  $form['field_approved']['#group'] = 'footer';
-  $form['field_approved']['#weight'] = 0;
-
-  return $form;
 }

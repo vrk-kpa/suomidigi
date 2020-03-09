@@ -28,6 +28,11 @@ targetEntityType: node
 bundle: event
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_event_date_and_time:
     type: daterange_custom
     weight: 0
@@ -65,6 +70,11 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  flag_content_bookmark:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 3
     region: content
@@ -72,6 +82,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_approved: true
+  field_displayed_author: true
   field_event_free_text: true
   field_event_image: true
   field_event_link: true
@@ -82,6 +93,7 @@ hidden:
   field_event_schedule: true
   field_organiser_description: true
   field_organiser_link: true
+  field_theme: true
   field_venue_address: true
   field_venue_description: true
   field_venue_travel_information: true

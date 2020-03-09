@@ -99,6 +99,32 @@ function suopa_group_entity_create(EntityInterface $entity) {
 }
 
 /**
+ * Implements hook_entity_operation().
+ */
+function suopa_group_entity_operation_alter(array &$operations, EntityInterface $entity) {
+  if ($entity->getEntityTypeId() !== 'node') {
+    return;
+  }
+
+  // Check if user has permissions to see translation operation links and
+  // hide if user does not have a permission.
+  $user = \Drupal::currentUser();
+  if (
+    (
+      !$user->hasPermission('edit any ' . $entity->getType() . ' content') &&
+      $user->id() !== $entity->getOwnerId()
+    ) ||
+    !in_array('editor_in_chief', $user->getRoles()) ||
+    !in_array('administrator', $user->getRoles()) ||
+    $user->id() !== 1
+  ) {
+    if (isset($operations['translate'])) {
+      unset($operations['translate']);
+    }
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_presave().
  */
 function suopa_group_user_presave(EntityInterface $user) {
@@ -232,6 +258,30 @@ function suopa_group_preprocess_entity_add_list(&$variables) {
  * Remove obsolete local task links from prying eyes.
  */
 function suopa_editorial_preprocess_menu_local_task(&$variables) {
+  $user = \Drupal::currentUser();
+  $route_match = \Drupal::routeMatch();
+  $forbidden_routes = [
+    'entity.node.canonical',
+    'entity.node.version_history',
+  ];
+
+  // Check if user has permissions to see translation links and hide if not.
+  if (in_array($route_match->getRouteName(), $forbidden_routes)) {
+    $node = $route_match->getParameter('node');
+
+    if ($variables['link']['#url']->getRouteName() == 'entity.node.content_translation_overview') {
+      if ((
+        !$user->hasPermission('edit any ' . $node->getType() . ' content') &&
+        $user->id() !== $node->getOwnerId()) ||
+        !in_array('editor_in_chief', $user->getRoles()) ||
+        !in_array('administrator', $user->getRoles()) ||
+        $user->id() !== 1
+      ) {
+        unset($variables['link']);
+      }
+    }
+  }
+
   $url = $variables['element']['#link']['url'];
   if (
     $url->getRouteName() !== 'entity.group.content_translation_overview' &&

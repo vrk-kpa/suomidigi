@@ -21,6 +21,7 @@ class ContentCreationLinksBlock extends BlockBase {
   public function build() {
     $build = [];
     $links = [];
+    $links[] = Link::createFromRoute($this->t('New blog post'), 'node.add', ['node_type' => 'blog_post'])->toRenderable();
     $links[] = Link::createFromRoute($this->t('New event'), 'node.add', ['node_type' => 'event'])->toRenderable();
 
     $build['#label'] = $this->t('Create new content');

@@ -10,6 +10,7 @@ use Drupal\Core\Render\Markup;
 use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\media\Entity\Media;
+use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
@@ -60,6 +61,15 @@ function suomidigi_preprocess_page(&$variables) {
   if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
     $variables['taxonomy_term'] = TRUE;
   }
+
+  // Set node as and Node object to templates when viewing revisions.
+  if (
+    isset($variables['node']) &&
+    is_numeric($variables['node']) &&
+    !$variables['node'] instanceof Node
+  ) {
+    $variables['node'] = Node::load($variables['node']);
+  }
 }
 
 /**
@@ -71,6 +81,8 @@ function suomidigi_preprocess_region(&$variables) {
   }
 
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // Retrieve the node object for revisions.
+    $node = (is_numeric($node) && !$node instanceof Node) ? Node::load($node) : $node;
     if (
       $node->getType() == 'landing_page' &&
       $node->hasField('field_hero') &&
@@ -114,6 +126,8 @@ function suomidigi_preprocess_region(&$variables) {
  */
 function suomidigi_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // Retrieve the node object for revisions.
+    $node = (is_numeric($node) && !$node instanceof Node) ? Node::load($node) : $node;
     $suggestions[] = 'page__' . $node->bundle();
   }
 
@@ -380,6 +394,9 @@ function suomidigi_preprocess_block(&$variables) {
     // Hide block from following content types.
     // Todo: Fix the hide block, when layouts are finalized.
     if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      // Retrieve the node object for revisions.
+      $node = (is_numeric($node) && !$node instanceof Node) ? Node::load($node) : $node;
+
       if (
         $node->getType() == 'article' ||
         $node->getType() == 'event' ||

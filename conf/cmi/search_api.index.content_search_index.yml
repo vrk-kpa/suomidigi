@@ -54,7 +54,7 @@ field_settings:
       config:
         - field.storage.group.field_group_short_description
   field_ingress:
-    label: Ingress
+    label: Lead
     datasource_id: 'entity:node'
     property_path: field_ingress
     type: text

@@ -15,7 +15,6 @@ description: ''
 tag: ''
 base_table: taxonomy_term_field_data
 base_field: tid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -179,6 +178,8 @@ display:
           id: status
           expose:
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
           group: 1
         vid:
           id: vid
@@ -189,6 +190,9 @@ display:
           entity_type: taxonomy_term
           entity_field: vid
           plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         field_theme_description_value:
           id: field_theme_description_value
           table: taxonomy_term__field_theme_description
@@ -213,6 +217,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

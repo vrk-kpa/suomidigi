@@ -1,0 +1,41 @@
+uuid: 30bf1f3f-d822-4bbd-b4c8-6535b712bb90
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+  module:
+    - dropzonejs_eb_widget
+    - media
+name: media_image_adder
+label: 'Media Image Adder'
+display: modal
+display_configuration:
+  width: '1000'
+  height: '1000'
+  link_text: 'Select entities'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  0249b284-a217-4b35-a51f-4250d477d7e6:
+    settings:
+      form_mode: default
+      media_type: image
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop files here to upload them'
+      max_filesize: 64M
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Select entities'
+    uuid: 0249b284-a217-4b35-a51f-4250d477d7e6
+    weight: 2
+    label: 'Add Image'
+    id: dropzonejs_media_entity_inline_entity_form
