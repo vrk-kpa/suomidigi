@@ -86,6 +86,7 @@ module:
   path_alias: 0
   preview_link: 0
   quickedit: 0
+  rabbit_hole: 0
   rate: 0
   rdf: 0
   recaptcha: 0
@@ -93,6 +94,8 @@ module:
   redirect_404: 0
   remove_entity_untranslatable_field_validation: 0
   responsive_image: 0
+  rh_node: 0
+  rh_taxonomy: 0
   roleassign: 0
   route_condition: 0
   scheduler: 0
@@ -131,6 +134,7 @@ module:
   token: 0
   toolbar: 0
   tour: 0
+  tvi: 0
   twig_tweak: 0
   user: 0
   video_embed_field: 0

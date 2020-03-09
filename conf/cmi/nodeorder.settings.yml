@@ -2,6 +2,10 @@ vocabularies:
   legislation: true
   tags: false
   article_type: false
+  theme: false
+  background_color: false
+  community_domain: false
+  feed_type: false
 override_taxonomy_page: true
 show_links_on_node: true
 link_to_ordering_page: true
