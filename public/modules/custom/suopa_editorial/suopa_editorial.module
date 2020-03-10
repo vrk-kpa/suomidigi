@@ -633,7 +633,7 @@ function suopa_editorial_prevent_access_for_attachments(array &$form, &$form_sta
   foreach ($affected_fields as $field) {
     if (array_key_exists($field, $form)) {
       $form[$field]['#states'] = [
-        'visible' => [
+        'enabled' => [
           $input => ['checked' => TRUE],
         ],
       ];
