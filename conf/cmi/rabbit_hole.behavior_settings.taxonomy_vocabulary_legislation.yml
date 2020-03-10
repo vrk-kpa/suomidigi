@@ -1,0 +1,11 @@
+uuid: 0218acfa-c296-4c26-86b9-3b575a2f5d6b
+langcode: fi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.legislation
+id: taxonomy_vocabulary_legislation
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

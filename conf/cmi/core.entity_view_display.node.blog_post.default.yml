@@ -30,9 +30,9 @@ mode: default
 content:
   content_moderation_control:
     weight: -20
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_comments:
     type: comment_default
     weight: 8
@@ -99,7 +99,7 @@ content:
     weight: 7
     label: hidden
     settings:
-      link: false
+      link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content

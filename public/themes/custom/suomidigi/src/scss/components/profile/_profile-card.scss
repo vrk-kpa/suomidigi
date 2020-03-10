@@ -201,3 +201,20 @@
     }
   }
 }
+
+// Author taxonomy term page.
+.page-type--taxonomy-term--author {
+  .views--taxonomy-term-before-content {
+    .views__row {
+      background-color: $white;
+      border-radius: $gutter / 3;
+      box-shadow: 2px 2px 10px #00000033;
+    }
+
+    .profile-card.vocabulary-author {
+      margin: 0 auto;
+      max-width: $content-area;
+      padding: $gutter * 2;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+uuid: 774dce99-e29e-42c0-8e9f-660a3c2902a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.author
+id: taxonomy_vocabulary_author
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
