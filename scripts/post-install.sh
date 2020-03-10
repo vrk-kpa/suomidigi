@@ -3,7 +3,7 @@
 cd /app/public
 
 drush cr
-drush updb
-drush cim
+drush updb -y
+drush cim -y
 drush cr
 drush status
