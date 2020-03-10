@@ -19,6 +19,7 @@ COPY composer.* /app/
 COPY conf /app/conf
 COPY public /app/public
 COPY patches /app/patches
+COPY scripts /app/scripts
 
 # Create symlink for drupal public files
 RUN ln -s /app/files/public /app/public/sites/default/files
