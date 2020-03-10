@@ -154,3 +154,10 @@
     }
   }
 }
+
+// Media paragraph image popup.
+.mfp-close {
+  @include font-size(40px, 20px);
+  @include font-weight($regular);
+  opacity: 1;
+}
