@@ -613,12 +613,12 @@ function suopa_editorial_inline_entity_form_entity_form_alter(&$entity_form, &$f
  *
  * @param array $form
  *   Form.
- * @param array $form_state
+ * @param array|object $form_state
  *   Form state.
  * @param bool $inline
  *   A boolean which indicates if the required field is in inline form.
  */
-function suopa_editorial_prevent_access_for_attachments(array &$form, array &$form_state, $inline = FALSE) {
+function suopa_editorial_prevent_access_for_attachments(array &$form, &$form_state, $inline = FALSE) {
   $affected_fields = [
     'field_media_externalfile',
     'field_media_file',
