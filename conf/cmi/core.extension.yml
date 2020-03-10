@@ -59,6 +59,7 @@ module:
   link: 0
   linkit: 0
   locale: 0
+  magnific_popup: 0
   mailsystem: 0
   media: 0
   media_entity_browser: 0

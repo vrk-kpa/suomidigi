@@ -25,3 +25,5 @@ display:
             title: Kaikki
   feed_1:
     display_title: Syöte
+  page_1:
+    display_title: Sivu

@@ -18,6 +18,7 @@
         "composer/installers": "^1.2",
         "cosenary/instagram": "v2.3",
         "cweagans/composer-patches": "^1.6.5",
+        "dimsemenov/magnific-popup": "^1.1",
         "druidfi/omen": "^0.1.2",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/address": "^1.7",
@@ -50,6 +51,7 @@
         "drupal/key": "^1.8",
         "drupal/link_attributes": "^1.5",
         "drupal/linkit": "^4.3",
+        "drupal/magnific_popup": "^1.4",
         "drupal/media_entity_browser": "^2.0",
         "drupal/menu_block": "^1.4",
         "drupal/menu_block_current_language": "^1.2",
@@ -296,6 +298,21 @@
                 },
                 "dist": {
                     "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "dimsemenov/magnific-popup",
+                "version": "1.1.0",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "magnific-popup"
+                },
+                "dist": {
+                    "url": "https://github.com/dimsemenov/Magnific-Popup/archive/1.1.0.zip",
                     "type": "zip"
                 }
             }
