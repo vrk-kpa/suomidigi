@@ -6,16 +6,6 @@ display:
     display_title: 'Moderoitava sisältö'
   default:
     display_options:
-      filters:
-        moderation_state_1:
-          expose:
-            label: Julkaisutila
-        title:
-          expose:
-            label: Otsikko
-        moderation_state:
-          expose:
-            label: Julkaisutila
       exposed_form:
         options:
           submit_button: Suodata
@@ -52,10 +42,19 @@ display:
           separator: ', '
         operations:
           label: Toimenpiteet
+      filters:
+        title:
+          expose:
+            label: Otsikko
+        moderation_state:
+          expose:
+            label: Julkaisutila
+        moderation_state_1:
+          expose:
+            label: Julkaisutila
       title: 'Moderoitava sisältö'
       empty:
         area_text_custom:
           content: 'Moderoitavaa sisältöä ei löytynyt. Tällä sivulla listataan vain "Luonnos" tai "Odottaa julkaisua" tilassa olevat sisällöt.'
-    display_title: Isäntä
 label: 'Moderoitava sisältö'
 description: 'Etsi ja moderoi sisältöä'

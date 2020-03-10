@@ -59,9 +59,9 @@ display:
         name:
           separator: ', '
         edit_media:
-          text: Edit
+          text: Muokkaa
         delete_media:
-          text: Delete
+          text: Poista
   widget:
     display_title: Widgetti
     display_options:

@@ -137,8 +137,8 @@ content:
     settings:
       width: 400px
       match_operator: CONTAINS
-      match_limit: 10
       autocomplete: false
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content

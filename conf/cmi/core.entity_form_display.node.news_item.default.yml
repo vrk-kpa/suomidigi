@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.news_item.field_theme
     - node.type.news_item
   module:
+    - content_moderation
     - datetime
     - entity_browser
     - hide_revision_field
@@ -101,6 +102,7 @@ content:
       width: 400px
       match_operator: CONTAINS
       autocomplete: false
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content

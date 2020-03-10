@@ -1,0 +1,23 @@
+uuid: 544c72fe-497b-4309-a2c5-10fcf005a082
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_accessibility_required
+    - media.type.attachment_external
+id: media.attachment_external.field_accessibility_required
+field_name: field_accessibility_required
+entity_type: media
+bundle: attachment_external
+label: 'I hereby declare that the file I am adding complies with accessibility directive (2016/2102) of the European Parliament'
+description: 'For more information about accessibility and how to make accessible files, visit <a href="https://saavutettavuusvaatimukset.fi" target="blank">https://saavutettavuusvaatimukset.fi</a>.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

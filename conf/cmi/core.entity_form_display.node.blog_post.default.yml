@@ -54,6 +54,7 @@ content:
       width: 100%
       autocomplete: true
       match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -133,6 +134,7 @@ content:
       width: 400px
       match_operator: CONTAINS
       autocomplete: false
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
