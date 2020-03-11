@@ -1,0 +1,40 @@
+<?php
+
+function suopa_user_user_cancel_methods_alter(&$methods) {
+  $account = \Drupal::currentUser();
+  // Clear all other methods
+  $methods = array();
+  $methods['suopa_user_content_to_admin'] = [
+  'title' => t('Delete the account and move content to Administrator.'),
+  'description' => t('All content of user will be owned by Administrator (UID=1) user.'),
+  // access should be used for administrative methods only.
+  'access' => $account
+  ->hasPermission('administer users'),
+  ];
+}
+
+function suopa_user_user_cancel($edit, $account, $method) {
+  switch ($method) {
+    case 'suopa_user_content_to_admin':
+      // Move nodes to administrator (current revisions).
+      module_load_include('inc', 'node', 'node.admin');
+      $nodes = \Drupal::entityQuery('node')
+        ->condition('uid', $account
+          ->id())
+        ->execute();
+      node_mass_update($nodes, [
+        'uid' => 1,
+      ], NULL, TRUE);
+
+      // Move old version of nodes to administrator.
+      \Drupal::database()
+        ->update('node_field_revision')
+        ->fields([
+          'uid' => 1,
+        ])
+        ->condition('uid', $account
+          ->id())
+        ->execute();
+      break;
+  }
+}
