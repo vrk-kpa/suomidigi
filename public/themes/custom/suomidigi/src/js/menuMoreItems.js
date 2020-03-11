@@ -5,7 +5,7 @@
   Drupal.suopaMenu = {};
 
   Drupal.behaviors.menuMoreItems = {
-    attach: function attach(context) {
+    attach: function attach() {
       var $window = $(window);
       var $document = $(document);
 
@@ -19,8 +19,8 @@
         Drupal.suopaMenu.reCalculateMenu();
       });
 
-      // Load only once per window load.
-      $(window).once().on('load', function () {
+      // Load when document is ready.
+      $document.ready(function() {
         Drupal.suopaMenu.reCalculateMenu();
       });
     }
@@ -74,20 +74,20 @@
       var menuLeftOverToggleButton = $('.menu--desktop .menu--leftover__button', context);
       var menuLeftOverWrapper = $('.menu--desktop .menu--leftover .menu--leftover__wrapper', context);
 
-      var outsideClickListener = function outsideClickListener(event) {
+      var leftOverOutsideClickListener = function leftOverOutsideClickListener(event) {
         var target = $(event.target);
 
         if (!target.closest('.menu--desktop .menu--leftover .menu--leftover__wrapper').length && menuLeftOverWrapper.is(':visible')) {
-          handleInteraction(event);
-          removeClickListener();
+          leftOverHandleInteraction(event);
+          leftOverRemoveClickListener();
         }
       };
 
-      var removeClickListener = function removeClickListener() {
-        document.removeEventListener('click', outsideClickListener);
+      var leftOverRemoveClickListener = function leftOverRemoveClickListener() {
+        document.removeEventListener('click', leftOverOutsideClickListener);
       };
 
-      function handleInteraction(e) {
+      function leftOverHandleInteraction(e) {
         e.stopImmediatePropagation();
 
         if (menuLeftOverWrapper.hasClass('is-active')) {
@@ -97,19 +97,19 @@
         else {
           menuLeftOverWrapper.addClass('is-active').attr('aria-hidden', 'false');
           menuLeftOverToggleButton.attr('aria-expanded', 'true');
-          document.addEventListener('click', outsideClickListener);
+          document.addEventListener('click', leftOverOutsideClickListener);
         }
       }
 
       menuLeftOverToggleButton.on({
         'click': function touchstartclick(e) {
-          handleInteraction(e);
+          leftOverHandleInteraction(e);
         },
         keydown: function keydown(e) {
           if (e.which === 27) {
             menuLeftOverWrapper.removeClass('is-active').attr('aria-hidden', 'true');
             menuLeftOverToggleButton.attr('aria-expanded', 'false');
-            removeClickListener();
+            leftOverRemoveClickListener();
           }
         }
       });

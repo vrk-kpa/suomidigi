@@ -53,9 +53,9 @@ global-scripting:
     - core/jquery
     - core/jquery.once
     - suomidigi/moby
-    - suomidigi/menu-more-items
     - suomidigi/search-toggle
     - suomidigi/language-switcher
     - suomidigi/svgxuse
+    - suomidigi/menu-more-items
     - suomidigi/parallax-background
     - suomidigi/hyphenopoly
