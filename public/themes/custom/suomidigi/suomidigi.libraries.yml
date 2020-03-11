@@ -24,6 +24,10 @@ moby:
   js:
     dist/js/moby.min.js: {}
 
+menu-more-items:
+  js:
+    dist/js/menuMoreItems.min.js: {}
+
 # Should be removed when all major browsers on most used operating systems
 # can handle CSS3 hyphens: auto. See. https://caniuse.com/#search=hyphens or
 # https://www.w3schools.com/cssref/css3_pr_hyphens.asp.
@@ -49,6 +53,7 @@ global-scripting:
     - core/jquery
     - core/jquery.once
     - suomidigi/moby
+    - suomidigi/menu-more-items
     - suomidigi/search-toggle
     - suomidigi/language-switcher
     - suomidigi/svgxuse
