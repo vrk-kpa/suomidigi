@@ -76,32 +76,48 @@ nav.menu--sidebar {
       > a {
         @include font-size(18px, 27px);
         @include font-weight($regular);
-        border-left: $gutter / 3 solid transparent;
         color: $blue-light;
         letter-spacing: 0;
-        padding-left: $gutter;
+        padding-left: $gutter * 1.4;
         padding-right: 20px;
         text-transform: none;
 
         &.is-active {
           @include font-weight($semibold);
           background-color: $cyan-ultra-light;
-          border-left-color: $cyan;
-          margin-left: -5px;
-          padding-left: $gutter;
         }
       }
 
       &.menu-item--active-trail {
-        border-left: $gutter / 3 solid $cyan;
+        position: relative;
+
+        &::before {
+          background-color: $gray;
+          content: '';
+          display: block;
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 5px;
+        }
 
         > span,
         > a {
           @include font-weight($semibold);
-          padding-left: $gutter / 1.5;
+          padding-left: $gutter * 1.4;
 
           &.is-active {
-            padding-left: $gutter;
+            &::before {
+              background-color: $cyan;
+              content: '';
+              display: block;
+              height: 100%;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 5px;
+            }
           }
         }
       }
@@ -117,7 +133,16 @@ nav.menu--sidebar {
         padding-right: 20px;
 
         &.is-active {
-          @include font-weight($semibold);
+          &::before {
+            background-color: $cyan;
+            content: '';
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 5px;
+          }
         }
       }
 
