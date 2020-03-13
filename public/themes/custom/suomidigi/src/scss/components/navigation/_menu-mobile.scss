@@ -148,7 +148,8 @@
           }
         }
 
-        .menu--is-lvl-2 {
+        .menu--is-lvl-2,
+        .menu--is-lvl-3 {
           &::after {
             left: 5px;
           }
@@ -194,7 +195,12 @@
       &--lvl-3 {
         > span,
         > a {
-          &.is-active {
+          @include font-size(16px, 27px);
+          padding: $gutter / 1.5 $gutter * 4 $gutter / 1.5 $gutter * 3;
+
+          // Border-bottom
+          &::after {
+            display: none;
           }
         }
       }
