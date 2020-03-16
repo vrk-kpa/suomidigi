@@ -1,0 +1,30 @@
+uuid: 40111b39-48f0-4629-99dc-1e59ba24c835
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lc_attachments
+    - media.type.attachment
+    - media.type.attachment_external
+    - node.type.legislation_card
+id: node.legislation_card.field_lc_attachments
+field_name: field_lc_attachments
+entity_type: node
+bundle: legislation_card
+label: Attachments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      attachment: attachment
+      attachment_external: attachment_external
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: attachment
+field_type: entity_reference
