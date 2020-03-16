@@ -3,15 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_attachment_browser
     - field.field.node.legislation_card.field_attachments
     - field.field.node.legislation_card.field_displayed_update_time
     - field.field.node.legislation_card.field_ingress
+    - field.field.node.legislation_card.field_lc_attachments
     - field.field.node.legislation_card.field_legislation_content
     - field.field.node.legislation_card.field_legislation_materials
     - field.field.node.legislation_card.field_legislation_section
     - node.type.legislation_card
   module:
+    - content_moderation
     - datetime
+    - entity_browser
     - hide_revision_field
     - paragraphs
     - path
@@ -33,7 +37,7 @@ content:
     third_party_settings: {  }
   field_attachments:
     type: paragraphs
-    weight: 18
+    weight: 19
     region: content
     settings:
       title: Paragraph
@@ -51,7 +55,7 @@ content:
         add_above: '0'
     third_party_settings: {  }
   field_displayed_update_time:
-    weight: 19
+    weight: 20
     settings: {  }
     third_party_settings:
       timepicker:
@@ -69,6 +73,20 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_lc_attachments:
+    type: entity_browser_entity_reference
+    weight: 17
+    settings:
+      entity_browser: media_attachment_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    region: content
   field_legislation_content:
     weight: 16
     settings:
@@ -79,7 +97,7 @@ content:
     region: content
   field_legislation_materials:
     type: paragraphs
-    weight: 17
+    weight: 18
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -102,6 +120,7 @@ content:
       match_operator: CONTAINS
       autocomplete: false
       width: 100%
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -114,7 +133,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 21
     settings: {  }
     region: content
     third_party_settings: {  }
