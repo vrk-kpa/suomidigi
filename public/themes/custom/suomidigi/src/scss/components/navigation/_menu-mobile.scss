@@ -42,52 +42,125 @@
       list-style: none;
       margin: 0;
       padding: 0;
+
+      &.menu--is-top-lvl {
+        padding: $gutter / 1.5 0 0;
+      }
+      &.menu--is-lvl-2 {
+        padding: $gutter / 1.5 0 0;
+
+        &::after {
+          background-color: $gray-light;
+          bottom: 0;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          right: 0;
+        }
+      }
     }
 
     .menu-item {
       margin: 0;
-      padding: 0 0 0 5px;
+      padding: 0;
 
       > span,
       > a {
-        @include font-size(18px, 23px);
+        @include font-size(18px, 27px);
         @include font-weight($regular);
         color: $blue-light;
         display: block;
         hyphens: auto;
         letter-spacing: 0;
-        padding: 0.75rem 1rem;
+        padding: 16px 22px;
+        position: relative;
         text-decoration: none;
 
         &:hover,
         &:focus {
-          text-decoration: underline $black;
+          text-decoration: none;
+        }
+
+        // Border-bottom
+        &::after {
+          background-color: $gray-light;
+          bottom: 0;
+          content: '';
+          height: 1px;
+          left: 0;
+          position: absolute;
+          right: 0;
         }
 
         &.is-active {
-          color: $black;
+          background-color: #F4FBFE;
 
-          &:hover,
-          &:focus {
-            text-decoration: none;
+          // Border-left
+          &::before {
+            background-color: $cyan;
+            content: '';
+            display: block;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 10px;
           }
         }
       }
 
-      &--lvl-0 {
-        > span,
-        > a {
-          @include font-size(18px, 18px);
-          @include font-weight($semibold);
-          padding: $gutter;
+      &.menu-item--active-trail {
+        position: relative;
+
+        // Border-left
+        &::before {
+          background-color: $gray;
+          content: '';
+          display: block;
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 5px;
         }
 
-        &.menu-item--active-trail {
+        > span,
+        > a {
+          @include font-weight($semibold);
+
+          // Border-bottom
+          &::after {
+            left: 5px;
+          }
+
+          &.is-active {
+            @include font-weight($regular);
+          }
+        }
+
+        .menu-item--lvl-1 {
           > span,
           > a {
-            border-left: 5px solid $cyan;
-            color: $black;
-            margin-left: -5px;
+            &::after {
+              left: 5px;
+            }
+          }
+        }
+
+        .menu--is-lvl-2,
+        .menu--is-lvl-3 {
+          &::after {
+            left: 5px;
+          }
+
+          > span,
+          > a {
+            &.is-active {
+              &::after {
+                display: none;
+              }
+            }
           }
         }
       }
@@ -95,45 +168,26 @@
       &--lvl-1 {
         > span,
         > a {
-          background: $white;
-          padding-left: $gutter;
-          text-transform: none;
-
-          &.is-active {
-            @include font-weight($semibold);
-            color: $black;
-          }
-        }
-
-        &.menu-item--active-trail {
-          > span,
-          > a {
-            @include font-weight($semibold);
-            background-color: $white;
-            color: $black;
-          }
+          padding-left: $gutter * 2;
+          padding-right: $gutter * 4;
         }
       }
 
       &--lvl-2 {
         > span,
         > a {
-          padding-left: $gutter;
-          text-transform: none;
+          @include font-size(16px, 27px);
+          padding: $gutter / 1.5 $gutter * 4 $gutter / 1.5 $gutter * 2;
 
-          &.is-active {
-            @include font-weight($semibold);
-            background-color: $white;
-            color: $black;
+          // Border-bottom
+          &::after {
+            display: none;
           }
         }
 
-        &.menu-item--active-trail {
-          > span,
-          > a {
-            @include font-weight($semibold);
-            background-color: $white;
-            color: $black;
+        &:first-of-type {
+          .is-active {
+            margin-top: -10px;
           }
         }
       }
@@ -141,23 +195,12 @@
       &--lvl-3 {
         > span,
         > a {
-          background: $white;
-          padding-left: $gutter;
-          text-transform: none;
+          @include font-size(16px, 27px);
+          padding: $gutter / 1.5 $gutter * 4 $gutter / 1.5 $gutter * 3;
 
-          &.is-active {
-            @include font-weight($semibold);
-            background-color: $white;
-            color: $black;
-          }
-        }
-
-        &.menu-item--active-trail {
-          > span,
-          > a {
-            @include font-weight($semibold);
-            background-color: $white;
-            color: $black;
+          // Border-bottom
+          &::after {
+            display: none;
           }
         }
       }
@@ -277,6 +320,7 @@
   }
 
   svg {
+    color: $purple;
     height: 1.3rem;
     margin-left: 30px;
   }
