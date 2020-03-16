@@ -1,0 +1,112 @@
+uuid: f9b9d0e4-4aa7-4824-a2a6-77fd95c576a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lc_internal_vocabularies
+    - node.type.legislation_card
+    - paragraphs.paragraphs_type.vocabulary
+  module:
+    - entity_reference_revisions
+id: node.legislation_card.field_lc_internal_vocabularies
+field_name: field_lc_internal_vocabularies
+entity_type: node
+bundle: legislation_card
+label: 'Internal vocabularies'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      vocabulary: vocabulary
+    target_bundles_drag_drop:
+      vocabulary:
+        enabled: true
+        weight: 29
+      attachment:
+        weight: 30
+        enabled: false
+      banner_cta:
+        weight: 31
+        enabled: false
+      contact_information:
+        weight: 32
+        enabled: false
+      contact_information_item:
+        weight: 33
+        enabled: false
+      container:
+        weight: 34
+        enabled: false
+      container_title:
+        weight: 35
+        enabled: false
+      feed:
+        weight: 36
+        enabled: false
+      group_view:
+        weight: 37
+        enabled: false
+      hero:
+        weight: 38
+        enabled: false
+      highlight_bullet_point:
+        weight: 39
+        enabled: false
+      highlight_bullet_point_item:
+        weight: 40
+        enabled: false
+      highlight_cta:
+        weight: 41
+        enabled: false
+      highlight_text_box:
+        weight: 42
+        enabled: false
+      legislation_attachment:
+        weight: 43
+        enabled: false
+      legislation_cards:
+        weight: 44
+        enabled: false
+      legislation_link:
+        weight: 45
+        enabled: false
+      liftup_50_50:
+        weight: 46
+        enabled: false
+      liftup_box:
+        weight: 47
+        enabled: false
+      liftup_box_item:
+        weight: 48
+        enabled: false
+      liftup_entity_reference:
+        weight: 49
+        enabled: false
+      liftup_entity_reference_item:
+        weight: 50
+        enabled: false
+      liftup_prominent:
+        weight: 51
+        enabled: false
+      link:
+        weight: 52
+        enabled: false
+      list_of_links:
+        weight: 53
+        enabled: false
+      media:
+        weight: 54
+        enabled: false
+      text:
+        weight: 55
+        enabled: false
+      view:
+        weight: 56
+        enabled: false
+field_type: entity_reference_revisions

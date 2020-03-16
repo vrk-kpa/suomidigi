@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.legislation_card.field_displayed_update_time
     - field.field.node.legislation_card.field_ingress
     - field.field.node.legislation_card.field_lc_attachments
+    - field.field.node.legislation_card.field_lc_internal_vocabularies
+    - field.field.node.legislation_card.field_lc_vocabularies
     - field.field.node.legislation_card.field_legislation_content
     - field.field.node.legislation_card.field_legislation_materials
     - field.field.node.legislation_card.field_legislation_section
@@ -61,6 +63,8 @@ content:
 hidden:
   field_displayed_update_time: true
   field_lc_attachments: true
+  field_lc_internal_vocabularies: true
+  field_lc_vocabularies: true
   field_legislation_section: true
   langcode: true
   published_at: true

@@ -1,0 +1,21 @@
+uuid: 0474f0d5-4b21-437f-bc19-a1eff3740c10
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_lc_vocabularies
+field_name: field_lc_vocabularies
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

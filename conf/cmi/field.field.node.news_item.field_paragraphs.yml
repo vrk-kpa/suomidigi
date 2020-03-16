@@ -17,6 +17,7 @@ dependencies:
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
     - paragraphs.paragraphs_type.view
+    - paragraphs.paragraphs_type.vocabulary
   module:
     - entity_reference_revisions
 id: node.news_item.field_paragraphs
@@ -46,6 +47,7 @@ settings:
       liftup_box_item: liftup_box_item
       liftup_entity_reference_item: liftup_entity_reference_item
       view: view
+      vocabulary: vocabulary
     target_bundles_drag_drop:
       attachment:
         weight: 28
@@ -128,4 +130,7 @@ settings:
       view:
         enabled: true
         weight: 54
+      vocabulary:
+        enabled: true
+        weight: 29
 field_type: entity_reference_revisions
