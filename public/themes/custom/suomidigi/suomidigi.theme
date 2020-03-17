@@ -665,6 +665,7 @@ function suomidigi_preprocess_views_view(&$variables) {
     'articles',
     'profile_own_content',
     'profile_my_bookmarks',
+    'related_content',
   ];
 
   if (in_array($view->id(), $view_ids)) {
