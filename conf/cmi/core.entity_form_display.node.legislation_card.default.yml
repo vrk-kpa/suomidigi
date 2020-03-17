@@ -31,8 +31,8 @@ third_party_settings:
   field_group:
     group_vocabularies:
       children:
-        - field_lc_vocabularies
         - field_lc_internal_vocabularies
+        - field_lc_vocabularies
       parent_name: ''
       weight: 21
       format_type: details
@@ -128,7 +128,7 @@ content:
     region: content
   field_lc_vocabularies:
     type: paragraphs
-    weight: 22
+    weight: 24
     region: content
     settings:
       title: Paragraph

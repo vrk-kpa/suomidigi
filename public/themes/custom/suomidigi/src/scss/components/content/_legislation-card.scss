@@ -113,6 +113,12 @@
   }
 }
 
+.legislation-card__vocabularies,
+.legislation-card__vocabularies--external {
+  .icon {
+    max-height: $gutter * 2.4;
+  }
+}
 .legislation-card__link {
   margin-bottom: $gutter;
 }

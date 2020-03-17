@@ -62,14 +62,14 @@
         {{ content.field_attachments }}
       </div>
     {% endif %}
-    {% if content.field_lc_vocabularies|render %}
-      <div class="legislation-card__vocabularies--external">
-        {{ content.field_lc_vocabularies }}
-      </div>
-    {% endif %}
     {% if content.field_lc_internal_vocabularies|render %}
       <div class="legislation-card__vocabularies">
         {{ content.field_lc_internal_vocabularies }}
+      </div>
+    {% endif %}
+    {% if content.field_lc_vocabularies|render %}
+      <div class="legislation-card__vocabularies--external">
+        {{ content.field_lc_vocabularies }}
       </div>
     {% endif %}
   </div>
