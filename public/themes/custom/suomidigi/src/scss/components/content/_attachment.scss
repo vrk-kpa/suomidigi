@@ -4,6 +4,7 @@
   border-radius: $gutter / 3;
   box-shadow: 2px 2px 10px #00000033;
   height: 100%;
+  margin-bottom: $gutter;
   padding: $gutter;
   width: 100%;
 
@@ -39,7 +40,7 @@
   &__file-type {
     @include font-size(18px, 26px);
     @include font-weight($regular);
-    color: $gray-dark;
+    color: $gray;
     margin-bottom: 0;
     text-transform: uppercase;
   }
@@ -49,12 +50,11 @@
     text-decoration: none;
 
     &:hover {
-      .attachment-teaser__title {
+      .attachment-teaser__title,
+      .attachment-teaser__icon .icon,
+      .attachment-teaser__file-type {
         color: $black;
         text-decoration: underline;
-      }
-      .attachment-teaser__icon .icon {
-        color: $black;
       }
     }
   }

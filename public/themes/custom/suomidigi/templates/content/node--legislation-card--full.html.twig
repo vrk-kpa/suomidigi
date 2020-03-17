@@ -43,6 +43,11 @@
         {{ content.field_legislation_content }}
       </div>
     {% endif %}
+    {% if content.field_lc_attachments|render %}
+      <div class="legislation-card__support-attachments">
+        {{ content.field_lc_attachments }}
+      </div>
+    {% endif %}
     <div class="legislation-card__data">
       <span class="legislation-card__modified-text">{{ 'Updated'|trans }}:</span>
       <span class="legislation-card__modified-date">{{ node.getChangedTime()|date('j.n.Y') }}</span>
