@@ -12,7 +12,7 @@ id: node.legislation_card.field_lc_internal_vocabularies
 field_name: field_lc_internal_vocabularies
 entity_type: node
 bundle: legislation_card
-label: 'Internal vocabularies'
+label: Vocabulary
 description: ''
 required: false
 translatable: false
