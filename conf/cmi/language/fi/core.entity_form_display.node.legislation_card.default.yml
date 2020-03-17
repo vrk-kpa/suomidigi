@@ -2,5 +2,5 @@ third_party_settings:
   field_group:
     group_vocabularies:
       format_settings:
-        description: 'Voit lisätä linkkejä ulkoisiin sanastoihin sekä "sana ja sanan merkitys" -sanastoja.'
+        description: 'Voit lisätä "sana ja sanan merkitys" -sanaston sekä linkkejä ulkoisiin sanastoihin.'
       label: Sanastot
