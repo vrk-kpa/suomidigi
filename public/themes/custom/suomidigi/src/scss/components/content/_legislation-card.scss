@@ -66,6 +66,8 @@
   padding: 0 0 $gutter * 2;
 }
 
+.legislation-card__vocabularies,
+.legislation-card__vocabularies--external,
 .legislation-card__attachments,
 .legislation-card__support-attachments {
   padding: 0 0 $gutter * 2;
@@ -73,6 +75,7 @@
   .label__container {
     align-items: center;
     display: flex;
+    margin-bottom: $gutter;
   }
 
   .icon {
@@ -95,8 +98,27 @@
       padding: 0;
     }
   }
+
+  .field--name-field-p-title {
+    @include font-size(18px,27px);
+    @include font-weight($semibold);
+  }
+
+  .field--name-field-p-description {
+    @include font-size(18px,27px);
+    @include font-weight($regular);
+    border-bottom: 1px solid $gray-medium;
+    margin-bottom: $gutter * 1.4;
+    padding-bottom: $gutter * 1.4;
+  }
 }
 
+.legislation-card__vocabularies,
+.legislation-card__vocabularies--external {
+  .icon {
+    max-height: $gutter * 2.4;
+  }
+}
 .legislation-card__link {
   margin-bottom: $gutter;
 }

@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.legislation_card.field_displayed_update_time
     - field.field.node.legislation_card.field_ingress
     - field.field.node.legislation_card.field_lc_attachments
+    - field.field.node.legislation_card.field_lc_internal_vocabularies
+    - field.field.node.legislation_card.field_lc_vocabularies
     - field.field.node.legislation_card.field_legislation_content
     - field.field.node.legislation_card.field_legislation_materials
     - field.field.node.legislation_card.field_legislation_section
@@ -55,6 +57,24 @@ content:
       link: false
     third_party_settings: {  }
     region: content
+  field_lc_internal_vocabularies:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_lc_vocabularies:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
   field_legislation_content:
     weight: 2
     label: hidden
