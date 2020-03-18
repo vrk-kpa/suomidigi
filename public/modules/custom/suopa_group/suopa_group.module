@@ -121,6 +121,7 @@ function suopa_group_entity_operation_alter(array &$operations, EntityInterface 
     ) ||
     !in_array('editor_in_chief', $user->getRoles()) ||
     !in_array('administrator', $user->getRoles()) ||
+    !in_array('group_administrator', $user->getRoles()) ||
     $user->id() !== 1
   ) {
     if (isset($operations['translate'])) {
@@ -280,6 +281,7 @@ function suopa_editorial_preprocess_menu_local_task(&$variables) {
         $user->id() !== $node->getOwnerId()) ||
         !in_array('editor_in_chief', $user->getRoles()) ||
         !in_array('administrator', $user->getRoles()) ||
+        !in_array('group_administrator', $user->getRoles()) ||
         $user->id() !== 1
       ) {
         unset($variables['link']);
