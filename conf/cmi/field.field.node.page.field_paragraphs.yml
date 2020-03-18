@@ -13,6 +13,7 @@ dependencies:
     - paragraphs.paragraphs_type.liftup_50_50
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
+    - paragraphs.paragraphs_type.vocabulary
   module:
     - entity_reference_revisions
 id: node.page.field_paragraphs
@@ -38,6 +39,7 @@ settings:
       legislation_link: legislation_link
       liftup_50_50: liftup_50_50
       hero: hero
+      vocabulary: vocabulary
     target_bundles_drag_drop:
       container:
         weight: -43
@@ -120,4 +122,7 @@ settings:
       list_of_links:
         weight: 49
         enabled: false
+      vocabulary:
+        enabled: true
+        weight: 29
 field_type: entity_reference_revisions

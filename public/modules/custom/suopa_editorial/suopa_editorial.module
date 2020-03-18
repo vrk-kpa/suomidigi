@@ -438,6 +438,7 @@ function suopa_editorial_hide_author_selection_for_specific_roles(&$form, $form_
   if (
     !in_array('editor_in_chief', $currentUser->getRoles()) &&
     !in_array('administrator', $currentUser->getRoles()) &&
+    !in_array('group_administrator', $currentUser->getRoles()) &&
     array_key_exists('field_displayed_author', $form)
   ) {
     $user = User::load($currentUser->id());

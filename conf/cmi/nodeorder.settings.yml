@@ -7,6 +7,7 @@ vocabularies:
   community_domain: false
   feed_type: false
   author: false
+  blog: false
 override_taxonomy_page: true
 show_links_on_node: true
 link_to_ordering_page: true
