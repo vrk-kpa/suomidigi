@@ -1,19 +1,36 @@
 <?php
 
+/**
+ * @file
+ * Contains suopa_user.module.
+ */
+
+/**
+ * Implements hook_user_cancel_methods_alter().
+ *
+ * Removes all other cancel methods and offers one that
+ * moves all deleted user content to uid 1.
+ */
 function suopa_user_user_cancel_methods_alter(&$methods) {
   $account = \Drupal::currentUser();
-  // Clear all other methods
-  $methods = array();
+  // Clear all other methods.
+  $methods = [];
   $methods['suopa_user_content_to_admin'] = [
-  'title' => t('Delete the account and move content to Administrator.'),
-  'description' => t('All content of user will be owned by Administrator (UID=1) user.'),
-  // access should be used for administrative methods only.
-  'access' => $account
-  ->hasPermission('administer users'),
+    'title' => t('Delete the account and move content to Administrator.'),
+    'description' => t('All content of user will be owned by Administrator (UID=1) user.'),
+    // Access should be used for administrative methods only.
+    'access' => $account
+      ->hasPermission('administer users'),
   ];
 }
 
+/**
+ * Implements hook_user_cancel().
+ *
+ * Moves all deleted user content to uid 1.
+ */
 function suopa_user_user_cancel($edit, $account, $method) {
+  $logger = \Drupal::logger('user');
   switch ($method) {
     case 'suopa_user_content_to_admin':
       // Move nodes to administrator (current revisions).
@@ -35,6 +52,6 @@ function suopa_user_user_cancel($edit, $account, $method) {
         ->condition('uid', $account
           ->id())
         ->execute();
-      break;
   }
 }
+
