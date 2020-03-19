@@ -5,6 +5,9 @@
  * Contains suopa_user.module.
  */
 
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
 /**
  * Implements hook_user_cancel_methods_alter().
  *
@@ -12,45 +15,51 @@
  * moves all deleted user content to uid 1.
  */
 function suopa_user_user_cancel_methods_alter(&$methods) {
-  $account = \Drupal::currentUser();
-  // Clear all other methods.
-  $methods = [];
-  $methods['suopa_user_content_to_admin'] = [
-    'title' => t('Delete the account and move content to Administrator.'),
-    'description' => t('All content of user will be owned by Administrator (UID=1) user.'),
-    // Access should be used for administrative methods only.
-    'access' => $account
-      ->hasPermission('administer users'),
-  ];
+  foreach ($methods as $method => &$values) {
+    if ($method == 'user_cancel_delete') {
+      $values['title'] = t('Delete the account and move content to Administrator.');
+      $values['description'] = t('All content of user will be owned by Administrator (UID=1) user.');
+      // Access should be used for administrative methods only.
+      $values['access'] = \Drupal::currentUser()->hasPermission('administer users');
+    }
+    else {
+      $values['access'] = FALSE;
+    }
+  }
 }
 
 /**
- * Implements hook_user_cancel().
- *
- * Moves all deleted user content to uid 1.
+ * Implements hook_form_FORM_ID_alter().
  */
-function suopa_user_user_cancel($edit, $account, $method) {
-  $logger = \Drupal::logger('user');
-  switch ($method) {
-    case 'suopa_user_content_to_admin':
-      // Move nodes to administrator (current revisions).
-      module_load_include('inc', 'node', 'node.admin');
-      $nodes = \Drupal::entityQuery('node')
-        ->condition('uid', $account
-          ->id())
-        ->execute();
-      node_mass_update($nodes, [
-        'uid' => 1,
-      ], NULL, TRUE);
+function suopa_user_form_user_cancel_form_alter(&$form, &$form_state, $form_id) {
+  $form['user_cancel_confirm']['#access'] = FALSE;
+}
 
-      // Move old version of nodes to administrator.
-      \Drupal::database()
-        ->update('node_field_revision')
-        ->fields([
-          'uid' => 1,
-        ])
-        ->condition('uid', $account
-          ->id())
-        ->execute();
+/**
+ * Implements hook_user_predelete().
+ *
+ * Move all deleted user content to UID 1.
+ *
+ * {@inheritDoc}
+ */
+function suopa_user_user_predelete(EntityInterface $entity) {
+  if ($entity->getEntityType()->id() == 'user') {
+    // Move nodes to administrator (current revisions).
+    \Drupal::moduleHandler()->loadInclude('node', 'inc', 'node.admin');
+    $uid = $entity->id();
+    $nodes = \Drupal::entityQuery('node')->condition('uid', $uid)->execute();
+
+    if (!empty($nodes)) {
+      node_mass_update($nodes, ['uid' => 1], NULL, TRUE);
+      \Drupal::database()->update('node_field_revision')->fields(['uid' => 1])->condition('uid', $uid)->execute();
+
+      $message = new TranslatableMarkup('All nodes created by (UID @uid) @name have been assigned to (UID 1) Administrator. Node IDs: @nodes', [
+        '@uid' => $uid,
+        '@name' => $entity->getAccountName(),
+        '@nodes' => implode(', ', $nodes),
+      ]);
+      \Drupal::messenger()->addMessage($message);
+      \Drupal::logger('user')->info($message);
+    }
   }
 }
