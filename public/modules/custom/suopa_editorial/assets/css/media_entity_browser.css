@@ -47,3 +47,34 @@
   padding: 20px 20px 0;
 }
 
+.paragraph-type--attachment .entities-list .item-container {
+  display: inline-block;
+  margin: 10px 10px 15px;
+  vertical-align: text-bottom;
+  max-width: 200px;
+  border: 1px solid silver;
+  padding: 15px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.paragraph-type--attachment .entities-list .item-container > img,
+.paragraph-type--attachment .entities-list .item-container > input {
+  display: block;
+  margin: 10px auto 0;
+}
+
+.paragraph-type--attachment .entities-list.sortable .item-container:hover {
+  cursor: move;
+  opacity: 0.6;
+}
+
+.paragraph-type--attachment .entities-list .rendered-entity {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.paragraph-type--attachment .entities-list.hidden {
+  display: none;
+}
+

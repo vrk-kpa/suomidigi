@@ -24,13 +24,13 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0, icons_path) }}
 
-{% macro menu_links(items, attributes, menu_level) %}
+{% macro menu_links(items, attributes, menu_level, icons_path) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-<ul{{ attributes.addClass('menu') }}>
+<ul{{ attributes.addClass('menu').addClass('menu--visible') }}>
   {% else %}
   <ul>
     {% endif %}
@@ -50,6 +50,24 @@
         {% endif %}
       </li>
     {% endfor %}
+    <li class="menu--leftover is-hidden" data-width="50">
+      <button
+        class="menu--leftover__button"
+        aria-expanded="false"
+        aria-controls="menu-leftover-dropdown"
+        aria-haspopup="menu"
+        data-width="140"
+        aria-label="{{ 'Show more links'|t }}">
+        {% if icons_path %}
+          <svg class="icon icon--three-dots">
+            <title>{{ 'More'|t }}</title>
+            <use xlink:href="{{ icons_path|trim }}#three-dots" />
+          </svg>
+        {% endif %}
+        {{ 'More'|t }}
+      </button>
+      <ul id="menu-leftover-dropdown" class="menu--leftover__wrapper"></ul>
+    </li>
   </ul>
   {% endif %}
-  {% endmacro %}
+{% endmacro %}

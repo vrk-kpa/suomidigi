@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.attachment.field_accessibility_required
     - field.field.media.attachment.field_liftup_image
     - field.field.media.attachment.field_media_file
     - media.type.attachment
@@ -13,8 +14,15 @@ targetEntityType: media
 bundle: attachment
 mode: default
 content:
+  field_accessibility_required:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_media_file:
-    weight: 1
+    weight: 2
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
@@ -22,14 +30,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 2
+    weight: 3
     region: content
     settings:
       include_locked: false
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60

@@ -38,6 +38,7 @@ settings:
       liftup_50_50: liftup_50_50
       legislation_link: legislation_link
       hero: hero
+      vocabulary: vocabulary
     target_bundles_drag_drop:
       container:
         weight: -31
@@ -120,4 +121,7 @@ settings:
       list_of_links:
         weight: 49
         enabled: false
+      vocabulary:
+        enabled: true
+        weight: 29
 field_type: entity_reference_revisions

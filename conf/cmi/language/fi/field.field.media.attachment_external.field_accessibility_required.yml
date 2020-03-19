@@ -1,0 +1,5 @@
+label: 'Vakuutan, että lisäämäni tiedosto täyttää Euroopan parlamentin ja neuvoston direktiivin (2016/2102) saavutettavuudesta.'
+description: 'Lisätietoja saavutettavuudesta ja saavutettavien tiedostojen tekemisestä löydät osoitteesta <a href="https://saavutettavuusvaatimukset.fi">https://saavutettavuusvaatimukset.fi</a>'
+settings:
+  on_label: Kyllä
+  off_label: Ei

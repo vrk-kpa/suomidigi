@@ -1,0 +1,23 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: $gutter * 3 0 $gutter * 2 0;
+
+  .tag a {
+    @include font-size(14px, 24px);
+    @include font-weight($regular);
+    background-color: $white;
+    border: 1px solid $gray-light;
+    border-radius: $gutter / 3;
+    color: $blue-light;
+    display: block;
+    margin: 0 $gutter $gutter 0;
+    padding: $gutter / 3 $gutter;
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+      background-color: #F1F6FA;
+    }
+  }
+}

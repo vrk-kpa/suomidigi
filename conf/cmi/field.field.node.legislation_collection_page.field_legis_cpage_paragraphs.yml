@@ -42,6 +42,7 @@ settings:
       liftup_50_50: liftup_50_50
       group_view: group_view
       hero: hero
+      vocabulary: vocabulary
     target_bundles_drag_drop:
       container:
         weight: -41
@@ -124,4 +125,7 @@ settings:
       list_of_links:
         weight: 49
         enabled: false
+      vocabulary:
+        enabled: true
+        weight: 29
 field_type: entity_reference_revisions
