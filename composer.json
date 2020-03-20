@@ -187,9 +187,6 @@
             },
             "drupal/svg_image": {
                 "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"
-            },
-            "drupal/views_infinite_scroll": {
-                "https://www.drupal.org/project/views_infinite_scroll/issues/2877652": "https://www.drupal.org/files/issues/2019-07-30/fix_views_infinite_scroll_pager_when_multi_views_on_single_page.patch"
             }
         },
         "hooks": {
