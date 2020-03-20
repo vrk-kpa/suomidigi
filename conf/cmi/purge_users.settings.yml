@@ -20,7 +20,7 @@ purge_users_roles:
   group_administrator: 0
   groups_administrator: 0
   user_administrator: 0
-purge_on_cron: 0
+purge_on_cron: 1
 inactive_user_notify_text: "Dear User, \r\n\r\nYour account has been deleted due the website’s policy to automatically remove users who match certain criteria. If you have concerns regarding the deletion, please talk to the administrator of the website. \r\n\r\nThank you"
 send_email_notification: 0
 purge_user_cancel_method: user_cancel_delete
