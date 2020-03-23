@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_cards
     - paragraphs.paragraphs_type.legislation_link
+    - paragraphs.paragraphs_type.liftup_box
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
     - paragraphs.paragraphs_type.vocabulary
@@ -32,6 +33,7 @@ settings:
   handler_settings:
     negate: 1
     target_bundles:
+      liftup_box: liftup_box
       liftup_box_item: liftup_box_item
       liftup_entity_reference_item: liftup_entity_reference_item
       highlight_bullet_point_item: highlight_bullet_point_item
@@ -62,8 +64,8 @@ settings:
         weight: -26
         enabled: false
       liftup_box:
+        enabled: true
         weight: -25
-        enabled: false
       liftup_box_item:
         enabled: true
         weight: -24
@@ -94,12 +96,12 @@ settings:
       banner_cta:
         weight: 23
         enabled: false
-      feed:
-        weight: 26
-        enabled: false
       legislation_attachment:
         enabled: true
         weight: 26
+      feed:
+        weight: 26
+        enabled: false
       contact_information:
         weight: 27
         enabled: false
