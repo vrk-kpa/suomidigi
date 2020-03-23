@@ -22,7 +22,7 @@ lint-js: ## Check code style for JS files
 PHONY += lint-php
 lint-php: ## Check code style for PHP files
 	$(call step,Check code style for PHP files...)
-	@docker run --rm -it $(subst $(space),'',$(LINT_PATHS_PHP)) druidfi/drupal-qa:$(DRUPAL_VERSION) bash -c "phpcs -n ."
+	@docker run --rm $(subst $(space),'',$(LINT_PATHS_PHP)) druidfi/drupal-qa:$(DRUPAL_VERSION) bash -c "phpcs -n ."
 	$(call test_result,lint-php,"[OK]")
 
 PHONY += test
