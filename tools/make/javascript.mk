@@ -1,4 +1,4 @@
-ifeq (${PACKAGE_JSON_EXISTS},yes)
+ifeq ($(PACKAGE_JSON_EXISTS),yes)
 	BUILD_TARGETS += node_modules
 endif
 
