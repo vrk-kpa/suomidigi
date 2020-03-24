@@ -13,8 +13,10 @@ dependencies:
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_link
     - paragraphs.paragraphs_type.liftup_50_50
+    - paragraphs.paragraphs_type.liftup_box
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
+    - paragraphs.paragraphs_type.vocabulary
   module:
     - entity_reference_revisions
 id: node.legislation_collection_page.field_legis_cpage_paragraphs
@@ -32,17 +34,18 @@ settings:
   handler_settings:
     negate: 1
     target_bundles:
+      liftup_box: liftup_box
       liftup_box_item: liftup_box_item
       liftup_entity_reference_item: liftup_entity_reference_item
       highlight_bullet_point_item: highlight_bullet_point_item
       legislation_attachment: legislation_attachment
       legislation_link: legislation_link
       contact_information: contact_information
-      contact_information_item: contact_information_item
       liftup_50_50: liftup_50_50
+      contact_information_item: contact_information_item
+      vocabulary: vocabulary
       group_view: group_view
       hero: hero
-      vocabulary: vocabulary
     target_bundles_drag_drop:
       container:
         weight: -41
@@ -63,8 +66,8 @@ settings:
         weight: -36
         enabled: false
       liftup_box:
+        enabled: true
         weight: -35
-        enabled: false
       liftup_box_item:
         enabled: true
         weight: -34
@@ -110,12 +113,15 @@ settings:
       contact_information:
         enabled: true
         weight: 27
-      contact_information_item:
-        enabled: true
-        weight: 28
       liftup_50_50:
         enabled: true
         weight: 28
+      contact_information_item:
+        enabled: true
+        weight: 28
+      vocabulary:
+        enabled: true
+        weight: 29
       group_view:
         enabled: true
         weight: 32
@@ -125,7 +131,4 @@ settings:
       list_of_links:
         weight: 49
         enabled: false
-      vocabulary:
-        enabled: true
-        weight: 29
 field_type: entity_reference_revisions
