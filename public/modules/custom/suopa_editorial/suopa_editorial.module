@@ -230,7 +230,7 @@ function suopa_editorial_field_widget_form_alter(&$element, &$form_state, $conte
   if (
     in_array('authenticated', $currentUser->getRoles()) &&
     count($currentUser->getRoles()) == 1 &&
-    $currentUser->id() !== 1
+    (int) $currentUser->id() !== 1
   ) {
     // Convert field header image media entity browser to media image adder for
     // authenticated users.
@@ -264,7 +264,7 @@ function suopa_editorial_field_widget_form_container_alter(&$element, &$form_sta
   if (
     in_array('authenticated', $currentUser->getRoles()) &&
     count($currentUser->getRoles()) == 1 &&
-    $currentUser->id() !== 1
+    (int) $currentUser->id() !== 1
   ) {
     // Show only text and image paragraphs for the authenticated user.
     if (
@@ -461,7 +461,7 @@ function suopa_editorial_hide_author_selection_for_specific_roles(&$form, $form_
       if (
         in_array('authenticated', $currentUser->getRoles()) &&
         count($currentUser->getRoles()) == 1 &&
-        $currentUser->id() !== 1
+        (int) $currentUser->id() !== 1
       ) {
         $form['revision_information']['#access'] = FALSE;
       }
@@ -567,6 +567,11 @@ function suopa_editorial_field_widget_paragraphs_form_alter(&$element, &$form_st
       ],
     ];
   }
+
+  // Add styles for media entity browser.
+  if ($element['#paragraph_type'] == 'attachment') {
+    $element['#attached']['library'][] = 'suopa_editorial/media-entity-browser';
+  }
 }
 
 /**
@@ -578,4 +583,61 @@ function suopa_editorial_field_widget_paragraphs_form_alter(&$element, &$form_st
 function suopa_editorial_user_insert($account) {
   $author_service = \Drupal::service('suopa_editorial.apply_author');
   $author_service->createReference($account);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alter media attachments form to hide fields if "accessibility required" field
+ * is not checked.
+ */
+function suopa_editorial_form_media_form_alter(&$form, &$form_state, $form_id) {
+  if (array_key_exists('field_accessibility_required', $form)) {
+    suopa_editorial_prevent_access_for_attachments($form, $form_state);
+  }
+}
+
+/**
+ * Implements hook_inline_entity_form_entity_form_alter().
+ *
+ * Alter media attachments form to hide fields if "accessibility required" field
+ * is not checked.
+ */
+function suopa_editorial_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  if (array_key_exists('field_accessibility_required', $entity_form)) {
+    suopa_editorial_prevent_access_for_attachments($entity_form, $form_state, TRUE);
+  }
+}
+
+/**
+ * Helper function to hide attachment fields if required field is not checked.
+ *
+ * @param array $form
+ *   Form.
+ * @param array|object $form_state
+ *   Form state.
+ * @param bool $inline
+ *   A boolean which indicates if the required field is in inline form.
+ */
+function suopa_editorial_prevent_access_for_attachments(array &$form, &$form_state, $inline = FALSE) {
+  $affected_fields = [
+    'field_media_externalfile',
+    'field_media_file',
+    'name',
+    'langcode',
+  ];
+
+  $input = $inline
+    ? 'input[name="inline_entity_form[field_accessibility_required][value]"]'
+    : 'input[name="field_accessibility_required[value]"]';
+
+  foreach ($affected_fields as $field) {
+    if (array_key_exists($field, $form)) {
+      $form[$field]['#states'] = [
+        'enabled' => [
+          $input => ['checked' => TRUE],
+        ],
+      ];
+    }
+  }
 }

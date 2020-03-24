@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_attachments
     - node.type.legislation_card
-    - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.list_of_links
   module:
     - entity_reference_revisions
@@ -24,18 +23,17 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      legislation_attachment: legislation_attachment
       list_of_links: list_of_links
     target_bundles_drag_drop:
       attachment:
         weight: 16
         enabled: false
+      legislation_attachment:
+        weight: 17
+        enabled: false
       container:
         weight: 17
         enabled: false
-      legislation_attachment:
-        enabled: true
-        weight: 17
       container_title:
         weight: 18
         enabled: false
@@ -63,10 +61,10 @@ settings:
       liftup_entity_reference_item:
         weight: 26
         enabled: false
-      legislation_cards:
+      liftup_prominent:
         weight: 27
         enabled: false
-      liftup_prominent:
+      legislation_cards:
         weight: 27
         enabled: false
       link:
@@ -107,5 +105,8 @@ settings:
         weight: 51
       view:
         weight: 54
+        enabled: false
+      vocabulary:
+        weight: 56
         enabled: false
 field_type: entity_reference_revisions

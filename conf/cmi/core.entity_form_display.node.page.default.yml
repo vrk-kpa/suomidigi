@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.page.field_tags
     - node.type.page
   module:
+    - content_moderation
     - datetime
     - entity_browser
     - hide_revision_field
@@ -41,6 +42,7 @@ content:
       width: 100%
       autocomplete: true
       match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -108,8 +110,9 @@ content:
     weight: 2
     settings:
       width: 400px
-      match_operator: CONTAINS
-      autocomplete: false
+      autocomplete: true
+      match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -119,6 +122,12 @@ content:
     region: content
     settings:
       include_locked: false
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path

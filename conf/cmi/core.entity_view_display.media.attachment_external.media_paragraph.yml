@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.media_paragraph
+    - field.field.media.attachment_external.field_accessibility_required
     - field.field.media.attachment_external.field_liftup_image
     - field.field.media.attachment_external.field_media_externalfile
     - media.type.attachment_external
@@ -39,6 +40,8 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_accessibility_required: true
   langcode: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

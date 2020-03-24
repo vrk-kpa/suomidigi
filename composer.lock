@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2ce9323c72caa5fc2bdd4e98ba698f4",
+    "content-hash": "277bf3f99431c3a07dbdb91d0988935e",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1383,6 +1383,23 @@
             "time": "2017-01-20T21:14:22+00:00"
         },
         {
+            "name": "dimsemenov/magnific-popup",
+            "version": "1.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/dimsemenov/Magnific-Popup/archive/1.1.0.zip",
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "magnific-popup"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Light and responsive lightbox script with focus on performance.",
+            "homepage": "http://dimsemenov.com/plugins/magnific-popup/",
+            "time": "2016-02-20T09:06:30+00:00"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
             "source": {
@@ -2260,7 +2277,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.27",
-                    "datestamp": "1558553350",
+                    "datestamp": "1558552081",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4142,7 +4159,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.3",
-                    "datestamp": "1581709967",
+                    "datestamp": "1575649087",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4653,6 +4670,69 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/linkit",
                 "issues": "http://drupal.org/project/linkit"
+            }
+        },
+        {
+            "name": "drupal/magnific_popup",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/magnific_popup.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/magnific_popup-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "87c464367dd30dbe063f9cec9fc2e34f8e7b3c17"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1539249780",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Eric115",
+                    "homepage": "https://www.drupal.org/user/2877061"
+                },
+                {
+                    "name": "LUWebDev",
+                    "homepage": "https://www.drupal.org/user/1576604"
+                },
+                {
+                    "name": "jay.dansand",
+                    "homepage": "https://www.drupal.org/user/799552"
+                },
+                {
+                    "name": "nackersa",
+                    "homepage": "https://www.drupal.org/user/1558486"
+                },
+                {
+                    "name": "willardb",
+                    "homepage": "https://www.drupal.org/user/1576540"
+                }
+            ],
+            "description": "Provides Magnific Popup formatter for File Entity and Image fields.",
+            "homepage": "https://www.drupal.org/project/magnific_popup",
+            "support": {
+                "source": "https://git.drupalcode.org/project/magnific_popup"
             }
         },
         {
@@ -5177,7 +5257,7 @@
                 "shasum": "06390b359bf53c50a30f2d6dc4c7542bfb1fe7ca"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^8.3",
                 "drupal/migrate_plus": "^4 || ^5"
             },
             "require-dev": {
@@ -6048,7 +6128,7 @@
                 "shasum": "f5e02603165866af5c1a2fbb7e78368b55560484"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "~8.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -6778,6 +6858,81 @@
             }
         },
         {
+            "name": "drupal/stage_file_proxy",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/stage_file_proxy.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "f101a07e0096f476c91cf23137469a5c5c18e2df"
+            },
+            "require": {
+                "drupal/core": ">=8.7.7"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1580492032",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "BarisW",
+                    "homepage": "https://www.drupal.org/user/107229"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "greggles",
+                    "homepage": "https://www.drupal.org/user/36762"
+                },
+                {
+                    "name": "markdorison",
+                    "homepage": "https://www.drupal.org/user/346106"
+                },
+                {
+                    "name": "moshe weitzman",
+                    "homepage": "https://www.drupal.org/user/23"
+                },
+                {
+                    "name": "msonnabaum",
+                    "homepage": "https://www.drupal.org/user/75278"
+                },
+                {
+                    "name": "netaustin",
+                    "homepage": "https://www.drupal.org/user/199298"
+                },
+                {
+                    "name": "robwilmshurst",
+                    "homepage": "https://www.drupal.org/user/144488"
+                }
+            ],
+            "description": "Provides stage_file_proxy module.",
+            "homepage": "https://www.drupal.org/project/stage_file_proxy",
+            "support": {
+                "source": "https://git.drupalcode.org/project/stage_file_proxy"
+            }
+        },
+        {
             "name": "drupal/svg_image",
             "version": "1.9.0",
             "source": {
@@ -7075,6 +7230,66 @@
             }
         },
         {
+            "name": "drupal/tvi",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/tvi.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/tvi-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "d957687d8449b198dbec115b00b5828624899757"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1507753443",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Quillen (kevinquillen)",
+                    "homepage": "https://www.drupal.org/u/kevinquillen",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "derekwebb1",
+                    "homepage": "https://www.drupal.org/user/64114"
+                },
+                {
+                    "name": "kevinquillen",
+                    "homepage": "https://www.drupal.org/user/317279"
+                }
+            ],
+            "description": "Enables you to change the presentation of taxonomy term pages with Views, allowing you to create multiple Views on the same path with different output.",
+            "homepage": "http://drupal.org/project/tvi",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/tvi",
+                "issues": "http://drupal.org/project/issues/tvi"
+            }
+        },
+        {
             "name": "drupal/twig_tweak",
             "version": "2.5.0",
             "source": {
@@ -7271,7 +7486,8 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
-                }
+                },
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -11756,7 +11972,7 @@
             "time": "2019-12-10T11:53:27+00:00"
         },
         {
-            "name": "w8tcha/ckeditor-wordcount-plugin",
+            "name": "w8tcha/CKEditor-WordCount-Plugin",
             "version": "1.17.6",
             "dist": {
                 "type": "zip",
@@ -15129,9 +15345,11 @@
         "drupal/daterange_compact": 20,
         "drupal/flag": 10,
         "drupal/nodeorder": 10,
+        "drupal/rabbit_hole": 10,
         "drupal/roleassign": 20,
         "drupal/scheduler": 20,
-        "drupal/swiftmailer": 10
+        "drupal/swiftmailer": 10,
+        "drupal/tvi": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
