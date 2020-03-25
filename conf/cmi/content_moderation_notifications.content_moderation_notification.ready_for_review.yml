@@ -1,0 +1,17 @@
+uuid: 15903ee5-873d-465a-95d0-8d4eb3ca8319
+langcode: en
+status: true
+dependencies: {  }
+id: ready_for_review
+workflow: copn
+transitions:
+  ready_for_review: ready_for_review
+roles:
+  editor_in_chief: editor_in_chief
+author: false
+emails: markus@druid.fi
+subject: 'Uusi tarkastettava sisältö'
+body:
+  value: "<p>Hei,</p>\r\n\r\n<p>uusi tarkastettava sisältö on luotu. Voit tarkastella moderoitavia sisältöjä osoitteessa <a href=\"[site:url]/admin/content/moderated\">[site:url]/admin/content/moderated</a>.</p>\r\n"
+  format: full_html
+label: 'Ready for review'
