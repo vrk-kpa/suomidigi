@@ -12,6 +12,6 @@ author: false
 emails: markus@druid.fi
 subject: 'Uusi tarkastettava sisältö'
 body:
-  value: "<p>Hei,</p>\r\n\r\n<p>uusi tarkastettava sisältö on luotu. Voit tarkastella moderoitavia sisältöjä osoitteessa <a href=\"[site:url]/admin/content/moderated\">[site:url]/admin/content/moderated</a>.</p>\r\n"
+  value: "<p>Hei,</p>\r\n\r\n<p>Suomidigi-sivustolla oleva sisältö odottaa julkaisua.</p><p>Voit tarkastella moderoitavia sisältöjä osoitteessa <a href=\"[site:url]/admin/content/moderated\">[site:url]/admin/content/moderated</a>.</p>\r\n"
   format: full_html
 label: 'Ready for review'
