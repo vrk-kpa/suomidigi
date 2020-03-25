@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01de360d0ac9b84d04cebc8908ce7927",
+    "content-hash": "a448c7519e39a251ee7e2980b87ad73f",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1388,7 +1388,8 @@
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/dimsemenov/Magnific-Popup/archive/1.1.0.zip",
-                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae"
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae",
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -2018,20 +2019,6 @@
                 "odm",
                 "orm",
                 "persistence"
-            ],
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fpersistence",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-03-21T15:13:52+00:00"
         },
@@ -3091,7 +3078,9 @@
                     "https://www.drupal.org/project/drupal/issues/3045648": "https://www.drupal.org/files/issues/2019-04-23/3045648-17-do-not-test.patch",
                     "https://www.drupal.org/project/drupal/issues/2946750": "https://www.drupal.org/files/issues/2019-03-22/2946750-19.patch",
                     "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
-                    "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch"
+                    "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
+                    "https://www.drupal.org/project/drupal/issues/3013435": "https://www.drupal.org/files/issues/2020-01-08/drupal-locale-prepare-directory-3013435-15.patch",
+                    "Remove node_user_predelete() hook to prevent deletion of nodes when deleting a user account.": "patches/remove_node_user_predelete_hook.patch"
                 }
             },
             "autoload": {
@@ -8387,7 +8376,9 @@
             "version": "0.3.3",
             "dist": {
                 "type": "zip",
-                "url": "https://fgelinas.com/code/timepicker/releases/jquery-ui-timepicker-0.3.3.zip"
+                "url": "https://fgelinas.com/code/timepicker/releases/jquery-ui-timepicker-0.3.3.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -9004,7 +8995,9 @@
             "version": "1.11.15",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
+                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -9840,20 +9833,6 @@
                 "x.509",
                 "x509"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-03-13T04:15:39+00:00"
         },
         {
@@ -10166,7 +10145,9 @@
             "version": "4.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip"
+                "url": "https://github.com/select2/select2/archive/4.0.7.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -10178,7 +10159,9 @@
             "version": "1.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
+                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -11933,7 +11916,9 @@
             "version": "1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip"
+                "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -12059,7 +12044,9 @@
             "version": "1.17.6",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip"
+                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip",
+                "reference": null,
+                "shasum": null
             },
             "type": "drupal-library",
             "extra": {
@@ -15441,6 +15428,5 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.1.12"
-    },
-    "plugin-api-version": "1.1.0"
+    }
 }

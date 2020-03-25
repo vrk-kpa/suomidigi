@@ -36,8 +36,6 @@ permissions:
   - 'administer redirects'
   - 'administer taxonomy'
   - 'administer url aliases'
-  - 'administer users'
-  - 'assign roles'
   - 'change own username'
   - 'create article content'
   - 'create attachment media'

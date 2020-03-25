@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: vocabulary
-label: Vocabulary
+label: Word
 icon_uuid: null
 icon_default: null
-description: 'Use this paragraph type to create vocabularies'
+description: 'Use this paragraph type to create new word explanations'
 behavior_plugins: {  }

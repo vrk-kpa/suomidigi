@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Contains suopa_user.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_user_cancel_methods_alter().
+ *
+ * Removes all other cancel methods and offers one that
+ * moves all deleted user content to uid 1.
+ */
+function suopa_user_user_cancel_methods_alter(&$methods) {
+  foreach ($methods as $method => &$values) {
+    if ($method == 'user_cancel_delete') {
+      $values['title'] = t('Delete the account and move content to Administrator.');
+      $values['description'] = t('All content of user will be owned by Administrator (UID=1) user.');
+      // Access should be used for administrative methods only.
+      $values['access'] = \Drupal::currentUser()->hasPermission('administer users');
+    }
+    else {
+      $values['access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function suopa_user_form_user_cancel_form_alter(&$form, &$form_state, $form_id) {
+  $form['user_cancel_confirm']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_user_predelete().
+ *
+ * Move all deleted user content to UID 1.
+ *
+ * {@inheritDoc}
+ */
+function suopa_user_user_predelete(EntityInterface $entity) {
+  if ($entity->getEntityType()->id() == 'user') {
+    // Move nodes to administrator (current revisions).
+    \Drupal::moduleHandler()->loadInclude('node', 'inc', 'node.admin');
+    $uid = $entity->id();
+    $nodes = \Drupal::entityQuery('node')->condition('uid', $uid)->execute();
+
+    if (!empty($nodes)) {
+      node_mass_update($nodes, ['uid' => 1], NULL, TRUE);
+      \Drupal::database()->update('node_field_revision')->fields(['uid' => 1])->condition('uid', $uid)->execute();
+
+      $message = new TranslatableMarkup('All nodes created by (UID @uid) @name have been assigned to (UID 1) Administrator. Node IDs: @nodes', [
+        '@uid' => $uid,
+        '@name' => $entity->getAccountName(),
+        '@nodes' => implode(', ', $nodes),
+      ]);
+      \Drupal::messenger()->addMessage($message);
+      \Drupal::logger('user')->info($message);
+    }
+  }
+}
