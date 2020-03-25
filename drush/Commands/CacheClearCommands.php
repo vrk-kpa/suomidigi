@@ -11,6 +11,7 @@ use Symfony\Component\Process\Process;
  * A drush command file.
  */
 final class CacheClearCommands extends DrushCommands {
+
   /**
    * Re-generate drush aliases.
    *
@@ -20,4 +21,5 @@ final class CacheClearCommands extends DrushCommands {
     $process = new Process(['drush', 'site:alias-convert', '../drush/sites']);
     $process->run();
   }
+
 }
