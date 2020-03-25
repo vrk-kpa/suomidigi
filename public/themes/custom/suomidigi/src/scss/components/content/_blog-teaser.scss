@@ -6,6 +6,14 @@
   height: 100%;
   width: 100%;
 
+  &.is-draft {
+    border-left-color: $red;
+  }
+
+  &.is-review {
+    border-left-color: $green;
+  }
+
   .theme-term__list-item &,
   .group__list & {
     margin-bottom: $gutter * 2;

@@ -154,10 +154,13 @@ function suomidigi_preprocess_node(&$variables) {
   if (!empty($node->get('moderation_state')->getString())) {
     $variables['moderation_state'] = $node->get('moderation_state')->getString();
 
-    if (isset($variables['moderation_state'])) {
+    if (
+      isset($variables['moderation_state']) &&
+      $variables['moderation_state'] !== 'published'
+    ) {
       $configuration = Drupal::config('workflows.workflow.copn')->get('type_settings');
-      if (isset($configuration['states'][$variables['moderation_state']])) {
-        $variables['moderation_state_string'] = $configuration['states'][$variables['moderation_state']];
+      if (isset($configuration['states'][$variables['moderation_state']]['label'])) {
+        $variables['moderation_state_string'] = $configuration['states'][$variables['moderation_state']]['label'];
       }
     }
   }

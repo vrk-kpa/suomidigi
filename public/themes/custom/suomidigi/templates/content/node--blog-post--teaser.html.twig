@@ -19,7 +19,7 @@
 
 <article{{attributes.addClass(classes)}}>
   {% if moderation_state_string %}
-    <div class="blog-teaser__moderation-state">{{ moderation_state_string }}</div>
+    <div class="moderation-state">{{ moderation_state_string }}</div>
   {% endif %}
   <a href="{{ url }}" class="blog-teaser__link">
     {% if content.field_header_image|render %}
