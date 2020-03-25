@@ -29,6 +29,7 @@
         "drupal/cdn": "^3.2",
         "drupal/ckwordcount": "^1.0",
         "drupal/comments_order": "^1.0",
+        "drupal/content_moderation_notifications": "^3.2",
         "drupal/context": "^4.0@beta",
         "drupal/core": "~8.8.2",
         "drupal/daterange_compact": "1.x-dev",
@@ -65,6 +66,7 @@
         "drupal/pathauto": "^1.0",
         "drupal/preview_link": "^1.3",
         "drupal/publication_date": "^2.0",
+        "drupal/purge_users": "^1.9",
         "drupal/rabbit_hole": "^1.0@beta",
         "drupal/rate": "^1.0",
         "drupal/recaptcha": "^2.4",
@@ -155,6 +157,7 @@
                 "https://www.drupal.org/project/drupal/issues/2946750": "https://www.drupal.org/files/issues/2019-03-22/2946750-19.patch",
                 "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
                 "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
+                "https://www.drupal.org/project/drupal/issues/3013435": "https://www.drupal.org/files/issues/2020-01-08/drupal-locale-prepare-directory-3013435-15.patch",
                 "Remove node_user_predelete() hook to prevent deletion of nodes when deleting a user account.": "patches/remove_node_user_predelete_hook.patch"
             },
             "drupal/field_group": {

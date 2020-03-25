@@ -10,3 +10,7 @@ modules:
       formatter: swiftmailer
       sender: swiftmailer
   webform: {  }
+  content_moderation_notifications:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
