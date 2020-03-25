@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba0704a0385e291af5c7a2bc53f77243",
+    "content-hash": "9382f5106760602cdd01ad3a9345b96d",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2693,6 +2693,61 @@
             }
         },
         {
+            "name": "drupal/content_moderation_notifications",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/content_moderation_notifications.git",
+                "reference": "8.x-3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/content_moderation_notifications-8.x-3.2.zip",
+                "reference": "8.x-3.2",
+                "shasum": "8b37b27ec0363e077cc4965b6ddc303d1284cf61"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/token": "^1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.2",
+                    "datestamp": "1577134687",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Holmes",
+                    "homepage": "https://www.drupal.org/user/1774034"
+                },
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                }
+            ],
+            "description": "Manage notifications for content moderation transitions.",
+            "homepage": "https://www.drupal.org/project/content_moderation_notifications",
+            "support": {
+                "source": "https://git.drupalcode.org/project/content_moderation_notifications",
+                "issues": "https://www.drupal.org/project/issues/content_moderation_notifications"
+            }
+        },
+        {
             "name": "drupal/context",
             "version": "4.0.0-beta2",
             "source": {
@@ -3024,6 +3079,7 @@
                     "https://www.drupal.org/project/drupal/issues/2946750": "https://www.drupal.org/files/issues/2019-03-22/2946750-19.patch",
                     "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
                     "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
+                    "https://www.drupal.org/project/drupal/issues/3013435": "https://www.drupal.org/files/issues/2020-01-08/drupal-locale-prepare-directory-3013435-15.patch",
                     "Remove node_user_predelete() hook to prevent deletion of nodes when deleting a user account.": "patches/remove_node_user_predelete_hook.patch"
                 }
             },
