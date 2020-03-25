@@ -6,12 +6,11 @@ id: ready_for_review
 workflow: copn
 transitions:
   ready_for_review: ready_for_review
-roles:
-  editor_in_chief: editor_in_chief
+roles: {  }
 author: false
-emails: markus@druid.fi
+emails: suomidigi@dvv.fi
 subject: 'Uusi tarkastettava sisältö'
 body:
-  value: "<p>Hei,</p>\r\n\r\n<p>Suomidigi-sivustolla oleva sisältö odottaa julkaisua.</p><p>Voit tarkastella moderoitavia sisältöjä osoitteessa <a href=\"[site:url]/admin/content/moderated\">[site:url]/admin/content/moderated</a>.</p>\r\n"
-  format: full_html
+  value: "Hei,\r\n\r\nSuomidigi-sivustolla oleva sisältö odottaa julkaisua.\r\n\r\nVoit tarkastella moderoitavia sisältöjä osoitteessa [site:url]/admin/content/moderated\r\n"
+  format: restricted_html
 label: 'Ready for review'
