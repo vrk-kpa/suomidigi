@@ -15,20 +15,12 @@ bundle: legislation_link
 mode: default
 content:
   field_link_description:
-    weight: 2
+    weight: 1
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-    region: content
-  field_link_destination:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_p_link_required:
     weight: 0
@@ -39,10 +31,11 @@ content:
     type: link_default
     region: content
   translation:
-    weight: 10
+    weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
+  field_link_destination: true
   status: true
