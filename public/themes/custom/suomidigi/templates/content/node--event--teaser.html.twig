@@ -13,10 +13,14 @@
   node.isSticky() ? 'node--sticky',
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  moderation_state ? 'is-' ~ moderation_state|clean_class,
 ]
 %}
 
 <article{{ attributes.addClass(classes) }}>
+  {% if moderation_state_string %}
+    <div class="moderation-state">{{ moderation_state_string }}</div>
+  {% endif %}
   <a href="{{ url }}" class="event-teaser__link">
     <div class="event-teaser__header">
       {% if content.field_event_date_and_time|render %}

@@ -28,7 +28,7 @@ reactions:
         views_label: ''
         items_per_page: none
         region: after_content
-        weight: '-1'
+        weight: '1'
         context_mapping:
           uid: '@user.current_user_context:current_user'
         theme: suomidigi
@@ -44,7 +44,7 @@ reactions:
         views_label: ''
         items_per_page: none
         region: after_content
-        weight: '1'
+        weight: '-1'
         context_mapping: {  }
         theme: suomidigi
         css_class: ''
