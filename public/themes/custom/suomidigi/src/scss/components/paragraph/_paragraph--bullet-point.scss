@@ -20,22 +20,46 @@
     @include font-weight($regular);
     list-style: none;
     margin-bottom: $gutter * 0.75;
-    padding-left: $gutter * 1.5;
+    padding-left: $gutter * 2;
     position: relative;
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    &:before {
-      background-color: $blue-light;
+    &::before {
+      background-color: $cyan;
       border-radius: 100%;
       content: '';
       height: 12px;
-      left: 0;
+      left: 4px;
       position: absolute;
       top: 8px;
       width: 12px;
+    }
+
+    &.icon--minus,
+    &.icon--plus {
+      &::before {
+        background-size: 19px;
+        border-radius: 0;
+        height: 20px;
+        left: 0;
+        top: 4px;
+        width: 20px;
+      }
+    }
+
+    &.icon--plus {
+      &::before {
+        background: white url('../../icons/svg/add-circle.svg') no-repeat 0 0;
+      }
+    }
+
+    &.icon--minus {
+      &:before {
+        background: white url('../../icons/svg/subtract-circle.svg') no-repeat 0 0;
+      }
     }
   }
 }

@@ -336,6 +336,15 @@ function suomidigi_preprocess_paragraph(&$variables) {
         }
       }
       break;
+
+    case 'highlight_bullet_point_item':
+      if (
+        $paragraph->hasField('field_p_bullet_point_style') &&
+        !empty($paragraph->get('field_p_bullet_point_style')->getString())
+      ) {
+        $variables['bullet_style'] = $paragraph->get('field_p_bullet_point_style')->getString();
+      }
+      break;
   }
 }
 
