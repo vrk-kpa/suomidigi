@@ -47,6 +47,8 @@ switch (getenv('HTTP_HOST')) {
     break;
   case 'dev.suomidigi.fi':
   case 'testi.suomidigi.fi':
+  case 'beta.suomidigi.fi':
+  case 'beta.suomidigi.cloud.vrk.fi':
     $settings['simple_environment_indicator'] = '#2a6ebb';
     break;
   default:

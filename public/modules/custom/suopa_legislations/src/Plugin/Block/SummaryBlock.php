@@ -107,10 +107,11 @@ class SummaryBlock extends BlockBase implements ContainerFactoryPluginInterface 
       if (!empty($nid)) {
         $node = $this->entityTypeManager->getStorage('node')->load($nid);
         $url = Url::fromRoute('entity.node.canonical', ['node' => $nid], []);
-
+        $currentLanguage = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $label = $node->hasTranslation($currentLanguage) ? $node->getTranslation($currentLanguage)->getTitle() : $node->label();
         $build = [
           '#theme' => 'suopa_legislations_summary',
-          '#label' => $node->label(),
+          '#label' => $label,
           '#url' => $url,
         ];
       }
