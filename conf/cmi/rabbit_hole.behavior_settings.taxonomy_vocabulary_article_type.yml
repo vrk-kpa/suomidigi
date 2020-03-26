@@ -1,0 +1,11 @@
+uuid: 8a7cf27a-84e2-42d2-beed-f9eff5c859eb
+langcode: fi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.article_type
+id: taxonomy_vocabulary_article_type
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

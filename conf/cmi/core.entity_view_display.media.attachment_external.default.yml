@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.attachment_external.field_accessibility_required
     - field.field.media.attachment_external.field_liftup_image
     - field.field.media.attachment_external.field_media_externalfile
     - image.style.thumbnail
@@ -25,8 +26,10 @@ content:
     region: content
 hidden:
   created: true
+  field_accessibility_required: true
   field_media_externalfile: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

@@ -18,6 +18,7 @@
         "composer/installers": "^1.2",
         "cosenary/instagram": "v2.3",
         "cweagans/composer-patches": "^1.6.5",
+        "dimsemenov/magnific-popup": "^1.1",
         "druidfi/omen": "^0.1.2",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/address": "^1.7",
@@ -50,6 +51,7 @@
         "drupal/key": "^1.8",
         "drupal/link_attributes": "^1.5",
         "drupal/linkit": "^4.3",
+        "drupal/magnific_popup": "^1.4",
         "drupal/media_entity_browser": "^2.0",
         "drupal/menu_block": "^1.4",
         "drupal/menu_block_current_language": "^1.2",
@@ -63,7 +65,7 @@
         "drupal/pathauto": "^1.0",
         "drupal/preview_link": "^1.3",
         "drupal/publication_date": "^2.0",
-        "drupal/rabbit_hole": "^1.0",
+        "drupal/rabbit_hole": "^1.0@beta",
         "drupal/rate": "^1.0",
         "drupal/recaptcha": "^2.4",
         "drupal/redirect": "^1.3",
@@ -80,10 +82,12 @@
         "drupal/social_auth_google": "^2.0",
         "drupal/social_auth_linkedin": "^2.0",
         "drupal/social_media": "^1.3",
+        "drupal/stage_file_proxy": "^1.0",
         "drupal/svg_image": "^1.9",
         "drupal/swiftmailer": "^1.0@beta",
         "drupal/system_status": "^2.0",
         "drupal/timepicker-timepicker": "^1.11",
+        "drupal/tvi": "^1.0@beta",
         "drupal/twig_tweak": "^2.1",
         "drupal/video_embed_dreambroker": "^1.0",
         "drupal/video_embed_field": "^2.1",
@@ -97,13 +101,13 @@
         "drush/drush": "^10.2",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
+        "fgelinas/timepicker": "^0.3.3",
         "google/apiclient": "^2.0",
         "jonthornton/jquery-timepicker": "^1.8.4",
         "nesbot/carbon": "1.9.*",
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4",
         "trentrichardson/jquery-timepicker-addon": "^1.6",
-        "fgelinas/timepicker": "^0.3.3",
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
     "require-dev": {
@@ -149,7 +153,8 @@
                 "https://www.drupal.org/project/drupal/issues/3020387": "https://www.drupal.org/files/issues/2019-01-18/3020387-7.patch",
                 "https://www.drupal.org/project/drupal/issues/3045648": "https://www.drupal.org/files/issues/2019-04-23/3045648-17-do-not-test.patch",
                 "https://www.drupal.org/project/drupal/issues/2946750": "https://www.drupal.org/files/issues/2019-03-22/2946750-19.patch",
-                "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch"
+                "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
+                "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch"
             },
             "drupal/field_group": {
                 "Add title to horizontal tabs on field groups.": "patches/field_group_horizontal_tabs_title.patch"
@@ -182,9 +187,6 @@
             },
             "drupal/svg_image": {
                 "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"
-            },
-            "drupal/views_infinite_scroll": {
-                "https://www.drupal.org/project/views_infinite_scroll/issues/2877652": "https://www.drupal.org/files/issues/2019-07-30/fix_views_infinite_scroll_pager_when_multi_views_on_single_page.patch"
             }
         },
         "hooks": {
@@ -295,6 +297,21 @@
                 },
                 "dist": {
                     "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "dimsemenov/magnific-popup",
+                "version": "1.1.0",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "magnific-popup"
+                },
+                "dist": {
+                    "url": "https://github.com/dimsemenov/Magnific-Popup/archive/1.1.0.zip",
                     "type": "zip"
                 }
             }

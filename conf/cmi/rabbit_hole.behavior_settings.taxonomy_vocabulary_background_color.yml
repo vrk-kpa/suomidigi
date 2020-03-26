@@ -1,0 +1,11 @@
+uuid: fa19f771-1e4f-44e8-8d06-8f065f2204d1
+langcode: fi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.background_color
+id: taxonomy_vocabulary_background_color
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301

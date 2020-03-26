@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_legislation_materials
     - node.type.legislation_card
-    - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_link
     - paragraphs.paragraphs_type.list_of_links
   module:
@@ -26,7 +25,6 @@ settings:
     negate: 0
     target_bundles:
       legislation_link: legislation_link
-      legislation_attachment: legislation_attachment
       list_of_links: list_of_links
     target_bundles_drag_drop:
       legislation_link:
@@ -54,8 +52,8 @@ settings:
         weight: 25
         enabled: false
       legislation_attachment:
-        enabled: true
         weight: 26
+        enabled: false
       liftup_box:
         weight: 27
         enabled: false
@@ -109,5 +107,8 @@ settings:
         weight: 51
       view:
         weight: 54
+        enabled: false
+      vocabulary:
+        weight: 56
         enabled: false
 field_type: entity_reference_revisions

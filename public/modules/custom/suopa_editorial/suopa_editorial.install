@@ -1,11 +1,11 @@
 <?php
 
-use \Drupal\user\Entity\User;
-
 /**
  * @file
  * Install, update and uninstall functions for the SuoPa Editorial module.
  */
+
+use Drupal\user\Entity\User;
 
 /**
  * Create or update author taxonomy term based on user account.
@@ -16,9 +16,8 @@ function suopa_editorial_update_8001() {
   $author_service = \Drupal::service('suopa_editorial.apply_author');
 
   foreach ($uids as $uid) {
-    if (!in_array($uid, [0,1])) {
+    if (!in_array($uid, [0, 1])) {
       $author_service->createOrUpdateExistingAccountReference(User::load($uid));
     }
   }
 }
-

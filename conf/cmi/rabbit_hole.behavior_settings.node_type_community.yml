@@ -1,0 +1,11 @@
+uuid: 3f6ac587-947b-4380-b721-a3bb10895a57
+langcode: fi
+status: true
+dependencies:
+  config:
+    - node.type.community
+id: node_type_community
+action: page_redirect
+allow_override: 1
+redirect: /node/159
+redirect_code: 301

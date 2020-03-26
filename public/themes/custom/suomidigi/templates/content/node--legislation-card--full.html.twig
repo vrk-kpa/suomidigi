@@ -43,6 +43,11 @@
         {{ content.field_legislation_content }}
       </div>
     {% endif %}
+    {% if content.field_lc_attachments|render %}
+      <div class="legislation-card__support-attachments">
+        {{ content.field_lc_attachments }}
+      </div>
+    {% endif %}
     <div class="legislation-card__data">
       <span class="legislation-card__modified-text">{{ 'Updated'|trans }}:</span>
       <span class="legislation-card__modified-date">{{ node.getChangedTime()|date('j.n.Y') }}</span>
@@ -55,6 +60,16 @@
     {% if content.field_attachments|render %}
       <div class="legislation-card__attachments">
         {{ content.field_attachments }}
+      </div>
+    {% endif %}
+    {% if content.field_lc_internal_vocabularies|render %}
+      <div class="legislation-card__vocabularies">
+        {{ content.field_lc_internal_vocabularies }}
+      </div>
+    {% endif %}
+    {% if content.field_lc_vocabularies|render %}
+      <div class="legislation-card__vocabularies--external">
+        {{ content.field_lc_vocabularies }}
       </div>
     {% endif %}
   </div>

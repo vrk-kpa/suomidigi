@@ -80,6 +80,7 @@
       @include font-weight($regular);
       color: $blue-light;
       display: inline-block;
+      margin: 0;
       text-decoration: none;
 
       &:hover,

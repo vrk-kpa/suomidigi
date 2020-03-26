@@ -10,7 +10,7 @@
   var subMenuIconClose = '<svg class="icon"><title>' + Drupal.t("Close menu") + '</title><use xlink:href="' + iconPath +'#chevron-up" /></svg>';
 
   Drupal.behaviors.mobileMainMenu = {
-    attach: function (context, settings) {
+    attach: function (context) {
       $(window).once().on('load', function () {
         var template =
           `${'<header class="page-header__mobile"></header>'}` +
@@ -48,18 +48,18 @@
         $('#moby-menu-profile #block-account-menu-menu').attr('id', 'block-account-menu-moby');
         $('#moby-menu #language-switch-dropdown').attr('id', 'moby-language-switch-dropdown');
 
-        let accountMenuToggleButton = $('.moby-menu__profile .menu--account__button', context);
-        let accountMenuWrapper = $('.moby-menu__profile .menu--account__dropdown', context);
+        var accountMenuToggleButton = $('.moby-menu__profile .menu--account__button', context);
+        var accountMenuWrapper = $('.moby-menu__profile .menu--account__dropdown', context);
 
-        const outsideClickListener = (event) => {
-          let target = $(event.target);
+        var outsideClickListener = (event) => {
+          var target = $(event.target);
           if (!target.closest('.moby-menu__profile .menu--account__dropdown').length && $('.menu--account__dropdown').is(':visible')) {
             handleMobyInteraction(event);
             removeClickListener();
           }
         };
 
-        const removeClickListener = () => {
+        var removeClickListener = () => {
           document.removeEventListener('click', outsideClickListener);
         };
 

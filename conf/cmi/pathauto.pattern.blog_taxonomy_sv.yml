@@ -1,0 +1,34 @@
+uuid: fc86abb4-c6ca-4ff0-80fb-a394b365e2d0
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - language
+    - taxonomy
+id: blog_taxonomy_sv
+label: 'Blog taxonomy - SV'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'bloggar/[term:name]'
+selection_criteria:
+  bdbdfc6d-51d9-4d03-a4fe-246b8727f8ae:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      blog: blog
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: bdbdfc6d-51d9-4d03-a4fe-246b8727f8ae
+  26344cd2-81f8-472e-b0eb-4ce444c07950:
+    id: language
+    langcodes:
+      sv: sv
+    negate: false
+    context_mapping:
+      language: 'taxonomy_term:langcode:language'
+    uuid: 26344cd2-81f8-472e-b0eb-4ce444c07950
+selection_logic: and
+weight: -10
+relationships:
+  'taxonomy_term:langcode:language':
+    label: Kieli
