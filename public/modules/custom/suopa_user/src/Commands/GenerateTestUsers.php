@@ -38,6 +38,8 @@ class GenerateTestUsers extends DrushCommands {
             $user->enforceIsNew();
             $user->activate();
             $user->setUsername($user_name);
+            $user->set('field_first_name', $user_data['first_name']);
+            $user->set('field_last_name', $user_data['last_name']);
 
             if (!empty($user_data['roles'])) {
               foreach ($user_data['roles'] as $role => $roles) {
