@@ -1,5 +1,6 @@
 .flag {
   display: inline-block;
+  margin-left: $gutter * 2;
 
   &-wrapper {
     &.flag--top {
@@ -13,6 +14,12 @@
 
     &.flag--bottom {
       margin-top: $gutter;
+      text-align: right;
+
+      > div {
+        margin-bottom: $gutter;
+        margin-left: $gutter;
+      }
 
       @include breakpoint($for-mobile-landscape-up) {
         margin-top: 0;

@@ -1,0 +1,94 @@
+@media print {
+  .dialog-off-canvas-main-canvas {
+    background-color: transparent;
+    border: 0 none;
+  }
+
+  .has-parallax {
+    background: transparent;
+  }
+
+  .page-header,
+  .breadcrumb__container {
+    border: 0 none;
+    padding: 0;
+  }
+
+  .page-header__container {
+    padding: 0;
+
+    .language-switch__wrapper,
+    .block:not(.block-system-branding-block) {
+      display: none;
+    }
+  }
+
+  .page-navigation,
+  .search-button,
+  .menu-button,
+  .block-local-tasks-block,
+  .page-after_content,
+  .page-before-footer,
+  .page-footer,
+  .page-after-footer,
+  .sidebar--first,
+  .flag-wrapper,
+  .social-media-sharing,
+  .profile-card__picture,
+  form.comment-form {
+    display: none;
+  }
+
+  .content__wrapper,
+  .content__wrapper.has-background,
+  .page-content {
+    background: transparent;
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: 0 0 0 transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  .section--content {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .block-next-previous-block a {
+    background: transparent;
+    box-shadow: none;
+    color: $black;
+    margin: 0;
+    padding: 0;
+
+    .button__icon,
+    .button__description,
+    .button__label {
+      color: $black;
+    }
+
+    .button__icon {
+      display: none;
+    }
+  }
+
+  .block-legislation-summary-block {
+    .summary-wrapper {
+      border: 0 none;
+      box-shadow: none;
+      margin: 0;
+      padding: 15px 0 0;
+
+      a {
+        display: none;
+      }
+    }
+  }
+
+  .blog__author--prominent,
+  .profile-card__content {
+    margin: 0;
+    padding: 0;
+  }
+}
