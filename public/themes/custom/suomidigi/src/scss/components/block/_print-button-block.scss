@@ -2,6 +2,7 @@
   margin-left: auto;
   padding-bottom: $gutter * 2;
 
+  .page-node-type-legislation-card &,
   .page-node-type-page & {
     margin-top: -#{$gutter};
     padding-right: $gutter * 2;

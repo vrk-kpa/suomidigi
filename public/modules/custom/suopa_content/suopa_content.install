@@ -185,7 +185,7 @@ function suopa_content_update_8009() {
 }
 
 /**
- * Create translations for event texts.
+ * Create translations for print button text.
  */
 function suopa_content_update_8010() {
   suopa_content_add_translation(
