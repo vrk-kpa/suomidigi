@@ -183,3 +183,14 @@ function suopa_content_update_8009() {
     'Lähetä julkaistavaksi'
   );
 }
+
+/**
+ * Create translations for event texts.
+ */
+function suopa_content_update_8010() {
+  suopa_content_add_translation(
+    "Print this page",
+    'fi',
+    'Tulosta sivu'
+  );
+}

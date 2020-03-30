@@ -1,0 +1,43 @@
+uuid: abc5ae35-0fb3-4352-8321-dd02e032f8b2
+langcode: fi
+status: true
+dependencies:
+  module:
+    - ctools
+name: print_button
+label: 'Print button'
+group: null
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      legislation_card: legislation_card
+      page: page
+    negate: 0
+    uuid: b77ea484-2c49-497d-ba2c-5f92844ea3f3
+    context_mapping:
+      node: '@node.node_route_context:node'
+reactions:
+  blocks:
+    blocks:
+      ee617542-7c2b-444b-93aa-c117508dc92b:
+        id: content_print_button_block
+        label: 'Content print button block'
+        provider: suopa_content
+        label_display: 0
+        region: after_content
+        weight: '0'
+        context_mapping: {  }
+        theme: suomidigi
+        css_class: ''
+        unique: 0
+        context_id: print_button
+        uuid: ee617542-7c2b-444b-93aa-c117508dc92b
+    id: blocks
+    saved: false
+    uuid: 5bdcb41f-2dd1-4b07-92e2-b6ac5c2d874b
+    include_default_blocks: 0
+weight: 0
