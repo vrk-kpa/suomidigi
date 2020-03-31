@@ -161,3 +161,46 @@
   @include font-weight($regular);
   opacity: 1;
 }
+
+.button--print {
+  align-items: center;
+  background: #D5E4F6 linear-gradient(0deg, #D5E4F6 0%, #EAF2FA 100%);
+  border: 0 none;
+  border-radius: 5px;
+  color: $blue-light;
+  display: flex;
+  padding: 10px 20px;
+  text-decoration: none;
+
+  &:active,
+  &:hover {
+    background: #D5E4F6;
+    color: $blue-light;
+    text-decoration: none;
+
+    .print__text {
+      color: $blue-light;
+      text-decoration: none;
+    }
+  }
+
+  .print__text {
+    @include font-size(16px, 26px);
+    @include font-weight($semibold);
+  }
+
+  .print__icon {
+    display: flex;
+    margin-right: $gutter;
+
+    .icon {
+      height: 20px;
+      width: 20px;
+
+      @include icon-colors($gray) {
+        --fill-color: transparent;
+        --stroke-color: #2A6EBB;
+      };
+    }
+  }
+}

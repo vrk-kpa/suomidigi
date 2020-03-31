@@ -1,0 +1,18 @@
+.moderation-state {
+  @include font-size(16px, 20px);
+  @include font-weight($semibold);
+  border-radius: 0 0 5px 0;
+  color: $white;
+  left: 0;
+  padding: $gutter / 3 $gutter;
+  position: absolute;
+  top: 0;
+
+  .is-draft & {
+    background-color: $red;
+  }
+
+  .is-review & {
+    background-color: $green;
+  }
+}

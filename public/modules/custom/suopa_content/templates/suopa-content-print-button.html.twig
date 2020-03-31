@@ -1,0 +1,15 @@
+<div class="print-wrapper">
+  <button onClick="window.print()" class="button--print" title="{{ button_title }}">
+    {% if icons_path %}
+      <div class="print__icon">
+        <svg class="icon icon--print">
+          <title>{{ button_title }}</title>
+          <use xlink:href="{{ icons_path|trim }}#print" />
+        </svg>
+      </div>
+    {% endif %}
+    <div class="print__text">
+      {{ button_title }}
+    </div>
+  </button>
+</div>

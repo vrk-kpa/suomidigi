@@ -15,19 +15,11 @@ bundle: legislation_link
 mode: default
 content:
   field_link_description:
-    weight: 2
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
-  field_link_destination:
-    weight: 1
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
     region: content
   field_p_link_required:
     weight: 0
@@ -42,4 +34,5 @@ content:
     type: link
     region: content
 hidden:
+  field_link_destination: true
   search_api_excerpt: true

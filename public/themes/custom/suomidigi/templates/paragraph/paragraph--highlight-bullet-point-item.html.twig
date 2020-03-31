@@ -1,9 +1,17 @@
 {% extends "paragraph.html.twig" %}
 
 {% block paragraph %}
-  <li{{ attributes.addClass('paragraph-list__item') }}>
+  {%
+    set bullet_classes = [
+      'paragraph-list__item',
+      bullet_style ? 'icon--' ~ bullet_style|clean_class,
+    ]
+  %}
+  {% set text = content.field_p_bullet_point_text %}
+
+  <li{{ attributes.addClass(bullet_classes) }}>
     {% block content %}
-      {{ content }}
+      {{ text }}
     {% endblock %}
   </li>
 {% endblock paragraph %}

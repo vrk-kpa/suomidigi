@@ -455,6 +455,11 @@ function suopa_content_theme() {
         'attributes' => NULL,
       ],
     ],
+    'suopa_content_print_button' => [
+      'variables' => [
+        'button_title' => NULL,
+      ],
+    ],
   ];
 }
 

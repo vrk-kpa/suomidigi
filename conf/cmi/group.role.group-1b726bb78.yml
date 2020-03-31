@@ -1,0 +1,17 @@
+uuid: df911cae-b64a-4ef8-942f-1b58ace27fcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.group
+  enforced:
+    config:
+      - user.role.user_administrator
+id: group-1b726bb78
+label: 'User administrator'
+weight: -2
+internal: true
+audience: outsider
+group_type: group
+permissions_ui: false
+permissions: {  }

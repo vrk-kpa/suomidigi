@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.highlight_bullet_point_item.field_p_bullet_point_style
     - field.field.paragraph.highlight_bullet_point_item.field_p_bullet_point_text
     - paragraphs.paragraphs_type.highlight_bullet_point_item
 id: paragraph.highlight_bullet_point_item.default
@@ -10,6 +11,12 @@ targetEntityType: paragraph
 bundle: highlight_bullet_point_item
 mode: default
 content:
+  field_p_bullet_point_style:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_p_bullet_point_text:
     weight: 0
     settings:
