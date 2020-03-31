@@ -1,0 +1,5 @@
+services:
+  suopa_user.commands:
+    class: \Drupal\suopa_user\Commands\GenerateTestUsers
+    tags:
+      - { name: drush.command }
