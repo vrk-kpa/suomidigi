@@ -13,6 +13,8 @@
 
 .social-media-sharing {
   line-height: 0;
+  margin-bottom: $gutter;
+  min-width: 160px;
 
   .share {
     background-color: $white;
