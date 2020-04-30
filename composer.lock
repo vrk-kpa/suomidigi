@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9382f5106760602cdd01ad3a9345b96d",
+    "content-hash": "f06313efcfb1e628b49cbcff4a052acd",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1388,8 +1388,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://github.com/dimsemenov/Magnific-Popup/archive/1.1.0.zip",
-                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae",
-                "shasum": null
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae"
             },
             "type": "drupal-library",
             "extra": {
@@ -8102,6 +8101,98 @@
             }
         },
         {
+            "name": "drupal/xmlsitemap",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/xmlsitemap.git",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/xmlsitemap-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "9b88caa55f9a45b8c89a1284d2db739fbf0c830f"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9",
+                "ext-xmlwriter": "*"
+            },
+            "require-dev": {
+                "drupal/robotstxt": "^1.0"
+            },
+            "suggest": {
+                "drush/drush": "Command-line regenerating and rebuilding sitemaps."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1576705928",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "RenatoG",
+                    "homepage": "https://www.drupal.org/user/3326031"
+                },
+                {
+                    "name": "amateescu",
+                    "homepage": "https://www.drupal.org/user/729614"
+                },
+                {
+                    "name": "andrei.dincu",
+                    "homepage": "https://www.drupal.org/user/2628879"
+                },
+                {
+                    "name": "juampynr",
+                    "homepage": "https://www.drupal.org/user/682736"
+                },
+                {
+                    "name": "paulmckibben",
+                    "homepage": "https://www.drupal.org/user/279003"
+                },
+                {
+                    "name": "pifagor",
+                    "homepage": "https://www.drupal.org/user/2375692"
+                },
+                {
+                    "name": "tadityar",
+                    "homepage": "https://www.drupal.org/user/3094465"
+                },
+                {
+                    "name": "th_tushar",
+                    "homepage": "https://www.drupal.org/user/1835276"
+                }
+            ],
+            "description": "Creates XML sitemaps for the site",
+            "homepage": "https://www.drupal.org/project/xmlsitemap",
+            "support": {
+                "source": "http://cgit.drupalcode.org/xmlsitemap",
+                "issues": "http://drupal.org/project/issues/xmlsitemap"
+            }
+        },
+        {
             "name": "drush/drush",
             "version": "10.2.2",
             "source": {
@@ -8423,9 +8514,7 @@
             "version": "0.3.3",
             "dist": {
                 "type": "zip",
-                "url": "https://fgelinas.com/code/timepicker/releases/jquery-ui-timepicker-0.3.3.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://fgelinas.com/code/timepicker/releases/jquery-ui-timepicker-0.3.3.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -8989,6 +9078,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -9035,6 +9125,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -9042,9 +9133,7 @@
             "version": "1.11.15",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -10192,9 +10281,7 @@
             "version": "4.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/select2/select2/archive/4.0.7.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -10206,9 +10293,7 @@
             "version": "1.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -11963,9 +12048,7 @@
             "version": "1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -12091,9 +12174,7 @@
             "version": "1.17.6",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip",
-                "reference": null,
-                "shasum": null
+                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip"
             },
             "type": "drupal-library",
             "extra": {
@@ -15467,7 +15548,8 @@
         "drupal/roleassign": 20,
         "drupal/scheduler": 20,
         "drupal/swiftmailer": 10,
-        "drupal/tvi": 10
+        "drupal/tvi": 10,
+        "drupal/xmlsitemap": 5
     },
     "prefer-stable": true,
     "prefer-lowest": false,
