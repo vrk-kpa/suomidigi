@@ -156,6 +156,7 @@ module:
   hide_revision_field: 1
   menu_link_content: 1
   pathauto: 1
+  xmlsitemap: 1
   nodeorder: 5
   content_translation: 10
   views: 10
