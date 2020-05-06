@@ -1,0 +1,12 @@
+uuid: c8143c35-7513-4d2f-adab-6f44725ccdba
+langcode: en
+status: true
+dependencies: {  }
+id: group__group
+label: 'Group: Group'
+tags:
+  title: '[node:title] | [site:name]'
+  canonical_url: '[current-page:url:absolute]'
+  description: '[group:field_group_short_description]'
+  og_image: '[group:field_group_image:16_9_half_content:url]'
+  og_url: '[current-page:url:absolute]'

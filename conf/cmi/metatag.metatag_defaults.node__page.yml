@@ -1,0 +1,8 @@
+uuid: d52aad28-1c4f-466b-8f91-069602dd28f7
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Basic page'
+tags:
+  title: 'Basic Page [node:title] | [site:name]'

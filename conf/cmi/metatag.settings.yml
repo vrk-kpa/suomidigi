@@ -1,0 +1,7 @@
+entity_type_groups:
+  group:
+    group:
+      basic: basic
+      advanced: advanced
+      open_graph: open_graph
+      hreflang: hreflang
