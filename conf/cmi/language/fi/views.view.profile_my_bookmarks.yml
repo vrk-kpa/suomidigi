@@ -7,7 +7,7 @@ display:
             type:
               more_options:
                 rewrite:
-                  filter_rewrite_values: "- Kaikki -|Kaikki\r\nArtikkeli|Kehittämisesimerkit\r\nBlogikirjoitus|Blogikirjoitukset\r\nTapahtuma|Tapahtumat"
+                  filter_rewrite_values: "- Kaikki -|Kaikki\r\nArtikkeli|Artikkelit'\r\nBlogikirjoitus|Blogikirjoitukset\r\nTapahtuma|Tapahtumat"
       pager:
         options:
           views_infinite_scroll:
