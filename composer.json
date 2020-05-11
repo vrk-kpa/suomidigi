@@ -189,9 +189,6 @@
             },
             "drupal/paragraphs": {
                 "https://www.drupal.org/project/paragraphs/issues/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
-            },
-            "drupal/svg_image": {
-                "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"
             }
         },
         "hooks": {
