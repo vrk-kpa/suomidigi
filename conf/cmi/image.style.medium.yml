@@ -1,19 +1,17 @@
 uuid: 0be623b9-8659-4fcb-9cfe-7d3afef9a1dd
 langcode: en
 status: true
-dependencies:
-  module:
-    - focal_point
+dependencies: {  }
 _core:
   default_config_hash: Y9NmnZHQq20ASSyTNA6JnwtWrJJiSajOehGDtmUFdM0
 name: medium
 label: 'Medium (220 × 220)'
 effects:
-  d85c6559-3375-48c1-953b-f9bbce7c371c:
-    uuid: d85c6559-3375-48c1-953b-f9bbce7c371c
-    id: focal_point_scale_and_crop
+  e939120d-ed96-439c-ad58-b07008025722:
+    uuid: e939120d-ed96-439c-ad58-b07008025722
+    id: image_scale_and_crop
     weight: 2
     data:
       width: 220
       height: 220
-      crop_type: focal_point
+      anchor: center-center
