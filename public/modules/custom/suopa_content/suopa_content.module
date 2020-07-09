@@ -97,50 +97,6 @@ function suopa_content_get_route_entity() {
 }
 
 /**
- * Implements hook_node_access_records_alter().
- *
- * Because of a bug in View Unpublished module, the anonymous can
- * view unpublished translations. Alter the access records based on
- * node translations.
- *
- * {@inheritDoc}
- */
-function suopa_content_node_access_records_alter(&$grants, NodeInterface $node) {
-  foreach ($grants as $key => $grant) {
-    if (
-      strpos($grant['realm'], 'view_unpublished') !== FALSE &&
-      !array_key_exists('langcode', $grant)
-    ) {
-      if ($grant['realm'] !== 'view_unpublished_author') {
-        unset($grants[$key]);
-      }
-    }
-  }
-  foreach ($node->getTranslationLanguages() as $langcode => $value) {
-    if ($node->getTranslation($langcode)->isPublished() === FALSE) {
-      $grants[] = [
-        'realm' => 'view_unpublished_content',
-        'gid' => 1,
-        'grant_view' => 1,
-        'grant_update' => 0,
-        'grant_delete' => 0,
-        'langcode' => $langcode,
-      ];
-    }
-    else {
-      $grants[] = [
-        'realm' => 'all',
-        'gid' => 0,
-        'grant_view' => 1,
-        'grant_update' => 0,
-        'grant_delete' => 0,
-        'langcode' => $langcode,
-      ];
-    }
-  }
-}
-
-/**
  * Implements hook_block_access().
  *
  * Hide content creation links block and own content block if user is not on
