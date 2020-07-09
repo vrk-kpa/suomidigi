@@ -167,25 +167,11 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  rendered_item: {  }
   add_url: {  }
   aggregated_field: {  }
-  ignorecase:
-    all_fields: true
-    fields:
-      - field_article_type_name
-      - field_core_content_type_name
-      - field_group_short_description
-      - field_ingress
-      - label
-      - processed
-      - processed_1
-      - processed_2
-      - processed_text
-      - title
+  content_access:
     weights:
-      preprocess_index: -20
-      preprocess_query: -20
+      preprocess_query: -30
   ignore_character:
     all_fields: true
     fields:
@@ -211,10 +197,24 @@ processor_settings:
     weights:
       preprocess_index: -10
       preprocess_query: -10
-  language_with_fallback: {  }
-  content_access:
+  ignorecase:
+    all_fields: true
+    fields:
+      - field_article_type_name
+      - field_core_content_type_name
+      - field_group_short_description
+      - field_ingress
+      - label
+      - processed
+      - processed_1
+      - processed_2
+      - processed_text
+      - title
     weights:
-      preprocess_query: -30
+      preprocess_index: -20
+      preprocess_query: -20
+  language_with_fallback: {  }
+  rendered_item: {  }
 tracker_settings:
   default:
     indexing_order: fifo
