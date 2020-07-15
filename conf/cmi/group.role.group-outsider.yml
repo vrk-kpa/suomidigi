@@ -14,3 +14,6 @@ permissions_ui: true
 permissions:
   - 'join group'
   - 'view group'
+  - 'view group_node:blog_post entity'
+  - 'view group_node:event entity'
+  - 'view group_node:page entity'
