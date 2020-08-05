@@ -166,11 +166,11 @@
             },
             "drupal/group": {
                 "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
-                "https://www.drupal.org/project/group/issues/2864721": "https://www.drupal.org/files/issues/2020-01-13/group-translate_content_permission-2864721-19.patch",
+                "https://www.drupal.org/project/group/issues/2864721": "https://www.drupal.org/files/issues/2020-07-30/group-translate_content_permission-2864721-20.patch",
                 "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch",
                 "Group content Path automated pattern and tokens for actual node": "https://www.drupal.org/files/issues/group-content-entity-tokens-2916907-7.patch",
                 "https://www.drupal.org/project/group/issues/3101314": "https://www.drupal.org/files/issues/2019-12-16/reword_delete_to_remove_on_group_member_removal-3101314-2.patch",
-                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2019-12-23/group-support_string_entity_ids-2797793-188.patch",
+                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2020-07-30/group-support_string_entity_ids-2797793-214.patch",
                 "https://www.drupal.org/project/group/issues/2980034": "https://www.drupal.org/files/issues/2018-08-28/joined_user_redirection-2980034-9.patch"
             },
             "drupal/hide_revision_field": {
