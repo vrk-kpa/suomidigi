@@ -1,9 +1,19 @@
 CLI_SERVICE := cli
 CLI_SHELL := sh
 CLI_USER := root
-DOCKER_COMPOSE_EXEC := docker-compose exec -T
+DOCKER_COMPOSE := docker-compose
+DOCKER_COMPOSE_EXEC ?= $(DOCKER_COMPOSE) exec -T
 DOCKER_PROJECT_ROOT ?= /app
 DOCKER_WARNING_INSIDE := You are inside the Docker container!
+
+PHONY += config
+config: ## Show docker-compose config
+ifeq ($(RUN_ON),host)
+	$(call warn,$(DOCKER_WARNING_INSIDE))
+else
+	$(call step,Show docker-compose config...)
+	@$(DOCKER_COMPOSE) config
+endif
 
 PHONY += down
 down: ## Tear down the environment
@@ -11,7 +21,16 @@ ifeq ($(RUN_ON),host)
 	$(call warn,$(DOCKER_WARNING_INSIDE))
 else
 	$(call step,Tear down the environment...)
-	@docker-compose down -v --remove-orphans
+	@$(DOCKER_COMPOSE) down -v --remove-orphans
+endif
+
+PHONY += ps
+ps: ## Show docker-compose ps
+ifeq ($(RUN_ON),host)
+	$(call warn,$(DOCKER_WARNING_INSIDE))
+else
+	$(call step,Show docker-compose ps...)
+	@$(DOCKER_COMPOSE) ps
 endif
 
 PHONY += stop
@@ -20,7 +39,7 @@ ifeq ($(RUN_ON),host)
 	$(call warn,$(DOCKER_WARNING_INSIDE))
 else
 	$(call step,Stop the container(s)...)
-	@docker-compose stop
+	@$(DOCKER_COMPOSE) stop
 endif
 
 PHONY += up
@@ -29,7 +48,7 @@ ifeq ($(RUN_ON),host)
 	$(call warn,$(DOCKER_WARNING_INSIDE))
 else
 	$(call step,Start up the container(s)...)
-	@docker-compose up -d --remove-orphans
+	@$(DOCKER_COMPOSE) up -d --remove-orphans
 endif
 
 PHONY += docker-test
@@ -42,7 +61,7 @@ shell: ## Login to CLI container
 ifeq ($(RUN_ON),host)
 	$(call warn,$(DOCKER_WARNING_INSIDE))
 else
-	@docker-compose exec -u ${CLI_USER} ${CLI_SERVICE} ${CLI_SHELL}
+	@$(DOCKER_COMPOSE) exec -u ${CLI_USER} ${CLI_SERVICE} ${CLI_SHELL}
 endif
 
 PHONY += ssh-check

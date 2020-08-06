@@ -8,16 +8,16 @@ endif
 
 PHONY += composer-info
 composer-info: ## Composer info
-	$(call step,Do Composer info (${RUN_ON})...)
+	$(call step,Do Composer info...)
 	$(call composer_on_${RUN_ON},info)
 
 PHONY += composer-update
 composer-update: ## Update Composer packages
-	$(call step,Do Composer update (${RUN_ON})...)
+	$(call step,Do Composer update...)
 	$(call composer_on_${RUN_ON},update)
 
 composer-install: ## Install Composer packages
-	$(call step,Do Composer install (${RUN_ON})...)
+	$(call step,Do Composer install...)
 	$(call composer_on_${RUN_ON},install ${COMPOSER_ARGS})
 
 define composer_on_docker
