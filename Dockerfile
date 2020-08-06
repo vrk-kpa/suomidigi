@@ -22,7 +22,7 @@ COPY patches /app/patches
 COPY scripts /app/scripts
 
 # Create library directory for composer installation
-RUN mkdir /app/public/libraries
+RUN mkdir -p /app/public/libraries
 
 # Create symlink for drupal public files
 RUN ln -s /app/files/public /app/public/sites/default/files
