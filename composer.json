@@ -15,11 +15,11 @@
     "require": {
         "abraham/twitteroauth": "^1.0",
         "brainmaestro/composer-git-hooks": "^2.7",
-        "composer/installers": "^1.2",
         "cosenary/instagram": "v2.3",
-        "cweagans/composer-patches": "^1.6.5",
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.6.7",
         "dimsemenov/magnific-popup": "^1.1",
-        "druidfi/omen": "^0.1.2",
+        "druidfi/omen": "^0.1.7",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^1.0",
@@ -111,7 +111,8 @@
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4",
         "trentrichardson/jquery-timepicker-addon": "^1.6",
-        "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
+        "w8tcha/ckeditor-wordcount-plugin": "1.17.6",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -131,9 +132,22 @@
         "discard-changes": true
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "allowed-packages": [
+              "drupal/core"
+            ],
+            "locations": {
+              "web-root": "./public"
+            },
+            "file-mapping": {
+              "[project-root]/.editorconfig": false
+            }
+        },
+        "enable-patching": true,
         "installer-paths": {
             "public/core": ["type:drupal-core"],
-            "public/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
+            "public/libraries/{$name}": ["type:drupal-library"],
             "public/modules/contrib/{$name}": ["type:drupal-module"],
             "public/modules/custom/{$name}": ["type:drupal-module-custom"],
             "public/profiles/{$name}": ["type:drupal-profile"],
@@ -166,11 +180,11 @@
             },
             "drupal/group": {
                 "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
-                "https://www.drupal.org/project/group/issues/2864721": "https://www.drupal.org/files/issues/2020-01-13/group-translate_content_permission-2864721-19.patch",
+                "https://www.drupal.org/project/group/issues/2864721": "https://www.drupal.org/files/issues/2020-07-30/group-translate_content_permission-2864721-20.patch",
                 "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch",
                 "Group content Path automated pattern and tokens for actual node": "https://www.drupal.org/files/issues/group-content-entity-tokens-2916907-7.patch",
                 "https://www.drupal.org/project/group/issues/3101314": "https://www.drupal.org/files/issues/2019-12-16/reword_delete_to_remove_on_group_member_removal-3101314-2.patch",
-                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2019-12-23/group-support_string_entity_ids-2797793-188.patch",
+                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2020-07-30/group-support_string_entity_ids-2797793-214.patch",
                 "https://www.drupal.org/project/group/issues/2980034": "https://www.drupal.org/files/issues/2018-08-28/joined_user_redirection-2980034-9.patch"
             },
             "drupal/hide_revision_field": {
@@ -316,9 +330,6 @@
         }
     ],
     "scripts": {
-        "drupal-scaffold": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
         "fix": [
             "phpcbf --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
         ],

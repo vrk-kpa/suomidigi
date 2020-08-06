@@ -2,37 +2,62 @@ version: '3.7'
 
 services:
 
-  drupal:
-    hostname: &hostname "${DRUPAL_HOSTNAME}"
-    container_name: "${COMPOSE_PROJECT_NAME}-drupal"
+  app:
+    hostname: "${DRUPAL_HOSTNAME}"
+    container_name: "${COMPOSE_PROJECT_NAME}-app"
     image: "${DRUPAL_IMAGE}"
-    environment:
-      # If you want to use stage_file_proxy, uncomment following line and add the production url of your website:
-      #AMAZEEIO_PRODUCTION_URL: 'http://www.mysite.fi'
-      # APC Support is by default enabled, but in some cases it can make issues, change to 0 to disable:
-      APC: 1
-      VIRTUAL_HOST: *hostname
-      WEBROOT: "${DRUPAL_WEBROOT}"
-      DRUSH_OPTIONS_URI: "https://${DRUPAL_HOSTNAME}" # Site URI for Drush 9
-      XDEBUG_CONFIG: "remote_port=9001 remote_host=host.docker.internal remote_connect_back=0"
     volumes:
-    - .:/var/www/drupal/public_html:delegated
-    - ssh:/tmp/amazeeio_ssh-agent
-    ports:
-    - "3306"
+      - .:/app:delegated
+      - ssh:/tmp/druid_ssh-agent:ro
+    environment:
+      APP_ENV: "${APP_ENV:-dev}"
+      DRUPAL_ROUTES: "https://varnish-${DRUPAL_HOSTNAME}"
+      DRUSH_OPTIONS_URI: "https://${DRUPAL_HOSTNAME}"
+      #XDEBUG_ENABLE: "true"
+      #XDEBUG_CONFIG: "remote_port=9001 remote_host=host.docker.internal remote_connect_back=0"
+      SIMPLETEST_BASE_URL: "http://app:8080"
+      SIMPLETEST_DB: "mysql://drupal:drupal@db:3306/drupal"
     networks:
-    - dev-network
+      - internal
+      - stonehenge-network
     labels:
       traefik.enable: true
+      traefik.port: 8080
       traefik.frontend.rule: "Host:${DRUPAL_HOSTNAME}"
       traefik.frontend.redirect.entryPoint: https
 
+  db:
+    container_name: "${COMPOSE_PROJECT_NAME}-db"
+    image: druidfi/db:mysql5.7-drupal
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - 3306
+    networks:
+      - internal
+
+  varnish:
+    container_name: "${COMPOSE_PROJECT_NAME}-varnish"
+    image: druidfi/varnish:6-drupal
+    depends_on:
+      - app
+    networks:
+      - internal
+      - stonehenge-network
+    labels:
+      traefik.enable: true
+      traefik.port: 6081
+      traefik.frontend.rule: "Host:varnish-${DRUPAL_HOSTNAME}"
+      traefik.frontend.redirect.entryPoint: https
+
 networks:
-  dev-network:
-    name: stonehenge-network
+  internal:
+    external: false
+  stonehenge-network:
     external: true
 
 volumes:
+  db_data:
   ssh:
     name: stonehenge-ssh
     external: true
