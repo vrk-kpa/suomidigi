@@ -5,7 +5,7 @@ FROM node:8.16.0-alpine AS theme-builder
 
 WORKDIR /usr/src/app
 COPY public/themes/custom/suomidigi /usr/src/app
-RUN npm install --production --engine-strict true
+RUN npm ci --production --engine-strict true
 RUN npm run gulp production
 
 

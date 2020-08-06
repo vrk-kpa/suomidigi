@@ -4,7 +4,7 @@ BUILD_TARGETS :=
 CLEAN_FOLDERS := node_modules
 COMPOSER_BIN := $(shell which composer || echo no)
 COMPOSER_JSON_EXISTS := $(shell test -f composer.json && echo yes || echo no)
-DOCKER_COMPOSE_BIN := $(shell which docker-compose || echo no)
+DOCKER_COMPOSE_BIN := $(shell which docker-compose > /dev/null 2>&1 && which docker-compose || echo no)
 DOCKER_COMPOSE_YML_EXISTS := $(shell test -f docker-compose.yml && echo yes || echo no)
 DRUIDFI_TOOLS_MAKE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 ENV := dev
@@ -14,6 +14,10 @@ UNAME_S := $(shell uname -s)
 # Shorten with https://git.io/ : https://raw.githubusercontent.com/druidfi/tools/master/update.sh
 UPDATE_SCRIPT_URL := https://git.io/fh771
 WEBROOT ?= public
+
+# Detect app
+IS_DRUPAL := $(shell test -f $(WEBROOT)/sites/default/settings.php && echo yes || echo no)
+IS_WP := $(shell test -f $(WEBROOT)/wp-settings.php && echo yes || echo no)
 
 # Detect additional tooling
 AMAZEEIO_LEGACY := $(shell test -f .amazeeio.yml && echo yes || echo no)
@@ -58,9 +62,12 @@ debug: ## Show debug information
 	$(call dbg,DOCKER_PROJECT_ROOT,${DOCKER_PROJECT_ROOT})
 	$(call dbg,DOCKER_COMPOSE_BIN,${DOCKER_COMPOSE_BIN})
 	$(call dbg,DOCKER_COMPOSE_YML_EXISTS,${DOCKER_COMPOSE_YML_EXISTS})
+	$(call dbg,DOCKER_COMPOSE,${DOCKER_COMPOSE})
 	$(call dbg,ENV,${ENV})
 	$(call dbg,PHP_BIN,${PHP_BIN})
 	$(call dbg,RUN_ON,${RUN_ON})
+	$(call dbg,IS_DRUPAL,${IS_DRUPAL})
+	$(call dbg,IS_WP,${IS_WP})
 	$(call dbg,AMAZEEIO_LEGACY,${AMAZEEIO_LEGACY})
 	$(call dbg,AMAZEEIO_LAGOON,${AMAZEEIO_LAGOON})
 	$(call dbg,WODBY,${WODBY})

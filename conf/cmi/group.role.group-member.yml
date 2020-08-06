@@ -23,5 +23,6 @@ permissions:
   - 'view group_membership content'
   - 'view group_node:blog_post entity'
   - 'view group_node:event entity'
+  - 'view group_node:page entity'
   - 'view unpublished group_node:article entity'
   - 'view unpublished group_node:core_content entity'

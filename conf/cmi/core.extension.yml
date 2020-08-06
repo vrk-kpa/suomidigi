@@ -142,6 +142,7 @@ module:
   tvi: 0
   twig_tweak: 0
   user: 0
+  variationcache: 0
   video_embed_field: 0
   view_unpublished: 0
   views_bulk_operations: 0
