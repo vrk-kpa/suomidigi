@@ -34,8 +34,8 @@ $settings['file_private_path'] = realpath(__DIR__ . '/../../../files_private');
 ### If your site runs on multiple domains, you need to add these domains here
 $settings['trusted_host_patterns'] = array(
   '^suomidigi\.docker\.sh$',
-  '^beta\.suomidigi\.cloud\.vrk\.fi$',
-  '^prod\.suomidigi\.cloud\.vrk\.fi$',
+  '^beta\.suomidigi\.cloud\.dvv\.fi$',
+  '^prod\.suomidigi\.cloud\.dvv\.fi$',
   '^suomidigi\.fi$',
   '^www\.suomidigi\.fi$',
   '^' . str_replace('.', '\.', getenv('AMAZEEIO_SITE_URL')) . '$',
