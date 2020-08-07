@@ -21,9 +21,6 @@ COPY public /app/public
 COPY patches /app/patches
 COPY scripts /app/scripts
 
-# Create library directory for composer installation
-RUN mkdir -p /app/public/libraries
-
 # Create symlink for drupal public files
 RUN ln -s /app/files/public /app/public/sites/default/files
 # Create symlink for private files (TEMP solution so you don't need different settings.php for Amazee and AWS)
