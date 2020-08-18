@@ -3,13 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.highlight_bullet_point_item.field_p_bullet_point_style
     - field.field.paragraph.highlight_bullet_point_item.field_p_bullet_point_text
     - paragraphs.paragraphs_type.highlight_bullet_point_item
+  module:
+    - options
 id: paragraph.highlight_bullet_point_item.default
 targetEntityType: paragraph
 bundle: highlight_bullet_point_item
 mode: default
 content:
+  field_p_bullet_point_style:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_p_bullet_point_text:
     weight: 0
     label: hidden
@@ -18,4 +28,5 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-hidden: {  }
+hidden:
+  search_api_excerpt: true

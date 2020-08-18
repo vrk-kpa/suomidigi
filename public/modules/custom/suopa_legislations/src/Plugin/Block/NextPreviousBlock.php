@@ -242,7 +242,12 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
 
       if (!empty($nid)) {
         $node = $this->entityTypeManager->getStorage('node')->load($nid);
-        $label = ($index) ? $this->t('Summary') : $node->label();
+        $currentLanguage = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        $label = ($index)
+          ? $this->t('Summary')
+          : $node->hasTranslation($currentLanguage)
+            ? $node->getTranslation($currentLanguage)->getTitle()
+            : $node->label();
 
         $url = Url::fromRoute('entity.node.canonical', ['node' => $nid], []);
         $variables = [

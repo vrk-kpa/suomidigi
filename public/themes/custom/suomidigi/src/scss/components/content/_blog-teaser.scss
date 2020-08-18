@@ -6,6 +6,25 @@
   height: 100%;
   width: 100%;
 
+  &.is-draft,
+  &.is-review {
+    .blog-teaser__content {
+      padding-top: $gutter * 2.8;
+    }
+
+    .blog-teaser__image {
+      margin-bottom: -20px;
+    }
+  }
+
+  &.is-draft {
+    border-left-color: $red;
+  }
+
+  &.is-review {
+    border-left-color: $green;
+  }
+
   .theme-term__list-item &,
   .group__list & {
     margin-bottom: $gutter * 2;

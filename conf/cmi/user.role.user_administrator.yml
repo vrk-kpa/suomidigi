@@ -1,0 +1,12 @@
+uuid: dce2d2b1-898f-4f6e-b171-7bd43dbcd17c
+langcode: en
+status: true
+dependencies: {  }
+id: user_administrator
+label: 'User administrator'
+weight: -2
+is_admin: null
+permissions:
+  - 'administer users'
+  - 'assign roles'
+  - 'change own username'

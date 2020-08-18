@@ -9,7 +9,6 @@ dependencies:
     - node
     - taxonomy
     - user
-    - view_unpublished
 _core:
   default_config_hash: tS8PbpJX90aRFC3-UTgXzdqkq7_2frk2pz4TMijEebM
 id: content
@@ -32,7 +31,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: true
+          distinct: false
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -777,7 +776,6 @@ display:
       max-age: 0
       tags:
         - 'config:field.storage.node.field_article_type'
-        - extensions
   page_1:
     display_options:
       path: admin/content/node
@@ -811,4 +809,3 @@ display:
       max-age: 0
       tags:
         - 'config:field.storage.node.field_article_type'
-        - extensions

@@ -4,8 +4,6 @@ settings:
   default_submit_button_label: Lähetä
   default_reset_button_label: Palauta
   default_form_confidential_message: 'Tämä lomake on luottamuksellinen. Sinun täytyy <a href="[site:login-url]/logout?destination=[current-page:url:relative]">kirjautua ulos</a> lähettääksesi se.'
-  default_wizard_prev_button_label: '< Edellinen sivu'
-  default_wizard_next_button_label: 'Seuraava sivu >'
   default_wizard_start_label: Alkaa
   default_wizard_confirmation_label: Valmis
   default_preview_next_button_label: Esikatselu

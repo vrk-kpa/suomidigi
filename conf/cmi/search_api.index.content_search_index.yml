@@ -2,22 +2,22 @@ uuid: 892f1752-f2a3-4ce7-9817-b505127314ef
 langcode: en
 status: true
 dependencies:
-  module:
-    - group
-    - paragraphs
-    - node
-    - taxonomy
-    - search_api
   config:
+    - field.storage.node.field_article_type
+    - field.storage.node.field_core_content_type
+    - field.storage.group.field_group_short_description
+    - field.storage.node.field_ingress
     - field.storage.group.field_paragraphs
     - field.storage.paragraph.field_p_content
     - field.storage.paragraph.field_text
-    - field.storage.group.field_group_short_description
-    - field.storage.node.field_article_type
-    - field.storage.node.field_core_content_type
-    - field.storage.node.field_ingress
     - field.storage.node.field_paragraphs
     - search_api.server.content_search_server
+  module:
+    - taxonomy
+    - group
+    - paragraphs
+    - node
+    - search_api
 id: content_search_index
 name: 'Content Search Index'
 description: ''
@@ -33,7 +33,6 @@ field_settings:
         - field.storage.node.field_article_type
       module:
         - taxonomy
-        - taxonomy
   field_core_content_type_name:
     label: 'Core content type » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -43,7 +42,6 @@ field_settings:
       config:
         - field.storage.node.field_core_content_type
       module:
-        - taxonomy
         - taxonomy
   field_group_short_description:
     label: 'Short description'
@@ -89,7 +87,6 @@ field_settings:
         - field.storage.paragraph.field_text
       module:
         - paragraphs
-        - paragraphs
   processed_1:
     label: 'Paragraphs » Paragraph » Content » Paragraph » Text » Processed text'
     datasource_id: 'entity:node'
@@ -101,7 +98,6 @@ field_settings:
         - field.storage.paragraph.field_p_content
         - field.storage.paragraph.field_text
       module:
-        - paragraphs
         - paragraphs
   processed_2:
     label: 'Paragraphs » Paragraph » Teksti » Läpikäyty teksti'

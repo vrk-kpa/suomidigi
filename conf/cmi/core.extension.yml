@@ -18,6 +18,7 @@ module:
   config_translation: 0
   contact: 0
   content_moderation: 0
+  content_moderation_notifications: 0
   context: 0
   context_ui: 0
   contextual: 0
@@ -86,6 +87,7 @@ module:
   path: 0
   path_alias: 0
   preview_link: 0
+  purge_users: 0
   quickedit: 0
   rabbit_hole: 0
   rate: 0
@@ -113,6 +115,7 @@ module:
   social_auth_linkedin: 0
   social_media: 0
   social_media_import: 0
+  stage_file_proxy: 0
   suopa_blog_conversion: 0
   suopa_communities: 0
   suopa_content: 0
@@ -139,6 +142,7 @@ module:
   tvi: 0
   twig_tweak: 0
   user: 0
+  variationcache: 0
   video_embed_field: 0
   view_unpublished: 0
   views_bulk_operations: 0
@@ -153,6 +157,7 @@ module:
   hide_revision_field: 1
   menu_link_content: 1
   pathauto: 1
+  xmlsitemap: 1
   nodeorder: 5
   content_translation: 10
   views: 10

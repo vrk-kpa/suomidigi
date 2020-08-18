@@ -15,11 +15,11 @@
     "require": {
         "abraham/twitteroauth": "^1.0",
         "brainmaestro/composer-git-hooks": "^2.7",
-        "composer/installers": "^1.2",
         "cosenary/instagram": "v2.3",
-        "cweagans/composer-patches": "^1.6.5",
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.6.7",
         "dimsemenov/magnific-popup": "^1.1",
-        "druidfi/omen": "^0.1.2",
+        "druidfi/omen": "^0.1.7",
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^1.0",
@@ -29,6 +29,7 @@
         "drupal/cdn": "^3.2",
         "drupal/ckwordcount": "^1.0",
         "drupal/comments_order": "^1.0",
+        "drupal/content_moderation_notifications": "^3.2",
         "drupal/context": "^4.0@beta",
         "drupal/core": "~8.8.2",
         "drupal/daterange_compact": "1.x-dev",
@@ -65,6 +66,7 @@
         "drupal/pathauto": "^1.0",
         "drupal/preview_link": "^1.3",
         "drupal/publication_date": "^2.0",
+        "drupal/purge_users": "^1.9",
         "drupal/rabbit_hole": "^1.0@beta",
         "drupal/rate": "^1.0",
         "drupal/recaptcha": "^2.4",
@@ -98,6 +100,7 @@
         "drupal/webform": "^5.2",
         "drupal/wordpress_migrate": "^3.0",
         "drupal/workflows_field": "^1.0",
+        "drupal/xmlsitemap": "^1.0@RC",
         "drush/drush": "^10.2",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
@@ -108,7 +111,8 @@
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4",
         "trentrichardson/jquery-timepicker-addon": "^1.6",
-        "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
+        "w8tcha/ckeditor-wordcount-plugin": "1.17.6",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -128,9 +132,22 @@
         "discard-changes": true
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "allowed-packages": [
+              "drupal/core"
+            ],
+            "locations": {
+              "web-root": "./public"
+            },
+            "file-mapping": {
+              "[project-root]/.editorconfig": false
+            }
+        },
+        "enable-patching": true,
         "installer-paths": {
             "public/core": ["type:drupal-core"],
-            "public/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
+            "public/libraries/{$name}": ["type:drupal-library"],
             "public/modules/contrib/{$name}": ["type:drupal-module"],
             "public/modules/custom/{$name}": ["type:drupal-module-custom"],
             "public/profiles/{$name}": ["type:drupal-profile"],
@@ -140,21 +157,19 @@
         },
         "installer-types": ["bower-asset", "npm-asset"],
         "patches": {
-            "drupal/ckwordcount": {
-                "https://www.drupal.org/project/ckwordcount/issues/2850845": "https://www.drupal.org/files/issues/2019-06-23/ckwordcount_plugin_path_2850845-10.patch"
-            },
             "drupal/core": {
                 "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2019-05-21/2466553-translation_interface-60.patch",
                 "https://www.drupal.org/project/drupal/issues/3008119": "https://www.drupal.org/files/issues/2019-05-15/drupal-allow_alter_oembed_providers-3008119-4.patch",
                 "https://www.drupal.org/project/drupal/issues/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch",
-                "https://www.drupal.org/project/drupal/issues/3070745": "https://www.drupal.org/files/issues/2019-11-04/3070745-4.patch",
                 "https://www.drupal.org/project/drupal/issues/3014209": "https://www.drupal.org/files/issues/2019-11-07/content_translation-translate-tab-set-3014209-15-combined-2137815-15.patch",
                 "https://www.drupal.org/project/drupal/issues/2872162": "https://www.drupal.org/files/issues/2018-06-04/2872162-field-widget-hook-10.patch",
                 "https://www.drupal.org/project/drupal/issues/3020387": "https://www.drupal.org/files/issues/2019-01-18/3020387-7.patch",
                 "https://www.drupal.org/project/drupal/issues/3045648": "https://www.drupal.org/files/issues/2019-04-23/3045648-17-do-not-test.patch",
                 "https://www.drupal.org/project/drupal/issues/2946750": "https://www.drupal.org/files/issues/2019-03-22/2946750-19.patch",
                 "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
-                "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch"
+                "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
+                "https://www.drupal.org/project/drupal/issues/3013435": "https://www.drupal.org/files/issues/2020-01-08/drupal-locale-prepare-directory-3013435-15.patch",
+                "Remove node_user_predelete() hook to prevent deletion of nodes when deleting a user account.": "patches/remove_node_user_predelete_hook.patch"
             },
             "drupal/field_group": {
                 "Add title to horizontal tabs on field groups.": "patches/field_group_horizontal_tabs_title.patch"
@@ -165,11 +180,11 @@
             },
             "drupal/group": {
                 "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
-                "https://www.drupal.org/project/group/issues/2864721": "https://www.drupal.org/files/issues/2020-01-13/group-translate_content_permission-2864721-19.patch",
+                "https://www.drupal.org/project/group/issues/2864721": "https://www.drupal.org/files/issues/2020-07-30/group-translate_content_permission-2864721-20.patch",
                 "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch",
                 "Group content Path automated pattern and tokens for actual node": "https://www.drupal.org/files/issues/group-content-entity-tokens-2916907-7.patch",
                 "https://www.drupal.org/project/group/issues/3101314": "https://www.drupal.org/files/issues/2019-12-16/reword_delete_to_remove_on_group_member_removal-3101314-2.patch",
-                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2019-12-23/group-support_string_entity_ids-2797793-188.patch",
+                "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2020-07-30/group-support_string_entity_ids-2797793-214.patch",
                 "https://www.drupal.org/project/group/issues/2980034": "https://www.drupal.org/files/issues/2018-08-28/joined_user_redirection-2980034-9.patch"
             },
             "drupal/hide_revision_field": {
@@ -184,9 +199,6 @@
             },
             "drupal/paragraphs": {
                 "https://www.drupal.org/project/paragraphs/issues/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
-            },
-            "drupal/svg_image": {
-                "https://www.drupal.org/project/svg_image/issues/3014141": "https://www.drupal.org/files/issues/2018-11-19/workaround_for_image_styles-3014141-3.patch"
             }
         },
         "hooks": {
@@ -318,9 +330,6 @@
         }
     ],
     "scripts": {
-        "drupal-scaffold": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
         "fix": [
             "phpcbf --colors --standard=Drupal --extensions=php,theme,module --ignore='*.css,*.md,node_modules' ./public/modules/custom ./public/themes/custom"
         ],

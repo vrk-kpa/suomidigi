@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+
+  app:
+    labels:
+      # Traefik 2 labels
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.entrypoints=https"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.rule=Host(`${DRUPAL_HOSTNAME}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-app.tls=true"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}-app.loadbalancer.server.port=8080"
+      - "traefik.docker.network=stonehenge-network"
+
+  varnish:
+    labels:
+      # Traefik 2 labels
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-varnish.entrypoints=https"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-varnish.rule=Host(`varnish-${DRUPAL_HOSTNAME}`)"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-varnish.tls=true"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}-varnish.loadbalancer.server.port=6081"
+      - "traefik.docker.network=stonehenge-network"
