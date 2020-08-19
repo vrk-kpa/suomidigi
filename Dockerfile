@@ -22,7 +22,7 @@ COPY patches /app/patches
 COPY scripts /app/scripts
 
 # Create symlink for drupal public files
-RUN ln -s /app/files/public /app/public/sites/default/files
+#RUN ln -s /app/files/public /app/public/sites/default/files
 # Create symlink for private files (TEMP solution so you don't need different settings.php for Amazee and AWS)
 RUN ln -s /app/files/private /app/files_private
 
