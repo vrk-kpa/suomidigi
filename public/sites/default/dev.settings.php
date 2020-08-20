@@ -38,5 +38,5 @@ if (getenv('AMAZEEIO_HOSTINGSTACK') == 'fi1.compact' &&
 
 // Use PHP transport for mails unless SMTP configuration is present.
 if (!isset($_SERVER['SMTP_ADDRESS'])) {
-  $config['swiftmailer.transport']['transport'] = 'native';
+  //$config['swiftmailer.transport']['transport'] = 'native';
 }
