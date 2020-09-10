@@ -35,3 +35,8 @@ if (getenv('AMAZEEIO_HOSTINGSTACK') == 'fi1.compact' &&
   $config['varnish.settings']['varnish_control_key'] = getenv('AMAZEEIO_VARNISH_SECRET');
   $config['varnish.settings']['varnish_version'] = 4;
 }
+
+// Use PHP transport for mails unless SMTP configuration is present.
+if (!isset($_SERVER['SMTP_ADDRESS'])) {
+  $config['swiftmailer.transport']['transport'] = 'native';
+}
