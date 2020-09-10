@@ -1,0 +1,14 @@
+uuid: 346a9e97-206b-459f-894b-8db128dc1e41
+langcode: fi
+status: true
+dependencies:
+  config:
+    - key.key.smtp_address
+    - swiftmailer.transport
+id: smtp_address
+label: 'SMTP address'
+config_type: system.simple
+config_prefix: ''
+config_name: swiftmailer.transport
+config_item: smtp_host
+key_id: smtp_address
