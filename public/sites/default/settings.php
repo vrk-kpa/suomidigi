@@ -38,6 +38,7 @@ $settings['trusted_host_patterns'] = array(
   '^prod\.suomidigi\.cloud\.dvv\.fi$',
   '^suomidigi\.fi$',
   '^www\.suomidigi\.fi$',
+  '^testi\.suomidigi\.fi$',
   '^' . str_replace('.', '\.', getenv('AMAZEEIO_SITE_URL')) . '$',
 );
 
