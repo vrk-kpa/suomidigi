@@ -1,0 +1,12 @@
+label: 'Sisältösivu: Uutiset'
+display:
+  default:
+    display_options:
+      pager:
+        options:
+          views_infinite_scroll:
+            button_text: 'Näytä lisää uutisia'
+  news_grid:
+    display_title: Ruudukko
+  news_list:
+    display_title: Lista

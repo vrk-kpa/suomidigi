@@ -1,27 +1,42 @@
 .block-group-operations,
 .block-content-creation-links-block {
-  @include breakpoint($for-tablet-portrait-up) {
-    margin: $gutter $gutter 0 $gutter;
+  margin: 0;
+  padding: $gutter 0;
+
+  .path-user & {
+    bottom: unset;
+    top: 0;
+  }
+
+  @include breakpoint($for-mobile-landscape-up) {
+    bottom: 10px;
+    margin: $gutter * 1.86 $gutter 0 $gutter;
     padding: $gutter / 3;
     position: absolute;
     right: 0;
-    top: 0;
     z-index: 1;
+  }
 
-    .contextual {
-      top: -25px;
-    }
+  @include breakpoint($for-tablet-portrait-up) {
+    margin: $gutter $gutter 0 $gutter;
+  }
+
+  .contextual {
+    top: -25px;
   }
 }
 
 .block-group-operations {
-  @include breakpoint($for-tablet-portrait-up) {
-    margin: 10px -5px 0 $gutter;
-  }
   .dropbutton-widget {
     .js & {
       background-color: transparent;
       border: 0 none;
+    }
+  }
+
+  .dropbutton-single {
+    .menu--content-creation__button {
+      margin-bottom: -17px;
     }
   }
 }

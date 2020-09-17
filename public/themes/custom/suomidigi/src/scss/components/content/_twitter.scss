@@ -13,6 +13,7 @@
   }
 
   &__link {
+    color: $blue-light;
     text-decoration: none;
   }
 
@@ -39,12 +40,14 @@
     h3 {
       @include font-size(18px, 23px);
       @include font-weight($semibold);
+      color: $blue-light;
       margin: 0;
     }
 
     h4 {
       @include font-size(14px, 18px);
       @include font-weight($regular);
+      color: $blue-light;
       margin: 0;
     }
   }
@@ -65,8 +68,8 @@
 
   &__date {
     @include font-size(14px, 18px);
-    @include font-weight($semibold);
-    color: $gray-medium;
+    @include font-weight($regular);
+    color: $gray-dark;
     letter-spacing: 0;
     padding-left: $gutter / 2;
     text-decoration: none;

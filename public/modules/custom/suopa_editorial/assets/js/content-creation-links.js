@@ -1,18 +1,20 @@
+"use strict";
+
 (function ($, Drupal) {
   Drupal.behaviors.contentCreationLinks = {
-    attach: function(context) {
-      let contentCreationLinksToggleButton = $('.menu--content-creation__button', context);
-      let contentCreationLinksWrapper = $('.menu--content-creation__dropdown', context);
+    attach: function attach(context) {
+      var contentCreationLinksToggleButton = $('.menu--content-creation__button', context);
+      var contentCreationLinksWrapper = $('.menu--content-creation__dropdown', context);
 
-      const outsideClickListener = (event) => {
-        let target = $(event.target);
+      var outsideClickListener = function outsideClickListener(event) {
+        var target = $(event.target);
         if (!target.closest('.menu--content-creation__dropdown').length && $('.menu--content-creation__dropdown').is(':visible')) {
           handleInteraction(event);
           removeClickListener();
         }
       };
 
-      const removeClickListener = () => {
+      var removeClickListener = function removeClickListener() {
         document.removeEventListener('click', outsideClickListener);
       };
 
@@ -31,7 +33,7 @@
       }
 
       contentCreationLinksToggleButton.on({
-        touchstart: function(e) {
+        touch: function(e) {
           handleInteraction(e);
         },
         click: function(e) {

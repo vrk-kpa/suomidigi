@@ -1,0 +1,22 @@
+<a href="{{ url }}" class="button--navigation button-direction--{{ direction }}">
+  <div class="button__icon">
+    {% if icons_path %}
+      <svg class="icon icon--arrow icon--{{ direction }}">
+        <title>{{ name }}</title>
+        <use xlink:href="{{ icons_path|trim }}#arrow-navigation" />
+      </svg>
+    {% endif %}
+  </div>
+  <div class="button__label-wrapper">
+    <div class="button__label">
+      {% if direction == 'next' %}
+        {{ 'Next'|t }}
+      {% else %}
+        {{ 'Previous'|t }}
+      {% endif %}
+    </div>
+    <div class="button__description">
+      {{ label }}
+    </div>
+  </div>
+</a>

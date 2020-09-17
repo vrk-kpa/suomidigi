@@ -1,0 +1,33 @@
+uuid: 6b7d479d-3236-4322-bff5-f626f3a51d78
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: news_item_sv
+label: 'News item - SV'
+type: 'canonical_entities:node'
+pattern: 'pressmeddelanden/[node:published:custom:Y]/[node:published:custom:m]/[node:title]'
+selection_criteria:
+  72788fa5-00ef-4c19-8edb-eeb832bffcdd:
+    id: node_type
+    bundles:
+      news_item: news_item
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 72788fa5-00ef-4c19-8edb-eeb832bffcdd
+  620e1a42-f35b-40fd-91bd-b656ca6f7339:
+    id: language
+    langcodes:
+      fi: fi
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 620e1a42-f35b-40fd-91bd-b656ca6f7339
+selection_logic: and
+weight: 2
+relationships:
+  'node:langcode:language':
+    label: Language

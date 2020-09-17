@@ -11,7 +11,7 @@ entity_type: paragraph
 bundle: legislation_link
 label: 'Link Destination'
 description: 'For example, <em>Finlex.fi</em>'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

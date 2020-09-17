@@ -9,17 +9,16 @@
         let searchFormInput = $('#search', context);
         if (searchFormParentElement.hasClass('is-open')) {
           searchFormParentElement.removeClass('is-open');
+          searchToggleButton.removeClass('is-active');
         }
         else {
           searchFormParentElement.addClass('is-open');
+          searchToggleButton.addClass('is-active');
           searchFormInput.focus();
         }
       }
 
       searchToggleButton.on({
-        touchstart: function(e){
-          handleInteraction(e);
-        },
         click: function(e){
           handleInteraction(e);
         }

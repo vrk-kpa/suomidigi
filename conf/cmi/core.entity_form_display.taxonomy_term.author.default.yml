@@ -10,7 +10,7 @@ dependencies:
     - field.field.taxonomy_term.author.field_author_title
     - field.field.taxonomy_term.author.field_author_twitter
     - field.field.taxonomy_term.author.field_reference_to_user_profile
-    - image.style.thumbnail
+    - image.style.medium
     - taxonomy.vocabulary.author
   module:
     - field_group
@@ -97,7 +97,7 @@ content:
   field_author_picture:
     weight: 4
     settings:
-      preview_image_style: thumbnail
+      preview_image_style: medium
       offsets: '50,50'
       progress_indicator: throbber
       preview_link: false
@@ -126,6 +126,7 @@ content:
       width: 100%
       match_operator: CONTAINS
       autocomplete: 0
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference_views
     region: content
@@ -136,6 +137,18 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   description: true

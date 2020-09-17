@@ -1,0 +1,20 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          bef:
+            type:
+              more_options:
+                rewrite:
+                  filter_rewrite_values: "- Kaikki -|Kaikki\r\nArtikkeli|Artikkelit\r\nBlogikirjoitus|Blogikirjoitukset\r\nTapahtuma|Tapahtumat"
+      pager:
+        options:
+          views_infinite_scroll:
+            button_text: 'Näytä lisää'
+      empty:
+        area:
+          content:
+            value: "<p>Et ole vielä tallentanut suosikkeja.<br />\r\nVoit tallentaa haluamiasi sisältöjä tähän klikkaamalla valitsemasi sisällön, esimerkiksi blogikirjoituksen, oikeassa ylänurkassa olevaa sydän-painiketta.</p>\r\n"
+            format: full_html
+      title: 'Tallennetut sisällöt'

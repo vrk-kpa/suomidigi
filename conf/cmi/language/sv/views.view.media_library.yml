@@ -31,12 +31,25 @@ display:
         name:
           expose:
             label: Namn
+        langcode:
+          expose:
+            label: Språk
       sorts:
         created:
           expose:
             label: 'Nyaste först'
   page:
     display_title: Sida
+    display_options:
+      fields:
+        media_bulk_form:
+          action_title: Åtgärd
+        name:
+          separator: ', '
+        edit_media:
+          text: Redigera
+        delete_media:
+          text: Radera
   widget:
     display_options:
       filters:

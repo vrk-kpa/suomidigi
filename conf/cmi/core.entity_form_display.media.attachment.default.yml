@@ -3,32 +3,23 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_image_browser
+    - field.field.media.attachment.field_accessibility_required
     - field.field.media.attachment.field_liftup_image
     - field.field.media.attachment.field_media_file
     - media.type.attachment
   module:
-    - entity_browser
     - file
 id: media.attachment.default
 targetEntityType: media
 bundle: attachment
 mode: default
 content:
-  field_liftup_image:
-    weight: 1
+  field_accessibility_required:
+    weight: 0
     settings:
-      entity_browser: media_image_browser
-      field_widget_display: rendered_entity
-      field_widget_edit: true
-      field_widget_remove: true
-      field_widget_replace: false
-      selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: default
-      open: false
+      display_label: true
     third_party_settings: {  }
-    type: entity_browser_entity_reference
+    type: boolean_checkbox
     region: content
   field_media_file:
     weight: 2
@@ -42,11 +33,11 @@ content:
     weight: 3
     region: content
     settings:
-      include_locked: true
+      include_locked: false
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -54,6 +45,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_liftup_image: true
   path: true
   revision_log_message: true
   status: true

@@ -23,25 +23,109 @@ nav.menu--sidebar {
 
     > span,
     > a {
-      @include font-size(14px, 18px);
-      color: $blue;
+      @include font-size(16px, 27px);
+      @include font-weight($regular);
+      color: $blue-light;
       display: block;
-      padding: 0.75rem 0;
+      hyphens: auto;
+      letter-spacing: 0;
+      padding: 16px 22px;
+      position: relative;
       text-decoration: none;
-      text-transform: uppercase;
       width: 100%;
 
       &:hover,
       &:focus {
-        text-decoration: underline $blue;
+        color: $black;
+        text-decoration: none;
+      }
+
+      // Border-bottom
+      &::after {
+        background-color: $gray-light;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 0;
+        position: absolute;
+        right: 0;
       }
 
       &.is-active {
-        background-color: $gray-lighter;
+        background-color: #F4FBFE;
+
+        // Border-left
+        &::before {
+          background-color: $cyan;
+          content: '';
+          display: block;
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 10px;
+        }
 
         &:hover,
         &:focus {
-          text-decoration: none;
+          color: $blue-light;
+        }
+      }
+    }
+
+    &.menu-item--active-trail {
+      position: relative;
+
+      // Border-left
+      &::before {
+        background-color: $gray;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 5px;
+      }
+
+      > span,
+      > a {
+        // Border-bottom
+        &::after {
+          left: 5px;
+        }
+
+        &.is-active {
+          @include font-weight($regular);
+        }
+      }
+
+      .menu-item--lvl-1,
+      .menu-item--lvl-2,
+      .menu-item--lvl-3 {
+        > span,
+        > a {
+          &::after {
+            left: 5px;
+          }
+          &.is-active {
+            @include font-weight($semibold);
+          }
+        }
+      }
+
+      .menu--is-lvl-2 {
+        &::after {
+          left: 5px;
+        }
+
+        > span,
+        > a {
+          &.is-active {
+            &::after {
+              display: none;
+            }
+          }
         }
       }
     }
@@ -49,34 +133,28 @@ nav.menu--sidebar {
     &--lvl-0 {
       > span,
       > a {
-        @include border('bottom');
-        color: $blue;
-        font-weight: bold;
+        @include font-size(22px, 27px);
+        @include font-weight($regular);
+        color: $blue-light;
         letter-spacing: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      &:not(.menu-item--active-trail) {
+        display: none;
+        visibility: hidden;
       }
     }
 
     &--lvl-1 {
       > span,
       > a {
-        background: $white;
-        border-left: $gutter / 3 solid transparent;
-        padding-left: $gutter;
-        text-transform: none;
+        @include font-size(18px, 27px);
+        @include font-weight($regular);
 
         &.is-active {
           @include font-weight($semibold);
-          border-color: $blue-light;
-          color: $blue-light;
-        }
-      }
-
-      &.menu-item--active-trail {
-        > span,
-        > a {
-          @include font-weight($semibold);
-          background-color: $white;
-          border-left: $gutter / 3 solid $blue-light;
         }
       }
     }
@@ -84,24 +162,10 @@ nav.menu--sidebar {
     &--lvl-2 {
       > span,
       > a {
-        background-color: $gray-lighter;
-        border-left: 10px solid $gray-medium;
-        padding-left: $gutter;
-        text-transform: none;
+        padding-left: 35px;
+        padding-right: 20px;
 
         &.is-active {
-          @include font-weight($semibold);
-          background-color: $white;
-          border-color: $blue-light;
-          color: $blue-light;
-        }
-      }
-
-      &.menu-item--active-trail {
-        > span,
-        > a {
-          background-color: $white;
-          border-color: $blue-light;
           @include font-weight($semibold);
         }
       }
@@ -110,31 +174,16 @@ nav.menu--sidebar {
     &--lvl-3 {
       > span,
       > a {
-        background: $white;
-        border-left: 15px solid $gray-medium;
-        padding-left: $gutter;
-        text-transform: none;
-
-        &.is-active {
-          @include font-weight($semibold);
-          background-color: $white;
-          border-color: $blue-light;
-          color: $blue-light;
-        }
-      }
-
-      &.menu-item--active-trail {
-        > span,
-        > a {
-          background-color: $white;
-          border-color: $blue-light;
-          @include font-weight($semibold);
-        }
+        @include font-size(16px, 27px);
+        @include font-weight($regular);
+        color: $blue-light;
+        padding-left: 50px;
+        padding-right: 20px;
       }
     }
   }
 
-  // Handle active trail.
+    // Handle active trail.
   .menu-item--active-trail {
     ul {
       display: none;

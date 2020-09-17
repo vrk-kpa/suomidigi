@@ -31,9 +31,14 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-    <ul{{ attributes.addClass('menu', 'menu--sidebar', 'menu--is-top-lvl') }}>
+      <ul{{ attributes.addClass('menu', 'menu--mobile', 'menu--is-top-lvl') }}>
     {% else %}
-    <ul{{ attributes.removeClass('menu--is-top-lvl').addClass('menu--is-lvl-' ~ menu_level) }}>
+      {% set menu_parent = menu_level - 1 %}
+      {% if attributes.hasClass('menu--is-lvl-' ~ menu_parent) %}
+        <ul{{ attributes.removeClass('menu--is-top-lvl').removeClass('menu--is-lvl-' ~ menu_parent).addClass('menu--is-lvl-' ~ menu_level) }}>
+      {% else %}
+        <ul{{ attributes.removeClass('menu--is-top-lvl').addClass('menu--is-lvl-' ~ menu_level) }}>
+      {% endif %}
     {% endif %}
     {% for item in items %}
       {%

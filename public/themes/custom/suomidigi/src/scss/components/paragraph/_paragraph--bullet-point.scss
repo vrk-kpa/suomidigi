@@ -1,11 +1,13 @@
 .paragraph.paragraph--highlight-bullet-point {
   background-color: $white;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px #00000029;
   padding: $gutter * 1.5;
 
   .paragraph__title {
-    @include font-size(18px);
-    font-weight: 600;
+    @include font-size(20px, 27px);
+    @include font-weight($semibold);
+    margin-bottom: $gutter;
   }
 
   .paragraph-list {
@@ -14,25 +16,50 @@
   }
 
   .paragraph-list__item {
-    @include font-size(15px);
+    @include font-size(18px, 27px);
+    @include font-weight($regular);
     list-style: none;
     margin-bottom: $gutter * 0.75;
-    padding-left: $gutter * 1.5;
+    padding-left: $gutter * 2;
     position: relative;
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    &:before {
-      background-color: $blue-light;
+    &::before {
+      background-color: $cyan;
       border-radius: 100%;
       content: '';
-      height: $gutter * 0.75;
-      left: 0;
+      height: 12px;
+      left: 4px;
       position: absolute;
-      top: $gutter * 0.5;
-      width: $gutter * 0.75;
+      top: 8px;
+      width: 12px;
+    }
+
+    &.icon--minus,
+    &.icon--plus {
+      &::before {
+        background-size: 19px;
+        border-radius: 0;
+        height: 20px;
+        left: 0;
+        top: 4px;
+        width: 20px;
+      }
+    }
+
+    &.icon--plus {
+      &::before {
+        background: white url('../../icons/svg/add-circle.svg') no-repeat 0 0;
+      }
+    }
+
+    &.icon--minus {
+      &:before {
+        background: white url('../../icons/svg/subtract-circle.svg') no-repeat 0 0;
+      }
     }
   }
 }

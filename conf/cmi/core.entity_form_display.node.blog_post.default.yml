@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_image_browser
+    - field.field.node.blog_post.field_approved
     - field.field.node.blog_post.field_blog
     - field.field.node.blog_post.field_comments
     - field.field.node.blog_post.field_displayed_author
@@ -15,8 +16,10 @@ dependencies:
     - field.field.node.blog_post.field_tags
     - field.field.node.blog_post.field_theme
     - node.type.blog_post
+    - workflows.workflow.copn
   module:
     - comment
+    - content_moderation
     - datetime
     - entity_browser
     - hide_revision_field
@@ -40,11 +43,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_blog:
+    type: select2_entity_reference
     weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
+    settings:
+      width: 400px
+      match_operator: CONTAINS
+      match_limit: 10
+      autocomplete: false
+    third_party_settings: {  }
   field_comments:
     weight: 24
     settings: {  }
@@ -57,6 +64,7 @@ content:
       width: 100%
       autocomplete: true
       match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -100,7 +108,7 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: closed_expand_nested
+      edit_mode: open
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
@@ -124,8 +132,9 @@ content:
     weight: 3
     settings:
       width: 400px
-      match_operator: CONTAINS
-      autocomplete: false
+      autocomplete: true
+      match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -135,6 +144,7 @@ content:
       width: 400px
       match_operator: CONTAINS
       autocomplete: false
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -143,7 +153,13 @@ content:
     weight: 0
     region: content
     settings:
-      include_locked: true
+      include_locked: false
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 25
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path
@@ -222,6 +238,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
@@ -234,4 +251,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_approved: true

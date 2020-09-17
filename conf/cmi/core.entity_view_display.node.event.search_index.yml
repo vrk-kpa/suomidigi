@@ -1,0 +1,75 @@
+uuid: 0d1abe9c-6599-45da-ae97-a6dfefd0753d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.event.field_approved
+    - field.field.node.event.field_event_date_and_time
+    - field.field.node.event.field_event_description
+    - field.field.node.event.field_event_free_text
+    - field.field.node.event.field_event_image
+    - field.field.node.event.field_event_link
+    - field.field.node.event.field_event_org_contact_info
+    - field.field.node.event.field_event_organiser
+    - field.field.node.event.field_event_registration
+    - field.field.node.event.field_organiser_description
+    - field.field.node.event.field_organiser_link
+    - field.field.node.event.field_theme
+    - field.field.node.event.field_venue_address
+    - field.field.node.event.field_venue_description
+    - field.field.node.event.field_venue_name
+    - node.type.event
+  module:
+    - smart_trim
+    - user
+id: node.event.search_index
+targetEntityType: node
+bundle: event
+mode: search_index
+content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_event_description:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+      summary_handler: full
+    third_party_settings: {  }
+    type: smart_trim
+    region: content
+hidden:
+  field_approved: true
+  field_displayed_author: true
+  field_event_date_and_time: true
+  field_event_free_text: true
+  field_event_image: true
+  field_event_link: true
+  field_event_org_contact_info: true
+  field_event_organiser: true
+  field_event_registration: true
+  field_organiser_description: true
+  field_organiser_link: true
+  field_theme: true
+  field_venue_address: true
+  field_venue_description: true
+  field_venue_name: true
+  flag_content_bookmark: true
+  langcode: true
+  links: true
+  published_at: true
+  search_api_excerpt: true

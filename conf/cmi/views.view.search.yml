@@ -14,7 +14,6 @@ description: ''
 tag: ''
 base_table: search_api_index_content_search_index
 base_field: search_api_id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -76,9 +75,19 @@ display:
         type: search_api
         options:
           view_modes:
+            'entity:group':
+              group: search_index
             'entity:node':
-              article: teaser
-              core_content: teaser
+              article: search_index
+              blog_post: search_index
+              community: search_index
+              core_content: search_index
+              event: search_index
+              landing_page: search_index
+              legislation_card: search_index
+              legislation_collection_page: search_index
+              news_item: search_index
+              page: search_index
       fields:
         body:
           table: search_api_index_content_search_index
@@ -180,7 +189,12 @@ display:
               editor_in_chief: '0'
               administrator: '0'
               webform_administrator: '0'
+              groups_administrator: '0'
+              group_administrator: '0'
+              group_member: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: 'Fulltext search'
@@ -198,13 +212,7 @@ display:
               3: {  }
           parse_mode: terms
           min_length: null
-          fields:
-            - field_article_type_name
-            - field_blog_tags
-            - field_core_content_type_name
-            - field_displayed_author
-            - field_ingress
-            - title
+          fields: {  }
           plugin_id: search_api_fulltext
         status:
           id: status
@@ -229,6 +237,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -267,6 +277,8 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -304,6 +316,7 @@ display:
         operator: AND
         groups:
           1: AND
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:

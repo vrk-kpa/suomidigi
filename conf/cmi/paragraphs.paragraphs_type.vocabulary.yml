@@ -1,0 +1,10 @@
+uuid: 5e377225-b9fb-4e60-80ad-ba0b907b96d6
+langcode: en
+status: true
+dependencies: {  }
+id: vocabulary
+label: Word
+icon_uuid: null
+icon_default: null
+description: 'Use this paragraph type to create new word explanations'
+behavior_plugins: {  }

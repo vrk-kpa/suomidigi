@@ -2,10 +2,10 @@
   padding: $gutter * 2 0;
 
   .paragraph__title {
-    @include font-size(22px, 28px);
+    @include font-size(28px, 34px);
     @include font-weight($semibold);
-    color: $blue;
-    margin-bottom: $gutter * 2;
+    color: $black;
+    margin-bottom: $gutter * 1.6;
   }
 
   .paragraph__description,
@@ -22,6 +22,6 @@
   .views--members {
     display: flex;
     flex-flow: row wrap;
-    margin: 0 -10px;
+    margin: 0 -#{$gutter};
   }
 }

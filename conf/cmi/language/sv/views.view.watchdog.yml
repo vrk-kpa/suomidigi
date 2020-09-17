@@ -32,6 +32,7 @@ display:
             alt: '{{ meddelande }}'
         name:
           label: Användare
+          separator: ', '
         link:
           label: Funktioner
       filters:

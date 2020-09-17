@@ -1,0 +1,21 @@
+uuid: babc1197-f6f1-4ca7-9098-f98e81a3d8d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_bullet_point_style
+    - paragraphs.paragraphs_type.highlight_bullet_point_item
+  module:
+    - options
+id: paragraph.highlight_bullet_point_item.field_p_bullet_point_style
+field_name: field_p_bullet_point_style
+entity_type: paragraph
+bundle: highlight_bullet_point_item
+label: 'Bullet point style'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

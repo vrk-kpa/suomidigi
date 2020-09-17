@@ -24,6 +24,19 @@ moby:
   js:
     dist/js/moby.min.js: {}
 
+menu-more-items:
+  js:
+    dist/js/menuMoreItems.min.js: {}
+
+# Should be removed when all major browsers on most used operating systems
+# can handle CSS3 hyphens: auto. See. https://caniuse.com/#search=hyphens or
+# https://www.w3schools.com/cssref/css3_pr_hyphens.asp.
+hyphenopoly:
+  header: true
+  js:
+    dist/js/initializeHyphenopoly.min.js: { weight: -2 }
+    src/js/hyphenopoly/Hyphenopoly_Loader.js: { weight: -1 }
+
 global-styling:
   version: 1.x
   css:
@@ -43,4 +56,6 @@ global-scripting:
     - suomidigi/search-toggle
     - suomidigi/language-switcher
     - suomidigi/svgxuse
+    - suomidigi/menu-more-items
     - suomidigi/parallax-background
+    - suomidigi/hyphenopoly

@@ -9,7 +9,7 @@ id: node.legislation_collection_page.field_ingress
 field_name: field_ingress
 entity_type: node
 bundle: legislation_collection_page
-label: Ingress
+label: Lead
 description: ''
 required: false
 translatable: true

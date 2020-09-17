@@ -18,11 +18,7 @@
 <article{{attributes.addClass(classes)}}>
   <a href="{{ url }}" class="article-teaser__link">
     <div class="article-teaser__image">
-      {% if is_full_width %}
-        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
-      {% else %}
-        {{ drupal_image(big_liftup_teaser_image, 'article_teaser_header_alternative', { alt: big_liftup_teaser_image_alt, title: big_liftup_teaser_image_title }, responsive=true) }}
-      {% endif %}
+      {{ content.field_header_image }}
     </div>
     <div class="article-teaser__content">
       <div class="article-teaser__label-container">

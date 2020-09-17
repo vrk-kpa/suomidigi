@@ -1,0 +1,44 @@
+uuid: bd76ff44-8842-48f7-83c3-0f3dbd82e755
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.legislation_collection_page.field_header_image
+    - field.field.node.legislation_collection_page.field_ingress
+    - field.field.node.legislation_collection_page.field_legis_cpage_paragraphs
+    - node.type.legislation_collection_page
+  module:
+    - smart_trim
+    - user
+id: node.legislation_collection_page.search_index
+targetEntityType: node
+bundle: legislation_collection_page
+mode: search_index
+content:
+  field_ingress:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+      summary_handler: full
+    third_party_settings: {  }
+    type: smart_trim
+    region: content
+hidden:
+  field_header_image: true
+  field_legis_cpage_paragraphs: true
+  langcode: true
+  links: true
+  published_at: true
+  search_api_excerpt: true

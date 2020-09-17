@@ -1,5 +1,5 @@
 .title__container {
-  padding: 0;
+  padding: 0 0 $gutter;
 
   .content__wrapper & {
     margin: 0;
@@ -54,5 +54,11 @@
     .page-before_content--user & {
       margin-bottom: 0;
     }
+  }
+}
+
+.path-taxonomy {
+  .page-title {
+    padding-top: $gutter * 2;
   }
 }

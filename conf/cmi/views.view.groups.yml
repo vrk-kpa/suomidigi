@@ -9,6 +9,7 @@ dependencies:
   module:
     - group
     - user
+    - views_infinite_scroll
 id: groups
 label: 'Content: Groups'
 module: views
@@ -16,7 +17,6 @@ description: ''
 tag: ''
 base_table: groups_field_data
 base_field: id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -50,9 +50,26 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: none
+        type: infinite_scroll
         options:
+          items_per_page: 3
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Show more groups'
+            automatically_load_content: false
       style:
         type: default
       row:
@@ -135,6 +152,9 @@ display:
           entity_type: group
           entity_field: type
           plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
       sorts:
         label:
           id: label
@@ -163,6 +183,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - user.permissions
       tags: {  }
   groups:
@@ -189,6 +210,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - user.permissions
       tags: {  }
   groups_grid:
@@ -205,21 +227,17 @@ display:
       defaults:
         style: false
         row: false
-        pager: false
+        pager: true
       row:
         type: 'entity:group'
         options:
           relationship: none
           view_mode: teaser_grid
-      pager:
-        type: some
-        options:
-          items_per_page: 3
-          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - user.permissions
       tags: {  }

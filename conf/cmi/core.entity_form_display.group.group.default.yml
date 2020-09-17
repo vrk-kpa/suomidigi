@@ -7,6 +7,7 @@ dependencies:
     - field.field.group.group.field_community_reference_desc
     - field.field.group.group.field_community_reference_title
     - field.field.group.group.field_group_image
+    - field.field.group.group.field_group_link_cta
     - field.field.group.group.field_group_lists
     - field.field.group.group.field_group_short_description
     - field.field.group.group.field_paragraphs
@@ -15,6 +16,7 @@ dependencies:
   module:
     - field_group
     - focal_point
+    - link
     - paragraphs
     - path
     - select2
@@ -25,6 +27,7 @@ third_party_settings:
         - label
         - field_group_short_description
         - field_group_image
+        - field_group_link_cta
       parent_name: ''
       weight: 1
       format_type: details
@@ -122,6 +125,14 @@ content:
     third_party_settings: {  }
     type: image_focal_point
     region: content
+  field_group_link_cta:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_group_lists:
     type: paragraphs
     weight: 2
@@ -181,7 +192,7 @@ content:
     weight: 0
     region: content
     settings:
-      include_locked: true
+      include_locked: false
     third_party_settings: {  }
   path:
     type: path

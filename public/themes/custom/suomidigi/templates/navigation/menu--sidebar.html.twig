@@ -24,15 +24,21 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
+
 {{ menus.menu_links(items, attributes, 0) }}
 
 {% macro menu_links(items, attributes, menu_level) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-    <ul{{ attributes.addClass('menu', 'menu--sidebar', 'menu--is-top-lvl') }}>
+      <ul{{ attributes.addClass('menu', 'menu--sidebar', 'menu--is-top-lvl') }}>
     {% else %}
-    <ul{{ attributes.removeClass('menu--is-top-lvl').addClass('menu--is-lvl-' ~ menu_level) }}>
+      {% set menu_parent = menu_level - 1 %}
+      {% if attributes.hasClass('menu--is-lvl-' ~ menu_parent) %}
+        <ul{{ attributes.removeClass('menu--is-lvl-' ~ menu_parent).addClass('menu--is-lvl-' ~ menu_level) }}>
+      {% else %}
+        <ul{{ attributes.addClass('menu--is-lvl-' ~ menu_level) }}>
+      {% endif %}
     {% endif %}
     {% for item in items %}
       {%

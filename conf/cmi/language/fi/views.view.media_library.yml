@@ -11,7 +11,7 @@ display:
       pager:
         options:
           expose:
-            items_per_page_label: 'Merkintöjä sivua kohti'
+            items_per_page_label: 'Tuloksia sivulla'
             items_per_page_options_all_label: '- Kaikki -'
             offset_label: Offset
           tags:
@@ -39,6 +39,9 @@ display:
             label: 'Median tyyppi'
           group_info:
             label: 'Median tyyppi'
+        langcode:
+          expose:
+            label: Kieli
       sorts:
         created:
           expose:
@@ -50,8 +53,15 @@ display:
   page:
     display_title: Sivu
     display_options:
-      menu:
-        title: Media
+      fields:
+        media_bulk_form:
+          action_title: Toiminto
+        name:
+          separator: ', '
+        edit_media:
+          text: Muokkaa
+        delete_media:
+          text: Poista
   widget:
     display_title: Widgetti
     display_options:

@@ -1,12 +1,4 @@
 .event {
-  margin-left: -#{$gutter};
-  margin-right: -#{$gutter};
-
-  @include breakpoint($for-tablet-portrait-up) {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
   h3 {
     @include font-size(18px, 23px);
     @include font-weight($semibold);
@@ -24,7 +16,7 @@
     }
 
     &--primary {
-      flex-basis: 64%;
+      flex-basis: 56%;
 
       @include breakpoint($for-tablet-portrait-up) {
         margin-right: $gutter;
@@ -32,30 +24,38 @@
     }
 
     &--secondary {
-      flex-basis: 33%;
+      flex-basis: 40%;
 
       @include breakpoint($for-tablet-portrait-up) {
-        padding-left: $gutter;
+        padding-left: $gutter * 2;
       }
+    }
+
+    &.has-border {
+      @include border('top');
+      padding-top: $gutter * 3;
     }
   }
 
   &__content {
     background-color: $white;
+    border-radius: 0 0 5px 5px;
     padding: 25px $gutter;
 
     @include breakpoint($for-tablet-portrait-up) {
       padding: 40px;
     }
 
-    @include breakpoint($for-tablet-landscape-up) {
-      padding: 40px 100px;
-    }
-
     .page-title {
-      @include font-size(26px, 33px);
-      @include font-weight($bold);
-      color: $blue-medium;
+      @include font-size(40px, 50px);
+      @include font-weight($semibold);
+      color: $blue;
+    }
+  }
+
+  &__image {
+    img {
+      border-radius: 5px 5px 0 0;
     }
   }
 
@@ -69,7 +69,7 @@
 
   &__description,
   &__description p {
-    @include font-size(20px, 26px);
+    @include font-size(18px, 27px);
   }
 
   &__registration {
@@ -89,8 +89,8 @@
     }
 
     &--date {
-      @include font-size(18px, 23px);
-      @include font-weight($semibold);
+      @include font-size(18px, 27px);
+      @include font-weight($regular);
       color: $black;
     }
   }
@@ -113,7 +113,9 @@
     }
 
     h3 {
-      margin-bottom: 0;
+      @include font-size(18px, 27px);
+      @include font-weight($semibold);
+      margin-bottom: 5px;
     }
   }
 
@@ -126,80 +128,91 @@
   }
 
   &__divider {
-    @include border('top');
-    @include border('bottom');
     display: flex;
-    justify-content: right;
+    justify-content: left;
     margin: $gutter * 3 -#{$gutter};
-    padding: $gutter;
 
     @include breakpoint($for-tablet-portrait-up) {
-      margin: $gutter * 3 0;
+      margin: $gutter * 3 0 0;
+    }
+
+    .block-suopa-content-social-sharing-block {
+      margin: 0 $gutter $gutter * 2;
     }
   }
 
   &__free-text {
-    @include font-size(16px, 20px);
+    @include font-size(18px, 27px);
     @include font-weight($regular);
     color: $black;
     margin-bottom: $gutter;
 
     h2 {
-      @include font-size(22px, 20px);
+      @include font-size(28px, 34px);
       @include font-weight($semibold);
     }
   }
 
   &__venue-description,
   &__venue-description p {
-    @include font-size(14px, 20px);
+    @include font-size(18px, 27px);
     @include font-weight($regular);
     margin-bottom: $gutter * 2;
 
     .field__label {
-      @include font-size(18px, 23px);
+      @include font-size(22px, 28px);
       @include font-weight($semibold);
-      margin-bottom: $gutter;
+      margin-bottom: $gutter * 2;
     }
   }
 
   &__contact-info {
-    @include font-size(14px, 20px);
+    @include font-size(18px, 27px);
     @include font-weight($regular);
 
     .field__label {
-      @include font-size(18px, 23px);
+      @include font-size(22px, 28px);
       @include font-weight($semibold);
-      margin-bottom: $gutter;
+      margin-bottom: $gutter * 1.4;
     }
 
     .contact-information {
       display: flex;
       flex-direction: column;
       margin-bottom: $gutter;
+      word-break: break-word;
+
+      label {
+        margin-right: 5px;
+      }
 
       .name {
-        @include font-size(14px, 20px);
+        @include font-size(18px, 27px);
         @include font-weight($semibold);
       }
 
       .email,
       .phone-number {
-        @include font-size(14px, 20px);
+        @include font-size(18px, 27px);
         @include font-weight($regular);
       }
     }
   }
 
   &__organiser {
+    h3 {
+      @include font-size(28px, 34px);
+      @include font-weight($semibold);
+    }
+
     &--name {
-      @include font-size(16px, 24px);
+      @include font-size(22px, 26px);
       @include font-weight($semibold);
       margin-bottom: $gutter;
     }
 
     &--description {
-      @include font-size(14px, 20px);
+      @include font-size(18px, 27px);
       @include font-weight($regular);
       margin-bottom: $gutter;
     }

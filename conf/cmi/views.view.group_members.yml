@@ -2,6 +2,8 @@ uuid: 0caa67d7-ffa9-4200-bb7f-04966874e852
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.group_content.group_roles
   module:
     - group
     - user
@@ -14,7 +16,6 @@ description: ''
 tag: ''
 base_table: group_content_field_data
 base_field: id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -647,7 +648,7 @@ display:
       relationships:
         gc__user:
           id: gc__user
-          table: group_content_field_data
+          table: group_content__entity_id
           field: gc__user
           relationship: none
           group_type: group

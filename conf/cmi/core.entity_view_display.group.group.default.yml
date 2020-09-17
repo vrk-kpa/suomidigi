@@ -7,6 +7,7 @@ dependencies:
     - field.field.group.group.field_community_reference_desc
     - field.field.group.group.field_community_reference_title
     - field.field.group.group.field_group_image
+    - field.field.group.group.field_group_link_cta
     - field.field.group.group.field_group_lists
     - field.field.group.group.field_group_short_description
     - field.field.group.group.field_paragraphs
@@ -14,6 +15,7 @@ dependencies:
     - image.style.16_9_half_content
   module:
     - entity_reference_revisions
+    - link
     - svg_image
 id: group.group.default
 targetEntityType: group
@@ -56,6 +58,18 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_group_link_cta:
+    weight: 8
+    label: hidden
+    settings:
+      trim_length: 160
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link_separate
     region: content
   field_group_lists:
     type: entity_reference_revisions_entity_view

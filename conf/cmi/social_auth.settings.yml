@@ -1,7 +1,4 @@
 auth:
-  social_auth_facebook:
-    route: social_auth_facebook.redirect_to_fb
-    img_path: modules/contrib/social_auth_facebook/img/facebook_logo.svg
   social_auth_google:
     route: social_auth_google.redirect_to_google
     img_path: modules/contrib/social_auth_google/img/google_logo.svg

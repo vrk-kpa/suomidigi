@@ -8,11 +8,10 @@
   {% set description = content.field_hero_description.0 %}
   {% set link_classes = [
     'paragraph__hero-link',
-    'link--cta',
+    is_front ? 'button--cta button--cta-extended' : 'link--cta',
   ] %}
-  {% set classes = classes|merge(['paragraph--hero']) %}
-
-  <div{{attributes.addClass(classes)}} style="background-image: url({{ hero_background_image }})">
+  {% set classes = classes|merge(['paragraph--hero', is_front ? 'is-front']) %}
+  <div{{attributes.addClass(classes)}} {{ is_front ?: attributes.setAttribute('style', 'background-image: url(' ~ hero_background_image ~ ');') }}>
     {% block content %}
       <div class="paragraph__content-wrapper">
         <div class="paragraph__content">
@@ -30,16 +29,21 @@
 
           {% if link and text %}
             <div class="paragraph__link">
-              {% if icons_path %}
+              {% if icons_path and not is_front %}
                 <svg class="icon">
                   <title>{{ title }}</title>
                   <use xlink:href="{{ icons_path|trim }}#chevron-right"/>
                 </svg>
               {% endif %}
-              <a href="{{ link }}" title="{{ text }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
+              <a href="{{ link }}" class="{{ link_classes|join(' ') }}">{{ text }}</a>
             </div>
           {% endif %}
         </div>
+        {% if is_front %}
+          <div class="paragraph__image">
+            {{ drupal_image(hero_background_image,'1_1_half_content') }}
+          </div>
+        {% endif %}
       </div>
     {% endblock %}
   </div>

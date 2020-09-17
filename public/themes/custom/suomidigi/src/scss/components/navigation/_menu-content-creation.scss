@@ -29,6 +29,10 @@
     margin: 0;
     padding: 0;
 
+    > a {
+      text-decoration: none;
+    }
+
     .icon__wrapper {
       align-items: center;
       display: flex;

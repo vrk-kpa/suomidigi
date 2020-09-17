@@ -12,8 +12,10 @@ dependencies:
     - paragraphs.paragraphs_type.legislation_attachment
     - paragraphs.paragraphs_type.legislation_cards
     - paragraphs.paragraphs_type.legislation_link
+    - paragraphs.paragraphs_type.liftup_box
     - paragraphs.paragraphs_type.liftup_box_item
     - paragraphs.paragraphs_type.liftup_entity_reference_item
+    - paragraphs.paragraphs_type.vocabulary
   module:
     - entity_reference_revisions
 id: node.landing_page.field_paragraphs
@@ -31,6 +33,7 @@ settings:
   handler_settings:
     negate: 1
     target_bundles:
+      liftup_box: liftup_box
       liftup_box_item: liftup_box_item
       liftup_entity_reference_item: liftup_entity_reference_item
       highlight_bullet_point_item: highlight_bullet_point_item
@@ -38,6 +41,7 @@ settings:
       legislation_attachment: legislation_attachment
       legislation_link: legislation_link
       contact_information_item: contact_information_item
+      vocabulary: vocabulary
       group_view: group_view
       hero: hero
     target_bundles_drag_drop:
@@ -60,8 +64,8 @@ settings:
         weight: -26
         enabled: false
       liftup_box:
+        enabled: true
         weight: -25
-        enabled: false
       liftup_box_item:
         enabled: true
         weight: -24
@@ -107,6 +111,9 @@ settings:
       contact_information_item:
         enabled: true
         weight: 28
+      vocabulary:
+        enabled: true
+        weight: 29
       group_view:
         enabled: true
         weight: 32
@@ -115,6 +122,9 @@ settings:
         weight: 35
       view:
         weight: 42
+        enabled: false
+      liftup_50_50:
+        weight: 46
         enabled: false
       list_of_links:
         weight: 49

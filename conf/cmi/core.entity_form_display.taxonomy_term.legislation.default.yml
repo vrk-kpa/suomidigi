@@ -35,7 +35,7 @@ content:
     weight: 3
     region: content
     settings:
-      include_locked: true
+      include_locked: false
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -62,6 +62,13 @@ content:
       allow_user_settings: true
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 100
+    region: content
     third_party_settings: {  }
   translation:
     weight: 4

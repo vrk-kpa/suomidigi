@@ -7,7 +7,8 @@ nav.menu--desktop {
 
   @include breakpoint($for-tablet-portrait-up) {
     display: block;
-    overflow-x: hidden;
+    position: relative;
+    width: 100%;
 
     .is-hidden--desktop {
       display: none;
@@ -19,12 +20,13 @@ nav.menu--desktop {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    margin: 0 -#{$gutter * 1.4};
+    margin: 0 0 0 -#{$gutter * 1.6};
     padding: 0;
   }
 
   .menu-item {
     @include font-size(18px, 23px);
+    @include font-weight($regular);
     margin: 0 $gutter * 1.4;
     padding: 0;
     text-align: center;
@@ -36,20 +38,119 @@ nav.menu--desktop {
       border-top: 5px solid transparent;
       color: $white;
       display: inline-block;
+      hyphens: auto;
       padding: $gutter / 1.5  $gutter / 3;
       text-decoration: none;
 
       &:hover,
       &:focus,
       &.is-active {
-        border-bottom: 5px solid $blue-light;
+        border-bottom: 5px solid $white;
       }
     }
 
     &.menu-item--active-trail {
       > span,
       > a {
-        border-bottom: 5px solid $blue-light;
+        border-bottom: 5px solid $white;
+      }
+    }
+  }
+
+  .menu--leftover {
+    margin-left: auto;
+    position: relative;
+    visibility: visible;
+
+    > .menu--leftover__button {
+      @include font-size(18px, 23px);
+      @include font-weight($regular);
+      align-items: center;
+      background-color: $blue;
+      border: 0 none;
+      color: $white;
+      cursor: pointer;
+      display: flex;
+      outline: transparent;
+      padding: $gutter $gutter * 2 $gutter $gutter * 1.4;
+      position: relative;
+      text-decoration: none;
+      z-index: 12;
+
+      &[aria-expanded=true] {
+        background-color: $white;
+        color: $blue-light;
+      }
+
+      .icon {
+        color: inherit;
+        height: 6px;
+        margin-right: 15px;
+        width: 25px;
+      }
+    }
+
+    &.is-hidden {
+      display: none;
+      visibility: hidden;
+
+      ul {
+        display: none;
+      }
+    }
+  }
+
+  .menu--leftover__wrapper {
+    display: none;
+    margin: 8px 0 0;
+    min-width: 250px;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 45px;
+    white-space: nowrap;
+    width: auto;
+    z-index: 11;
+
+    &.is-active {
+      background-color: $white;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 2px 2px 10px #00000029;
+      display: block;
+    }
+
+    .menu-item {
+      @include font-size(16px, 27px);
+      @include font-weight($regular);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+
+      &:first-of-type {
+        margin: $gutter / 1.5 0 0;
+      }
+
+      &:last-of-type {
+        margin: 0 0 $gutter / 1.5;
+      }
+
+      a {
+        border-bottom: 0 none;
+        border-left: $gutter / 3 solid transparent;
+        border-top: 0 none;
+        color: $black;
+        padding: $gutter / 1.5 $gutter;
+        text-align: left;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      &--active-trail a,
+      a:focus,
+      a:hover {
+        border-left: $gutter / 3 solid $cyan;
+        color: $blue-light;
       }
     }
   }

@@ -7,11 +7,13 @@ dependencies:
     - field.field.node.page.field_displayed_author
     - field.field.node.page.field_displayed_update_time
     - field.field.node.page.field_header_image
+    - field.field.node.page.field_hide_updated_date
     - field.field.node.page.field_ingress
     - field.field.node.page.field_paragraphs
     - field.field.node.page.field_tags
     - node.type.page
   module:
+    - content_moderation
     - datetime
     - entity_browser
     - hide_revision_field
@@ -40,6 +42,7 @@ content:
       width: 100%
       autocomplete: true
       match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -68,6 +71,13 @@ content:
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_hide_updated_date:
+    weight: 21
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_ingress:
     weight: 4
@@ -100,8 +110,9 @@ content:
     weight: 2
     settings:
       width: 400px
-      match_operator: CONTAINS
-      autocomplete: false
+      autocomplete: true
+      match_operator: STARTS_WITH
+      match_limit: 10
     third_party_settings: {  }
     type: select2_entity_reference
     region: content
@@ -110,7 +121,13 @@ content:
     weight: 0
     region: content
     settings:
-      include_locked: true
+      include_locked: false
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   path:
     type: path
@@ -189,6 +206,7 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default

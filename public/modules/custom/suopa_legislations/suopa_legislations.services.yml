@@ -1,0 +1,3 @@
+services:
+  suopa_legislations.legislation:
+    class: Drupal\suopa_legislations\LegislationService

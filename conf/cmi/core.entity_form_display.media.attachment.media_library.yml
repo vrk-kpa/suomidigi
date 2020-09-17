@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.media.media_library
+    - field.field.media.attachment.field_accessibility_required
+    - field.field.media.attachment.field_liftup_image
     - field.field.media.attachment.field_media_file
     - media.type.attachment
 id: media.attachment.media_library
@@ -26,6 +28,7 @@ content:
     region: content
 hidden:
   created: true
+  field_accessibility_required: true
   field_liftup_image: true
   field_media_file: true
   langcode: true

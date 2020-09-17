@@ -1,0 +1,8 @@
+display_configuration:
+  link_text: 'Valitse kuva'
+widgets:
+  0249b284-a217-4b35-a51f-4250d477d7e6:
+    settings:
+      dropzone_description: 'Pudota tiedostot tähän ladataksesi ne'
+      submit_text: 'Valitse kuva'
+    label: 'Lisää uusi kuva'

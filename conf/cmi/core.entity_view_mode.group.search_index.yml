@@ -1,0 +1,10 @@
+uuid: f10ab5d9-c3e5-41e3-be58-0c33af53d820
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.search_index
+label: 'Search index'
+targetEntityType: group
+cache: true

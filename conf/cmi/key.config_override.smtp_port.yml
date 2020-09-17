@@ -1,0 +1,14 @@
+uuid: 1a60fd91-08a0-4b54-903f-6be3115f539d
+langcode: fi
+status: true
+dependencies:
+  config:
+    - key.key.smtp_port
+    - swiftmailer.transport
+id: smtp_port
+label: 'SMTP port'
+config_type: system.simple
+config_prefix: ''
+config_name: swiftmailer.transport
+config_item: smtp_port
+key_id: smtp_port

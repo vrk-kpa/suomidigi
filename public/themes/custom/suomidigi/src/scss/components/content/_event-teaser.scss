@@ -7,6 +7,16 @@
   padding: $gutter * 1.4;
   width: 100%;
 
+  &.is-draft {
+    border-left-color: $red;
+    padding-top: $gutter * 3;
+  }
+
+  &.is-review {
+    border-left-color: $green;
+    padding-top: $gutter * 3;
+  }
+
   h3 {
     @include font-size(18px, 23px);
     @include font-weight($semibold);
@@ -25,10 +35,16 @@
       .icon {
         color: $black;
       }
+
+      .event-teaser__title {
+        color: $blue-light;
+        text-decoration: underline;
+      }
     }
   }
 
   &__header {
+    align-items: flex-start;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -97,13 +113,10 @@
     margin-bottom: 0.5rem;
   }
 
-
-
   .listing--grid__item & {
     background-color: $white;
     flex-flow: column;
     height: 100%;
     margin: 0;
   }
-
 }

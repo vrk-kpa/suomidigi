@@ -11,7 +11,7 @@ dependencies:
 id: account_menu
 theme: suomidigi
 region: header
-weight: -10
+weight: -8
 provider: null
 plugin: 'menu_block_current_language:account'
 settings:

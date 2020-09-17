@@ -4,12 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.legislation_card.field_attachments
+    - field.field.node.legislation_card.field_displayed_update_time
     - field.field.node.legislation_card.field_ingress
+    - field.field.node.legislation_card.field_lc_attachments
+    - field.field.node.legislation_card.field_lc_internal_vocabularies
+    - field.field.node.legislation_card.field_lc_vocabularies
     - field.field.node.legislation_card.field_legislation_content
     - field.field.node.legislation_card.field_legislation_materials
     - field.field.node.legislation_card.field_legislation_section
     - node.type.legislation_card
   module:
+    - datetime
     - entity_reference_revisions
     - text
     - user
@@ -27,6 +32,15 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
+  field_displayed_update_time:
+    weight: 4
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_ingress:
     weight: 1
     label: hidden
@@ -34,6 +48,33 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_lc_attachments:
+    type: entity_reference_entity_view
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_lc_internal_vocabularies:
+    type: entity_reference_revisions_entity_view
+    weight: 7
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_lc_vocabularies:
+    type: entity_reference_revisions_entity_view
+    weight: 8
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
   field_legislation_content:
     weight: 2
     label: hidden
@@ -43,7 +84,7 @@ content:
     region: content
   field_legislation_materials:
     type: entity_reference_revisions_entity_view
-    weight: 4
+    weight: 5
     label: above
     settings:
       view_mode: default
@@ -59,3 +100,4 @@ hidden:
   field_legislation_section: true
   langcode: true
   published_at: true
+  search_api_excerpt: true
