@@ -572,7 +572,7 @@ function suomidigi_preprocess_menu(&$variables) {
       ? $first_name . ' ' . $last_name
       : $user->getDisplayName();
 
-    // Set caching / user
+    // Set caching / user.
     $variables['#cache']['contexts'][] = 'user';
   }
 }
