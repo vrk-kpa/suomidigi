@@ -97,7 +97,7 @@
         "drupal/views_bulk_operations": "^3.2",
         "drupal/views_infinite_scroll": "^1.6",
         "drupal/viewsreference": "^2.0",
-        "drupal/webform": "^5.2",
+        "drupal/webform": "^5.21",
         "drupal/wordpress_migrate": "^3.0",
         "drupal/workflows_field": "^1.0",
         "drupal/xmlsitemap": "^1.0@RC",
