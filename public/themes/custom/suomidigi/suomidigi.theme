@@ -571,6 +571,9 @@ function suomidigi_preprocess_menu(&$variables) {
     $variables['user_name'] = (isset($first_name) && isset($last_name))
       ? $first_name . ' ' . $last_name
       : $user->getDisplayName();
+
+    // Set caching / user.
+    $variables['#cache']['contexts'][] = 'user';
   }
 }
 

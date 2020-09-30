@@ -186,6 +186,7 @@ class LegislationService {
 
     return $query
       ->fields('n', ['nid'])
+      ->fields('ti', ['weight'])
       ->condition('n.type', 'legislation_card')
       ->condition('nfd.status', 1)
       ->condition('nfls.field_legislation_section_target_id', $this->legislationId)
