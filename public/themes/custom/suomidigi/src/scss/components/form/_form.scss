@@ -260,10 +260,6 @@
     &.form-type-checkbox {
       margin-bottom: $gutter;
 
-      &:last-of-type {
-        margin-bottom: $gutter * 10;
-      }
-
       input[type="checkbox"] {
         opacity: 0;
 
