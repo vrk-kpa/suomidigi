@@ -30,8 +30,8 @@
         "drupal/comments_order": "^1.0",
         "drupal/content_moderation_notifications": "^3.2",
         "drupal/context": "4.0-beta2",
-        "drupal/core-composer-scaffold": "^8.8 <8.9",
-        "drupal/core-recommended": "^8.8 <8.9",
+        "drupal/core-composer-scaffold": "^8.9",
+        "drupal/core-recommended": "^8.9",
         "drupal/daterange_compact": "1.x-dev",
         "drupal/dropzonejs": "^2.0-alpha4",
         "drupal/easy_breadcrumb": "^1.12",
@@ -101,6 +101,7 @@
         "drupal/wordpress_migrate": "^3.0",
         "drupal/workflows_field": "^1.0",
         "drupal/xmlsitemap": "^1.0@RC",
+        "drush/drush": "^10.3",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
         "fgelinas/timepicker": "^0.3.3",
@@ -113,13 +114,14 @@
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
     "require-dev": {
+        "drupal/core-dev": "^8.9"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
     "config": {
         "platform": {
-            "php": "7.3.18"
+            "php": "7.3.22"
         },
         "sort-packages": true,
         "discard-changes": true
@@ -153,14 +155,11 @@
         "installer-types": ["bower-asset", "npm-asset"],
         "patches": {
             "drupal/core": {
-                "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2019-05-21/2466553-translation_interface-60.patch",
+                "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2020-05-14/2466553-75-d89x.patch",
                 "https://www.drupal.org/project/drupal/issues/3008119": "https://www.drupal.org/files/issues/2019-05-15/drupal-allow_alter_oembed_providers-3008119-4.patch",
                 "https://www.drupal.org/project/drupal/issues/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch",
-                "https://www.drupal.org/project/drupal/issues/3014209": "https://www.drupal.org/files/issues/2019-11-07/content_translation-translate-tab-set-3014209-15-combined-2137815-15.patch",
                 "https://www.drupal.org/project/drupal/issues/2872162": "https://www.drupal.org/files/issues/2018-06-04/2872162-field-widget-hook-10.patch",
-                "https://www.drupal.org/project/drupal/issues/3020387": "https://www.drupal.org/files/issues/2019-01-18/3020387-7.patch",
                 "https://www.drupal.org/project/drupal/issues/3045648": "https://www.drupal.org/files/issues/2019-04-23/3045648-17-do-not-test.patch",
-                "https://www.drupal.org/project/drupal/issues/2946750": "https://www.drupal.org/files/issues/2019-03-22/2946750-19.patch",
                 "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
                 "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
                 "https://www.drupal.org/project/drupal/issues/3013435": "https://www.drupal.org/files/issues/2020-01-08/drupal-locale-prepare-directory-3013435-15.patch",
