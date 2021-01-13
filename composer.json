@@ -17,9 +17,9 @@
         "brainmaestro/composer-git-hooks": "^2.7",
         "composer/installers": "^1.9",
         "cosenary/instagram": "v2.3",
-        "cweagans/composer-patches": "^1.6.7",
+        "cweagans/composer-patches": "^1.7",
         "dimsemenov/magnific-popup": "^1.1",
-        "druidfi/omen": "^0.1.7",
+        "druidfi/omen": "^0.2.0",
         "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^1.0",
         "drupal/ajax_comments": "^1.0",
@@ -101,7 +101,6 @@
         "drupal/wordpress_migrate": "^3.0",
         "drupal/workflows_field": "^1.0",
         "drupal/xmlsitemap": "^1.0@RC",
-        "drush/drush": "^10.2",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
         "fgelinas/timepicker": "^0.3.3",
@@ -111,22 +110,16 @@
         "select2/select2": "^4.0.7",
         "sortablejs/sortable": "^1.8.4",
         "trentrichardson/jquery-timepicker-addon": "^1.6",
-        "w8tcha/ckeditor-wordcount-plugin": "1.17.6",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-        "drupal/coder": "^8.2",
-        "drupal/console": "~1.0",
-        "drupal/drupal-extension": "~3.3",
-        "phpunit/phpunit": "~6.1"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
     "config": {
         "platform": {
-            "php": "7.1.12"
+            "php": "7.3.18"
         },
         "sort-packages": true,
         "discard-changes": true
@@ -135,13 +128,15 @@
         "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "allowed-packages": [
-              "drupal/core"
+                "drupal/core"
             ],
             "locations": {
-              "web-root": "./public"
+                "web-root": "./public"
             },
             "file-mapping": {
-              "[project-root]/.editorconfig": false
+                "[project-root]/.editorconfig": false,
+                "[web-root]/sites/default/default.services.yml": false,
+                "[web-root]/sites/default/default.settings.php": false
             }
         },
         "enable-patching": true,
