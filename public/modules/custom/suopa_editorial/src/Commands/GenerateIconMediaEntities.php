@@ -51,7 +51,10 @@ class GenerateIconMediaEntities extends DrushCommands {
    * @return false
    *   Returns false or nothing.
    */
-  public function generateIcons($path = NULL, array $options = ['update' => FALSE, 'clean' => FALSE]) {
+  public function generateIcons(
+    $path = NULL,
+    array $options = ['update' => FALSE, 'clean' => FALSE]
+  ) {
     if (!$this->isIconEnabled()) {
       $this->output()->writeln('Couldn\'t find icon media bundle');
       return FALSE;
