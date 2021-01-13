@@ -15,6 +15,9 @@ DRUPAL_PROFILE ?= minimal
 DRUPAL_SYNC_FILES ?= yes
 DRUPAL_SYNC_SOURCE ?= production
 DRUPAL_VERSION ?= 8
+DRUSH_RSYNC_MODE ?= Pakzu
+DRUSH_RSYNC_OPTS ?=  -- --omit-dir-times --no-perms --no-group --no-owner --chmod=ugo=rwX
+DRUSH_RSYNC_EXCLUDE ?= css:ctools:js:php:tmp:tmp_php
 SYNC_TARGETS += drush-sync
 LINT_PATHS_JS += ./$(WEBROOT)/modules/custom/*/js
 LINT_PATHS_JS += ./$(WEBROOT)/themes/custom/*/js
@@ -30,7 +33,7 @@ endif
 PHONY += drupal-update
 drupal-update: ## Update Drupal core with Composer
 	$(call step,Update Drupal core with Composer...)
-	@composer update "drupal/core-*" --with-dependencies
+	@composer update -W "drupal/core-*"
 
 PHONY += drush-cex
 drush-cex: ## Export configuration
@@ -84,6 +87,11 @@ endif
 drush-si: ## Site install
 	$(call drush_on_${RUN_ON},si ${DRUSH_SI})
 
+PHONY += drush-deploy
+drush-deploy: ## Run Drush deploy
+	$(call step,Run Drush deploy...)
+	$(call drush_on_${RUN_ON},deploy)
+
 PHONY += drush-updb
 drush-updb: ## Run database updates
 	$(call step,Run database updates...)
@@ -105,20 +113,27 @@ PHONY += drush-sync
 drush-sync: drush-sync-db drush-sync-files ## Sync database and files
 
 PHONY += drush-sync-db
-drush-sync-db: ## Sync database and files
+drush-sync-db: ## Sync database
 ifeq ($(DUMP_SQL_EXISTS),yes)
 	$(call step,Import local SQL dump...)
-	$(call drush_on_${RUN_ON},sql-cli < ${DOCKER_PROJECT_ROOT}/$(DUMP_SQL_FILENAME))
+	$(call drush_on_${RUN_ON},sql-query --file=${DOCKER_PROJECT_ROOT}/$(DUMP_SQL_FILENAME))
 else
 	$(call step,Sync database from @$(DRUPAL_SYNC_SOURCE)...)
 	$(call drush_on_${RUN_ON},sql-sync -y --structure-tables-key=common @$(DRUPAL_SYNC_SOURCE) @self)
 endif
 
 PHONY += drush-sync-files
-drush-sync-files: ## Sync database and files
+drush-sync-files: ## Sync files
 ifeq ($(DRUPAL_SYNC_FILES),yes)
 	$(call step,Sync files from @$(DRUPAL_SYNC_SOURCE)...)
-	$(call drush_on_${RUN_ON},-y rsync --mode=akzu @$(DRUPAL_SYNC_SOURCE):%files @self:%files)
+ifeq ($(DRUPAL_VERSION),7)
+	@chmod 0755 ${WEBROOT}/sites/default
+	@mkdir -p ${WEBROOT}/sites/default/files
+	@chmod 0777 ${WEBROOT}/sites/default/files
+	$(call drush_on_${RUN_ON},-y rsync --exclude-paths=$(DRUSH_RSYNC_EXCLUDE) --mode=$(DRUSH_RSYNC_MODE) @$(DRUPAL_SYNC_SOURCE):%files @self:%files)
+else
+	$(call drush_on_${RUN_ON},-y rsync --exclude-paths=$(DRUSH_RSYNC_EXCLUDE) --mode=$(DRUSH_RSYNC_MODE) @$(DRUPAL_SYNC_SOURCE):%files @self:%files $(DRUSH_RSYNC_OPTS))
+endif
 endif
 
 PHONY += drush-download-dump

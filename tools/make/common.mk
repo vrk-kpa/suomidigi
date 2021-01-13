@@ -53,8 +53,9 @@ PHONY += shell-%
 shell-%: OPTS = $(INSTANCE_$*_OPTS)
 shell-%: USER = $(INSTANCE_$*_USER)
 shell-%: HOST = $(INSTANCE_$*_HOST)
+shell-%: EXTRA = $(INSTANCE_$*_EXTRA)
 shell-%: ## Login to remote instance
-	ssh $(OPTS) $(USER)@$(HOST)
+	ssh $(OPTS) $(USER)@$(HOST) $(EXTRA)
 
 PHONY += self-update
 sync: ## Sync data from other environments
