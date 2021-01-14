@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffe302e25347de5573a7a2a7f2f60767",
+    "content-hash": "e7a2d0232e46a20a3b0e1ce95c33b5ad",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2831,14 +2831,14 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/drupal/issues/2466553": "https://www.drupal.org/files/issues/2020-05-14/2466553-75-d89x.patch",
-                    "https://www.drupal.org/project/drupal/issues/3008119": "https://www.drupal.org/files/issues/2019-05-15/drupal-allow_alter_oembed_providers-3008119-4.patch",
-                    "https://www.drupal.org/project/drupal/issues/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch",
-                    "https://www.drupal.org/project/drupal/issues/2872162": "https://www.drupal.org/files/issues/2018-06-04/2872162-field-widget-hook-10.patch",
-                    "https://www.drupal.org/project/drupal/issues/3045648": "https://www.drupal.org/files/issues/2019-04-23/3045648-17-do-not-test.patch",
-                    "https://www.drupal.org/project/drupal/issues/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
-                    "https://www.drupal.org/project/drupal/issues/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
-                    "https://www.drupal.org/project/drupal/issues/3013435": "https://www.drupal.org/files/issues/2020-01-08/drupal-locale-prepare-directory-3013435-15.patch",
+                    "https://www.drupal.org/i/2466553": "https://www.drupal.org/files/issues/2020-05-14/2466553-75-d89x.patch",
+                    "https://www.drupal.org/i/3008119": "https://www.drupal.org/files/issues/2019-05-15/drupal-allow_alter_oembed_providers-3008119-4.patch",
+                    "https://www.drupal.org/i/1088112": "https://www.drupal.org/files/issues/2019-07-25/base-url-token-1088112-30.patch",
+                    "https://www.drupal.org/i/2872162": "https://www.drupal.org/files/issues/2018-06-04/2872162-field-widget-hook-10.patch",
+                    "https://www.drupal.org/i/3045648": "https://www.drupal.org/files/issues/2019-04-23/3045648-17-do-not-test.patch",
+                    "https://www.drupal.org/i/2927455": "https://www.drupal.org/files/issues/2020-02-13/2927455-8.patch",
+                    "https://www.drupal.org/i/3101344": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
+                    "https://www.drupal.org/i/3013435": "https://www.drupal.org/files/issues/2020-01-08/drupal-locale-prepare-directory-3013435-15.patch",
                     "Remove node_user_predelete() hook to prevent deletion of nodes when deleting a user account.": "patches/remove_node_user_predelete_hook.patch"
                 }
             },
@@ -3847,7 +3847,7 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/flag/issues/2982147": "https://www.drupal.org/files/issues/2018-12-12/containerAttrs.7.2982147.patch",
+                    "https://www.drupal.org/i/2982147": "https://www.drupal.org/files/issues/2018-12-12/containerAttrs.7.2982147.patch",
                     "Fix classes on Flag module ajax callbacks": "patches/flag_clean_classes_on_ajax_callbacks.patch"
                 }
             },
@@ -4147,13 +4147,13 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/group/issues/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
-                    "https://www.drupal.org/project/group/issues/2864721": "https://www.drupal.org/files/issues/2020-07-30/group-translate_content_permission-2864721-20.patch",
+                    "https://www.drupal.org/i/2942657": "https://www.drupal.org/files/issues/2018-08-15/group-route-match-ajax-views-d8-2942657-11.patch",
+                    "https://www.drupal.org/i/2864721": "https://www.drupal.org/files/issues/2020-07-30/group-translate_content_permission-2864721-20.patch",
                     "Move group operations links alter to more suitable spot.": "patches/group_operations_links_alter.patch",
                     "Group content Path automated pattern and tokens for actual node": "https://www.drupal.org/files/issues/group-content-entity-tokens-2916907-7.patch",
-                    "https://www.drupal.org/project/group/issues/3101314": "https://www.drupal.org/files/issues/2019-12-16/reword_delete_to_remove_on_group_member_removal-3101314-2.patch",
-                    "https://www.drupal.org/project/group/issues/2797793": "https://www.drupal.org/files/issues/2020-07-30/group-support_string_entity_ids-2797793-214.patch",
-                    "https://www.drupal.org/project/group/issues/2980034": "https://www.drupal.org/files/issues/2018-08-28/joined_user_redirection-2980034-9.patch"
+                    "https://www.drupal.org/i/3101314": "https://www.drupal.org/files/issues/2019-12-16/reword_delete_to_remove_on_group_member_removal-3101314-2.patch",
+                    "https://www.drupal.org/i/2797793": "https://www.drupal.org/files/issues/2020-07-30/group-support_string_entity_ids-2797793-214.patch",
+                    "https://www.drupal.org/i/2980034": "https://www.drupal.org/files/issues/2018-08-28/joined_user_redirection-2980034-9.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4210,8 +4210,8 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/hide_revision_field/issues/3032473": "https://www.drupal.org/files/issues/2019-05-10/hide_revision_field-3032473-8.patch",
-                    "https://www.drupal.org/project/hide_revision_field/issues/3018160": "https://www.drupal.org/files/issues/2019-06-10/hide_revision_field-3018160-user_profile_error_plus_media_incompatibility-12.patch"
+                    "https://www.drupal.org/i/3032473": "https://www.drupal.org/files/issues/2019-05-10/hide_revision_field-3032473-8.patch",
+                    "https://www.drupal.org/i/3018160": "https://www.drupal.org/files/issues/2019-06-10/hide_revision_field-3018160-user_profile_error_plus_media_incompatibility-12.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4870,7 +4870,7 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/menu_block_current_language/issues/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
+                    "https://www.drupal.org/i/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4973,7 +4973,7 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/menu_trail_by_path/issues/2914746": "https://www.drupal.org/files/issues/2020-01-10/menu_trail_by_path-fatal_error_on_menu_active_trail_service_override-2914746-18.patch"
+                    "https://www.drupal.org/i/2914746": "https://www.drupal.org/files/issues/2020-01-10/menu_trail_by_path-fatal_error_on_menu_active_trail_service_override-2914746-18.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5422,7 +5422,7 @@
                     }
                 },
                 "patches_applied": {
-                    "https://www.drupal.org/project/paragraphs/issues/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
+                    "https://www.drupal.org/i/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
