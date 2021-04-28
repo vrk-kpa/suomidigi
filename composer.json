@@ -19,7 +19,7 @@
         "cosenary/instagram": "v2.3",
         "cweagans/composer-patches": "^1.7",
         "dimsemenov/magnific-popup": "^1.1",
-        "druidfi/omen": "^0.2.0",
+        "druidfi/omen": "^0.3.0",
         "drupal/address": "^1.7",
         "drupal/admin_toolbar": "^1.0",
         "drupal/ajax_comments": "^1.0",
@@ -59,7 +59,7 @@
         "drupal/menu_link_attributes": "^1.0",
         "drupal/menu_trail_by_path": "^1.1",
         "drupal/metatag": "^1.10",
-        "drupal/migrate_tools": "^4.4",
+        "drupal/migrate_tools": "^5.0",
         "drupal/nodeorder": "^1.0@beta",
         "drupal/optional_end_date": "^1.0",
         "drupal/paragraphs": "^1.10",
@@ -101,7 +101,7 @@
         "drupal/wordpress_migrate": "^3.0",
         "drupal/workflows_field": "^1.0",
         "drupal/xmlsitemap": "^1.0@RC",
-        "drush/drush": "^10.3",
+        "drush/drush": "^10.4",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
         "fgelinas/timepicker": "^0.3.3",
@@ -114,7 +114,7 @@
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
     "require-dev": {
-        "drupal/core-dev": "^8.9"
+        "drupal/core-dev-pinned": "^8.9"
     },
     "conflict": {
         "drupal/drupal": "*"
