@@ -12,7 +12,7 @@ RUN npm run gulp production
 ###
 # Build the actual container.
 ###
-FROM druidfi/drupal:7.3.22-web
+FROM druidfi/drupal:7.3.27-web
 
 # Copy files needed for building codebase
 COPY --chown=druid:www-data composer.* /app/
@@ -33,5 +33,4 @@ COPY --from=theme-builder /usr/src/app/icons/icons.svg /app/public/themes/custom
 
 # Install Drupal, contrib modules and dependencies with composer.
 RUN whoami && \
-    composer global require hirak/prestissimo && \
-    composer install --no-dev --optimize-autoloader --prefer-dist --no-suggest
+    composer install --no-dev --optimize-autoloader --prefer-dist

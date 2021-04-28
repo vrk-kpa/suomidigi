@@ -13,6 +13,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
+        "composer-runtime-api": "^2",
         "abraham/twitteroauth": "^1.0",
         "brainmaestro/composer-git-hooks": "^2.7",
         "composer/installers": "^1.9",
