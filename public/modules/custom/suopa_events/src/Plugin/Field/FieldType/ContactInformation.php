@@ -71,7 +71,10 @@ class ContactInformation extends FieldItemBase {
       'email' => [
         'Length' => [
           'max' => Email::EMAIL_MAX_LENGTH,
-          'maxMessage' => t('%name: the email address can not be longer than @max characters.', ['%name' => $this->getFieldDefinition()->getLabel(), '@max' => Email::EMAIL_MAX_LENGTH]),
+          'maxMessage' => t('%name: the email address can not be longer than @max characters.', [
+            '%name' => $this->getFieldDefinition()->getLabel(),
+            '@max' => Email::EMAIL_MAX_LENGTH
+          ]),
         ],
       ],
     ]);

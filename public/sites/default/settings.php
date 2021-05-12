@@ -32,15 +32,14 @@ $settings['file_private_path'] = realpath(__DIR__ . '/../../../files_private');
 
 ### Trusted Host Patterns, see https://www.drupal.org/node/2410395 for more information.
 ### If your site runs on multiple domains, you need to add these domains here
-$settings['trusted_host_patterns'] = array(
+$settings['trusted_host_patterns'] = [
   '^suomidigi\.docker\.sh$',
   '^beta\.suomidigi\.cloud\.dvv\.fi$',
   '^prod\.suomidigi\.cloud\.dvv\.fi$',
   '^suomidigi\.fi$',
   '^www\.suomidigi\.fi$',
   '^testi\.suomidigi\.fi$',
-  '^' . str_replace('.', '\.', getenv('AMAZEEIO_SITE_URL')) . '$',
-);
+];
 
 // Set environment indicator.
 switch (getenv('HTTP_HOST')) {
