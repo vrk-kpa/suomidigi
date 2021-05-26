@@ -7968,29 +7968,26 @@
         },
         {
             "name": "drupal/workflows_field",
-            "version": "1.0.0-alpha1",
+            "version": "2.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/workflows_field.git",
-                "reference": "8.x-1.0-alpha1"
+                "reference": "2.0.0-alpha1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/workflows_field-8.x-1.0-alpha1.zip",
-                "reference": "8.x-1.0-alpha1",
-                "shasum": "c76fc2b34261cfa3724b295d98b16696adc2376d"
+                "url": "https://ftp.drupal.org/files/projects/workflows_field-2.0.0-alpha1.zip",
+                "reference": "2.0.0-alpha1",
+                "shasum": "1d0ad4824a8e56848857fc939f97b4f2789e3ad5"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8.9 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1",
-                    "datestamp": "1511243285",
+                    "version": "2.0.0-alpha1",
+                    "datestamp": "1615774689",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -7999,18 +7996,26 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
                     "name": "Sam152",
                     "homepage": "https://www.drupal.org/user/1485048"
+                },
+                {
+                    "name": "dpi",
+                    "homepage": "https://www.drupal.org/user/81431"
                 }
             ],
-            "description": "Adds a field type which can be used for storing and transitioning states according to workflows.",
+            "description": "Workflows Field",
             "homepage": "https://www.drupal.org/project/workflows_field",
+            "keywords": [
+                "Drupal"
+            ],
             "support": {
-                "source": "https://git.drupalcode.org/project/workflows_field"
+                "source": "https://git.drupalcode.org/project/workflows_field",
+                "issues": "https://www.drupal.org/project/issues/workflows_field"
             }
         },
         {
