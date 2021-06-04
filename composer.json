@@ -22,7 +22,7 @@
         "dimsemenov/magnific-popup": "^1.1",
         "druidfi/omen": "^0.3.0",
         "drupal/address": "^1.7",
-        "drupal/admin_toolbar": "^1.0",
+        "drupal/admin_toolbar": "^3.0",
         "drupal/ajax_comments": "^1.0",
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/captcha": "^1.0",
