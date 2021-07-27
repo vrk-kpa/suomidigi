@@ -43,7 +43,7 @@ $settings['trusted_host_patterns'] = [
 
 // Set environment indicator.
 switch (getenv('HTTP_HOST')) {
-  case 'suomidigi.docker.sh':
+  case 'suomidigi.docker.so':
     $settings['simple_environment_indicator'] = '#0F0F0F';
     break;
   case 'dev.suomidigi.fi':
