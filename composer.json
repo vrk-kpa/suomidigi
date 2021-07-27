@@ -103,7 +103,7 @@
         "drupal/wordpress_migrate": "^3.0",
         "drupal/workflows_field": "^1.0",
         "drupal/xmlsitemap": "^1.0@RC",
-        "drush/drush": "^10.4",
+        "drush/drush": "^10.5",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
         "fgelinas/timepicker": "^0.3.3",
