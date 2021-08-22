@@ -6,7 +6,7 @@ A Suomidigi Drupal 8 website.
 
 Env | Branch | Drush alias | URL
 --- | ------ | ----------- | ---
-development | * | - | https://suomidigi.docker.sh/
+development | * | - | https://suomidigi.docker.so/
 production | master | @master | https://suomidigi.fi
 
 ## Requirements
