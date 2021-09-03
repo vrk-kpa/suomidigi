@@ -105,6 +105,7 @@ module:
   search_api: 0
   search_api_autocomplete: 0
   search_api_db: 0
+  seckit: 0
   select2: 0
   shortcut: 0
   simplei: 0
@@ -115,7 +116,6 @@ module:
   social_auth_linkedin: 0
   social_media: 0
   social_media_import: 0
-  stage_file_proxy: 0
   suopa_blog_conversion: 0
   suopa_communities: 0
   suopa_content: 0

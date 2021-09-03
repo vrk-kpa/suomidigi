@@ -79,6 +79,7 @@
         "drupal/scheduler": "1.x-dev",
         "drupal/search_api": "^1.13",
         "drupal/search_api_autocomplete": "^1.2",
+        "drupal/seckit": "^2.0",
         "drupal/select2": "^1.1",
         "drupal/simplei": "^1.1",
         "drupal/smart_trim": "^1.1",
