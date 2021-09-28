@@ -181,5 +181,5 @@ define drush_on_docker
 endef
 
 define drush_on_host
-	@drush -r ${DOCKER_PROJECT_ROOT}/${WEBROOT} --ansi --strict=0 $(1)
+	@cd $(COMPOSER_JSON_PATH)/${WEBROOT} && drush --ansi --strict=0 $(1)
 endef
