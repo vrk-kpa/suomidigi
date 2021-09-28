@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71332e0e74ed68e312e1378f7d86225b",
+    "content-hash": "e98a134d03bd8d8ff89cdb433149406e",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -5824,33 +5824,30 @@
         },
         {
             "name": "drupal/rate",
-            "version": "1.0.0-alpha5",
+            "version": "2.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/rate.git",
-                "reference": "8.x-1.0-alpha5"
+                "reference": "8.x-2.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rate-8.x-1.0-alpha5.zip",
-                "reference": "8.x-1.0-alpha5",
-                "shasum": "3d56906077d57344df10ec1cd8157d3e18540599"
+                "url": "https://ftp.drupal.org/files/projects/rate-8.x-2.0-beta1.zip",
+                "reference": "8.x-2.0-beta1",
+                "shasum": "2d3156dc1ddec03c5928c99c1169cafd3945c1fb"
             },
             "require": {
-                "drupal/core": "*",
-                "drupal/votingapi": "*"
+                "drupal/core": "^8 || ^9",
+                "drupal/votingapi": "^3.0"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-alpha5",
-                    "datestamp": "1563467919",
+                    "version": "8.x-2.0-beta1",
+                    "datestamp": "1626805062",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -5884,7 +5881,7 @@
                     "homepage": "https://www.drupal.org/user/919186"
                 }
             ],
-            "description": "Flexible voting options for content entity types.",
+            "description": "Flexible voting options for entity types.",
             "homepage": "https://www.drupal.org/project/rate",
             "support": {
                 "source": "https://git.drupalcode.org/project/rate",
@@ -6346,67 +6343,6 @@
                 "source": "http://git.drupal.org/project/search_api_autocomplete.git",
                 "issues": "https://www.drupal.org/project/issues/search_api_autocomplete",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
-            }
-        },
-        {
-            "name": "drupal/seckit",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/seckit.git",
-                "reference": "2.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/seckit-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "d5356230b2de7d1e8a2e68eb81e70619a2e36c1e"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1598609351",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "badjava",
-                    "homepage": "https://www.drupal.org/user/83372"
-                },
-                {
-                    "name": "jweowu",
-                    "homepage": "https://www.drupal.org/user/152788"
-                },
-                {
-                    "name": "mcdruid",
-                    "homepage": "https://www.drupal.org/user/255969"
-                },
-                {
-                    "name": "p0deje",
-                    "homepage": "https://www.drupal.org/user/529960"
-                }
-            ],
-            "description": "SecKit provides Drupal with various security-hardening options.",
-            "homepage": "https://www.drupal.org/project/seckit",
-            "keywords": [
-                "Drupal",
-                "security"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/seckit",
-                "issues": "http://drupal.org/project/issues/seckit"
             }
         },
         {
@@ -7821,6 +7757,10 @@
                 "GPL-2.0+"
             ],
             "authors": [
+                {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
+                },
                 {
                     "name": "eaton",
                     "homepage": "https://www.drupal.org/user/16496"
@@ -16387,5 +16327,5 @@
     "platform-overrides": {
         "php": "7.3.22"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
