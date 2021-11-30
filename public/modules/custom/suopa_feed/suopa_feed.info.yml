@@ -1,6 +1,7 @@
 name: 'SuoPa Feed'
 type: module
 description: 'Hosts all feed related custom code.'
+core_version_requirement: ^8 || ^9
 core: 8.x
 package: 'SuoPa'
 dependencies:

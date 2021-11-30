@@ -1,6 +1,7 @@
 name: 'SuoPa Content'
 type: module
 description: 'Performs alterations for Suomidigi content.'
+core_version_requirement: ^8 || ^9
 core: 8.x
 package: 'SuoPa'
 dependencies:
