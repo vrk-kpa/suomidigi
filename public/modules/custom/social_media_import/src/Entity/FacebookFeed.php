@@ -26,6 +26,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "id" = "id",
  *     "label" = "label",
  *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "page_name",
+ *   },
  *   links = {
  *     "edit-form" = "/admin/structure/social_media_post/facebook/{social_media_feed_facebook}",
  *     "create" = "/admin/structure/social_media_post/facebook/add",

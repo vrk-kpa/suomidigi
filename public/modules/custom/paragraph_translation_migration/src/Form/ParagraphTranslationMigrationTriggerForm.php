@@ -52,7 +52,7 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
       $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type);
       $this->handleMigration($fields, $entity_type);
     }
-    drupal_set_message('Migration completed.');
+    $this->messenger()->addStatus('Migration completed.');
   }
 
   /**
@@ -112,8 +112,7 @@ class ParagraphTranslationMigrationTriggerForm extends FormBase {
                 $translated_entity = $entity->getTranslation($language->getId());
                 $translated_entity->set($field_name, $translated_paragraph_entities);
                 $translated_entity->save();
-                drupal_set_message('Saved ' . $entity->getEntityType()->id() . ', id ' . $entity->id() . '. Language: ' . $language->getId() . '. Translated entity id: ' . $translated_entity->id());
-              }
+                $this->messenger()->addStatus('Saved ' . $entity->getEntityType()->id() . ', id ' . $entity->id() . '. Language: ' . $language->getId() . '. Translated entity id: ' . $translated_entity->id());              }
             }
           }
         }

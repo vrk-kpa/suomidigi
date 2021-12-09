@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\File\FileSystemInterface;
+
 /**
  * @file
  * Install, uninstall and update hooks for Suopa media embed module.
@@ -11,12 +13,12 @@
 function suopa_media_embed_install() {
   $source = drupal_get_path('module', 'suopa_media_embed') . '/images/icons';
   $destination = \Drupal::config('media.settings')->get('icon_base_uri');
-  file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  \Drupal::service('file_system')->prepareDirectory($destination, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
 
-  $files = file_scan_directory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  $files = \Drupal::service('file_system')->scanDirectory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
   foreach ($files as $file) {
     if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
-      file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
+      copy($file->uri, $destination, EXISTS_ERROR);
     }
   }
 }

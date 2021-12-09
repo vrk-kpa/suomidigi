@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * Implements hook_help().
@@ -87,8 +88,8 @@ function social_media_import_save_file($filename, $path) {
   ) ? 'fbsi_' . mt_rand(0, 100000) . '.jpg' : $name;
   $data = file_get_contents($filename);
   $uri = $path . strtok($name, '?');
-  file_prepare_directory($path, FILE_CREATE_DIRECTORY);
-  $file = file_save_data($data, $uri, FILE_EXISTS_RENAME);
+  \Drupal::service('file_system')->prepareDirectory($path, FileSystemInterface::CREATE_DIRECTORY);
+  $file = file_save_data($data, $uri, FileSystemInterface::EXISTS_RENAME);
   return ($file) ? $file->id() : $file;
 }
 

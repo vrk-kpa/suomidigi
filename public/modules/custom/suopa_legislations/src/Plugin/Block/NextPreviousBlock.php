@@ -13,7 +13,6 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\suopa_legislations\LegislationService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 
 /**
  * Provides a 'Next Previous' block.
@@ -39,13 +38,6 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
-
-  /**
-   * The Query Factory.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
 
   /**
    * The Legislation service.
@@ -112,7 +104,6 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
       $plugin_definition,
       $container->get('current_route_match'),
       $container->get('entity_type.manager'),
-      $container->get('entity.query'),
       $container->get('suopa_legislations.legislation'),
       $container->get('renderer'),
       $container->get('cache.default')

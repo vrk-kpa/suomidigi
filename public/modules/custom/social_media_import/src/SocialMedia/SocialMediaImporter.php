@@ -2,6 +2,7 @@
 
 namespace Drupal\social_media_import\SocialMedia;
 
+use Drupal\Core\Url;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -82,7 +83,7 @@ class SocialMediaImporter extends ControllerBase {
       ];
 
       foreach ($image_directories as $dir) {
-        file_unmanaged_delete_recursive($dir);
+        deleteRecursive($dir);
       }
     }
   }
@@ -115,9 +116,9 @@ class SocialMediaImporter extends ControllerBase {
       }
     }
 
-    drupal_set_message($this->t('The importer has been run and social media posts has been updated.'));
+    $this->messenger()->addStatus($this->t('The importer has been run and social media posts has been updated.'));
 
-    return new RedirectResponse(\Drupal::url('entity.social_media_post'));
+    return new RedirectResponse(Url::fromRoute('entity.social_media_post')->toString());
 
   }
 

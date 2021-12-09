@@ -1,5 +1,6 @@
 name: 'SuoPa - Media embed'
 type: module
 description: 'Media embed functionality for Suomidigi.fi'
+core_version_requirement: ^8 || ^9
 core: 8.x
 package: 'SuoPa'

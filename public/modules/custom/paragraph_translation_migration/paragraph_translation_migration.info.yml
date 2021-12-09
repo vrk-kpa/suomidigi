@@ -1,5 +1,6 @@
 name: Paragraph translation migration
 description: 'Migrates existing paragraph translation to the #2461695 logic.'
+core_version_requirement: ^8 || ^9
 core: '8.x'
 package: Field types
 type: module

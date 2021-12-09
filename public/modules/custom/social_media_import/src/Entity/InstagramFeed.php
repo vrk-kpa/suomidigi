@@ -26,6 +26,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "id" = "id",
  *     "label" = "label",
  *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "user_id",
+ *   }
  *   links = {
  *     "edit-form" = "/admin/structure/social_media_post/instagram/{social_media_feed_instagram}",
  *     "create" = "/admin/structure/social_media_post/instagram/add",

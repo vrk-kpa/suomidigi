@@ -91,7 +91,7 @@ class ConvertBlogPosts extends DrushCommands {
    */
   private function getFieldTableNames(NodeStorageInterface $storage) {
     $table_mapping = $storage->getTableMapping();
-    $bundle_fields = \Drupal::entityManager()->getFieldDefinitions('node', 'article');
+    $bundle_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'article');
     $field_table_names = [];
     foreach ($bundle_fields as $field) {
       if (!$field instanceof FieldConfig) {

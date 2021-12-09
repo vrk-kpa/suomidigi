@@ -78,12 +78,12 @@ class YoutubeFeedForm extends EntityForm {
     $status = $youtube->save();
 
     if ($status) {
-      drupal_set_message($this->t('Saved the %label.', [
+      $this->messenger()->addStatus($this->t('Saved the %label.', [
         '%label' => $youtube->label(),
       ]));
     }
     else {
-      drupal_set_message($this->t('The %label was not saved.', [
+      $this->messenger()->addStatus($this->t('The %label was not saved.', [
         '%label' => $youtube->label(),
       ]));
     }

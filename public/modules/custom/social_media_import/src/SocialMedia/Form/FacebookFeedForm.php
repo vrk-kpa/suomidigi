@@ -78,12 +78,12 @@ class FacebookFeedForm extends EntityForm {
     $status = $example->save();
 
     if ($status) {
-      drupal_set_message($this->t('Saved the %label.', [
+      $this->messenger()->addStatus($this->t('Saved the %label.', [
         '%label' => $example->label(),
       ]));
     }
     else {
-      drupal_set_message($this->t('The %label was not saved.', [
+      $this->messenger()->addStatus($this->t('The %label was not saved.', [
         '%label' => $example->label(),
       ]));
     }
