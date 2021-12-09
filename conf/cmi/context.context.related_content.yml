@@ -2,8 +2,11 @@ uuid: a76b7338-1eb9-4094-8330-644e196bd5dc
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.related_content
   module:
     - node
+    - views
 name: related_content
 label: 'Related content'
 group: null
@@ -16,7 +19,7 @@ conditions:
     bundles:
       article: article
       blog_post: blog_post
-    negate: 0
+    negate: false
     uuid: f875ca1d-00bf-4427-9cb8-f3c3f9d185fb
     context_mapping:
       node: '@node.node_route_context:node'
@@ -38,6 +41,7 @@ reactions:
         unique: 0
         context_id: related_content
         uuid: 657e449a-4dfe-47bd-96ce-5ea727b9b4a4
+        custom_id: views_block_related_content_block_1
     id: blocks
     saved: false
     uuid: 7659b8d3-f486-493e-833d-f365f60b5f5c

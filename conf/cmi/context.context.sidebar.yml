@@ -2,8 +2,11 @@ uuid: 8232bb2f-2675-4b5d-8b76-0788c9bfd828
 langcode: en
 status: true
 dependencies:
+  config:
+    - system.menu.main
   module:
     - ctools
+    - menu_block_current_language
     - system
 name: sidebar
 label: Sidebar
@@ -21,14 +24,14 @@ conditions:
       news_item: news_item
       page: page
       webform: webform
-    negate: 0
+    negate: false
     uuid: a2bbcf7b-6f21-4275-8d8c-391e03788034
     context_mapping:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
     pages: '/taxonomy/term/*'
-    negate: 0
+    negate: false
     uuid: 8acac173-5fc1-4baa-a5b7-8a099608b7cc
     context_mapping: {  }
 reactions:
@@ -56,6 +59,7 @@ reactions:
         unique: 0
         context_id: sidebar
         uuid: b847939c-d365-443e-98c5-c482a2423c86
+        custom_id: menu_block_current_language_main
     id: blocks
     saved: false
     uuid: 276f80f5-b758-413f-aaf2-cf38aba9637c

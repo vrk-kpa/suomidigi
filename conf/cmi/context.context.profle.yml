@@ -2,8 +2,13 @@ uuid: 17b0ac8d-b544-45fe-8dd1-dc76bcb484ea
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.profile_my_bookmarks
+    - views.view.profile_own_content
+    - views.view.profile_own_groups
   module:
     - route_condition
+    - views
 name: profle
 label: Profle
 group: null
@@ -36,6 +41,7 @@ reactions:
         unique: 1
         context_id: profle
         uuid: fa847fc7-51bf-48a0-a1bf-6c66941a415b
+        custom_id: views_block_profile_my_bookmarks_block_1
       89ccae64-71ea-409c-9d8b-e68f477f771d:
         id: 'views_block:profile_own_content-block_1'
         label: ''
@@ -51,6 +57,7 @@ reactions:
         unique: 1
         context_id: profle
         uuid: 89ccae64-71ea-409c-9d8b-e68f477f771d
+        custom_id: views_block_profile_own_content_block_1
       977384bf-0ee7-4d21-b866-c6aa8fbf9194:
         id: 'views_block:profile_own_groups-block_1'
         label: ''
@@ -66,6 +73,7 @@ reactions:
         unique: 1
         context_id: profle
         uuid: 977384bf-0ee7-4d21-b866-c6aa8fbf9194
+        custom_id: views_block_profile_own_groups_block_1
     id: blocks
     saved: false
     uuid: 9cfce642-62c3-4417-961c-80652a3f61e6

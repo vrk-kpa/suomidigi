@@ -84,11 +84,10 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
    *   The Cache backend.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, EntityTypeManagerInterface $entityTypeManager, QueryFactory $queryFactory, LegislationService $legislationService, Renderer $renderer, CacheBackendInterface $cache_backend) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, EntityTypeManagerInterface $entityTypeManager, LegislationService $legislationService, Renderer $renderer, CacheBackendInterface $cache_backend) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->routeMatch = $route_match;
     $this->entityTypeManager = $entityTypeManager;
-    $this->queryFactory = $queryFactory;
     $this->legislationService = $legislationService;
     $this->renderer = $renderer;
     $this->cacheBackend = $cache_backend;

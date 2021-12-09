@@ -2,7 +2,6 @@ settings:
   default_form_close_message: 'Sorry…This form is closed to new submissions.'
   default_submit_button_label: Skicka
   default_reset_button_label: Återställ
-  default_delete_button_label: Radera
   default_wizard_start_label: Från
   default_wizard_confirmation_label: Slutförd
   default_preview_next_button_label: Förhandsgranska

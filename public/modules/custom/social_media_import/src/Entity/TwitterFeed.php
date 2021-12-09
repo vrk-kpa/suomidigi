@@ -30,7 +30,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "id",
  *     "label",
  *     "screen_name",
- *   }
+ *   },
  *   links = {
  *     "edit-form" = "/admin/structure/social_media_post/twitter/{social_media_feed_twitter}",
  *     "create" = "/admin/structure/social_media_post/twitter/add",

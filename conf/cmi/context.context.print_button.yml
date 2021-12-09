@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - ctools
+    - suopa_content
 name: print_button
 label: 'Print button'
 group: null
@@ -16,7 +17,7 @@ conditions:
     bundles:
       legislation_card: legislation_card
       page: page
-    negate: 0
+    negate: false
     uuid: b77ea484-2c49-497d-ba2c-5f92844ea3f3
     context_mapping:
       node: '@node.node_route_context:node'
@@ -27,7 +28,7 @@ reactions:
         id: content_print_button_block
         label: 'Content print button block'
         provider: suopa_content
-        label_display: 0
+        label_display: '0'
         region: after_content
         weight: '0'
         context_mapping: {  }
@@ -36,6 +37,7 @@ reactions:
         unique: 0
         context_id: print_button
         uuid: ee617542-7c2b-444b-93aa-c117508dc92b
+        custom_id: content_print_button_block
     id: blocks
     saved: false
     uuid: 5bdcb41f-2dd1-4b07-92e2-b6ac5c2d874b

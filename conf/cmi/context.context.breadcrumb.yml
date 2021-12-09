@@ -5,6 +5,7 @@ dependencies:
   module:
     - group
     - node
+    - system
 name: breadcrumb
 label: Breadcrumb
 group: null
@@ -16,7 +17,7 @@ conditions:
     id: node_type
     bundles:
       landing_page: landing_page
-    negate: 1
+    negate: true
     uuid: 688d613c-c110-4da9-ab75-6420df2074fc
     context_mapping:
       node: '@node.node_route_context:node'
@@ -35,7 +36,7 @@ reactions:
         id: system_breadcrumb_block
         label: Breadcrumbs
         provider: system
-        label_display: 0
+        label_display: '0'
         region: breadcrumb
         weight: '0'
         context_mapping: {  }
@@ -44,6 +45,7 @@ reactions:
         unique: 0
         context_id: breadcrumb
         uuid: 3c4ea7dd-6e99-4ed0-9021-5dd024694d78
+        custom_id: system_breadcrumb_block
     id: blocks
     saved: false
     uuid: 1664ed86-46e8-454b-bb03-c3d4c9c0a3f7

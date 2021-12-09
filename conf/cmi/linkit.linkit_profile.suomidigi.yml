@@ -7,19 +7,14 @@ dependencies:
 id: suomidigi
 label: suomidigi
 description: ''
-attributes:
-  target:
-    id: target
-    weight: 0
-    settings:
-      widget_type: simple_checkbox
 matchers:
   279a6013-19a7-430d-90f7-0c9e427986c1:
     uuid: 279a6013-19a7-430d-90f7-0c9e427986c1
     id: 'entity:node'
     weight: 0
     settings:
-      result_description: ''
       bundles: {  }
       group_by_bundle: false
       include_unpublished: true
+      substitution_type: canonical
+      metadata: ''

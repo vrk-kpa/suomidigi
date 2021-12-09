@@ -26,7 +26,6 @@ settings:
           items:
             - DrupalLink
             - DrupalUnlink
-            - Linkit
         -
           name: Lists
           items:
@@ -59,8 +58,6 @@ settings:
       count_html: 0
       max_words: '-1'
       max_chars: '-1'
-    linkit:
-      linkit_profile: suomidigi
     readtime:
       enable: 1
       show_paragraphs: 1
@@ -70,6 +67,9 @@ settings:
       count_html: 0
       max_words: '-1'
       max_chars: '-1'
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: suomidigi
 image_upload:
   status: true
   scheme: public
