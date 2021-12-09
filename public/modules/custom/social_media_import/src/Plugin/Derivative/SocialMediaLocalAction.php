@@ -42,9 +42,9 @@ class SocialMediaLocalAction extends DeriverBase implements ContainerDeriverInte
    * @param \Drupal\Core\StringTranslation\TranslationInterface $string_translation
    *   The translation manager.
    */
-  public function __construct(RouteProviderInterface $route_provider, EntityTypeManagerInterface $entity_manager, TranslationInterface $string_translation) {
+  public function __construct(RouteProviderInterface $route_provider, EntityTypeManagerInterface $entity_type_manager, TranslationInterface $string_translation) {
     $this->routeProvider = $route_provider;
-    $this->entityManager = $entity_manager;
+    $this->entityTypeManager = $entity_type_manager;
     $this->stringTranslation = $string_translation;
   }
 
@@ -66,7 +66,7 @@ class SocialMediaLocalAction extends DeriverBase implements ContainerDeriverInte
     $this->derivatives = [];
     $entity_type_id = 'social_media_post';
 
-    foreach ($this->entityManager->getBundleInfo($entity_type_id) as $bundle_id => $bundle_info) {
+    foreach (\Drupal::service('entity_type.bundle.info')->getBundleInfo($entity_type_id) as $bundle_id => $bundle_info) {
       $this->derivatives["{$entity_type_id}.{$bundle_id}.add_feed"] = [
         'route_name' => "entity.social_media_feed_{$bundle_id}.add_form",
         'title' => $this->t('Add feed'),
