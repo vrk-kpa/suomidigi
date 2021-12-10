@@ -12,7 +12,7 @@ RUN npm run gulp production
 ###
 # Build the actual container.
 ###
-FROM druidfi/drupal:7.3.27-web
+FROM druidfi/drupal:7.4-web
 
 # Copy files needed for building codebase
 COPY --chown=druid:www-data composer.* /app/

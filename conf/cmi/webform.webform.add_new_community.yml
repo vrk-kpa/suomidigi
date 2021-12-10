@@ -14,7 +14,37 @@ id: add_new_community
 title: 'Add new community'
 description: 'A form for adding a new community.'
 category: 'Anonymous user forms'
-elements: "community_container:\n  '#type': container\n  name:\n    '#type': textfield\n    '#title': Name\n    '#description': 'The name of the community.'\n    '#required': true\n  description:\n    '#type': textarea\n    '#title': Description\n    '#description': 'Short description about the community.'\n    '#required': true\n  domain:\n    '#type': webform_term_select\n    '#title': Domain\n    '#description': 'Select the domain where the community is hosted at.'\n    '#select2': true\n    '#vocabulary': community_domain\n    '#breadcrumb_delimiter': ''\n    '#required': true\n  url:\n    '#type': url\n    '#title': URL\n    '#description': 'The direct URL to the community.'\n    '#required': true\ncaptcha_container:\n  '#type': container\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA"
+elements: |-
+  community_container:
+    '#type': container
+    name:
+      '#type': textfield
+      '#title': Name
+      '#description': 'The name of the community.'
+      '#required': true
+    description:
+      '#type': textarea
+      '#title': Description
+      '#description': 'Short description about the community.'
+      '#required': true
+    domain:
+      '#type': webform_term_select
+      '#title': Domain
+      '#description': 'Select the domain where the community is hosted at.'
+      '#select2': true
+      '#vocabulary': community_domain
+      '#breadcrumb_delimiter': ''
+      '#required': true
+    url:
+      '#type': url
+      '#title': URL
+      '#description': 'The direct URL to the community.'
+      '#required': true
+  captcha_container:
+    '#type': container
+    captcha:
+      '#type': captcha
+      '#captcha_type': recaptcha/reCAPTCHA
 css: ''
 javascript: ''
 settings:

@@ -12,7 +12,92 @@ id: asiantuntijatuki_yhteentoimivuus
 title: 'Asiantuntijatuki: Yhteentoimivuus'
 description: ''
 category: Asiantuntijatuki
-elements: "yhteystiedot_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container container--half'\n  yhteystiedot_otsikko:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - is-full-width\n    '#markup': '<h2>Yhteystiedot</h2>'\n  nimi:\n    '#type': textfield\n    '#title': Nimi\n    '#required': true\n  sahkopostiosoite:\n    '#type': email\n    '#title': Sähköpostiosoite\n    '#required': true\n  puhelinnumero:\n    '#type': tel\n    '#title': Puhelinnumero\n    '#required': true\n  organisaatio:\n    '#type': textfield\n    '#title': Organisaatio\n    '#required': true\ntaustatiedot_kontti:\n  '#type': container\n  yhteentoimivuuden_teema:\n    '#type': webform_markup\n    '#display_on': both\n    '#markup': 'Valitse yhteentoimivuuden teema, josta tarvitset lis&auml;tietoa:'\n  haluan_mukaan_verkostoihin:\n    '#type': checkbox\n    '#title': Sanastot-työkalu\n  tietomallit_tyokalu:\n    '#type': checkbox\n    '#title': Tietomallit-työkalu\n  koodistot_tyokalu:\n    '#type': checkbox\n    '#title': Koodistot-työkalu\n  kommentit_tyokalu:\n    '#type': checkbox\n    '#title': Kommentit-työkalu\n  yhteentoimiva_suomi_fi_verkkosivu:\n    '#type': checkbox\n    '#title': 'yhteentoimiva.suomi.fi -verkkosivu'\n  joku_muu_teema_mika_:\n    '#type': checkbox\n    '#title': 'Joku muu teema? Mikä?'\n  muu_teema:\n    '#type': textarea\n    '#title': 'Muu teema'\n    '#title_display': invisible\n    '#states':\n      visible-slide:\n        ':input[name=\"joku_muu_teema_mika_\"]':\n          checked: true\n    '#states_clear': false\n  kerro_ongelmastasi_tarkemmin_:\n    '#type': textarea\n    '#title': 'Kerro ongelmastasi tarkemmin.'\n    '#wrapper_attributes':\n      style: 'margin-top: 10px'\n  anna_juttuvinkki_yhteentoimivuudesta:\n    '#type': textarea\n    '#title': 'Anna juttuvinkki yhteentoimivuudesta.'\n  muuta_palautetta:\n    '#type': textarea\n    '#title': 'Muuta palautetta?'\ncaptcha_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container--full is-centered'\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__attributes':\n    class:\n      - is-center"
+elements: |-
+  yhteystiedot_kontti:
+    '#type': container
+    '#attributes':
+      class:
+        - 'container container--half'
+    yhteystiedot_otsikko:
+      '#type': webform_markup
+      '#wrapper_attributes':
+        class:
+          - is-full-width
+      '#markup': '<h2>Yhteystiedot</h2>'
+    nimi:
+      '#type': textfield
+      '#title': Nimi
+      '#required': true
+    sahkopostiosoite:
+      '#type': email
+      '#title': Sähköpostiosoite
+      '#required': true
+    puhelinnumero:
+      '#type': tel
+      '#title': Puhelinnumero
+      '#required': true
+    organisaatio:
+      '#type': textfield
+      '#title': Organisaatio
+      '#required': true
+  taustatiedot_kontti:
+    '#type': container
+    yhteentoimivuuden_teema:
+      '#type': webform_markup
+      '#display_on': both
+      '#markup': 'Valitse yhteentoimivuuden teema, josta tarvitset lis&auml;tietoa:'
+    haluan_mukaan_verkostoihin:
+      '#type': checkbox
+      '#title': Sanastot-työkalu
+    tietomallit_tyokalu:
+      '#type': checkbox
+      '#title': Tietomallit-työkalu
+    koodistot_tyokalu:
+      '#type': checkbox
+      '#title': Koodistot-työkalu
+    kommentit_tyokalu:
+      '#type': checkbox
+      '#title': Kommentit-työkalu
+    yhteentoimiva_suomi_fi_verkkosivu:
+      '#type': checkbox
+      '#title': 'yhteentoimiva.suomi.fi -verkkosivu'
+    joku_muu_teema_mika_:
+      '#type': checkbox
+      '#title': 'Joku muu teema? Mikä?'
+    muu_teema:
+      '#type': textarea
+      '#title': 'Muu teema'
+      '#title_display': invisible
+      '#states':
+        visible-slide:
+          ':input[name="joku_muu_teema_mika_"]':
+            checked: true
+      '#states_clear': false
+    kerro_ongelmastasi_tarkemmin_:
+      '#type': textarea
+      '#title': 'Kerro ongelmastasi tarkemmin.'
+      '#wrapper_attributes':
+        style: 'margin-top: 10px'
+    anna_juttuvinkki_yhteentoimivuudesta:
+      '#type': textarea
+      '#title': 'Anna juttuvinkki yhteentoimivuudesta.'
+    muuta_palautetta:
+      '#type': textarea
+      '#title': 'Muuta palautetta?'
+  captcha_kontti:
+    '#type': container
+    '#attributes':
+      class:
+        - 'container--full is-centered'
+    captcha:
+      '#type': captcha
+      '#captcha_type': recaptcha/reCAPTCHA
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__attributes':
+      class:
+        - is-center
 css: ''
 javascript: ''
 settings:

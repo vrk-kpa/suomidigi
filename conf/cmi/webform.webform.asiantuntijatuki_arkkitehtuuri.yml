@@ -12,7 +12,62 @@ id: asiantuntijatuki_arkkitehtuuri
 title: 'Asiantuntijatuki: Arkkitehtuuri'
 description: ''
 category: Asiantuntijatuki
-elements: "yhteystiedot_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container container--half'\n  yhteystiedot_otsikko:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - is-full-width\n    '#markup': '<h2>Yhteystiedot</h2>'\n  nimi:\n    '#type': textfield\n    '#title': Nimi\n    '#required': true\n  sahkopostiosoite:\n    '#type': email\n    '#title': Sähköpostiosoite\n    '#required': true\n  puhelinnumero:\n    '#type': tel\n    '#title': Puhelinnumero\n    '#required': true\n  organisaatio:\n    '#type': textfield\n    '#title': Organisaatio\n    '#required': true\ntaustatiedot_kontti:\n  '#type': container\n  mista_arkkitehtuurin_aihealueesta_tarvitset_lisatietoa:\n    '#type': textarea\n    '#title': 'Mistä arkkitehtuurin aihealueesta tarvitset lisätietoa?'\n  kerro_ongelmastasi_tarkemmin:\n    '#type': textarea\n    '#title': 'Kerro ongelmastasi tarkemmin.'\n  anna_juttuvinkki_arkkitehtuurista:\n    '#type': textarea\n    '#title': 'Anna juttuvinkki arkkitehtuurista:'\n  muuta_palautetta:\n    '#type': textarea\n    '#title': 'Muuta palautetta?'\ncaptcha_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container--full is-centered'\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__attributes':\n    class:\n      - is-center"
+elements: |-
+  yhteystiedot_kontti:
+    '#type': container
+    '#attributes':
+      class:
+        - 'container container--half'
+    yhteystiedot_otsikko:
+      '#type': webform_markup
+      '#wrapper_attributes':
+        class:
+          - is-full-width
+      '#markup': '<h2>Yhteystiedot</h2>'
+    nimi:
+      '#type': textfield
+      '#title': Nimi
+      '#required': true
+    sahkopostiosoite:
+      '#type': email
+      '#title': Sähköpostiosoite
+      '#required': true
+    puhelinnumero:
+      '#type': tel
+      '#title': Puhelinnumero
+      '#required': true
+    organisaatio:
+      '#type': textfield
+      '#title': Organisaatio
+      '#required': true
+  taustatiedot_kontti:
+    '#type': container
+    mista_arkkitehtuurin_aihealueesta_tarvitset_lisatietoa:
+      '#type': textarea
+      '#title': 'Mistä arkkitehtuurin aihealueesta tarvitset lisätietoa?'
+    kerro_ongelmastasi_tarkemmin:
+      '#type': textarea
+      '#title': 'Kerro ongelmastasi tarkemmin.'
+    anna_juttuvinkki_arkkitehtuurista:
+      '#type': textarea
+      '#title': 'Anna juttuvinkki arkkitehtuurista:'
+    muuta_palautetta:
+      '#type': textarea
+      '#title': 'Muuta palautetta?'
+  captcha_kontti:
+    '#type': container
+    '#attributes':
+      class:
+        - 'container--full is-centered'
+    captcha:
+      '#type': captcha
+      '#captcha_type': recaptcha/reCAPTCHA
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__attributes':
+      class:
+        - is-center
 css: ''
 javascript: ''
 settings:

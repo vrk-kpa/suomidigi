@@ -1,6 +1,42 @@
 title: 'Luo uusi tapahtuma'
 description: 'Lomake uuden tapahtuman luomiseen.'
-elements: "event_title:\n  '#markup': '<h2>Luo uusi tapahtuma</h2>'\nname:\n  '#title': 'Tapahtuman nimi'\nstart_date_and_time:\n  '#title': Alkamisajankohta\nend_date_and_time:\n  '#title': Loppumisajankohta\ndescription:\n  '#title': 'Tapahtuman kuvaus'\n  '#placeholder': 'Maks. 380 merkkiä'\nvenue_name:\n  '#title': 'Paikan nimi'\naddress:\n  '#title': Käyntiosoite\ncity:\n  '#title': Kaupunki\nlink_to_official_event_page:\n  '#title': 'Linkki tapahtuman omalle sivulle'\n  '#help_title': URL-osoite\n  '#help': 'Lisää URL-osoite muodossa <em>https://esimerkki.com</em>'\nlink_to_event_registration_page:\n  '#title': 'Linkki ilmoittautumiseen (jos erillinen kuin ylläoleva)'\n  '#help_title': URL-osoite\n  '#help': 'Lisää URL-osoite muodossa <em>https://esimerkki.com</em>'\norganiser:\n  '#title': 'Tapahtuman järjestäjä'\norganiser_description:\n  '#title': 'Järjestäjän kuvaus'\n  '#placeholder': 'Maks. 430 merkkiä'\nlink_to_organiser_s_page:\n  '#title': 'Linkki järjestäjän sivulle'\n  '#help_title': URL-osoite\n  '#help': 'Lisää URL-osoite muodossa <em>https://esimerkki.com</em>'\nactions:\n  '#submit__label': 'Lähetä tapahtuma'\n"
+elements: |
+  event_title:
+    '#markup': '<h2>Luo uusi tapahtuma</h2>'
+  name:
+    '#title': 'Tapahtuman nimi'
+  start_date_and_time:
+    '#title': Alkamisajankohta
+  end_date_and_time:
+    '#title': Loppumisajankohta
+  description:
+    '#title': 'Tapahtuman kuvaus'
+    '#placeholder': 'Maks. 380 merkkiä'
+  venue_name:
+    '#title': 'Paikan nimi'
+  address:
+    '#title': Käyntiosoite
+  city:
+    '#title': Kaupunki
+  link_to_official_event_page:
+    '#title': 'Linkki tapahtuman omalle sivulle'
+    '#help_title': URL-osoite
+    '#help': 'Lisää URL-osoite muodossa <em>https://esimerkki.com</em>'
+  link_to_event_registration_page:
+    '#title': 'Linkki ilmoittautumiseen (jos erillinen kuin ylläoleva)'
+    '#help_title': URL-osoite
+    '#help': 'Lisää URL-osoite muodossa <em>https://esimerkki.com</em>'
+  organiser:
+    '#title': 'Tapahtuman järjestäjä'
+  organiser_description:
+    '#title': 'Järjestäjän kuvaus'
+    '#placeholder': 'Maks. 430 merkkiä'
+  link_to_organiser_s_page:
+    '#title': 'Linkki järjestäjän sivulle'
+    '#help_title': URL-osoite
+    '#help': 'Lisää URL-osoite muodossa <em>https://esimerkki.com</em>'
+  actions:
+    '#submit__label': 'Lähetä tapahtuma'
 handlers:
   email:
     label: Sähköposti
