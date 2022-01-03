@@ -2,9 +2,9 @@ DRUPAL_CONF_EXISTS := $(shell test -f conf/cmi/core.extension.yml && echo yes ||
 DRUPAL_FRESH_TARGETS := up build sync post-install
 DRUPAL_NEW_TARGETS := up build drush-si drush-uli
 ifeq ($(DRUPAL_VERSION),7)
-DRUPAL_POST_INSTALL_TARGETS := drush-updb drush-cr drush-uli
+DRUPAL_POST_INSTALL_TARGETS := drush-updb drush-updb-fix drush-cr drush-uli
 else
-DRUPAL_POST_INSTALL_TARGETS := drush-updb drush-cim drush-uli
+DRUPAL_POST_INSTALL_TARGETS := drush-updb drush-updb-fix drush-cim drush-uli
 CLEAN_FOLDERS += ${WEBROOT}/core
 CLEAN_FOLDERS += ${WEBROOT}/libraries
 CLEAN_FOLDERS += ${WEBROOT}/modules/contrib
@@ -93,6 +93,11 @@ PHONY += drush-deploy
 drush-deploy: ## Run Drush deploy
 	$(call step,Run Drush deploy...)
 	$(call drush_on_${RUN_ON},deploy)
+
+PHONY += drush-updb-fix
+drush-updb-fix: ## Run database updates
+	$(call step,Run reordered database updates...)
+	$(call drush_on_${RUN_ON}, php-eval 'module_load_install("group"); group_update_8017(); group_update_8022();' )
 
 PHONY += drush-updb
 drush-updb: ## Run database updates
