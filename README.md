@@ -26,7 +26,7 @@ For the first time:
 make fresh
 ```
 
-Ready! Now go to https://druid.docker.so/ to see your site.
+Ready! Now go to https://suomidigi.docker.so/ to see your site.
 
 ## Login to Drupal container
 
