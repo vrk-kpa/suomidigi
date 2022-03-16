@@ -1,13 +1,14 @@
 # Suomidigi
 
-A Suomidigi Drupal 8 website.
+A Suomidigi Drupal 9 website.
 
 ## Environments
 
-Env | Branch | Drush alias | URL
---- | ------ | ----------- | ---
-development | * | - | https://suomidigi.docker.so/
-production | master | @master | https://suomidigi.fi
+| Env         | Branch | URL                          |
+|-------------|--------|------------------------------|
+| development | *      | https://suomidigi.docker.so/ |
+| production  | dev    | https://testi.suomidigi.fi/  |
+| production  | master | https://suomidigi.fi/        |
 
 ## Requirements
 
@@ -15,32 +16,22 @@ You need to have these applications installed to operate on all environments:
 
 - [Docker](https://github.com/druidfi/guidelines/blob/master/docs/docker.md)
 - [Stonehenge](https://github.com/druidfi/stonehenge)
-- For the new person: Your SSH public key needs to be added to servers
-
-## Setup a new local environment
-
-By default we'll use Docker based environment.
+- For the new person: access is granted via SUPO process
 
 ## Create and start the environment
 
-For the first time (new project):
+For the first time:
 
 ```
-$ make new
+make fresh
 ```
 
-And following times to create and start the environment:
-
-```
-$ make build-dev
-```
-
-Change these according of the state of your project.
+Ready! Now go to https://druid.docker.so/ to see your site.
 
 ## Login to Drupal container
 
-This will log you inside the Drupal Docker container and in the `public` folder:
+This will log you inside the app container:
 
 ```
-$ make shell
+make shell
 ```
