@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "config:base",
+    "github>druidfi/renovate-config:global",
+    "github>druidfi/renovate-config:drupal",
+    "github>druidfi/renovate-config:js"
+  ],
+  "ignorePaths": [
+    "public/themes/custom/suomidigi"
+  ]
+}
