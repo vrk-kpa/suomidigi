@@ -126,7 +126,12 @@
             "php": "7.4"
         },
         "sort-packages": true,
-        "discard-changes": true
+        "discard-changes": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true
+        }
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
