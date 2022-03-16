@@ -5,7 +5,7 @@ services:
   app:
     hostname: "${DRUPAL_HOSTNAME}"
     container_name: "${COMPOSE_PROJECT_NAME}-app"
-    image: "${DRUPAL_IMAGE}"
+    image: "druidfi/drupal-web:php-${PHP_VERSION}"
     volumes:
       - .:/app:delegated
       - ssh:/tmp/druid_ssh-agent:ro
@@ -13,8 +13,9 @@ services:
       APP_ENV: "${APP_ENV:-dev}"
       DRUPAL_ROUTES: "https://varnish-${DRUPAL_HOSTNAME}"
       DRUSH_OPTIONS_URI: "https://${DRUPAL_HOSTNAME}"
+      PHP_SENDMAIL_PATH: "/usr/sbin/sendmail -S stonehenge-mailhog:1025"
+      #BLACKFIRE_ENABLE: "true"
       #XDEBUG_ENABLE: "true"
-      #XDEBUG_CONFIG: "remote_port=9001 remote_host=host.docker.internal remote_connect_back=0"
       SIMPLETEST_BASE_URL: "http://app:8080"
       SIMPLETEST_DB: "mysql://drupal:drupal@db:3306/drupal"
     labels:
@@ -30,7 +31,7 @@ services:
 
   db:
     container_name: "${COMPOSE_PROJECT_NAME}-db"
-    image: druidfi/db:mysql5.7-drupal
+    image: druidfi/mariadb:10.5-drupal
     volumes:
       - db_data:/var/lib/mysql
     ports:
