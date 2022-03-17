@@ -18,7 +18,7 @@
     }
 
     input[type="submit"] {
-      margin-top: $gutter / 3;
+      margin-top: calc($gutter / 3);
       padding: 0 $gutter;
     }
   }

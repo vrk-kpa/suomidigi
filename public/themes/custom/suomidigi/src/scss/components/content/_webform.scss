@@ -10,7 +10,7 @@
     @include font-size(26px, 33px);
     @include font-weight($semibold);
     color: $blue;
-    margin-bottom: $gutter / 2;
+    margin-bottom: $gutter * 0.5;
     margin-top: $gutter;
   }
 

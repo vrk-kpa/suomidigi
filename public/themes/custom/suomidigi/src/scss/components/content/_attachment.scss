@@ -1,7 +1,7 @@
 .attachment-teaser {
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
   height: 100%;
   margin-bottom: $gutter;
@@ -23,7 +23,7 @@
     &-wrapper {
       align-items: center;
       display: flex;
-      margin-bottom: $gutter / 3;
+      margin-bottom: calc($gutter / 3);
     }
   }
 

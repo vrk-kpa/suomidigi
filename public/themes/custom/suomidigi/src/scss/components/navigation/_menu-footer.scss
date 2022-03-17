@@ -13,7 +13,7 @@
 }
 
 .menu-footer__item {
-  margin: $gutter / 3 $gutter;
+  margin: calc($gutter / 3) $gutter;
 }
 
 .menu-footer__link {

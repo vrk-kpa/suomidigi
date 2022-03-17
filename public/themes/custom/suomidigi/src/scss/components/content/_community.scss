@@ -18,7 +18,7 @@
     align-content: center;
     display: flex;
     justify-content: center;
-    margin-right: $gutter / 1.5;
+    margin-right: calc($gutter / 1.5);
 
     img {
       height: $gutter * 2;
@@ -68,7 +68,7 @@
 
   &__content {
     border-bottom: 1px solid $gray-medium;
-    margin-bottom: $gutter / 2;
+    margin-bottom: $gutter * 0.5;
     min-height: 100px;
     padding-bottom: $gutter;
 
@@ -102,7 +102,7 @@
     transition: all 150ms linear;
 
     &-text {
-      padding-right: $gutter / 4;
+      padding-right: $gutter * 0.25;
     }
   }
 

@@ -4,7 +4,7 @@
   border-radius: 0 0 5px 0;
   color: $white;
   left: 0;
-  padding: $gutter / 3 $gutter;
+  padding: calc($gutter / 3) $gutter;
   position: absolute;
   top: 0;
 

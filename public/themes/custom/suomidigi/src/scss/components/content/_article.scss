@@ -83,7 +83,7 @@
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  margin-top: $gutter / 2;
+  margin-top: $gutter * 0.5;
   padding-top: $gutter * 1.7;
 
   @include breakpoint($for-mobile-landscape-up) {
