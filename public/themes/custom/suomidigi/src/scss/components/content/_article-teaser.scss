@@ -1,7 +1,7 @@
 .article-teaser {
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
   height: 100%;
   width: 100%;
@@ -194,7 +194,7 @@
   @include font-weight($semibold);
   border-top: 1px solid $gray-medium;
   color: $black;
-  padding-top: $gutter / 1.4;
+  padding-top: calc($gutter / 1.4);
   text-transform: uppercase;
 
   &::after {

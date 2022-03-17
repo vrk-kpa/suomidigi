@@ -1,8 +1,8 @@
 .profile-card {
   align-items: center;
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@
     @include font-size(28px, 34px);
     @include font-weight($semibold);
     letter-spacing: 0;
-    margin-bottom: $gutter / 2;
+    margin-bottom: $gutter * 0.5;
 
     > div {
       display: inline;
@@ -207,7 +207,7 @@
   .views--taxonomy-term-before-content {
     .views__row {
       background-color: $white;
-      border-radius: $gutter / 3;
+      border-radius: calc($gutter / 3);
       box-shadow: 2px 2px 10px #00000033;
     }
 

@@ -1,7 +1,7 @@
 .search-result {
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
   margin-bottom: $gutter;
   padding: $gutter * 1.4;
@@ -35,8 +35,8 @@
   @include font-size(18px);
   @include font-weight($semibold);
   background-color: $white;
-  border-radius: $gutter / 3;
-  border-top: $gutter / 3 solid $gray-medium;
+  border-radius: calc($gutter / 3);
+  border-top: calc($gutter / 3) solid $gray-medium;
   box-shadow: 2px 2px 10px #00000033;
   color: $black;
   margin: $gutter $gutter $gutter * 3;

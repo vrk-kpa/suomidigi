@@ -5,8 +5,9 @@
 //
 @charset 'UTF-8';
 
-@import "breakpoint";
+@import "node_modules/breakpoint-sass/stylesheets/_breakpoint.scss";
 
+@import 'library/external/normalize.css';
 @import 'library/variables/*';
 @import 'library/classes/*';
 @import 'library/mixins/*';

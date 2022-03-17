@@ -144,7 +144,7 @@
   .legislation-card__breadcrumb {
     @include font-size(12px, 12px);
     color: $gray-dark;
-    margin-bottom: $gutter / 2;
+    margin-bottom: $gutter * 0.5;
 
     .divider {
       @include font-size(15px, 15px);
@@ -174,7 +174,7 @@
   &.is-open {
     background-color: $legislation-blue-light;
     border-bottom: 1px solid $legislation-gray;
-    margin-bottom: $gutter / 2;
+    margin-bottom: $gutter * 0.5;
 
     .legislation-card__content-wrapper {
       max-height: 100%;

@@ -1,7 +1,7 @@
 .community-teaser {
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
 
   > .contextual {
@@ -49,7 +49,7 @@
   align-content: center;
   display: flex;
   justify-content: center;
-  margin-right: $gutter / 1.5;
+  margin-right: calc($gutter / 1.5);
 
   img {
     height: $gutter * 2;
@@ -128,7 +128,7 @@
   transition: all 150ms linear;
 
   &-text {
-    padding-right: $gutter / 4;
+    padding-right: $gutter * 0.25;
   }
 }
 
