@@ -13,7 +13,7 @@ const clean = require("del");
 // ------------
 // Sass plugins
 // ------------
-const sass = require("gulp-sass");
+const sass = require('gulp-sass')(require('sass'));
 const sassGlob = require("gulp-sass-glob");
 const autoprefix = require("gulp-autoprefixer");
 const cleanCss = require("gulp-clean-css");

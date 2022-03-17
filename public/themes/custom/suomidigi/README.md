@@ -6,7 +6,7 @@ The dist files are compiled when deploying to test/production.
 
 For everything to work correctly you need to install required modules. Run the following:
 
-    npm install
+    nvm use && npm i
 
 After this you can run the command that compiles your sass files to css. It will compile the css into human-readable form and begins watching the scss/js source folders.
 
