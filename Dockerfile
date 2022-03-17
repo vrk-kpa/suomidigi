@@ -1,11 +1,12 @@
 ###
 # Build theme using a separate theme builder container.
 ###
-FROM node:8.16.0-alpine AS theme-builder
+FROM node:16-alpine AS theme-builder
 
 WORKDIR /usr/src/app
 COPY public/themes/custom/suomidigi /usr/src/app
-RUN npm ci --production --engine-strict true
+
+RUN npm install
 RUN npm run gulp production
 
 
