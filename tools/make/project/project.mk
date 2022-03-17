@@ -4,3 +4,7 @@ PHONY += copy-robots
 copy-robots: ## Copy robots.txt
 	$(call step,Copying robots.txt for all environments.\n)
 	$(call copy,conf/robots.txt,public/robots.txt)
+
+PHONY += build-prod-image
+build-prod-image: ## Test building production Docker image
+	docker build -t suomidigi:prod . && docker rmi suomidigi:prod
