@@ -34,4 +34,4 @@ COPY --from=theme-builder /usr/src/app/icons/svg /app/public/themes/custom/suomi
 COPY --from=theme-builder /usr/src/app/icons/icons.svg /app/public/themes/custom/suomidigi/icons/icons.svg
 
 # Install Drupal, contrib modules and dependencies with composer.
-RUN composer install --no-dev --optimize-autoloader --prefer-dist
+RUN composer install --no-dev --optimize-autoloader --prefer-dist --no-progress
