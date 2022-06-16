@@ -59,6 +59,7 @@
         "drupal/menu_trail_by_path": "^1.1",
         "drupal/metatag": "^1.10",
         "drupal/migrate_tools": "^5.0",
+        "drupal/nodeorder": "1.x-dev",
         "drupal/optional_end_date": "^1.0",
         "drupal/paragraphs": "^1.10",
         "drupal/pathauto": "^1.0",
@@ -188,11 +189,15 @@
                 "https://www.drupal.org/i/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
             },
             "drupal/nodeorder": {
-                "https://www.drupal.org/i/3072720": "https://www.drupal.org/files/issues/2021-12-01/d9-3072720-111.patch"
+                "https://www.drupal.org/i/3072720": "https://www.drupal.org/files/issues/2022-05-19/nodeorder-3072720-116.patch"
             }
         }
     },
     "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/lenient"
+        },
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
