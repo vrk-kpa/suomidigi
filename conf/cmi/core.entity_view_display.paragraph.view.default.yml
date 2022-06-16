@@ -17,14 +17,14 @@ bundle: view
 mode: default
 content:
   field_p_description:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
   field_p_link:
-    weight: 3
+    type: link
     label: above
     settings:
       trim_length: 160
@@ -33,24 +33,24 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 3
     region: content
   field_p_title:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_p_view:
-    weight: 2
+    type: viewsreference_formatter
     label: hidden
     settings:
       plugin_types:
         - block
     third_party_settings: {  }
-    type: viewsreference_formatter
+    weight: 2
     region: content
 hidden:
   search_api_excerpt: true

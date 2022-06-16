@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.block_cta_banner
+    - field.field.media.image.field_creator
     - field.field.media.image.field_media_image
     - image.style.cta_banner_background
     - media.type.image
@@ -15,21 +16,25 @@ bundle: image
 mode: block_cta_banner
 content:
   field_media_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: cta_banner_background
       image_link: ''
-      svg_render_as_image: '1'
+      image_style: cta_banner_background
       svg_attributes:
-        width: ''
-        height: ''
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
 hidden:
   created: true
+  field_creator: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

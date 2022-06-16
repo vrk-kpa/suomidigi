@@ -20,12 +20,12 @@ widget_selector: single
 widget_selector_configuration: {  }
 widgets:
   7ff0ef88-6791-46af-bb11-3fdcbbe9b203:
+    id: view
+    uuid: 7ff0ef88-6791-46af-bb11-3fdcbbe9b203
+    label: View
+    weight: 1
     settings:
-      view: entity_reference_browser
-      view_display: entity_browser_1
       submit_text: 'Select entities'
       auto_select: false
-    uuid: 7ff0ef88-6791-46af-bb11-3fdcbbe9b203
-    weight: 1
-    label: View
-    id: view
+      view: entity_reference_browser
+      view_display: entity_browser_1

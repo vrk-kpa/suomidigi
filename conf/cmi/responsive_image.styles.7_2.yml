@@ -12,19 +12,19 @@ id: '7_2'
 label: '7:2'
 image_style_mappings:
   -
-    breakpoint_id: suomidigi.for_desktop_up
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: 7_2_full_hd
-  -
-    breakpoint_id: suomidigi.for_tablet_landscape_up
+    breakpoint_id: suomidigi.for_desktop_up
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: 7_2_full_content
-  -
-    breakpoint_id: suomidigi.for_tablet_portrait_up
+    breakpoint_id: suomidigi.for_tablet_landscape_up
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: 7_2_half_content
+    breakpoint_id: suomidigi.for_tablet_portrait_up
+    multiplier: 1x
 breakpoint_group: suomidigi
 fallback_image_style: 7_2_full_content

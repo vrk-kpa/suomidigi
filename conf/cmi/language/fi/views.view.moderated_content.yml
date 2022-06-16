@@ -16,24 +16,7 @@ display:
         moderation_state:
           expose:
             label: Julkaisutila
-      exposed_form:
-        options:
-          submit_button: Suodata
-          reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Nousevasti
-          sort_desc_label: Laskevasti
-      pager:
-        options:
-          tags:
-            previous: '‹ Edellinen'
-            next: 'Seuraava ›'
-            first: '« Ensimmäinen'
-            last: 'Viimeinen »'
-          expose:
-            items_per_page_label: 'Tuloksia sivulla'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Offset
+      title: 'Moderoitava sisältö'
       fields:
         title:
           label: Otsikko
@@ -52,7 +35,24 @@ display:
           separator: ', '
         operations:
           label: Toimenpiteet
-      title: 'Moderoitava sisältö'
+      pager:
+        options:
+          tags:
+            next: 'Seuraava ›'
+            previous: '‹ Edellinen'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+          expose:
+            items_per_page_label: 'Tuloksia sivulla'
+            items_per_page_options_all_label: '- Kaikki -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
       empty:
         area_text_custom:
           content: 'Moderoitavaa sisältöä ei löytynyt. Tällä sivulla listataan vain "Luonnos" tai "Odottaa julkaisua" tilassa olevat sisällöt.'

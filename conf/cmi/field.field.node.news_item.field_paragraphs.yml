@@ -34,7 +34,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 1
     target_bundles:
       vocabulary: vocabulary
       contact_information: contact_information
@@ -50,6 +49,7 @@ settings:
       liftup_box_item: liftup_box_item
       liftup_entity_reference_item: liftup_entity_reference_item
       view: view
+    negate: 1
     target_bundles_drag_drop:
       attachment:
         weight: 28
@@ -57,15 +57,12 @@ settings:
       banner_cta:
         weight: 29
         enabled: false
-      vocabulary:
-        enabled: true
-        weight: 29
       contact_information:
-        enabled: true
         weight: 30
-      contact_information_item:
         enabled: true
+      contact_information_item:
         weight: 31
+        enabled: true
       container:
         weight: 32
         enabled: false
@@ -73,14 +70,14 @@ settings:
         weight: 33
         enabled: false
       feed:
-        enabled: true
         weight: 34
+        enabled: true
       group_view:
-        enabled: true
         weight: 35
-      hero:
         enabled: true
+      hero:
         weight: 36
+        enabled: true
       highlight_bullet_point:
         weight: 37
         enabled: false
@@ -94,29 +91,29 @@ settings:
         weight: 40
         enabled: false
       legislation_attachment:
-        enabled: true
         weight: 41
+        enabled: true
       legislation_cards:
-        enabled: true
         weight: 42
+        enabled: true
       legislation_link:
-        enabled: true
         weight: 43
+        enabled: true
       liftup_50_50:
-        enabled: true
         weight: 44
+        enabled: true
       liftup_box:
-        enabled: true
         weight: 45
-      liftup_box_item:
         enabled: true
+      liftup_box_item:
         weight: 46
+        enabled: true
       liftup_entity_reference:
         weight: 47
         enabled: false
       liftup_entity_reference_item:
-        enabled: true
         weight: 48
+        enabled: true
       liftup_prominent:
         weight: 49
         enabled: false
@@ -133,6 +130,9 @@ settings:
         weight: 53
         enabled: false
       view:
-        enabled: true
         weight: 54
+        enabled: true
+      vocabulary:
+        weight: 29
+        enabled: true
 field_type: entity_reference_revisions

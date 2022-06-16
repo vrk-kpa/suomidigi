@@ -16,21 +16,21 @@ mode: media_paragraph
 content:
   field_creator:
     type: string
-    weight: 0
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_media_image:
-    weight: 1
+    type: magnific_popup
     label: hidden
     settings:
       thumbnail_image_style: 900_width
       popup_image_style: 1200_width
       gallery_type: separate_items
     third_party_settings: {  }
-    type: magnific_popup
+    weight: 1
     region: content
 hidden:
   created: true

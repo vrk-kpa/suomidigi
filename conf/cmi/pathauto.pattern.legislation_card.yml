@@ -11,12 +11,12 @@ pattern: '[node:menu-link:parents:join-path]/[node:title]'
 selection_criteria:
   9763bf64-7a9b-44f5-9371-602e06eb7d56:
     id: node_type
-    bundles:
-      legislation_card: legislation_card
     negate: false
+    uuid: 9763bf64-7a9b-44f5-9371-602e06eb7d56
     context_mapping:
       node: node
-    uuid: 9763bf64-7a9b-44f5-9371-602e06eb7d56
+    bundles:
+      legislation_card: legislation_card
 selection_logic: and
 weight: 8
 relationships: {  }

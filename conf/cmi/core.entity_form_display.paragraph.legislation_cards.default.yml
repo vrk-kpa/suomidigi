@@ -13,19 +13,19 @@ bundle: legislation_cards
 mode: default
 content:
   field_legislation_section:
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      autocomplete: false
-      width: 100%
-    third_party_settings: {  }
     type: select2_entity_reference
+    weight: 0
     region: content
+    settings:
+      width: 100%
+      autocomplete: false
+      match_operator: CONTAINS
+    third_party_settings: {  }
   translation:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   status: true

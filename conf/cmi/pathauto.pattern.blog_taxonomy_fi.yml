@@ -13,20 +13,20 @@ pattern: 'blogit/[term:name]'
 selection_criteria:
   29f99caf-689b-4f2b-80b6-4c72a3b090ca:
     id: 'entity_bundle:taxonomy_term'
-    bundles:
-      blog: blog
     negate: false
+    uuid: 29f99caf-689b-4f2b-80b6-4c72a3b090ca
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: 29f99caf-689b-4f2b-80b6-4c72a3b090ca
+    bundles:
+      blog: blog
   baf5df89-0a5e-4e21-927b-e30c317fbe4b:
     id: language
-    langcodes:
-      fi: fi
     negate: false
+    uuid: baf5df89-0a5e-4e21-927b-e30c317fbe4b
     context_mapping:
       language: 'taxonomy_term:langcode:language'
-    uuid: baf5df89-0a5e-4e21-927b-e30c317fbe4b
+    langcodes:
+      fi: fi
 selection_logic: and
 weight: -10
 relationships:

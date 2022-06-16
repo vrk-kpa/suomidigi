@@ -13,7 +13,6 @@ bundles:
   - event
 entity_type: node
 global: false
-weight: 0
 flag_short: Bookmark
 flag_long: 'Bookmark this page'
 flag_message: 'Bookmark added'
@@ -21,6 +20,7 @@ unflag_short: 'Remove bookmark'
 unflag_long: 'Remove this page from your bookmarks'
 unflag_message: 'Bookmark was removed'
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:node'
 link_type: ajax_link
 flagTypeConfig:

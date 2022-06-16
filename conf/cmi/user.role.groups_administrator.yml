@@ -1,9 +1,11 @@
 uuid: df6d4fdb-ca07-43de-8dfb-6a7b9277f412
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - group
 id: groups_administrator
-label: 'Groups administrator'
+label: 'Ryhmien ylläpitäjä'
 weight: -4
 is_admin: null
 permissions:

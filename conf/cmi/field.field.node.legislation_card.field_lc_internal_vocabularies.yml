@@ -21,13 +21,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       vocabulary: vocabulary
+    negate: 0
     target_bundles_drag_drop:
-      vocabulary:
-        enabled: true
-        weight: 29
       attachment:
         weight: 30
         enabled: false
@@ -109,4 +106,7 @@ settings:
       view:
         weight: 56
         enabled: false
+      vocabulary:
+        weight: 29
+        enabled: true
 field_type: entity_reference_revisions

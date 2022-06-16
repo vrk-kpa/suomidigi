@@ -13,20 +13,20 @@ pattern: 'blogs/[term:name]'
 selection_criteria:
   17f32211-bcab-4fe6-9b14-3cb93573ae2a:
     id: 'entity_bundle:taxonomy_term'
-    bundles:
-      blog: blog
     negate: false
+    uuid: 17f32211-bcab-4fe6-9b14-3cb93573ae2a
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: 17f32211-bcab-4fe6-9b14-3cb93573ae2a
+    bundles:
+      blog: blog
   d0911f55-0f5a-43e8-89b4-adb6eb8aa114:
     id: language
-    langcodes:
-      en: en
     negate: false
+    uuid: d0911f55-0f5a-43e8-89b4-adb6eb8aa114
     context_mapping:
       language: 'taxonomy_term:langcode:language'
-    uuid: d0911f55-0f5a-43e8-89b4-adb6eb8aa114
+    langcodes:
+      en: en
 selection_logic: and
 weight: -10
 relationships:

@@ -16,11 +16,11 @@ plugin: content_creation_links_block
 settings:
   id: content_creation_links_block
   label: 'Content creation links block'
-  provider: suopa_editorial
   label_display: '0'
+  provider: suopa_editorial
 visibility:
   route:
     id: route
-    routes: entity.user.canonical
     negate: false
     context_mapping: {  }
+    routes: entity.user.canonical

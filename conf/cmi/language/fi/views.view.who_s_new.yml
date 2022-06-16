@@ -3,6 +3,7 @@ display:
   default:
     display_title: Isäntä
     display_options:
+      title: 'Uudet käyttäjät'
       exposed_form:
         options:
           submit_button: Käytä
@@ -10,7 +11,6 @@ display:
           exposed_sorts_label: Lajittele
           sort_asc_label: Nousevasti
           sort_desc_label: Laskevasti
-      title: 'Uudet käyttäjät'
   block_1:
     display_title: 'Uudet käyttäjät'
     display_options:

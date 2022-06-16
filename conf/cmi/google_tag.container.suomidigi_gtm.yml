@@ -39,6 +39,6 @@ status_list: |-
 conditions:
   webform:
     id: webform
-    webforms: {  }
     negate: false
     context_mapping: {  }
+    webforms: {  }

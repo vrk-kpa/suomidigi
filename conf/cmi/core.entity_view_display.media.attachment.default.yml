@@ -16,13 +16,13 @@ bundle: attachment
 mode: default
 content:
   field_liftup_image:
-    weight: 0
+    type: media_thumbnail
     label: hidden
     settings:
-      image_style: thumbnail
       image_link: ''
+      image_style: thumbnail
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 0
     region: content
 hidden:
   created: true

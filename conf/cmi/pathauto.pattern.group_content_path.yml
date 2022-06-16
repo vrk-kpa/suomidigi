@@ -11,14 +11,14 @@ pattern: '[node:group_content_pattern:path]'
 selection_criteria:
   8d8421d1-1580-42ce-a3b0-1eb9d3ae1efe:
     id: node_type
+    negate: false
+    uuid: 8d8421d1-1580-42ce-a3b0-1eb9d3ae1efe
+    context_mapping:
+      node: node
     bundles:
       blog_post: blog_post
       event: event
       page: page
-    negate: false
-    context_mapping:
-      node: node
-    uuid: 8d8421d1-1580-42ce-a3b0-1eb9d3ae1efe
 selection_logic: and
 weight: -11
 relationships: {  }

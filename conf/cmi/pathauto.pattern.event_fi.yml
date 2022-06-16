@@ -12,20 +12,20 @@ pattern: 'tapahtumat/[node:field_event_date_and_time:start_date:custom:Y]/[node:
 selection_criteria:
   a48fb490-0574-4bd4-b8c1-a1247bd31cd9:
     id: node_type
-    bundles:
-      event: event
     negate: false
+    uuid: a48fb490-0574-4bd4-b8c1-a1247bd31cd9
     context_mapping:
       node: node
-    uuid: a48fb490-0574-4bd4-b8c1-a1247bd31cd9
+    bundles:
+      event: event
   738c763e-88ee-4c51-84c7-c5f7ca24ed39:
     id: language
-    langcodes:
-      fi: fi
     negate: false
+    uuid: 738c763e-88ee-4c51-84c7-c5f7ca24ed39
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 738c763e-88ee-4c51-84c7-c5f7ca24ed39
+    langcodes:
+      fi: fi
 selection_logic: and
 weight: 3
 relationships:

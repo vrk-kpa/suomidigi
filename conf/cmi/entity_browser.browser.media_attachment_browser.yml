@@ -21,32 +21,32 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   35855c98-d662-41c5-83d2-966c81adc754:
+    id: view
+    uuid: 35855c98-d662-41c5-83d2-966c81adc754
+    label: 'Existing attachments'
+    weight: 1
     settings:
-      view: media_entity_browser
-      view_display: entity_browser_3
       submit_text: 'Select entities'
       auto_select: false
-    uuid: 35855c98-d662-41c5-83d2-966c81adc754
-    weight: 1
-    label: 'Existing attachments'
-    id: view
+      view: media_entity_browser
+      view_display: entity_browser_3
   851683f0-0cad-432f-bc32-827320a20abd:
+    id: entity_form
+    uuid: 851683f0-0cad-432f-bc32-827320a20abd
+    label: 'Add attachment'
+    weight: 2
     settings:
+      submit_text: 'Save entity'
       entity_type: media
       bundle: attachment
       form_mode: default
-      submit_text: 'Save entity'
-    uuid: 851683f0-0cad-432f-bc32-827320a20abd
-    weight: 2
-    label: 'Add attachment'
-    id: entity_form
   c99dca39-3bc7-4383-8cfa-384e10101593:
+    id: entity_form
+    uuid: c99dca39-3bc7-4383-8cfa-384e10101593
+    label: 'Add external attachment'
+    weight: 3
     settings:
+      submit_text: 'Save entity'
       entity_type: media
       bundle: attachment_external
       form_mode: default
-      submit_text: 'Save entity'
-    uuid: c99dca39-3bc7-4383-8cfa-384e10101593
-    weight: 3
-    label: 'Add external attachment'
-    id: entity_form

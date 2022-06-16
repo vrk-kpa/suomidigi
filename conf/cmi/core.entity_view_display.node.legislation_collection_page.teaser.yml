@@ -17,13 +17,13 @@ mode: teaser
 content:
   field_header_image:
     type: entity_reference_entity_view
-    weight: 0
-    region: content
     label: hidden
     settings:
       view_mode: article_teaser_header
       link: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_ingress: true
   field_legis_cpage_paragraphs: true

@@ -11,14 +11,14 @@ id: event_full_header
 label: 'Event Full Header'
 image_style_mappings:
   -
-    breakpoint_id: suomidigi.for_tablet_portrait_up
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: event_full_header_image_large
-  -
-    breakpoint_id: suomidigi.for_phone_only
+    breakpoint_id: suomidigi.for_tablet_portrait_up
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: event_full_header_image_small
+    breakpoint_id: suomidigi.for_phone_only
+    multiplier: 1x
 breakpoint_group: suomidigi
 fallback_image_style: event_full_header_image_small

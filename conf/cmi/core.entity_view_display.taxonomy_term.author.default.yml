@@ -22,13 +22,13 @@ mode: default
 content:
   field_author_description:
     type: basic_string
-    weight: 4
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 4
+    region: content
   field_author_linkedin:
-    weight: 5
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -37,39 +37,41 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 5
     region: content
   field_author_organisation:
-    weight: 3
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 3
     region: content
   field_author_picture:
-    weight: 1
+    type: image
     label: hidden
     settings:
-      image_style: large
       image_link: ''
-      svg_render_as_image: '1'
+      image_style: large
       svg_attributes:
-        width: ''
-        height: ''
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    type: image
+    weight: 1
     region: content
   field_author_title:
-    weight: 2
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_author_twitter:
-    weight: 6
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -78,17 +80,17 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 6
     region: content
   field_reference_to_user_profile:
     type: entity_reference_entity_view
-    weight: 0
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   description: true
   langcode: true

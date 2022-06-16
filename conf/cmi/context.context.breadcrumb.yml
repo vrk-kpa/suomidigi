@@ -6,8 +6,8 @@ dependencies:
     - group
     - node
     - system
-name: breadcrumb
 label: Breadcrumb
+name: breadcrumb
 group: null
 description: ''
 requireAllConditions: false
@@ -15,12 +15,12 @@ disabled: false
 conditions:
   node_type:
     id: node_type
-    bundles:
-      landing_page: landing_page
     negate: true
     uuid: 688d613c-c110-4da9-ab75-6420df2074fc
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      landing_page: landing_page
   group_type:
     id: group_type
     group_types:
@@ -31,23 +31,23 @@ conditions:
       group: '@group.group_route_context:group'
 reactions:
   blocks:
+    id: blocks
+    uuid: 1664ed86-46e8-454b-bb03-c3d4c9c0a3f7
     blocks:
       3c4ea7dd-6e99-4ed0-9021-5dd024694d78:
+        uuid: 3c4ea7dd-6e99-4ed0-9021-5dd024694d78
         id: system_breadcrumb_block
         label: Breadcrumbs
         provider: system
         label_display: '0'
         region: breadcrumb
         weight: '0'
-        context_mapping: {  }
+        custom_id: system_breadcrumb_block
         theme: suomidigi
         css_class: ''
         unique: 0
         context_id: breadcrumb
-        uuid: 3c4ea7dd-6e99-4ed0-9021-5dd024694d78
-        custom_id: system_breadcrumb_block
-    id: blocks
-    saved: false
-    uuid: 1664ed86-46e8-454b-bb03-c3d4c9c0a3f7
+        context_mapping: {  }
     include_default_blocks: 1
+    saved: false
 weight: 0

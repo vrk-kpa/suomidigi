@@ -11,12 +11,12 @@ pattern: '[node:core_content_type_pattern:path]'
 selection_criteria:
   0c8910c2-d1b3-4ddf-991a-db124a4f9151:
     id: node_type
-    bundles:
-      core_content: core_content
     negate: false
+    uuid: 0c8910c2-d1b3-4ddf-991a-db124a4f9151
     context_mapping:
       node: node
-    uuid: 0c8910c2-d1b3-4ddf-991a-db124a4f9151
+    bundles:
+      core_content: core_content
 selection_logic: and
 weight: -5
 relationships: {  }

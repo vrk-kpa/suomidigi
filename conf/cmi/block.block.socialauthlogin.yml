@@ -16,11 +16,11 @@ plugin: social_auth_login
 settings:
   id: social_auth_login
   label: 'Social Auth Login'
-  provider: social_auth
   label_display: visible
+  provider: social_auth
 visibility:
   request_path:
     id: request_path
-    pages: /user/login
     negate: false
     context_mapping: {  }
+    pages: /user/login

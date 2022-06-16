@@ -12,24 +12,24 @@ id: inline_image_full_width
 label: 'Inline image full width'
 image_style_mappings:
   -
-    breakpoint_id: suomidigi.for_desktop_up
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: 1200_width
+    breakpoint_id: suomidigi.for_desktop_up
+    multiplier: 1x
   -
+    image_mapping_type: image_style
+    image_mapping: 900_width
     breakpoint_id: suomidigi.for_tablet_landscape_up
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: 900_width
-  -
     breakpoint_id: suomidigi.for_tablet_portrait_up
     multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: 900_width
   -
-    breakpoint_id: suomidigi.for_phone_only
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: 600_width
+    breakpoint_id: suomidigi.for_phone_only
+    multiplier: 1x
 breakpoint_group: suomidigi
 fallback_image_style: 1200_width

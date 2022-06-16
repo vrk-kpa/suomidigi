@@ -1,9 +1,34 @@
 uuid: e63da44f-9a45-4e0b-ba3f-3d95b5aa2923
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - group.content_type.group-group_node-page
+    - group.type.group
+    - media.type.attachment
+    - media.type.attachment_external
+    - media.type.icon
+    - media.type.image
+    - media.type.video
+    - node.type.blog_post
+    - node.type.page
+    - taxonomy.vocabulary.author
+    - workflows.workflow.copn
+  module:
+    - content_moderation
+    - content_translation
+    - dropzonejs
+    - entity_browser
+    - filter
+    - media
+    - node
+    - system
+    - taxonomy
+    - toolbar
 id: group_administrator
-label: 'Group administrator'
+label: 'Ryhmän ylläpitäjä'
 weight: -4
 is_admin: null
 permissions:
@@ -40,7 +65,6 @@ permissions:
   - 'delete own video media'
   - 'delete page revisions'
   - 'dropzone upload files'
-  - 'edit content translations'
   - 'edit own attachment media'
   - 'edit own attachment_external media'
   - 'edit own blog_post content'
@@ -53,9 +77,6 @@ permissions:
   - 'translate attachment media'
   - 'translate blog_post node'
   - 'translate group group'
-  - 'translate group-group_node-article group_content'
-  - 'translate group-group_node-core_content group_content'
-  - 'translate group-group_node-landing_page group_content'
   - 'translate group-group_node-page group_content'
   - 'translate icon media'
   - 'translate image media'

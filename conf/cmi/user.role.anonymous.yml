@@ -1,11 +1,17 @@
 uuid: 31b1726e-a064-4a2c-a7f6-7e10f4532410
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - comment
+    - media
+    - rate
+    - search_api_autocomplete
+    - system
 _core:
   default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
 id: anonymous
-label: 'Anonymous user'
+label: 'Anonyymi käyttäjä'
 weight: -10
 is_admin: false
 permissions:
@@ -14,7 +20,5 @@ permissions:
   - 'access user profiles'
   - 'cast rate vote on node of article'
   - 'cast rate vote on node of core_content'
-  - 'search content'
   - 'use search_api_autocomplete for search'
   - 'view media'
-  - 'view published community entities'

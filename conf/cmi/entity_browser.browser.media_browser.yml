@@ -24,19 +24,22 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   c4ee464d-ac54-4aff-83dc-1979753d953d:
+    id: view
+    uuid: c4ee464d-ac54-4aff-83dc-1979753d953d
+    label: 'Existing content'
+    weight: 1
     settings:
-      view: media_entity_browser
-      view_display: media_browser_all
       submit_text: 'Select entities'
       auto_select: false
-    uuid: c4ee464d-ac54-4aff-83dc-1979753d953d
-    weight: 1
-    label: 'Existing content'
-    id: view
+      view: media_entity_browser
+      view_display: media_browser_all
   b5f2fd7d-1c42-4a4e-83a5-8277154381d3:
+    id: dropzonejs_media_entity_inline_entity_form
+    uuid: b5f2fd7d-1c42-4a4e-83a5-8277154381d3
+    label: 'Add Image'
+    weight: 2
     settings:
-      form_mode: default
-      media_type: image
+      submit_text: 'Select entities'
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop files here to upload them'
       max_filesize: 64M
@@ -47,38 +50,35 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select entities'
-    uuid: b5f2fd7d-1c42-4a4e-83a5-8277154381d3
-    weight: 2
-    label: 'Add Image'
-    id: dropzonejs_media_entity_inline_entity_form
+      media_type: image
+      form_mode: default
   c03fddad-2718-4c75-8ccc-e050a66e04f9:
+    id: entity_form
+    uuid: c03fddad-2718-4c75-8ccc-e050a66e04f9
+    label: 'Add Video'
+    weight: 3
     settings:
+      submit_text: 'Save entity'
       entity_type: media
       bundle: video
       form_mode: default
-      submit_text: 'Save entity'
-    uuid: c03fddad-2718-4c75-8ccc-e050a66e04f9
-    weight: 3
-    label: 'Add Video'
-    id: entity_form
   881f705e-e708-47a2-87f7-e565df3b9aa1:
+    id: entity_form
+    uuid: 881f705e-e708-47a2-87f7-e565df3b9aa1
+    label: 'Add Embed'
+    weight: 4
     settings:
+      submit_text: 'Save entity'
       entity_type: media
       bundle: embed
       form_mode: default
-      submit_text: 'Save entity'
-    uuid: 881f705e-e708-47a2-87f7-e565df3b9aa1
-    weight: 4
-    label: 'Add Embed'
-    id: entity_form
   b03d52f8-1ab5-4e63-a37b-ee59dc729589:
+    id: entity_form
+    uuid: b03d52f8-1ab5-4e63-a37b-ee59dc729589
+    label: 'Add Icon'
+    weight: 6
     settings:
+      submit_text: 'Save entity'
       entity_type: media
       bundle: icon
       form_mode: default
-      submit_text: 'Save entity'
-    uuid: b03d52f8-1ab5-4e63-a37b-ee59dc729589
-    weight: 6
-    label: 'Add Icon'
-    id: entity_form

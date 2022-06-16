@@ -12,20 +12,20 @@ pattern: 'tiedotteet/[node:published:custom:Y]/[node:published:custom:m]/[node:t
 selection_criteria:
   e0b690fe-d258-40cc-9470-25c3498d3ee8:
     id: node_type
-    bundles:
-      news_item: news_item
     negate: false
+    uuid: e0b690fe-d258-40cc-9470-25c3498d3ee8
     context_mapping:
       node: node
-    uuid: e0b690fe-d258-40cc-9470-25c3498d3ee8
+    bundles:
+      news_item: news_item
   4f9c7966-a740-419a-ac12-2449b151261c:
     id: language
-    langcodes:
-      fi: fi
     negate: false
+    uuid: 4f9c7966-a740-419a-ac12-2449b151261c
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 4f9c7966-a740-419a-ac12-2449b151261c
+    langcodes:
+      fi: fi
 selection_logic: and
 weight: 0
 relationships:

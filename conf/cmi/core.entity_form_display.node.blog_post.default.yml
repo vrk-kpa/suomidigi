@@ -48,28 +48,30 @@ content:
     region: content
     settings:
       width: 400px
+      autocomplete: false
       match_operator: CONTAINS
       match_limit: 10
-      autocomplete: false
     third_party_settings: {  }
   field_comments:
+    type: comment_default
     weight: 24
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: comment_default
-    region: content
   field_displayed_author:
+    type: select2_entity_reference
     weight: 17
+    region: content
     settings:
       width: 100%
       autocomplete: true
       match_operator: STARTS_WITH
       match_limit: 10
     third_party_settings: {  }
-    type: select2_entity_reference
-    region: content
   field_displayed_update_time:
+    type: datetime_default
     weight: 18
+    region: content
     settings: {  }
     third_party_settings:
       timepicker:
@@ -77,11 +79,10 @@ content:
         type: timepicker_jonthornton
         js_options:
           value: ''
-    type: datetime_default
-    region: content
   field_header_image:
     type: entity_browser_entity_reference
     weight: 6
+    region: content
     settings:
       entity_browser: media_image_browser
       field_widget_display: rendered_entity
@@ -89,22 +90,22 @@ content:
       field_widget_remove: true
       field_widget_replace: false
       open: true
-      selection_mode: selection_append
       field_widget_display_settings:
         view_mode: default
+      selection_mode: selection_append
     third_party_settings: {  }
-    region: content
   field_ingress:
+    type: string_textarea
     weight: 7
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_paragraphs:
     type: paragraphs
     weight: 8
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -116,38 +117,37 @@ content:
       form_display_mode: default
       default_paragraph_type: text
       features:
-        duplicate: duplicate
-        collapse_edit_all: collapse_edit_all
         add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
-    region: content
   field_reading_time:
+    type: number
     weight: 4
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_tags:
+    type: select2_entity_reference
     weight: 3
+    region: content
     settings:
       width: 400px
       autocomplete: true
       match_operator: STARTS_WITH
       match_limit: 10
     third_party_settings: {  }
-    type: select2_entity_reference
-    region: content
   field_theme:
+    type: select2_entity_reference
     weight: 2
+    region: content
     settings:
       width: 400px
-      match_operator: CONTAINS
       autocomplete: false
+      match_operator: CONTAINS
       match_limit: 10
     third_party_settings: {  }
-    type: select2_entity_reference
-    region: content
   langcode:
     type: language_select
     weight: 0
@@ -158,8 +158,8 @@ content:
   moderation_state:
     type: moderation_state_default
     weight: 25
-    settings: {  }
     region: content
+    settings: {  }
     third_party_settings: {  }
   path:
     type: path
@@ -169,10 +169,10 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 12
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
@@ -191,12 +191,12 @@ content:
     weight: 22
     region: content
     settings:
+      rows: 5
+      placeholder: ''
       show: true
       default: ''
       permission_based: false
       allow_user_settings: true
-      rows: 5
-      placeholder: ''
     third_party_settings: {  }
   scheduler_settings:
     weight: 19
@@ -205,17 +205,17 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 16
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 14
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -236,9 +236,9 @@ content:
     region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default

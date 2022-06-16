@@ -31,8 +31,8 @@
         "drupal/comments_order": "^2.0",
         "drupal/content_moderation_notifications": "^3.3",
         "drupal/context": "^4.1",
-        "drupal/core-composer-scaffold": "9.2.21",
-        "drupal/core-recommended": "9.2.21",
+        "drupal/core-composer-scaffold": "^9.4",
+        "drupal/core-recommended": "^9.4",
         "drupal/ctools": "^3.7",
         "drupal/daterange_compact": "1.x-dev",
         "drupal/dropzonejs": "^2.0-alpha4",
@@ -86,7 +86,7 @@
         "drupal/social_media": "^1.9-rc2",
         "drupal/stage_file_proxy": "^1.0",
         "drupal/svg_image": "^1.9",
-        "drupal/swiftmailer": "^2.0",
+        "drupal/swiftmailer": "^2.2",
         "drupal/system_status": "^2.0",
         "drupal/timepicker-timepicker": "^1.x-dev",
         "drupal/tvi": "^1.0@beta",
@@ -153,9 +153,9 @@
         "patches": {
             "drupal/core": {
                 "https://www.drupal.org/i/2466553": "https://www.drupal.org/files/issues/2021-10-12/2466553-95.patch",
-                "https://www.drupal.org/i/3008119": "https://www.drupal.org/files/issues/2019-05-15/drupal-allow_alter_oembed_providers-3008119-4.patch",
+                "https://www.drupal.org/i/3008119": "https://www.drupal.org/files/issues/2022-01-12/3008119-62.patch",
                 "https://www.drupal.org/i/1088112": "https://www.drupal.org/files/issues/2021-03-21/1088112-69.patch",
-                "https://www.drupal.org/i/3150294": "https://www.drupal.org/files/issues/2021-11-16/3150294-79.patch",
+                "https://www.drupal.org/i/3150294": "https://www.drupal.org/files/issues/2022-05-13/3150294-115.patch",
                 "https://www.drupal.org/i/3101344": "https://www.drupal.org/files/issues/2021-11-15/drupal-path-error-when-not-visible-3101344-81-D9.patch",
                 "Remove node_user_predelete() hook to prevent deletion of nodes when deleting a user account.": "patches/remove_node_user_predelete_hook.patch",
                 "Fix GTM https://www.drupal.org/project/drupal/issues/3114467":"https://www.drupal.org/files/issues/2021-11-18/3114467-25.patch"

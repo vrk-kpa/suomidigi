@@ -12,20 +12,20 @@ pattern: 'pressmeddelanden/[node:published:custom:Y]/[node:published:custom:m]/[
 selection_criteria:
   72788fa5-00ef-4c19-8edb-eeb832bffcdd:
     id: node_type
-    bundles:
-      news_item: news_item
     negate: false
+    uuid: 72788fa5-00ef-4c19-8edb-eeb832bffcdd
     context_mapping:
       node: node
-    uuid: 72788fa5-00ef-4c19-8edb-eeb832bffcdd
+    bundles:
+      news_item: news_item
   620e1a42-f35b-40fd-91bd-b656ca6f7339:
     id: language
-    langcodes:
-      fi: fi
     negate: false
+    uuid: 620e1a42-f35b-40fd-91bd-b656ca6f7339
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 620e1a42-f35b-40fd-91bd-b656ca6f7339
+    langcodes:
+      fi: fi
 selection_logic: and
 weight: 2
 relationships:

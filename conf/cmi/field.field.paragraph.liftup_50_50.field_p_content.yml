@@ -22,14 +22,11 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       list_of_links: list_of_links
       text: text
+    negate: 0
     target_bundles_drag_drop:
-      liftup_50_50:
-        weight: 28
-        enabled: false
       attachment:
         weight: 29
         enabled: false
@@ -78,6 +75,9 @@ settings:
       legislation_link:
         weight: 44
         enabled: false
+      liftup_50_50:
+        weight: 28
+        enabled: false
       liftup_box:
         weight: 45
         enabled: false
@@ -97,14 +97,14 @@ settings:
         weight: 50
         enabled: false
       list_of_links:
-        enabled: true
         weight: 51
+        enabled: true
       media:
         weight: 52
         enabled: false
       text:
-        enabled: true
         weight: 53
+        enabled: true
       view:
         weight: 54
         enabled: false

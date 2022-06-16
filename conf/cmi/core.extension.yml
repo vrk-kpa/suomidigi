@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   address: 0
   admin_toolbar: 0
@@ -78,6 +80,7 @@ module:
   migrate: 0
   migrate_plus: 0
   migrate_tools: 0
+  mysql: 0
   node: 0
   notification: 0
   optional_end_date: 0
@@ -169,5 +172,3 @@ theme:
   seven: 0
   suomidigi: 0
 profile: minimal
-_core:
-  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
