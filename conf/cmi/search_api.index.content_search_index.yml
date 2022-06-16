@@ -221,4 +221,5 @@ tracker_settings:
 options:
   cron_limit: -1
   index_directly: true
+  track_changes_in_references: true
 server: content_search_server
