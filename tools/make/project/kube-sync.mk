@@ -11,4 +11,5 @@ ifneq ($(DUMP_SQL_EXISTS),yes)
 	@mv files_private/current.sql $(DUMP_SQL_FILENAME)
 endif
 	$(call step,Import local SQL dump...)
+	$(call drush,sql-drop -y)
 	$(call drush,sql-query --file=${DOCKER_PROJECT_ROOT}/$(DUMP_SQL_FILENAME),SQL dump imported)
