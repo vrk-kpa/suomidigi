@@ -56,7 +56,7 @@
         "drupal/menu_block": "^1.4",
         "drupal/menu_block_current_language": "^1.2",
         "drupal/menu_link_attributes": "^1.0",
-        "drupal/menu_trail_by_path": "^1.1",
+        "drupal/menu_trail_by_path": "^2.0@beta",
         "drupal/metatag": "^1.10",
         "drupal/migrate_tools": "^5.0",
         "drupal/nodeorder": "1.x-dev",
@@ -183,7 +183,7 @@
                 "https://www.drupal.org/i/2952846": "https://www.drupal.org/files/issues/2018-03-14/show-siblings-of-active-parent-2952846-3_0.patch"
             },
             "drupal/menu_trail_by_path": {
-                "https://www.drupal.org/i/2914746": "https://www.drupal.org/files/issues/2020-01-10/menu_trail_by_path-fatal_error_on_menu_active_trail_service_override-2914746-18.patch"
+                "https://www.drupal.org/i/2914746": "https://www.drupal.org/files/issues/2022-04-06/2914746-27.patch"
             },
             "drupal/paragraphs": {
                 "https://www.drupal.org/i/2904705": "https://www.drupal.org/files/issues/2019-11-13/experimental-widget-asymetric-translation-2904705-70.patch"
