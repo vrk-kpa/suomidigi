@@ -1,7 +1,7 @@
 <?php
 
 // Private files path
-$settings['file_private_path'] = realpath(__DIR__ . '/../../../files_private');
+$settings['file_private_path'] = '/app/files_private';
 
 ### Trusted Host Patterns, see https://www.drupal.org/node/2410395 for more information.
 ### If your site runs on multiple domains, you need to add these domains here
