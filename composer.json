@@ -104,7 +104,7 @@
         "drupal/webform": "^6.0",
         "drupal/wordpress_migrate": "^3.0",
         "drupal/xmlsitemap": "^1.0@RC",
-        "drush/drush": "^10.6",
+        "drush/drush": "^11.0",
         "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.4.3",
         "fgelinas/timepicker": "^0.3.3",
