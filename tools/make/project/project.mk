@@ -7,4 +7,4 @@ copy-robots: ## Copy robots.txt
 
 PHONY += build-prod-image
 build-prod-image: ## Test building production Docker image
-	docker build -t suomidigi:prod . && docker rmi suomidigi:prod
+	docker buildx bake -f docker-bake.hcl --pull --progress plain --no-cache --load && docker rmi suomidigi:prod
