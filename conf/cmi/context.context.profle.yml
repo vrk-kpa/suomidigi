@@ -19,7 +19,7 @@ conditions:
   route:
     id: route
     routes: entity.user.canonical
-    negate: 0
+    negate: false
     uuid: 8949f192-ae14-408b-bb9c-e2fe77f0dd27
     context_mapping: {  }
 reactions:

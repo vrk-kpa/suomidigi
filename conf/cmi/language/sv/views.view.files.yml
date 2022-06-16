@@ -38,6 +38,7 @@ display:
           label: 'Datum för ändring'
         count:
           label: 'Används i'
+          format_plural_string: !!binary MSBwYWlra2EDQGNvdW50IHBhaWtrb2ph
       filters:
         filename:
           expose:

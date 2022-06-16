@@ -30,3 +30,5 @@ switch (getenv('HTTP_HOST')) {
     $settings['simple_environment_indicator'] = '#bb2a2a';
     break;
 }
+
+$settings['config_exclude_modules'][] = 'update';
