@@ -7,7 +7,7 @@ A Suomidigi Drupal 9 website.
 | Env         | Branch | URL                          |
 |-------------|--------|------------------------------|
 | development | *      | https://suomidigi.docker.so/ |
-| production  | dev    | https://testi.suomidigi.fi/  |
+| testing     | dev    | https://testi.suomidigi.fi/  |
 | production  | master | https://suomidigi.fi/        |
 
 ## Requirements
