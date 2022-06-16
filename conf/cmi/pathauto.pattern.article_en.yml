@@ -11,7 +11,7 @@ type: 'canonical_entities:node'
 pattern: 'articles/[node:title]'
 selection_criteria:
   adc8c805-29f5-4b59-baf6-085fe2b2ed4a:
-    id: node_type
+    id: 'entity_bundle:node'
     negate: false
     uuid: adc8c805-29f5-4b59-baf6-085fe2b2ed4a
     context_mapping:

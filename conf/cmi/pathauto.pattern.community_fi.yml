@@ -11,7 +11,7 @@ type: 'canonical_entities:node'
 pattern: 'verkostot/[node:title]'
 selection_criteria:
   8fa745f7-23e4-44f0-9d2a-08beb0fed63a:
-    id: node_type
+    id: 'entity_bundle:node'
     negate: false
     uuid: 8fa745f7-23e4-44f0-9d2a-08beb0fed63a
     context_mapping:
