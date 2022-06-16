@@ -8,3 +8,6 @@ $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
 if (!isset($_SERVER['SMTP_ADDRESS'])) {
   $config['swiftmailer.transport']['transport'] = 'native';
 }
+
+$config['stage_file_proxy.settings']['origin'] = 'https://www.suomidigi.fi';
+$config['stage_file_proxy.settings']['hotlink'] = TRUE;
