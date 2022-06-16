@@ -1,31 +1,16 @@
 <?php
 
-/**
- * @file
- * Drupal 8 configuration file.
- *
- * You should not edit this file, please use environment specific files!
- * They are loaded in this order:
- * - all.settings.php
- *   For settings that should be applied to all environments (dev, prod, staging, docker, etc).
- * - all.services.yml
- *   For services that should be applied to all environments (dev, prod, staging, docker, etc).
- * - prod.settings.php
- *   For settings only for the production environment.
- * - prod.services.yml
- *   For services only for the production environment.
- * - dev.settings.php
- *   For settings only for the development environment (devevlopment sites, docker).
- * - dev.services.yml
- *   For services only for the development environment (devevlopment sites, docker).
- * - settings.local.php
- *   For settings only for the local environment, this file will not be commited in GIT!
- * - services.local.yml
- *   For services only for the local environment, this file will not be commited in GIT!
- */
-
-// Use druidfi/omen for env extractor.
-extract((new Druidfi\Omen\DrupalEnvDetector(__DIR__))->getConfiguration());
+// Use druidfi/omen to auto-configure Drupal
+//
+// You can setup project specific configuration in this directory:
+//
+// ENV.settings.php and ENV.services.yml
+// and
+// local.settings.php and local.service.yml
+//
+// These files are loaded automatically if found.
+//
+extract((new Druidfi\Omen\Reader(__DIR__))->get());
 
 // Private files path
 $settings['file_private_path'] = realpath(__DIR__ . '/../../../files_private');

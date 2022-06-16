@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f1b80ba1dfb57df9b1f23241bd56af2",
+    "content-hash": "ba8acd8bff66cf19e105fe4fce9273a3",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1644,24 +1644,26 @@
         },
         {
             "name": "druidfi/omen",
-            "version": "0.3.2",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/druidfi/omen.git",
-                "reference": "3b20fa04a46ea3d08339f85ca13f0231604cd482"
+                "reference": "5ecf332bba5959c6701a5c2f5bb5f9afbdf216b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/druidfi/omen/zipball/3b20fa04a46ea3d08339f85ca13f0231604cd482",
-                "reference": "3b20fa04a46ea3d08339f85ca13f0231604cd482",
+                "url": "https://api.github.com/repos/druidfi/omen/zipball/5ecf332bba5959c6701a5c2f5bb5f9afbdf216b4",
+                "reference": "5ecf332bba5959c6701a5c2f5bb5f9afbdf216b4",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1 || ^8.0"
+                "drupal/core-recommended": "^9.2 || ^10.0",
+                "ext-json": "*",
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.17.0",
-                "phpunit/phpunit": "^8.5.0"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "autoload": {
@@ -1681,9 +1683,9 @@
             ],
             "support": {
                 "issues": "https://github.com/druidfi/omen/issues",
-                "source": "https://github.com/druidfi/omen/tree/0.3.2"
+                "source": "https://github.com/druidfi/omen/tree/0.5.1"
             },
-            "time": "2021-06-28T12:12:47+00:00"
+            "time": "2022-05-12T09:53:03+00:00"
         },
         {
             "name": "drupal-ckeditor-libraries-group/notification",
