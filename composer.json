@@ -111,9 +111,6 @@
         "trentrichardson/jquery-timepicker-addon": "^1.6",
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
-    "require-dev": {
-        "drupal/core-dev-pinned": "9.2.10"
-    },
     "conflict": {
         "drupal/drupal": "*"
     },
