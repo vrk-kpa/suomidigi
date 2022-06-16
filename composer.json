@@ -89,7 +89,7 @@
         "drupal/social_auth_linkedin": "^3.0",
         "drupal/social_media": "^1.9-rc2",
         "drupal/stage_file_proxy": "^1.0",
-        "drupal/svg_image": "^1.9",
+        "drupal/svg_image": "^1.16",
         "drupal/swiftmailer": "^2.2",
         "drupal/system_status": "^2.0",
         "drupal/timepicker-timepicker": "^1.x-dev",
