@@ -48,7 +48,7 @@
     "minimist": ">=1.2.5",
     "node-normalize-scss": "^8.1.2",
     "slash": "2.0.0",
-    "svg-sprite": "^1.5.0",
+    "svg-sprite": "^1.5.4",
     "tar": "^6.0.2"
   }
 }
