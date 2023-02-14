@@ -17,6 +17,9 @@ display:
           exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
+      empty:
+        area_text_custom:
+          content: 'Ei mediaa saatavilla.'
       sorts:
         created:
           expose:
@@ -35,6 +38,11 @@ display:
         name:
           expose:
             label: Namn
+        bundle:
+          expose:
+            label: 'Median tyyppi'
+          group_info:
+            label: 'Median tyyppi'
         langcode:
           expose:
             label: Språk
@@ -51,6 +59,7 @@ display:
         delete_media:
           text: Delete
   widget:
+    display_title: Widgetti
     display_options:
       arguments:
         bundle:

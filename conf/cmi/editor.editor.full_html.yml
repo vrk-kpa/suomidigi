@@ -51,10 +51,6 @@ settings:
             - Source
             - endash
   plugins:
-    stylescombo:
-      styles: ''
-    language:
-      language_list: un
     wordcount:
       enable: true
       show_paragraphs: true
