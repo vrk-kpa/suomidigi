@@ -98,7 +98,6 @@
         "drupal/token": "^1.10",
         "drupal/tvi": "^1.0@RC",
         "drupal/twig_tweak": "^2.9",
-        "drupal/upgrade_rector": "^1.0@alpha",
         "drupal/video_embed_field": "^2.1",
         "drupal/view_unpublished": "^1.0",
         "drupal/views_bulk_operations": "^4.1",
