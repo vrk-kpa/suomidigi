@@ -2532,7 +2532,7 @@
             },
             "autoload": {
                 "files": [
-–                    "includes/bootstrap.inc",
+                    "includes/bootstrap.inc",
                     "includes/guzzle_php81_shim.php"
                 ],
                 "psr-4": {
