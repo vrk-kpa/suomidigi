@@ -21,13 +21,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       contact_information_item: contact_information_item
+    negate: 0
     target_bundles_drag_drop:
-      contact_information_item:
-        enabled: true
-        weight: 25
       attachment:
         weight: 26
         enabled: false
@@ -37,6 +34,9 @@ settings:
       contact_information:
         weight: 28
         enabled: false
+      contact_information_item:
+        weight: 25
+        enabled: true
       container:
         weight: 29
         enabled: false

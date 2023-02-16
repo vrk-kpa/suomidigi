@@ -21,7 +21,7 @@
     @include font-size(18px, 18px);
     @include font-weight($semibold);
     color: $black;
-    margin-bottom: $gutter / 4;
+    margin-bottom: $gutter * 0.25;
 
     .legislation-attachment__link:hover & {
       text-decoration: underline;

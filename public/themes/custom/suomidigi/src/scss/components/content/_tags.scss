@@ -8,11 +8,11 @@
     @include font-weight($regular);
     background-color: $white;
     border: 1px solid $gray-light;
-    border-radius: $gutter / 3;
+    border-radius: calc($gutter / 3);
     color: $blue-light;
     display: block;
     margin: 0 $gutter $gutter 0;
-    padding: $gutter / 3 $gutter;
+    padding: calc($gutter / 3) $gutter;
     text-decoration: none;
 
     &:active,

@@ -95,7 +95,7 @@
   &__header--alternative {
     justify-content: flex-start;
     margin: 0;
-    padding: $gutter/3 0 $gutter/3 0;
+    padding: calc($gutter / 3) 0 calc($gutter / 3) 0;
 
     .theme-term__image {
       min-height: $gutter*2;

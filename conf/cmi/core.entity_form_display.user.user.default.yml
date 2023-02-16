@@ -29,10 +29,14 @@ third_party_settings:
         - field_user_description
         - field_user_linkedin
         - field_user_twitter
+      label: 'Profile information'
+      region: content
       parent_name: ''
       weight: 0
       format_type: html_element
       format_settings:
+        classes: form__group
+        id: ''
         element: div
         show_label: true
         label_element: h3
@@ -40,18 +44,18 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: form__group
         required_fields: false
-      label: 'Profile information'
-      region: content
     group_account_settings:
       children:
         - account
+      label: 'Account settings'
+      region: content
       parent_name: ''
       weight: 9
       format_type: html_element
       format_settings:
+        classes: 'form__group form__divider'
+        id: ''
         element: div
         show_label: true
         label_element: h3
@@ -59,11 +63,7 @@ third_party_settings:
         attributes: ''
         effect: none
         speed: fast
-        id: ''
-        classes: 'form__group form__divider'
         required_fields: false
-      label: 'Account settings'
-      region: content
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
 id: user.user.default
@@ -77,76 +77,76 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_first_name:
+    type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_last_name:
+    type: string_textfield
     weight: 2
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_user_description:
+    type: string_textarea
     weight: 6
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_user_linkedin:
+    type: link_default
     weight: 7
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_user_organisation:
+    type: string_textfield
     weight: 5
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_user_title:
+    type: string_textfield
     weight: 4
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_user_twitter:
+    type: link_default
     weight: 8
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   translation:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   user_picture:
     type: image_focal_point
-    settings:
-      preview_image_style: medium
-      offsets: '50,50'
-      progress_indicator: throbber
-      preview_link: false
-    third_party_settings: {  }
     weight: 3
     region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: medium
+      preview_link: false
+      offsets: '50,50'
+    third_party_settings: {  }
 hidden:
   contact: true
   google_analytics: true

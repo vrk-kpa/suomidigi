@@ -18,14 +18,14 @@ plugin: 'views_block:taxonomy_term-block_1'
 settings:
   id: 'views_block:taxonomy_term-block_1'
   label: ''
-  provider: views
   label_display: '0'
+  provider: views
+  context_mapping: {  }
   views_label: ''
   items_per_page: '10'
-  context_mapping: {  }
 visibility:
   request_path:
     id: request_path
-    pages: '/taxonomy/term/*'
     negate: false
     context_mapping: {  }
+    pages: '/taxonomy/term/*'

@@ -1,7 +1,7 @@
 .blog-teaser {
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
   height: 100%;
   width: 100%;
@@ -170,7 +170,7 @@
   @include font-size(22px, 28px);
   @include font-weight($semibold);
   color: $blue-light;
-  margin-bottom: $gutter / 2;
+  margin-bottom: $gutter * 0.5;
 
   .listing--list & {
     &:hover {
@@ -209,7 +209,7 @@
     @include font-weight($regular);
     border: 0 none;
     color: $black;
-    padding-bottom: $gutter / 3;
+    padding-bottom: calc($gutter / 3);
   }
 }
 

@@ -1,7 +1,7 @@
 .event-teaser {
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
   margin-bottom: $gutter * 3;
   padding: $gutter * 1.4;
@@ -102,7 +102,7 @@
   }
 
   &__description {
-    margin-bottom: $gutter / 2;
+    margin-bottom: $gutter * 0.5;
   }
 
   &__description,

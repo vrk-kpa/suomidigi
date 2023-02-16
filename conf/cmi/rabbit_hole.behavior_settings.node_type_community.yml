@@ -5,7 +5,10 @@ dependencies:
   config:
     - node.type.community
 id: node_type_community
+entity_type_id: node_type
+entity_id: community
 action: page_redirect
 allow_override: 1
 redirect: /node/159
 redirect_code: 301
+redirect_fallback_action: access_denied

@@ -14,14 +14,16 @@ bundle: liftup_box
 mode: default
 content:
   field_p_big_boxes:
+    type: boolean_checkbox
     weight: 2
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_p_content_unlimited:
+    type: paragraphs
     weight: 0
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -33,17 +35,15 @@ content:
       form_display_mode: default
       default_paragraph_type: liftup_box_item
       features:
-        duplicate: duplicate
-        collapse_edit_all: collapse_edit_all
         add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
-    type: paragraphs
-    region: content
   translation:
     weight: 10
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   status: true

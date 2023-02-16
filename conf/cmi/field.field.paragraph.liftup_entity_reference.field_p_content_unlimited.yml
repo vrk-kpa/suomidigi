@@ -21,13 +21,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       liftup_entity_reference_item: liftup_entity_reference_item
+    negate: 0
     target_bundles_drag_drop:
-      liftup_entity_reference_item:
-        enabled: true
-        weight: 9
       container:
         weight: 10
         enabled: false
@@ -43,6 +40,9 @@ settings:
       liftup_entity_reference:
         weight: 14
         enabled: false
+      liftup_entity_reference_item:
+        weight: 9
+        enabled: true
       media:
         weight: 15
         enabled: false

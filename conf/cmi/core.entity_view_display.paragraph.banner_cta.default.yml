@@ -17,7 +17,7 @@ bundle: banner_cta
 mode: default
 content:
   field_banner_link:
-    weight: 2
+    type: link
     label: hidden
     settings:
       trim_length: 160
@@ -26,22 +26,22 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 2
     region: content
   field_banner_title:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_p_description:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
 hidden:
   field_banner_background_image: true

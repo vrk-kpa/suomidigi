@@ -98,9 +98,7 @@ process:
         - author
         - author_image
         - excerpt
-      delimiter: |+
-
-
+      delimiter: ''
   created:
     -
       plugin: callback

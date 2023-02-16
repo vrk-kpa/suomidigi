@@ -17,14 +17,14 @@ plugin: 'menu_block_current_language:footer-navigation'
 settings:
   id: 'menu_block_current_language:footer-navigation'
   label: 'Footer Navigation'
-  provider: menu_block_current_language
   label_display: '0'
+  provider: menu_block_current_language
+  level: 1
+  expand_all_items: false
+  depth: 0
   translation_providers:
     views: '0'
     menu_link_content: menu_link_content
     default: '0'
-  level: 1
-  depth: 0
-  expand_all_items: 0
   show_siblings_of_the_initial_menu_item: 0
 visibility: {  }

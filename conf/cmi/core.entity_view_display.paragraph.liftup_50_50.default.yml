@@ -22,7 +22,7 @@ bundle: liftup_50_50
 mode: default
 content:
   field_p_button_cta:
-    weight: 7
+    type: link_separate
     label: hidden
     settings:
       trim_length: 160
@@ -31,19 +31,19 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link_separate
+    weight: 7
     region: content
   field_p_content:
-    weight: 3
+    type: entity_reference_revisions_entity_view
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
+    weight: 3
     region: content
   field_p_link:
-    weight: 0
+    type: link_separate
     label: hidden
     settings:
       trim_length: 160
@@ -52,44 +52,44 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link_separate
+    weight: 0
     region: content
   field_p_media:
-    weight: 2
+    type: media_thumbnail
     label: hidden
     settings:
-      image_style: 1_1_half_content
       image_link: ''
+      image_style: 1_1_half_content
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 2
     region: content
   field_p_reverse:
-    weight: 4
+    type: boolean
     label: hidden
     settings:
       format: boolean
-      format_custom_true: ''
       format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 4
     region: content
   field_p_separate:
-    weight: 6
+    type: boolean
     label: hidden
     settings:
       format: boolean
-      format_custom_true: ''
       format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 6
     region: content
   field_p_title:
-    weight: 1
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
 hidden:
   search_api_excerpt: true

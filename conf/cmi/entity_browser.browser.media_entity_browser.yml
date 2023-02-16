@@ -22,12 +22,12 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   6586703a-6976-4124-8a49-cbb07ceaa3b1:
+    id: view
+    uuid: 6586703a-6976-4124-8a49-cbb07ceaa3b1
+    label: 'Choose existing media'
+    weight: -9
     settings:
-      view: media_entity_browser
-      view_display: media_browser_all
       submit_text: 'Select media'
       auto_select: false
-    uuid: 6586703a-6976-4124-8a49-cbb07ceaa3b1
-    weight: -9
-    label: 'Choose existing media'
-    id: view
+      view: media_entity_browser
+      view_display: media_browser_all

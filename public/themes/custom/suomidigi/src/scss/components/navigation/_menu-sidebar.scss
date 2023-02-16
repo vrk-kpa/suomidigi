@@ -5,7 +5,7 @@
 nav.menu--sidebar {
   display: none;
   margin-bottom: $gutter * 2;
-  padding-bottom: $gutter / 1.5;
+  padding-bottom: calc($gutter / 1.5);
 
   @include breakpoint($for-tablet-portrait-up) {
     display: block;

@@ -1,8 +1,8 @@
 .paragraph--liftup-50-50 {
   align-items: center;
   background-color: $white;
-  border-left: $gutter / 3 solid $cyan;
-  border-radius: $gutter / 3;
+  border-left: calc($gutter / 3) solid $cyan;
+  border-radius: calc($gutter / 3);
   box-shadow: 2px 2px 10px #00000033;
   display: flex;
   flex-direction: column;
@@ -18,10 +18,10 @@
       @include breakpoint($for-tablet-portrait-up) {
         order: 2;
         img {
-          border-radius: 0 $gutter / 3 $gutter / 3 0;
+          border-radius: 0 calc($gutter / 3) calc($gutter / 3) 0;
         }
         .media-image__creator {
-          border-radius: 0 $gutter / 3 0 0;
+          border-radius: 0 calc($gutter / 3) 0 0;
         }
       }
     }
@@ -45,13 +45,13 @@
       }
 
       img {
-        border-radius: $gutter / 3;
+        border-radius: calc($gutter / 3);
       }
     }
 
     .paragraph__content-wrapper {
-      border-left: $gutter / 3 solid $cyan;
-      border-radius: $gutter / 3;
+      border-left: calc($gutter / 3) solid $cyan;
+      border-radius: calc($gutter / 3);
       box-shadow: 2px 2px 10px #00000033;
 
       @include breakpoint($for-tablet-portrait-up) {
@@ -102,12 +102,12 @@
     order: 1;
 
     img {
-      border-radius: 0 $gutter / 3 0 0;
+      border-radius: 0 calc($gutter / 3) 0 0;
       width: 100%;
     }
 
     .media-image__creator {
-      border-radius: 0 $gutter / 3 0 0;
+      border-radius: 0 calc($gutter / 3) 0 0;
     }
 
     @include breakpoint($for-tablet-portrait-up) {

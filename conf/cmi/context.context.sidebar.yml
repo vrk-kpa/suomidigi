@@ -8,8 +8,8 @@ dependencies:
     - ctools
     - menu_block_current_language
     - system
-name: sidebar
 label: Sidebar
+name: sidebar
 group: null
 description: ''
 requireAllConditions: false
@@ -17,6 +17,10 @@ disabled: false
 conditions:
   'entity_bundle:node':
     id: 'entity_bundle:node'
+    negate: false
+    uuid: a2bbcf7b-6f21-4275-8d8c-391e03788034
+    context_mapping:
+      node: '@node.node_route_context:node'
     bundles:
       core_content: core_content
       legislation_card: legislation_card
@@ -24,24 +28,31 @@ conditions:
       news_item: news_item
       page: page
       webform: webform
-    negate: false
-    uuid: a2bbcf7b-6f21-4275-8d8c-391e03788034
-    context_mapping:
-      node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: '/taxonomy/term/*'
     negate: false
     uuid: 8acac173-5fc1-4baa-a5b7-8a099608b7cc
     context_mapping: {  }
+    pages: '/taxonomy/term/*'
 reactions:
   blocks:
+    id: blocks
+    uuid: 276f80f5-b758-413f-aaf2-cf38aba9637c
     blocks:
       b847939c-d365-443e-98c5-c482a2423c86:
+        uuid: b847939c-d365-443e-98c5-c482a2423c86
         id: 'menu_block_current_language:main'
         label: 'Navigation - Sidebar'
         provider: menu_block_current_language
         label_display: '0'
+        region: sidebar_first
+        weight: '0'
+        custom_id: menu_block_current_language_main
+        theme: suomidigi
+        css_class: ''
+        unique: 0
+        context_id: sidebar
+        context_mapping: {  }
         translation_providers:
           views: views
           menu_link_content: menu_link_content
@@ -49,19 +60,8 @@ reactions:
         level: 2
         depth: 0
         expand_all_items: 0
-        region: sidebar_first
-        weight: '0'
         show_the_initial_menu_item: 1
         show_siblings_of_the_initial_menu_item: 1
-        context_mapping: {  }
-        theme: suomidigi
-        css_class: ''
-        unique: 0
-        context_id: sidebar
-        uuid: b847939c-d365-443e-98c5-c482a2423c86
-        custom_id: menu_block_current_language_main
-    id: blocks
-    saved: false
-    uuid: 276f80f5-b758-413f-aaf2-cf38aba9637c
     include_default_blocks: 1
+    saved: false
 weight: 0

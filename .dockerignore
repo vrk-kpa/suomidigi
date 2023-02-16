@@ -1,3 +1,9 @@
+.github
+public/core
+public/libraries
+public/modules/contrib
+public/themes/custom/suomidigi/dist
+public/themes/custom/suomidigi/node_modules
 public/sites/default/files/*
+tools
 vendor
-node_modules

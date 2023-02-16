@@ -15,14 +15,14 @@ bundle: legislation_link
 mode: default
 content:
   field_link_description:
-    weight: 1
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 1
     region: content
   field_p_link_required:
-    weight: 0
+    type: link
     label: hidden
     settings:
       trim_length: 160
@@ -31,7 +31,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 0
     region: content
 hidden:
   field_link_destination: true

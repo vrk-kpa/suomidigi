@@ -21,13 +21,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       group_view: group_view
+    negate: 0
     target_bundles_drag_drop:
-      group_view:
-        enabled: true
-        weight: 23
       attachment:
         weight: 24
         enabled: false
@@ -43,6 +40,9 @@ settings:
       feed:
         weight: 28
         enabled: false
+      group_view:
+        weight: 23
+        enabled: true
       highlight_bullet_point:
         weight: 29
         enabled: false

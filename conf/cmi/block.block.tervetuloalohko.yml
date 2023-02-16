@@ -17,8 +17,8 @@ plugin: 'block_content:6a03f539-49d9-4445-ab52-3b4569ac84a5'
 settings:
   id: 'block_content:6a03f539-49d9-4445-ab52-3b4569ac84a5'
   label: Tervetuloa-lohko
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full

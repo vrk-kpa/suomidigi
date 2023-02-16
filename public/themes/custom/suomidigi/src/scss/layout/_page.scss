@@ -126,7 +126,7 @@
     color: $white;
     font-size: 12px;
     font-weight: 600;
-    padding: $gutter / 4 $gutter;
+    padding: $gutter * 0.25 $gutter;
     position: absolute;
     right: 0;
     text-align: center;
@@ -135,7 +135,7 @@
 
     @include breakpoint($for-tablet-portrait-up) {
       border-radius: 0 0 $gutter $gutter;
-      padding: 0 $gutter $gutter / 4 $gutter;
+      padding: 0 $gutter $gutter * 0.25 $gutter;
     }
   }
 }

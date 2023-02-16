@@ -15,29 +15,29 @@ mode: media_paragraph
 content:
   field_liftup_image:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
       view_mode: attachment_teaser
       link: false
     third_party_settings: {  }
+    weight: 0
     region: content
   field_media_externalfile:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 2
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   name:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   created: true
   field_accessibility_required: true

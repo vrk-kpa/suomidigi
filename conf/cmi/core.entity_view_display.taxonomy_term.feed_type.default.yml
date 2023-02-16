@@ -14,18 +14,18 @@ bundle: feed_type
 mode: default
 content:
   description:
-    label: hidden
     type: text_default
-    weight: 0
-    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_feed_source:
-    weight: 1
+    type: feed_source_field_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: feed_source_field_formatter
+    weight: 1
     region: content
 hidden:
   langcode: true

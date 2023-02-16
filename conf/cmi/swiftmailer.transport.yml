@@ -1,14 +1,14 @@
+_core:
+  default_config_hash: 0dJfQivKgyEp-S8D6gSRTBbpRFApE3VkpltnPMBQ5OY
 transport: smtp
 smtp_host: smtp_host
 smtp_port: 25
 smtp_encryption: tls
+sendmail_path: /usr/sbin/sendmail
+sendmail_mode: bs
 smtp_credential_provider: key
 smtp_credentials:
   key:
     username: smtp_user
     password: smtp_password
-sendmail_path: /usr/sbin/sendmail
-sendmail_mode: bs
 spool_directory: ''
-_core:
-  default_config_hash: 0dJfQivKgyEp-S8D6gSRTBbpRFApE3VkpltnPMBQ5OY

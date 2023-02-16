@@ -11,21 +11,21 @@ type: 'canonical_entities:node'
 pattern: 'evenemangen/[node:field_event_date_and_time:start_date:custom:Y]/[node:field_event_date_and_time:start_date:custom:m]/[node:title]'
 selection_criteria:
   57335240-365c-42d1-8916-2b78246949c9:
-    id: node_type
-    bundles:
-      event: event
+    id: 'entity_bundle:node'
     negate: false
+    uuid: 57335240-365c-42d1-8916-2b78246949c9
     context_mapping:
       node: node
-    uuid: 57335240-365c-42d1-8916-2b78246949c9
+    bundles:
+      event: event
   e8bd0250-19e6-4fc7-9d90-43f01844b1fd:
     id: language
-    langcodes:
-      sv: sv
     negate: false
+    uuid: e8bd0250-19e6-4fc7-9d90-43f01844b1fd
     context_mapping:
       language: 'node:langcode:language'
-    uuid: e8bd0250-19e6-4fc7-9d90-43f01844b1fd
+    langcodes:
+      sv: sv
 selection_logic: and
 weight: 5
 relationships:

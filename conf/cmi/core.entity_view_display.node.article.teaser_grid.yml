@@ -28,13 +28,13 @@ mode: teaser_grid
 content:
   field_header_image:
     type: media_thumbnail
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: 2_1_half_content
       image_link: ''
+      image_style: 2_1_half_content
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_article_type: true
   field_comments: true

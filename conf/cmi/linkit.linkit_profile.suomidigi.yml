@@ -4,17 +4,17 @@ status: true
 dependencies:
   module:
     - node
-id: suomidigi
 label: suomidigi
+id: suomidigi
 description: ''
 matchers:
   279a6013-19a7-430d-90f7-0c9e427986c1:
-    uuid: 279a6013-19a7-430d-90f7-0c9e427986c1
     id: 'entity:node'
-    weight: 0
+    uuid: 279a6013-19a7-430d-90f7-0c9e427986c1
     settings:
+      metadata: ''
       bundles: {  }
       group_by_bundle: false
-      include_unpublished: true
       substitution_type: canonical
-      metadata: ''
+      include_unpublished: true
+    weight: 0

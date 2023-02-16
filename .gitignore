@@ -16,6 +16,7 @@ tools/init-tools-status
 vendor
 
 drush/sites/.checksums
+dump.sql
 
 # Ignore the folder created by PhpStorm
 .idea/*

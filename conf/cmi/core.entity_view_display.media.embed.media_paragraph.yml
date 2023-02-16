@@ -15,11 +15,11 @@ mode: media_paragraph
 content:
   field_media_mediaembed:
     type: media_embed
-    weight: 0
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   langcode: true

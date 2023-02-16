@@ -7,13 +7,13 @@
       width: 23px;
 
       &--user {
-        margin-right: $gutter / 1.5;
+        margin-right: calc($gutter / 1.5);
       }
 
       &--chevron {
         color: $blue;
         height: $gutter;
-        margin-left: $gutter / 3;
+        margin-left: calc($gutter / 3);
         width: $gutter;
       }
     }
@@ -39,7 +39,7 @@
     }
 
     .icon {
-      margin-left: $gutter / 1.5;
+      margin-left: calc($gutter / 1.5);
     }
 
     &[aria-expanded=true] {
@@ -69,7 +69,7 @@
       display: block;
       list-style: none;
       margin: 0;
-      padding: $gutter / 1.5 0;
+      padding: calc($gutter / 1.5) 0;
       position: absolute;
       right: -8px;
       top: 35px;
@@ -117,8 +117,8 @@
       text-decoration: none;
 
       a {
-        border-left: $gutter / 3 solid transparent;
-        padding: $gutter / 1.5 $gutter;
+        border-left: calc($gutter / 3) solid transparent;
+        padding: calc($gutter / 1.5) $gutter;
         text-decoration: none;
         width: 100%;
       }
@@ -127,7 +127,7 @@
       a:focus,
       a:hover {
         background-color: $gray-light;
-        border-left: $gutter / 3 solid $blue-light;
+        border-left: calc($gutter / 3) solid $blue-light;
         color: $blue-light;
       }
     }

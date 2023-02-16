@@ -29,57 +29,57 @@ mode: default
 content:
   field_comments:
     type: comment_default
-    weight: 8
-    region: content
     label: above
     settings:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
+    weight: 8
+    region: content
   field_displayed_author:
     type: entity_reference_label
-    weight: 0
-    region: content
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_displayed_update_time:
-    weight: 2
+    type: datetime_default
     label: hidden
     settings:
       timezone_override: ''
       format_type: date
     third_party_settings: {  }
-    type: datetime_default
+    weight: 2
     region: content
   field_header_image:
     type: entity_reference_entity_view
-    weight: 3
     label: hidden
     settings:
       view_mode: '2_1'
       link: false
     third_party_settings: {  }
+    weight: 3
     region: content
   field_ingress:
-    weight: 5
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 5
     region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 6
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 6
     region: content
   field_reading_time:
-    weight: 4
+    type: number_decimal
     label: hidden
     settings:
       thousand_separator: ''
@@ -87,31 +87,31 @@ content:
       scale: 0
       prefix_suffix: false
     third_party_settings: {  }
-    type: number_decimal
+    weight: 4
     region: content
   field_tags:
-    weight: 7
+    type: entity_reference_label
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 7
     region: content
   flag_content_bookmark:
-    weight: 10
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 10
+    region: content
   published_at:
     type: timestamp
-    weight: 1
-    region: content
     label: hidden
     settings:
       date_format: date_time
       custom_date_format: ''
       timezone: ''
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   field_article_type: true
   field_theme: true

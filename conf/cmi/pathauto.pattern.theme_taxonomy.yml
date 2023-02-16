@@ -12,12 +12,12 @@ pattern: '[term:name]'
 selection_criteria:
   41f72425-3433-466f-a745-474e3725fb28:
     id: 'entity_bundle:taxonomy_term'
-    bundles:
-      theme: theme
     negate: false
+    uuid: 41f72425-3433-466f-a745-474e3725fb28
     context_mapping:
       taxonomy_term: taxonomy_term
-    uuid: 41f72425-3433-466f-a745-474e3725fb28
+    bundles:
+      theme: theme
 selection_logic: and
 weight: 10
 relationships: {  }

@@ -1,7 +1,8 @@
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 module:
   address: 0
   admin_toolbar: 0
-  admin_toolbar_search: 0
   admin_toolbar_tools: 0
   ajax_comments: 0
   automated_cron: 0
@@ -12,7 +13,6 @@ module:
   captcha: 0
   ckeditor: 0
   ckwordcount: 0
-  color: 0
   comment: 0
   comments_order: 0
   config: 0
@@ -31,6 +31,7 @@ module:
   dblog: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   easy_breadcrumb: 0
   editor: 0
@@ -56,6 +57,10 @@ module:
   image: 0
   inline_entity_form: 0
   inline_responsive_images: 0
+  jquery_ui: 0
+  jquery_ui_datepicker: 0
+  jquery_ui_slider: 0
+  jquery_ui_touch_punch: 0
   key: 0
   language: 0
   link: 0
@@ -79,6 +84,7 @@ module:
   migrate: 0
   migrate_plus: 0
   migrate_tools: 0
+  mysql: 0
   node: 0
   notification: 0
   optional_end_date: 0
@@ -133,7 +139,6 @@ module:
   svg_image: 0
   swiftmailer: 0
   system: 0
-  system_status: 0
   taxonomy: 0
   text: 0
   timepicker: 0
@@ -171,5 +176,3 @@ theme:
   seven: 0
   suomidigi: 0
 profile: minimal
-_core:
-  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

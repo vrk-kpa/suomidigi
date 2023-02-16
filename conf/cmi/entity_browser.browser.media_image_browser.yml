@@ -23,19 +23,22 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   eeb7cc8f-0dbc-4bcc-91f6-357ad47bd2ca:
+    id: view
+    uuid: eeb7cc8f-0dbc-4bcc-91f6-357ad47bd2ca
+    label: 'Existing content'
+    weight: 1
     settings:
-      view: media_entity_browser
-      view_display: entity_browser_1
       submit_text: 'Select entities'
       auto_select: false
-    uuid: eeb7cc8f-0dbc-4bcc-91f6-357ad47bd2ca
-    weight: 1
-    label: 'Existing content'
-    id: view
+      view: media_entity_browser
+      view_display: entity_browser_1
   b744f00d-36d5-47de-97b5-306fd36f443c:
+    id: dropzonejs_media_entity_inline_entity_form
+    uuid: b744f00d-36d5-47de-97b5-306fd36f443c
+    label: 'Add Image'
+    weight: 2
     settings:
-      form_mode: default
-      media_type: image
+      submit_text: 'Select entities'
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop files here to upload them'
       max_filesize: 64M
@@ -46,8 +49,5 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select entities'
-    uuid: b744f00d-36d5-47de-97b5-306fd36f443c
-    weight: 2
-    label: 'Add Image'
-    id: dropzonejs_media_entity_inline_entity_form
+      media_type: image
+      form_mode: default

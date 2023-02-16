@@ -1,3 +1,4 @@
-enabled_entity_types: {  }
 _core:
   default_config_hash: op5zJk4bmDxEGOgAYNCkpAQOLG0YZhNMrxlSkdYSQIM
+enabled_entity_types: {  }
+multiple_entities: false

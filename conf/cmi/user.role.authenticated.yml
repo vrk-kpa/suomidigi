@@ -1,11 +1,32 @@
 uuid: 83a4e7f7-fd2f-4422-b583-64a16ac40d45
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.basic_html
+    - media.type.image
+    - node.type.blog_post
+    - node.type.event
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.copn
+  module:
+    - comment
+    - content_moderation
+    - content_translation
+    - dropzonejs
+    - entity_browser
+    - filter
+    - flag
+    - media
+    - node
+    - rate
+    - search_api_autocomplete
+    - system
+    - taxonomy
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
-label: 'Authenticated user'
+label: 'Sisäänkirjautunut käyttäjä'
 weight: -9
 is_admin: false
 permissions:
@@ -26,7 +47,6 @@ permissions:
   - 'edit own image media'
   - 'flag content_bookmark'
   - 'post comments'
-  - 'search content'
   - 'skip comment approval'
   - 'translate blog_post node'
   - 'translate user'
@@ -38,5 +58,4 @@ permissions:
   - 'view latest version'
   - 'view media'
   - 'view own unpublished content'
-  - 'view published community entities'
   - 'view the administration theme'

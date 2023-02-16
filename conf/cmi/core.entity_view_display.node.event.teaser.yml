@@ -29,57 +29,57 @@ bundle: event
 mode: teaser
 content:
   content_moderation_control:
-    weight: -20
     settings: {  }
     third_party_settings: {  }
+    weight: -20
     region: content
   field_event_date_and_time:
     type: daterange_custom
-    weight: 0
-    region: content
     label: hidden
     settings:
       timezone_override: ''
       date_format: j.n.Y
       separator: '-'
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_event_description:
     type: smart_trim
-    weight: 2
-    region: content
     label: hidden
     settings:
       trim_length: 380
       trim_type: chars
       trim_suffix: ...
-      wrap_class: trimmed
-      more_text: More
-      more_class: more-link
       wrap_output: false
+      wrap_class: trimmed
       more_link: false
+      more_class: more-link
+      more_text: More
+      summary_handler: full
       trim_options:
         text: false
         trim_zero: false
-      summary_handler: full
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_venue_name:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
   flag_content_bookmark:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   links:
-    weight: 3
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
   field_approved: true
   field_displayed_author: true

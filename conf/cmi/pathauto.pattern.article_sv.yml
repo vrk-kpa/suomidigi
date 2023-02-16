@@ -11,21 +11,21 @@ type: 'canonical_entities:node'
 pattern: 'artiklar/[node:title]'
 selection_criteria:
   c4059f54-cb5b-4127-ace8-654c2b7b630a:
-    id: node_type
-    bundles:
-      article: article
+    id: 'entity_bundle:node'
     negate: false
+    uuid: c4059f54-cb5b-4127-ace8-654c2b7b630a
     context_mapping:
       node: node
-    uuid: c4059f54-cb5b-4127-ace8-654c2b7b630a
+    bundles:
+      article: article
   3ac85166-a329-45d6-9eea-3f5bb073b34e:
     id: language
-    langcodes:
-      sv: sv
     negate: false
+    uuid: 3ac85166-a329-45d6-9eea-3f5bb073b34e
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 3ac85166-a329-45d6-9eea-3f5bb073b34e
+    langcodes:
+      sv: sv
 selection_logic: and
 weight: -6
 relationships:

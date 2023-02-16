@@ -5,6 +5,12 @@ display:
     display_title: Huvud
     display_options:
       title: 'Månatligt arkiv'
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
       exposed_form:
         options:
           submit_button: Verkställ
@@ -12,12 +18,6 @@ display:
           exposed_sorts_label: 'Sortera efter'
           sort_asc_label: Stigande
           sort_desc_label: Fallande
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Inlägg per sida'
-            items_per_page_options_all_label: '- Alla -'
-            offset_label: Kompensera
   block_1:
     display_title: Block
   page_1:

@@ -20,30 +20,28 @@ bundle: community
 mode: teaser
 content:
   content_moderation_control:
-    weight: -20
     settings: {  }
     third_party_settings: {  }
+    weight: -20
     region: content
   field_community_description:
     type: text_default
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_community_domain:
     type: entity_reference_entity_view
-    weight: 3
-    region: content
     label: hidden
     settings:
-      link: true
       view_mode: default
+      link: true
     third_party_settings: {  }
+    weight: 3
+    region: content
   field_community_link:
     type: link
-    weight: 2
-    region: content
     label: hidden
     settings:
       trim_length: 160
@@ -52,11 +50,13 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-  links:
-    weight: 0
+    weight: 2
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_approved: true
   field_theme: true

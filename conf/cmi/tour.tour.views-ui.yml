@@ -19,70 +19,70 @@ tips:
     id: views-main
     plugin: text
     label: 'Hallinnoi näkymän asetuksia'
-    body: 'Katso tai muokkaa konfiguraatiota.'
     weight: 1
+    body: 'Katso tai muokkaa konfiguraatiota.'
   views-ui-displays:
     id: views-ui-displays
     plugin: text
     label: 'Tässä näkymässä olevat näytöt'
-    body: 'Näyttö on tapa tulosten näyttämiselle, esimerkiksi sivuna tai lohkona. Näkymä voi sisältää useita näyttöjä, jotka listataan tässä. Aktiivinen näyttö on korostettu.'
     weight: 2
     selector: '#views-display-top'
+    body: 'Näyttö on tapa tulosten näyttämiselle, esimerkiksi sivuna tai lohkona. Näkymä voi sisältää useita näyttöjä, jotka listataan tässä. Aktiivinen näyttö on korostettu.'
   views-ui-view-admin:
     id: views-ui-view-admin
     plugin: text
     label: 'Näkymän ylläpito'
-    body: 'Perform administrative tasks, including adding a description and creating a clone. Click the drop-down button to view the available options.'
     weight: 3
-    selector: '#views-display-extra-actions'
     position: left-start
+    selector: '#views-display-extra-actions'
+    body: 'Perform administrative tasks, including adding a description and creating a clone. Click the drop-down button to view the available options.'
   views-ui-format:
     id: views-ui-format
     plugin: text
     label: Tulostusmuoto
-    body: 'Choose how to output results. E.g., choose <em>Content</em> to output each item completely, using your configured display settings. Or choose <em>Fields</em>, which allows you to output only specific fields for each result. Additional formats can be added by installing modules to <em>extend</em> Drupal''s base functionality.'
     weight: 4
     selector: .views-ui-display-tab-bucket.format
+    body: 'Choose how to output results. E.g., choose <em>Content</em> to output each item completely, using your configured display settings. Or choose <em>Fields</em>, which allows you to output only specific fields for each result. Additional formats can be added by installing modules to <em>extend</em> Drupal''s base functionality.'
   views-ui-fields:
     id: views-ui-fields
     plugin: text
     label: Kentät
-    body: 'If this view uses fields, they are listed here. You can click on a field to configure it.'
     weight: 5
     selector: .views-ui-display-tab-bucket.field
+    body: 'If this view uses fields, they are listed here. You can click on a field to configure it.'
   views-ui-filter:
     id: views-ui-filter
     plugin: text
     label: 'Suodata näkymääsi'
-    body: 'Add filters to limit the results in the output. E.g., to only show content that is <em>published</em>, you would add a filter for <em>Published</em> and select <em>Yes</em>.'
     weight: 6
     selector: .views-ui-display-tab-bucket.filter
+    body: 'Add filters to limit the results in the output. E.g., to only show content that is <em>published</em>, you would add a filter for <em>Published</em> and select <em>Yes</em>.'
   views-ui-filter-operations:
     id: views-ui-filter-operations
     plugin: text
     label: Suodatustoimenpiteet
-    body: 'Lisää, uudelleenjärjestä tai poista suodattimia.'
     weight: 7
     selector: '.views-ui-display-tab-bucket.filter .dropbutton-widget'
+    body: 'Lisää, uudelleenjärjestä tai poista suodattimia.'
   views-ui-sorts:
     id: views-ui-sorts
     plugin: text
     label: Järjestysehdot
-    body: 'Hallinnoi järjestystä, jossa tulokset näytetään. Klikkaa aktiivista järjestelysääntöä määritelläksesi sen.'
     weight: 8
     selector: .views-ui-display-tab-bucket.sort
+    body: 'Hallinnoi järjestystä, jossa tulokset näytetään. Klikkaa aktiivista järjestelysääntöä määritelläksesi sen.'
   views-ui-sorts-operations:
     id: views-ui-sorts-operations
     plugin: text
     label: Lajittelutoiminnot
-    body: 'Lisää, uudelleenjärjestä tai poista järjestelysääntöjä.'
     weight: 9
     selector: '.views-ui-display-tab-bucket.sort .dropbutton-widget'
+    body: 'Lisää, uudelleenjärjestä tai poista järjestelysääntöjä.'
   views-ui-preview:
     id: views-ui-preview
     plugin: text
     label: Esikatselu
-    body: 'Show a preview of the view output.'
     weight: 10
-    selector: '#preview-submit'
     position: left-start
+    selector: '#preview-submit'
+    body: 'Show a preview of the view output.'
