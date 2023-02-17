@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b30db33e013396c1692629a7bee5f44d",
+    "content-hash": "10c42c8f4c66e4db2cd41eaf52ac1466",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -8880,18 +8880,6 @@
             "time": "2020-04-16T23:44:31+00:00"
         },
         {
-            "name": "jonthornton/jquery-timepicker",
-            "version": "1.11.15",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jonthornton-jquery-timepicker"
-            }
-        },
-        {
             "name": "laminas/laminas-diactoros",
             "version": "2.11.3",
             "source": {
@@ -9734,6 +9722,18 @@
             ]
         },
         {
+            "name": "npm-asset/jquery",
+            "version": "3.6.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery/-/jquery-3.6.3.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "npm-asset/jquery-ui-timepicker-addon",
             "version": "1.6.3",
             "dist": {
@@ -9772,6 +9772,21 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/sortablejs/-/sortablejs-1.8.4.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/timepicker",
+            "version": "1.11.15",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/timepicker/-/timepicker-1.11.15.tgz"
+            },
+            "require": {
+                "npm-asset/jquery": ">=1.7"
             },
             "type": "npm-asset",
             "license": [

@@ -109,13 +109,13 @@
         "drush/drush": "^11.4",
         "facebook/graph-sdk": "^5.1",
         "google/apiclient": "^2.0",
-        "jonthornton/jquery-timepicker": "^1.8.4",
         "nesbot/carbon": "1.9.*",
         "npm-asset/dropzone": "5.5.0",
         "npm-asset/jquery-ui-timepicker-addon": "^1.6",
         "npm-asset/magnific-popup": "^1.1",
         "npm-asset/select2": "4.0.7",
         "npm-asset/sortablejs": "1.8.4",
+        "npm-asset/timepicker": "1.11.15",
         "oomphinc/composer-installers-extender": "^2.0",
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
@@ -237,21 +237,6 @@
                 },
                 "dist": {
                     "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip",
-                    "type": "zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "jonthornton/jquery-timepicker",
-                "version": "1.11.15",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "jonthornton-jquery-timepicker"
-                },
-                "dist": {
-                    "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
                     "type": "zip"
                 }
             }
