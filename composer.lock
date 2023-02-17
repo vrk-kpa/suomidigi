@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75f97b899ebe797427f7b270120da438",
+    "content-hash": "de18aae5f9e79dd589f1ef859c46f8f9",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1358,19 +1358,6 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.2"
             },
             "time": "2022-10-27T11:44:00+00:00"
-        },
-        {
-            "name": "dimsemenov/magnific-popup",
-            "version": "1.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/dimsemenov/Magnific-Popup/archive/1.1.0.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "magnific-popup"
-            },
-            "time": "2016-02-20T09:06:30+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -9740,6 +9727,18 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/dropzone/-/dropzone-5.5.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/magnific-popup",
+            "version": "1.1.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/magnific-popup/-/magnific-popup-1.1.0.tgz"
             },
             "type": "npm-asset",
             "license": [

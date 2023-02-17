@@ -21,7 +21,6 @@
         "composer/installers": "^2.1",
         "cosenary/instagram": "v2.3",
         "cweagans/composer-patches": "^1.7",
-        "dimsemenov/magnific-popup": "^1.1",
         "druidfi/omen": "^0.7.0",
         "drupal/address": "^1.10",
         "drupal/admin_toolbar": "^3.1",
@@ -113,6 +112,7 @@
         "jonthornton/jquery-timepicker": "^1.8.4",
         "nesbot/carbon": "1.9.*",
         "npm-asset/dropzone": "5.5.0",
+        "npm-asset/magnific-popup": "^1.1",
         "npm-asset/select2": "4.0.7",
         "npm-asset/sortablejs": "1.8.4",
         "oomphinc/composer-installers-extender": "^2.0",
@@ -267,21 +267,6 @@
                 },
                 "dist": {
                     "url": "https://github.com/jonthornton/jquery-timepicker/archive/1.11.15.zip",
-                    "type": "zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "dimsemenov/magnific-popup",
-                "version": "1.1.0",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "magnific-popup"
-                },
-                "dist": {
-                    "url": "https://github.com/dimsemenov/Magnific-Popup/archive/1.1.0.zip",
                     "type": "zip"
                 }
             }
