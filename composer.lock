@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c55e079d1634623d3de8f5c13baba819",
+    "content-hash": "f8cce52e06f95fad41fdd93cad8187ff",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -8162,16 +8162,6 @@
             "time": "2022-02-21T09:13:59+00:00"
         },
         {
-            "name": "enyo/dropzone",
-            "version": "5.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/enyo/dropzone",
-                "reference": "origin/master"
-            },
-            "type": "drupal-library"
-        },
-        {
             "name": "facebook/graph-sdk",
             "version": "5.1.4",
             "source": {
@@ -9745,6 +9735,30 @@
             "time": "2023-01-16T22:05:37+00:00"
         },
         {
+            "name": "npm-asset/dropzone",
+            "version": "5.5.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/dropzone/-/dropzone-5.5.0.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "npm-asset/sortablejs",
+            "version": "1.8.4",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/sortablejs/-/sortablejs-1.8.4.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "oomphinc/composer-installers-extender",
             "version": "2.0.1",
             "source": {
@@ -10621,18 +10635,6 @@
             "type": "drupal-library",
             "extra": {
                 "installer-name": "select2"
-            }
-        },
-        {
-            "name": "sortablejs/sortable",
-            "version": "1.8.4",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "Sortable"
             }
         },
         {

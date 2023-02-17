@@ -108,14 +108,14 @@
         "drupal/webform": "^6.1",
         "drupal/xmlsitemap": "^1.2",
         "drush/drush": "^11.4",
-        "enyo/dropzone": "5.5.0",
         "facebook/graph-sdk": "^5.1",
         "google/apiclient": "^2.0",
         "jonthornton/jquery-timepicker": "^1.8.4",
         "nesbot/carbon": "1.9.*",
+        "npm-asset/dropzone": "5.5.0",
+        "npm-asset/sortablejs": "1.8.4",
         "oomphinc/composer-installers-extender": "^2.0",
         "select2/select2": "^4.0.7",
-        "sortablejs/sortable": "^1.8.4",
         "trentrichardson/jquery-timepicker-addon": "^1.6",
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
@@ -229,19 +229,6 @@
         {
             "type": "package",
             "package": {
-                "name": "enyo/dropzone",
-                "version": "5.5.0",
-                "type": "drupal-library",
-                "source": {
-                    "url": "https://github.com/enyo/dropzone",
-                    "type": "git",
-                    "reference": "origin/master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "trentrichardson/jquery-timepicker-addon",
                 "version": "1.6",
                 "type": "drupal-library",
@@ -250,21 +237,6 @@
                 },
                 "dist": {
                     "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip",
-                    "type": "zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "sortablejs/sortable",
-                "version": "1.8.4",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "Sortable"
-                },
-                "dist": {
-                    "url": "https://github.com/SortableJS/Sortable/archive/1.8.4.zip",
                     "type": "zip"
                 }
             }
