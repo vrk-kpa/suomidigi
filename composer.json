@@ -152,6 +152,7 @@
             "public/core": [
                 "type:drupal-core"
             ],
+            "public/libraries/jonthornton-jquery-timepicker": ["npm-asset/timepicker"],
             "public/libraries/{$name}": [
                 "type:drupal-library",
                 "type:bower-asset",
