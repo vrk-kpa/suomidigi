@@ -36,7 +36,7 @@
         "drupal/core-recommended": "^9.4",
         "drupal/crop": "^2.2",
         "drupal/ctools": "^3.7",
-        "drupal/daterange_compact": "^2.0",
+        "drupal/daterange_compact": "dev-1.x#8c36bd92b446965b0c72da0f9252117087fdbb0a",
         "drupal/dropzonejs": "^2.6",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/email_registration": "^1.0",
