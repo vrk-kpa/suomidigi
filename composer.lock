@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10c42c8f4c66e4db2cd41eaf52ac1466",
+    "content-hash": "389c4017d65004fe7fb387f31322ee83",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -9710,6 +9710,18 @@
             "time": "2023-01-16T22:05:37+00:00"
         },
         {
+            "name": "npm-asset/ckeditor-wordcount-plugin",
+            "version": "1.17.6",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/ckeditor-wordcount-plugin/-/ckeditor-wordcount-plugin-1.17.6.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "ISC"
+            ]
+        },
+        {
             "name": "npm-asset/dropzone",
             "version": "5.5.0",
             "dist": {
@@ -13781,18 +13793,6 @@
                 "source": "https://github.com/TYPO3/phar-stream-wrapper/tree/v3.1.7"
             },
             "time": "2021-09-20T19:19:13+00:00"
-        },
-        {
-            "name": "w8tcha/ckeditor-wordcount-plugin",
-            "version": "1.17.6",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/w8tcha/ckeditor-wordcount-plugin/archive/v1.17.6.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "ckeditor-wordcount-plugin"
-            }
         },
         {
             "name": "webflo/drupal-finder",
