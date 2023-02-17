@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de18aae5f9e79dd589f1ef859c46f8f9",
+    "content-hash": "b30db33e013396c1692629a7bee5f44d",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -9734,6 +9734,15 @@
             ]
         },
         {
+            "name": "npm-asset/jquery-ui-timepicker-addon",
+            "version": "1.6.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery-ui-timepicker-addon/-/jquery-ui-timepicker-addon-1.6.3.tgz"
+            },
+            "type": "npm-asset"
+        },
+        {
             "name": "npm-asset/magnific-popup",
             "version": "1.1.0",
             "dist": {
@@ -13622,18 +13631,6 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
-        },
-        {
-            "name": "trentrichardson/jquery-timepicker-addon",
-            "version": "1.6",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "jquery-timepicker-addon"
-            }
         },
         {
             "name": "twig/twig",
