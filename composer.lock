@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8cce52e06f95fad41fdd93cad8187ff",
+    "content-hash": "75f97b899ebe797427f7b270120da438",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -9747,6 +9747,18 @@
             ]
         },
         {
+            "name": "npm-asset/select2",
+            "version": "4.0.7",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/select2/-/select2-4.0.7.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "npm-asset/sortablejs",
             "version": "1.8.4",
             "dist": {
@@ -10624,18 +10636,6 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
-        },
-        {
-            "name": "select2/select2",
-            "version": "4.0.7",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/select2/select2/archive/4.0.7.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "select2"
-            }
         },
         {
             "name": "stack/builder",

@@ -113,9 +113,9 @@
         "jonthornton/jquery-timepicker": "^1.8.4",
         "nesbot/carbon": "1.9.*",
         "npm-asset/dropzone": "5.5.0",
+        "npm-asset/select2": "4.0.7",
         "npm-asset/sortablejs": "1.8.4",
         "oomphinc/composer-installers-extender": "^2.0",
-        "select2/select2": "^4.0.7",
         "trentrichardson/jquery-timepicker-addon": "^1.6",
         "w8tcha/ckeditor-wordcount-plugin": "1.17.6"
     },
@@ -237,21 +237,6 @@
                 },
                 "dist": {
                     "url": "https://github.com/trentrichardson/jQuery-Timepicker-Addon/archive/master.zip",
-                    "type": "zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "select2/select2",
-                "version": "4.0.7",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "select2"
-                },
-                "dist": {
-                    "url": "https://github.com/select2/select2/archive/4.0.7.zip",
                     "type": "zip"
                 }
             }
