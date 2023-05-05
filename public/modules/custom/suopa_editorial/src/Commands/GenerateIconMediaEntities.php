@@ -75,7 +75,7 @@ class GenerateIconMediaEntities extends DrushCommands {
     }
 
     $path = DRUPAL_ROOT . $path;
-    $files = file_scan_directory($path, '/.*.svg$/i');
+    $files = \Drupal::service('file_system')->scanDirectory($path, '/.*.svg$/i');
     if (empty($files)) {
       $this->output()->writeln('Couldn\'t find any SVG files from ' . $path);
       return FALSE;

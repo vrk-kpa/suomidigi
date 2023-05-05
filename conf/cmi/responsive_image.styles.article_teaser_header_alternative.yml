@@ -10,14 +10,14 @@ id: article_teaser_header_alternative
 label: 'Article Teaser Header Alternative'
 image_style_mappings:
   -
+    image_mapping_type: image_style
+    image_mapping: article_teaser_header_image_alternative_large
     breakpoint_id: suomidigi.for_desktop_up
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: article_teaser_header_image_alternative_large
-  -
     breakpoint_id: suomidigi.for_tablet_landscape_up
     multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: article_teaser_header_image_alternative_large
 breakpoint_group: suomidigi
 fallback_image_style: article_teaser_header_image_alternative_large

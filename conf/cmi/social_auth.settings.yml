@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: 0E8z47ONguVcapiw1PGWDRs6g0NRDCzrym4mP_jcELU
 auth:
   social_auth_google:
     route: social_auth_google.redirect_to_google
@@ -6,6 +8,7 @@ auth:
     route: social_auth_linkedin.redirect_to_linkedin
     img_path: modules/contrib/social_auth_linkedin/img/linkedin_logo.svg
 post_login: /user
+user_allowed: register
 redirect_user_form: false
 disable_admin_login: true
 disabled_roles:
@@ -13,6 +16,3 @@ disabled_roles:
   editor_in_chief: editor_in_chief
   administrator: administrator
   webform_administrator: webform_administrator
-user_allowed: register
-_core:
-  default_config_hash: 0E8z47ONguVcapiw1PGWDRs6g0NRDCzrym4mP_jcELU

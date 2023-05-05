@@ -53,7 +53,7 @@ class SocialMediaRoutes {
       $path = $base_path . $plugin_id;
       $entity_type_id = 'social_media_post';
       $entity_id = 'social_media_feed_' . $plugin_id;
-      $social_media_type_feed_types = \Drupal::service('entity.manager')->getStorage("social_media_feed_{$plugin_id}")->loadMultiple();
+      $social_media_type_feed_types = \Drupal::service('entity_type.manager')->getStorage("social_media_feed_{$plugin_id}")->loadMultiple();
 
       // Entity list route.
       $routes['entity.social_media_post.settings.' . $plugin_id] = new Route(

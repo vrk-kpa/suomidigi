@@ -4,28 +4,37 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.theme_teaser_liftup
+    - field.field.media.image.field_creator
     - field.field.media.image.field_media_image
     - image.style.theme_teaser_liftup_image_small
     - media.type.image
   module:
-    - image
+    - svg_image
 id: media.image.theme_teaser_liftup
 targetEntityType: media
 bundle: image
 mode: theme_teaser_liftup
 content:
   field_media_image:
-    weight: 0
+    type: image
     label: hidden
     settings:
-      image_style: theme_teaser_liftup_image_small
       image_link: ''
+      image_style: theme_teaser_liftup_image_small
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    type: image
+    weight: 0
     region: content
 hidden:
   created: true
+  field_creator: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

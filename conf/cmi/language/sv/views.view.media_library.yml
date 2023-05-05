@@ -2,21 +2,28 @@ display:
   default:
     display_title: Huvud
     display_options:
-      exposed_form:
-        options:
-          reset_button_label: Återställ
-          exposed_sorts_label: 'Sortera efter'
-          sort_asc_label: Stigande
-          sort_desc_label: Fallande
+      fields:
+        media_bulk_form:
+          action_title: Åtgärd
       pager:
         options:
           expose:
             items_per_page_label: 'Inlägg per sida'
             items_per_page_options_all_label: '- Alla -'
             offset_label: Kompensera
-      fields:
-        media_bulk_form:
-          action_title: Åtgärd
+      exposed_form:
+        options:
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      empty:
+        area_text_custom:
+          content: 'Ei mediaa saatavilla.'
+      sorts:
+        created:
+          expose:
+            label: 'Nyaste först'
       filters:
         status:
           expose:
@@ -31,13 +38,14 @@ display:
         name:
           expose:
             label: Namn
+        bundle:
+          expose:
+            label: 'Median tyyppi'
+          group_info:
+            label: 'Median tyyppi'
         langcode:
           expose:
             label: Språk
-      sorts:
-        created:
-          expose:
-            label: 'Nyaste först'
   page:
     display_title: Sida
     display_options:
@@ -49,17 +57,18 @@ display:
         edit_media:
           text: Redigera
         delete_media:
-          text: Radera
+          text: Delete
   widget:
+    display_title: Widgetti
     display_options:
-      filters:
-        name:
-          expose:
-            label: Namn
       arguments:
         bundle:
           exception:
             title: Alla
+      filters:
+        name:
+          expose:
+            label: Namn
       header:
         display_link_grid:
           label: Rutnät
@@ -76,14 +85,14 @@ display:
           label: Författare
         changed:
           label: Uppdaterad
-      filters:
-        name:
-          expose:
-            label: Namn
       arguments:
         bundle:
           exception:
             title: Alla
+      filters:
+        name:
+          expose:
+            label: Namn
       header:
         display_link_grid:
           label: Rutnät

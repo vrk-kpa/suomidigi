@@ -16,7 +16,7 @@ bundle: link
 mode: default
 content:
   field_p_link_required:
-    weight: 0
+    type: link_separate
     label: hidden
     settings:
       trim_length: 160
@@ -25,24 +25,24 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link_separate
+    weight: 0
     region: content
   field_p_link_target:
-    weight: 1
+    type: boolean
     label: hidden
     settings:
       format: boolean
-      format_custom_true: ''
       format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 1
     region: content
   field_p_location:
-    weight: 2
+    type: list_key
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_key
+    weight: 2
     region: content
 hidden:
   search_api_excerpt: true

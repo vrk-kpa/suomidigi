@@ -11,21 +11,21 @@ type: 'canonical_entities:node'
 pattern: 'bloggar/[node:title]'
 selection_criteria:
   5f1c9fc5-2133-492f-bf12-7fe5edbd7d91:
-    id: node_type
-    bundles:
-      blog_post: blog_post
+    id: 'entity_bundle:node'
     negate: false
+    uuid: 5f1c9fc5-2133-492f-bf12-7fe5edbd7d91
     context_mapping:
       node: node
-    uuid: 5f1c9fc5-2133-492f-bf12-7fe5edbd7d91
+    bundles:
+      blog_post: blog_post
   5ead9d1f-9f5e-43c7-b3b5-f726456769a7:
     id: language
-    langcodes:
-      sv: sv
     negate: false
+    uuid: 5ead9d1f-9f5e-43c7-b3b5-f726456769a7
     context_mapping:
       language: 'node:langcode:language'
-    uuid: 5ead9d1f-9f5e-43c7-b3b5-f726456769a7
+    langcodes:
+      sv: sv
 selection_logic: and
 weight: -2
 relationships:

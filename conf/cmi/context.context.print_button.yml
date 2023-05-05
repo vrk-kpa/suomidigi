@@ -4,8 +4,9 @@ status: true
 dependencies:
   module:
     - ctools
-name: print_button
+    - suopa_content
 label: 'Print button'
+name: print_button
 group: null
 description: ''
 requireAllConditions: false
@@ -13,31 +14,32 @@ disabled: false
 conditions:
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    bundles:
-      legislation_card: legislation_card
-      page: page
-    negate: 0
+    negate: false
     uuid: b77ea484-2c49-497d-ba2c-5f92844ea3f3
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      legislation_card: legislation_card
+      page: page
 reactions:
   blocks:
+    id: blocks
+    uuid: 5bdcb41f-2dd1-4b07-92e2-b6ac5c2d874b
     blocks:
       ee617542-7c2b-444b-93aa-c117508dc92b:
+        uuid: ee617542-7c2b-444b-93aa-c117508dc92b
         id: content_print_button_block
         label: 'Content print button block'
         provider: suopa_content
-        label_display: 0
+        label_display: '0'
         region: after_content
         weight: '0'
-        context_mapping: {  }
+        custom_id: content_print_button_block
         theme: suomidigi
         css_class: ''
         unique: 0
         context_id: print_button
-        uuid: ee617542-7c2b-444b-93aa-c117508dc92b
-    id: blocks
-    saved: false
-    uuid: 5bdcb41f-2dd1-4b07-92e2-b6ac5c2d874b
+        context_mapping: {  }
     include_default_blocks: 0
+    saved: false
 weight: 0

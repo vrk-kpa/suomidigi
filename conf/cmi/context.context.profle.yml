@@ -2,10 +2,15 @@ uuid: 17b0ac8d-b544-45fe-8dd1-dc76bcb484ea
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.profile_my_bookmarks
+    - views.view.profile_own_content
+    - views.view.profile_own_groups
   module:
     - route_condition
-name: profle
+    - views
 label: Profle
+name: profle
 group: null
 description: ''
 requireAllConditions: false
@@ -13,61 +18,64 @@ disabled: false
 conditions:
   route:
     id: route
-    routes: entity.user.canonical
-    negate: 0
+    negate: false
     uuid: 8949f192-ae14-408b-bb9c-e2fe77f0dd27
     context_mapping: {  }
+    routes: entity.user.canonical
 reactions:
   blocks:
+    id: blocks
+    uuid: 9cfce642-62c3-4417-961c-80652a3f61e6
     blocks:
       fa847fc7-51bf-48a0-a1bf-6c66941a415b:
+        uuid: fa847fc7-51bf-48a0-a1bf-6c66941a415b
         id: 'views_block:profile_my_bookmarks-block_1'
         label: ''
         provider: views
         label_display: visible
-        views_label: ''
-        items_per_page: none
         region: after_content
         weight: '1'
-        context_mapping:
-          uid: '@user.current_user_context:current_user'
+        custom_id: views_block_profile_my_bookmarks_block_1
         theme: suomidigi
         css_class: ''
         unique: 1
         context_id: profle
-        uuid: fa847fc7-51bf-48a0-a1bf-6c66941a415b
+        context_mapping:
+          uid: '@user.current_user_context:current_user'
+        views_label: ''
+        items_per_page: none
       89ccae64-71ea-409c-9d8b-e68f477f771d:
+        uuid: 89ccae64-71ea-409c-9d8b-e68f477f771d
         id: 'views_block:profile_own_content-block_1'
         label: ''
         provider: views
         label_display: visible
-        views_label: ''
-        items_per_page: none
         region: after_content
         weight: '-1'
-        context_mapping: {  }
+        custom_id: views_block_profile_own_content_block_1
         theme: suomidigi
         css_class: ''
         unique: 1
         context_id: profle
-        uuid: 89ccae64-71ea-409c-9d8b-e68f477f771d
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
       977384bf-0ee7-4d21-b866-c6aa8fbf9194:
+        uuid: 977384bf-0ee7-4d21-b866-c6aa8fbf9194
         id: 'views_block:profile_own_groups-block_1'
         label: ''
         provider: views
         label_display: visible
-        views_label: ''
-        items_per_page: none
         region: after_content
         weight: '0'
-        context_mapping: {  }
+        custom_id: views_block_profile_own_groups_block_1
         theme: suomidigi
         css_class: ''
         unique: 1
         context_id: profle
-        uuid: 977384bf-0ee7-4d21-b866-c6aa8fbf9194
-    id: blocks
-    saved: false
-    uuid: 9cfce642-62c3-4417-961c-80652a3f61e6
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
     include_default_blocks: 0
+    saved: false
 weight: 0

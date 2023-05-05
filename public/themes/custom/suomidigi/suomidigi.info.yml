@@ -1,6 +1,7 @@
 name: Suomidigi theme
 description: A Drupal 8 Suomidigi theme.
 type: theme
+core_version_requirement: ^8 || ^9
 core: 8.x
 screenshot: screenshot.jpg
 base theme: classy

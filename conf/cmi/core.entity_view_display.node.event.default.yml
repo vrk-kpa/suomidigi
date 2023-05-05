@@ -35,43 +35,43 @@ bundle: event
 mode: default
 content:
   content_moderation_control:
-    weight: -20
     settings: {  }
     third_party_settings: {  }
+    weight: -20
     region: content
   field_event_date_and_time:
-    weight: 2
+    type: daterange_compact
     label: hidden
     settings:
       format_type: medium
     third_party_settings: {  }
-    type: daterange_compact
+    weight: 2
     region: content
   field_event_description:
-    weight: 3
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 3
     region: content
   field_event_free_text:
-    weight: 14
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 14
     region: content
   field_event_image:
-    weight: 0
+    type: responsive_image
     label: hidden
     settings:
       responsive_image_style: event_full_header
       image_link: ''
     third_party_settings: {  }
-    type: responsive_image
+    weight: 0
     region: content
   field_event_link:
-    weight: 4
+    type: link
     label: hidden
     settings:
       trim_length: 160
@@ -80,25 +80,25 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 4
     region: content
   field_event_org_contact_info:
-    weight: 10
+    type: contact_information_field_formatter
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: contact_information_field_formatter
+    weight: 10
     region: content
   field_event_organiser:
-    weight: 9
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 9
     region: content
   field_event_registration:
-    weight: 5
+    type: link
     label: hidden
     settings:
       trim_length: 160
@@ -107,17 +107,17 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 5
     region: content
   field_organiser_description:
-    weight: 12
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 12
     region: content
   field_organiser_link:
-    weight: 13
+    type: link
     label: hidden
     settings:
       trim_length: 160
@@ -126,49 +126,49 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 13
     region: content
   field_theme:
-    weight: 15
+    type: entity_reference_label
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 15
     region: content
   field_venue_address:
-    weight: 7
+    type: address_plain
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_plain
+    weight: 7
     region: content
   field_venue_description:
-    weight: 8
+    type: text_trimmed
     label: above
     settings:
       trim_length: 600
     third_party_settings: {  }
-    type: text_trimmed
+    weight: 8
     region: content
   field_venue_name:
-    weight: 6
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 6
     region: content
   flag_content_bookmark:
+    settings: {  }
+    third_party_settings: {  }
     weight: 11
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
-  links:
     weight: 1
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_approved: true
   field_displayed_author: true

@@ -1,5 +1,6 @@
 name: 'SuoPa - Dream Broker'
 type: module
 description: 'Oembed functionality for Dream Broker videos'
+core_version_requirement: ^8 || ^9
 core: 8.x
 package: 'SuoPa'

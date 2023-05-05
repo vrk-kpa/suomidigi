@@ -7,7 +7,7 @@
 }
 
 .basic-page__header {
-  padding-top: $gutter / 1.5;
+  padding-top: calc($gutter / 1.5);
 }
 
 .basic-page__title {

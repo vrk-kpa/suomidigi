@@ -1,11 +1,12 @@
+uuid: 6f7ef2ef-e0e0-4e85-a302-bf7b9c8d015f
 langcode: en
 status: open
 dependencies:
   module:
     - suopa_events
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 1
 template: false
 archive: false
@@ -13,7 +14,94 @@ id: add_new_event
 title: 'Add new event'
 description: 'A form for adding a new event.'
 category: 'Anonymous user forms'
-elements: "event_container:\n  '#type': container\n  event_title:\n    '#type': webform_markup\n    '#markup': '<h2>Add new event</h2>'\n  name:\n    '#type': textfield\n    '#title': 'Event name'\n    '#required': true\n  date_container:\n    '#type': container\n    start_date_and_time:\n      '#type': datetime\n      '#title': 'Start date and time'\n      '#required': true\n      '#date_date_element': datepicker\n      '#date_date_datepicker_button': true\n      '#date_date_format': d.m.Y\n      '#date_time_element': timepicker\n      '#date_time_format': 'H:i'\n      '#date_time_step': '300'\n    end_date_and_time:\n      '#type': datetime\n      '#title': 'End date and time'\n      '#required': true\n      '#date_date_element': datepicker\n      '#date_date_datepicker_button': true\n      '#date_date_format': d.m.Y\n      '#date_time_element': timepicker\n      '#date_time_format': 'H:i'\n      '#date_time_step': '300'\n  description:\n    '#type': textarea\n    '#title': 'Event description'\n    '#maxlength': '380'\n    '#rows': '6'\n    '#placeholder': 'Max. 380 characters'\n    '#required': true\n  venue_name:\n    '#type': textfield\n    '#title': 'Venue name'\n    '#required': true\n  address:\n    '#type': textfield\n    '#title': 'Venue address'\n    '#required': true\n  city:\n    '#type': textfield\n    '#title': City\n    '#required': true\n  link_to_official_event_page:\n    '#type': url\n    '#title': 'Link to official event page'\n    '#help_title': 'URL Address'\n    '#help': 'Please enter the url in format&nbsp;<em>https://example.com</em>'\n    '#help_display': title_after\n    '#required': true\n  link_to_event_registration_page:\n    '#type': url\n    '#title': 'Link to event registration page (if different than above)'\n    '#help_title': 'URL Address'\n    '#help': 'Please enter the url in format&nbsp;<em>https://example.com</em>'\n    '#help_display': title_after\n  organiser:\n    '#type': textfield\n    '#title': Organiser\n  organiser_description:\n    '#type': textarea\n    '#title': 'Organiser description'\n    '#maxlength': '430'\n    '#rows': '6'\n    '#placeholder': 'Max. 430 characters'\n  link_to_organiser_s_page:\n    '#type': url\n    '#title': 'Link to organiser''s page'\n    '#help_title': 'URL Address'\n    '#help': 'Please enter the url in format&nbsp;<em>https://example.com</em>'\n    '#help_display': title_after\ncaptcha_container:\n  '#type': container\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send event'"
+elements: |-
+  event_container:
+    '#type': container
+    event_title:
+      '#type': webform_markup
+      '#markup': '<h2>Add new event</h2>'
+    name:
+      '#type': textfield
+      '#title': 'Event name'
+      '#required': true
+    date_container:
+      '#type': container
+      start_date_and_time:
+        '#type': datetime
+        '#title': 'Start date and time'
+        '#required': true
+        '#date_date_element': datepicker
+        '#date_date_datepicker_button': true
+        '#date_date_format': d.m.Y
+        '#date_time_element': timepicker
+        '#date_time_format': 'H:i'
+        '#date_time_step': '300'
+      end_date_and_time:
+        '#type': datetime
+        '#title': 'End date and time'
+        '#required': true
+        '#date_date_element': datepicker
+        '#date_date_datepicker_button': true
+        '#date_date_format': d.m.Y
+        '#date_time_element': timepicker
+        '#date_time_format': 'H:i'
+        '#date_time_step': '300'
+    description:
+      '#type': textarea
+      '#title': 'Event description'
+      '#maxlength': '380'
+      '#rows': '6'
+      '#placeholder': 'Max. 380 characters'
+      '#required': true
+    venue_name:
+      '#type': textfield
+      '#title': 'Venue name'
+      '#required': true
+    address:
+      '#type': textfield
+      '#title': 'Venue address'
+      '#required': true
+    city:
+      '#type': textfield
+      '#title': City
+      '#required': true
+    link_to_official_event_page:
+      '#type': url
+      '#title': 'Link to official event page'
+      '#help_title': 'URL Address'
+      '#help': 'Please enter the url in format&nbsp;<em>https://example.com</em>'
+      '#help_display': title_after
+      '#required': true
+    link_to_event_registration_page:
+      '#type': url
+      '#title': 'Link to event registration page (if different than above)'
+      '#help_title': 'URL Address'
+      '#help': 'Please enter the url in format&nbsp;<em>https://example.com</em>'
+      '#help_display': title_after
+    organiser:
+      '#type': textfield
+      '#title': Organiser
+    organiser_description:
+      '#type': textarea
+      '#title': 'Organiser description'
+      '#maxlength': '430'
+      '#rows': '6'
+      '#placeholder': 'Max. 430 characters'
+    link_to_organiser_s_page:
+      '#type': url
+      '#title': 'Link to organiser''s page'
+      '#help_title': 'URL Address'
+      '#help': 'Please enter the url in format&nbsp;<em>https://example.com</em>'
+      '#help_display': title_after
+  captcha_container:
+    '#type': container
+    captcha:
+      '#type': captcha
+      '#captcha_type': recaptcha/reCAPTCHA
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': 'Send event'
 css: ''
 javascript: ''
 settings:
@@ -28,40 +116,48 @@ settings:
   page_theme_name: ''
   form_title: both
   form_submit_once: false
-  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
+  form_exception_message: ''
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_disable_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
-  form_reset: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
-  form_unsaved: false
-  form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_reset: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
   share: false
   share_node: false
   share_theme_name: ''
   share_title: true
   share_page_body_attributes: {  }
   submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
   submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   submission_views: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
@@ -70,11 +166,6 @@ settings:
   submission_access_denied_title: ''
   submission_access_denied_message: ''
   submission_access_denied_attributes: {  }
-  submission_exception_message: ''
-  submission_locked_message: ''
-  submission_excluded_elements: {  }
-  submission_exclude_empty: false
-  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -85,13 +176,13 @@ settings:
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
-  wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
@@ -114,9 +205,9 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: inline
+  confirmation_url: ''
   confirmation_title: Kiitos!
   confirmation_message: "<h2>Kiitos!</h2>\r\nTarkistamme l&auml;hett&auml;m&auml;si tapahtuman tiedot ennen sen julkaisemista.<br />\r\n<br />\r\nOta meihin yhteytt&auml; s&auml;hk&ouml;postitse suomidigi@vrk.fi jos haluat muutoksia l&auml;hett&auml;m&auml;si tapahtuman tietoihin.<br />\r\n<br />\r\n&nbsp;<br />\r\n<br />\r\n&nbsp;"
-  confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: false
   confirmation_back_label: 'Takaisin lomakkeelle'
@@ -143,6 +234,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  token_delete: false
   serial_disabled: false
 access:
   create:
@@ -194,8 +286,9 @@ access:
 handlers:
   email:
     id: email
-    label: Email
     handler_id: email
+    label: Email
+    notes: ''
     status: true
     conditions: {  }
     weight: -49
@@ -204,13 +297,17 @@ handlers:
         - completed
       to_mail: suomidigi@vrk.fi
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: _default
       from_options: {  }
       from_name: _default
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: 'Suomidigi - Uusi tapahtuma tarkastettavaksi: [webform_submission:values:name]'
       body: "<p>L&auml;hetetty: [webform_submission:created]</p>\r\n\r\n<p>L&auml;hett&auml;j&auml;: [webform_submission:user]</p>\r\n\r\n<p>Tallennetut arvot:&nbsp;[webform_submission:values]</p>\r\nVoit hyv&auml;ksy&auml; tapahtuman&nbsp;<a href=\"[site:origin-url]/admin/content/approval-queue\">hyv&auml;ksymisjonon</a> kautta."
       excluded_elements: {  }
@@ -221,20 +318,16 @@ handlers:
       html: true
       attachments: false
       twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
   create_an_event_entity_on_submit:
     id: event_from_webform
-    label: 'Create an event entity on submit'
     handler_id: create_an_event_entity_on_submit
+    label: 'Create an event entity on submit'
+    notes: ''
     status: true
     conditions: {  }
     weight: -50
     settings: {  }
 variants: {  }
-uuid: 6f7ef2ef-e0e0-4e85-a302-bf7b9c8d015f

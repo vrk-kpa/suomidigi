@@ -132,7 +132,7 @@
         border-bottom: 3px solid transparent;
         color: $blue-light;
         letter-spacing: 0;
-        padding: 0 $gutter $gutter / 3;
+        padding: 0 $gutter calc($gutter / 3);
         text-decoration: none;
 
         &--abbreviation {

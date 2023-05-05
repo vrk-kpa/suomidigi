@@ -13,11 +13,11 @@ bundle: embed
 mode: default
 content:
   field_media_mediaembed:
-    weight: 0
+    type: media_embed
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: media_embed
+    weight: 0
     region: content
 hidden:
   created: true

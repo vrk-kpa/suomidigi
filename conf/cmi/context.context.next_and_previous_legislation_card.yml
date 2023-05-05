@@ -4,8 +4,9 @@ status: true
 dependencies:
   module:
     - node
-name: next_and_previous_legislation_card
+    - suopa_legislations
 label: 'Summary, Previous/Next - Legislation card'
+name: next_and_previous_legislation_card
 group: null
 description: ''
 requireAllConditions: false
@@ -13,47 +14,49 @@ disabled: false
 conditions:
   node_type:
     id: node_type
-    bundles:
-      legislation_card: legislation_card
-    negate: 0
+    negate: false
     uuid: 06b2ce22-be4a-4d36-8341-64ffb1581a6d
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      legislation_card: legislation_card
 reactions:
   blocks:
+    id: blocks
+    uuid: b52d3d99-9fe6-4e5d-b56a-0b39198f24b1
     blocks:
       6b9f961e-64c7-4675-b4e4-6a227e18cdd0:
+        uuid: 6b9f961e-64c7-4675-b4e4-6a227e18cdd0
         id: next_previous_block
         label: 'Next Previous link'
         provider: suopa_legislations
-        label_display: 0
+        label_display: '0'
         region: content
         weight: '0'
+        custom_id: next_previous_block
+        theme: suomidigi
+        css_class: ''
+        unique: 0
+        context_id: next_and_previous_legislation_card
+        context_mapping: {  }
         previous_text: Previous
         next_text: Next
         previouslink_class: ''
         nextlink_class: ''
-        context_mapping: {  }
-        theme: suomidigi
-        css_class: ''
-        unique: 0
-        context_id: next_and_previous_legislation_card
-        uuid: 6b9f961e-64c7-4675-b4e4-6a227e18cdd0
       641954fc-0533-4c35-a5f6-d8888afcb758:
+        uuid: 641954fc-0533-4c35-a5f6-d8888afcb758
         id: legislation_summary_block
         label: 'Legislation Summary'
         provider: suopa_legislations
-        label_display: 0
+        label_display: '0'
         region: content
         weight: '1'
-        context_mapping: {  }
+        custom_id: legislation_summary_block
         theme: suomidigi
         css_class: ''
         unique: 0
         context_id: next_and_previous_legislation_card
-        uuid: 641954fc-0533-4c35-a5f6-d8888afcb758
-    id: blocks
-    saved: false
-    uuid: b52d3d99-9fe6-4e5d-b56a-0b39198f24b1
+        context_mapping: {  }
     include_default_blocks: 1
+    saved: false
 weight: 0

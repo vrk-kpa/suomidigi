@@ -25,41 +25,41 @@ mode: teaser
 content:
   field_attachments:
     type: entity_reference_revisions_entity_view
-    weight: 3
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    weight: 3
+    region: content
   field_ingress:
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 1
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_legislation_content:
     type: text_default
-    weight: 2
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_legislation_materials:
     type: entity_reference_revisions_entity_view
-    weight: 4
-    region: content
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  links:
-    weight: 0
+    weight: 4
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_displayed_update_time: true
   field_lc_attachments: true

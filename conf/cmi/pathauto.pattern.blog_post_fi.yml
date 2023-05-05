@@ -11,21 +11,21 @@ type: 'canonical_entities:node'
 pattern: 'blogit/[node:title]'
 selection_criteria:
   02ff1f89-fa55-4407-8b56-e5f9c832e8df:
-    id: node_type
-    bundles:
-      blog_post: blog_post
+    id: 'entity_bundle:node'
     negate: false
+    uuid: 02ff1f89-fa55-4407-8b56-e5f9c832e8df
     context_mapping:
       node: node
-    uuid: 02ff1f89-fa55-4407-8b56-e5f9c832e8df
+    bundles:
+      blog_post: blog_post
   e315fea2-cc96-4833-9da5-18afd4c0ab43:
     id: language
-    langcodes:
-      fi: fi
     negate: false
+    uuid: e315fea2-cc96-4833-9da5-18afd4c0ab43
     context_mapping:
       language: 'node:langcode:language'
-    uuid: e315fea2-cc96-4833-9da5-18afd4c0ab43
+    langcodes:
+      fi: fi
 selection_logic: and
 weight: -3
 relationships:

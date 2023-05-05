@@ -15,23 +15,23 @@ bundle: image
 mode: default
 content:
   field_creator:
+    type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_media_image:
+    type: image_focal_point
     weight: 2
+    region: content
     settings:
+      progress_indicator: throbber
       preview_image_style: medium
       preview_link: true
       offsets: '50,50'
-      progress_indicator: throbber
     third_party_settings: {  }
-    type: image_focal_point
-    region: content
   langcode:
     type: language_select
     weight: 3

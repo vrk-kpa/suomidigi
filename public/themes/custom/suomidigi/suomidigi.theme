@@ -652,7 +652,7 @@ function suomidigi_preprocess_taxonomy_term(&$variables) {
 
   if ($element['#taxonomy_term']->bundle() == 'theme') {
     $current_path = Drupal::service('path.current')->getPath();
-    $result = Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $result = Drupal::service('path_alias.manager')->getAliasByPath($current_path);
 
     if ($variables['url'] == $result) {
       $variables['term_url_is_active'] = TRUE;

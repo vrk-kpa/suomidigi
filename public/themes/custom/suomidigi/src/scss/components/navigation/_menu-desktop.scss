@@ -39,7 +39,7 @@ nav.menu--desktop {
       color: $white;
       display: inline-block;
       hyphens: auto;
-      padding: $gutter / 1.5  $gutter / 3;
+      padding: calc($gutter / 1.5)  calc($gutter / 3);
       text-decoration: none;
 
       &:hover,
@@ -128,19 +128,19 @@ nav.menu--desktop {
       text-decoration: none;
 
       &:first-of-type {
-        margin: $gutter / 1.5 0 0;
+        margin: calc($gutter / 1.5) 0 0;
       }
 
       &:last-of-type {
-        margin: 0 0 $gutter / 1.5;
+        margin: 0 0 calc($gutter / 1.5);
       }
 
       a {
         border-bottom: 0 none;
-        border-left: $gutter / 3 solid transparent;
+        border-left: calc($gutter / 3) solid transparent;
         border-top: 0 none;
         color: $black;
-        padding: $gutter / 1.5 $gutter;
+        padding: calc($gutter / 1.5) $gutter;
         text-align: left;
         text-decoration: none;
         width: 100%;
@@ -149,7 +149,7 @@ nav.menu--desktop {
       &--active-trail a,
       a:focus,
       a:hover {
-        border-left: $gutter / 3 solid $cyan;
+        border-left: calc($gutter / 3) solid $cyan;
         color: $blue-light;
       }
     }

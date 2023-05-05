@@ -1,9 +1,71 @@
 uuid: db86d17d-9168-4721-96cb-68965a9035ae
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - group.content_type.group-group_node-page
+    - group.type.group
+    - media.type.attachment
+    - media.type.attachment_external
+    - media.type.embed
+    - media.type.icon
+    - media.type.image
+    - media.type.video
+    - node.type.article
+    - node.type.blog_post
+    - node.type.community
+    - node.type.core_content
+    - node.type.event
+    - node.type.landing_page
+    - node.type.legislation_card
+    - node.type.legislation_collection_page
+    - node.type.news_item
+    - node.type.page
+    - node.type.webform
+    - taxonomy.vocabulary.article_type
+    - taxonomy.vocabulary.author
+    - taxonomy.vocabulary.background_color
+    - taxonomy.vocabulary.blog
+    - taxonomy.vocabulary.community_domain
+    - taxonomy.vocabulary.core_content_type
+    - taxonomy.vocabulary.legislation
+    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.theme
+    - workflows.workflow.copn
+  module:
+    - block
+    - block_content
+    - comment
+    - content_moderation
+    - content_translation
+    - contextual
+    - dropzonejs
+    - entity_browser
+    - file
+    - filter
+    - locale
+    - media
+    - menu_link_attributes
+    - menu_link_content
+    - node
+    - nodeorder
+    - paragraphs
+    - path
+    - preview_link
+    - publication_date
+    - quickedit
+    - rate
+    - redirect
+    - scheduler
+    - suopa_events
+    - system
+    - taxonomy
+    - toolbar
 id: editor_in_chief
-label: 'Editor in chief'
+label: Päätoimittaja
 weight: -7
 is_admin: null
 permissions:
@@ -26,10 +88,8 @@ permissions:
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
-  - 'add community entities'
   - 'administer blocks'
   - 'administer comments'
-  - 'administer community entities'
   - 'administer menu'
   - 'administer nodes'
   - 'administer redirect settings'
@@ -58,7 +118,6 @@ permissions:
   - 'create terms in author'
   - 'create terms in background_color'
   - 'create terms in blog'
-  - 'create terms in blog_tags'
   - 'create terms in community_domain'
   - 'create terms in core_content_type'
   - 'create terms in legislation'
@@ -67,7 +126,6 @@ permissions:
   - 'create url aliases'
   - 'create video media'
   - 'create webform content'
-  - 'delete all community revisions'
   - 'delete all revisions'
   - 'delete any article content'
   - 'delete any attachment media'
@@ -88,7 +146,6 @@ permissions:
   - 'delete any video media'
   - 'delete article revisions'
   - 'delete blog_post revisions'
-  - 'delete community entities'
   - 'delete community revisions'
   - 'delete content translations'
   - 'delete core_content revisions'
@@ -114,7 +171,6 @@ permissions:
   - 'delete terms in author'
   - 'delete terms in background_color'
   - 'delete terms in blog'
-  - 'delete terms in blog_tags'
   - 'delete terms in community_domain'
   - 'delete terms in core_content_type'
   - 'delete terms in legislation'
@@ -139,7 +195,6 @@ permissions:
   - 'edit any page content'
   - 'edit any video media'
   - 'edit any webform content'
-  - 'edit community entities'
   - 'edit own article content'
   - 'edit own attachment media'
   - 'edit own attachment_external media'
@@ -161,7 +216,6 @@ permissions:
   - 'edit terms in author'
   - 'edit terms in background_color'
   - 'edit terms in blog'
-  - 'edit terms in blog_tags'
   - 'edit terms in community_domain'
   - 'edit terms in core_content_type'
   - 'edit terms in legislation'
@@ -169,7 +223,6 @@ permissions:
   - 'edit terms in theme'
   - 'generate preview links'
   - 'order nodes within categories'
-  - 'revert all community revisions'
   - 'revert all revisions'
   - 'revert article revisions'
   - 'revert blog_post revisions'
@@ -202,7 +255,6 @@ permissions:
   - 'translate block_content'
   - 'translate blog taxonomy_term'
   - 'translate blog_post node'
-  - 'translate blog_tags taxonomy_term'
   - 'translate community node'
   - 'translate community_domain taxonomy_term'
   - 'translate core_content node'
@@ -210,9 +262,6 @@ permissions:
   - 'translate embed media'
   - 'translate event node'
   - 'translate group group'
-  - 'translate group-group_node-article group_content'
-  - 'translate group-group_node-core_content group_content'
-  - 'translate group-group_node-landing_page group_content'
   - 'translate group-group_node-page group_content'
   - 'translate icon media'
   - 'translate image media'
@@ -234,13 +283,10 @@ permissions:
   - 'update media'
   - 'use copn transition publish'
   - 'use copn transition ready_for_review'
-  - 'use copn transition restore'
-  - 'use copn transition restore_to_draft'
   - 'use menu link attributes'
   - 'use text format basic_html'
   - 'use text format full_html'
   - 'use text format restricted_html'
-  - 'view all community revisions'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view any unpublished content'
@@ -257,10 +303,8 @@ permissions:
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view page revisions'
-  - 'view published community entities'
   - 'view rate results page'
   - 'view scheduled content'
   - 'view the administration theme'
-  - 'view unpublished community entities'
   - 'view unpublished paragraphs'
   - 'view webform revisions'

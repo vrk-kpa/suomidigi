@@ -11,7 +11,7 @@
   @include breakpoint($for-mobile-landscape-up) {
     bottom: 10px;
     margin: $gutter * 1.86 $gutter 0 $gutter;
-    padding: $gutter / 3;
+    padding: calc($gutter / 3);
     position: absolute;
     right: 0;
     z-index: 1;

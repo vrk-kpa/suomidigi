@@ -5,13 +5,6 @@ display:
         options:
           views_infinite_scroll:
             button_text: 'Näytä lisää'
-      exposed_form:
-        options:
-          bef:
-            field_theme_target_id:
-              more_options:
-                rewrite:
-                  filter_rewrite_values: '- Kaikki -|Kaikki'
   articles_grid:
     display_title: 'Artikkelit | Ruudukko'
     display_options:

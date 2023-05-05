@@ -13,20 +13,20 @@ pattern: 'groups/[group:title]'
 selection_criteria:
   83ff524a-f78c-499a-9987-667d1fe6e27d:
     id: 'entity_bundle:group'
+    negate: false
+    uuid: 83ff524a-f78c-499a-9987-667d1fe6e27d
+    context_mapping:
+      group: group
     bundles:
       group: group
-    negate: false
-    context_mapping:
-      group: group
-    uuid: 83ff524a-f78c-499a-9987-667d1fe6e27d
   87c5fc14-858e-49e4-93cf-b99517795d0b:
     id: language
-    langcodes:
-      en: en
     negate: false
+    uuid: 87c5fc14-858e-49e4-93cf-b99517795d0b
     context_mapping:
       language: 'group:langcode:language'
-    uuid: 87c5fc14-858e-49e4-93cf-b99517795d0b
+    langcodes:
+      en: en
 selection_logic: and
 weight: -9
 relationships:

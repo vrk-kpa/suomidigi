@@ -29,40 +29,40 @@ mode: teaser
 content:
   field_article_type:
     type: entity_reference_label
-    weight: 0
-    region: content
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_header_image:
     type: media_thumbnail
-    weight: 1
-    region: content
     label: hidden
     settings:
-      image_style: 2_1_half_content
       image_link: ''
+      image_style: 2_1_half_content
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_ingress:
     type: smart_trim
-    weight: 2
-    region: content
     label: hidden
     settings:
       trim_length: 150
       trim_type: chars
       trim_suffix: ...
+      wrap_output: false
       wrap_class: trimmed
-      more_text: More
+      more_link: false
       more_class: more-link
+      more_text: More
+      summary_handler: full
       trim_options:
         text: true
         trim_zero: true
-      wrap_output: false
-      more_link: false
-      summary_handler: full
     third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
   field_comments: true
   field_displayed_author: true

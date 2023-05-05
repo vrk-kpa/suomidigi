@@ -21,21 +21,36 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       list_of_links: list_of_links
+    negate: 0
     target_bundles_drag_drop:
       attachment:
         weight: 16
         enabled: false
-      legislation_attachment:
-        weight: 17
+      banner_cta:
+        weight: 29
+        enabled: false
+      contact_information:
+        weight: 30
+        enabled: false
+      contact_information_item:
+        weight: 31
         enabled: false
       container:
         weight: 17
         enabled: false
       container_title:
         weight: 18
+        enabled: false
+      feed:
+        weight: 34
+        enabled: false
+      group_view:
+        weight: 35
+        enabled: false
+      hero:
+        weight: 36
         enabled: false
       highlight_bullet_point:
         weight: 19
@@ -48,6 +63,18 @@ settings:
         enabled: false
       highlight_text_box:
         weight: 22
+        enabled: false
+      legislation_attachment:
+        weight: 17
+        enabled: false
+      legislation_cards:
+        weight: 27
+        enabled: false
+      legislation_link:
+        weight: 28
+        enabled: false
+      liftup_50_50:
+        weight: 44
         enabled: false
       liftup_box:
         weight: 23
@@ -64,45 +91,18 @@ settings:
       liftup_prominent:
         weight: 27
         enabled: false
-      legislation_cards:
-        weight: 27
-        enabled: false
       link:
         weight: 28
         enabled: false
-      legislation_link:
-        weight: 28
-        enabled: false
-      banner_cta:
-        weight: 29
-        enabled: false
+      list_of_links:
+        weight: 51
+        enabled: true
       media:
         weight: 29
-        enabled: false
-      contact_information:
-        weight: 30
         enabled: false
       text:
         weight: 30
         enabled: false
-      contact_information_item:
-        weight: 31
-        enabled: false
-      feed:
-        weight: 34
-        enabled: false
-      group_view:
-        weight: 35
-        enabled: false
-      hero:
-        weight: 36
-        enabled: false
-      liftup_50_50:
-        weight: 44
-        enabled: false
-      list_of_links:
-        enabled: true
-        weight: 51
       view:
         weight: 54
         enabled: false

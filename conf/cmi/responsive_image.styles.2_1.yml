@@ -12,19 +12,19 @@ id: '2_1'
 label: '2:1'
 image_style_mappings:
   -
-    breakpoint_id: suomidigi.for_desktop_up
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: 2_1_hd
-  -
-    breakpoint_id: suomidigi.for_tablet_landscape_up
+    breakpoint_id: suomidigi.for_desktop_up
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: 2_1_full_content
-  -
-    breakpoint_id: suomidigi.for_tablet_portrait_up
+    breakpoint_id: suomidigi.for_tablet_landscape_up
     multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: 2_1_half_content
+    breakpoint_id: suomidigi.for_tablet_portrait_up
+    multiplier: 1x
 breakpoint_group: suomidigi
 fallback_image_style: 2_1_full_content

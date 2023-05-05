@@ -2,21 +2,9 @@ label: Sisältö
 description: 'Etsi ja ylläpidä sisältöä.'
 display:
   default:
+    display_title: Isäntä
     display_options:
-      exposed_form:
-        options:
-          submit_button: Suodata
-          reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Nousevasti
-          sort_desc_label: Laskevasti
-      pager:
-        options:
-          tags:
-            previous: '‹ Edellinen'
-            next: 'Seuraava ›'
-            first: '« Ensimmäinen'
-            last: 'Viimeinen »'
+      title: Sisältö
       fields:
         title:
           label: Otsikko
@@ -28,12 +16,29 @@ display:
         status:
           label: Tila
           settings:
-            format_custom_true: Julkaistu
             format_custom_false: Julkaisematon
+            format_custom_true: Julkaistu
         changed:
           label: Päivitetty
         operations:
           label: Toimenpiteet
+      pager:
+        options:
+          tags:
+            next: 'Seuraava ›'
+            previous: '‹ Edellinen'
+            first: '« Ensimmäinen'
+            last: 'Viimeinen »'
+      exposed_form:
+        options:
+          submit_button: Suodata
+          reset_button_label: Palauta
+          exposed_sorts_label: Lajittele
+          sort_asc_label: Nousevasti
+          sort_desc_label: Laskevasti
+      empty:
+        area_text_custom:
+          content: 'Ei sisältöä.'
       filters:
         title:
           expose:
@@ -54,15 +59,10 @@ display:
         langcode:
           expose:
             label: Kieli
-      title: Sisältö
-      empty:
-        area_text_custom:
-          content: 'Ei sisältöä.'
-    display_title: Isäntä
   page_1:
+    display_title: Sivu
     display_options:
       menu:
         title: Sisältö
       tab_options:
         title: Sisältö
-    display_title: Sivu

@@ -16,14 +16,14 @@ plugin: suopa_content_social_sharing_block
 settings:
   id: suopa_content_social_sharing_block
   label: 'SuoPa Social Sharing block'
-  provider: suopa_content
   label_display: '0'
+  provider: suopa_content
 visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
-    bundles:
-      core_content: core_content
-      webform: webform
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      core_content: core_content
+      webform: webform

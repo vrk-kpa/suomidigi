@@ -13,20 +13,20 @@ pattern: 'ryhmat/[group:title]'
 selection_criteria:
   ed837670-3047-4dad-b3a3-bebf3fb3ef0e:
     id: 'entity_bundle:group'
+    negate: false
+    uuid: ed837670-3047-4dad-b3a3-bebf3fb3ef0e
+    context_mapping:
+      group: group
     bundles:
       group: group
-    negate: false
-    context_mapping:
-      group: group
-    uuid: ed837670-3047-4dad-b3a3-bebf3fb3ef0e
   dec1c8a2-b64e-43df-b3f4-5e63b65996fd:
     id: language
-    langcodes:
-      fi: fi
     negate: false
+    uuid: dec1c8a2-b64e-43df-b3f4-5e63b65996fd
     context_mapping:
       language: 'group:langcode:language'
-    uuid: dec1c8a2-b64e-43df-b3f4-5e63b65996fd
+    langcodes:
+      fi: fi
 selection_logic: and
 weight: -10
 relationships:

@@ -12,3 +12,4 @@ display:
     display_title: Block
     display_options:
       block_description: 'Senaste kommentarer'
+      block_category: 'Listaukset (Views)'

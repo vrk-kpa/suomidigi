@@ -1,9 +1,10 @@
+uuid: 4f9aeec1-3410-4a38-a0f9-7d4c5e4852fa
 langcode: en
 status: open
 dependencies: {  }
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 1
 template: false
 archive: false
@@ -11,7 +12,77 @@ id: palaute
 title: Palaute
 description: ''
 category: ''
-elements: "palaute_kontti:\n  '#type': container\n  '#align': horiz\n  palaute_otsikko:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - is-full-width\n    '#markup': '<h2>Palaute</h2>'\n  onko_suomidigi_sinulle_aiemmin_tuttu:\n    '#type': radios\n    '#title': 'Onko Suomidigi sinulle aiemmin tuttu?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  mitka_aihealueet_kiinnostivat_sinua_erityisesti:\n    '#type': webform_term_checkboxes\n    '#title': 'Mitkä aihealueet kiinnostivat sinua erityisesti?'\n    '#vocabulary': theme\n    '#breadcrumb_delimiter': ''\n    '#scroll': false\n  saitko_sivuilta_kaipaamasi_tietoa:\n    '#type': radios\n    '#title': 'Saitko sivuilta kaipaamasi tietoa?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  millaista_sisaltoa_haluaisit_nahda_sivuilla_enemman:\n    '#type': textarea\n    '#title': 'Millaista sisältöä haluaisit nähdä sivuilla enemmän?'\n  millaista_muuta_palautetta_haluat_antaa_sivuston_kehittajille:\n    '#type': textarea\n    '#title': 'Millaista muuta palautetta haluat antaa sivuston kehittäjille?'\nyhteystiedot_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - container--half\n  yhteystiedot_otsikko:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - is-full-width\n    '#markup': '<h2>Yhteystiedot</h2>'\n  sahkopostiosoite:\n    '#type': email\n    '#title': Sähköpostiosoite\n  haluatko_mukaan_suomidigi_kehittajayhteisoon:\n    '#type': radios\n    '#title': 'Haluatko mukaan Suomidigi-kehittäjäyhteisöön?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  puhelinnumero:\n    '#type': tel\n    '#title': Puhelinnumero\n  organisaatio:\n    '#type': textfield\n    '#title': Organisaatio\ncaptcha_kontti:\n  '#type': container\n  '#attributes':\n    class:\n      - 'container--full is-centered'\n  captcha:\n    '#type': captcha\n    '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__attributes':\n    class:\n      - is-center"
+elements: |-
+  palaute_kontti:
+    '#type': container
+    '#align': horiz
+    palaute_otsikko:
+      '#type': webform_markup
+      '#wrapper_attributes':
+        class:
+          - is-full-width
+      '#markup': '<h2>Palaute</h2>'
+    onko_suomidigi_sinulle_aiemmin_tuttu:
+      '#type': radios
+      '#title': 'Onko Suomidigi sinulle aiemmin tuttu?'
+      '#options': yes_no
+      '#options_display': side_by_side
+    mitka_aihealueet_kiinnostivat_sinua_erityisesti:
+      '#type': webform_term_checkboxes
+      '#title': 'Mitkä aihealueet kiinnostivat sinua erityisesti?'
+      '#vocabulary': theme
+      '#breadcrumb_delimiter': ''
+      '#scroll': false
+    saitko_sivuilta_kaipaamasi_tietoa:
+      '#type': radios
+      '#title': 'Saitko sivuilta kaipaamasi tietoa?'
+      '#options': yes_no
+      '#options_display': side_by_side
+    millaista_sisaltoa_haluaisit_nahda_sivuilla_enemman:
+      '#type': textarea
+      '#title': 'Millaista sisältöä haluaisit nähdä sivuilla enemmän?'
+    millaista_muuta_palautetta_haluat_antaa_sivuston_kehittajille:
+      '#type': textarea
+      '#title': 'Millaista muuta palautetta haluat antaa sivuston kehittäjille?'
+  yhteystiedot_kontti:
+    '#type': container
+    '#attributes':
+      class:
+        - container--half
+    yhteystiedot_otsikko:
+      '#type': webform_markup
+      '#wrapper_attributes':
+        class:
+          - is-full-width
+      '#markup': '<h2>Yhteystiedot</h2>'
+    sahkopostiosoite:
+      '#type': email
+      '#title': Sähköpostiosoite
+    haluatko_mukaan_suomidigi_kehittajayhteisoon:
+      '#type': radios
+      '#title': 'Haluatko mukaan Suomidigi-kehittäjäyhteisöön?'
+      '#options': yes_no
+      '#options_display': side_by_side
+    puhelinnumero:
+      '#type': tel
+      '#title': Puhelinnumero
+    organisaatio:
+      '#type': textfield
+      '#title': Organisaatio
+  captcha_kontti:
+    '#type': container
+    '#attributes':
+      class:
+        - 'container--full is-centered'
+    captcha:
+      '#type': captcha
+      '#captcha_type': recaptcha/reCAPTCHA
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__attributes':
+      class:
+        - is-center
 css: ''
 javascript: ''
 settings:
@@ -26,40 +97,48 @@ settings:
   page_theme_name: ''
   form_title: both
   form_submit_once: false
-  form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
+  form_exception_message: ''
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_remote_addr: true
+  form_disable_remote_addr: false
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
   form_prepopulate_source_entity_required: false
   form_prepopulate_source_entity_type: ''
-  form_reset: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
   form_disable_autocomplete: false
   form_novalidate: false
   form_disable_inline_errors: false
   form_required: false
-  form_unsaved: false
-  form_disable_back: false
-  form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
+  form_reset: false
   form_access_denied: default
   form_access_denied_title: ''
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
+  form_attributes: {  }
+  form_method: ''
+  form_action: ''
   share: false
   share_node: false
   share_theme_name: ''
   share_title: true
   share_page_body_attributes: {  }
   submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
   submission_log: false
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   submission_views: {  }
   submission_views_replace: {  }
   submission_user_columns: {  }
@@ -68,11 +147,6 @@ settings:
   submission_access_denied_title: ''
   submission_access_denied_message: ''
   submission_access_denied_attributes: {  }
-  submission_exception_message: ''
-  submission_locked_message: ''
-  submission_excluded_elements: {  }
-  submission_exclude_empty: false
-  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -83,13 +157,13 @@ settings:
   wizard_progress_percentage: false
   wizard_progress_link: false
   wizard_progress_states: false
-  wizard_auto_forward: true
-  wizard_auto_forward_hide_next_button: false
-  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
   wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_track: ''
   wizard_prev_button_label: ''
   wizard_next_button_label: ''
@@ -112,9 +186,9 @@ settings:
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
   confirmation_type: inline
+  confirmation_url: ''
   confirmation_title: ''
   confirmation_message: '<h2 style="text-align: center;">Kiitos palautteestasi!</h2>'
-  confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: false
   confirmation_back_label: ''
@@ -141,6 +215,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: false
+  token_delete: false
   serial_disabled: false
 access:
   create:
@@ -192,8 +267,9 @@ access:
 handlers:
   sahkopostiosoite:
     id: email
-    label: Suomidigi
     handler_id: sahkopostiosoite
+    label: Suomidigi
+    notes: ''
     status: true
     conditions: {  }
     weight: 0
@@ -202,13 +278,17 @@ handlers:
         - completed
       to_mail: suomidigi@vrk.fi
       to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
+      cc_mail: ''
+      cc_options: {  }
       from_mail: noreply@suomidigi.fi
       from_options: {  }
       from_name: '[site:name]'
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
       subject: 'Palaute lomakkeelta: [webform_submission:source-entity]'
       body: _default
       excluded_elements: {  }
@@ -219,12 +299,7 @@ handlers:
       html: true
       attachments: false
       twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
       theme_name: ''
       parameters: {  }
+      debug: false
 variants: {  }
-uuid: 4f9aeec1-3410-4a38-a0f9-7d4c5e4852fa

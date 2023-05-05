@@ -13,7 +13,6 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\suopa_legislations\LegislationService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 
 /**
  * Provides a 'Next Previous' block.
@@ -39,13 +38,6 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
-
-  /**
-   * The Query Factory.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
 
   /**
    * The Legislation service.
@@ -92,11 +84,10 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
    *   The Cache backend.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, EntityTypeManagerInterface $entityTypeManager, QueryFactory $queryFactory, LegislationService $legislationService, Renderer $renderer, CacheBackendInterface $cache_backend) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, EntityTypeManagerInterface $entityTypeManager, LegislationService $legislationService, Renderer $renderer, CacheBackendInterface $cache_backend) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->routeMatch = $route_match;
     $this->entityTypeManager = $entityTypeManager;
-    $this->queryFactory = $queryFactory;
     $this->legislationService = $legislationService;
     $this->renderer = $renderer;
     $this->cacheBackend = $cache_backend;
@@ -112,7 +103,6 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
       $plugin_definition,
       $container->get('current_route_match'),
       $container->get('entity_type.manager'),
-      $container->get('entity.query'),
       $container->get('suopa_legislations.legislation'),
       $container->get('renderer'),
       $container->get('cache.default')
@@ -243,11 +233,9 @@ class NextPreviousBlock extends BlockBase implements ContainerFactoryPluginInter
       if (!empty($nid)) {
         $node = $this->entityTypeManager->getStorage('node')->load($nid);
         $currentLanguage = \Drupal::languageManager()->getCurrentLanguage()->getId();
-        $label = ($index)
-          ? $this->t('Summary')
-          : $node->hasTranslation($currentLanguage)
-            ? $node->getTranslation($currentLanguage)->getTitle()
-            : $node->label();
+        $label = ($index) ? $this->t('Summary') : ($node->hasTranslation($currentLanguage)
+          ? $node->getTranslation($currentLanguage)->getTitle()
+          : $node->label());
 
         $url = Url::fromRoute('entity.node.canonical', ['node' => $nid], []);
         $variables = [

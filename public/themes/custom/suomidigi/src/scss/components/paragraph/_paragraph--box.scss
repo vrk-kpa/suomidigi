@@ -15,7 +15,7 @@
 
       .paragraph__title {
         @include font-size(14px, 16px);
-        margin-bottom: $gutter / 2;
+        margin-bottom: $gutter * 0.5;
       }
 
       .paragraph__content {
@@ -64,7 +64,7 @@
   }
 
   &.paragraph {
-    margin: $gutter / 2;
+    margin: $gutter * 0.5;
 
     &:last-child {
       margin-bottom: $gutter;

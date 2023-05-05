@@ -1,7 +1,7 @@
 .summary {
   &-wrapper {
-    border-radius: $gutter / 3;
-    border-top: $gutter / 3 solid $cyan;
+    border-radius: calc($gutter / 3);
+    border-top: calc($gutter / 3) solid $cyan;
     box-shadow: 2px 2px 6px #00000029;
     display: flex;
     flex-flow: row;
@@ -27,7 +27,7 @@
     @include font-size(17px, 27px);
     @include font-weight($regular);
     color: $black;
-    margin-bottom: $gutter / 3;
+    margin-bottom: calc($gutter / 3);
   }
 
   &__label {

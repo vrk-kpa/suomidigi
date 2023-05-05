@@ -1,14 +1,19 @@
 uuid: ebb68284-3e0d-4d59-acfb-770bb18b490b
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.webform
+  module:
+    - node
+    - webform
+    - webform_node
 id: webform_administrator
-label: 'Webform administrator'
+label: 'Lomakkeiden ylläpitäjä'
 weight: -5
 is_admin: null
 permissions:
   - 'access webform overview'
-  - 'access webform submission log'
   - 'create webform'
   - 'create webform content'
   - 'delete any webform content'

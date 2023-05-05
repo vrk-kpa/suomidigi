@@ -1,13 +1,6 @@
 display:
   default:
     display_options:
-      exposed_form:
-        options:
-          bef:
-            type:
-              more_options:
-                rewrite:
-                  filter_rewrite_values: "- Kaikki -|Kaikki\r\nArtikkeli|Artikkelit\r\nBlogikirjoitus|Blogikirjoitukset\r\nTapahtuma|Tapahtumat"
       pager:
         options:
           views_infinite_scroll:

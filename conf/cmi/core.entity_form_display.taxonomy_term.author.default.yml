@@ -23,29 +23,29 @@ third_party_settings:
       children:
         - group_author_no
         - group_author_yes
+      label: 'Does author have user profile?'
+      region: content
       parent_name: ''
       weight: 1
       format_type: tabs
       format_settings:
-        direction: horizontal
-        id: ''
         classes: ''
-      label: 'Does author have user profile?'
-      region: content
+        id: ''
+        direction: horizontal
     group_author_yes:
       children:
         - field_reference_to_user_profile
+      label: 'Yes'
+      region: content
       parent_name: group_does_author_have_user_prof
       weight: 13
       format_type: tab
       format_settings:
-        id: ''
         classes: ''
-        description: ''
+        id: ''
         formatter: open
+        description: ''
         required_fields: true
-      label: 'Yes'
-      region: content
     group_author_no:
       children:
         - field_author_picture
@@ -54,82 +54,82 @@ third_party_settings:
         - field_author_twitter
         - field_author_organisation
         - field_author_title
+      label: 'No'
+      region: content
       parent_name: group_does_author_have_user_prof
       weight: 12
       format_type: tab
       format_settings:
-        id: ''
         classes: ''
-        description: 'Fill in all of the fields below.'
+        id: ''
         formatter: closed
+        description: 'Fill in all of the fields below.'
         required_fields: true
-      label: 'No'
-      region: content
 id: taxonomy_term.author.default
 targetEntityType: taxonomy_term
 bundle: author
 mode: default
 content:
   field_author_description:
+    type: string_textarea
     weight: 5
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
   field_author_linkedin:
+    type: link_default
     weight: 6
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_author_organisation:
+    type: string_textfield
     weight: 8
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_author_picture:
-    weight: 4
-    settings:
-      preview_image_style: medium
-      offsets: '50,50'
-      progress_indicator: throbber
-      preview_link: false
-    third_party_settings: {  }
     type: image_focal_point
+    weight: 4
     region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: medium
+      preview_link: false
+      offsets: '50,50'
+    third_party_settings: {  }
   field_author_title:
+    type: string_textfield
     weight: 9
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_author_twitter:
+    type: link_default
     weight: 7
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_reference_to_user_profile:
+    type: select2_entity_reference_views
     weight: 10
+    region: content
     settings:
       width: 100%
       match_operator: CONTAINS
       autocomplete: 0
       match_limit: 10
     third_party_settings: {  }
-    type: select2_entity_reference_views
-    region: content
   name:
     type: string_textfield
     weight: 0
@@ -140,10 +140,10 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 100
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   translation:
     weight: 10

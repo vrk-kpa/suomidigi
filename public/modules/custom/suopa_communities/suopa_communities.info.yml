@@ -1,5 +1,6 @@
 name: 'SuoPa - Communities'
 type: module
 description: 'Community related functionalities for Suomidigi.fi'
+core_version_requirement: ^8 || ^9
 core: 8.x
 package: 'SuoPa'

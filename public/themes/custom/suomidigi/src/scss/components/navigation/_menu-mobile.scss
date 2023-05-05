@@ -44,10 +44,10 @@
       padding: 0;
 
       &.menu--is-top-lvl {
-        padding: $gutter / 1.5 0 0;
+        padding: calc($gutter / 1.5) 0 0;
       }
       &.menu--is-lvl-2 {
-        padding: $gutter / 1.5 0 0;
+        padding: calc($gutter / 1.5) 0 0;
 
         &::after {
           background-color: $gray-light;
@@ -177,7 +177,7 @@
         > span,
         > a {
           @include font-size(16px, 27px);
-          padding: $gutter / 1.5 $gutter * 4 $gutter / 1.5 $gutter * 2;
+          padding: calc($gutter / 1.5) $gutter * 4 calc($gutter / 1.5) $gutter * 2;
 
           // Border-bottom
           &::after {
@@ -196,7 +196,7 @@
         > span,
         > a {
           @include font-size(16px, 27px);
-          padding: $gutter / 1.5 $gutter * 4 $gutter / 1.5 $gutter * 3;
+          padding: calc($gutter / 1.5) $gutter * 4 calc($gutter / 1.5) $gutter * 3;
 
           // Border-bottom
           &::after {
@@ -287,7 +287,7 @@
 
       .icon__wrapper {
         display: flex;
-        margin-right: $gutter / 1.5;
+        margin-right: calc($gutter / 1.5);
 
         .icon {
           height: 35px;
@@ -299,13 +299,13 @@
           };
 
           &--user {
-            margin-right: $gutter / 1.5;
+            margin-right: calc($gutter / 1.5);
           }
 
           &--chevron {
             color: $blue;
             height: $gutter;
-            margin-left: $gutter / 3;
+            margin-left: calc($gutter / 3);
             width: $gutter;
           }
         }
