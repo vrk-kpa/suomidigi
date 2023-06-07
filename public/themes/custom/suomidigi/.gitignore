@@ -4,7 +4,6 @@ npm-debug.log
 .gulp
 
 # Distribution folder
-dist
 icons/src
 icons/suomifi-icons
 icons/sprite.symbol.html
