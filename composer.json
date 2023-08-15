@@ -31,7 +31,7 @@
         "drupal/ckwordcount": "^2.1",
         "drupal/comments_order": "^2.0",
         "drupal/content_moderation_notifications": "^3.4",
-        "drupal/context": "^4.1",
+        "drupal/context": "^5.0@rc",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/crop": "^2.2",
