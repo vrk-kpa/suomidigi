@@ -18,4 +18,14 @@
       z-index: 5;
     }
   }
+
+  
+}
+
+// Fix for prevent overlappin elements when breadcrumb is missing from /user/login
+.path-user .has-parallax .tools__container {
+  top: 0px;
+}
+.path-user .has-parallax:has(> .breadcrumb__container) .tools__container {
+  top: -30px;
 }

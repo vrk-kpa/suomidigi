@@ -194,3 +194,44 @@ nav.menu--sidebar {
     }
   }
 }
+
+nav.menu--sidebar > ul.menu.menu--visible > .menu-item {
+  display: none;
+  ul {
+    margin:0;
+    padding:0;
+    padding-inline-start: 0;
+    list-style-type: none;
+  }
+  > a {
+    @include font-size(22px, 27px);
+    @include font-weight($regular);
+    color: $blue-light;
+    letter-spacing: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .menu-item > a {
+    @include font-size(18px, 27px);
+    @include font-weight($regular);
+
+    &.is-active {
+      @include font-weight($semibold);
+    }
+  }
+  .menu-item .menu-item > a {
+    padding-left: 35px;
+    padding-right: 20px;
+  
+    &.is-active {
+      @include font-weight($semibold);
+    }
+
+    @include font-size(16px, 27px);
+    @include font-weight($regular);
+  }
+}
+
+nav.menu--sidebar > ul.menu.menu--visible > .menu-item--active-trail {
+  display: block;
+}
